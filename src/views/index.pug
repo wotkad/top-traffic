@@ -1,0 +1,22 @@
+extends ./layouts/master
+
+block title
+  title Rise | Главная
+
+block basicSeo
+  meta(content="Главная страница" name="description")
+  meta(content="Главная, страница" name="keywords")
+
+block manifestBrowserconfigFiles
+  link(href="./manifest.json" rel="manifest" crossorigin)
+  meta(content="./browserconfig.xml" name="msapplication-config")
+
+block content
+  main
+    .barba(data-barba="wrapper")
+      .barba-container(data-barba="container" data-barba-namespace="main")
+        .page-container
+          .page-wrapper
+            +title({title: '<img src="/assets/images/logo.svg" alt="logo"> Добро пожаловать в Rise!'})
+            include ./components/hero
+          include ./components/footer

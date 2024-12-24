@@ -1,0 +1,24 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
+
+  padding: 16px 0;
+  width: 100%;
+
+  border-bottom: 1px solid $gray-300;
+  background-color: $white;
+  &__link {
+    margin-right: 16px;
+    &.active {
+      color: $blue-500;
+    }
+    @include screen(laptop) {
+      transition: color $transition-default;
+      &:hover {
+        color: $blue-500;
+      }
+    }
+  }
+}

@@ -1,0 +1,172 @@
+.content {
+  h2 {
+    margin-top: 24px;
+
+    font-weight: 600;
+    @include font-xl;
+    @include screen(tablet-2x) {
+      margin-top: 40px;
+
+      @include font-3xl;
+    }
+  }
+  h3 {
+    margin-top: 16px;
+
+    font-weight: 600;
+    @include font-xl;
+    @include screen(tablet-2x) {
+      margin-top: 24px;
+
+      @include font-2xl;
+    }
+  }
+  h4 {
+    margin-top: 14px;
+
+    font-weight: 600;
+    @include font-lg;
+    @include screen(tablet-2x) {
+      @include font-xl;
+    }
+  }
+  p {
+    margin-top: 16px;
+  }
+  hr {
+    margin-top: 16px;
+  }
+  table {
+    margin-top: 16px;
+
+    border: 1px solid $gray-300;
+    tr {
+      th {
+        padding: 8px 16px;
+
+        border: 1px solid $gray-300;
+        border-collapse: separate;
+
+        text-align: left;
+      }
+      td {
+        padding: 8px 16px;
+
+        border: 1px solid $gray-300;
+        border-collapse: separate;
+      }
+    }
+    tbody {
+      tr {
+        &:nth-child(2n + 1) {
+          background-color: $blue-100;
+        }
+      }
+    }
+  }
+  blockquote {
+    margin-left: 16px;
+    padding-left: 16px;
+
+    border-left: 4px solid $blue-500;
+
+    font-style: italic;
+  }
+  & > span {
+    display: inline-block;
+    margin-top: 4px;
+
+    color: $gray-500;
+
+    @include font-sm;
+  }
+  ul {
+    margin-top: 16px;
+    margin-left: 16px;
+    list-style: disc;
+    li {
+      margin-top: 8px;
+      &::marker {
+        color: $blue-500;
+      }
+      @include font-sm;
+      @include screen(tablet) {
+        @include font-base;
+      }
+    }
+    @include screen(tablet-2x) {
+      margin-top: 20px;
+    }
+  }
+  ol {
+    margin-top: 16px;
+    margin-left: 18px;
+    list-style: decimal;
+    li {
+      margin-top: 12px;
+      &::marker {
+        font-weight: 500;
+        color: $blue-500;
+      }
+      span {
+        display: inline-block;
+        margin-top: 0;
+
+        color: $slate-900;
+      }
+      &.bold {
+        span {
+          font-weight: 700;
+        }
+      }
+      ul {
+        margin-top: 12px;
+      }
+      @include font-sm;
+      @include screen(tablet) {
+        @include font-base;
+      }
+    }
+    @include screen(tablet-2x) {
+      margin-top: 20px;
+    }
+  }
+  code,
+  & > code,
+  p code {
+    padding: 2px 6px;
+
+    border-radius: 4px;
+    background-color: $blue-100;
+    @include font-xs;
+    @include screen(tablet-2x) {
+      padding: 4px 8px;
+      @include font-sm;
+    }
+  }
+  pre {
+    margin-top: 16px;
+    code {
+      border-radius: 6px;
+      background-color: $slate-800;
+    }
+  }
+  a {
+    padding-bottom: 2px;
+
+    border-bottom: 1px solid transparent;
+
+    color: $blue-500;
+    @include screen(laptop) {
+      transition: border-color $transition-default;
+      &:hover {
+        border-color: $blue-500;
+      }
+    }
+  }
+}
+section {
+  &:last-child {
+    padding-bottom: 40px;
+  }
+}

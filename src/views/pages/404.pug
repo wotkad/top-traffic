@@ -1,0 +1,22 @@
+extends ../layouts/master
+
+block title
+  title Rise | 404
+
+block basicSeo
+  meta(content="Это странца 404" name="description")
+  meta(content="Страница, 404" name="keywords")
+
+block manifestBrowserconfigFiles
+  link(href="../manifest.json" rel="manifest" crossorigin)
+  meta(content="../browserconfig.xml" name="msapplication-config")
+
+block content
+  main
+    .barba(data-barba="wrapper")
+      .barba-container(data-barba="container" data-barba-namespace="404")
+        .page-container
+          .page-wrapper
+            +title({title: '404'})
+            include ../components/not-found
+          include ../components/footer
