@@ -527,7 +527,7 @@ if (createMultiPage) {
   //     return;
   //   }
   // });
-  
+
   fs.readFile(packagePath, 'utf8', (err, data) => {
     if (err) {
       return;

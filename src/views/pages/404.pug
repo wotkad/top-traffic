@@ -1,7 +1,7 @@
 extends ../layouts/master
 
 block title
-  title Rise | 404
+  title Топ Трафик | 404
 
 block basicSeo
   meta(content="Это странца 404" name="description")
@@ -13,10 +13,4 @@ block manifestBrowserconfigFiles
 
 block content
   main
-    .barba(data-barba="wrapper")
-      .barba-container(data-barba="container" data-barba-namespace="404")
-        .page-container
-          .page-wrapper
-            +title({title: '404'})
-            include ../components/not-found
-          include ../components/footer
+    include ../components/not-found
