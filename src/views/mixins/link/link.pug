@@ -6,14 +6,14 @@ mixin link(data = {})
   if config.model == 'confirm'
     a(
       href=config.href
-      class=transition + "bg-red-default py-2 px-12 text-white-000 rounded-md text-12-m hover:bg-red-hover active:bg-red-active"
+      class="button button-confirm"
     )= config.title
 
   else if config.model == 'with-icon'
     a(
       href=config.href || '#'
       download=config.download
-      class=transition + "border rounded-md inline-flex items-center gap-x-1.5 py-1.5 px-2 border-black-500 text-12-m hover:bg-black-600 active:bg-purple-300 active:border-blue-200 active:text-blue-200"
+      class="button button-with-icon"
     )
       if config.icon
         svg(viewBox="0 0 20 20" width="20px" height="20px")
@@ -23,7 +23,7 @@ mixin link(data = {})
   else if config.model == 'with-icon-blue'
     a(
       href=config.href || '#'
-      class=transition + "bg-blue-000 rounded-md inline-flex items-center gap-x-1.5 py-2 px-2 text-12-m text-white-000 hover:bg-black-100 active:bg-black-050"
+      class="button button-with-icon-blue"
     )
       if config.icon
         svg(viewBox="0 0 20 20" width="20px" height="20px")
@@ -33,7 +33,7 @@ mixin link(data = {})
   else if config.model == 'with-icon-full'
     a(
       href=config.href || '#'
-      class=transition + "rounded-md inline-flex items-center gap-x-3 py-[7px] px-3 text-12-m w-full hover:bg-black-600 active:text-blue-200 active:bg-purple-300"
+      class="button button-with-icon-full"
     )
       if config.icon
         svg(viewBox="0 0 20 20" width="20px" height="20px")
@@ -43,7 +43,7 @@ mixin link(data = {})
   else if config.model == 'icon'
     a(
       href=config.href || '#'
-      class=transition + "flex items-center rounded py-[7px] p-1.5 hover:bg-black-600 active:bg-black-500"
+      class="button button-icon"
     )
       if config.icon
         svg
@@ -52,7 +52,7 @@ mixin link(data = {})
   else if config.model == 'icon-round'
     a(
       href=config.href || '#'
-      class=transition + "flex items-center justify-center rounded-full w-12 h-12 hover:bg-black-100 hover:text-white-000 active:bg-black-050 active:text-white-000"
+      class="button button-icon-round"
     )
       if config.icon
         svg
@@ -61,7 +61,7 @@ mixin link(data = {})
   else if config.model == 'with-icon-full-lg'
     a(
       href=config.href || '#'
-      class=transition + "w-full py-3.5 flex items-center gap-x-2 justify-center text-12-m bg-blue-000 text-white-000 rounded-lg hover:bg-blue-050 active:bg-blue-000 disabled:bg-blue-200 disabled:cursor-not-allowed disabled:hover:bg-blue-200 disabled:active:bg-blue-200"
+      class="button button-with-icon-full-lg"
     )
       span= config.title
       if config.icon
@@ -71,7 +71,7 @@ mixin link(data = {})
   else if config.model == 'with-icon-full-google'
     a(
       href=config.href || '#'
-      class=transition + "w-full py-3.5 flex items-center gap-x-2 justify-center text-12-m bg-black-600 rounded-lg hover:bg-black-100 hover:text-white-000 active:bg-black-050 active:text-white-000"
+      class="button button-with-icon-full-google"
     )
       if config.icon
         svg
@@ -81,5 +81,5 @@ mixin link(data = {})
   else
     a(
       href=config.href || '#'
-      class=transition + "py-2 px-5 border rounded-md text-12-m border-black-500 hover:bg-black-600 active:bg-black-500"
+      class="button button-base"
     )= config.title

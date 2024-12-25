@@ -213,8 +213,8 @@ module.exports = (env) => {
 
       new HtmlWebpackPlugin({
         minify: false,
-        filename: "login.html",
-        template: "views/login.pug",
+        filename: "index.html",
+        template: "views/index.pug",
         inject: "body",
       }),
 

@@ -12,7 +12,7 @@
     &:active {
       @apply bg-red-active
     }
-    @apply bg-red-default py-2 px-12 text-white-000 rounded-md text-12-m
+    @apply bg-red-default py-2 px-12 text-white-000 rounded-md text-12-m-md
   }
   &-with-icon {
     &:hover {
@@ -69,7 +69,7 @@
     &:disabled {
       @apply bg-blue-200 cursor-not-allowed
     }
-    @apply w-full py-3.5 flex items-center gap-x-2 justify-center text-12-m bg-blue-000 text-white-000 rounded-lg
+    @apply w-full py-3.5 flex items-center gap-x-2 justify-center text-14-m-md bg-blue-000 text-white-000 rounded-lg tracking-[0.2px]
   }
   &-with-icon-full-google {
     &:hover {
@@ -78,7 +78,13 @@
     &:active {
       @apply  bg-black-050 text-white-000
     }
-    @apply w-full py-3.5 flex items-center gap-x-2 justify-center text-12-m bg-black-600 rounded-lg
+    @apply w-full py-3.5 flex items-center gap-x-2 justify-center text-14-m-md bg-black-600 rounded-lg tracking-[0.2px]
   }
-  @apply transition-all duration-300 py-2 px-5 border rounded-md text-12-m border-black-500
+  &-base {
+    @apply border border-black-500 py-2 px-5 rounded-md text-12-m-md 
+  }
+  @apply transition-all duration-300
 }
+
+
+

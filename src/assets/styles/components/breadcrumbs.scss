@@ -1,11 +1,14 @@
 .breadcrumbs {
   a,
   span {
-    @apply text-10-r text-black-400
+    @apply text-10-r-sm text-black-400
   }
   a {
     &:hover {
       @apply text-black-100
+    }
+    &:active {
+      @apply text-black-050
     }
     @apply transition-all duration-300
   }
