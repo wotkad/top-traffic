@@ -37,13 +37,12 @@ module.exports = {
           '100': '#DAEFE5',
         },
         red: {
-          '000': '#DE350B',
-          '100': '#F06A6A',
-          '200': '#FBD2D2',
-          '300': '#F2E1DD',
-          'default': '#FF3333',
-          'hover': '#E62D2D',
-          'active': '#FF3333'
+          '000': '#FF3333',
+          '050': '#E62D2D',
+          '100': '#DE350B',
+          '200': '#F06A6A',
+          '300': '#FBD2D2',
+          '400': '#F2E1DD',
         },
         purple: {
           '000': '#BD6AF0',
@@ -62,6 +61,7 @@ module.exports = {
         '12-sb-p': ['12px', { lineHeight: '120%', fontWeight: 600 }],
         '12-sb': ['12px', { lineHeight: '16px', fontWeight: 600 }],
         '12-m-md': ['12px', { lineHeight: '18px', fontWeight: 500 }],
+        '12-r-md': ['12px', { lineHeight: '18px', fontWeight: 400 }],
         '12-m': ['12px', { lineHeight: '16px', fontWeight: 500 }],
         '12-m-p': ['12px', { lineHeight: '120%', fontWeight: 500 }],
         '12-r': ['12px', { lineHeight: '16px', fontWeight: 400 }],

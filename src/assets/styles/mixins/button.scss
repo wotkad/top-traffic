@@ -7,12 +7,12 @@
   }
   &-confirm {
     &:hover {
-      @apply bg-red-hover
+      @apply bg-red-050
     }
     &:active {
-      @apply bg-red-active
+      @apply bg-red-000
     }
-    @apply bg-red-default py-2 px-12 text-white-000 rounded-md text-12-m-md
+    @apply bg-red-000 py-2 px-12 text-white-000 rounded-md text-12-m-md
   }
   &-with-icon {
     &:hover {
