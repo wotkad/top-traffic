@@ -15,5 +15,9 @@
 /*
   Компоненты
 */
-@import "./components/header";
-@import "./components/not-found";
+@import "./mixins/button";
+
+/*
+  Компоненты
+*/
+@import "./components/breadcrumbs";

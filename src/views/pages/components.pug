@@ -1,0 +1,65 @@
+extends ../layouts/master
+
+block title
+  title Топ Трафик | Компоненты
+
+block basicSeo
+  meta(content="Компоненты страница" name="description")
+  meta(content="Компоненты, страница" name="keywords")
+
+block manifestBrowserconfigFiles
+  link(href="../manifest.json" rel="manifest" crossorigin)
+  meta(content="../browserconfig.xml" name="msapplication-config")
+
+block content
+  main.p-4
+    .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
+      h2.text-2xl.font-bold.pb-2.border-b.w-full Кнопки
+      +button({
+        model: 'confirm',
+        title: 'Да',
+      })
+      +link({
+        model: 'with-icon',
+        icon: 'other-download-icon',
+        title: 'Скачать',
+        download: true,
+      })
+      +button({
+        model: 'with-icon',
+        icon: 'other-controls-icon',
+        title: 'Фильтр',
+      })
+      +button({
+        model: 'with-icon-blue',
+        icon: 'other-plus-icon',
+        title: 'Добавить канал',
+      })
+      +button({
+        model: 'base',
+        title: 'Применить',
+      })
+      +link({
+        model: 'with-icon-full',
+        icon: 'aside-channels-icon',
+        title: 'Каналы',
+      })
+      +breadcrumbs([ { title: 'Условия', href: '#' }, { title: 'Конфиденциальность', href: ''} ])
+      +button({
+        model: 'icon',
+        icon: 'other-expand-menu-icon',
+      })
+      +link({
+        model: 'icon-round',
+        icon: 'other-arrow-up-icon',
+      })
+      +button({
+        model: 'with-icon-full-lg',
+        icon: 'other-arrow-right-icon',
+        title: 'Войти',
+      })
+      +link({
+        model: 'with-icon-full-google',
+        icon: 'other-google-icon',
+        title: 'Войти с учетной записью Google',
+      })

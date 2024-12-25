@@ -1,0 +1,84 @@
+mixin button(data = {})
+  - const defaults = require('./_defaults');
+  - const config = { title: data.title !== undefined ? data.title : defaults.title, type: data.type !== undefined ? data.type : defaults.type, model: data.model !== undefined ? data.model : defaults.model, icon: data.icon !== undefined ? data.icon : defaults.icon, class: data.class !== undefined ? data.class : defaults.class, disabled: data.disabled !== undefined ? data.disabled : defaults.disabled};
+
+  if config.model == 'confirm'
+    button(
+      type=config.type 
+      class="button button-confirm"
+    )= config.title
+
+  else if config.model == 'with-icon'
+    button(
+      type=config.type 
+      class="button button-with-icon"
+    )
+      if config.icon
+        svg(viewBox="0 0 20 20" width="20px" height="20px")
+          use(xlink:href="#" + config.icon)
+      span= config.title
+
+  else if config.model == 'with-icon-blue'
+    button(
+      type=config.type 
+      class="button button-with-icon-blue"
+    )
+      if config.icon
+        svg(viewBox="0 0 20 20" width="20px" height="20px")
+          use(xlink:href="#" + config.icon)
+      span= config.title
+
+  else if config.model == 'with-icon-full'
+    button(
+      type=config.type 
+      class="button button-with-icon-full"
+    )
+      if config.icon
+        svg(viewBox="0 0 20 20" width="20px" height="20px")
+          use(xlink:href="#" + config.icon)
+      span= config.title
+
+  else if config.model == 'icon'
+    button(
+      type=config.type 
+      class="button button-icon"
+    )
+      if config.icon
+        svg
+          use(xlink:href="#" + config.icon)
+
+  else if config.model == 'icon-round'
+    button(
+      type=config.type 
+      class="button button-icon-round"
+    )
+      if config.icon
+        svg
+          use(xlink:href="#" + config.icon)
+
+  else if config.model == 'with-icon-full-lg'
+    button(
+      type=config.type 
+      disabled=config.disabled
+      class="button button-with-icon-full-lg"
+    )
+      span= config.title
+      if config.icon
+        svg
+          use(xlink:href="#" + config.icon)
+
+  else if config.model == 'with-icon-full-google'
+    button(
+      type=config.type 
+      class="button button-with-icon-full-google"
+    )
+      if config.icon
+        svg
+          use(xlink:href="#" + config.icon)
+      span= config.title
+
+  else
+    button(
+      type=config.type 
+      class="button"
+    )= config.title

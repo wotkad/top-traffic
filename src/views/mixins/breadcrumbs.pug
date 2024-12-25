@@ -1,0 +1,8 @@
+mixin breadcrumbs(data)
+  .breadcrumbs
+    each link in data
+      if link.href == ''
+        span= link.title
+      else
+        a(href="" + link.href)= link.title
+        span /
