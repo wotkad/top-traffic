@@ -1,34 +1,34 @@
 .button {
   &:hover {
-    @apply bg-black-600;
+    @apply bg-black-600
   }
   &:active {
-    @apply bg-black-500;
+    @apply bg-black-500
   }
   &-confirm {
     &:hover {
-      @apply bg-red-hover;
+      @apply bg-red-hover
     }
     &:active {
-      @apply bg-red-active;
+      @apply bg-red-active
     }
-    @apply bg-red-default py-2 px-12 text-white-000 rounded-md text-12-m;
+    @apply bg-red-default py-2 px-12 text-white-000 rounded-md text-12-m
   }
   &-with-icon {
     &:hover {
       @apply bg-black-600
     }
     &:active {
-      @apply bg-purple-300 border-blue-200 text-blue-200;
+      @apply bg-purple-300 border-blue-200 text-blue-200
     }
-    @apply border rounded-md inline-flex items-center gap-x-1.5 py-1.5 px-2 border-black-500 text-12-m;
+    @apply border rounded-md inline-flex items-center gap-x-1.5 py-1.5 px-2 border-black-500 text-12-m
   }
   &-with-icon-blue {
     &:hover {
       @apply bg-black-100
     }
     &:active {
-      @apply bg-black-050;
+      @apply bg-black-050
     }
     @apply bg-blue-000 rounded-md inline-flex items-center gap-x-1.5 py-2 px-2 text-12-m text-white-000
   }
@@ -37,21 +37,48 @@
       @apply bg-black-600
     }
     &:active {
-      @apply text-blue-200 bg-purple-300;
+      @apply text-blue-200 bg-purple-300
     }
     @apply rounded-md inline-flex items-center gap-x-3 py-[7px] px-3 text-12-m w-full
   }
   &-icon {
-    @apply flex items-center rounded py-[7px] p-1.5 hover:bg-black-600 active:bg-black-500;
+    &:hover {
+      @apply bg-black-600
+    }
+    &:active {
+      @apply bg-black-500
+    }
+    @apply flex items-center rounded py-[7px] p-1.5
   }
   &-icon-round {
-    @apply flex items-center justify-center rounded-full w-12 h-12 hover:bg-black-100 hover:text-white-000 active:bg-black-050 active:text-white-000;
+    &:hover {
+      @apply bg-black-100 text-white-000
+    }
+    &:active {
+      @apply bg-black-050 text-white-000
+    }
+    @apply flex items-center justify-center rounded-full w-12 h-12
   }
   &-with-icon-full-lg {
-    @apply w-full py-3.5 flex items-center gap-x-2 justify-center text-12-m bg-blue-000 text-white-000 rounded-lg hover:bg-blue-050 active:bg-blue-000 disabled:bg-blue-200 disabled:cursor-not-allowed disabled:hover:bg-blue-200 disabled:active:bg-blue-200;
+    &:hover {
+      @apply bg-blue-200
+    }
+    &:active {
+      @apply bg-blue-000
+    }
+    &:disabled {
+      @apply bg-blue-200 cursor-not-allowed
+    }
+    @apply w-full py-3.5 flex items-center gap-x-2 justify-center text-12-m bg-blue-000 text-white-000 rounded-lg
   }
   &-with-icon-full-google {
-    @apply w-full py-3.5 flex items-center gap-x-2 justify-center text-12-m bg-black-600 rounded-lg hover:bg-black-100 hover:text-white-000 active:bg-black-050 active:text-white-000;
+    &:hover {
+      @apply bg-black-100 text-white-000
+    }
+    &:active {
+      @apply  bg-black-050 text-white-000
+    }
+    @apply w-full py-3.5 flex items-center gap-x-2 justify-center text-12-m bg-black-600 rounded-lg
   }
-  @apply transition-all duration-300 py-2 px-5 border rounded-md text-12-m border-black-500;
+  @apply transition-all duration-300 py-2 px-5 border rounded-md text-12-m border-black-500
 }
