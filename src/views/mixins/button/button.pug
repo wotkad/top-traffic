@@ -78,6 +78,15 @@ mixin button(data = {})
         svg
           use(xlink:href="#" + config.icon)
       span= config.title
+  
+  else if config.model == 'close'
+    button(
+      type=config.type 
+      class="button button-close"
+    )
+      if config.icon
+        svg
+          use(xlink:href="#" + config.icon)
 
   else
     button(

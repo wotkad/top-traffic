@@ -1,4 +1,16 @@
 .input {
+  &-ranges {
+    @apply items-center grid grid-cols-2 border border-black-500 rounded-[5px] w-full h-[30px];
+  }
+  &-range {
+    span {
+      @apply bg-black-500 px-3 py-[5px] rounded-[4px] text-12-m-md;
+    }
+    input {
+      @apply px-[5px] w-full text-12-m-md;
+    }
+    @apply flex;
+  }
   &__container {
     @apply flex flex-col items-start gap-y-1 w-full;
   }
@@ -9,6 +21,9 @@
           @apply opacity-100 w-auto h-auto text-12-r-p visible;
         }
         @apply bg-red-400 border-red-100;
+      }
+      &::placeholder {
+        @apply visible;
       }
       @apply px-3 py-[11px] h-9 text-12-r-p;
     }

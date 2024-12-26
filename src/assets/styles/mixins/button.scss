@@ -98,6 +98,24 @@
     }
     @apply flex justify-center items-center gap-x-2 bg-black-600 py-3.5 rounded-lg w-full text-14-m-md tracking-[0.2px];
   }
+  &-close {
+    svg {
+      @apply text-black-200 transition-all duration-300;
+    }
+    &:hover {
+      svg {
+        @apply text-black-100;
+      }
+      @apply bg-black-600;
+    }
+    &:active {
+      svg {
+        @apply text-black-050;
+      }
+      @apply bg-black-500;
+    }
+    @apply flex justify-center items-center rounded-full w-[23px] h-[23px];
+  }
   &-base {
     @apply px-5 py-2 border border-black-500 rounded-[4px] h-[34px] text-12-m-md;
   }

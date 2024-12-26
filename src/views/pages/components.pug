@@ -64,6 +64,10 @@ block content
         icon: 'other-google-icon',
         title: 'Войти с учетной записью Google',
       })
+      +button({
+        model: 'close',
+        icon: 'other-close-icon',
+      })
       include ../components/pagination
     .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
       h2.text-2xl.font-bold.pb-4.border-b.w-full Иконки
@@ -154,4 +158,19 @@ block content
         disabled: false,
         required: true,
         name: 'name',
+      })
+      +input({
+        label: 'Наименование',
+        type: 'text',
+        placeholder: 'Введите наименование...',
+        model: 'label',
+        disabled: false,
+        required: true,
+        name: 'name',
+        class: 'error'
+      })
+      +input({
+        model: 'range',
+        min: '0',
+        max: '100'
       })

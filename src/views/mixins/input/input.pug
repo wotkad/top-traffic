@@ -12,10 +12,12 @@ mixin input(data = {})
             use(xlink:href="#other-eye-icon")
           svg(viewBox="0 0 20 20" width="16px" height="16px").input__eye.input__eye-hide
             use(xlink:href="#other-eye-closed-icon")
+
     else 
       label.input
         input.input__el(disabled=config.disabled type="" + config.type required=config.required autocomplete="on" placeholder="" + config.placeholder name="" + config.name)
         .input__tip= config.placeholder
+
   else if config.model == 'label'
     label.input.input-with-label
       span.input__heading Наименование
@@ -26,6 +28,16 @@ mixin input(data = {})
           svg(viewBox="0 0 20 20" width="16px" height="16px").input__eye.input__eye-hide
             use(xlink:href="#other-error-icon")
           span Обязательно к заполнению
+  
+  else if config.model == 'range' 
+    .input-ranges
+      label.input-range
+        span от
+        input(type="number" min=config.min max=config.max placeholder="от" name="from")
+      label.input-range
+        span до
+        input(type="number" min=config.min max=config.max placeholder="до" name="to")
+
   else
     label.input
       input.input__el(disabled=config.disabled type="" + config.type required=config.required autocomplete="on" placeholder="" + config.placeholder name="" + config.name)
