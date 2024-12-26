@@ -74,7 +74,6 @@
     &::placeholder {
       @apply invisible;
     }
-    &:active,
     &:hover,
     &:focus {
       @apply border-black-100;
@@ -83,7 +82,7 @@
     &:active,
     &.filled {
       & ~ .input__tip {
-          transform: translateY(-11px);
+        @apply -translate-y-[11px];
       }
     }
     &.error {
@@ -100,7 +99,7 @@
         @apply transition-all duration-300;
       }
     }
-    &.showed {
+    &.filled {
       .input__eye {
         &-hide {
           @apply hidden;

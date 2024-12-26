@@ -3,7 +3,8 @@ module.exports = {
   class: '',
   model: 'base',
   icon: '',
+  ariaLabel: 'button',
+  close: false,
   href: '#',
   download: false,
-  ariaLabel: 'button',
 };

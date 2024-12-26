@@ -1,6 +1,6 @@
 mixin link(data = {})
   - const defaults = require('./_defaults');
-  - const config = { class: data.class !== undefined ? data.class : defaults.class, ariaLabel: data.ariaLabel !== undefined ? data.ariaLabel : defaults.ariaLabel, title: data.title !== undefined ? data.title : defaults.title, href: data.href !== undefined ? data.href : defaults.href, model: data.model !== undefined ? data.model : defaults.model, icon: data.icon !== undefined ? data.icon : defaults.icon, class: data.class !== undefined ? data.class : defaults.class, download: data.download !== undefined ? data.download : defaults.download};
+  - const config = { close: data.close !== undefined ? data.close : defaults.close, class: data.class !== undefined ? data.class : defaults.class, ariaLabel: data.ariaLabel !== undefined ? data.ariaLabel : defaults.ariaLabel, title: data.title !== undefined ? data.title : defaults.title, href: data.href !== undefined ? data.href : defaults.href, model: data.model !== undefined ? data.model : defaults.model, icon: data.icon !== undefined ? data.icon : defaults.icon, class: data.class !== undefined ? data.class : defaults.class, download: data.download !== undefined ? data.download : defaults.download};
 
   if config.model == 'confirm'
     a(
@@ -78,6 +78,16 @@ mixin link(data = {})
         svg
           use(xlink:href="#" + config.icon)
       span= config.title
+
+  else if config.model == 'close'
+    button(
+      type=config.type 
+      class="button button-close " + config.class
+      aria-label=config.ariaLabel
+    )
+      if config.icon
+        svg
+          use(xlink:href="#" + config.icon)
 
   else
     a(

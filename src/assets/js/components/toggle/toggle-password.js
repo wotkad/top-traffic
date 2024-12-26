@@ -4,10 +4,10 @@ function togglePassword() {
   button.on('click', function() {
     if (password.attr('type') === 'password') {
       password.attr('type', 'text');
-      $(this).addClass('showed');
+      $(this).addClass('filled');
     } else {
       password.attr('type', 'password');
-      $(this).removeClass('showed');
+      $(this).removeClass('filled');
     }
   });
 }

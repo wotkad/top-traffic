@@ -96,6 +96,7 @@ mixin button(data = {})
     button(
       type=config.type 
       class="button button-close " + config.class
+      aria-label=config.ariaLabel
     )
       if config.icon
         svg

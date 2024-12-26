@@ -70,10 +70,6 @@ block content
         icon: 'other-google-icon',
         title: 'Войти с учетной записью Google',
       })
-      +button({
-        model: 'close',
-        icon: 'other-close-icon',
-      })
       include ../components/pagination
     .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
       h2.text-2xl.font-bold.pb-4.border-b.w-full Иконки
@@ -177,19 +173,31 @@ block content
           disabled: false,
           required: true,
           name: 'name',
-          class: 'error'
+          class: 'error',
         })
       form(action="#").w-full
         +input({
           model: 'range',
           min: '0',
-          max: '100'
+          max: '100',
         })
+    .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
+      h2.text-2xl.font-bold.pb-4.border-b.w-full Чекбокс
       form(action="#").w-full.flex.gap-x-4
         +input({
           model: 'checkbox',
         }) 
         +input({
           model: 'checkbox',
-          checked: true
+          checked: true,
         }) 
+    .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
+      h2.text-2xl.font-bold.pb-4.border-b.w-full Кнопка закрытия
+      +button({
+        model: 'close',
+        icon: 'other-close-icon',
+        ariaLabel: 'close',
+      })
+    .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
+      h2.text-2xl.font-bold.pb-4.border-b.w-full Боковое меню
+      include ../components/sidebar
