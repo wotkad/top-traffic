@@ -1,0 +1,11 @@
+mixin breadcrumbs(data = {})
+  - const defaults = require('./_defaults');
+  - const config = data !== undefined && data.length > 0 ? data : defaults;
+
+  .breadcrumbs
+    each link in config
+      if link.href == ''
+        span= link.title
+      else
+        a(href=link.href)= link.title
+        span /

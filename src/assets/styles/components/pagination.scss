@@ -1,0 +1,21 @@
+.pagination {
+  &__link {
+    &-prev,
+    &-next {
+      &.disabled {
+        @apply text-black-200 cursor-not-allowed
+      }
+    }
+    &.active {
+      @apply bg-purple-300
+    }
+    &:hover:not(.disabled) {
+      @apply bg-black-600
+    }
+    &:active {
+      @apply bg-black-500
+    }
+    @apply text-12-r-md transition-all duration-300 rounded-[4px] flex items-center justify-center w-[26px] h-[30px]
+  }
+  @apply flex items-center gap-x-[2px]
+}

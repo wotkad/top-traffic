@@ -45,6 +45,7 @@ block content
         title: 'Каналы',
       })
       +breadcrumbs([ { title: 'Условия', href: '#' }, { title: 'Конфиденциальность', href: ''} ])
+      +breadcrumbs()
       +button({
         model: 'icon',
         icon: 'other-expand-menu-icon',
@@ -63,6 +64,7 @@ block content
         icon: 'other-google-icon',
         title: 'Войти с учетной записью Google',
       })
+      include ../components/pagination
     .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
       h2.text-2xl.font-bold.pb-4.border-b.w-full Иконки
       .flex.flex-wrap.gap-4
