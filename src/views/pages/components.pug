@@ -31,6 +31,12 @@ block content
         title: 'Фильтр',
       })
       +button({
+        model: 'with-icon',
+        icon: 'other-controls-icon',
+        title: 'Фильтр',
+        close: true,
+      })
+      +button({
         model: 'with-icon-blue',
         icon: 'other-plus-icon',
         title: 'Добавить канал',
@@ -134,43 +140,56 @@ block content
       })
     .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
       h2.text-2xl.font-bold.pb-4.border-b.w-full Поля ввода значений
-      +input({
-        type: 'email',
-        placeholder: 'Почта',
-        model: 'base',
-        disabled: false,
-        required: true,
-        name: 'email',
-      })
-      +input({
-        type: 'password',
-        placeholder: 'Пароль',
-        model: 'base',
-        disabled: false,
-        required: true,
-        name: 'password',
-      })
-      +input({
-        label: 'Наименование',
-        type: 'text',
-        placeholder: 'Введите наименование...',
-        model: 'label',
-        disabled: false,
-        required: true,
-        name: 'name',
-      })
-      +input({
-        label: 'Наименование',
-        type: 'text',
-        placeholder: 'Введите наименование...',
-        model: 'label',
-        disabled: false,
-        required: true,
-        name: 'name',
-        class: 'error'
-      })
-      +input({
-        model: 'range',
-        min: '0',
-        max: '100'
-      })
+      form(action="#").w-full
+        +input({
+          type: 'email',
+          placeholder: 'Почта',
+          model: 'base',
+          disabled: false,
+          required: true,
+          name: 'email',
+        })
+      form(action="#").w-full
+        +input({
+          type: 'password',
+          placeholder: 'Пароль',
+          model: 'base',
+          disabled: false,
+          required: true,
+          name: 'password',
+        })
+      form(action="#").w-full
+        +input({
+          label: 'Наименование',
+          type: 'text',
+          placeholder: 'Введите наименование...',
+          model: 'label',
+          disabled: false,
+          required: true,
+          name: 'name',
+        })
+      form(action="#").w-full
+        +input({
+          label: 'Наименование',
+          type: 'text',
+          placeholder: 'Введите наименование...',
+          model: 'label',
+          disabled: false,
+          required: true,
+          name: 'name',
+          class: 'error'
+        })
+      form(action="#").w-full
+        +input({
+          model: 'range',
+          min: '0',
+          max: '100'
+        })
+      form(action="#").w-full.flex.gap-x-4
+        +input({
+          model: 'checkbox',
+        }) 
+        +input({
+          model: 'checkbox',
+          checked: true
+        }) 

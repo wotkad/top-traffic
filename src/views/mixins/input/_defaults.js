@@ -5,7 +5,7 @@ module.exports = {
   model: 'base',
   disabled: false,
   required: false,
-  checked: '',
+  checked: false,
   max: '',
   min: '',
   value: '',

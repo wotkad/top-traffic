@@ -38,6 +38,11 @@ mixin input(data = {})
         span до
         input(type="number" min=config.min max=config.max placeholder="до" name="to")
 
+  else if config.model == 'checkbox' 
+    label.input-checkbox
+      input(type="checkbox" name="checkbox" checked=config.checked)
+      span
+
   else
     label.input
       input.input__el(disabled=config.disabled type="" + config.type required=config.required autocomplete="on" placeholder="" + config.placeholder name="" + config.name)

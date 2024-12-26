@@ -6,4 +6,5 @@ module.exports = {
   icon: '',
   disabled: false,
   ariaLabel: 'button',
+  close: false
 };
