@@ -18,7 +18,7 @@
     &:active {
       @apply bg-black-500;
     }
-    @apply flex justify-center items-center rounded-[4px] w-[26px] h-[30px] text-12-r-md transition-all duration-300;
+    @apply flex justify-center items-center px-1 rounded-[4px] min-w-[26px] h-[30px] text-12-r-md transition-all duration-300;
   }
   @apply flex items-center gap-x-[2px];
 }
