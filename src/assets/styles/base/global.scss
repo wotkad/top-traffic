@@ -4,21 +4,32 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
 textarea,
 input,
 button,
 select,
 a {
-  @apply font-sans touch-manipulation font-normal rounded-none outline-none text-black-100
+  @apply rounded-none touch-manipulation font-normal font-sans text-black-100 outline-none;
 }
 
 html,
 body {
-  @apply font-sans text-black-100
+  @apply font-sans text-black-100;
+}
+
+label {
+  @apply block relative w-full;
 }
 
 .render {
-  @apply bg-white-000 fixed h-full w-full z-[99999] top-0 left-0
+  @apply top-0 left-0 z-[99999] fixed bg-white-000 w-full h-full;
 }
 
 @media (prefers-reduced-motion: reduce) {

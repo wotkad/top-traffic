@@ -1,0 +1,73 @@
+.input {
+  &__container {
+    @apply flex flex-col items-start gap-y-1 w-full;
+  }
+  &-with-label {
+    .input__el {
+      &.error {
+        & ~ .error__text {
+          @apply opacity-100 w-auto h-auto text-12-r-p visible;
+        }
+        @apply bg-red-400 border-red-100;
+      }
+      @apply px-3 py-[11px] h-9 text-12-r-p;
+    }
+    .error__text {
+      @apply flex items-center gap-x-1 opacity-0 w-0 h-0 text-[0] text-red-100 transition-[opacity,visibility] duration-300 invisible;
+    }
+    @apply flex flex-col items-start gap-y-2;
+  }
+  &__heading {
+    sup {
+      @apply ml-[1px] text-red-100;
+    }
+    @apply text-14-m-p;
+  }
+  &__el {
+    &::placeholder {
+      @apply invisible;
+    }
+    &:active,
+    &:hover,
+    &:focus {
+      @apply border-black-100;
+    }
+    &:focus,
+    &:active,
+    &.filled {
+      & ~ .input__tip {
+          transform: translateY(-11px);
+      }
+    }
+    &.error {
+      @apply border-red-100;
+    }
+    @apply px-3 pt-[22px] pb-2 border border-black-500 rounded-lg w-full h-12 text-14-r transition-all duration-300;
+  }
+  &__tip {
+    @apply left-3 absolute text-12-r text-black-200 transition-all duration-300 pointer-events-none;
+  }
+  &__toggle {
+    svg {
+      path {
+        @apply transition-all duration-300;
+      }
+    }
+    &.showed {
+      .input__eye {
+        &-hide {
+          @apply hidden;
+        }
+        @apply block;
+      }
+    }
+    @apply hidden top-1/2 absolute right-3 -translate-y-1/2;
+  }
+  &__eye {
+    &-hide {
+      @apply block;
+    }
+    @apply hidden;
+  }
+  @apply relative flex items-center;
+}

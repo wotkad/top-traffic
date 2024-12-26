@@ -1,6 +1,6 @@
 mixin button(data = {})
   - const defaults = require('./_defaults');
-  - const config = { title: data.title !== undefined ? data.title : defaults.title, type: data.type !== undefined ? data.type : defaults.type, model: data.model !== undefined ? data.model : defaults.model, icon: data.icon !== undefined ? data.icon : defaults.icon, class: data.class !== undefined ? data.class : defaults.class, disabled: data.disabled !== undefined ? data.disabled : defaults.disabled};
+  - const config = { ariaLabel: data.ariaLabel !== undefined ? data.ariaLabel : defaults.ariaLabel, title: data.title !== undefined ? data.title : defaults.title, type: data.type !== undefined ? data.type : defaults.type, model: data.model !== undefined ? data.model : defaults.model, icon: data.icon !== undefined ? data.icon : defaults.icon, class: data.class !== undefined ? data.class : defaults.class, disabled: data.disabled !== undefined ? data.disabled : defaults.disabled};
 
   if config.model == 'confirm'
     button(
@@ -14,7 +14,7 @@ mixin button(data = {})
       class="button button-with-icon"
     )
       if config.icon
-        svg(viewBox="0 0 20 20" width="20px" height="20px")
+        svg
           use(xlink:href="#" + config.icon)
       span= config.title
 
@@ -24,7 +24,7 @@ mixin button(data = {})
       class="button button-with-icon-blue"
     )
       if config.icon
-        svg(viewBox="0 0 20 20" width="20px" height="20px")
+        svg
           use(xlink:href="#" + config.icon)
       span= config.title
 
@@ -34,7 +34,7 @@ mixin button(data = {})
       class="button button-with-icon-full"
     )
       if config.icon
-        svg(viewBox="0 0 20 20" width="20px" height="20px")
+        svg
           use(xlink:href="#" + config.icon)
       span= config.title
 
@@ -42,6 +42,7 @@ mixin button(data = {})
     button(
       type=config.type 
       class="button button-icon"
+      aria-label=config.ariaLabel 
     )
       if config.icon
         svg
@@ -51,6 +52,7 @@ mixin button(data = {})
     button(
       type=config.type 
       class="button button-icon-round"
+      aria-label=config.ariaLabel
     )
       if config.icon
         svg

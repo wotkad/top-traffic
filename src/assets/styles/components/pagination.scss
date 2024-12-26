@@ -3,19 +3,22 @@
     &-prev,
     &-next {
       &.disabled {
-        @apply text-black-200 cursor-not-allowed
+        @apply text-black-200 cursor-not-allowed;
+      }
+      svg {
+        @apply w-[5px] h-2.5;
       }
     }
     &.active {
-      @apply bg-purple-300
+      @apply bg-purple-300;
     }
     &:hover:not(.disabled) {
-      @apply bg-black-600
+      @apply bg-black-600;
     }
     &:active {
-      @apply bg-black-500
+      @apply bg-black-500;
     }
-    @apply text-12-r-md transition-all duration-300 rounded-[4px] flex items-center justify-center w-[26px] h-[30px]
+    @apply flex justify-center items-center rounded-[4px] w-[26px] h-[30px] text-12-r-md transition-all duration-300;
   }
-  @apply flex items-center gap-x-[2px]
+  @apply flex items-center gap-x-[2px];
 }

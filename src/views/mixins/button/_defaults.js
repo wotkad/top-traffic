@@ -4,5 +4,6 @@ module.exports = {
   class: '',
   model: 'base',
   icon: '',
-  disabled: false
+  disabled: false,
+  ariaLabel: 'button',
 };

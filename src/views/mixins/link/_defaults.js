@@ -5,4 +5,5 @@ module.exports = {
   icon: '',
   href: '#',
   download: false,
+  ariaLabel: 'button',
 };

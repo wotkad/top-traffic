@@ -17,8 +17,10 @@
 */
 @import "./mixins/button";
 @import "./mixins/breadcrumbs";
+@import "./mixins/input";
 
 /*
   Компоненты
 */
 @import "./components/pagination";
+@import "./components/search";

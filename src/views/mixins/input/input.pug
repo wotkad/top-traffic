@@ -1,0 +1,32 @@
+mixin input(data = {})
+  - const defaults = require('./_defaults');
+  - const config = { class: data.class !== undefined ? data.class : defaults.class, label: data.label !== undefined ? data.label : defaults.label, type: data.type !== undefined ? data.type : defaults.type, placeholder: data.placeholder !== undefined ? data.placeholder : defaults.placeholder, model: data.model !== undefined ? data.model : defaults.model, disabled: data.disabled !== undefined ? data.disabled : defaults.disabled, required: data.required !== undefined ? data.required : defaults.required, checked: data.checked !== undefined ? data.checked : defaults.checked, max: data.max !== undefined ? data.max : defaults.max, min: data.min !== undefined ? data.min : defaults.min, value: data.value !== undefined ? data.value : defaults.value, name: data.name !== undefined ? data.name : defaults.name };
+
+  if config.model == 'base'
+    if config.type == 'password'
+      label.input
+        input.input__el(disabled=config.disabled type="" + config.type required=config.required autocomplete="on" placeholder="" + config.placeholder name="" + config.name)
+        .input__tip= config.placeholder 
+        button(type="button").input__toggle
+          svg(viewBox="0 0 20 20" width="16px" height="16px").input__eye
+            use(xlink:href="#other-eye-icon")
+          svg(viewBox="0 0 20 20" width="16px" height="16px").input__eye.input__eye-hide
+            use(xlink:href="#other-eye-closed-icon")
+    else 
+      label.input
+        input.input__el(disabled=config.disabled type="" + config.type required=config.required autocomplete="on" placeholder="" + config.placeholder name="" + config.name)
+        .input__tip= config.placeholder
+  else if config.model == 'label'
+    label.input.input-with-label
+      span.input__heading Наименование
+        sup *
+      .input__container
+        input.input__el(class=config.class disabled=config.disabled type="" + config.type required=config.required autocomplete="on" placeholder="" + config.placeholder name="" + config.name)
+        .error__text 
+          svg(viewBox="0 0 20 20" width="16px" height="16px").input__eye.input__eye-hide
+            use(xlink:href="#other-error-icon")
+          span Обязательно к заполнению
+  else
+    label.input
+      input.input__el(disabled=config.disabled type="" + config.type required=config.required autocomplete="on" placeholder="" + config.placeholder name="" + config.name)
+      .input__tip= config.placeholder

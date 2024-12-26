@@ -122,3 +122,36 @@ block content
     .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
       h2.text-2xl.font-bold.pb-4.border-b.w-full Логотип
       img(src="/assets/images/logo.png", alt="logo")
+    .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
+      h2.text-2xl.font-bold.pb-4.border-b.w-full Поиск
+      +search()
+      +search({
+        class: 'transparent',
+      })
+    .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
+      h2.text-2xl.font-bold.pb-4.border-b.w-full Поля ввода значений
+      +input({
+        type: 'email',
+        placeholder: 'Почта',
+        model: 'base',
+        disabled: false,
+        required: true,
+        name: 'email',
+      })
+      +input({
+        type: 'password',
+        placeholder: 'Пароль',
+        model: 'base',
+        disabled: false,
+        required: true,
+        name: 'password',
+      })
+      +input({
+        label: 'Наименование',
+        type: 'text',
+        placeholder: 'Введите наименование...',
+        model: 'label',
+        disabled: false,
+        required: true,
+        name: 'name',
+      })

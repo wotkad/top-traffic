@@ -1,0 +1,38 @@
+.search {
+  svg {
+    @apply left-2 absolute;
+  }
+  &__label {
+    @apply relative flex items-center;
+  }
+  &__input {
+    &::placeholder {
+      @apply text-black-200;
+    }
+    &:active:not(.transparent),
+    &:hover:not(.transparent),
+    &:focus:not(.transparent) {
+      @apply border-black-100;
+    }
+    &::-webkit-search-cancel-button {
+      @apply transition-all duration-300 cursor-pointer w-4 h-4 appearance-none bg-[16px_16px] bg-[url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDQuN0wxMS4zIDRMOCA3LjNMNC43IDRMNCA0LjdMNy4zIDhMNCAxMS4zTDQuNyAxMkw4IDguN0wxMS4zIDEyTDEyIDExLjNMOC43IDhMMTIgNC43WiIgZmlsbD0iIzM3NDE1MSIvPgo8L3N2Zz4K)];
+    }
+    &.transparent {
+      & ~ svg {
+        @apply text-black-200 transition-all duration-300;
+      }
+      &::placeholder {
+        @apply text-black-400;
+      }
+      &:active,
+      &:focus {
+        & ~ svg {
+          @apply text-black-100;
+        }
+      }
+      @apply border-transparent;
+    }
+    @apply bg-white-000 py-[7px] pr-2 pl-8 border border-black-500 rounded-md w-full text-12-r transition-all duration-300;
+  }
+  @apply w-full;
+}

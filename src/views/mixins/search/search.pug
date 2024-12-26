@@ -1,0 +1,9 @@
+mixin search(data = {})
+  - const defaults = require('./_defaults');
+  - const config = { class: data.class !== undefined ? data.class : defaults.class };
+  
+  form(action="#").search
+    label.search__label
+      input(class="search__input " + config.class type="search" required autocomplete="on" placeholder="Поиск..." name="search")
+      svg(viewBox="0 0 20 20" width="16px" height="16px")
+        use(xlink:href="#other-search-icon")
