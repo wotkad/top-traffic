@@ -1,18 +1,18 @@
 mixin link(data = {})
   - const defaults = require('./_defaults');
-  - const config = { ariaLabel: data.ariaLabel !== undefined ? data.ariaLabel : defaults.ariaLabel, title: data.title !== undefined ? data.title : defaults.title, href: data.href !== undefined ? data.href : defaults.href, model: data.model !== undefined ? data.model : defaults.model, icon: data.icon !== undefined ? data.icon : defaults.icon, class: data.class !== undefined ? data.class : defaults.class, download: data.download !== undefined ? data.download : defaults.download};
+  - const config = { class: data.class !== undefined ? data.class : defaults.class, ariaLabel: data.ariaLabel !== undefined ? data.ariaLabel : defaults.ariaLabel, title: data.title !== undefined ? data.title : defaults.title, href: data.href !== undefined ? data.href : defaults.href, model: data.model !== undefined ? data.model : defaults.model, icon: data.icon !== undefined ? data.icon : defaults.icon, class: data.class !== undefined ? data.class : defaults.class, download: data.download !== undefined ? data.download : defaults.download};
 
   if config.model == 'confirm'
     a(
       href=config.href
-      class="button button-confirm"
+      class="button button-confirm " + config.class
     )= config.title
 
   else if config.model == 'with-icon'
     a(
       href=config.href || '#'
       download=config.download
-      class="button button-with-icon"
+      class="button button-with-icon " + config.class
     )
       if config.icon
         svg
@@ -22,7 +22,7 @@ mixin link(data = {})
   else if config.model == 'with-icon-blue'
     a(
       href=config.href || '#'
-      class="button button-with-icon-blue"
+      class="button button-with-icon-blue " + config.class
     )
       if config.icon
         svg
@@ -32,7 +32,7 @@ mixin link(data = {})
   else if config.model == 'with-icon-full'
     a(
       href=config.href || '#'
-      class="button button-with-icon-full"
+      class="button button-with-icon-full " + config.class
     )
       if config.icon
         svg
@@ -42,7 +42,7 @@ mixin link(data = {})
   else if config.model == 'icon'
     a(
       href=config.href || '#'
-      class="button button-icon"
+      class="button button-icon " + config.class
       aria-label="button"
     )
       if config.icon
@@ -52,7 +52,7 @@ mixin link(data = {})
   else if config.model == 'icon-round'
     a(
       href=config.href || '#'
-      class="button button-icon-round"
+      class="button button-icon-round " + config.class
       aria-label="button"
     )
       if config.icon
@@ -62,7 +62,7 @@ mixin link(data = {})
   else if config.model == 'with-icon-full-lg'
     a(
       href=config.href || '#'
-      class="button button-with-icon-full-lg"
+      class="button button-with-icon-full-lg " + config.class
     )
       span= config.title
       if config.icon
@@ -72,7 +72,7 @@ mixin link(data = {})
   else if config.model == 'with-icon-full-google'
     a(
       href=config.href || '#'
-      class="button button-with-icon-full-google"
+      class="button button-with-icon-full-google " + config.class
     )
       if config.icon
         svg
@@ -82,5 +82,5 @@ mixin link(data = {})
   else
     a(
       href=config.href || '#'
-      class="button button-base"
+      class="button button-base " + config.class
     )= config.title
