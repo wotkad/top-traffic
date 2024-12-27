@@ -45,6 +45,7 @@ mixin button(data = {})
     button(
       type=config.type 
       class="button button-with-icon-full " + config.class
+      disabled=config.disabled
     )
       if config.icon
         svg

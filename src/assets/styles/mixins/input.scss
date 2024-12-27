@@ -26,7 +26,7 @@
       @apply flex justify-center items-center w-3 min-w-3 h-3 min-h-3;
     }
     p {
-      @apply text-14-m-p;
+      @apply text-14-m-p whitespace-nowrap;
     }
     &:hover {
       span {
@@ -36,7 +36,7 @@
       }
     }
     &-with-label {
-      @apply inline-flex gap-x-1.5 w-auto;
+      @apply flex gap-x-1.5;
     }
     &.lg {
       span {

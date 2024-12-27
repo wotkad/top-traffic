@@ -19,3 +19,5 @@ import "./components/validator/validator-input";
 import "./components/validator/validator-password";
 
 import "./components/toggle/toggle-password";
+import "./components/toggle/toggle-aside";
+import "./components/toggle/toggle-aside-menu";

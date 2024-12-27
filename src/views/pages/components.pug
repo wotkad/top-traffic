@@ -183,7 +183,7 @@ block content
         })
     .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
       h2.text-2xl.font-bold.pb-4.border-b.w-full Чекбокс
-      form(action="#").w-full.flex.gap-x-4
+      form(action="#").w-full.flex.gap-x-4.items-center
         +input({
           model: 'checkbox',
         }) 
@@ -196,7 +196,7 @@ block content
           class: 'lg'
         }) 
         +input({
-          model: 'checkbox',
+          model: 'checkbox-with-label',
           class: 'lg',
           label: 'Запомнить меня',
         }) 

@@ -1,0 +1,71 @@
+.sidebar {
+  &__top {
+    @apply pt-[18px];
+  }
+  &__heading {
+    @apply flex justify-between items-center mb-[42px] ml-2;
+  }
+  &__company {
+    &.active {
+      svg {
+        @apply rotate-180;
+      }
+    }
+    svg {
+      @apply transition-all duration-300;
+    }
+    @apply flex items-center gap-x-1.5 mb-2 ml-2;
+  }
+  &__preview {
+    @apply flex justify-center items-center bg-purple-200 rounded-[4px] w-[26px] h-7 text-14-sb;
+  }
+  &__name {
+    @apply text-18-sb;
+  }
+  &__nav {
+    @apply pt-3 border-t border-black-500;
+  }
+  &__links {
+    @apply flex flex-col items-start gap-y-[2px];
+  }
+  &__docs {
+    span {
+      @apply text-10-r-sm text-black-500;
+    }
+    @apply flex items-center gap-x-1;
+  }
+  &__doc {
+    &:hover {
+      @apply text-black-100;
+    }
+    &:active {
+      @apply text-black-050;
+    }
+    @apply text-10-r-sm text-black-500 transition-all duration-300;
+  }
+  &__separator {
+    & + .sidebar__separator {
+      @apply mb-2.5;
+    }
+    &-link {
+      &:hover {
+        @apply text-blue-200;
+      }
+      &:active {
+        @apply text-blue-000;
+      }
+      @apply transition-all duration-300;
+    }
+    @apply block mt-3.5 mb-2 ml-3 text-12-sb-p text-black-200;
+  }
+  &__bottom {
+    @apply px-3 pt-3 pb-[26px] border-t border-black-500;
+  }
+  &__info {
+    @apply flex flex-col items-start gap-y-3.5;
+  }
+  &__copy {
+    @apply flex items-center gap-x-0.5 text-10-m text-black-500;
+  }
+  @apply flex flex-col justify-between px-2 border-r border-black-500 w-full max-w-[217px] h-dvh;
+}
