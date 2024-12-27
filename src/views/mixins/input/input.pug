@@ -39,9 +39,15 @@ mixin input(data = {})
         input(type="number" min=config.min max=config.max placeholder="до" name="to")
 
   else if config.model == 'checkbox' 
-    label.input-checkbox
+    label.input-checkbox(class=config.class)
       input(type="checkbox" name="checkbox" checked=config.checked)
       span
+
+  else if config.model == 'checkbox-with-label' 
+    label.input-checkbox.input-checkbox-with-label(class=config.class)
+      input(type="checkbox" name="checkbox" checked=config.checked)
+      span
+      p= config.label
 
   else
     label.input

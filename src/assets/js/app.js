@@ -13,6 +13,7 @@ import "./base/common/get-current-year";
 import "./base/common/set-svg-size";
 
 import "./components/form/form-login";
+
 import "./components/validator/validator-email";
 import "./components/validator/validator-input";
 import "./components/validator/validator-password";

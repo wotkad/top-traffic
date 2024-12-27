@@ -1,0 +1,57 @@
+section 
+  .login
+    .login__image 
+      .login__logo
+        include ./logo
+    .login__container
+      form(action="#").login__form
+        h1.login__title Добро пожаловать!
+        .login__subtitle Еще не зарегистрированы? 
+          a.login__create(href="#") Создайте аккаунт
+
+        .login__input.login__input-email
+          +input({
+            type: 'email',
+            placeholder: 'Почта',
+            model: 'base',
+            disabled: false,
+            required: true,
+            name: 'email',
+          })
+
+        .login__input.login__input-password
+          +input({
+            type: 'password',
+            placeholder: 'Пароль',
+            model: 'base',
+            disabled: false,
+            required: true,
+            name: 'password',
+          })
+
+        .login__remember
+          +input({
+            model: 'checkbox-with-label',
+            class: 'lg',
+            label: "Запомнить меня",
+          }) 
+          a.login__forgot(href="#") Забыли пароль?
+
+        .login__button
+          +button({
+            model: 'with-icon-full-lg',
+            icon: 'other-arrow-right-icon',
+            title: 'Войти',
+            disabled: true
+          })
+
+        .login__divider
+          .login__line
+          span.login__divider-text или
+          .login__line
+
+        +link({
+          model: 'with-icon-full-google',
+          icon: 'other-google-icon',
+          title: 'Войти с учетной записью Google',
+        })

@@ -18,12 +18,15 @@
     }
     span {
       &:before {
-        @apply absolute content-[''] border border-black-500 rounded-sm w-3 h-3 transition-all duration-300;
+        @apply absolute content-[''] border border-black-500 rounded-sm w-3 min-w-3 h-3 min-h-3 transition-all duration-300;
       }
       &:after {
-        @apply absolute w-full h-full bg-center content-[''] bg-no-repeat bg-[url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOCIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDAgOCA2IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMSAyLjc3Nzc4TDIuOTk4ODkgNC44NTA3QzMuMDc3NTQgNC45MzIyNiAzLjIwODE4IDQuOTMyMjYgMy4yODY4MyA0Ljg1MDdMNyAxIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjEuNyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+Cjwvc3ZnPgo=)] transition-all duration-300;
+        @apply absolute w-3.5 h-3.5 bg-center content-[''] transition-all duration-300 bg-no-repeat bg-[url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOCIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDAgOCA2IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMSAyLjc3Nzc4TDIuOTk4ODkgNC44NTA3QzMuMDc3NTQgNC45MzIyNiAzLjIwODE4IDQuOTMyMjYgMy4yODY4MyA0Ljg1MDdMNyAxIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjEuNyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+Cjwvc3ZnPgo=)];
       }
-      @apply flex justify-center items-center w-3 h-3;
+      @apply flex justify-center items-center w-3 min-w-3 h-3 min-h-3;
+    }
+    p {
+      @apply text-14-m-p;
     }
     &:hover {
       span {
@@ -32,7 +35,22 @@
         }
       }
     }
-    @apply relative w-3 h-3 cursor-pointer;
+    &-with-label {
+      @apply inline-flex gap-x-1.5 w-auto;
+    }
+    &.lg {
+      span {
+        &:before {
+          @apply w-[18px] min-w-[18px] h-[18px] min-h-[18px];
+        }
+        &:after {
+          @apply scale-125;
+        }
+        @apply w-[18px] min-w-[18px] h-[18px] min-h-[18px];
+      }
+      @apply h-[18px] min-h-[18px];
+    }
+    @apply relative cursor-pointer;
   }
   &-ranges {
     @apply items-center grid grid-cols-2 border border-black-500 rounded-[5px] w-full h-[30px];
@@ -44,7 +62,7 @@
     input {
       @apply px-[5px] w-full text-12-m-md;
     }
-    @apply flex;
+    @apply flex items-center;
   }
   &-with-label {
     .input__el {
@@ -66,7 +84,7 @@
   }
   &__heading {
     sup {
-      @apply ml-[1px] text-red-100;
+      @apply ml-px text-red-100;
     }
     @apply text-14-m-p;
   }
