@@ -1,0 +1,6 @@
+.logo {
+  &-small {
+    @apply absolute;
+  }
+  @apply relative flex items-center min-w-[27px] min-h-[27px];
+}

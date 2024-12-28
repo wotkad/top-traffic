@@ -1,0 +1,20 @@
+.header {
+  .narrowed {
+    @apply hidden;
+  }
+  &.active {
+    .narrowed {
+      @apply flex;
+    }
+  }
+  &__wrapper {
+    @apply flex justify-between items-center pr-6 w-full;
+  }
+  &__search {
+    @apply flex items-center ml-4 w-full max-w-[243px];
+  }
+  &__controls {
+    @apply flex;
+  }
+  @apply flex items-center bg-black-700 py-[14px] border-b border-black-500 w-full;
+}

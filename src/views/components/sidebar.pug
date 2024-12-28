@@ -1,86 +1,110 @@
 aside.sidebar
   .sidebar__top 
     .sidebar__heading 
-      a(href="/")
+      a(href="/").sidebar__logo
         include ./logo
       +button({
-        model: 'icon',
         icon: 'other-expand-menu-icon',
-        class: 'sidebar__toggle',
+        class: 'button-icon sidebar__toggle narrowed',
       })
-    button(type="button").sidebar__company 
+    .sidebar__company 
       .sidebar__preview М
-      .sidebar__name Компания
-      svg
-        use(xlink:href="#other-angle-down-icon")
+      .sidebar__name.narrowed Компания
+      +button({
+        icon: 'other-angle-down-icon',
+        class: 'button-icon sm narrowed sidebar__switch',
+      })
     .sidebar__nav
       nav.sidebar__menu 
         .sidebar__links
           +link({
-            model: 'with-icon-full',
             icon: 'aside-dashboard-icon',
             title: 'Дашборд',
+            switchable: true,
+            class: 'button-with-icon-full',
           })
           +link({
-            model: 'with-icon-full',
             icon: 'aside-inbox-icon',
             title: 'Входящие',
+            switchable: true,
+            class: 'button-with-icon-full',
           })
-        .sidebar__separator Справочники
+        i.sidebar__separator 
+          span.narrowed Справочники
         .sidebar__links
           +link({
-            model: 'with-icon-full',
             icon: 'aside-layout-icon',
             title: 'Рекламные кампании',
+            switchable: true,
+            class: 'button-with-icon-full',
           })
           +link({
-            model: 'with-icon-full',
             icon: 'aside-portfolio-icon',
             title: 'Организации',
             class: 'active',
+            switchable: true,
+            class: 'button-with-icon-full',
           })
           +link({
-            model: 'with-icon-full',
             icon: 'aside-admins-icon',
             title: 'Администраторы',
             class: 'disabled',
+            switchable: true,
+            class: 'button-with-icon-full',
           })
           +link({
-            model: 'with-icon-full',
             icon: 'aside-channels-icon',
             title: 'Каналы',
+            switchable: true,
+            class: 'button-with-icon-full',
           })
-        .sidebar__separator Отчеты
+        i.sidebar__separator 
+          span.narrowed Отчеты
         .sidebar__links
           +link({
-            model: 'with-icon-full',
             icon: 'aside-folder-icon',
             title: 'Медиапланы',
+            switchable: true,
+            class: 'button-with-icon-full',
           })
-        a(href="#").sidebar__separator.sidebar__separator-link Избранное
-        .sidebar__separator Пространство
+        i.sidebar__separator.sidebar__separator-link
+          a(href="#")
+            span.narrowed Избранное
+            svg.expanded
+              use(xlink:href="#aside-favorites-icon")
+        i.sidebar__separator 
+          span.narrowed Пространство
         .sidebar__links
           +link({
-            model: 'with-icon-full',
             icon: 'aside-card-icon',
             title: 'Финансы',
+            switchable: true,
+            class: 'button-with-icon-full',
           })
           +link({
-            model: 'with-icon-full',
             icon: 'aside-users-icon',
             title: 'Сотрудники',
+            switchable: true,
+            class: 'button-with-icon-full',
           })
           +link({
-            model: 'with-icon-full',
             icon: 'aside-settings-icon',
             title: 'Настройки',
+            switchable: true,
+            class: 'button-with-icon-full',
           })
   .sidebar__bottom
     .sidebar__info
       .sidebar__docs
-        a(href="#").sidebar__doc Условия
-        span /
-        a(href="#").sidebar__doc Конфиденциальность
-      .sidebar__copy &copy;
+        a(href="#").sidebar__doc
+          span.narrowed Условия
+          svg.expanded
+            use(xlink:href="#aside-conditions-icon")
+        p.narrowed /
+        a(href="#").sidebar__doc 
+          span.narrowed Конфиденциальность
+          svg.expanded
+            use(xlink:href="#aside-lock-icon")
+      .sidebar__copy.narrowed &copy;
         .current-year
         span TTTG

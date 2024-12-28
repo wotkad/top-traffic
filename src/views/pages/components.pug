@@ -16,57 +16,58 @@ block content
     .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
       h2.text-2xl.font-bold.pb-4.border-b.w-full Кнопки
       +button({
-        model: 'confirm',
         title: 'Да',
+        class: 'button-confirm',
       })
       +link({
-        model: 'with-icon',
+        class: 'button-with-icon',
         icon: 'other-download-icon',
         title: 'Скачать',
         download: true,
       })
       +button({
-        model: 'with-icon',
+        class: 'button-with-icon',
         icon: 'other-controls-icon',
         title: 'Фильтр',
       })
       +button({
-        model: 'with-icon',
+        class: 'button-with-icon',
         icon: 'other-controls-icon',
         title: 'Фильтр',
         close: true,
       })
       +button({
-        model: 'with-icon-blue',
+        class: 'with-icon-blue',
         icon: 'other-plus-icon',
         title: 'Добавить канал',
+        class: 'button-with-icon-blue',
       })
       +button({
-        model: 'base',
+        class: 'button-base',
         title: 'Применить',
       })
       +link({
-        model: 'with-icon-full',
         icon: 'aside-channels-icon',
         title: 'Каналы',
+        class: 'button-with-icon-full',
       })
       +breadcrumbs([ { title: 'Условия', href: '#' }, { title: 'Конфиденциальность', href: ''} ])
       +breadcrumbs()
       +button({
-        model: 'icon',
+        class: 'button-icon',
         icon: 'other-expand-menu-icon',
       })
       +link({
-        model: 'icon-round',
+        class: 'button-icon-round',
         icon: 'other-arrow-up-icon',
       })
       +button({
-        model: 'with-icon-full-lg',
+        class: 'button-with-icon-full-lg',
         icon: 'other-arrow-right-icon',
         title: 'Войти',
       })
       +link({
-        model: 'with-icon-full-google',
+        class: 'button-with-icon-full-google',
         icon: 'other-google-icon',
         title: 'Войти с учетной записью Google',
       })
@@ -203,7 +204,7 @@ block content
     .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
       h2.text-2xl.font-bold.pb-4.border-b.w-full Кнопка закрытия
       +button({
-        model: 'close',
+        class: 'button-close',
         icon: 'other-close-icon',
         ariaLabel: 'close',
       })

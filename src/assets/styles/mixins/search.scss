@@ -30,7 +30,7 @@
           @apply text-black-100;
         }
       }
-      @apply border-transparent;
+      @apply bg-transparent border-transparent;
     }
     @apply bg-white-000 py-[7px] pr-2 pl-8 border border-black-500 rounded-md w-full text-12-r transition-all duration-300;
   }

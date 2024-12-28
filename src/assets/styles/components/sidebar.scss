@@ -1,11 +1,85 @@
 .sidebar {
+  .expanded {
+    @apply hidden;
+  }
+  &.active {
+    .narrowed {
+      @apply hidden;
+    }
+    .expanded {
+      @apply flex;
+    }
+    .sidebar__docs {
+      @apply flex-col items-start w-full;
+    }
+    .sidebar__doc {
+      &:active {
+        svg {
+          @apply text-blue-200;
+        }
+        @apply bg-purple-300 text-blue-200;
+      }
+      &:hover {
+        @apply bg-black-600;
+      }
+      svg {
+        @apply text-black-100 transition-colors duration-300;
+      }
+      &.active {
+        svg {
+          @apply text-blue-200;
+        }
+        @apply bg-purple-300;
+      }
+      @apply flex items-center gap-x-3 px-[13px] py-[7px] rounded-md w-full h-8 text-12-m;
+    }
+    .sidebar__bottom {
+      @apply px-0;
+    }
+    .sidebar__separator {
+      &:nth-of-type(2) {
+        @apply mb-[18px];
+      }
+      &:nth-of-type(4) {
+        @apply mb-[16px];
+      }
+      &-link {
+        a {
+          &:active {
+            svg {
+              @apply text-blue-200;
+            }
+            @apply bg-purple-300;
+          }
+          &:hover {
+            @apply bg-black-600;
+          }
+          svg {
+            @apply text-black-100 transition-colors duration-300;
+          }
+          &.active {
+            svg {
+              @apply text-blue-200;
+            }
+            @apply bg-purple-300;
+          }
+          @apply flex items-center gap-x-3 px-[12px] py-[7px] rounded-md w-full h-8 text-12-m;
+        }
+        @apply mt-[2px] mb-0 ml-0 border-none;
+      }
+      @apply mt-[18px] mb-[19px] ml-0 border-t border-black-500;
+    }
+  }
   &__top {
-    @apply pt-[18px];
+    @apply pt-[17px];
   }
   &__heading {
     @apply flex justify-between items-center mb-[42px] ml-2;
   }
   &__company {
+    @apply flex items-center gap-x-1.5 mb-2 ml-2;
+  }
+  &__switch {
     &.active {
       svg {
         @apply rotate-180;
@@ -14,7 +88,6 @@
     svg {
       @apply transition-all duration-300;
     }
-    @apply flex items-center gap-x-1.5 mb-2 ml-2;
   }
   &__preview {
     @apply flex justify-center items-center bg-purple-200 rounded-[4px] w-[26px] h-7 text-14-sb;
@@ -28,8 +101,34 @@
   &__links {
     @apply flex flex-col items-start gap-y-[2px];
   }
+  &__separator {
+    & + .sidebar__separator {
+      @apply mb-2.5;
+    }
+    &-link {
+      a {
+        &:hover {
+          @apply text-blue-200;
+        }
+        &:active {
+          @apply text-blue-000;
+        }
+        &.active {
+          @apply text-blue-200;
+        }
+        @apply text-12-sb-p text-black-200 transition-colors duration-300;
+      }
+    }
+    @apply block mt-3.5 mb-2 ml-3 border-t border-transparent text-12-sb-p text-black-200 not-italic;
+  }
+  &__bottom {
+    @apply px-3 pt-3 border-t border-black-500 min-h-[86px];
+  }
+  &__info {
+    @apply flex flex-col items-start gap-y-3.5;
+  }
   &__docs {
-    span {
+    p {
       @apply text-10-r-sm text-black-500;
     }
     @apply flex items-center gap-x-1;
@@ -41,31 +140,13 @@
     &:active {
       @apply text-black-050;
     }
-    @apply text-10-r-sm text-black-500 transition-all duration-300;
-  }
-  &__separator {
-    & + .sidebar__separator {
-      @apply mb-2.5;
+    &.active {
+      @apply text-black-050;
     }
-    &-link {
-      &:hover {
-        @apply text-blue-200;
-      }
-      &:active {
-        @apply text-blue-000;
-      }
-      @apply transition-all duration-300;
-    }
-    @apply block mt-3.5 mb-2 ml-3 text-12-sb-p text-black-200;
-  }
-  &__bottom {
-    @apply px-3 pt-3 pb-[26px] border-t border-black-500;
-  }
-  &__info {
-    @apply flex flex-col items-start gap-y-3.5;
+    @apply text-10-r-sm text-black-400 transition-colors duration-300;
   }
   &__copy {
-    @apply flex items-center gap-x-0.5 text-10-m text-black-500;
+    @apply flex items-center gap-x-0.5 text-10-m text-black-400;
   }
-  @apply flex flex-col justify-between px-2 border-r border-black-500 w-full max-w-[217px] h-dvh;
+  @apply flex flex-col justify-between bg-black-700 px-2 border-r border-black-500 w-full max-w-[217px] h-dvh;
 }

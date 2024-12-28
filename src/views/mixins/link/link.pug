@@ -1,96 +1,17 @@
 mixin link(data = {})
   - const defaults = require('./_defaults');
-  - const config = { close: data.close !== undefined ? data.close : defaults.close, class: data.class !== undefined ? data.class : defaults.class, ariaLabel: data.ariaLabel !== undefined ? data.ariaLabel : defaults.ariaLabel, title: data.title !== undefined ? data.title : defaults.title, href: data.href !== undefined ? data.href : defaults.href, model: data.model !== undefined ? data.model : defaults.model, icon: data.icon !== undefined ? data.icon : defaults.icon, class: data.class !== undefined ? data.class : defaults.class, download: data.download !== undefined ? data.download : defaults.download};
+  - const config = { switchable: data.switchable !== undefined ? data.switchable : defaults.switchable, close: data.close !== undefined ? data.close : defaults.close, class: data.class !== undefined ? data.class : defaults.class, ariaLabel: data.ariaLabel !== undefined ? data.ariaLabel : defaults.ariaLabel, title: data.title !== undefined ? data.title : defaults.title, href: data.href !== undefined ? data.href : defaults.href, icon: data.icon !== undefined ? data.icon : defaults.icon, class: data.class !== undefined ? data.class : defaults.class, download: data.download !== undefined ? data.download : defaults.download};
 
-  if config.model == 'confirm'
-    a(
-      href=config.href
-      class="button button-confirm " + config.class
-    )= config.title
-
-  else if config.model == 'with-icon'
-    a(
-      href=config.href || '#'
-      download=config.download
-      class="button button-with-icon " + config.class
-    )
-      if config.icon
-        svg
-          use(xlink:href="#" + config.icon)
-      span= config.title
-
-  else if config.model == 'with-icon-blue'
-    a(
-      href=config.href || '#'
-      class="button button-with-icon-blue " + config.class
-    )
-      if config.icon
-        svg
-          use(xlink:href="#" + config.icon)
-      span= config.title
-
-  else if config.model == 'with-icon-full'
-    a(
-      href=config.href || '#'
-      class="button button-with-icon-full " + config.class
-    )
-      if config.icon
-        svg
-          use(xlink:href="#" + config.icon)
-      span= config.title
-
-  else if config.model == 'icon'
-    a(
-      href=config.href || '#'
-      class="button button-icon " + config.class
-      aria-label="button"
-    )
-      if config.icon
-        svg
-          use(xlink:href="#" + config.icon)
-
-  else if config.model == 'icon-round'
-    a(
-      href=config.href || '#'
-      class="button button-icon-round " + config.class
-      aria-label="button"
-    )
-      if config.icon
-        svg
-          use(xlink:href="#" + config.icon)
-
-  else if config.model == 'with-icon-full-lg'
-    a(
-      href=config.href || '#'
-      class="button button-with-icon-full-lg " + config.class
-    )
-      span= config.title
-      if config.icon
-        svg
-          use(xlink:href="#" + config.icon)
-
-  else if config.model == 'with-icon-full-google'
-    a(
-      href=config.href || '#'
-      class="button button-with-icon-full-google " + config.class
-    )
-      if config.icon
-        svg
-          use(xlink:href="#" + config.icon)
-      span= config.title
-
-  else if config.model == 'close'
-    button(
-      type=config.type 
-      class="button button-close " + config.class
-      aria-label=config.ariaLabel
-    )
-      if config.icon
-        svg
-          use(xlink:href="#" + config.icon)
-
-  else
-    a(
-      href=config.href || '#'
-      class="button button-base " + config.class
-    )= config.title
+  a(
+    href=config.href || '#'
+    download=config.download
+    class="button " + config.class
+  )
+    if config.icon
+      svg
+        use(xlink:href="#" + config.icon)
+    if data.title
+      span(class=config.switchable ? 'narrowed' : '')= config.title
+    if config.close
+      svg.button-clear
+        use(xlink:href="#other-close-icon")

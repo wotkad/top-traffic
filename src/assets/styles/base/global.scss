@@ -42,6 +42,10 @@ label {
   @apply top-0 left-0 z-[99999] fixed bg-white-000 w-full h-full;
 }
 
+.page {
+  @apply flex items-start;
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     transition-duration: 0.01ms !important;

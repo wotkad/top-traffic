@@ -1,110 +1,17 @@
 mixin button(data = {})
   - const defaults = require('./_defaults');
-  - const config = { close: data.close !== undefined ? data.close : defaults.close, class: data.class !== undefined ? data.class : defaults.class, ariaLabel: data.ariaLabel !== undefined ? data.ariaLabel : defaults.ariaLabel, title: data.title !== undefined ? data.title : defaults.title, type: data.type !== undefined ? data.type : defaults.type, model: data.model !== undefined ? data.model : defaults.model, icon: data.icon !== undefined ? data.icon : defaults.icon, class: data.class !== undefined ? data.class : defaults.class, disabled: data.disabled !== undefined ? data.disabled : defaults.disabled};
+  - const config = { switchable: data.switchable !== undefined ? data.switchable : defaults.switchable, close: data.close !== undefined ? data.close : defaults.close, class: data.class !== undefined ? data.class : defaults.class, ariaLabel: data.ariaLabel !== undefined ? data.ariaLabel : defaults.ariaLabel, title: data.title !== undefined ? data.title : defaults.title, type: data.type !== undefined ? data.type : defaults.type, icon: data.icon !== undefined ? data.icon : defaults.icon, class: data.class !== undefined ? data.class : defaults.class, disabled: data.disabled !== undefined ? data.disabled : defaults.disabled};
 
-  if config.model == 'confirm'
-    button(
-      type=config.type 
-      class="button button-confirm " + config.class
-    )= config.title
-
-  else if config.model == 'with-icon'
-    button(
-      type=config.type 
-      class="button button-with-icon " + config.class
-    )
-      if config.icon
-        svg
-          use(xlink:href="#" + config.icon)
-      span= config.title
-      if config.close
-        svg.button-clear
-          use(xlink:href="#other-close-icon")
-
-  else if config.model == 'with-icon-close'
-    button(
-      type=config.type 
-      class="button button-with-icon " + config.class
-    )
-      if config.icon
-        svg
-          use(xlink:href="#" + config.icon)
-      span= config.title
-
-  else if config.model == 'with-icon-blue'
-    button(
-      type=config.type 
-      class="button button-with-icon-blue " + config.class
-    )
-      if config.icon
-        svg
-          use(xlink:href="#" + config.icon)
-      span= config.title
-
-  else if config.model == 'with-icon-full'
-    button(
-      type=config.type 
-      class="button button-with-icon-full " + config.class
-      disabled=config.disabled
-    )
-      if config.icon
-        svg
-          use(xlink:href="#" + config.icon)
-      span= config.title
-
-  else if config.model == 'icon'
-    button(
-      type=config.type 
-      class="button button-icon " + config.class
-      aria-label=config.ariaLabel 
-    )
-      if config.icon
-        svg
-          use(xlink:href="#" + config.icon)
-
-  else if config.model == 'icon-round'
-    button(
-      type=config.type 
-      class="button button-icon-round " + config.class
-      aria-label=config.ariaLabel
-    )
-      if config.icon
-        svg
-          use(xlink:href="#" + config.icon)
-
-  else if config.model == 'with-icon-full-lg'
-    button(
-      type=config.type 
-      disabled=config.disabled
-      class="button button-with-icon-full-lg " + config.class
-    )
-      span= config.title
-      if config.icon
-        svg
-          use(xlink:href="#" + config.icon)
-
-  else if config.model == 'with-icon-full-google'
-    button(
-      type=config.type 
-      class="button button-with-icon-full-google " + config.class
-    )
-      if config.icon
-        svg
-          use(xlink:href="#" + config.icon)
-      span= config.title
-  
-  else if config.model == 'close'
-    button(
-      type=config.type 
-      class="button button-close " + config.class
-      aria-label=config.ariaLabel
-    )
-      if config.icon
-        svg
-          use(xlink:href="#" + config.icon)
-
-  else
-    button(
-      type=config.type 
-      class="button button-base " + config.class
-    )= config.title
+  button(
+    type=config.type 
+    class="button " + config.class
+    disabled=config.disabled
+  )
+    if config.icon
+      svg
+        use(xlink:href="#" + config.icon)
+    if data.title
+      span(class=config.switchable ? 'narrowed' : '')= config.title
+    if config.close
+      svg.button-clear
+        use(xlink:href="#other-close-icon")

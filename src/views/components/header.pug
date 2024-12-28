@@ -1,1 +1,19 @@
 header.header
+  .header__wrapper
+    .header__search
+      +button({
+        icon: 'other-expand-menu-icon',
+        class: 'button-icon sidebar__toggle narrowed',
+      })
+      +search({
+        class: 'transparent',
+      })
+    .header__controls
+      +link({
+        class: 'button-icon',
+        icon: 'other-notification-icon',
+      })
+      +link({
+        class: 'button-icon',
+        icon: 'aside-help-icon',
+      })

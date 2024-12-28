@@ -1,13 +1,11 @@
 function toggleAsideMenu() {
-  let button = $('.sidebar__company');
+  let switchEl = $('.sidebar__switch');
   let menu = $('.sidebar__menu');
   
-  button.on('click', function() {
+  switchEl.on('click', function() {
     if (menu.is(':animated')) {
-      // Если анимация в процессе, игнорируем клик
       return;
     }
-    
     if ($(this).hasClass('active')) {
       $(this).removeClass('active');
       menu.slideDown();
