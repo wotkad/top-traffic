@@ -2,34 +2,17 @@ mixin button(data = {})
   - const { defaults, mergeConfig } = require('./_config');
   - const config = mergeConfig(data, defaults);
 
-  if config.disabled
-    .cursor-not-allowed
-      button(
-        type=config.type
-        class="button " + config.class
-        disabled=config.disabled
-        ariaLabel=config.ariaLabel
-      )
-        if config.icon
-          svg
-            use(xlink:href="#" + config.icon)
-        if data.title
-          span(class=config.switchable ? 'narrowed' : '')= config.title
-        if config.close
-          svg.button-clear
-            use(xlink:href="#other-close-icon")
-  else
-    button(
-      type=config.type
-      class="button " + config.class
-      disabled=config.disabled
-      ariaLabel=config.ariaLabel
-    )
-      if config.icon
-        svg
-          use(xlink:href="#" + config.icon)
-      if data.title
-        span(class=config.switchable ? 'narrowed' : '')= config.title
-      if config.close
-        svg.button-clear
-          use(xlink:href="#other-close-icon")
+  button(
+    type=config.type
+    class="button " + config.class
+    disabled=config.disabled
+    ariaLabel=config.ariaLabel
+  )
+    if config.icon
+      svg
+        use(xlink:href="#" + config.icon)
+    if data.title
+      span(class=config.switchable ? 'narrowed' : '')= config.title
+    if config.close
+      svg.button-clear
+        use(xlink:href="#other-close-icon")
