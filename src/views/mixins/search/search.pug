@@ -1,6 +1,6 @@
 mixin search(data = {})
-  - const defaults = require('./_defaults');
-  - const config = { class: data.class !== undefined ? data.class : defaults.class };
+  - const { defaults, mergeConfig } = require('./_config');
+  - const config = mergeConfig(data, defaults);
   
   form(action="#").search
     label.search__label

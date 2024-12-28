@@ -1,18 +1,35 @@
 mixin button(data = {})
-  - const defaults = require('./_defaults');
-  - const config = { switchable: data.switchable !== undefined ? data.switchable : defaults.switchable, close: data.close !== undefined ? data.close : defaults.close, class: data.class !== undefined ? data.class : defaults.class, ariaLabel: data.ariaLabel !== undefined ? data.ariaLabel : defaults.ariaLabel, title: data.title !== undefined ? data.title : defaults.title, type: data.type !== undefined ? data.type : defaults.type, icon: data.icon !== undefined ? data.icon : defaults.icon, class: data.class !== undefined ? data.class : defaults.class, disabled: data.disabled !== undefined ? data.disabled : defaults.disabled};
+  - const { defaults, mergeConfig } = require('./_config');
+  - const config = mergeConfig(data, defaults);
 
-  button(
-    type=config.type 
-    class="button " + config.class
-    disabled=config.disabled
-    ariaLabel=config.ariaLabel
-  )
-    if config.icon
-      svg
-        use(xlink:href="#" + config.icon)
-    if data.title
-      span(class=config.switchable ? 'narrowed' : '')= config.title
-    if config.close
-      svg.button-clear
-        use(xlink:href="#other-close-icon")
+  if config.disabled
+    .cursor-not-allowed
+      button(
+        type=config.type
+        class="button " + config.class
+        disabled=config.disabled
+        ariaLabel=config.ariaLabel
+      )
+        if config.icon
+          svg
+            use(xlink:href="#" + config.icon)
+        if data.title
+          span(class=config.switchable ? 'narrowed' : '')= config.title
+        if config.close
+          svg.button-clear
+            use(xlink:href="#other-close-icon")
+  else
+    button(
+      type=config.type
+      class="button " + config.class
+      disabled=config.disabled
+      ariaLabel=config.ariaLabel
+    )
+      if config.icon
+        svg
+          use(xlink:href="#" + config.icon)
+      if data.title
+        span(class=config.switchable ? 'narrowed' : '')= config.title
+      if config.close
+        svg.button-clear
+          use(xlink:href="#other-close-icon")

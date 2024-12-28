@@ -1,6 +1,6 @@
 mixin input(data = {})
-  - const defaults = require('./_defaults');
-  - const config = { class: data.class !== undefined ? data.class : defaults.class, label: data.label !== undefined ? data.label : defaults.label, type: data.type !== undefined ? data.type : defaults.type, placeholder: data.placeholder !== undefined ? data.placeholder : defaults.placeholder, model: data.model !== undefined ? data.model : defaults.model, disabled: data.disabled !== undefined ? data.disabled : defaults.disabled, required: data.required !== undefined ? data.required : defaults.required, checked: data.checked !== undefined ? data.checked : defaults.checked, max: data.max !== undefined ? data.max : defaults.max, min: data.min !== undefined ? data.min : defaults.min, value: data.value !== undefined ? data.value : defaults.value, name: data.name !== undefined ? data.name : defaults.name };
+  - const { defaults, mergeConfig } = require('./_config');
+  - const config = mergeConfig(data, defaults);
 
   if config.model == 'base'
     if config.type == 'password'

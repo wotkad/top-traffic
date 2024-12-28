@@ -1,9 +1,9 @@
 mixin breadcrumbs(data = {})
-  - const defaults = require('./_defaults');
-  - const config = data !== undefined && data.length > 0 ? data : defaults;
-
+  - const { defaults, mergeConfig } = require('./_config');
+  - const config = mergeConfig(data, defaults);
+  
   .breadcrumbs
-    each link in config
+    each link in config.data
       if link.href == ''
         span= link.title
       else
