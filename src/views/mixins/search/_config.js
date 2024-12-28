@@ -1,8 +1,14 @@
+const defaults = {
+  class: '',
+};
+
+function mergeConfig(data, defaults) {
+  return {
+    class: data.class !== undefined ? data.class : defaults.class,
+  };
+}
+
 module.exports = {
-  defaults: {
-    class: '',
-  },
-  mergeConfig: (data, defaults) => ({
-    class: data.class !== undefined ? data.class : defaults.class
-  }),
+  defaults,
+  mergeConfig,
 };

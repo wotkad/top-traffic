@@ -1,6 +1,5 @@
-module.exports = {
-  defaults: {
-    type: 'text',
+const defaults = {
+  type: 'text',
     placeholder: 'Введите текст',
     label: 'Наименование',
     model: 'base',
@@ -11,9 +10,11 @@ module.exports = {
     min: '',
     value: '',
     name: '',
-    class: '',
-  },
-  mergeConfig: (data, defaults) => ({
+    class: '',     
+};
+
+function mergeConfig(data, defaults) {
+  return {
     class: data.class !== undefined ? data.class : defaults.class, 
     label: data.label !== undefined ? data.label : defaults.label, 
     type: data.type !== undefined ? data.type : defaults.type, 
@@ -26,5 +27,10 @@ module.exports = {
     min: data.min !== undefined ? data.min : defaults.min, 
     value: data.value !== undefined ? data.value : defaults.value, 
     name: data.name !== undefined ? data.name : defaults.name
-  }),
+  }
+}
+
+module.exports = {
+  defaults,
+  mergeConfig
 };

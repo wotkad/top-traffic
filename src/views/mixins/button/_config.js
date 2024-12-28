@@ -1,15 +1,16 @@
-module.exports = {
-  defaults: {
-    title: 'Кнопка',
-    class: '',
-    icon: '',
-    ariaLabel: 'button',
-    close: false,
-    type: 'button',
-    disabled: false,
-    switchable: false,
-  },
-  mergeConfig: (data, defaults) => ({
+const defaults = {
+  title: 'Кнопка',         
+  class: '',               
+  icon: '',                
+  ariaLabel: 'button',     
+  close: false,            
+  type: 'button',          
+  disabled: false,         
+  switchable: false,       
+};
+
+function mergeConfig(data, defaults) {
+  return {
     switchable: data.switchable !== undefined ? data.switchable : defaults.switchable,
     close: data.close !== undefined ? data.close : defaults.close,
     class: data.class !== undefined ? data.class : defaults.class,
@@ -18,5 +19,10 @@ module.exports = {
     type: data.type !== undefined ? data.type : defaults.type,
     icon: data.icon !== undefined ? data.icon : defaults.icon,
     disabled: data.disabled !== undefined ? data.disabled : defaults.disabled,
-  }),
+  };
+}
+
+module.exports = {
+  defaults,
+  mergeConfig
 };

@@ -3,20 +3,15 @@ mixin input(data = {})
   - const config = mergeConfig(data, defaults);
 
   if config.model == 'base'
-    if config.type == 'password'
-      label.input
-        input.input__el(disabled=config.disabled type="" + config.type required=config.required autocomplete="on" placeholder="" + config.placeholder name="" + config.name)
-        .input__tip= config.placeholder 
+    label.input
+      input.input__el(disabled=config.disabled type="" + config.type required=config.required autocomplete="on" placeholder="" + config.placeholder name="" + config.name)
+      .input__tip= config.placeholder 
+      if config.type == 'password'
         button(type="button").input__toggle
           svg.input__eye
             use(xlink:href="#other-eye-icon")
           svg.input__eye.input__eye-hide
             use(xlink:href="#other-eye-closed-icon")
-
-    else 
-      label.input
-        input.input__el(disabled=config.disabled type="" + config.type required=config.required autocomplete="on" placeholder="" + config.placeholder name="" + config.name)
-        .input__tip= config.placeholder
 
   else if config.model == 'label'
     label.input.input-with-label
