@@ -110,9 +110,6 @@
         &:hover {
           @apply text-blue-200;
         }
-        &:active {
-          @apply text-blue-000;
-        }
         &.active {
           @apply text-blue-200;
         }
