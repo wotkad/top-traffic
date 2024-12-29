@@ -51,7 +51,7 @@ block content
         title: 'Каналы',
         class: 'button-with-icon-full',
       })
-      +breadcrumbs([ { title: 'Условия', href: '#' }, { title: 'Конфиденциальность', href: ''} ])
+      +breadcrumbs({ values: [ { title: 'Условия', href: '#' }, { title: 'Конфиденциальность', href: ''} ]})
       +breadcrumbs()
       +button({
         class: 'button-icon',
@@ -106,6 +106,23 @@ block content
         .py-2.px-12.rounded-md.text-12-r-md.bg-purple-100 #EBD2FB
         .py-2.px-12.rounded-md.text-12-r-md.bg-purple-200 #E5E4FC
         .py-2.px-12.rounded-md.text-12-r-md.bg-purple-300 #E6EFFE
+    .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
+      h2.text-2xl.font-bold.pb-4.border-b.w-full Дропдаун
+      .w-full.flex.gap-x-4.items-center
+        +dropdown()
+        +dropdown({
+          icon: {
+            enabled: true,
+            src: '/assets/images/user-icon.png',
+            alt: 'icon',
+          },
+          class: 'dropdown-with-icon',
+          value: 'Максим Амбиндер',
+          values: [ 
+            { value: 'Настройки', icon: 'other-settings-icon' },
+            { value: 'Выйти', icon: 'other-logout-icon' } 
+          ]
+        })
     .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
       h2.text-2xl.font-bold.pb-4.border-b.w-full Типографика (Inter)
       .text-30-m-p 30, Medium, 120% LH

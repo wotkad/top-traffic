@@ -1,0 +1,37 @@
+mixin dropdown(data = {})
+  - const { defaults, mergeConfig } = require('./_defaults');
+  - const modefied = mergeConfig(data, defaults);
+  - const hasData = Object.keys(data).some(key => data[key] && data[key].length > 0)
+
+  if hasData 
+    .dropdown(class=modefied.class)
+      .dropdown__container
+        .dropdown__button
+          if modefied.icon
+            img.dropdown__icon(src=modefied.src, alt=modefied.alt)
+          span.dropdown__value= modefied.value
+          +button({
+            class: 'button-icon sm',
+            icon: 'other-angle-down-icon',
+          })
+        .dropdown__list
+          each value in modefied.values
+            +link({
+              class: 'button-with-icon-full sm',
+              icon: value.icon,
+              title: value.value,
+            })
+  else 
+    .dropdown(class=defaults.class)
+      .dropdown__container
+        .dropdown__button
+          span.dropdown__value= defaults.value
+          +button({
+            class: 'button-icon sm',
+            icon: 'other-angle-down-icon',
+          })
+        .dropdown__list
+          each value in defaults.values
+            label.dropdown__item 
+              input(type="radio" name="radio" checked=value.checked)
+              span= value.value

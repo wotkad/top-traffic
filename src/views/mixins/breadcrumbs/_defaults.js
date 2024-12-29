@@ -1,11 +1,13 @@
 module.exports = {
-  defaults: [
-    { title: 'Страница', href: '#' },
-    { title: 'Дочерняя страница', href: '' }
-  ],
-  mergeConfig(data, defaults) {
+  defaults: {
+    values: [
+      { title: 'Страница', href: '#' },
+      { title: 'Дочерняя страница', href: '' },
+    ],
+  },
+  mergeConfig(data) {
     return {
-      data: data !== undefined && data.length > 0 ? data : defaults,
+      values: data.values !== undefined && data.values.length > 0 ? data.values : false,
     }
   }
 }

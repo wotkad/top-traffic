@@ -17,3 +17,16 @@ header.header
         class: 'button-icon',
         icon: 'aside-help-icon',
       })
+      +dropdown({
+        icon: {
+          enabled: true,
+          src: '/assets/images/user-icon.png',
+          alt: 'icon',
+        },
+        class: 'dropdown-with-icon header__dropdown',
+        value: 'Максим Амбиндер',
+        values: [ 
+          { value: 'Настройки', icon: 'other-settings-icon' },
+          { value: 'Выйти', icon: 'other-logout-icon' } 
+        ]
+      })

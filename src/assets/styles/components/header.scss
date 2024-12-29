@@ -14,7 +14,10 @@
     @apply flex items-center ml-4 w-full max-w-[243px];
   }
   &__controls {
-    @apply flex;
+    @apply flex items-center gap-x-[2px];
+  }
+  &__dropdown {
+    @apply ml-[15px];
   }
   @apply flex items-center bg-black-700 py-[14px] border-b border-black-500 w-full;
 }

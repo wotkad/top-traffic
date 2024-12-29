@@ -1,7 +1,7 @@
 extends ./layouts/master
 
 block title
-  title Топ Трафик | Авторизация
+  title Топ Трафик | Список страниц
 
 block basicSeo
   meta(content="Авторизация страница" name="description")
@@ -12,4 +12,18 @@ block manifestBrowserconfigFiles
   meta(content="./browserconfig.xml" name="msapplication-config")
 
 block content
-  main
+  main.p-4
+    .flex.flex-col.gap-y-2.items-start.p-4.border.rounded-md.mb-4
+      h2.text-2xl.font-bold.pb-4.border-b.w-full.mb-2 Список страниц
+      .flex.gap-x-2.text-sm
+        span Компоненты
+        span -
+        a(href="/components/").text-blue-200 /components/
+      .flex.gap-x-2.text-sm
+        span Авторизация
+        span -
+        a(href="/login/").text-blue-200 /login/
+      .flex.gap-x-2.text-sm
+        span Справочник каналов
+        span -
+        a(href="/channels/").text-blue-200 /channels/
