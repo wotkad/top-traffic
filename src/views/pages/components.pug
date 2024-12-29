@@ -187,18 +187,24 @@ block content
       form(action="#").w-full.flex.gap-x-4.items-center
         +input({
           model: 'checkbox',
+          class: '',
+          type: 'checkbox',
         }) 
         +input({
           model: 'checkbox',
+          class: '',
+          type: 'checkbox',
           checked: true,
         }) 
         +input({
           model: 'checkbox',
+          type: 'checkbox',
           class: 'lg'
         }) 
         +input({
-          model: 'checkbox-with-label',
-          class: 'lg',
+          model: 'checkbox',
+          type: 'checkbox',
+          class: 'input-checkbox-with-label lg',
           label: 'Запомнить меня',
         }) 
     .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4

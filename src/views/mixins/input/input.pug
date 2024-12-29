@@ -1,50 +1,52 @@
 mixin input(data = {})
-  - const { defaults, mergeConfig } = require('./_config');
-  - const config = mergeConfig(data, defaults);
+  - const { defaults } = require('./_defaults');
+  - const hasData = Object.keys(data).some(key => data[key] && data[key].length > 0)
 
-  if config.model == 'base'
-    label.input
-      input.input__el(disabled=config.disabled type="" + config.type required=config.required autocomplete="on" placeholder="" + config.placeholder name="" + config.name)
-      .input__tip= config.placeholder 
-      if config.type == 'password'
-        button(type="button").input__toggle
-          svg.input__eye
-            use(xlink:href="#other-eye-icon")
-          svg.input__eye.input__eye-hide
-            use(xlink:href="#other-eye-closed-icon")
+  if hasData
+    if data.model == 'base'
+      if data.type == 'password'
+        label.input
+          input.input__el(disabled=data.disabled type="" + data.type required=data.required autocomplete="on" placeholder="" + data.placeholder name="" + data.name)
+          .input__tip= data.placeholder 
+          button(type="button").input__toggle
+            svg.input__eye
+              use(xlink:href="#other-eye-icon")
+            svg.input__eye.input__eye-hide
+              use(xlink:href="#other-eye-closed-icon")
 
-  else if config.model == 'label'
-    label.input.input-with-label
-      span.input__heading Наименование
-        sup *
-      .input__container
-        input.input__el(class=config.class disabled=config.disabled type="" + config.type required=config.required autocomplete="on" placeholder="" + config.placeholder name="" + config.name)
-        .error__text 
-          svg
-            use(xlink:href="#other-error-icon")
-          span Обязательно к заполнению
-  
-  else if config.model == 'range' 
-    .input-ranges
-      label.input-range
-        span от
-        input(type="number" min=config.min max=config.max placeholder="от" name="from")
-      label.input-range
-        span до
-        input(type="number" min=config.min max=config.max placeholder="до" name="to")
+      else 
+        label.input
+          input.input__el(disabled=data.disabled type="" + data.type required=data.required autocomplete="on" placeholder="" + data.placeholder name="" + data.name)
+          .input__tip= data.placeholder
 
-  else if config.model == 'checkbox' 
-    label.input-checkbox(class=config.class)
-      input(type="checkbox" name="checkbox" checked=config.checked)
-      span
+    else if data.label && data.type !== 'checkbox'
+      label.input.input-with-label
+        span.input__heading Наименование
+          sup *
+        .input__container
+          input.input__el(class=data.class disabled=data.disabled type="" + data.type required=data.required autocomplete="on" placeholder="" + data.placeholder name="" + data.name)
+          .error__text 
+            svg
+              use(xlink:href="#other-error-icon")
+            span Обязательно к заполнению
+    
+    else if data.min || data.max 
+      .input-ranges
+        label.input-range
+          span от
+          input(type="number" min=data.min max=data.max placeholder="от" name="from")
+        label.input-range
+          span до
+          input(type="number" min=data.min max=data.max placeholder="до" name="to")
 
-  else if config.model == 'checkbox-with-label' 
-    label.input-checkbox.input-checkbox-with-label(class=config.class)
-      input(type="checkbox" name="checkbox" checked=config.checked)
-      span
-      p= config.label
+    else if data.type == 'checkbox' 
+      label(class="input-checkbox " + data.class)
+        input(type=data.type name="checkbox" checked=data.checked)
+        span
+        if data.label
+          p= data.label
 
   else
     label.input
-      input.input__el(disabled=config.disabled type="" + config.type required=config.required autocomplete="on" placeholder="" + config.placeholder name="" + config.name)
-      .input__tip= config.placeholder
+      input.input__el(disabled=defaults.disabled type="" + defaults.type required=defaults.required autocomplete="on" placeholder="" + defaults.placeholder name="" + defaults.name)
+      .input__tip= defaults.placeholder
