@@ -46,6 +46,14 @@ label {
   @apply flex items-start;
 }
 
+.scroll-to-top {
+  @apply right-5 bottom-5 fixed;
+}
+
+.content {
+  @apply top-[60px] left-[217px] fixed w-[calc(100%-217px)] h-[calc(100dvh-60px)] overflow-y-auto;
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     transition-duration: 0.01ms !important;

@@ -99,7 +99,7 @@
     svg {
       @apply w-[18px] h-[18px];
     }
-    @apply flex justify-center items-center rounded-full w-12 h-12;
+    @apply flex justify-center items-center bg-black-700 rounded-full w-12 h-12;
   }
   &-with-icon-full-lg {
     &:hover {
