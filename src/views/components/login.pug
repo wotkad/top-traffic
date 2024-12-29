@@ -1,19 +1,18 @@
-section 
+section
   .login
-    .login__image 
+    .login__image
       .login__logo
         include ./logo
     .login__container
       form(action="#").login__form
         h1.login__title Добро пожаловать!
-        .login__subtitle Еще не зарегистрированы? 
+        .login__subtitle Еще не зарегистрированы?
           a.login__create(href="#") Создайте аккаунт
 
         .login__input.login__input-email
           +input({
             type: 'email',
             placeholder: 'Почта',
-            model: 'base',
             disabled: false,
             required: true,
             name: 'email',
@@ -23,7 +22,6 @@ section
           +input({
             type: 'password',
             placeholder: 'Пароль',
-            model: 'base',
             disabled: false,
             required: true,
             name: 'password',
@@ -31,10 +29,10 @@ section
 
         .login__remember
           +input({
-            model: 'checkbox-with-label',
-            class: 'lg',
+            type: 'checkbox',
+            class: 'input-checkbox-with-label lg',
             label: "Запомнить меня",
-          }) 
+          })
           a.login__forgot(href="#") Забыли пароль?
 
         .login__button

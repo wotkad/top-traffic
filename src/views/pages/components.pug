@@ -141,7 +141,6 @@ block content
         +input({
           type: 'email',
           placeholder: 'Почта',
-          model: 'base',
           disabled: false,
           required: true,
           name: 'email',
@@ -150,7 +149,6 @@ block content
         +input({
           type: 'password',
           placeholder: 'Пароль',
-          model: 'base',
           disabled: false,
           required: true,
           name: 'password',
@@ -160,7 +158,6 @@ block content
           label: 'Наименование',
           type: 'text',
           placeholder: 'Введите наименование...',
-          model: 'label',
           disabled: false,
           required: true,
           name: 'name',
@@ -170,7 +167,6 @@ block content
           label: 'Наименование',
           type: 'text',
           placeholder: 'Введите наименование...',
-          model: 'label',
           disabled: false,
           required: true,
           name: 'name',
@@ -178,7 +174,6 @@ block content
         })
       form(action="#").w-full
         +input({
-          model: 'range',
           min: '0',
           max: '100',
         })
@@ -186,27 +181,21 @@ block content
       h2.text-2xl.font-bold.pb-4.border-b.w-full Чекбокс
       form(action="#").w-full.flex.gap-x-4.items-center
         +input({
-          model: 'checkbox',
-          class: '',
           type: 'checkbox',
-        }) 
+        })
         +input({
-          model: 'checkbox',
-          class: '',
           type: 'checkbox',
           checked: true,
-        }) 
+        })
         +input({
-          model: 'checkbox',
           type: 'checkbox',
           class: 'lg'
-        }) 
+        })
         +input({
-          model: 'checkbox',
           type: 'checkbox',
           class: 'input-checkbox-with-label lg',
           label: 'Запомнить меня',
-        }) 
+        })
     .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
       h2.text-2xl.font-bold.pb-4.border-b.w-full Кнопка закрытия
       +button({

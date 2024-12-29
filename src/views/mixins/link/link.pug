@@ -17,10 +17,11 @@ mixin link(data = {})
       if data.close
         svg.button-clear
           use(xlink:href="#other-close-icon")
-  else 
+          
+  else
     a(
       href=defaults.href
-      class="button button-base"
+      class=defaults.class
       aria-label=defaults.ariaLabel
     )
       span= defaults.title

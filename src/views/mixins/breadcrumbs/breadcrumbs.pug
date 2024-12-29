@@ -1,11 +1,12 @@
 mixin breadcrumbs(data = {})
-  - const { defaults, mergeConfig } = require('./_config');
-  - const config = mergeConfig(data, defaults);
+  - const { defaults, mergeConfig } = require('./_defaults');
+  - const modefied = mergeConfig(data, defaults);
   
   .breadcrumbs
-    each link in config.data
+    each link in modefied.data
       if link.href == ''
         span= link.title
+        
       else
         a(href=link.href)= link.title
         span /

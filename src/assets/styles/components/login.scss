@@ -12,7 +12,7 @@
     @apply mb-[5px] text-30-m-p;
   }
   &__subtitle {
-    @apply mb-[26px] text-14-m-p text-black-200;
+    @apply flex gap-x-1 mb-[26px] text-14-m-p text-black-200;
   }
   &__input {
     &-email {

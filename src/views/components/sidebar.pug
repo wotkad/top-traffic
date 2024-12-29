@@ -1,13 +1,13 @@
 aside.sidebar
-  .sidebar__top 
-    .sidebar__heading 
+  .sidebar__top
+    .sidebar__heading
       a(href="/").sidebar__logo
         include ./logo
       +button({
         icon: 'other-expand-menu-icon',
         class: 'button-icon sidebar__toggle narrowed',
       })
-    .sidebar__company 
+    .sidebar__company
       .sidebar__preview М
       .sidebar__name.narrowed Компания
       +button({
@@ -15,7 +15,7 @@ aside.sidebar
         class: 'button-icon sm narrowed sidebar__switch',
       })
     .sidebar__nav
-      nav.sidebar__menu 
+      nav.sidebar__menu
         .sidebar__links
           +link({
             icon: 'aside-dashboard-icon',
@@ -29,7 +29,7 @@ aside.sidebar
             switchable: true,
             class: 'button-with-icon-full',
           })
-        i.sidebar__separator 
+        i.sidebar__separator
           span.narrowed Справочники
         .sidebar__links
           +link({
@@ -58,7 +58,7 @@ aside.sidebar
             switchable: true,
             class: 'button-with-icon-full',
           })
-        i.sidebar__separator 
+        i.sidebar__separator
           span.narrowed Отчеты
         .sidebar__links
           +link({
@@ -72,7 +72,7 @@ aside.sidebar
             span.narrowed Избранное
             svg.expanded
               use(xlink:href="#aside-favorites-icon")
-        i.sidebar__separator 
+        i.sidebar__separator
           span.narrowed Пространство
         .sidebar__links
           +link({
@@ -101,7 +101,7 @@ aside.sidebar
           svg.expanded
             use(xlink:href="#aside-conditions-icon")
         p.narrowed /
-        a(href="#").sidebar__doc 
+        a(href="#").sidebar__doc
           span.narrowed Конфиденциальность
           svg.expanded
             use(xlink:href="#aside-lock-icon")
