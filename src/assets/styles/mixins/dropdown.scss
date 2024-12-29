@@ -44,15 +44,12 @@
       @apply text-12-sb;
     }
     .dropdown__button {
-      .button {
+      .sm {
         @apply h-4;
       }
       @apply gap-x-1;
     }
     .dropdown__list {
-      .button {
-        @apply h-7;
-      }
       @apply top-[calc(100%-2px)] min-w-[145px];
     }
   }
