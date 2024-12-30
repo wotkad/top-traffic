@@ -9,11 +9,13 @@ aside.sidebar
       })
     .sidebar__company
       .sidebar__preview М
-      .sidebar__name.narrowed Компания
-      +button({
-        icon: 'other-angle-down-icon',
-        class: 'button-icon sm narrowed sidebar__switch',
-      })
+      .sidebar__switch
+        .sidebar__name.narrowed Компания
+        +button({
+          
+          icon: 'other-angle-down-icon',
+          class: 'button-icon sm narrowed',
+        })
     .sidebar__nav
       nav.sidebar__menu
         .sidebar__links
