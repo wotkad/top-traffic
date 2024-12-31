@@ -1,34 +1,44 @@
 module.exports = {
   defaults: {
     label: 'Значение',
-    class: '', 
+    class: '',
+    color: 'green',
     icon: {
       enabled: false,
       src: '/assets/images/user-icon.png',
       alt: 'icon',
     },
-    value: '1/24',
-    values: [
-      { value: '1/24', checked: true },
-      { value: '1/48' },
-      { value: '1/72' },
-      { value: 'Нативный' },
-      { value: '1/24' },
-      { value: '1/48' },
-      { value: '1/72' },
-      { value: 'Нативный' },
+    buttons: [
+      { title: '1/24', color: false, checked: true },
+      { title: '1/48', color: false },
+      { title: '1/72', color: false },
+      { title: 'Нативный', color: false },
+      { title: '1/24', color: false },
+      { title: '1/48', color: false },
+      { title: '1/72', color: false },
+      { title: 'Нативный', color: false },
+    ],
+    links: [
+      { title: '1/24', href: "#" },
+      { title: '1/48', href: "#" },
+      { title: '1/72', href: "#" },
+      { title: 'Нативный', href: "#" },
+      { title: '1/24', href: "#" },
+      { title: '1/48', href: "#" },
+      { title: '1/72', href: "#" },
+      { title: 'Нативный', href: "#" },
     ],
   },
   mergeConfig(data) {
     return {
-      type: data.type !== undefined ? data.type : false,
-      label: data.label !== undefined ? data.label : false,
       class: data.class !== undefined ? data.class : '',
-      value: data.value !== undefined ? data.value : '',
+      color: data.color !== undefined ? data.color : false,
+      label: data.label !== undefined ? data.label : '',
       icon: data.icon !== undefined ? data.icon.enabled : false,
       src: data.icon !== undefined ? data.icon.src : '',
       alt: data.icon !== undefined ? data.icon.alt : '',
-      values: data.values !== undefined && data.values.length > 0 ? data.values : false,
+      links: data.links !== undefined && data.links.length > 0 ? data.links : false,
+      buttons: data.buttons !== undefined && data.buttons.length > 0 ? data.buttons : false,
     }
   }
 }

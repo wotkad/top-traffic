@@ -90,6 +90,7 @@
   "dependencies": {
     "gsap": "^3.9.1",
     "jquery": "^3.6.0",
+    "jquery.easing": "^1.4.1",
     "scroll-lock": "^2.1.5",
     "scrollreveal": "^4.0.9",
     "smooth-scroll": "^16.1.3"

@@ -6,6 +6,7 @@ function toggleAside() {
   let sidebar = $('.sidebar');
   let menu = $('.sidebar__menu');
   let header = $('.header');
+  let content = $('.content');
   
   toggle.on('click', function() {
     if (toggle.hasClass('active')) {
@@ -14,10 +15,12 @@ function toggleAside() {
         sidebar.removeClass('active');
       }});
       header.removeClass('active');
+      content.removeClass('active');
     } else {
       toggle.addClass('active');
       sidebar.addClass('active');
       header.addClass('active');
+      content.addClass('active');
       switchEl.removeClass('active');
       menu.slideDown(0);
       gsap.to(sidebar, {maxWidth: '59px', duration: .3});

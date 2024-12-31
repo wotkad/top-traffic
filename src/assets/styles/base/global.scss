@@ -47,11 +47,17 @@ label {
 }
 
 .scroll-to-top {
-  @apply right-5 bottom-5 fixed;
+  @apply right-5 bottom-5 fixed hidden;
 }
 
 .content {
-  @apply top-[60px] left-[217px] fixed w-[calc(100%-217px)] h-[calc(100dvh-60px)] overflow-y-auto;
+  &-spacer {
+    height: 3000px;
+  }
+  &.active {
+    @apply left-[59px] w-[calc(100%-59px)];
+  }
+  @apply top-[60px] left-[217px] fixed bg-blue-900 w-[calc(100%-217px)] h-[calc(100dvh-60px)] transition-all duration-300 overflow-y-auto;
 }
 
 @media (prefers-reduced-motion: reduce) {

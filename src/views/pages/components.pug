@@ -103,6 +103,7 @@ block content
         .py-2.px-12.rounded-md.text-12-r-md.bg-red-300 #FBD2D2
         .py-2.px-12.rounded-md.text-12-r-md.bg-red-400 #F2E1DD
         .py-2.px-12.rounded-md.text-12-r-md.bg-purple-000 #BD6AF0
+        .py-2.px-12.rounded-md.text-12-r-md.bg-purple-050 #AD84C9
         .py-2.px-12.rounded-md.text-12-r-md.bg-purple-100 #EBD2FB
         .py-2.px-12.rounded-md.text-12-r-md.bg-purple-200 #E5E4FC
         .py-2.px-12.rounded-md.text-12-r-md.bg-purple-300 #E6EFFE
@@ -117,10 +118,21 @@ block content
             alt: 'icon',
           },
           class: 'dropdown-with-icon',
-          value: 'Максим Амбиндер',
-          values: [ 
-            { value: 'Настройки', icon: 'other-settings-icon' },
-            { value: 'Выйти', icon: 'other-logout-icon' } 
+          label: 'Максим Амбиндер',
+          links: [ 
+            { title: 'Настройки', href: '#', icon: 'other-settings-icon' },
+            { title: 'Выйти', href: '#', icon: 'other-logout-icon' } 
+          ]
+        })
+        +dropdown({
+          class: 'dropdown-status',
+          label: 'Активный',
+          color: 'green',
+          buttons: [ 
+            { title: 'Активный', color: 'green', checked: true },
+            { title: 'Неактивный', color: 'gray' },
+            { title: 'Новая РК', color: 'blue' },
+            { title: 'Подбор каналов', color: 'purple' },
           ]
         })
     .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
