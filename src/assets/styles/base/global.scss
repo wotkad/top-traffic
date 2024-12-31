@@ -51,9 +51,6 @@ label {
 }
 
 .content {
-  &-spacer {
-    height: 3000px;
-  }
   &.active {
     @apply left-[59px] w-[calc(100%-59px)];
   }
