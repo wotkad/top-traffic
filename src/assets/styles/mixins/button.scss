@@ -84,7 +84,7 @@
     &.sm {
       @apply w-5 h-5;
     }
-    @apply flex justify-center items-center py-[7px] p-1.5 rounded w-[29px] h-[27px];
+    @apply flex justify-center items-center bg-transparent py-[7px] p-1.5 rounded w-[29px] h-[27px];
   }
   &-icon-round {
     &:hover {
@@ -155,7 +155,7 @@
   &-base {
     @apply px-5 py-2 border border-black-500 rounded-[4px] h-[34px] text-12-m-md;
   }
-  @apply transition-colors duration-300;
+  @apply bg-white-000 transition-colors duration-300;
 }
 
 
