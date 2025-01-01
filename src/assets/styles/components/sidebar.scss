@@ -88,7 +88,7 @@
     svg {
       @apply transition-all duration-300;
     }
-    @apply flex items-center gap-x-1;
+    @apply flex items-center gap-x-1 cursor-pointer;
   }
   &__preview {
     @apply flex justify-center items-center bg-purple-200 rounded-[4px] w-[26px] h-7 text-14-sb;

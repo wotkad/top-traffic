@@ -6,14 +6,27 @@ mixin dropdown(data = {})
   if hasData 
     .dropdown(class=modefied.class)
       .dropdown__container
+        if modefied.checkboxes
+          .dropdown__sort
+            .dropdown__values
+            +button({
+              class: 'button-icon',
+              icon: 'other-angle-down-icon',
+            })
         .dropdown__button(class=modefied.color)
           if modefied.icon
             img.dropdown__icon(src=modefied.src, alt=modefied.alt)
-          span.dropdown__label= modefied.label
-          +button({
-            class: 'button-icon sm',
-            icon: 'other-angle-down-icon',
-          })
+          .dropdown__label= modefied.label
+          if modefied.checkboxes
+            +button({
+              class: 'button-icon',
+              icon: 'other-angle-down-icon',
+            })
+          else
+            +button({
+              class: 'button-icon sm',
+              icon: 'other-angle-down-icon',
+            })
         .dropdown__list
           if modefied.links
             each link in modefied.links
@@ -23,6 +36,17 @@ mixin dropdown(data = {})
                 title: link.title,
                 href: link.href,
               })
+          else if modefied.checkboxes
+            +search()
+            .dropdown__items
+              each checkbox, index in modefied.checkboxes
+                +input({
+                  type: 'checkbox',
+                  class: 'input-checkbox-with-label',
+                  label: checkbox.title,
+                  name: `checkbox-${modefied.class}`,
+                  checked: checkbox.checked
+                })
           else
             each button, index in modefied.buttons
               label.dropdown__item

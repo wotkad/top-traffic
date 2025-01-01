@@ -1,6 +1,6 @@
 module.exports = {
   defaults: {
-    label: 'Значение',
+    label: 'Выберите фильтр',
     class: '',
     color: 'green',
     icon: {
@@ -28,6 +28,12 @@ module.exports = {
       { title: '1/72', href: "#" },
       { title: 'Нативный', href: "#" },
     ],
+    checkboxes: [
+      { title: 'Все', checked: true },
+      { title: 'Банки' },
+      { title: 'Банки' },
+      { title: 'Автомобили' },  
+    ]
   },
   mergeConfig(data) {
     return {
@@ -39,6 +45,7 @@ module.exports = {
       alt: data.icon !== undefined ? data.icon.alt : '',
       links: data.links !== undefined && data.links.length > 0 ? data.links : false,
       buttons: data.buttons !== undefined && data.buttons.length > 0 ? data.buttons : false,
+      checkboxes: data.checkboxes !== undefined && data.checkboxes.length > 0 ? data.checkboxes : false,
     }
   }
 }

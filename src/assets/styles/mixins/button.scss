@@ -150,13 +150,10 @@
     &:disabled {
       @apply opacity-75 cursor-not-allowed select-none;
     }
-    @apply flex justify-center items-center rounded-full w-[23px] h-[23px];
+    @apply flex justify-center items-center bg-transparent rounded-full w-[23px] h-[23px];
   }
   &-base {
-    @apply px-5 py-2 border border-black-500 rounded-[4px] h-[34px] text-12-m-md;
+    @apply bg-white-000 px-5 py-2 border border-black-500 rounded-[4px] h-[34px] text-12-m-md;
   }
-  @apply bg-white-000 transition-colors duration-300;
+  @apply transition-colors duration-300;
 }
-
-
-
