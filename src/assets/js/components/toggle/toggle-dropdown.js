@@ -14,16 +14,24 @@ function toggleDropdown() {
 
   $('.dropdown__item input[type="radio"]').on('change', function () {
     const selectedValue = $(this).siblings('p').text();
-    const selectedColor = $(this).data('color') || '';
+    const selectedStatus = $(this).data('status') || '';
+    const selectedPriority = $(this).data('priority') || '';
 
     const $button = $(this).closest('.dropdown__container').find('.dropdown__button');
+    const $inner = $(this).closest('.dropdown__container').find('.dropdown__button').find('.dropdown__inner');
 
     $button.find('.dropdown__label').text(selectedValue);
 
-    if (selectedColor) {
-      $button.attr('class', `dropdown__button ${selectedColor}`);
+    if (selectedStatus) {
+      $button.attr('class', `dropdown__button ${selectedStatus}`);
     } else {
       $button.attr('class', 'dropdown__button');
+    }
+
+    if (selectedPriority) {
+      $inner.attr('class', `dropdown__inner ${selectedPriority}`);
+    } else {
+      $inner.attr('class', 'dropdown__inner');
     }
 
     $(this).closest('.dropdown__list').removeClass('active');

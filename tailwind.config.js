@@ -51,6 +51,18 @@ module.exports = {
           '200': '#E5E4FC',
           '300': '#E6EFFE',
         },
+        pink: {
+          '000': '#F26FB2',
+        },
+        orange: {
+          '000': '#EC8E71',
+        },
+        peach: {
+          '000': '#F1BD6C',
+        },
+        yellow: {
+          '000': '#F8DF72',
+        },
       },
       fontSize: {
         '30-m-p': ['30px', { lineHeight: '120%', fontWeight: 500 }],

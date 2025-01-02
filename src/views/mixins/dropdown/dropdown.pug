@@ -13,20 +13,15 @@ mixin dropdown(data = {})
               class: 'button-icon',
               icon: 'other-angle-down-icon',
             })
-        .dropdown__button(class=modefied.color)
-          if modefied.icon
-            img.dropdown__icon(src=modefied.src, alt=modefied.alt)
-          .dropdown__label= modefied.label
-          if modefied.checkboxes
-            +button({
-              class: 'button-icon',
-              icon: 'other-angle-down-icon',
-            })
-          else
-            +button({
-              class: 'button-icon sm',
-              icon: 'other-angle-down-icon',
-            })
+        .dropdown__button(class=modefied.classButton + ' ' + modefied.status)
+          .dropdown__inner
+            if modefied.icon
+              img.dropdown__icon(src=modefied.src, alt=modefied.alt)
+            .dropdown__label= modefied.label
+          +button({
+            class: 'button-icon',
+            icon: 'other-angle-down-icon',
+          })
         .dropdown__list
           if modefied.links
             each link in modefied.links
@@ -50,16 +45,16 @@ mixin dropdown(data = {})
           else
             each button, index in modefied.buttons
               label.dropdown__item
-                input(type="radio" name=`radio-${modefied.class}` data-color=button.color checked=button.checked)
+                input(type="radio" name=`radio-${modefied.class}` data-priority=modefied.priority ? button.priority : false data-status=modefied.priority ? false : button.priority checked=button.checked)
                 p
-                  span(class=button.color)= button.title
+                  span(class=modefied.priority ? button.priority : button.status)= button.title
   else 
     .dropdown(class=defaults.class)
       .dropdown__container
         .dropdown__button
           span.dropdown__label= defaults.label
           +button({
-            class: 'button-icon sm',
+            class: 'button-icon',
             icon: 'other-angle-down-icon',
           })
         .dropdown__list

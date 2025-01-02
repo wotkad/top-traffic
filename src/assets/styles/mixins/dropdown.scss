@@ -9,9 +9,18 @@
       }
       @apply flex items-center;
     }
-    @apply relative flex flex-col items-end gap-y-1 min-w-[101px];
+    @apply relative flex flex-col items-end gap-y-1;
   }
   &__button {
+    .button {
+      &:hover {
+        @apply bg-transparent;
+      }
+      &:active {
+        @apply bg-transparent;
+      }
+      @apply right-3 absolute p-0 w-2.5 h-[6px];
+    }
     svg {
       @apply transition-all duration-300;
     }
@@ -20,7 +29,10 @@
         @apply rotate-180;
       }
     }
-    @apply flex items-center gap-x-1 cursor-pointer;
+    @apply flex justify-between items-center gap-x-1 w-full cursor-pointer;
+  }
+  &__inner {
+    @apply flex items-center gap-x-1;
   }
   &__label {
     @apply text-12-m;
@@ -29,7 +41,7 @@
     &.active {
       @apply z-50 opacity-100 visible;
     }
-    @apply top-[calc(100%+4px)] -z-10 absolute flex flex-col gap-y-[2px] bg-black-700 opacity-0 p-1 border border-black-500 rounded-md min-w-[100px] max-h-[100px] transition-[opacity,z-index,visibility] duration-300 invisible overflow-y-auto;
+    @apply top-[calc(100%+4px)] -z-10 absolute flex flex-col gap-y-[2px] bg-black-700 opacity-0 p-1 border border-black-500 rounded-md w-full min-w-[100px] max-h-[100px] transition-[opacity,z-index,visibility] duration-300 invisible overflow-y-auto;
   }
   &__item {
     input {
@@ -48,7 +60,7 @@
         }
         @apply inline-flex relative items-center py-[2px] pr-2 pl-5 rounded-[30px];
       }
-      @apply block bg-[calc(100%-8px)_center] bg-no-repeat py-[3px] pr-6 pl-2 rounded-[4px] w-full text-12-m-md transition-all duration-300 cursor-pointer;
+      @apply block bg-[calc(100%-8px)_center] bg-no-repeat py-1 pr-6 pl-2 rounded-[4px] w-full text-12-m-md transition-all duration-300 cursor-pointer;
     }
   }
   &__icon {
@@ -56,13 +68,7 @@
   }
   &__sort {
     .button {
-      &:hover {
-        @apply bg-transparent;
-      }
-      &:active {
-        @apply bg-transparent;
-      }
-      @apply top-3 right-3 absolute p-0 w-2.5 h-[6px] transition-all duration-300;
+      @apply top-3 right-[11px] absolute p-0 w-2.5 h-[6px] transition-all duration-300;
     }
     &.active {
       .button {
@@ -70,7 +76,7 @@
       }
       @apply flex;
     }
-    @apply relative hidden p-[5px] pr-[39px] border border-black-500 rounded-[5px] w-full cursor-pointer;
+    @apply relative hidden p-[5px] pr-10 border border-black-500 rounded-md w-full cursor-pointer;
   }
   &__values {
     @apply flex flex-wrap gap-[5px];
@@ -97,14 +103,8 @@
     @apply flex flex-col gap-y-[2px] mt-1 max-h-[276px] overflow-y-auto;
   }
   &-checkboxes {
-    .dropdown__container {
-      @apply min-w-[232px] max-w-[232px];
-    }
     .dropdown__button {
-      .button {
-        @apply p-0 w-2.5 h-[5px];
-      }
-      @apply justify-between px-3 py-[7px] border border-black-500 rounded-[5px] w-full;
+      @apply px-3 py-[7px] border border-black-500 rounded-md w-full;
     }
     .search {
       @apply px-2;
@@ -115,31 +115,55 @@
   }
   &-with-icon {
     .dropdown__button {
-      .button.sm {
-        @apply h-4;
-      }
       @apply gap-x-1;
     }
     .dropdown__list {
-      @apply top-[calc(100%-2px)] min-w-[145px];
+      @apply top-[calc(100%-2px)] max-w-[145px];
     }
   }
   &-status {
     .dropdown__button {
-      .button {
-        @apply p-0 rounded-full w-4 h-4;
-      }
       &:before {
         @apply left-2 absolute content-[''] rounded-full w-2 h-2;
       }
-      svg {
-        @apply w-2 h-1;
-      }
-      @apply py-[3px] pr-[3px] pl-5 rounded-[30px];
+      @apply py-[3px] pr-2 pl-5 rounded-[30px];
     }
     .dropdown__list {
       @apply min-w-[175px];
     }
+  }
+  &-priority {
+    .dropdown__button {
+      @apply px-3 py-[7px] pr-5 border border-black-500 rounded-md w-full;
+    }
+    .dropdown__inner {
+      @apply px-2.5 py-[2px] rounded-[30px];
+    }
+    .dropdown__list {
+      @apply py-[9px] min-w-[175px] max-h-[none];
+    }
+    .dropdown__item {
+      p {
+        span {
+          @apply px-2.5;
+        }
+      }
+    }
+  }
+  .red {
+    @apply bg-red-200;
+  }
+  .pink {
+    @apply bg-pink-000;
+  }
+  .orange {
+    @apply bg-orange-000;
+  }
+  .peach {
+    @apply bg-peach-000;
+  }
+  .yellow {
+    @apply bg-yellow-000;
   }
   .green {
     &:before {
@@ -165,4 +189,5 @@
     }
     @apply bg-purple-050 bg-opacity-30 text-purple-050;
   }
+  @apply w-full;
 }

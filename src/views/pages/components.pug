@@ -109,7 +109,7 @@ block content
         .py-2.px-12.rounded-md.text-12-r-md.bg-purple-300 #E6EFFE
     .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
       h2.text-2xl.font-bold.pb-4.border-b.w-full Дропдаун
-      .w-full.flex.gap-x-4.items-center
+      .w-full.flex.flex-col.gap-y-4.items-start
         +dropdown()
         +dropdown({
           icon: {
@@ -127,12 +127,13 @@ block content
         +dropdown({
           class: 'dropdown-status',
           label: 'Активный',
-          color: 'green',
+          status: 'green',
+          priority: false,
           buttons: [ 
-            { title: 'Активный', color: 'green', checked: true },
-            { title: 'Неактивный', color: 'gray' },
-            { title: 'Новая РК', color: 'blue' },
-            { title: 'Подбор каналов', color: 'purple' },
+            { title: 'Активный', status: 'green', checked: true },
+            { title: 'Неактивный', status: 'gray' },
+            { title: 'Новая РК', status: 'blue' },
+            { title: 'Подбор каналов', status: 'purple' },
           ]
         })
         +dropdown({
@@ -155,6 +156,19 @@ block content
             { title: 'Автомобили' },
             { title: 'Автомобили' },
             { title: 'Автомобили' },
+          ]
+        })
+        +dropdown({
+          class: 'dropdown-priority',
+          label: '––',
+          status: '',
+          priority: true,
+          buttons: [ 
+            { title: 'Очень высокий', priority: 'red' },
+            { title: 'Высокий', priority: 'pink' },
+            { title: 'Средний', priority: 'orange' },
+            { title: 'Низкий', priority: 'peach' },
+            { title: 'Очень низкий', priority: 'yellow' },
           ]
         })
     .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4

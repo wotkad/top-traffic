@@ -2,21 +2,23 @@ module.exports = {
   defaults: {
     label: 'Выберите фильтр',
     class: '',
-    color: 'green',
+    classButton: '',
+    status: 'green',
+    priority: false,
     icon: {
       enabled: false,
       src: '/assets/images/user-icon.png',
       alt: 'icon',
     },
     buttons: [
-      { title: '1/24', color: false, checked: true },
-      { title: '1/48', color: false },
-      { title: '1/72', color: false },
-      { title: 'Нативный', color: false },
-      { title: '1/24', color: false },
-      { title: '1/48', color: false },
-      { title: '1/72', color: false },
-      { title: 'Нативный', color: false },
+      { title: '1/24', priority: false, checked: true },
+      { title: '1/48', priority: false },
+      { title: '1/72', priority: false },
+      { title: 'Нативный', priority: false },
+      { title: '1/24', priority: false },
+      { title: '1/48', priority: false },
+      { title: '1/72', priority: false },
+      { title: 'Нативный', priority: false },
     ],
     links: [
       { title: '1/24', href: "#" },
@@ -38,7 +40,9 @@ module.exports = {
   mergeConfig(data) {
     return {
       class: data.class !== undefined ? data.class : '',
-      color: data.color !== undefined ? data.color : false,
+      classButton: data.classButton !== undefined ? data.classButton : '',
+      priority: data.priority !== undefined ? data.priority : false,
+      status: data.status !== undefined ? data.status : false,
       label: data.label !== undefined ? data.label : '',
       icon: data.icon !== undefined ? data.icon.enabled : false,
       src: data.icon !== undefined ? data.icon.src : '',
