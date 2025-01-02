@@ -16,37 +16,43 @@ block content
     .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
       h2.text-2xl.font-bold.pb-4.border-b.w-full Кнопки
       +button({
+        view: 'button',
         title: 'Да',
         class: 'button-confirm',
       })
-      +link({
+      +button({
+        view: 'link',
         class: 'button-with-icon',
         icon: 'other-download-icon',
         title: 'Скачать',
         download: true,
       })
       +button({
+        view: 'button',
         class: 'button-with-icon',
         icon: 'other-controls-icon',
         title: 'Фильтр',
       })
       +button({
+        view: 'button',
         class: 'button-with-icon',
         icon: 'other-controls-icon',
         title: 'Фильтр',
         close: true,
       })
       +button({
-        class: 'with-icon-blue',
+        view: 'button',
+        class: 'button-with-icon-blue',
         icon: 'other-plus-icon',
         title: 'Добавить канал',
-        class: 'button-with-icon-blue',
       })
       +button({
+        view: 'button',
         class: 'button-base',
         title: 'Применить',
       })
-      +link({
+      +button({
+        view: 'link',
         icon: 'aside-channels-icon',
         title: 'Каналы',
         class: 'button-with-icon-full',
@@ -54,19 +60,23 @@ block content
       +breadcrumbs({ values: [ { title: 'Условия', href: '#' }, { title: 'Конфиденциальность', href: ''} ]})
       +breadcrumbs()
       +button({
+        view: 'button',
         class: 'button-icon',
         icon: 'other-expand-menu-icon',
       })
-      +link({
+      +button({
+        view: 'link',
         class: 'button-icon-round',
         icon: 'other-arrow-up-icon',
       })
       +button({
+        view: 'button',
         class: 'button-with-icon-full-lg',
         icon: 'other-arrow-right-icon',
         title: 'Войти',
       })
-      +link({
+      +button({
+        view: 'link',
         class: 'button-with-icon-full-google',
         icon: 'other-google-icon',
         title: 'Войти с учетной записью Google',
@@ -264,6 +274,7 @@ block content
     .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
       h2.text-2xl.font-bold.pb-4.border-b.w-full Кнопка закрытия
       +button({
+        view: 'button',
         class: 'button-close',
         icon: 'other-close-icon',
         ariaLabel: 'close',

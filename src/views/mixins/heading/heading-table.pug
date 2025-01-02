@@ -1,0 +1,31 @@
+mixin heading-table(data = {})
+  - const { defaults, mergeConfig } = require('./_defaults-heading-table');
+  - const modefied = mergeConfig(data, defaults);
+  - const hasData = Object.keys(data).some(key => data[key] && data[key].length > 0);
+
+  .heading.heading-table(class=modefied.rows ? 'heading-table-rows' : '')
+    .heading__title 
+      h1= modefied.title
+        sup= modefied.count
+    .heading__buttons
+      .heading__left
+        if modefied.calendar
+          +button({
+            view: 'button',
+            class: 'button-with-icon',
+            icon: 'other-calendar-icon',
+            title: 'Апрель - Май 2024',
+            calendar: true,
+          })
+        if modefied.search
+          +search()
+      .heading__right
+        each button in modefied.buttons
+          +button({
+            view: button.view,
+            class: button.class,
+            icon: button.icon,
+            title: button.title,
+            download: button.download,
+            close: button.close,
+          })

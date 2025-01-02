@@ -71,11 +71,11 @@ html(lang="ru")
   body
     .render
 
-    include ../mixins/link/link
     include ../mixins/button/button
     include ../mixins/search/search
     include ../mixins/input/input
     include ../mixins/dropdown/dropdown
+    include ../mixins/heading/heading-table
 
     include ../mixins/breadcrumbs/breadcrumbs
     
@@ -85,7 +85,8 @@ html(lang="ru")
     block content
 
     .scroll-to-top
-      +link({
+      +button({
+        view: 'link',
         class: 'button-icon-round',
         icon: 'other-arrow-up-icon',
       })

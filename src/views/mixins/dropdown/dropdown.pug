@@ -10,6 +10,7 @@ mixin dropdown(data = {})
           .dropdown__sort
             .dropdown__values
             +button({
+              view: 'button',
               class: 'button-icon',
               icon: 'other-angle-down-icon',
             })
@@ -19,13 +20,15 @@ mixin dropdown(data = {})
               img.dropdown__icon(src=modefied.src, alt=modefied.alt)
             .dropdown__label= modefied.label
           +button({
+            view: 'button',
             class: 'button-icon',
             icon: 'other-angle-down-icon',
           })
         .dropdown__list
           if modefied.links
             each link in modefied.links
-              +link({
+              +button({
+                view: 'link',
                 class: 'button-with-icon-full sm',
                 icon: link.icon,
                 title: link.title,
@@ -54,6 +57,7 @@ mixin dropdown(data = {})
         .dropdown__button
           span.dropdown__label= defaults.label
           +button({
+            view: 'button',
             class: 'button-icon',
             icon: 'other-angle-down-icon',
           })

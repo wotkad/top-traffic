@@ -2,6 +2,7 @@ header.header
   .header__wrapper
     .header__search
       +button({
+        view: 'button',
         icon: 'other-expand-menu-icon',
         class: 'button-icon sidebar__toggle narrowed',
       })
@@ -9,11 +10,13 @@ header.header
         class: 'transparent',
       })
     .header__controls
-      +link({
+      +button({
+        view: 'link',
         class: 'button-icon',
         icon: 'other-notification-icon',
       })
-      +link({
+      +button({
+        view: 'link',
         class: 'button-icon',
         icon: 'aside-help-icon',
       })

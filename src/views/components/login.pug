@@ -37,6 +37,7 @@ section
 
         .login__button
           +button({
+            view: 'button',
             class: 'button-with-icon-full-lg',
             icon: 'other-arrow-right-icon',
             title: 'Войти',
@@ -49,7 +50,8 @@ section
           span.login__divider-text или
           .login__line
 
-        +link({
+        +button({
+          view: 'link',
           class: 'button-with-icon-full-google',
           icon: 'other-google-icon',
           title: 'Войти с учетной записью Google',
