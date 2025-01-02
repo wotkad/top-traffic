@@ -41,7 +41,7 @@
     &.active {
       @apply z-50 opacity-100 visible;
     }
-    @apply top-[calc(100%+4px)] -z-10 absolute flex flex-col gap-y-[2px] bg-black-700 opacity-0 p-1 border border-black-500 rounded-md w-full min-w-[100px] max-h-[100px] transition-[opacity,z-index,visibility] duration-300 invisible overflow-y-auto;
+    @apply top-[calc(100%+4px)] -z-10 absolute flex flex-col gap-y-[2px] bg-black-700 opacity-0 p-1 border border-black-500 rounded-md w-full max-h-[100px] transition-[opacity,z-index,visibility] duration-300 invisible overflow-y-auto;
   }
   &__item {
     input {
@@ -137,9 +137,6 @@
       }
       @apply py-[3px] pr-2 pl-5 rounded-[30px];
     }
-    .dropdown__list {
-      @apply min-w-[175px];
-    }
   }
   &-priority {
     .dropdown__button {
@@ -156,7 +153,7 @@
     }
       
     .dropdown__list {
-      @apply py-[9px] min-w-[175px] max-h-[none];
+      @apply py-[9px] max-h-[none];
     }
     .dropdown__item {
       p {
