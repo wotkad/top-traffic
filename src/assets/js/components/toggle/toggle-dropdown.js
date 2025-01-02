@@ -18,9 +18,9 @@ function toggleDropdown() {
     const selectedPriority = $(this).data('priority') || '';
 
     const $button = $(this).closest('.dropdown__container').find('.dropdown__button');
-    const $inner = $(this).closest('.dropdown__container').find('.dropdown__button').find('.dropdown__inner');
+    const $label = $(this).closest('.dropdown__container').find('.dropdown__button').find('.dropdown__label');
 
-    $button.find('.dropdown__label').text(selectedValue);
+    $label.text(selectedValue);
 
     if (selectedStatus) {
       $button.attr('class', `dropdown__button ${selectedStatus}`);
@@ -29,9 +29,9 @@ function toggleDropdown() {
     }
 
     if (selectedPriority) {
-      $inner.attr('class', `dropdown__inner ${selectedPriority}`);
+      $label.attr('class', `dropdown__label ${selectedPriority}`).addClass('selected');
     } else {
-      $inner.attr('class', 'dropdown__inner');
+      $label.attr('class', 'dropdown__label');
     }
 
     $(this).closest('.dropdown__list').removeClass('active');

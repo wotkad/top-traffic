@@ -13,7 +13,7 @@ mixin dropdown(data = {})
               class: 'button-icon',
               icon: 'other-angle-down-icon',
             })
-        .dropdown__button(class=modefied.classButton + ' ' + modefied.status)
+        .dropdown__button(class=modefied.classButton + modefied.status)
           .dropdown__inner
             if modefied.icon
               img.dropdown__icon(src=modefied.src, alt=modefied.alt)
@@ -49,7 +49,7 @@ mixin dropdown(data = {})
                 p
                   span(class=modefied.priority ? button.priority : button.status)= button.title
   else 
-    .dropdown(class=defaults.class)
+    .dropdown.dropdown-base(class=defaults.class)
       .dropdown__container
         .dropdown__button
           span.dropdown__label= defaults.label

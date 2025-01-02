@@ -42,7 +42,7 @@ module.exports = {
       class: data.class !== undefined ? data.class : '',
       classButton: data.classButton !== undefined ? data.classButton : '',
       priority: data.priority !== undefined ? data.priority : false,
-      status: data.status !== undefined ? data.status : false,
+      status: data.status !== undefined ? data.status : '',
       label: data.label !== undefined ? data.label : '',
       icon: data.icon !== undefined ? data.icon.enabled : false,
       src: data.icon !== undefined ? data.icon.src : '',

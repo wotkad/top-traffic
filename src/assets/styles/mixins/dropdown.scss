@@ -19,7 +19,7 @@
       &:active {
         @apply bg-transparent;
       }
-      @apply right-3 absolute p-0 w-2.5 h-[6px];
+      @apply right-0 absolute p-0 w-2.5 h-[6px];
     }
     svg {
       @apply transition-all duration-300;
@@ -68,7 +68,7 @@
   }
   &__sort {
     .button {
-      @apply top-3 right-[11px] absolute p-0 w-2.5 h-[6px] transition-all duration-300;
+      @apply top-3 right-[19px] absolute p-0 w-2.5 h-[6px] transition-all duration-300;
     }
     &.active {
       .button {
@@ -104,6 +104,9 @@
   }
   &-checkboxes {
     .dropdown__button {
+      .button {
+        @apply right-5;
+      }
       @apply px-3 py-[7px] border border-black-500 rounded-md w-full;
     }
     .search {
@@ -115,7 +118,10 @@
   }
   &-with-icon {
     .dropdown__button {
-      @apply gap-x-1;
+      .button {
+        @apply right-[5px];
+      }
+      @apply gap-x-1 pr-6;
     }
     .dropdown__list {
       @apply top-[calc(100%-2px)] max-w-[145px];
@@ -123,6 +129,9 @@
   }
   &-status {
     .dropdown__button {
+      .button {
+        @apply right-2;
+      }
       &:before {
         @apply left-2 absolute content-[''] rounded-full w-2 h-2;
       }
@@ -134,11 +143,18 @@
   }
   &-priority {
     .dropdown__button {
+      .button {
+        @apply right-5;
+      }
       @apply px-3 py-[7px] pr-5 border border-black-500 rounded-md w-full;
     }
-    .dropdown__inner {
-      @apply px-2.5 py-[2px] rounded-[30px];
+    .dropdown__label {
+      &.selected {
+        @apply pl-2.5;
+      }
+      @apply py-[2px] pr-2.5 pl-0 rounded-[30px];
     }
+      
     .dropdown__list {
       @apply py-[9px] min-w-[175px] max-h-[none];
     }
