@@ -50,11 +50,19 @@ label {
   @apply right-5 bottom-5 fixed hidden;
 }
 
-.content {
+.wrapper {
   &.active {
     @apply left-[59px] w-[calc(100%-59px)];
   }
   @apply top-[60px] left-[217px] absolute bg-white-000 pr-6 pb-6 pl-7 w-[calc(100%-217px)] h-[calc(100dvh-60px)] transition-all duration-300 overflow-y-auto;
+}
+
+.content {
+  @apply w-full;
+}
+
+.inner {
+  @apply flex mt-6 overflow-hidden;
 }
 
 @media (prefers-reduced-motion: reduce) {

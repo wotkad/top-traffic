@@ -17,7 +17,7 @@ mixin button(data = {})
         if modefied.title
           span(class=modefied.switchable ? 'narrowed' : '')= modefied.title
         if modefied.close
-          svg.button-clear
+          svg.button-clear.filter-clear
             use(xlink:href="#other-close-icon")
         if modefied.calendar 
           svg
@@ -36,7 +36,7 @@ mixin button(data = {})
         if data.title
           span(class=data.switchable ? 'narrowed' : '')= data.title
         if data.close
-          svg.button-clear
+          svg.button-clear.filter-clear
             use(xlink:href="#other-close-icon")
 
   if !hasData && modefied.view == 'button'

@@ -50,29 +50,23 @@ function toggleDropdown() {
 
   // Обработка чекбоксов
   $('.input-checkbox-with-label input').on('change', function () {
-    const $sortBlock = $('.dropdown__sort');
-    const $buttonBlock = $('.dropdown-checkboxes .dropdown__button');
-    const $valuesContainer = $('.dropdown__values');
+    const $dropdown = $(this).closest('.dropdown'); // Ограничиваем область действия текущим dropdown
+    const $sortBlock = $dropdown.find('.dropdown__sort');
+    const $buttonBlock = $dropdown.find('.dropdown__button');
+    const $valuesContainer = $dropdown.find('.dropdown__values');
 
-    const $firstCheckbox = $(this).closest('.dropdown__list').find('.input-checkbox-with-label input').first(); // Первый чекбокс (с меткой "Все")
-    
+    const $firstCheckbox = $dropdown.find('.input-checkbox-with-label input').first(); // Первый чекбокс (с меткой "Все")
+
     if ($(this).is($firstCheckbox)) {
       // Если выбран первый чекбокс "Все"
       const allChecked = $firstCheckbox.prop('checked');
-      $(this).closest('.dropdown__list').find('.input-checkbox-with-label input').prop('checked', allChecked); // Только чекбоксы внутри этого списка
+      $dropdown.find('.input-checkbox-with-label input').prop('checked', allChecked);
 
-      // Показать или скрыть блок .dropdown__sort в зависимости от состояния чекбокса "Все"
       if (allChecked) {
-        $sortBlock.show().addClass('active');  // Показываем блок .dropdown__sort
-        $buttonBlock.hide();  // Скрыть кнопку
-      } else {
-        $sortBlock.hide().removeClass('active');  // Скрыть блок .dropdown__sort
-        $buttonBlock.show();  // Показать кнопку
-      }
+        $sortBlock.show().addClass('active');
+        $buttonBlock.hide();
 
-      // Обновить .dropdown__values для всех чекбоксов, кроме первого
-      if (allChecked) {
-        $(this).closest('.dropdown__list').find('.input-checkbox-with-label input').not($firstCheckbox).each(function () {
+        $dropdown.find('.input-checkbox-with-label input').not($firstCheckbox).each(function () {
           const id = $(this).attr('id') || `checkbox-${Math.random().toString(36).substr(2, 9)}`;
           $(this).attr('id', id);
 
@@ -90,17 +84,16 @@ function toggleDropdown() {
           }
         });
       } else {
-        // Если снят, удалить все значения
         $valuesContainer.empty();
       }
     } else {
       // Если выбран любой другой чекбокс
-      $firstCheckbox.prop('checked', false); // Снять отметку с первого чекбокса
+      $firstCheckbox.prop('checked', false);
 
-      // Добавить или удалить элемент в зависимости от состояния
       if (this.checked) {
         $sortBlock.css('display', 'flex').addClass('active');
         $buttonBlock.hide();
+        console.log($dropdown);
 
         let id = $(this).attr('id') || `checkbox-${Math.random().toString(36).substr(2, 9)}`;
         $(this).attr('id', id);
@@ -127,6 +120,7 @@ function toggleDropdown() {
       $buttonBlock.show();
     }
   });
+
 
   // Удаление элемента из .dropdown__values
   $('.dropdown__values').on('click', '.dropdown__value svg', function (e) {
@@ -165,6 +159,7 @@ function toggleDropdown() {
     $(this).toggleClass('active');
     $dropdownList.toggleClass('active');
   });
+
 }
 
 toggleDropdown();

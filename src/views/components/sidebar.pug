@@ -4,6 +4,7 @@ aside.sidebar
       a(href="/").sidebar__logo
         include ./logo
       +button({
+        view: 'button',
         icon: 'other-expand-menu-icon',
         class: 'button-icon sidebar__toggle narrowed',
       })
@@ -12,7 +13,7 @@ aside.sidebar
       .sidebar__switch
         .sidebar__name.narrowed Компания
         +button({
-          
+          view: 'button',
           icon: 'other-angle-down-icon',
           class: 'button-icon sm narrowed',
         })

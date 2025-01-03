@@ -43,7 +43,8 @@ mixin dropdown(data = {})
                   class: 'input-checkbox-with-label',
                   label: checkbox.title,
                   name: `checkbox-${modefied.class}`,
-                  checked: checkbox.checked
+                  checked: checkbox.checked,
+                  value: checkbox.title,
                 })
           else
             each button, index in modefied.buttons

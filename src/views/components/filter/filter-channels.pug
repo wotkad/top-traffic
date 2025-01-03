@@ -1,0 +1,155 @@
+aside.filter
+  .filter__container
+    .filter__title 
+      h2 Фильтр
+      button(type="button").filter__clear Сбросить
+    h3.filter__subtitle Канал
+    form(action="#")
+      +search()
+    form(action="#")
+      +input({
+        type: 'checkbox',
+        class: 'input-checkbox-with-label',
+        label: 'также искать в описании',
+      })
+      h3.filter__subtitle Категория
+      +dropdown({
+        class: 'dropdown-checkboxes',
+        label: 'Выберите фильтр',
+        checkboxes: [
+          { title: 'Все' },
+          { title: 'Банки' },
+          { title: 'Банки' },
+          { title: 'Автомобили' },
+          { title: 'Банки' },
+          { title: 'Банки' },
+          { title: 'Автомобили' },
+          { title: 'Автомобили' },
+          { title: 'Автомобили' },
+          { title: 'Автомобили' },
+          { title: 'Автомобили' },
+          { title: 'Автомобили' },
+          { title: 'Автомобили' },
+          { title: 'Автомобили' },
+          { title: 'Автомобили' },
+          { title: 'Автомобили' },
+        ]
+      })
+      h3.filter__subtitle Организация
+      +dropdown({
+        class: 'dropdown-checkboxes',
+        label: 'Выберите фильтр',
+        checkboxes: [
+          { title: 'Все' },
+          { title: 'Банки' },
+          { title: 'Банки' },
+          { title: 'Автомобили' },
+          { title: 'Банки' },
+          { title: 'Банки' },
+          { title: 'Автомобили' },
+          { title: 'Автомобили' },
+          { title: 'Автомобили' },
+          { title: 'Автомобили' },
+          { title: 'Автомобили' },
+          { title: 'Автомобили' },
+          { title: 'Автомобили' },
+          { title: 'Автомобили' },
+          { title: 'Автомобили' },
+          { title: 'Автомобили' },
+        ]
+      })
+      h3.filter__subtitle Администратор
+      +dropdown({
+        class: 'dropdown-checkboxes',
+        label: 'Выберите фильтр',
+        checkboxes: [
+          { title: 'Все' },
+          { title: 'Банки' },
+          { title: 'Банки' },
+          { title: 'Автомобили' },
+          { title: 'Банки' },
+          { title: 'Банки' },
+          { title: 'Автомобили' },
+          { title: 'Автомобили' },
+          { title: 'Автомобили' },
+          { title: 'Автомобили' },
+          { title: 'Автомобили' },
+          { title: 'Автомобили' },
+          { title: 'Автомобили' },
+          { title: 'Автомобили' },
+          { title: 'Автомобили' },
+          { title: 'Автомобили' },
+        ]
+      })
+      h3.filter__subtitle ERR (%)
+      +input({
+        min: '0',
+        max: '100',
+      })
+      h3.filter__subtitle ER (%)
+      +input({
+        min: '0',
+        max: '100',
+      })
+      h3.filter__subtitle Мужская аудитория (%)
+      +input({
+        min: '0',
+        max: '100',
+      })
+      h3.filter__subtitle Женская аудитория (%)
+      +input({
+        min: '0',
+        max: '100',
+      })
+      h3.filter__subtitle Подписчиков
+      +input({
+        min: '0',
+        max: '100',
+      })
+      h3.filter__subtitle Средний охват поста
+      +input({
+        min: '0',
+        max: '100',
+      })
+      h3.filter__subtitle Средний охват поста (24 часа)
+      +input({
+        min: '0',
+        max: '100',
+      })
+      .filter__checkboxes
+        +input({
+          type: 'checkbox',
+          class: 'input-checkbox-with-label',
+          label: 'Верифицированный',
+          value: 'Верифицированный',
+        })
+        +input({
+          type: 'checkbox',
+          class: 'input-checkbox-with-label',
+          label: 'Без красной метки',
+          value: 'Без красной метки',
+        })
+        +input({
+          type: 'checkbox',
+          class: 'input-checkbox-with-label',
+          label: 'Без метки SCAM/FAKE',
+          value: 'Без метки SCAM/FAKE',
+        })
+        +input({
+          type: 'checkbox',
+          class: 'input-checkbox-with-label',
+          label: 'Скрывать мертвые',
+          value: 'Скрывать мертвые',
+        })
+        +input({
+          type: 'checkbox',
+          class: 'input-checkbox-with-label',
+          label: 'Есть в нашей базе',
+          value: 'Есть в нашей базе',
+        })
+      +button({
+        view: 'button',
+        class: 'button-base filter__button',
+        type: 'submit',
+        title: 'Применить'
+      })

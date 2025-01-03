@@ -15,7 +15,7 @@ block content
   main.page
     include ../components/sidebar
     include ../components/header
-    .content
+    .wrapper
       +heading-table({
         title: 'Каналы',
         count: '50',
@@ -35,10 +35,13 @@ block content
           },
           {
             view: 'button',
-            class: 'button-with-icon',
+            class: 'button-with-icon filter__toggle',
             icon: 'other-controls-icon',
             title: 'Фильтр',
             close: true,
           },
         ],
       })
+      .inner
+        .content
+        include ../components/filter/filter-channels

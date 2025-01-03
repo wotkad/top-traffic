@@ -27,7 +27,7 @@ mixin input(data = {})
 
     else if modefied.type == 'checkbox'
       label(class="input-checkbox " + modefied.class)
-        input(type="checkbox" name="checkbox" checked=modefied.checked)
+        input(type="checkbox" name="checkbox" checked=modefied.checked value=modefied.value)
         span
         if modefied.label
           p= modefied.label

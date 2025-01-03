@@ -146,5 +146,5 @@
   &__copy {
     @apply flex items-center gap-x-0.5 text-10-m text-black-400;
   }
-  @apply flex flex-col justify-between bg-black-700 px-2 border-r border-black-500 w-full max-w-[217px] h-dvh;
+  @apply flex flex-col justify-between bg-black-700 px-2 border-r border-black-500 w-full max-w-[217px] min-h-dvh;
 }

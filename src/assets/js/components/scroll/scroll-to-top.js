@@ -2,10 +2,10 @@ import 'jquery.easing';
 
 function scrollToTop() {
   let button = $('.scroll-to-top');
-  let content = $('.content');
+  let wrapper = $('.wrapper');
 
   button.on('click', function () {
-    content.animate(
+    wrapper.animate(
       { scrollTop: 0 },
       {
         duration: 1000,
@@ -17,8 +17,8 @@ function scrollToTop() {
     );
   });
 
-  content.on('scroll', function () {
-    if (content.scrollTop() > 0) {
+  wrapper.on('scroll', function () {
+    if (wrapper.scrollTop() > 0) {
       button.fadeIn(300);
     } else {
       button.fadeOut(300);
