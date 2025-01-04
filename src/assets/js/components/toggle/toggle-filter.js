@@ -3,21 +3,23 @@ import gsap from 'gsap';
 function toggleFilter() {
   let toggle = $('.filter__toggle');
   let filter = $('.filter');
+  let content = $('.content');
   toggle.on('click', function() {
+    getHeaderHeight();
+    getContentHeight();
     if (toggle.hasClass('active')) {
-      gsap.to(filter, {x: '100%', duration: .3, onComplete: () => {
-        gsap.to(filter, {minWidth: '0', height: 0, marginLeft: '0', duration: .3})
-        toggle.removeClass('active');
-        filter.removeClass('active');
-      }});
+      gsap.to(filter, {x: '100%', duration: .3});
+      toggle.removeClass('active');
+      filter.removeClass('active');
+      content.removeClass('active');
     } else {
-      gsap.to(filter, {minWidth: '280px', height: 'auto',  duration: .3, onComplete: () => {
-        gsap.to(filter, {x: '0', marginLeft: '32px', duration: .3})
-        toggle.addClass('active');
-        filter.addClass('active');
-      }});
+      gsap.to(filter, {x: '-304px', duration: .3})
+      toggle.addClass('active');
+      filter.addClass('active');
+      content.addClass('active');
     }
   });
+  
 
   const toggleClearButton = function () {
     $('.filter').each(function () {
@@ -65,3 +67,23 @@ function toggleFilter() {
 }
 
 toggleFilter();
+
+function getContentHeight() {
+  let height = $('.content').outerHeight();
+  document.documentElement.style.setProperty('--content-height', `${height}px`);
+}
+getContentHeight();
+
+$(window).on('resize', function() {
+  getContentHeight();
+});
+
+function getHeaderHeight() {
+  let height = $('.header').outerHeight();
+  document.documentElement.style.setProperty('--header-height', `${height}px`);
+}
+getHeaderHeight();
+
+$(window).on('resize', function() {
+  getHeaderHeight();
+});

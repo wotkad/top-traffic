@@ -1,0 +1,86 @@
+.table {
+  th {
+    p {
+      @apply text-12-sb;
+    }
+    span {
+      &.male,
+      &.female {
+        &:before {
+          @apply left-0 absolute content-[''] rounded-full w-2 h-2;
+        }
+        @apply inline-flex relative items-center pl-2.5 min-w-14 text-black-200;
+      }
+      &.male {
+        &:before {
+          @apply bg-blue-200;
+        }
+      }
+      &.female {
+        &:before {
+          @apply bg-yellow-100;
+        }
+      }
+      @apply text-10-r;
+    }
+    @apply px-6 border-b border-black-500 h-11 text-left;
+  }
+  td {
+    span {
+      &.male,
+      &.female {
+        &:before {
+          @apply left-0 absolute content-[''] rounded-full w-2 h-2;
+        }
+        @apply inline-flex relative items-center pl-[14px] min-w-[57px];
+      }
+      &.male {
+        &:before {
+          @apply bg-blue-200;
+        }
+      }
+      &.female {
+        &:before {
+          @apply bg-yellow-100;
+        }
+      }
+    }
+    h3 {
+      @apply text-12-sb-p;
+    }
+    a {
+      @apply text-10-r text-blue-000;
+    }
+    .dropdown {
+      &__label {
+        @apply font-normal;
+      }
+      &__button {
+        .button {
+          svg {
+            @apply w-2 h-1;
+          }
+          @apply relative;
+        }
+        @apply w-auto;
+      }
+      &__container {
+        @apply inline-flex items-start;
+      }
+      &__list {
+        @apply right-0;
+      }
+      @apply inline-block w-auto;
+    }
+    @apply px-6 border-b border-black-500 h-[46px] text-12-r-p;
+  }
+  tbody {
+    tr {
+      &:hover {
+        @apply bg-purple-300;
+      }
+      @apply transition-all duration-300;
+    }
+  }
+  @apply w-full min-w-[1201px];
+}

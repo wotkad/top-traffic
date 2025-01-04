@@ -26,5 +26,10 @@
   &__button {
     @apply mt-[37px] relative left-1/2 -translate-x-1/2;
   }
-  @apply flex flex-col border border-black-500 rounded-[10px] w-0 max-w-[280px] h-0 translate-x-[280px] overflow-hidden;
+  &__toggle {
+    &.active {
+      @apply bg-purple-300 border-blue-200 text-blue-200;
+    }
+  }
+  @apply -right-[280px] absolute flex flex-col bg-white-000 border border-black-500 rounded-[10px] min-w-[280px] max-w-[280px] overflow-hidden;
 }

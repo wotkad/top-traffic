@@ -62,6 +62,7 @@ module.exports = {
         },
         yellow: {
           '000': '#F8DF72',
+          '100': '#FFC658',
         },
       },
       fontSize: {

@@ -34,6 +34,7 @@ mixin dropdown(data = {})
                 title: link.title,
                 href: link.href,
               })
+              
           else if modefied.checkboxes
             +search()
             .dropdown__items
@@ -46,12 +47,20 @@ mixin dropdown(data = {})
                   checked: checkbox.checked,
                   value: checkbox.title,
                 })
+
+          else if modefied.priority || modefied.status
+            each button, index in modefied.buttons
+              label.dropdown__item
+                input(type="radio" name=`radio-${modefied.class}` data-priority=modefied.priority ? button.priority : false data-status=modefied.status ? button.status : false checked=button.checked)
+                p
+                  span(class=modefied.priority ? button.priority : button.status)= button.title
+
           else
             each button, index in modefied.buttons
               label.dropdown__item
-                input(type="radio" name=`radio-${modefied.class}` data-priority=modefied.priority ? button.priority : false data-status=modefied.priority ? false : button.priority checked=button.checked)
-                p
-                  span(class=modefied.priority ? button.priority : button.status)= button.title
+                input(type="radio" name=`radio-${modefied.class}` checked=button.checked)
+                p= button.title
+
   else 
     .dropdown.dropdown-base(class=defaults.class)
       .dropdown__container
