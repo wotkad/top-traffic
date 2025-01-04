@@ -26,6 +26,9 @@
     @apply px-6 border-b border-black-500 h-11 text-left;
   }
   td {
+    &:first-child {
+      @apply min-w-[268px] max-w-[268px];
+    }
     span {
       &.male,
       &.female {
@@ -46,10 +49,10 @@
       }
     }
     h3 {
-      @apply text-12-sb-p;
+      @apply line-clamp-1 text-12-sb-p;
     }
     a {
-      @apply text-10-r text-blue-000;
+      @apply line-clamp-1 text-10-r text-blue-000;
     }
     .dropdown {
       &__label {
