@@ -11,7 +11,8 @@ module.exports = {
     value: '',
     name: '',
     class: 'input',  
-    autocomplete: 'on',   
+    autocomplete: 'on',
+    icon: '', 
   },
   mergeConfig(data) {
     return {
@@ -27,6 +28,7 @@ module.exports = {
       name: data.name !== undefined ? data.name : false,
       class: data.class !== undefined ? data.class : '',
       autocomplete: data.autocomplete !== undefined ? data.autocomplete : false,
+      icon: data.icon !== undefined ? data.icon : '',
     }
   }
 }

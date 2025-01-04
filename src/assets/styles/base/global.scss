@@ -43,7 +43,7 @@ label {
 }
 
 .page {
-  @apply flex items-start;
+  @apply flex;
 }
 
 .scroll-to-top {
@@ -54,7 +54,7 @@ label {
   &.active {
     @apply left-[59px] pl-[46px] w-[calc(100%-59px)];
   }
-  @apply top-[60px] left-[217px] fixed bg-white-000 pr-6 pb-20 pl-7 w-[calc(100%-217px)] h-[calc(100%-var(--header-height))] transition-all duration-300 overflow-x-hidden overflow-y-auto;
+  @apply relative top-[60px] left-[217px] bg-white-000 pr-6 pb-20 pl-7 w-[calc(100%-217px)] h-[calc(100%-var(--header-height))] transition-all duration-300 overflow-x-hidden;
 }
 
 .content {

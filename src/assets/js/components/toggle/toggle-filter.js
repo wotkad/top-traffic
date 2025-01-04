@@ -8,12 +8,12 @@ function toggleFilter() {
     getHeaderHeight();
     getContentHeight();
     if (toggle.hasClass('active')) {
-      gsap.to(filter, {x: '100%', duration: .3});
+      gsap.to(filter, {x: '0', duration: .3});
       toggle.removeClass('active');
       filter.removeClass('active');
       content.removeClass('active');
     } else {
-      gsap.to(filter, {x: '-304px', duration: .3})
+      gsap.to(filter, {x: '8px', duration: .3})
       toggle.addClass('active');
       filter.addClass('active');
       content.addClass('active');

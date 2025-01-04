@@ -1,7 +1,7 @@
 .table {
   th {
     p {
-      @apply text-12-sb;
+      @apply text-12-sb whitespace-nowrap;
     }
     span {
       &.male,
@@ -27,7 +27,7 @@
   }
   td {
     &:first-child {
-      @apply min-w-[268px] max-w-[268px];
+      @apply min-w-[279px] max-w-[279px];
     }
     span {
       &.male,
@@ -84,7 +84,7 @@
       }
       @apply inline-block w-auto;
     }
-    @apply px-6 border-b border-black-500 h-[46px] text-12-r-p;
+    @apply px-6 border-b border-black-500 h-[46px] text-12-r-p whitespace-nowrap;
   }
   tbody {
     tr {

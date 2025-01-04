@@ -26,11 +26,18 @@ mixin input(data = {})
           input(type="number" min=modefied.min max=modefied.max placeholder="до" name="to")
 
     else if modefied.type == 'checkbox'
-      label(class="input-checkbox " + modefied.class)
-        input(type="checkbox" name="checkbox" checked=modefied.checked value=modefied.value)
-        span
-        if modefied.label
-          p= modefied.label
+      .checkbox
+        label(class="input-checkbox " + modefied.class)
+          input(type="checkbox" name="checkbox" checked=modefied.checked value=modefied.value)
+          span
+          if modefied.label
+            p= modefied.label
+        if modefied.icon
+          +button({
+            view: 'button',
+            type: 'button',
+            icon: modefied.icon,
+          })
 
     else
       label.input
