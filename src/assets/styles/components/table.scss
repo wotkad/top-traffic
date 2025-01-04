@@ -52,7 +52,16 @@
       @apply line-clamp-1 text-12-sb-p;
     }
     a {
-      @apply line-clamp-1 text-10-r text-blue-000;
+      svg {
+        @apply w-3 h-3;
+      }
+      &:hover {
+        @apply text-blue-000;
+      }
+      &:active {
+        @apply text-blue-050;
+      }
+      @apply flex items-center gap-x-[2px] line-clamp-1 text-10-r transition-all duration-300;
     }
     .dropdown {
       &__label {
