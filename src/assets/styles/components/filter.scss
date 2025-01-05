@@ -31,5 +31,5 @@
       @apply bg-purple-300 border-blue-200 text-blue-200;
     }
   }
-  @apply relative -right-6 min-w-[280px] max-w-[280px];
+  @apply -right-[280px] absolute min-w-[280px] max-w-[280px];
 }

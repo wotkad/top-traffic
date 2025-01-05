@@ -1,0 +1,28 @@
+tr 
+  td.border-r.border-black-500 
+    .flex.items-center(class="gap-x-[6px]")
+      img.rounded(class="w-[30px] h-[30px]" src="/assets/images/tg-channel.png", alt="tg-channel")
+      .flex.flex-col
+        h3 ZeroDay | Кибербезопасность
+        a(href="https://t.me/cybersec_academy" target="_blank") @cybersec_academy 
+  td Интернет технологии
+  td.text-right 999 999
+  td 
+    +dropdown({
+      label: '1/24',
+      class: 'dropdown-base',
+      buttons: [
+        { title: '1/24', checked: true },
+        { title: '1/48' },
+        { title: '1/72' },
+        { title: 'Нативный' },
+      ],
+    })
+  td.text-right 15%
+  td.text-right 15%
+  td.text-center 25,5%
+  td.text-center 25,5%
+  td
+    .flex.justify-center(class="gap-x-2.5")
+      span.male.inline-block 45%
+      span.female.inline-block 55%

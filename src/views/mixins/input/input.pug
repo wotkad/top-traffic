@@ -1,56 +1,51 @@
 mixin input(data = {})
   - const { defaults, mergeConfig } = require('./_defaults');
-  - const modefied = mergeConfig(data);
-  - const hasData = Object.keys(data).some(key => data[key] && data[key].length > 0)
+  - const modefied = mergeConfig(data, defaults);
 
-  if hasData
-    if modefied.label && modefied.type !== 'checkbox'
-      label.input.input-with-label
-        span.input__heading Наименование
-          sup *
-        .input__container
-          input.input__el(class=modefied.class disabled=modefied.disabled type=modefied.type required=modefied.required autocomplete=modefied.autocomplate placeholder=modefied.placeholder name=modefied.name)
-          if modefied.class == 'error'
-            .error__text
-              svg
-                use(xlink:href="#other-error-icon")
-              span Обязательно к заполнению
-    
-    else if modefied.min || modefied.max
-      .input-ranges
-        label.input-range
-          span от
-          input(type="number" min=modefied.min max=modefied.max placeholder="от" name="from")
-        label.input-range
-          span до
-          input(type="number" min=modefied.min max=modefied.max placeholder="до" name="to")
+  if modefied.isLabel && modefied.type !== 'checkbox'
+    label.input.input-with-label
+      span.input__heading= modefied.label
+        sup *
+      .input__container
+        input.input__el(class=modefied.class disabled=modefied.isDisabled type=modefied.type required=modefied.isRequired autocomplete=modefied.autocomplate placeholder=modefied.placeholder name=modefied.name)
+        if modefied.class == 'error'
+          .error__text
+            svg
+              use(xlink:href="#other-error-icon")
+            span Обязательно к заполнению
+  
+  else if modefied.min || modefied.max
+    .input-ranges
+      label.input-range
+        span от
+        input(type="number" min=modefied.min max=modefied.max placeholder="от" name="from")
+      label.input-range
+        span до
+        input(type="number" min=modefied.min max=modefied.max placeholder="до" name="to")
 
-    else if modefied.type == 'checkbox'
-      .checkbox
-        label(class="input-checkbox " + modefied.class)
-          input(type="checkbox" name="checkbox" checked=modefied.checked value=modefied.value)
-          span
-          if modefied.label
-            p= modefied.label
-        if modefied.icon
-          +button({
-            view: 'button',
-            type: 'button',
-            icon: modefied.icon,
-          })
+  else if modefied.type == 'checkbox'
+    .checkbox
+      label(class="input-checkbox " + modefied.class)
+        input(type="checkbox" name="checkbox" checked=modefied.isChecked value=modefied.value)
+        span
+        if modefied.isLabel
+          p= modefied.label
+      if modefied.icon
+        +button({
+          view: 'button',
+          type: 'button',
+          icon: modefied.icon,
+          isOnlyIcon: true,
+        })
 
-    else
-      label.input
-        input.input__el(disabled=modefied.disabled type=modefied.type required=modefied.required autocomplete=modefied.autocomplate placeholder=modefied.placeholder name=modefied.name)
-        .input__tip= modefied.placeholder
-        if modefied.type == 'password'
-          button(type="button").input__toggle
-            svg.input__eye
-              use(xlink:href="#other-eye-icon")
-            svg.input__eye.input__eye-hide
-              use(xlink:href="#other-eye-closed-icon")
-              
   else
-    label(class=defaults.class)
-      input.input__el(disabled=defaults.disabled type=defaults.type required=defaults.required autocomplete=modefied.autocomplate placeholder=defaults.placeholder name=defaults.name)
-      .input__tip= defaults.placeholder
+    label.input
+      input.input__el(disabled=modefied.isDisabled type=modefied.type required=modefied.isRequired autocomplete=modefied.autocomplate placeholder=modefied.placeholder name=modefied.name)
+      .input__tip= modefied.placeholder
+      if modefied.type == 'password'
+        button(type="button").input__toggle
+          svg.input__eye
+            use(xlink:href="#other-eye-icon")
+          svg.input__eye.input__eye-hide
+            use(xlink:href="#other-eye-closed-icon")
+            

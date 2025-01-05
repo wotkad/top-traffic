@@ -1,12 +1,12 @@
 module.exports = {
   defaults: {
     class: '',
-    form: false,
+    isForm: false,
   },
-  mergeConfig(data) {
+  mergeConfig(data, defaults) {
     return {
-      class: data.class !== undefined ? data.class : '',
-      form: data.form !== undefined ? data.form : false,
+      class: data.class !== undefined ? data.class : defaults.class,
+      isForm: data.isForm !== undefined ? data.isForm : defaults.isForm,
     }
   }
 }

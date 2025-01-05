@@ -1,6 +1,6 @@
 mixin button(data = {})
   - const { defaults, mergeConfig } = require('./_defaults');
-  - const modefied = mergeConfig(data);
+  - const modefied = mergeConfig(data, defaults);
   - const hasData = Object.keys(data).some(key => data[key] && data[key].length > 0)
 
   if hasData
@@ -8,25 +8,25 @@ mixin button(data = {})
       button(
         type=modefied.type
         class="button " + modefied.class
-        disabled=modefied.disabled
+        disabled=modefied.isDisabled
         ariaLabel=modefied.ariaLabel
       )
         if modefied.icon
           svg
             use(xlink:href="#" + modefied.icon)
-        if modefied.title
-          span(class=modefied.switchable ? 'narrowed' : '')= modefied.title
-        if modefied.close
+        if modefied.title && !modefied.isOnlyIcon
+          span(class=modefied.isSwitchable ? 'narrowed' : '')= modefied.title
+        if modefied.isClose
           svg.button-clear.filter-clear
             use(xlink:href="#other-close-icon")
-        if modefied.calendar 
+        if modefied.isCalendar 
           svg
             use(xlink:href="#other-angle-down-icon")
 
     if modefied.view == 'link'
       a(
         href=data.href || "#"
-        download=data.download
+        download=data.isDownload
         class="button " + data.class
         aria-label=data.ariaLabel
       )
@@ -34,8 +34,8 @@ mixin button(data = {})
           svg
             use(xlink:href="#" + data.icon)
         if data.title
-          span(class=data.switchable ? 'narrowed' : '')= data.title
-        if data.close
+          span(class=data.isSwitchable ? 'narrowed' : '')= data.title
+        if data.isClose
           svg.button-clear.filter-clear
             use(xlink:href="#other-close-icon")
 

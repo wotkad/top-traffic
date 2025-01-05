@@ -7,6 +7,7 @@ aside.sidebar
         view: 'button',
         icon: 'other-expand-menu-icon',
         class: 'button-icon sidebar__toggle narrowed',
+        isOnlyIcon: true,
       })
     .sidebar__company
       .sidebar__preview М
@@ -16,6 +17,7 @@ aside.sidebar
           view: 'button',
           icon: 'other-angle-down-icon',
           class: 'button-icon sm narrowed',
+          isOnlyIcon: true,
         })
     .sidebar__nav
       nav.sidebar__menu
@@ -24,14 +26,14 @@ aside.sidebar
             view: 'link',
             icon: 'aside-dashboard-icon',
             title: 'Дашборд',
-            switchable: true,
+            isSwitchable: true,
             class: 'button-with-icon-full',
           })
           +button({
             view: 'link',
             icon: 'aside-inbox-icon',
             title: 'Входящие',
-            switchable: true,
+            isSwitchable: true,
             class: 'button-with-icon-full',
           })
         i.sidebar__separator
@@ -41,7 +43,7 @@ aside.sidebar
             view: 'link',
             icon: 'aside-layout-icon',
             title: 'Рекламные кампании',
-            switchable: true,
+            isSwitchable: true,
             class: 'button-with-icon-full',
           })
           +button({
@@ -49,7 +51,7 @@ aside.sidebar
             icon: 'aside-portfolio-icon',
             title: 'Организации',
             class: 'active',
-            switchable: true,
+            isSwitchable: true,
             class: 'button-with-icon-full',
           })
           +button({
@@ -57,14 +59,14 @@ aside.sidebar
             icon: 'aside-admins-icon',
             title: 'Администраторы',
             class: 'disabled',
-            switchable: true,
+            isSwitchable: true,
             class: 'button-with-icon-full',
           })
           +button({
             view: 'link',
             icon: 'aside-channels-icon',
             title: 'Каналы',
-            switchable: true,
+            isSwitchable: true,
             class: 'button-with-icon-full',
             href: '/channels'
           })
@@ -75,7 +77,7 @@ aside.sidebar
             view: 'link',
             icon: 'aside-folder-icon',
             title: 'Медиапланы',
-            switchable: true,
+            isSwitchable: true,
             class: 'button-with-icon-full',
           })
         i.sidebar__separator.sidebar__separator-link
@@ -90,21 +92,21 @@ aside.sidebar
             view: 'link',
             icon: 'aside-card-icon',
             title: 'Финансы',
-            switchable: true,
+            isSwitchable: true,
             class: 'button-with-icon-full',
           })
           +button({
             view: 'link',
             icon: 'aside-users-icon',
             title: 'Сотрудники',
-            switchable: true,
+            isSwitchable: true,
             class: 'button-with-icon-full',
           })
           +button({
             view: 'link',
             icon: 'aside-settings-icon',
             title: 'Настройки',
-            switchable: true,
+            isSwitchable: true,
             class: 'button-with-icon-full',
           })
   .sidebar__bottom

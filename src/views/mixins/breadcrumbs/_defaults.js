@@ -5,9 +5,9 @@ module.exports = {
       { title: 'Дочерняя страница', href: '' },
     ],
   },
-  mergeConfig(data) {
+  mergeConfig(data, defaults) {
     return {
-      values: data.values !== undefined && data.values.length > 0 ? data.values : false,
+      values: data.values !== undefined && data.values.length > 0 ? data.values : defaults.values,
     }
   }
 }

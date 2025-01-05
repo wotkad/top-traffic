@@ -2,11 +2,12 @@
   .button {
     &:hover,
     &:active {
-      @apply bg-transparent;
+      @apply bg-transparent text-blue-100;
     }
     svg {
       @apply w-[9px] h-[9px];
     }
+    @apply p-0 border-none w-auto h-auto;
   }
   @apply flex items-center gap-x-1;
 }

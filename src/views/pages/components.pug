@@ -25,7 +25,7 @@ block content
         class: 'button-with-icon',
         icon: 'other-download-icon',
         title: 'Скачать',
-        download: true,
+        isDownload: true,
       })
       +button({
         view: 'button',
@@ -38,7 +38,7 @@ block content
         class: 'button-with-icon',
         icon: 'other-controls-icon',
         title: 'Фильтр',
-        close: true,
+        isClose: true,
       })
       +button({
         view: 'button',
@@ -63,6 +63,7 @@ block content
         view: 'button',
         class: 'button-icon',
         icon: 'other-expand-menu-icon',
+        isOnlyIcon: true,
       })
       +button({
         view: 'link',
@@ -216,16 +217,14 @@ block content
         +input({
           type: 'email',
           placeholder: 'Почта',
-          disabled: false,
-          required: true,
+          idRequired: true,
           name: 'email',
         })
       form(action="#").w-full
         +input({
           type: 'password',
           placeholder: 'Пароль',
-          disabled: false,
-          required: true,
+          idRequired: true,
           name: 'password',
         })
       form(action="#").w-full
@@ -233,17 +232,17 @@ block content
           label: 'Наименование',
           type: 'text',
           placeholder: 'Введите наименование...',
-          disabled: false,
-          required: true,
+          idRequired: true,
+          isLabel: true,
           name: 'name',
         })
       form(action="#").w-full
         +input({
           label: 'Наименование',
+          isLabel: true,
           type: 'text',
           placeholder: 'Введите наименование...',
-          disabled: false,
-          required: true,
+          idRequired: true,
           name: 'name',
           class: 'error',
         })
@@ -269,6 +268,7 @@ block content
         +input({
           type: 'checkbox',
           class: 'input-checkbox-with-label lg',
+          isLabel: true,
           label: 'Запомнить меня',
         })
     .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
@@ -278,6 +278,7 @@ block content
         class: 'button-close',
         icon: 'other-close-icon',
         ariaLabel: 'close',
+        isOnlyIcon: true,
       })
     .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
       h2.text-2xl.font-bold.pb-4.border-b.w-full Боковое меню

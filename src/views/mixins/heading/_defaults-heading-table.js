@@ -2,19 +2,19 @@ module.exports = {
   defaults: {
     title: 'Страница',
     count: '',
-    calendar: false,
-    search: false,
-    rows: false,
     buttons: [],
+    isCalendar: false,
+    isSearch: false,
+    isRows: false,
   },
-  mergeConfig(data) {
+  mergeConfig(data, defaults) {
     return {
-      title: data.title !== undefined ? data.title : '',
-      count: data.count !== undefined ? data.count : '',
-      calendar: data.calendar !== undefined ? data.calendar : false,
-      search: data.search !== undefined ? data.search : false,
-      rows: data.rows !== undefined ? data.rows : '',
-      buttons: data.buttons !== undefined && data.buttons.length > 0 ? data.buttons : false,
+      title: data.title !== undefined ? data.title : defaults.title,
+      count: data.count !== undefined ? data.count : defaults.count,
+      buttons: data.buttons !== undefined && data.buttons.length > 0 ? data.buttons : defaults.buttons,
+      isCalendar: data.isCalendar !== undefined ? data.isCalendar : defaults.isCalendar,
+      isSearch: data.isSearch !== undefined ? data.isSearch : defaults.isSearch,
+      isRows: data.isRows !== undefined ? data.isRows : defaults.isRows,
     }
   }
 }

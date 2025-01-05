@@ -1,0 +1,50 @@
+table.table
+  thead
+    tr 
+      th.border-r.border-black-500
+        .flex.gap-x-2.items-center.text-blue-000
+          p Канал
+          button(type="button")
+            svg
+              use(xlink:href="#other-sort-icon")
+      th
+        p Категория
+      th
+        p.text-right Подписчики
+      th 
+        p Формат
+      th
+        p.text-right охват %
+        span.block.text-right (на пост)
+      th
+        p.text-right охват %
+        span.block.text-right (24 часа)
+      th
+        p.text-center ER %
+      th
+        p.text-center ERR %
+      th
+        p.text-center Аудитория
+        .flex.justify-center(class="gap-x-2.5 mt-[3px]")
+          span.male.inline-block мужчины
+          span.female.inline-block женщины
+  tbody
+    include row
+    include row
+    include row
+    include row
+    include row
+    include row
+    include row
+    include row
+    include row
+    include row
+    include row
+    include row
+    include row
+    include row
+    include row
+    include row
+    include row
+    include row
+    include row

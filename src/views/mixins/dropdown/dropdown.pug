@@ -13,6 +13,7 @@ mixin dropdown(data = {})
               view: 'button',
               class: 'button-icon',
               icon: 'other-angle-down-icon',
+              isOnlyIcon: true,
             })
         .dropdown__button(class=modefied.classButton + modefied.status)
           .dropdown__inner
@@ -23,6 +24,7 @@ mixin dropdown(data = {})
             view: 'button',
             class: 'button-icon',
             icon: 'other-angle-down-icon',
+            isOnlyIcon: true,
           })
         .dropdown__list
           if modefied.links
@@ -46,6 +48,7 @@ mixin dropdown(data = {})
                   name: `checkbox-${modefied.class}`,
                   checked: checkbox.checked,
                   value: checkbox.title,
+                  isLabel: true,
                 })
 
           else if modefied.priority || modefied.status
@@ -70,6 +73,7 @@ mixin dropdown(data = {})
             view: 'button',
             class: 'button-icon',
             icon: 'other-angle-down-icon',
+            isOnlyIcon: true,
           })
         .dropdown__list
           each button in defaults.buttons

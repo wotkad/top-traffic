@@ -31,21 +31,21 @@ block content
             class: 'button-with-icon',
             icon: 'other-download-icon',
             title: 'Скачать',
-            download: true,
+            isDownload: true,
           },
           {
             view: 'button',
             class: 'button-with-icon filter__toggle',
             icon: 'other-controls-icon',
             title: 'Фильтр',
-            close: true,
+            isClose: true,
           },
         ],
       })
       .inner
         .content
           .content-scroll
-            include ../components/table/table-channels
+            include ../components/channels/table
           .mt-12
             include ../components/pagination
-        include ../components/filter/filter-channels
+        include ../components/channels/filter
