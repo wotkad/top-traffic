@@ -16,11 +16,13 @@ header.header
         view: 'link',
         class: 'button-icon',
         icon: 'other-notification-icon',
+        isOnlyIcon: true,
       })
       +button({
         view: 'link',
         class: 'button-icon',
         icon: 'aside-help-icon',
+        isOnlyIcon: true,
       })
       +dropdown({
         icon: {
@@ -30,6 +32,7 @@ header.header
         },
         class: 'dropdown-with-icon header__dropdown',
         label: 'Максим Амбиндер',
+        isLinks: true,
         links: [ 
           { title: 'Настройки', icon: 'other-settings-icon', href: '#' },
           { title: 'Выйти', icon: 'other-logout-icon', href: '#' } 
