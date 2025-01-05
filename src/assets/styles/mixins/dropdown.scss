@@ -117,6 +117,12 @@
     .search {
       @apply px-2;
     }
+    .checkbox {
+      .input-checkbox-with-label {
+        @apply w-full;
+      }
+      @apply w-full;
+    }
     .dropdown__list {
       @apply bg-white-000 px-2 py-3 w-full max-h-[335px];
     }

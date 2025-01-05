@@ -23,7 +23,7 @@ function toggleFilter() {
     $('.filter').each(function () {
       const $filterContainer = $(this);
       const hasCheckedCheckboxes = $filterContainer.find('input[type="checkbox"]:checked').length > 0;
-
+      console.log(hasCheckedCheckboxes)
       if (hasCheckedCheckboxes) {
         $('.filter-clear').show();
       } else {
@@ -34,6 +34,11 @@ function toggleFilter() {
 
   // Отслеживаем изменение состояния чекбоксов
   $('.filter').on('change', 'input[type="checkbox"]', function () {
+    toggleClearButton();
+  });
+
+  $('.dropdown__values').on('click', '.dropdown__value svg', function (e) {
+    e.stopPropagation();
     toggleClearButton();
   });
 

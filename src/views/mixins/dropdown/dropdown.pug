@@ -1,82 +1,67 @@
 mixin dropdown(data = {})
   - const { defaults, mergeConfig } = require('./_defaults');
   - const modefied = mergeConfig(data, defaults);
-  - const hasData = Object.keys(data).some(key => data[key] && data[key].length > 0);
 
-  if hasData 
-    .dropdown(class=modefied.class)
-      .dropdown__container
-        if modefied.checkboxes
-          .dropdown__sort
-            .dropdown__values
+  .dropdown(class=modefied.class)
+    .dropdown__container
+      if modefied.checkboxes
+        .dropdown__sort
+          .dropdown__values
+          +button({
+            view: 'button',
+            class: 'button-icon',
+            icon: 'other-angle-down-icon',
+            isOnlyIcon: true,
+          })
+      .dropdown__button(class=modefied.isStatus ? modefied.color : '' + modefied.classButton)
+        .dropdown__inner
+          if modefied.icon
+            img.dropdown__icon(src=modefied.src, alt=modefied.alt)
+          .dropdown__label= modefied.label
+        +button({
+          view: 'button',
+          class: 'button-icon',
+          icon: 'other-angle-down-icon',
+          isOnlyIcon: true,
+        })
+      .dropdown__list
+        if modefied.isLinks && modefied.links
+          each link in modefied.links
             +button({
-              view: 'button',
-              class: 'button-icon',
-              icon: 'other-angle-down-icon',
-              isOnlyIcon: true,
+              view: 'link',
+              class: 'button-with-icon-full sm',
+              icon: link.icon,
+              title: link.title,
+              href: link.href,
             })
-        .dropdown__button(class=modefied.classButton + modefied.status)
-          .dropdown__inner
-            if modefied.icon
-              img.dropdown__icon(src=modefied.src, alt=modefied.alt)
-            .dropdown__label= modefied.label
-          +button({
-            view: 'button',
-            class: 'button-icon',
-            icon: 'other-angle-down-icon',
-            isOnlyIcon: true,
-          })
-        .dropdown__list
-          if modefied.links
-            each link in modefied.links
-              +button({
-                view: 'link',
-                class: 'button-with-icon-full sm',
-                icon: link.icon,
-                title: link.title,
-                href: link.href,
+            
+        else if modefied.isCheckboxes && modefied.checkboxes
+          +search()
+          .dropdown__items
+            each checkbox, index in modefied.checkboxes
+              +input({
+                type: 'checkbox',
+                class: 'input-checkbox-with-label',
+                label: checkbox.title,
+                name: `checkbox-${modefied.class}`,
+                isChecked: checkbox.isChecked,
+                value: checkbox.title,
+                isLabel: true,
               })
-              
-          else if modefied.checkboxes
-            +search()
-            .dropdown__items
-              each checkbox, index in modefied.checkboxes
-                +input({
-                  type: 'checkbox',
-                  class: 'input-checkbox-with-label',
-                  label: checkbox.title,
-                  name: `checkbox-${modefied.class}`,
-                  checked: checkbox.checked,
-                  value: checkbox.title,
-                  isLabel: true,
-                })
 
-          else if modefied.priority || modefied.status
-            each button, index in modefied.buttons
-              label.dropdown__item
-                input(type="radio" name=`radio-${modefied.class}` data-priority=modefied.priority ? button.priority : false data-status=modefied.status ? button.status : false checked=button.checked)
-                p
-                  span(class=modefied.priority ? button.priority : button.status)= button.title
+        else if modefied.isPriority || modefied.isStatus
+          each button, index in modefied.buttons
+            label.dropdown__item
+              input(
+                type="radio" 
+                name=`radio-${modefied.class}` 
+                data-color=modefied.isPriority || modefied.isStatus ? button.color : false 
+                checked=button.checked)
+              p
+                span(class=modefied.isPriority || modefied.isStatus ? button.color : false)= button.title
 
-          else
-            each button, index in modefied.buttons
-              label.dropdown__item
-                input(type="radio" name=`radio-${modefied.class}` checked=button.checked)
-                p= button.title
-
-  else 
-    .dropdown.dropdown-base(class=defaults.class)
-      .dropdown__container
-        .dropdown__button
-          span.dropdown__label= defaults.label
-          +button({
-            view: 'button',
-            class: 'button-icon',
-            icon: 'other-angle-down-icon',
-            isOnlyIcon: true,
-          })
-        .dropdown__list
-          each button in defaults.buttons
-            label.dropdown__item 
-              input(type="radio" name="radio" checked=button.checked)
+        else
+          each button, index in modefied.buttons
+            label.dropdown__item
+              input(type="radio" name=`radio-${modefied.class}` checked=button.checked)
               p= button.title

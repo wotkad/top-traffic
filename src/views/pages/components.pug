@@ -58,7 +58,7 @@ block content
         class: 'button-with-icon-full',
       })
       +breadcrumbs({ values: [ { title: 'Условия', href: '#' }, { title: 'Конфиденциальность', href: ''} ]})
-      +breadcrumbs()
+      +breadcrumbs
       +button({
         view: 'button',
         class: 'button-icon',
@@ -69,6 +69,7 @@ block content
         view: 'link',
         class: 'button-icon-round',
         icon: 'other-arrow-up-icon',
+        isOnlyIcon: true,
       })
       +button({
         view: 'button',
@@ -121,7 +122,7 @@ block content
     .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
       h2.text-2xl.font-bold.pb-4.border-b.w-full Дропдаун
       .w-full.flex.flex-col.gap-y-4.items-start
-        +dropdown()
+        +dropdown
         +dropdown({
           icon: {
             enabled: true,
@@ -130,26 +131,29 @@ block content
           },
           class: 'dropdown-with-icon',
           label: 'Максим Амбиндер',
+          isLinks: true,
           links: [ 
             { title: 'Настройки', href: '#', icon: 'other-settings-icon' },
             { title: 'Выйти', href: '#', icon: 'other-logout-icon' } 
-          ]
+          ],
         })
         +dropdown({
           class: 'dropdown-status',
           label: 'Активный',
-          status: 'green',
-          priority: false,
+          color: 'green',
+          isStatus: true,
+          isButtons: true,
           buttons: [ 
-            { title: 'Активный', status: 'green', checked: true },
-            { title: 'Неактивный', status: 'gray' },
-            { title: 'Новая РК', status: 'blue' },
-            { title: 'Подбор каналов', status: 'purple' },
-          ]
+            { title: 'Активный', color: 'green', checked: true },
+            { title: 'Неактивный', color: 'gray' },
+            { title: 'Новая РК', color: 'blue' },
+            { title: 'Подбор каналов', color: 'purple' },
+          ],
         })
         +dropdown({
           class: 'dropdown-checkboxes',
           label: 'Выберите фильтр',
+          isCheckboxes: true,
           checkboxes: [
             { title: 'Все' },
             { title: 'Банки' },
@@ -167,31 +171,33 @@ block content
             { title: 'Автомобили' },
             { title: 'Автомобили' },
             { title: 'Автомобили' },
-          ]
+          ],
         })
         +dropdown({
           class: 'dropdown-priority',
           label: '––',
-          status: '',
-          priority: true,
+          isPriority: true,
+          isButtons: true,
           buttons: [ 
-            { title: 'Очень высокий', priority: 'red' },
-            { title: 'Высокий', priority: 'pink' },
-            { title: 'Средний', priority: 'orange' },
-            { title: 'Низкий', priority: 'peach' },
-            { title: 'Очень низкий', priority: 'yellow' },
-          ]
+            { title: 'Очень высокий', color: 'red' },
+            { title: 'Высокий', color: 'pink' },
+            { title: 'Средний', color: 'orange' },
+            { title: 'Низкий', color: 'peach' },
+            { title: 'Очень низкий', color: 'yellow' },
+          ],
         })
     .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
       h2.text-2xl.font-bold.pb-4.border-b.w-full Типографика (Inter)
       .text-30-m-p 30, Medium, 120% LH
-      .text-24-sb 24, Semi Bold, 124% LH
-      .text-18-sb 18, Semi Bold, 24 LH
-      .text-14-m-md 14, Semi Bold, 20 LH
+      .text-24-sb 24, Semibold, 30 LH
+      .text-18-sb 18, Semibold, 24 LH
+      .text-14-m-md 14, Medium, 20 LH
+      .text-14-sb 14, Semibold, 18 LH
       .text-14-m 14, Medium, 18 LH
+      .text-14-r 14, Regular, 18 LH
       .text-14-m-p 14, Medium, 120% LH
-      .text-12-sb-p 12, Semi Bold, 120% LH
-      .text-12-sb 12, Semi Bold, 16 LH
+      .text-12-sb-p 12, Semibold, 120% LH
+      .text-12-sb 12, Semibold, 16 LH
       .text-12-m-md 12, Medium, 18 LH
       .text-12-r-md 12, Regular, 18 LH
       .text-12-m 12, Medium, 16 LH
@@ -200,14 +206,14 @@ block content
       .text-12-r-p 12, Regular, 120% LH
       .text-10-m 10, Medium, 14 LH
       .text-10-r 10, Regular, 14 LH
-      .text-10-r-sm 10, Regular, 14 LH
+      .text-10-r-sm 10, Regular, 12 LH
       .text-10-r-p 10, Regular, 120% LH
     .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
       h2.text-2xl.font-bold.pb-4.border-b.w-full Логотип
       include ../components/logo
     .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
       h2.text-2xl.font-bold.pb-4.border-b.w-full Поиск
-      +search()
+      +search
       +search({
         class: 'transparent',
       })
@@ -256,20 +262,24 @@ block content
       form(action="#").w-full.flex.gap-x-4.items-center
         +input({
           type: 'checkbox',
+          value: 'Запомнить меня',
         })
         +input({
           type: 'checkbox',
           checked: true,
+          value: 'Запомнить меня',
         })
         +input({
           type: 'checkbox',
-          class: 'lg'
+          class: 'lg',
+          value: 'Запомнить меня',
         })
         +input({
           type: 'checkbox',
           class: 'input-checkbox-with-label lg',
           isLabel: true,
           label: 'Запомнить меня',
+          value: 'Запомнить меня',
         })
     .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
       h2.text-2xl.font-bold.pb-4.border-b.w-full Кнопка закрытия

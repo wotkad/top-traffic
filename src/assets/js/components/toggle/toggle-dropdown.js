@@ -14,24 +14,17 @@ function toggleDropdown() {
 
   $('.dropdown__item input[type="radio"]').on('change', function () {
     const selectedValue = $(this).siblings('p').text();
-    const selectedStatus = $(this).data('status') || '';
-    const selectedPriority = $(this).data('priority') || '';
+    const selectedColor = $(this).data('color') || '';
 
     const $button = $(this).closest('.dropdown__container').find('.dropdown__button');
     const $label = $(this).closest('.dropdown__container').find('.dropdown__button').find('.dropdown__label');
 
     $label.text(selectedValue);
 
-    if (selectedStatus) {
-      $button.attr('class', `dropdown__button ${selectedStatus}`);
+    if (selectedColor) {
+      $button.attr('class', `dropdown__button ${selectedColor}`);
     } else {
       $button.attr('class', 'dropdown__button');
-    }
-
-    if (selectedPriority) {
-      $label.attr('class', `dropdown__label ${selectedPriority}`).addClass('selected');
-    } else {
-      $label.attr('class', 'dropdown__label');
     }
 
     $(this).closest('.dropdown__list').removeClass('active');
@@ -142,6 +135,7 @@ function toggleDropdown() {
     if ($valuesContainer.children().length === 0) {
       $sortBlock.hide().removeClass('active');
       $buttonBlock.show();
+      $('.dropdown__button').removeClass('active');
     }
   });
 
