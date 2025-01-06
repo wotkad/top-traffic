@@ -118,7 +118,7 @@
         @apply inline-flex items-start;
       }
       &__list {
-        @apply right-0;
+        @apply right-0 w-auto;
       }
       @apply inline-block w-auto;
     }
