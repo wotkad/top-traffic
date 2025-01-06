@@ -15,8 +15,8 @@ mixin dropdown(data = {})
           })
       .dropdown__button(class=modefied.isStatus ? modefied.color : '' + modefied.classButton)
         .dropdown__inner
-          if modefied.icon
-            img.dropdown__icon(src=modefied.src, alt=modefied.alt)
+          if modefied.image
+            img.dropdown__image(src=modefied.src, alt=modefied.alt)
           .dropdown__label= modefied.label
         +button({
           view: 'button',
@@ -36,7 +36,7 @@ mixin dropdown(data = {})
             })
             
         else if modefied.isCheckboxes && modefied.checkboxes
-          +search()
+          +search
           .dropdown__items
             each checkbox, index in modefied.checkboxes
               +input({
@@ -47,6 +47,8 @@ mixin dropdown(data = {})
                 isChecked: checkbox.isChecked,
                 value: checkbox.title,
                 isLabel: true,
+                image: checkbox.image,
+                telegram: checkbox.telegram,
               })
 
         else if modefied.isPriority || modefied.isStatus

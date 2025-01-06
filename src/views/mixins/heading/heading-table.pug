@@ -19,7 +19,9 @@ mixin heading-table(data = {})
               isCalendar: true,
             })
           if modefied.isSearch
-            +search()
+            +search({
+              isForm: true
+            })
         .heading__right
           each button in modefied.buttons
             +button({

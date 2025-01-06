@@ -86,7 +86,6 @@ function toggleDropdown() {
       if (this.checked) {
         $sortBlock.css('display', 'flex').addClass('active');
         $buttonBlock.hide();
-        console.log($dropdown);
 
         let id = $(this).attr('id') || `checkbox-${Math.random().toString(36).substr(2, 9)}`;
         $(this).attr('id', id);

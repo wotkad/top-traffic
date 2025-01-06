@@ -49,7 +49,22 @@
       }
     }
     &-with-label {
-      @apply flex items-center gap-x-1.5;
+      @apply flex items-center gap-x-2.5;
+    }
+    &-with-icon {
+      img {
+        @apply ml-[6px] rounded-full max-w-[18px] max-h-[18px] object-cover;
+      }
+      a {
+        &:hover {
+          @apply text-blue-000;
+        }
+        &:active {
+          @apply text-blue-050;
+        }
+        @apply inline-block text-10-r text-black-200 transition-all duration-300;
+      }
+      @apply flex items-center gap-x-1;
     }
     &.lg {
       span {

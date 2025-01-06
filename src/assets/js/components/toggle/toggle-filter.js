@@ -23,7 +23,6 @@ function toggleFilter() {
     $('.filter').each(function () {
       const $filterContainer = $(this);
       const hasCheckedCheckboxes = $filterContainer.find('input[type="checkbox"]:checked').length > 0;
-      console.log(hasCheckedCheckboxes)
       if (hasCheckedCheckboxes) {
         $('.filter-clear').show();
       } else {

@@ -4,10 +4,10 @@ module.exports = {
     class: 'dropdown-base',
     classButton: '',
     color: 'green',
-    icon: {
+    image: {
       enabled: false,
-      src: '/assets/images/user-icon.png',
-      alt: 'icon',
+      src: '/assets/images/user-image.png',
+      alt: 'image',
     },
     buttons: [
       { title: '1/24', checked: true },
@@ -47,9 +47,9 @@ module.exports = {
       class: data.class !== undefined ? data.class : defaults.class,
       classButton: data.classButton !== undefined ? data.classButton : defaults.classButton,
       color: data.color !== undefined ? data.color : defaults.color,
-      icon: data.icon !== undefined ? data.icon.enabled : defaults.icon.enabled,
-      src: data.icon !== undefined ? data.icon.src : defaults.src,
-      alt: data.icon !== undefined ? data.icon.alt : defaults.alt,
+      image: data.image !== undefined ? data.image.enabled : defaults.image.enabled,
+      src: data.image !== undefined ? data.image.src : defaults.image.src,
+      alt: data.image !== undefined ? data.image.alt : defaults.image.alt,
       buttons: data.buttons !== undefined && data.buttons.length > 0 ? data.buttons : defaults.buttons,
       links: data.links !== undefined && data.links.length > 0 ? data.links : defaults.links,
       checkboxes: data.checkboxes !== undefined && data.checkboxes.length > 0 ? data.checkboxes : defaults.checkboxes,

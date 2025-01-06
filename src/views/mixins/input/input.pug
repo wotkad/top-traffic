@@ -25,11 +25,15 @@ mixin input(data = {})
 
   else if modefied.type == 'checkbox'
     .checkbox
-      label(class="input-checkbox " + modefied.class)
+      label(class=modefied.image ? "input-checkbox input-checkbox-with-icon " + modefied.class : "input-checkbox " + modefied.class)
         input(type="checkbox" name="checkbox" checked=modefied.isChecked value=modefied.value)
         span
+        if modefied.image
+          img(src="" + modefied.src, alt="" + modefied.alt)
         if modefied.isLabel
           p= modefied.label
+        if modefied.telegram
+          a(href="https://t.me/" + modefied.telegram) #{"@" + modefied.telegram}
       if modefied.icon
         +button({
           view: 'button',
