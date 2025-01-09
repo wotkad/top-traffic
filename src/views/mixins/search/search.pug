@@ -5,12 +5,12 @@ mixin search(data = {})
   if modefied.isForm
     form(action="#").search
       label.search__label
-        input(class="search__input " + modefied.class required type="search" autocomplete="on" placeholder="Поиск" name="search")
+        input(class="search__input " + modefied.class required type="search" autocomplete="on" placeholder="Поиск..." name="search")
         svg
           use(xlink:href="#other-search-icon")
   else 
     .search
       label.search__label
-        input(class="search__input " + modefied.class type="search" autocomplete="on" placeholder="Поиск" name="search")
+        input(class="search__input " + modefied.class type="search" autocomplete="on" placeholder="Поиск..." name="search")
         svg
           use(xlink:href="#other-search-icon")
