@@ -79,6 +79,15 @@
     @apply px-6 border-b border-black-500 h-11 text-left;
   }
   td {
+    a {
+      &:hover {
+        @apply text-blue-000;
+      }
+      &:active {
+        @apply text-blue-050;
+      }
+      @apply transition-all duration-300;
+    }
     span {
       &.male,
       &.female {
