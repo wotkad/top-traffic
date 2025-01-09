@@ -3,6 +3,10 @@ mixin dropdown(data = {})
   - const modefied = mergeConfig(data, defaults);
 
   .dropdown(class=modefied.class)
+    if modefied.label
+      .dropdown__label !{modefied.label}
+        if modefied.isRequired 
+          sup *
     .dropdown__container
       if modefied.checkboxes
         .dropdown__sort
@@ -17,7 +21,7 @@ mixin dropdown(data = {})
         .dropdown__inner
           if modefied.image
             img.dropdown__image(src=modefied.src, alt=modefied.alt)
-          .dropdown__label= modefied.label
+          .dropdown__title= modefied.title
         +button({
           view: 'button',
           class: 'button-icon',

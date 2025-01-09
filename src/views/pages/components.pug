@@ -132,7 +132,7 @@ block content
             alt: 'icon',
           },
           class: 'dropdown-with-icon',
-          label: 'Максим Амбиндер',
+          title: 'Максим Амбиндер',
           isLinks: true,
           links: [ 
             { title: 'Настройки', href: '#', icon: 'other-settings-icon' },
@@ -141,7 +141,7 @@ block content
         })
         +dropdown({
           class: 'dropdown-status',
-          label: 'Активный',
+          title: 'Активный',
           color: 'green',
           isStatus: true,
           isButtons: true,
@@ -154,7 +154,7 @@ block content
         })
         +dropdown({
           class: 'dropdown-checkboxes',
-          label: 'Выберите фильтр',
+          title: 'Выберите фильтр',
           isCheckboxes: true,
           checkboxes: [
             { title: 'Все' },
@@ -177,7 +177,8 @@ block content
         })
         +dropdown({
           class: 'dropdown-priority',
-          label: '––',
+          title: '––',
+          color: '',
           isPriority: true,
           isButtons: true,
           buttons: [ 
@@ -225,14 +226,14 @@ block content
         +input({
           type: 'email',
           placeholder: 'Почта',
-          idRequired: true,
+          isRequired: true,
           name: 'email',
         })
       form(action="#").w-full
         +input({
           type: 'password',
           placeholder: 'Пароль',
-          idRequired: true,
+          isRequired: true,
           name: 'password',
         })
       form(action="#").w-full
@@ -240,7 +241,7 @@ block content
           label: 'Наименование',
           type: 'text',
           placeholder: 'Введите наименование...',
-          idRequired: true,
+          isRequired: true,
           isLabel: true,
           name: 'name',
         })
@@ -250,7 +251,7 @@ block content
           isLabel: true,
           type: 'text',
           placeholder: 'Введите наименование...',
-          idRequired: true,
+          isRequired: true,
           name: 'name',
           class: 'error',
         })

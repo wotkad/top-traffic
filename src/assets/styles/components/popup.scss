@@ -1,0 +1,29 @@
+.popup {
+  &[data-popup-name] {
+    .popup__wrapper {
+      @apply w-full max-w-[616px];
+    }
+  }
+  &__bg {
+    @apply z-[100] fixed inset-0 bg-black-100 bg-opacity-25 cursor-pointer;
+  }
+  &__wrapper {
+    @apply relative z-[200] bg-white-000 px-8 pt-8 pb-10 rounded-[10px];
+  }
+  &__title {
+    @apply text-24-sb;
+  }
+  &__form {
+    &-two-cols {
+      @apply gap-x-7 gap-y-4 grid-cols-2;
+    }
+    @apply grid mt-8;
+  }
+  &__col {
+    @apply flex flex-col gap-y-4;
+  }
+  &__buttons {
+    @apply flex items-center gap-x-[6px] mt-8;
+  }
+  @apply z-[200] fixed inset-0 flex justify-center items-start py-[134px] overflow-y-auto;
+}

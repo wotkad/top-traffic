@@ -29,6 +29,14 @@ a {
   @apply rounded-none touch-manipulation font-normal font-sans text-black-100 outline-none;
 }
 
+input,
+textarea,
+select {
+  &::placeholder {
+    @apply opacity-100 text-black-200;
+  }
+}
+
 html,
 body {
   @apply font-sans text-black-100;

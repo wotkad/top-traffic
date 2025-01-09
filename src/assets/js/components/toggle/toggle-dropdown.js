@@ -7,6 +7,7 @@ function toggleDropdown() {
     // Переключение активного состояния только для текущего dropdown
     $('.dropdown__list').not($list).removeClass('active');
     $('.dropdown__button').not(this).removeClass('active');
+    $('.dropdown__sort').removeClass('active');
 
     $(this).toggleClass('active');
     $list.toggleClass('active');
@@ -16,19 +17,31 @@ function toggleDropdown() {
     const selectedValue = $(this).siblings('p').text();
     const selectedColor = $(this).data('color') || '';
 
-    const $button = $(this).closest('.dropdown__container').find('.dropdown__button');
-    const $label = $(this).closest('.dropdown__container').find('.dropdown__button').find('.dropdown__label');
+    const buttonStatus = $(this).closest('.dropdown-status .dropdown__container').find('.dropdown__button');
+    const titleStatus = $(this).closest('.dropdown-status .dropdown__container').find('.dropdown__button').find('.dropdown__title');
 
-    $label.text(selectedValue);
+    titleStatus.text(selectedValue);
 
     if (selectedColor) {
-      $button.attr('class', `dropdown__button ${selectedColor}`);
+      buttonStatus.attr('class', `dropdown__button ${selectedColor} selected`);
     } else {
-      $button.attr('class', 'dropdown__button');
+      buttonStatus.attr('class', 'dropdown__button');
+    }
+
+    const buttonPriority = $(this).closest('.dropdown-priority .dropdown__container').find('.dropdown__inner');
+    const titlePriority = $(this).closest('.dropdown-priority .dropdown__container').find('.dropdown__inner').find('.dropdown__title');
+
+    titlePriority.text(selectedValue);
+
+    if (selectedColor) {
+      buttonPriority.attr('class', `dropdown__inner ${selectedColor} selected`);
+    } else {
+      buttonPriority.attr('class', 'dropdown__inner');
     }
 
     $(this).closest('.dropdown__list').removeClass('active');
-    $button.removeClass('active');
+    buttonStatus.removeClass('active');
+    buttonPriority.removeClass('active');
   });
 
   $(document).on('click', function (e) {
@@ -147,6 +160,7 @@ function toggleDropdown() {
     // Закрыть все остальные списки и снять active
     $('.dropdown__list').not($dropdownList).removeClass('active');
     $('.dropdown__sort').not(this).removeClass('active');
+    $('.dropdown__button').removeClass('active');
 
     // Переключить текущий
     $(this).toggleClass('active');

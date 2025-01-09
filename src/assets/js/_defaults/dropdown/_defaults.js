@@ -1,6 +1,7 @@
 module.exports = {
   defaults: {
-    label: 'Выберите фильтр',
+    title: 'Выберите фильтр',
+    label: '',
     class: 'dropdown-base',
     classButton: '',
     color: 'green',
@@ -40,9 +41,11 @@ module.exports = {
     isCheckboxes: false,
     isButtons: false,
     isLinks: false,
+    isRequired: false,
   },
   mergeConfig(data, defaults) {
     return {
+      title: data.title !== undefined ? data.title : defaults.title,
       label: data.label !== undefined ? data.label : defaults.label,
       class: data.class !== undefined ? data.class : defaults.class,
       classButton: data.classButton !== undefined ? data.classButton : defaults.classButton,
@@ -58,6 +61,7 @@ module.exports = {
       isCheckboxes: data.isCheckboxes !== undefined ? data.isCheckboxes : defaults.isCheckboxes,
       isButtons: data.isButtons !== undefined ? data.isButtons : defaults.isButtons,
       isLinks: data.isLinks !== undefined ? data.isLinks : defaults.isLinks,
+      isRequired: data.isRequired !== undefined ? data.isRequired : defaults.isRequired,
     }
   }
 }

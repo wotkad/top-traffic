@@ -9,7 +9,7 @@
       }
       @apply flex items-center;
     }
-    @apply relative flex flex-col items-end gap-y-1;
+    @apply relative flex flex-col items-end gap-y-1 w-full;
   }
   &__button {
     .button {
@@ -32,10 +32,13 @@
     @apply flex justify-between items-center gap-x-1 w-full cursor-pointer;
   }
   &__inner {
+    &.selected {
+      @apply inline-flex relative items-center px-2 py-[2px] rounded-[30px];
+    }
     @apply flex items-center gap-x-1;
   }
-  &__label {
-    @apply text-12-m;
+  &__title {
+    @apply text-12-r;
   }
   &__list {
     &.active {
@@ -60,7 +63,7 @@
         }
         @apply inline-flex relative items-center py-[2px] pr-2 pl-5 rounded-[30px];
       }
-      @apply block bg-[calc(100%-8px)_center] bg-no-repeat py-[2px] pr-6 pl-2 rounded-[4px] w-full text-12-m-md transition-all duration-300 cursor-pointer;
+      @apply block bg-[calc(100%-12px)_center] bg-no-repeat py-[2px] pr-6 pl-2 rounded-[4px] w-full text-12-m-md transition-all duration-300 cursor-pointer;
     }
   }
   &__image {
@@ -68,6 +71,10 @@
   }
   &__sort {
     .button {
+      &:hover,
+      &:active {
+        @apply bg-transparent;
+      }
       @apply top-3 right-[19px] absolute p-0 w-2.5 h-[6px] transition-all duration-300;
     }
     &.active {
@@ -87,6 +94,12 @@
     }
     @apply flex items-center gap-x-2 bg-black-700 px-[6px] py-px line-clamp-1 border border-black-500 rounded-[3px] text-12-m whitespace-nowrap;
   }
+  &__label {
+    sup {
+      @apply ml-px text-red-100;
+    }
+    @apply text-14-m-p;
+  }
   &__items {
     p {
       @apply text-12-m-md;
@@ -103,7 +116,7 @@
     @apply flex flex-col gap-y-[2px] mt-1 max-h-[276px] overflow-y-auto;
   }
   &-base {
-    .dropdown__label {
+    .dropdown__title {
       @apply text-12-r-p;
     }
   }
@@ -120,7 +133,7 @@
     .checkbox {
       @apply w-full;
     }
-    .dropdown__label {
+    .dropdown__title {
       @apply text-black-200;
     }
     .dropdown__list {
@@ -133,6 +146,9 @@
         @apply right-[5px];
       }
       @apply gap-x-1 pr-6;
+    }
+    .dropdown__title {
+      @apply text-12-m;
     }
     .dropdown__list {
       @apply top-[calc(100%-2px)] max-w-[145px];
@@ -156,15 +172,8 @@
       }
       @apply px-3 py-[7px] pr-5 border border-black-500 rounded-md w-full;
     }
-    .dropdown__label {
-      &.selected {
-        @apply pl-2.5;
-      }
-      @apply py-[2px] pr-2.5 pl-0 rounded-[30px];
-    }
-      
     .dropdown__list {
-      @apply py-[9px] max-h-[none];
+      @apply py-[9px] w-min min-w-[186px] max-h-[none];
     }
     .dropdown__item {
       p {
@@ -176,23 +185,41 @@
     }
   }
   .red {
+    .dropdown__title {
+      @apply font-medium;
+    }
     @apply bg-red-200;
   }
   .pink {
+    .dropdown__title {
+      @apply font-medium;
+    }
     @apply bg-pink-000;
   }
   .orange {
+    .dropdown__title {
+      @apply font-medium;
+    }
     @apply bg-orange-000;
   }
   .peach {
+    .dropdown__title {
+      @apply font-medium;
+    }
     @apply bg-peach-000;
   }
   .yellow {
+    .dropdown__title {
+      @apply font-medium;
+    }
     @apply bg-yellow-000;
   }
   .green {
     &:before {
       @apply bg-green-000;
+    }
+    .dropdown__title {
+      @apply font-medium;
     }
     @apply bg-green-000 bg-opacity-30 text-green-000;
   }
@@ -200,11 +227,17 @@
     &:before {
       @apply bg-black-200;
     }
+    .dropdown__title {
+      @apply font-medium;
+    }
     @apply bg-black-200 bg-opacity-30 text-black-200;
   }
   .blue {
     &:before {
       @apply bg-blue-200;
+    }
+    .dropdown__title {
+      @apply font-medium;
     }
     @apply bg-blue-200 bg-opacity-30 text-blue-200;
   }
@@ -212,7 +245,10 @@
     &:before {
       @apply bg-purple-050;
     }
+    .dropdown__title {
+      @apply font-medium;
+    }
     @apply bg-purple-050 bg-opacity-30 text-purple-050;
   }
-  @apply w-full;
+  @apply flex flex-col items-start gap-y-2 w-full;
 }
