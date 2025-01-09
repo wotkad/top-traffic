@@ -1,5 +1,5 @@
 mixin input(data = {})
-  - const { defaults, mergeConfig } = require('./_defaults');
+  - const { defaults, mergeConfig } = require('/assets/js/_defaults/input/_defaults');
   - const modefied = mergeConfig(data, defaults);
 
   if modefied.isLabel && modefied.type !== 'checkbox'

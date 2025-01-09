@@ -57,7 +57,7 @@ function toggleFilter() {
     // Сбрасываем состояние кнопок
     $filterContainer.find('.dropdown__sort').hide().removeClass('active');
     $filterContainer.find('.dropdown__button').show().removeClass('active');
-    $filterContainer.find('.dropdown__label').removeClass('selected').text('Выберите фильтр');
+    $filterContainer.find('.dropdown__label').removeClass('selected');
 
     // Скрываем кнопку .filter-clear
     $('.filter-clear').hide();

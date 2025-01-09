@@ -63,13 +63,13 @@ label {
   }
   scrollbar-width: thin;
   scrollbar-color: dark;
-  &::-webkit-scrollbar {
+  ::-webkit-scrollbar {
     @apply w-full h-[7px];
   }
-  &::-webkit-scrollbar-track {
+  ::-webkit-scrollbar-track {
     @apply bg-transparent;
   }
-  &::-webkit-scrollbar-thumb {
+  ::-webkit-scrollbar-thumb {
     @apply bg-black-300 border border-black-300 rounded-md;
   }
   &-scroll {

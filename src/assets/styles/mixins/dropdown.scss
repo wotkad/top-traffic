@@ -120,6 +120,9 @@
     .checkbox {
       @apply w-full;
     }
+    .dropdown__label {
+      @apply text-black-200;
+    }
     .dropdown__list {
       @apply gap-y-0 bg-white-000 px-2 py-3 w-full max-h-[335px];
     }

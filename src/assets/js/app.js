@@ -27,3 +27,4 @@ import "./components/toggle/toggle-filter";
 import "./components/toggle/toggle-channels";
 
 import "./components/scroll/scroll-to-top";
+import "./components/scroll/scroll-filter";

@@ -1,5 +1,5 @@
 mixin dropdown(data = {})
-  - const { defaults, mergeConfig } = require('./_defaults');
+  - const { defaults, mergeConfig } = require('/assets/js/_defaults/dropdown/_defaults');
   - const modefied = mergeConfig(data, defaults);
 
   .dropdown(class=modefied.class)
