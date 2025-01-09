@@ -1,6 +1,8 @@
 function getHeaderHeight() {
-  let height = $('.header').outerHeight();
-  document.documentElement.style.setProperty('--header-height', `${height}px`);
+  if ($('.header').length > 0) {
+    let height = $('.header').outerHeight();
+    document.documentElement.style.setProperty('--header-height', `${height}px`);
+  }
 }
 getHeaderHeight();
 
