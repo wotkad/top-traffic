@@ -1,4 +1,7 @@
 .table {
+  thead {
+    @apply bg-black-700;
+  }
   &-first-td {
     a {
       svg {
@@ -115,11 +118,11 @@
         @apply font-normal;
       }
       &__button {
-        .button {
+        .button-icon {
           svg {
             @apply w-2 h-1;
           }
-          @apply relative;
+          @apply relative w-4 h-3;
         }
         @apply w-auto;
       }

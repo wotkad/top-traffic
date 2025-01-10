@@ -36,7 +36,7 @@
   }
   &:before,
   &:after {
-    @apply z-10 absolute content-[''] from-white-000 opacity-0 w-full h-[75px] transition-all duration-300;
+    @apply -z-[1] z-10 absolute content-[''] from-white-000 opacity-0 rounded-[10px] w-full h-[75px] transition-all duration-300 invisible;
   }
   &:before {
     @apply top-0 bg-gradient-to-b to-transparent;
@@ -46,13 +46,13 @@
   }
   &.visible-top {
     &:before {
-      @apply opacity-100;
+      @apply z-10 opacity-100 visible;
     }
   }
   &.visible-bottom {
     &:after {
-      @apply opacity-100;
+      @apply z-10 opacity-100 visible;
     }
   }
-  @apply -right-[280px] absolute bg-white-000 border border-black-500 rounded-[10px] min-w-[280px] max-w-[280px] overflow-hidden;
+  @apply -right-[280px] absolute border border-black-500 rounded-[10px] min-w-[280px] max-w-[280px];
 }

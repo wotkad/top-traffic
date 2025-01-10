@@ -23,7 +23,7 @@
     @apply flex flex-col gap-y-4;
   }
   &__buttons {
-    @apply flex items-center gap-x-[6px] mt-8;
+    @apply flex justify-end items-center gap-x-[6px] mt-8;
   }
   &.active {
     @apply z-[200] opacity-100 visible;

@@ -6,7 +6,7 @@ function formLogin() {
     let passwordField = form.find('input[name="password"]');
     let isEmailEmpty = emailField.val().trim() === '';
     let isPasswordEmpty = passwordField.val().trim() === '';
-    let button = form.find('button');
+    let button = form.find('button[type="submit"]');
     if (hasError || isEmailEmpty || isPasswordEmpty) {
       button.attr('disabled', 'disabled');
     } else {

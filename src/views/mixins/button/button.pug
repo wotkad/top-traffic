@@ -10,11 +10,14 @@ mixin button(data = {})
       aria-label=modefied.ariaLabel
       data-popup-name=modefied.dataPopupName
     )
-      if modefied.icon
+      if modefied.icon && modefied.iconPos == 'before'
         svg
           use(xlink:href="#" + modefied.icon)
       if modefied.title && !modefied.isOnlyIcon
         span(class=modefied.isSwitchable ? 'narrowed' : '')= modefied.title
+      if modefied.icon && modefied.iconPos == 'after'
+        svg
+          use(xlink:href="#" + modefied.icon)
       if modefied.isClose
         svg.button-clear.filter-clear
           use(xlink:href="#other-close-icon")

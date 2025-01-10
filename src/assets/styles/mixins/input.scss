@@ -140,11 +140,6 @@
     @apply left-3 absolute text-12-r text-black-200 transition-all duration-300 pointer-events-none;
   }
   &__toggle {
-    svg {
-      path {
-        @apply transition-all duration-300;
-      }
-    }
     &.filled {
       .input__eye {
         &-hide {
@@ -159,7 +154,10 @@
     &-hide {
       @apply block;
     }
-    @apply hidden;
+    &:hover {
+      @apply text-black-025;
+    }
+    @apply hidden text-black-200 transition-all duration-300;
   }
   @apply relative flex items-center w-full;
 }

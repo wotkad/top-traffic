@@ -98,3 +98,15 @@ label {
     scroll-behavior: auto !important;
   }
 }
+
+.components {
+  .header,
+  .sidebar {
+    @apply static w-full;
+  }
+  .header {
+    &.active {
+      @apply w-full;
+    }
+  }
+}

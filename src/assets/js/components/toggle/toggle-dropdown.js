@@ -3,6 +3,30 @@ function toggleDropdown() {
     e.stopPropagation(); // Остановить всплытие, чтобы не срабатывало событие document
     const $dropdown = $(this).closest('.dropdown');
     const $list = $dropdown.find('.dropdown__list');
+    
+    // Проверяем, что .dropdown__list находится внутри .filter__container
+    if ($dropdown.closest('.filter__container').length) {
+      const $container = $dropdown.closest('.filter__container'); // Родительский контейнер .filter__container
+
+      // Вычисляем нижнюю позицию кнопки (top) и левую позицию (left) относительно .filter__container
+      const buttonOffset = $(this).offset();
+      const containerOffset = $container.offset();
+
+      const buttonHeight = $(this).outerHeight();
+      const buttonWidth = $(this).outerWidth();
+
+      // Вычисляем top и left с учетом padding
+      const dropdownTop = buttonOffset.top - containerOffset.top + buttonHeight;
+      const dropdownLeft = buttonOffset.left - containerOffset.left;
+
+      // Устанавливаем top и left для .dropdown__list
+      $list.css({
+        top: `${dropdownTop + 4}px`,
+        left: `${dropdownLeft}px`,
+        maxWidth: `${buttonWidth}px`,
+        position: 'fixed',
+      });
+    }
 
     // Переключение активного состояния только для текущего dropdown
     $('.dropdown__list').not($list).removeClass('active');

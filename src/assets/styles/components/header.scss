@@ -6,15 +6,27 @@
     .narrowed {
       @apply flex;
     }
+    .header__search {
+      @apply ml-2;
+    }
     @apply left-[59px] w-[calc(100%-59px)];
   }
   &__wrapper {
     @apply flex justify-between items-center pr-6 w-full;
   }
   &__search {
-    @apply flex items-center ml-4 w-full max-w-[243px];
+    .sidebar__toggle.active {
+      @apply mr-[9px];
+    }
+    @apply flex items-center ml-7 w-full max-w-[243px];
   }
   &__controls {
+    & > .button-icon {
+      svg {
+        @apply w-[18px] h-[18px];
+      }
+      @apply w-auto h-auto;
+    }
     @apply flex items-center gap-x-[2px];
   }
   &__dropdown {

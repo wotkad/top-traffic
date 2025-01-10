@@ -85,8 +85,10 @@
         @apply rotate-180;
       }
     }
-    svg {
-      @apply transition-all duration-300;
+    .button-icon {
+      svg {
+        @apply transition-all duration-300;
+      }
     }
     @apply flex items-center gap-x-1 cursor-pointer;
   }

@@ -13,21 +13,10 @@
   }
   &__button {
     .button {
-      &:hover {
-        @apply bg-transparent;
-      }
-      &:active {
-        @apply bg-transparent;
-      }
-      @apply right-0 absolute p-0 w-2.5 h-[6px];
-    }
-    svg {
-      @apply transition-all duration-300;
-    }
-    &.active {
       svg {
-        @apply rotate-180;
+        @apply w-2.5 h-[5px] transition-all duration-300;
       }
+      @apply right-0 absolute;
     }
     @apply flex justify-between items-center gap-x-1 w-full cursor-pointer;
   }
@@ -44,7 +33,7 @@
     &.active {
       @apply z-50 opacity-100 visible;
     }
-    @apply top-[calc(100%+4px)] -z-10 absolute flex flex-col gap-y-[2px] bg-white-000 opacity-0 p-1 border border-black-500 rounded-md w-full min-w-[100px] max-h-[104px] transition-[opacity,z-index,visibility] duration-300 invisible overflow-y-auto;
+    @apply top-[calc(100%+4px)] -z-10 absolute flex flex-col gap-y-[2px] bg-white-000 opacity-0 p-1 border border-black-500 rounded-md w-full min-w-[100px] h-auto max-h-[104px] invisible overflow-y-auto;
   }
   &__item {
     input {
@@ -71,16 +60,12 @@
   }
   &__sort {
     .button {
-      &:hover,
-      &:active {
-        @apply bg-transparent;
+      svg {
+        @apply w-2.5 h-[5px];
       }
-      @apply top-3 right-[19px] absolute p-0 w-2.5 h-[6px] transition-all duration-300;
+      @apply top-[7px] right-[11px] absolute p-0 transition-all duration-300;
     }
     &.active {
-      .button {
-        @apply rotate-180;
-      }
       @apply flex;
     }
     @apply relative hidden p-[5px] pr-10 border border-black-500 rounded-md w-full cursor-pointer;
@@ -90,7 +75,12 @@
   }
   &__value {
     svg {
-      @apply cursor-pointer;
+      &:hover,
+      &:active {
+        @apply text-black-100;
+
+      }
+      @apply w-[7px] h-[7px] text-black-200 transition-all duration-300 cursor-pointer;
     }
     @apply flex items-center gap-x-2 bg-black-700 px-[6px] py-px line-clamp-1 border border-black-500 rounded-[3px] text-12-m whitespace-nowrap;
   }
@@ -123,7 +113,7 @@
   &-checkboxes {
     .dropdown__button {
       .button {
-        @apply right-5;
+        @apply right-3;
       }
       @apply px-3 py-[7px] border border-black-500 rounded-md w-full;
     }
@@ -142,15 +132,17 @@
   }
   &-with-icon {
     .dropdown__button {
-      .button {
-        @apply right-[5px];
-      }
       @apply gap-x-1 pr-6;
     }
     .dropdown__title {
       @apply text-12-m;
     }
     .dropdown__list {
+      .button {
+        &:active {
+          @apply text-black-100;
+        }
+      }
       @apply top-[calc(100%-2px)] max-w-[145px];
     }
   }

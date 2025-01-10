@@ -3,7 +3,7 @@
     @apply p-11 bg-cover bg-no-repeat bg-center bg-[url(/assets/images/login-bg.png)] h-dvh w-full;
   }
   &__container {
-    @apply max-lg:z-10 max-lg:absolute flex justify-center items-center max-lg:bg-white-000 max-lg:mx-2 max-lg:p-4 max-lg:rounded-md;
+    @apply max-xl:z-10 max-xl:absolute flex justify-center items-center max-xl:bg-white-000 max-xl:mx-2 max-xl:p-4 max-xl:rounded-md;
   }
   &__form {
     @apply mx-auto w-full max-w-[376px];
@@ -23,13 +23,18 @@
     }
   }
   &__remember {
+    .input-checkbox-with-label {
+      p {
+        @apply text-14-m-p;
+      }
+    }
     @apply flex justify-between mb-6;
   }
   &__create ,
   &__forgot {
     &:hover,
     &:active {
-      @apply text-blue-000;
+      @apply text-blue-025;
     }
     @apply text-14-m-p text-blue-200 transition-all duration-300;
   }
@@ -42,5 +47,11 @@
   &__line {
     @apply border-b border-black-500 h-px;
   }
-  @apply max-lg:flex max-lg:justify-center max-lg:items-center lg:grid lg:grid-cols-[minmax(0,_784px)_minmax(456px,_1fr)] w-full min-h-dvh;
+  .button-with-icon-full-google {
+    @apply text-black-025;
+    &:hover {
+      @apply text-white-000;
+    }
+  }
+  @apply max-xl:flex max-xl:justify-center max-xl:items-center xl:grid xl:grid-cols-[minmax(0,_calc(100%_-_656px))_minmax(456px,_1fr)] w-full min-h-dvh text-black-025;
 }

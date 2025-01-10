@@ -13,8 +13,8 @@ section
           +input({
             type: 'email',
             placeholder: 'Почта',
-            disabled: false,
-            required: true,
+            isDisabled: false,
+            isRequired: true,
             name: 'email',
           })
 
@@ -22,8 +22,8 @@ section
           +input({
             type: 'password',
             placeholder: 'Пароль',
-            disabled: false,
-            required: true,
+            isDisabled: false,
+            isRequired: true,
             name: 'password',
           })
 
@@ -42,6 +42,7 @@ section
             view: 'button',
             class: 'button-with-icon-full-lg',
             icon: 'other-arrow-right-icon',
+            iconPos: 'after',
             title: 'Войти',
             isDisabled: true,
             type: 'submit',
