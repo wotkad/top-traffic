@@ -25,5 +25,8 @@
   &__buttons {
     @apply flex items-center gap-x-[6px] mt-8;
   }
-  @apply z-[200] fixed inset-0 flex justify-center items-start py-[134px] overflow-y-auto;
+  &.active {
+    @apply z-[200] opacity-100 visible;
+  }
+  @apply -z-[1] fixed inset-0 flex justify-center items-start opacity-0 py-[134px] transition-all duration-300 invisible overflow-y-auto;
 }

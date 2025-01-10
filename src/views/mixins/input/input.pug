@@ -2,7 +2,7 @@ mixin input(data = {})
   - const { defaults, mergeConfig } = require('/assets/js/_defaults/input/_defaults');
   - const modefied = mergeConfig(data, defaults);
 
-  if modefied.isLabel && modefied.type !== 'checkbox'
+  if modefied.isLabel && modefied.type !== 'checkbox' && !modefied.isTextarea
     label.input.input-with-label
       span.input__label= modefied.label
         sup *
@@ -41,10 +41,30 @@ mixin input(data = {})
           icon: modefied.icon,
           isOnlyIcon: true,
         })
+  
+  else if modefied.isTextarea 
+    .textarea
+      if modefied.label
+        .dropdown__label !{modefied.label}
+          if modefied.isRequired 
+            sup *
+      textarea(
+        disabled=modefied.isDisabled 
+        autocomplete=modefied.autocomplate 
+        required= modefied.isRequired
+        name=modefied.name
+      )
 
   else
     label.input
-      input.input__el(disabled=modefied.isDisabled type=modefied.type required=modefied.isRequired autocomplete=modefied.autocomplate placeholder=modefied.placeholder name=modefied.name)
+      input.input__el(
+        disabled=modefied.isDisabled 
+        type=modefied.type 
+        required=modefied.isRequired 
+        autocomplete=modefied.autocomplate 
+        placeholder=modefied.placeholder 
+        name=modefied.name
+      )
       .input__tip= modefied.placeholder
       if modefied.type == 'password'
         button(type="button").input__toggle

@@ -163,3 +163,24 @@
   }
   @apply relative flex items-center w-full;
 }
+
+.textarea {
+  textarea {
+    &:hover,
+    &:focus {
+      @apply border-black-100;
+    }
+    &:focus,
+    &:active,
+    &.filled {
+      & ~ .input__tip {
+        @apply -translate-y-[11px];
+      }
+    }
+    &.error {
+      @apply border-red-100;
+    }
+    @apply flex-1 px-3 py-[11px] border border-black-500 rounded-md w-full text-12-r-p transition-all duration-300 resize-none;
+  }
+  @apply flex flex-col flex-1 gap-y-2;
+}

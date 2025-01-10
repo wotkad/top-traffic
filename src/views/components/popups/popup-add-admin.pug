@@ -1,5 +1,5 @@
-.popup(data-popup-name="add-admin")
-  .popup__bg
+.popup(data-popup-name="add-admin" data-scroll-lock-scrollable)
+  .popup__bg(data-popup-name="add-admin")
   .popup__wrapper
     .popup__title Добавление администратора
       form(action="#")
@@ -85,17 +85,24 @@
                 { title: 'Очень низкий', color: 'yellow' },
               ],
             })
+            +input({
+              isTextarea: true,
+              label: 'Описание',
+              placeholder: 'Добавьте описание...',
+              isLabel: true,
+              name: 'description',
+            })
         .popup__buttons
           +button({
             view: 'button',
-            class: 'button-with-icon-blue lg popup-close',
+            class: 'button-with-icon-blue lg popup__close',
             type: 'submit',
             title: 'Сохранить',
             dataPopupName: 'add-admin',
           })
           +button({
             view: 'button',
-            class: 'button-base lg popup-close',
+            class: 'button-base lg popup__close',
             title: 'Отмена',
             dataPopupName: 'add-admin',
           })

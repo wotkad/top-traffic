@@ -20,6 +20,7 @@ module.exports = {
     isDisabled: false,
     isRequired: false,
     isChecked: false,
+    isTextarea: false,
   },
   mergeConfig(data, defaults) {
     return {
@@ -41,6 +42,7 @@ module.exports = {
       isDisabled: data.isDisabled !== undefined ? data.isDisabled : defaults.isDisabled,
       isRequired: data.isRequired !== undefined ? data.isRequired : defaults.isRequired,
       isChecked: data.isChecked !== undefined ? data.isChecked : defaults.isChecked,
+      isTextarea: data.isTextarea !== undefined ? data.isTextarea : defaults.isTextarea,
     }
   }
 }
