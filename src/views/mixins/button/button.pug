@@ -29,7 +29,7 @@ mixin button(data = {})
       if modefied.icon && modefied.iconPos == 'before'
         svg.calendar-icon
           use(xlink:href="#" + modefied.icon)
-      input.datepicker(type="text" name="birthday" placeholder="Выберите дату")
+      input.datepicker(type="text" name="date" placeholder="Выберите дату")
       if modefied.isCalendar 
         +button({
           view: 'button',
