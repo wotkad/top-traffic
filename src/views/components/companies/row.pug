@@ -1,0 +1,42 @@
+
+mixin companies-row(data)
+  tr 
+    td.only-text 
+      .flex.items-center(class="gap-x-2.5")
+        svg 
+          use(xlink:href="#" + data.icon)
+        p People & Screens
+    td.only-text
+      a(href="#") Test_MTC_September
+    td.only-text Илья Минаев
+    td.only-text Илья Минаев
+    td 
+      .table__channels
+        a(href="#")
+          img(src="/assets/images/tg-channel.png", alt="tg-channel")
+          span ZeroDay | Кибербезопасность
+        a(href="#")
+          img(src="/assets/images/tg-channel.png", alt="tg-channel")
+          span Топор 18+
+        a(href="#")
+          img(src="/assets/images/tg-channel.png", alt="tg-channel")
+          span ZeroDay | Кибербезопасность
+        a(href="#")
+          img(src="/assets/images/tg-channel.png", alt="tg-channel")
+          span ZeroDay | Кибербезопасность
+        a(href="#")
+          img(src="/assets/images/tg-channel.png", alt="tg-channel")
+          span Топор 18+
+        a(href="#")
+          img(src="/assets/images/tg-channel.png", alt="tg-channel")
+          span ZeroDay | Кибербезопасность
+        +button({
+          isOnlyIcon: true,
+          icon: 'other-angle-down-icon',
+          class: 'table__channels-toggle',
+        })
+    td.only-text 20 500 ₽
+    td
+      span.status(class="" + data.color)= data.status
+    td
+      span.status(class="" + data.color)= data.status

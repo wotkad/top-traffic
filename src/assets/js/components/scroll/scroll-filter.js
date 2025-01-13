@@ -28,7 +28,6 @@ function scrollFilter() {
       top: '',
       left: '',
       maxWidth: '',
-      position: '',
     });
 
     // Проверяем, есть ли скролл в блоке

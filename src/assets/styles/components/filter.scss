@@ -6,7 +6,13 @@
     &::-webkit-scrollbar {
       @apply hidden;
     }
-    @apply block relative px-6 pt-5 pb-10 max-h-[calc(100dvh-166px)] overflow-y-auto;
+    label.button {
+      input {
+        @apply w-full;
+      }
+      @apply px-3 py-[7px];
+    }
+    @apply block relative px-6 pt-5 pb-10 overflow-y-auto;
   }
   &__subtitle {
     @apply mt-4 mb-2 text-12-sb-p text-black-200;
@@ -36,7 +42,7 @@
   }
   &:before,
   &:after {
-    @apply -z-[1] z-10 absolute content-[''] from-white-000 opacity-0 rounded-[10px] w-full h-[75px] transition-all duration-300 invisible;
+    @apply -z-[1] absolute content-[''] from-white-000 opacity-0 rounded-[10px] w-full h-[75px] transition-all duration-300 invisible;
   }
   &:before {
     @apply top-0 bg-gradient-to-b to-transparent;

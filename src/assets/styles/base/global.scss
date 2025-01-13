@@ -90,6 +90,14 @@ label {
   @apply flex mt-6;
 }
 
+.calendar-icon {
+  @apply min-w-[18px];
+}
+
+.calendar-close-icon {
+  @apply w-2.5 h-[5px];
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     transition-duration: 0.01ms !important;
@@ -108,5 +116,8 @@ label {
     &.active {
       @apply w-full;
     }
+  }
+  .dropdown__list {
+    @apply absolute;
   }
 }

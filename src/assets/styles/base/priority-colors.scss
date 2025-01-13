@@ -1,0 +1,30 @@
+.priority-red {
+  .dropdown__title {
+    @apply font-medium;
+  }
+  @apply bg-red-200;
+}
+.priority-pink {
+  .dropdown__title {
+    @apply font-medium;
+  }
+  @apply bg-pink-000;
+}
+.priority-orange {
+  .dropdown__title {
+    @apply font-medium;
+  }
+  @apply bg-orange-000;
+}
+.priority-peach {
+  .dropdown__title {
+    @apply font-medium;
+  }
+  @apply bg-peach-000;
+}
+.priority-yellow {
+  .dropdown__title {
+    @apply font-medium;
+  }
+  @apply bg-yellow-000;
+}

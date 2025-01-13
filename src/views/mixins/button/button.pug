@@ -2,7 +2,7 @@ mixin button(data = {})
   - const { defaults, mergeConfig } = require('/assets/js/_defaults/button/_defaults');
   - const modefied = mergeConfig(data, defaults);
   
-  if modefied.view == 'button'
+  if modefied.view == 'button' && !modefied.isCalendar 
     button(
       type=modefied.type
       class="button " + modefied.class
@@ -21,9 +21,22 @@ mixin button(data = {})
       if modefied.isClose
         svg.button-clear.filter-clear
           use(xlink:href="#other-close-icon")
+
+  if modefied.view == 'button' && modefied.isCalendar 
+    label(
+      class="button " + modefied.class
+    )
+      if modefied.icon && modefied.iconPos == 'before'
+        svg.calendar-icon
+          use(xlink:href="#" + modefied.icon)
+      input.datepicker(type="text" name="birthday" placeholder="Выберите дату")
       if modefied.isCalendar 
-        svg
-          use(xlink:href="#other-angle-down-icon")
+        +button({
+          view: 'button',
+          class: 'button-icon sm calendar-close-icon',
+          icon: 'other-angle-down-icon',
+          isOnlyIcon: true,
+        })
 
   if modefied.view == 'link'
     a(

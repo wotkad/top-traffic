@@ -1,0 +1,152 @@
+aside.filter
+  .filter__container
+    .filter__title 
+      h2 Фильтр
+      button(type="button").filter__clear Сбросить
+    form(action="#")
+      h3.filter__subtitle Период
+      +button({
+        view: 'button',
+        class: 'button-with-icon',
+        icon: 'other-calendar-icon',
+        isCalendar: true,
+      })
+      h3.filter__subtitle Клиент
+      +dropdown({
+        class: 'dropdown-checkboxes',
+        title: 'Выберите клиента',
+        isCheckboxes: true,
+        checkboxes: [
+          { title: 'Все' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+        ]
+      })
+      h3.filter__subtitle Рекламная кампания
+      +dropdown({
+        class: 'dropdown-checkboxes',
+        title: 'Выберите компанию',
+        isCheckboxes: true,
+        checkboxes: [
+          { title: 'Все' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+        ]
+      })
+      h3.filter__subtitle Аккаунт менеджер
+      +dropdown({
+        class: 'dropdown-checkboxes',
+        title: 'Выберите аккаунт менеджера',
+        isCheckboxes: true,
+        checkboxes: [
+          { title: 'Все' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+        ]
+      })
+      h3.filter__subtitle Менеджер
+      +dropdown({
+        class: 'dropdown-checkboxes',
+        title: 'Выберите менеджера',
+        isCheckboxes: true,
+        checkboxes: [
+          { title: 'Все' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+        ]
+      })
+      h3.filter__subtitle Канал
+      +dropdown({
+        class: 'dropdown-checkboxes',
+        title: 'Выберите канал',
+        isCheckboxes: true,
+        checkboxes: [
+          { title: 'Все' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+          { title: 'ZeroDay | Кибезопасность ', image: {enabled: true, src: '/assets/images/tg-channel.png', alt: 'image' }, telegram: 'andreym' },
+        ]
+      })
+      h3.filter__subtitle Статус сделки
+      +dropdown({
+        class: 'dropdown-status',
+        isStatus: true,
+        isButtons: true,
+        title: 'Выберите статус сделки',
+        buttons: [ 
+          { title: 'В работу', color: 'status-green' },
+          { title: 'В работе', color: 'status-blue' },
+          { title: 'Пауза', color: 'status-red' },
+          { title: 'Завершено', color: 'status-gray' },
+          { title: 'Согласование', color: 'status-purple' },
+        ],
+      })
+      h3.filter__subtitle Статус рекламной кампании
+      +dropdown({
+        class: 'dropdown-status',
+        isStatus: true,
+        isButtons: true,
+        title: 'Выберите статус кампании',
+        buttons: [ 
+          { title: 'В работу', color: 'status-green' },
+          { title: 'В работе', color: 'status-blue' },
+          { title: 'Пауза', color: 'status-red' },
+          { title: 'Завершено', color: 'status-gray' },
+          { title: 'Согласование', color: 'status-purple' },
+        ],
+      })
+      +button({
+        view: 'button',
+        class: 'button-base filter__button',
+        type: 'submit',
+        title: 'Применить'
+      })

@@ -4,7 +4,7 @@ module.exports = {
     label: '',
     class: 'dropdown-base',
     classButton: '',
-    color: 'green',
+    color: 'status-transparent',
     image: {
       enabled: false,
       src: '/assets/images/user-image.png',

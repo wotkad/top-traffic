@@ -1,0 +1,83 @@
+table.table
+  thead
+    tr 
+      th
+        p Клиент
+      th
+        p Рекламная кампания
+      th
+        p Аккаунт-менеджер
+      th 
+        p Куратор
+      th
+        p Канал
+      th
+        p Сумма сделки
+      th
+        p Статус сделки
+      th
+        p Статус РК
+  tbody
+    +companies-subrow({
+      title: 'Сентябрь 2024',
+      count: '5',
+    })
+    +companies-row({
+      icon: 'status-warning-icon',
+      color: 'status-green',
+      status: 'В работу',
+    })
+    +companies-row({
+      icon: 'status-done-icon',
+      color: 'status-blue',
+      status: 'В работе',
+    })
+    +companies-row({
+      icon: 'status-refusal-icon',
+      color: 'status-red',
+      status: 'Пауза',
+    })
+    +companies-row({
+      icon: 'status-pause-icon',
+      color: 'status-gray',
+      status: 'Завершено',
+    })
+    +companies-row({
+      icon: 'status-new-icon',
+      color: 'status-purple',
+      status: 'Согласование',
+    })
+    +companies-subrow({
+      title: 'Октябрь 2024',
+      count: '20',
+    })
+    +companies-row({
+      icon: 'status-warning-icon',
+      color: 'status-gray',
+      status: 'Завершено',
+    })
+    +companies-row({
+      icon: 'status-done-icon',
+      color: 'status-purple',
+      status: 'Согласование',
+    })
+    +companies-row({
+      icon: 'status-refusal-icon',
+      color: 'status-purple',
+      status: 'Согласование',
+    })
+    +companies-row({
+      icon: 'status-pause-icon',
+      color: 'status-blue',
+      status: 'В работе',
+    })
+    +companies-row({
+      icon: 'status-new-icon',
+      color: 'status-red',
+      status: 'Пауза',
+    })
+    +companies-row({
+      icon: 'status-pulse-icon',
+      color: 'status-gray',
+      status: 'Завершено',
+    })

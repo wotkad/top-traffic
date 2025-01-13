@@ -12,6 +12,7 @@ import "./base/common/smooth-scroll";
 import "./base/common/get-current-year";
 import "./base/common/set-svg-size";
 import "./base/common/get-header-height";
+import "./base/common/set-filter-height";
 
 import "./components/form/form-login";
 
@@ -29,3 +30,5 @@ import "./components/toggle/toggle-popup";
 
 import "./components/scroll/scroll-to-top";
 import "./components/scroll/scroll-filter";
+
+import "./components/calendar";

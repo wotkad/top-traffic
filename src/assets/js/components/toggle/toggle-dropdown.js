@@ -24,7 +24,6 @@ function toggleDropdown() {
         top: `${dropdownTop + 4}px`,
         left: `${dropdownLeft}px`,
         maxWidth: `${buttonWidth}px`,
-        position: 'fixed',
       });
     }
 
@@ -42,7 +41,7 @@ function toggleDropdown() {
     const selectedColor = $(this).data('color') || '';
 
     const buttonStatus = $(this).closest('.dropdown-status .dropdown__container').find('.dropdown__button');
-    const titleStatus = $(this).closest('.dropdown-status .dropdown__container').find('.dropdown__button').find('.dropdown__title');
+    const titleStatus = $(this).closest('.dropdown__container').find('.dropdown__button').find('.dropdown__title');
 
     titleStatus.text(selectedValue);
 
@@ -53,9 +52,6 @@ function toggleDropdown() {
     }
 
     const buttonPriority = $(this).closest('.dropdown-priority .dropdown__container').find('.dropdown__inner');
-    const titlePriority = $(this).closest('.dropdown-priority .dropdown__container').find('.dropdown__inner').find('.dropdown__title');
-
-    titlePriority.text(selectedValue);
 
     if (selectedColor) {
       buttonPriority.attr('class', `dropdown__inner ${selectedColor} selected`);
