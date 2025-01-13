@@ -26,7 +26,7 @@
     @apply flex justify-end items-center gap-x-[6px] mt-8;
   }
   &.active {
-    @apply z-[200] opacity-100 visible;
+    @apply z-[200] opacity-100 translate-y-0 visible;
   }
-  @apply -z-[1] fixed inset-0 flex justify-center items-start opacity-0 py-[134px] transition-all duration-300 invisible overflow-y-auto;
+  @apply -z-[1] fixed inset-0 flex justify-center items-start opacity-0 py-[134px] transition-all -translate-y-5 duration-300 invisible overflow-y-auto;
 }
