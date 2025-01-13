@@ -12,6 +12,9 @@
       }
       @apply px-3 py-[7px];
     }
+    .dropdown__list {
+      @apply fixed;
+    }
     @apply block relative px-6 pt-5 pb-10 overflow-y-auto;
   }
   &__subtitle {
