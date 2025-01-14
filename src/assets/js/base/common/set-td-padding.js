@@ -38,7 +38,7 @@ export default function setTdPadding(duration = 0) {
         if (extraPadding < 0) {
           finalPadding = Math.max(minPadding, minPadding + defaultExtraPadding);
         } else {
-          finalPadding = Math.max(minPadding, minPadding + extraPadding);
+          finalPadding = Math.max(minPadding, minPadding + extraPadding - 1);
         }
         
         // Анимация с GSAP

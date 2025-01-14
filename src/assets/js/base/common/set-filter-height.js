@@ -10,3 +10,7 @@ setFilterHeight();
 $(window).on('resize', function() {
   setFilterHeight();
 });
+
+$('.wrapper').on('scroll', function() {
+  setFilterHeight();
+});
