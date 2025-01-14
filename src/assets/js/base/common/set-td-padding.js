@@ -42,7 +42,7 @@ export default function setTdPadding(duration = 0) {
         }
         
         // Анимация с GSAP
-        gsap.to(tds.slice(1, -1), { paddingRight: finalPadding, duration: duration });
+        gsap.to(tds.slice(1, -1), { paddingRight: finalPadding, ease: 'none', duration: duration });
       }
     });
   });

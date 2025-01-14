@@ -3,6 +3,9 @@
     @apply left-2 absolute;
   }
   &__label {
+    svg {
+      @apply w-4 h-4;
+    }
     @apply relative flex items-center;
   }
   &__input {

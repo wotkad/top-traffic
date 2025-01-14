@@ -28,3 +28,9 @@
   }
   @apply bg-yellow-000;
 }
+.priority-transparent {
+  .dropdown__title {
+    @apply font-medium;
+  }
+  @apply bg-black-700;
+}

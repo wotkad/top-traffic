@@ -141,12 +141,13 @@ block content
         })
         +dropdown({
           class: 'dropdown-status',
-          title: 'Активный',
-          color: 'status-green',
+          color: 'status-transparent',
           isStatus: true,
           isButtons: true,
+          title: '––',
           buttons: [ 
-            { title: 'Активный', color: 'status-green', checked: true },
+            { title: '––', color: 'status-transparent', isChecked: true },
+            { title: 'Активный', color: 'status-green'},
             { title: 'Неактивный', color: 'status-gray' },
             { title: 'Новая РК', color: 'status-blue' },
             { title: 'Подбор каналов', color: 'status-purple' },
@@ -177,11 +178,12 @@ block content
         })
         +dropdown({
           class: 'dropdown-priority',
-          title: '––',
-          color: '',
+          color: 'priority-transparent',
           isPriority: true,
           isButtons: true,
+          title: '––',
           buttons: [ 
+            { title: '––', color: 'priority-transparent', isChecked: true },
             { title: 'Очень высокий', color: 'priority-red' },
             { title: 'Высокий', color: 'priority-pink' },
             { title: 'Средний', color: 'priority-orange' },
@@ -269,7 +271,7 @@ block content
         })
         +input({
           type: 'checkbox',
-          checked: true,
+          isChecked: true,
           value: 'Запомнить меня',
         })
         +input({

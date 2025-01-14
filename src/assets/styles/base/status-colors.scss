@@ -51,10 +51,10 @@
 }
 .status-transparent {
   &:before {
-    @apply bg-black-300;
+    @apply hidden;
   }
   .dropdown__title {
-    @apply font-medium;
+    @apply font-medium text-black-100;
   }
-  @apply bg-black-700 text-black-300;
+  @apply pl-2;
 }

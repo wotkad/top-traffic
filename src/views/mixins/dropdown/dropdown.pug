@@ -62,12 +62,12 @@ mixin dropdown(data = {})
                 type="radio" 
                 name=`radio-${modefied.class}` 
                 data-color=modefied.isPriority || modefied.isStatus ? button.color : false 
-                checked=button.checked)
+                checked=button.isChecked)
               p
                 span(class=modefied.isPriority || modefied.isStatus ? button.color : false)= button.title
 
         else
           each button, index in modefied.buttons
             label.dropdown__item
-              input(type="radio" name=`radio-${modefied.class}` checked=button.checked)
+              input(type="radio" name=`radio-${modefied.class}` checked=button.isChecked)
               p= button.title

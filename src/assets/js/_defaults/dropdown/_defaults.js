@@ -11,7 +11,7 @@ module.exports = {
       alt: 'image',
     },
     buttons: [
-      { title: '1/24', checked: true },
+      { title: '1/24', isChecked: true },
       { title: '1/48' },
       { title: '1/72' },
       { title: 'Нативный' },
@@ -31,7 +31,7 @@ module.exports = {
       { title: 'Нативный', href: "#" },
     ],
     checkboxes: [
-      { title: 'Все', checked: true },
+      { title: 'Все', isChecked: true },
       { title: 'Банки' },
       { title: 'Банки' },
       { title: 'Автомобили' },  
