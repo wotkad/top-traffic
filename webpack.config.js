@@ -201,8 +201,6 @@ module.exports = (env) => {
           { from: "sitemap.xml" },
           { from: "assets/images", to: "assets/images" },
           { from: "assets/fonts", to: "assets/fonts" },
-          // { from: "assets/files", to: "assets/files" }
-          // { from: "assets/videos", to: "assets/videos" },
         ],
       }),
 
