@@ -1,4 +1,5 @@
 import gsap from 'gsap';
+import setTdPadding from '../../base/common/set-td-padding';
 
 function toggleAside() {
   let switchEl = $('.sidebar__switch');
@@ -13,6 +14,7 @@ function toggleAside() {
       gsap.to(sidebar, {maxWidth: '217px', duration: .3, onComplete: () => {
         toggle.removeClass('active');
         sidebar.removeClass('active');
+        setTdPadding(.3);
       }});
       header.removeClass('active');
       wrapper.removeClass('active');
@@ -23,7 +25,9 @@ function toggleAside() {
       wrapper.addClass('active');
       switchEl.removeClass('active');
       menu.slideDown(0);
-      gsap.to(sidebar, {maxWidth: '59px', duration: .3});
+      gsap.to(sidebar, {maxWidth: '59px', duration: .3, onComplete: () => {
+        setTdPadding(.3);
+      }});
     }
   });
 }

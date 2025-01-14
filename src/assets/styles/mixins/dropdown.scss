@@ -33,7 +33,7 @@
     &.active {
       @apply z-50 opacity-100 visible;
     }
-    @apply top-[calc(100%+4px)] -z-10 absolute flex flex-col gap-y-[2px] bg-white-000 opacity-0 p-1 border border-black-500 rounded-md w-full min-w-[100px] h-auto max-h-[104px] invisible overflow-y-auto;
+    @apply top-[calc(100%+4px)] -z-10 absolute flex flex-col gap-y-[2px] bg-white-000 opacity-0 p-1 border border-black-500 rounded-md w-full min-w-[100px] h-auto max-h-[112px] invisible overflow-y-auto;
   }
   &__item {
     input {

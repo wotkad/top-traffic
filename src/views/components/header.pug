@@ -12,18 +12,19 @@ header.header
         class: 'transparent',
       })
     .header__controls
-      +button({
-        view: 'link',
-        class: 'button-icon',
-        icon: 'other-notification-icon',
-        isOnlyIcon: true,
-      })
-      +button({
-        view: 'link',
-        class: 'button-icon',
-        icon: 'aside-help-icon',
-        isOnlyIcon: true,
-      })
+      .header__icons
+        +button({
+          view: 'link',
+          class: 'button-icon',
+          icon: 'other-notification-icon',
+          isOnlyIcon: true,
+        })
+        +button({
+          view: 'link',
+          class: 'button-icon',
+          icon: 'aside-help-icon',
+          isOnlyIcon: true,
+        })
       +dropdown({
         image: {
           enabled: true,

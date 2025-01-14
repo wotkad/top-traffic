@@ -4,6 +4,4 @@ if (module.hot) {
   module.hot.accept();
 }
 
-$(function () {
-  require("js/app");
-});
+require("js/app");

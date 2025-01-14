@@ -13,6 +13,7 @@ import "./base/common/get-current-year";
 import "./base/common/set-svg-size";
 import "./base/common/get-header-height";
 import "./base/common/set-filter-height";
+import "./base/common/set-td-padding";
 
 import "./components/form/form-login";
 

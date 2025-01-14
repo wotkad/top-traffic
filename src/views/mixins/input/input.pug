@@ -7,7 +7,7 @@ mixin input(data = {})
       span.input__label= modefied.label
         sup *
       .input__container
-        input.input__el(class=modefied.class disabled=modefied.isDisabled type=modefied.type required=modefied.isRequired autocomplete=modefied.autocomplate placeholder=modefied.placeholder name=modefied.name)
+        input.input__el(class=modefied.class disabled=modefied.isDisabled type=modefied.type required=modefied.isRequired autocomplete=modefied.autocomplete placeholder=modefied.placeholder name=modefied.name)
         if modefied.class == 'error'
           .error__text
             svg

@@ -21,16 +21,16 @@
     @apply flex items-center ml-7 w-full max-w-[243px];
   }
   &__controls {
+    @apply flex items-center gap-x-6;
+  }
+  &__icons {
     & > .button-icon {
       svg {
-        @apply w-[18px] h-[18px];
+        @apply min-w-[22px] min-h-[22px];
       }
-      @apply w-auto h-auto;
+      // @apply p-0 w-auto h-auto;
     }
-    @apply flex items-center gap-x-[2px];
-  }
-  &__dropdown {
-    @apply ml-[15px];
+    @apply flex items-center gap-x-[7px];
   }
   @apply left-[217px] z-50 fixed flex items-center bg-black-700 py-[14px] border-b border-black-500 w-[calc(100%-217px)] h-[60px] transition-all duration-300;
 }
