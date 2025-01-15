@@ -83,12 +83,10 @@ module.exports = (env) => {
         {
           test: /\.scss$/,
           use: [
-            utils.isDevMode(MODE)
-              ? "style-loader"
-              : MiniCssExtractPlugin.loader,
+            MiniCssExtractPlugin.loader,
             {
               loader: "css-loader",
-              options: { importLoaders: 1, sourceMap: true },
+              options: { importLoaders: 1, sourceMap: utils.isDevMode(MODE) },
             },
             "postcss-loader",
             "sass-loader",
@@ -230,7 +228,7 @@ module.exports = (env) => {
           host: 'localhost',
           port: 8080,
           proxy: 'http://localhost:8081/',
-          files: ['./src/views/**/*.pug', './src/assets/**/*.js'],
+          files: ['./src/views/**/*.pug'],
           open: false,
           notify: false
         },
