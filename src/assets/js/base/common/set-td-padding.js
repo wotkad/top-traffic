@@ -20,7 +20,7 @@ export default function setTdPadding(duration = 0) {
     let defaultExtraPadding;
     let finalPadding;
 
-    $('table tr').each(function () {
+    $('table.table tr').each(function () {
       let tds = $(this).find('td, th');
       let numOfTds = tds.length;
       let minPadding;

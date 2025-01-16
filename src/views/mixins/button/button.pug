@@ -29,14 +29,9 @@ mixin button(data = {})
       if modefied.icon && modefied.iconPos == 'before'
         svg.calendar-icon
           use(xlink:href="#" + modefied.icon)
-      input.datepicker(type="text" name="date" placeholder="Выберите дату")
+      input.datepicker(type="text" name="date" placeholder="Выберите дату" class=modefied.calendarClass readonly)
       if modefied.isCalendar 
-        +button({
-          view: 'button',
-          class: 'button-icon sm calendar-close-icon',
-          icon: 'other-angle-down-icon',
-          isOnlyIcon: true,
-        })
+        <div class="button button-icon sm calendar-close-icon" type="button" aria-label="button"><svg viewBox="0 0 10 6" width="10" height="6"><use xlink:href="#other-angle-down-icon"></use></svg></div>
 
   if modefied.view == 'link'
     a(
