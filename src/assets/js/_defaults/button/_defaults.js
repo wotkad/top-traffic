@@ -16,6 +16,8 @@ module.exports = {
     isDownload: false,
     isSwitchable: false,
     isOnlyIcon: false,
+    isDatePicker: false,
+    isMonthPicker: false
   },
   mergeConfig(data, defaults) {
     return {
@@ -35,6 +37,8 @@ module.exports = {
       isDownload: data.isDownload !== undefined ? data.isDownload : defaults.isDownload,
       isSwitchable: data.isSwitchable !== undefined ? data.isSwitchable : defaults.isSwitchable,
       isOnlyIcon: data.isOnlyIcon !== undefined ? data.isOnlyIcon : defaults.isOnlyIcon,
+      isDatePicker: data.isDatePicker !== undefined ? data.isDatePicker : defaults.isDatePicker,
+      isMonthPicker: data.isMonthPicker !== undefined ? data.isMonthPicker : defaults.isMonthPicker,
     }
   }
 }

@@ -1,8 +1,7 @@
 import daterangepicker from 'bootstrap-daterangepicker';
-import monthrangepicker from 'bootstrap-monthrangepicker';
 import moment from "moment";
 
-function calendar() {
+function datePicker() {
   let locale = {
     "format": "DD.MM.YYYY",
     "applyLabel": "Выбрать",
@@ -41,6 +40,7 @@ function calendar() {
     autoUpdateInput: false,
     opens: 'left',
     parentEl: '.wrapper',
+    linkedCalendars: false,
   });
 
   $(".datepicker.opensright").daterangepicker({
@@ -49,6 +49,7 @@ function calendar() {
     autoUpdateInput: false,
     opens: 'right',
     parentEl: '.wrapper',
+    linkedCalendars: false,
   });
 
   $(".filter .datepicker.opensleft").daterangepicker({
@@ -57,6 +58,7 @@ function calendar() {
     autoUpdateInput: false,
     opens: 'left',
     parentEl: '.wrapper',
+    linkedCalendars: false,
   });
 
   $(".filter .datepicker.opensright").daterangepicker({
@@ -65,6 +67,7 @@ function calendar() {
     autoUpdateInput: false,
     opens: 'right',
     parentEl: '.wrapper',
+    linkedCalendars: false,
   });
 
   $('.datepicker.opensright').each(function() {
@@ -78,8 +81,13 @@ function calendar() {
   $('.datepicker.opensleft').each(function() {
     let $this = $(this);
     $this.on('show.daterangepicker', function(ev, picker) {
+      // Вычисляем top
       picker.container.css('top', $this.offset().top + 16);
-      picker.container.css('right', $this.offset().right);
+  
+      // Вычисляем right
+      let right = $(window).width() - ($this.offset().left + $this.outerWidth());
+      picker.container.css('right', right);
+      picker.container.css('left', 'auto');
     });
   });
 
@@ -115,8 +123,6 @@ function calendar() {
         picker.setEndDate(moment());
       });
 
-      $('.daterangepicker').trigger('click');
-
       $this.on('apply.daterangepicker', function(ev, picker) {
         $this.val(picker.startDate.format('DD.MM.YYYY') + ' - ' + picker.endDate.format('DD.MM.YYYY'));
         buttons.css('display', 'flex');
@@ -124,4 +130,4 @@ function calendar() {
     });
   });
 }
-calendar();
+datePicker();

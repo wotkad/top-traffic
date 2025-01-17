@@ -15,11 +15,11 @@
 }
 
 .daterangepicker .drp-calendar.left {
-  @apply p-2 pb-4;
+  @apply p-2;
 }
 
 .daterangepicker .drp-calendar.right {
-  @apply p-0 w-0 h-0;
+  @apply hidden p-0 w-0 h-0;
 }
 
 .daterangepicker .drp-calendar.right .calendar-table {
@@ -31,6 +31,14 @@
 .daterangepicker .drp-calendar.right thead tr:nth-child(2),
 .daterangepicker .drp-calendar.right td {
   @apply hidden;
+}
+
+.daterangepicker .calendar-table {
+  @apply border-none;
+}
+
+.daterangepicker .calendar-table td {
+  @apply relative p-0 border-none h-[22px] leading-none;
 }
 
 .daterangepicker .drp-calendar {
@@ -54,15 +62,14 @@
     @apply pt-2 pb-[6px];
   }
 }
-.daterangepicker td.available {
+.daterangepicker td.available span {
   &:hover {
     @apply bg-blue-250;
   }
-  @apply transition-all duration-300;
 }
 
 .daterangepicker .calendar-table table {
-  @apply border-separate border-spacing-x-3 border-spacing-y-1;
+  @apply border-separate border-spacing-y-1;
 }
 
 .daterangepicker .drp-selected {
@@ -72,10 +79,10 @@
     }
     @apply p-0 w-[18px] h-[18px];
   }
-  @apply flex items-center gap-x-[13px] px-2 py-1 border border-black-500 rounded-[5px] text-12-m-md cursor-pointer;
+  @apply flex items-center gap-x-[13px] px-2 py-1 border border-black-500 rounded-[5px] text-12-m-md capitalize cursor-pointer;
 }
 
-.daterangepicker td.in-range {
+.daterangepicker td.in-range span {
   @apply text-black-100;
 }
 
@@ -84,61 +91,89 @@
 }
 
 .daterangepicker .calendar-table th {
-  @apply border-none cursor-default;
+  @apply p-0 border-none cursor-default;
 }
 
 .daterangepicker .calendar-table th,
-.daterangepicker .calendar-table td {
-  @apply rounded-full w-[22px] min-w-[22px] max-w-[22px] h-[22px] text-12-m-md;
+.daterangepicker .calendar-table td span {
+  @apply rounded-full min-w-[22px] h-[22px] text-12-m-md leading-[22px];
 }
 
-.daterangepicker .calendar-table td.off {
+.daterangepicker .calendar-table td span {
+  @apply inline-block relative z-10 pointer-events-none;
+}
+
+.daterangepicker .calendar-table td.monthPanel {
+  @apply h-[22px];
+}
+
+.daterangepicker .calendar-table td.monthPanel span {
+  @apply px-2;
+}
+
+.daterangepicker .calendar-table td.monthPanel span,
+.daterangepicker .calendar-table td.monthPanel.start-date.end-date span {
+  @apply rounded-[3px];
+}
+
+.daterangepicker .calendar-table td.offspan span {
   &:hover {
     @apply bg-transparent text-[#999];
   }
 }
 
 .daterangepicker td.weekend {
-  @apply text-black-200;
+  span {
+    @apply text-black-200;
+  }
+  &:hover {
+    span {
+      @apply text-black-100;
+    }
+  }
 }
 
-.daterangepicker td.active {
+.daterangepicker td.active span {
   &:hover {
     @apply bg-blue-000 text-white-000;
   }
   @apply bg-blue-000 text-white-000;
 }
 
-.daterangepicker td.start-date.end-date {
+.daterangepicker td.start-date.end-date span {
   @apply bg-blue-000 rounded-full text-white-000;
 }
 
-.daterangepicker td.in-range {
+.daterangepicker td.in-range span {
   &:hover {
     @apply bg-black-600;
   }
   @apply relative bg-black-600;
 }
 
-.daterangepicker td.weekend.in-range:not(.off) {
+.daterangepicker td.weekend.in-range:not(.off) span {
   @apply bg-black-600 text-black-100;
 }
 
 .daterangepicker td.start-date.in-range,
-.daterangepicker td.end-date.in-range:not(.off) {
+.daterangepicker td.end-date.in-range:not(.off) span {
   @apply bg-blue-000 text-white-000;
 }
 
 .daterangepicker .calendar-table .prev,
 .daterangepicker .calendar-table .next {
   span {
-    @apply inline-block bg-no-repeat mt-[5px] p-0 border-none rounded-md w-[6px] h-2.5 rotate-0;
+    @apply inline-block absolute bg-no-repeat p-0 border-none rounded-md w-[6px] h-2.5 rotate-0;
   }
-  @apply rounded-[4px] w-auto min-w-max h-5 transition-all duration-300 cursor-pointer;
+  @apply flex justify-center items-center p-0 rounded-[4px] w-auto min-w-max h-5 cursor-pointer;
+}
+
+.daterangepicker .calendar-table .prev {
+  @apply w-[22px] min-w-[22px] max-w-[22px] h-[22px];
 }
 
 .daterangepicker .calendar-table .next {
-  @apply relative top-2.5 right-[22px] w-[22px] min-w-[22px] h-[22px] -translate-x-8;
+  @apply right-2 absolute w-[22px] min-w-[22px] h-[22px];
 }
 
 .daterangepicker .calendar-table .prev span {
@@ -148,15 +183,99 @@
   @apply bg-[left_center] bg-[url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNiIgaGVpZ2h0PSIxMCIgdmlld0JveD0iMCAwIDYgMTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxsaW5lIHgxPSIwLjc1IiB5MT0iLTAuNzUiIHgyPSI2LjMyMTA2IiB5Mj0iLTAuNzUiIHRyYW5zZm9ybT0ibWF0cml4KDAuNzA3MSAtMC43MDcxMTQgMC43MDcxIDAuNzA3MTE0IDEgMTApIiBzdHJva2U9IiM5NTlCQTQiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPGxpbmUgeDE9IjAuNzUiIHkxPSItMC43NSIgeDI9IjYuMzIxMDYiIHkyPSItMC43NSIgdHJhbnNmb3JtPSJtYXRyaXgoLTAuNzA3MSAtMC43MDcxMTQgMC43MDcxIC0wLjcwNzExNCA2IDUpIiBzdHJva2U9IiM5NTlCQTQiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9zdmc+Cg==)];
 }
 
+.daterangepicker .calendar-table td.start-date.active {
+  &:before {
+    @apply content-[''] absolute w-1/2 left-0 h-[22px] bg-black-600;
+  }
+  @apply bg-transparent rounded-l-[3px];
+}
 
-// .daterangepicker td.in-range.hovered {
-//   &:before {
-//     @apply hidden;
-//   }
-// }
+.daterangepicker .calendar-table td.end-date.active {
+  &:before {
+    @apply content-[''] absolute w-1/2 right-0 h-[22px] bg-black-600;
+  }
+  @apply bg-transparent rounded-r-[3px];
+}
 
-// .daterangepicker td.in-range:not(.off):not(.hovered) {
-//   &:before {
-//     @apply -top-px left-0 absolute content-[''] bg-black-500 w-[13px] h-[22px] -translate-x-full;
-//   }
-// }
+.daterangepicker td.in-range {
+  @apply bg-black-600;
+}
+
+.daterangepicker .calendar-table td.start-date.in-range.active {
+  span {
+    @apply bg-blue-000;
+  }
+  &:hover {
+    span {
+      @apply bg-blue-000;
+    }
+  }
+}
+
+.daterangepicker .calendar-table td.active.start-date.end-date {
+  &:before {
+    @apply hidden;
+  }
+}
+
+.daterangepicker .calendar-table td.active.start-date:not(.end-date) {
+  &:before {
+    @apply right-0 left-auto;
+  }
+}
+
+.daterangepicker .calendar-table td.active.end-date.in-range {
+  &:before {
+    @apply right-auto left-0;
+  }
+}
+
+.daterangepicker td.available.in-range:hover {
+  @apply bg-black-600;
+}
+
+.daterangepicker td.available:hover {
+  span {
+    @apply bg-blue-250;
+  }
+  @apply bg-transparent;
+}
+
+
+.daterangepicker td.available.in-range:hover {
+  span {
+    @apply bg-transparent;
+  }
+}
+
+.daterangepicker td.available.in-range.start-date.active:hover,
+.daterangepicker td.available.in-range.end-date.active:hover {
+  @apply bg-transparent;
+}
+
+.daterangepicker td.available.start-date.active:hover {
+  span {
+    @apply bg-blue-000;
+  }
+}
+
+.daterangepicker td.available.end-date.active:hover {
+  span {
+    @apply bg-blue-000;
+  }
+}
+
+.monthrangepicker .calendar-table thead tr th {
+  @apply pb-5;
+}
+
+.monthrangepicker .calendar-table thead tr:first-child {
+  &:before {
+    @apply bottom-2 left-0 absolute content-[''] bg-black-500 w-full h-px;
+  }
+  @apply relative;
+}
+
+.monthrangepicker .calendar-table td span {
+  @apply text-12-r-md leading-[22px];
+}
