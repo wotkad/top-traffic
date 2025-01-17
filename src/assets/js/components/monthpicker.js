@@ -73,6 +73,12 @@ function monthPicker() {
   $('.monthpicker.opensright').each(function() {
     let $this = $(this);
     $this.on('show.daterangepicker', function(ev, picker) {
+
+      if (picker.parentEl[0].localName == 'body') {
+        picker.parentEl = $(".monthpicker.opensright");
+        console.log(picker.parentEl)
+      }
+
       picker.container.addClass('monthrangepicker');
       picker.container.css('top', $this.offset().top + 16);
       picker.container.css('left', $this.offset().left);

@@ -120,4 +120,8 @@ label {
   .dropdown__list {
     @apply absolute;
   }
+  & ~ .daterangepicker,
+  & ~ .monthrangepicker {
+    @apply absolute;
+  }
 }
