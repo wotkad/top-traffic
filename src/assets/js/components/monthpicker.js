@@ -76,7 +76,6 @@ function monthPicker() {
 
       if (picker.parentEl[0].localName == 'body') {
         picker.parentEl = $(".monthpicker.opensright");
-        console.log(picker.parentEl)
       }
 
       picker.container.addClass('monthrangepicker');
@@ -132,8 +131,8 @@ function monthPicker() {
 
         if (startMoment.year() === endMoment.year() && startMoment.month() === endMoment.month()) {
           // Если год и месяц совпадают
-          const singleMonth = capitalize(startMoment.locale('ru').format('MMM YYYY')); // "Апр. 2025"
-          result = `За ${singleMonth}`;
+          const singleMonth = capitalize(startMoment.locale('ru').format('MMMM YYYY')); // "Апр. 2025"
+          result = `${singleMonth}`;
         } else if (startMoment.year() === endMoment.year()) {
           // Если только год совпадает
           const startMonth = capitalize(startMoment.locale('ru').format('MMM')); // "Апр"

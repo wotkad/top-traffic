@@ -104,7 +104,7 @@
 }
 
 .daterangepicker .calendar-table td.monthPanel {
-  @apply h-[22px];
+  @apply h-[22px] text-left;
 }
 
 .daterangepicker .calendar-table td.monthPanel span {
@@ -241,10 +241,20 @@
   @apply bg-transparent;
 }
 
+.daterangepicker td.available.in-range {
+  &:hover {
+    span {
+      @apply bg-transparent;
+    }
+  }
+}
 
-.daterangepicker td.available.in-range:hover {
-  span {
-    @apply bg-transparent;
+.daterangepicker tr td.available.in-range {
+  &:first-child {
+    @apply rounded-l-[3px];
+  }
+  &:last-child {
+    @apply rounded-r-[3px];
   }
 }
 
