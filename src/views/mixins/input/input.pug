@@ -34,13 +34,13 @@ mixin input(data = {})
           p= modefied.label
         if modefied.telegram
           a(href="https://t.me/" + modefied.telegram) #{"@" + modefied.telegram}
-      if modefied.icon
-        +button({
-          view: 'button',
-          type: 'button',
-          icon: modefied.icon,
-          isOnlyIcon: true,
-        })
+        if modefied.icon
+          +button({
+            view: 'button',
+            type: 'button',
+            icon: modefied.icon,
+            isOnlyIcon: true,
+          })
   
   else if modefied.isTextarea 
     .textarea

@@ -22,8 +22,8 @@ function toggleDropdown() {
       // Устанавливаем top и left для .dropdown__list
       $list.css({
         top: `${dropdownTop + 4}px`,
-        left: `${dropdownLeft}px`,
-        maxWidth: `${buttonWidth}px`,
+        // left: `${dropdownLeft}px`,
+        // maxWidth: `${buttonWidth}px`,
       });
     }
 
@@ -68,6 +68,15 @@ function toggleDropdown() {
     $('.dropdown__list').removeClass('active');
     $('.dropdown__button').removeClass('active');
     $('.dropdown__sort').removeClass('active');
+
+    let selectedValues = $('.dropdown__items .checkbox .input-checkbox-with-label input');
+    Array.from(selectedValues).forEach(el => {
+      if ($(el).prop('checked')) {
+        $(el).parent().parent().addClass('checked');
+      } else {
+        $(el).parent().parent().removeClass('checked');
+      }
+    });
   });
 
   $('.dropdown__list').on('click', function (e) {
@@ -80,6 +89,7 @@ function toggleDropdown() {
     const $sortBlock = $dropdown.find('.dropdown__sort');
     const $buttonBlock = $dropdown.find('.dropdown__button');
     const $valuesContainer = $dropdown.find('.dropdown__values');
+    const $selectedValuesCount = $dropdown.find('.dropdown__selected span');
 
     const $firstCheckbox = $dropdown.find('.input-checkbox-with-label input').first(); // Первый чекбокс (с меткой "Все")
 
@@ -138,6 +148,8 @@ function toggleDropdown() {
         $valuesContainer.find(`.dropdown__value[data-id="${id}"]`).remove();
       }
     }
+
+    $selectedValuesCount.text($valuesContainer.children().length);
 
     // Проверить, есть ли выбранные элементы
     if ($valuesContainer.children().length === 0) {

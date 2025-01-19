@@ -61,6 +61,15 @@
   &__image {
     @apply mr-[5px] rounded-full max-w-[30px] max-h-[30px] object-cover;
   }
+  &__results {
+    @apply flex justify-between items-center mb-[6px] px-2;
+  }
+  &__count {
+    @apply text-10-r-sm text-black-200;
+  }
+  &__selected {
+    @apply text-10-r-sm;
+  }
   &__sort {
     .button {
       svg {
@@ -71,7 +80,10 @@
     &.active {
       @apply flex;
     }
-    @apply relative hidden p-[5px] pr-10 border border-black-500 rounded-md w-full max-h-[157px] cursor-pointer overflow-y-auto;
+    &.opened {
+      @apply max-h-full;
+    }
+    @apply relative hidden p-[5px] pr-10 border border-black-500 rounded-md w-full max-h-[57px] cursor-pointer overflow-y-auto;
   }
   &__values {
     @apply flex flex-wrap gap-[5px];
@@ -106,6 +118,14 @@
       }
       @apply px-2 py-[2px] rounded-[4px] transition-all duration-300;
     }
+    .checkbox {
+      &:first-child {
+        @apply -order-2;
+      }
+      &.checked {
+        @apply -order-1;
+      }
+    }
     @apply flex flex-col gap-y-[2px] mt-1 max-h-[276px] overflow-y-auto;
   }
   &-base {
@@ -116,7 +136,7 @@
   &-checkboxes {
     .dropdown__button {
       .button {
-        @apply right-5;
+        @apply right-3;
       }
       @apply px-3 py-[7px] border border-black-500 rounded-md w-full;
     }
@@ -127,10 +147,13 @@
       @apply w-full;
     }
     .dropdown__title {
+      &-all {
+        @apply text-12-m text-black-100;
+      }
       @apply text-black-200;
     }
     .dropdown__list {
-      @apply gap-y-0 bg-white-000 px-2 py-3 w-full max-h-[335px];
+      @apply gap-y-0 bg-white-000 px-2 py-3 w-[310px] max-w-[310px] max-h-[335px];
     }
   }
   &-with-icon {
