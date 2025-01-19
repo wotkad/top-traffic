@@ -5,7 +5,7 @@ mixin dropdown(data = {})
   .dropdown(class=modefied.class)
     if modefied.label
       .dropdown__label !{modefied.label}
-        if modefied.isRequired 
+        if modefied.isRequired
           sup *
     .dropdown__container
       if modefied.checkboxes
@@ -33,7 +33,7 @@ mixin dropdown(data = {})
         })
       .dropdown__list
         .dropdown__results
-          .dropdown__selected Выбрано: 
+          .dropdown__selected Выбрано:
             span 0
           .dropdown__count Показано: 25
         if modefied.isLinks && modefied.links
@@ -66,9 +66,9 @@ mixin dropdown(data = {})
           each button, index in modefied.buttons
             label.dropdown__item
               input(
-                type="radio" 
-                name=`radio-${modefied.class}` 
-                data-color=modefied.isPriority || modefied.isStatus ? button.color : false 
+                type="radio"
+                name=`radio-${modefied.class}`
+                data-color=modefied.isPriority || modefied.isStatus ? button.color : false
                 checked=button.isChecked)
               p
                 span(class=modefied.isPriority || modefied.isStatus ? button.color : false)= button.title

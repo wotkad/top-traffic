@@ -42,15 +42,15 @@ mixin input(data = {})
             isOnlyIcon: true,
           })
   
-  else if modefied.isTextarea 
+  else if modefied.isTextarea
     .textarea
       if modefied.label
         .dropdown__label !{modefied.label}
-          if modefied.isRequired 
+          if modefied.isRequired
             sup *
       textarea(
-        disabled=modefied.isDisabled 
-        autocomplete=modefied.autocomplate 
+        disabled=modefied.isDisabled
+        autocomplete=modefied.autocomplate
         required= modefied.isRequired
         name=modefied.name
       )
@@ -58,11 +58,11 @@ mixin input(data = {})
   else
     label.input
       input.input__el(
-        disabled=modefied.isDisabled 
-        type=modefied.type 
-        required=modefied.isRequired 
-        autocomplete=modefied.autocomplate 
-        placeholder=modefied.placeholder 
+        disabled=modefied.isDisabled
+        type=modefied.type
+        required=modefied.isRequired
+        autocomplete=modefied.autocomplate
+        placeholder=modefied.placeholder
         name=modefied.name
       )
       .input__tip= modefied.placeholder

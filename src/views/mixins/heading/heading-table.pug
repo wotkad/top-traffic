@@ -3,7 +3,7 @@ mixin heading-table(data = {})
   - const modefied = mergeConfig(data, defaults);
 
   .heading.heading-table(class=modefied.isRows ? 'heading-table-rows' : '')
-    .heading__title 
+    .heading__title
       h1= modefied.title
       if modefied.count
         sup= modefied.count
