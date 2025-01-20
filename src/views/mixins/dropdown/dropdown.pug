@@ -32,10 +32,11 @@ mixin dropdown(data = {})
           isOnlyIcon: true,
         })
       .dropdown__list
-        .dropdown__results
-          .dropdown__selected Выбрано:
-            span 0
-          .dropdown__count Показано: 25
+        if modefied.isCheckboxes && modefied.checkboxes
+          .dropdown__results
+            .dropdown__selected Выбрано:
+              span 0
+            .dropdown__count Показано: 25
         if modefied.isLinks && modefied.links
           each link in modefied.links
             +button({

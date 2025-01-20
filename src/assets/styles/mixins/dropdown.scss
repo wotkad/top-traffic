@@ -68,6 +68,9 @@
     @apply text-10-r-sm text-black-200;
   }
   &__selected {
+    span {
+      @apply ml-[2px];
+    }
     @apply text-10-r-sm;
   }
   &__sort {
@@ -83,12 +86,13 @@
     &.opened {
       @apply max-h-full;
     }
-    @apply relative hidden p-[5px] pr-10 border border-black-500 rounded-md w-full max-h-[57px] cursor-pointer overflow-y-auto;
+    @apply relative hidden p-[5px] pr-10 border border-black-500 rounded-md w-full min-h-8 max-h-[57px] cursor-pointer overflow-hidden;;
   }
   &__values {
     @apply flex flex-wrap gap-[5px];
   }
-  &__value {
+  &__value,
+  &__show-all {
     svg {
       &:hover,
       &:active {
@@ -97,7 +101,7 @@
       }
       @apply w-[7px] min-w-[7px] h-[7px] min-h-[7px] text-black-200 transition-all duration-300 cursor-pointer;
     }
-    @apply flex items-center gap-x-[6px] bg-black-700 px-[6px] py-px line-clamp-1 border border-black-500 rounded-[3px] text-12-m whitespace-nowrap;
+    @apply flex items-center gap-x-[6px] bg-black-700 px-[6px] py-px line-clamp-1 border border-black-500 rounded-[3px] text-12-m text-ellipsis whitespace-nowrap;
   }
   &__label {
     sup {

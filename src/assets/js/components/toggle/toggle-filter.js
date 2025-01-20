@@ -59,6 +59,8 @@ function toggleFilter() {
     $filterContainer.find('.dropdown__button').show().removeClass('active');
     $filterContainer.find('.dropdown__label').removeClass('selected');
 
+    $filterContainer.find('.dropdown__selected span').text('0');
+
     // Скрываем кнопку .filter-clear
     $('.filter-clear').hide();
   });
