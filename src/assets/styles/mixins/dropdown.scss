@@ -107,7 +107,11 @@
     @apply flex items-center gap-x-[6px] bg-black-700 px-[6px] py-px line-clamp-1 border border-black-500 rounded-[3px] text-12-m whitespace-nowrap;
   }
   &__show-all {
-    @apply order-2 text-blue-200;
+    &:hover,
+    &:active {
+      @apply border-blue-200 text-blue-200;
+    }
+    @apply order-2 transition-all duration-300;
   }
   &__value {
     span {

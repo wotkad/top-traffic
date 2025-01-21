@@ -5,9 +5,6 @@ function toggleDropdown() {
 
     $children.each(function () {
       const $child = $(this);
-
-      console.log($parent.height());
-      
       const parentTop = $parent.offset().top;
       const parentBottom = parentTop + $parent.outerHeight();
 
