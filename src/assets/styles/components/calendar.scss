@@ -87,7 +87,7 @@
 }
 
 .daterangepicker .calendar-table th.month {
-  @apply h-5 text-12-sb leading-5;
+  @apply h-5 text-12-sb leading-[22px];
 }
 
 .daterangepicker .calendar-table th {
@@ -104,7 +104,7 @@
 }
 
 .daterangepicker .calendar-table td.monthPanel {
-  @apply h-[22px] text-left;
+  @apply px-[11px] h-[22px] text-left;
 }
 
 .daterangepicker .calendar-table td.monthPanel span {
@@ -114,12 +114,6 @@
 .daterangepicker .calendar-table td.monthPanel span,
 .daterangepicker .calendar-table td.monthPanel.start-date.end-date span {
   @apply rounded-[3px];
-}
-
-.daterangepicker .calendar-table td.offspan span {
-  &:hover {
-    @apply bg-transparent text-[#999];
-  }
 }
 
 .daterangepicker td.weekend {
@@ -176,11 +170,25 @@
   @apply right-2 absolute w-[22px] min-w-[22px] h-[22px];
 }
 
-.daterangepicker .calendar-table .prev span {
-  @apply bg-[right_center] bg-[url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNiIgaGVpZ2h0PSIxMCIgdmlld0JveD0iMCAwIDYgMTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxsaW5lIHgxPSIwLjc1IiB5MT0iLTAuNzUiIHgyPSI2LjMyMTA2IiB5Mj0iLTAuNzUiIHRyYW5zZm9ybT0ibWF0cml4KC0wLjcwNzEgMC43MDcxMTQgLTAuNzA3MSAtMC43MDcxMTQgNSAwKSIgc3Ryb2tlPSIjOTU5QkE0IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CjxsaW5lIHgxPSIwLjc1IiB5MT0iLTAuNzUiIHgyPSI2LjMyMTA2IiB5Mj0iLTAuNzUiIHRyYW5zZm9ybT0ibWF0cml4KDAuNzA3MSAwLjcwNzExNCAtMC43MDcxIDAuNzA3MTE0IDAgNSkiIHN0cm9rZT0iIzk1OUJBNCIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L3N2Zz4K)];
+.daterangepicker .calendar-table .prev {
+  span {
+    @apply bg-[right_center] bg-[url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNiIgaGVpZ2h0PSIxMCIgdmlld0JveD0iMCAwIDYgMTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxsaW5lIHgxPSIwLjc1IiB5MT0iLTAuNzUiIHgyPSI2LjMyMTA2IiB5Mj0iLTAuNzUiIHRyYW5zZm9ybT0ibWF0cml4KC0wLjcwNzEgMC43MDcxMTQgLTAuNzA3MSAtMC43MDcxMTQgNSAwKSIgc3Ryb2tlPSIjOTU5QkE0IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CjxsaW5lIHgxPSIwLjc1IiB5MT0iLTAuNzUiIHgyPSI2LjMyMTA2IiB5Mj0iLTAuNzUiIHRyYW5zZm9ybT0ibWF0cml4KDAuNzA3MSAwLjcwNzExNCAtMC43MDcxIDAuNzA3MTE0IDAgNSkiIHN0cm9rZT0iIzk1OUJBNCIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L3N2Zz4K)];
+  }
+  &:hover {
+    span {
+      @apply bg-[url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNiIgaGVpZ2h0PSIxMCIgdmlld0JveD0iMCAwIDYgMTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxsaW5lIHgxPSIwLjc1IiB5MT0iLTAuNzUiIHgyPSI2LjMyMTA2IiB5Mj0iLTAuNzUiIHRyYW5zZm9ybT0ibWF0cml4KC0wLjcwNzEgMC43MDcxMTQgLTAuNzA3MSAtMC43MDcxMTQgNSAwKSIgc3Ryb2tlPSIjMzc0MTUxIiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CjxsaW5lIHgxPSIwLjc1IiB5MT0iLTAuNzUiIHgyPSI2LjMyMTA2IiB5Mj0iLTAuNzUiIHRyYW5zZm9ybT0ibWF0cml4KDAuNzA3MSAwLjcwNzExNCAtMC43MDcxIDAuNzA3MTE0IDAgNSkiIHN0cm9rZT0iIzM3NDE1MSIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L3N2Zz4K)];
+    }
+  }
 }
-.daterangepicker .calendar-table .next span {
-  @apply bg-[left_center] bg-[url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNiIgaGVpZ2h0PSIxMCIgdmlld0JveD0iMCAwIDYgMTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxsaW5lIHgxPSIwLjc1IiB5MT0iLTAuNzUiIHgyPSI2LjMyMTA2IiB5Mj0iLTAuNzUiIHRyYW5zZm9ybT0ibWF0cml4KDAuNzA3MSAtMC43MDcxMTQgMC43MDcxIDAuNzA3MTE0IDEgMTApIiBzdHJva2U9IiM5NTlCQTQiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPGxpbmUgeDE9IjAuNzUiIHkxPSItMC43NSIgeDI9IjYuMzIxMDYiIHkyPSItMC43NSIgdHJhbnNmb3JtPSJtYXRyaXgoLTAuNzA3MSAtMC43MDcxMTQgMC43MDcxIC0wLjcwNzExNCA2IDUpIiBzdHJva2U9IiM5NTlCQTQiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9zdmc+Cg==)];
+.daterangepicker .calendar-table .next {
+  span {
+    @apply bg-[left_center] bg-[url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNiIgaGVpZ2h0PSIxMCIgdmlld0JveD0iMCAwIDYgMTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxsaW5lIHgxPSIwLjc1IiB5MT0iLTAuNzUiIHgyPSI2LjMyMTA2IiB5Mj0iLTAuNzUiIHRyYW5zZm9ybT0ibWF0cml4KDAuNzA3MSAtMC43MDcxMTQgMC43MDcxIDAuNzA3MTE0IDEgMTApIiBzdHJva2U9IiM5NTlCQTQiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPGxpbmUgeDE9IjAuNzUiIHkxPSItMC43NSIgeDI9IjYuMzIxMDYiIHkyPSItMC43NSIgdHJhbnNmb3JtPSJtYXRyaXgoLTAuNzA3MSAtMC43MDcxMTQgMC43MDcxIC0wLjcwNzExNCA2IDUpIiBzdHJva2U9IiM5NTlCQTQiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9zdmc+Cg==)];
+  }
+  &:hover {
+    span {
+      @apply bg-[url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNiIgaGVpZ2h0PSIxMCIgdmlld0JveD0iMCAwIDYgMTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxsaW5lIHgxPSIwLjc1IiB5MT0iLTAuNzUiIHgyPSI2LjMyMTA2IiB5Mj0iLTAuNzUiIHRyYW5zZm9ybT0ibWF0cml4KDAuNzA3MSAtMC43MDcxMTQgMC43MDcxIDAuNzA3MTE0IDEgMTApIiBzdHJva2U9IiMzNzQxNTEiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPGxpbmUgeDE9IjAuNzUiIHkxPSItMC43NSIgeDI9IjYuMzIxMDYiIHkyPSItMC43NSIgdHJhbnNmb3JtPSJtYXRyaXgoLTAuNzA3MSAtMC43MDcxMTQgMC43MDcxIC0wLjcwNzExNCA2IDUpIiBzdHJva2U9IiMzNzQxNTEiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9zdmc+Cg==)];
+    }
+  }
 }
 
 .daterangepicker .calendar-table td.start-date.active {
@@ -276,15 +284,15 @@
 }
 
 .monthrangepicker .calendar-table thead tr th {
-  @apply pb-5;
+  @apply pb-3;
 }
 
-.monthrangepicker .calendar-table thead tr:first-child {
-  &:before {
-    @apply bottom-2 left-0 absolute content-[''] bg-black-500 w-full h-px;
-  }
-  @apply relative;
-}
+// .monthrangepicker .calendar-table thead tr:first-child {
+//   &:before {
+//     @apply bottom-2 left-0 absolute content-[''] bg-black-500 w-full h-px;
+//   }
+//   @apply relative;
+// }
 
 .monthrangepicker .calendar-table td span {
   @apply text-12-r-md leading-[22px];

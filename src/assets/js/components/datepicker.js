@@ -124,8 +124,22 @@ function datePicker() {
       });
 
       $this.on('apply.daterangepicker', function(ev, picker) {
-        $this.val(picker.startDate.format('DD.MM.YYYY') + ' - ' + picker.endDate.format('DD.MM.YYYY'));
         buttons.css('display', 'flex');
+
+        const startTimestamp = picker.startDate;
+        const endTimestamp = picker.endDate;
+
+        const startMoment = moment(startTimestamp);
+        const endMoment = moment(endTimestamp);
+
+        let result;
+
+        if (startMoment.day() === endMoment.day()) {
+          result = picker.startDate.format('DD.MM.YYYY');
+        } else {
+          result = picker.startDate.format('DD.MM.YYYY') + ' - ' + picker.endDate.format('DD.MM.YYYY');
+        }
+        $this.val(result);
       });
     });
   });
