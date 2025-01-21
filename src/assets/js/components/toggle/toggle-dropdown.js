@@ -1,33 +1,71 @@
 function toggleDropdown() {
+
+  function checkVisibility($parent, $children) {
+    $children.removeClass('invisible').removeClass('visible');
+
+    $children.each(function () {
+      const $child = $(this);
+
+      console.log($parent.height());
+      
+      const parentTop = $parent.offset().top;
+      const parentBottom = parentTop + $parent.outerHeight();
+
+      const childTop = $child.offset().top;
+      const childBottom = childTop + $child.outerHeight();
+
+      // Проверяем, находится ли элемент в видимой области родителя
+      if (childBottom > parentTop && childTop < parentBottom) {
+        $child.addClass('visible').removeClass('invisible');
+      } else {
+        $child.addClass('invisible').removeClass('visible');
+      }
+    });
+
+    // После обновления видимости добавляем блок .dropdown__show-all
+    const $visibleChildren = $children.filter('.visible');
+    const $hiddenChildren = $children.filter('.invisible');
+
+    // Удаляем старый блок .dropdown__show-all, если он существует
+    $parent.find('.dropdown__show-all').remove();
+
+    if ($hiddenChildren.length) {
+      // Добавить новый блок после последнего видимого элемента
+      const $lastVisible = $visibleChildren.last();
+      $lastVisible.after(`<div class="dropdown__show-all">Ещё ${$hiddenChildren.length}</div>`);
+
+      if ($parent.find('.dropdown__show-all').length) {
+        const $showAllBlock = $parent.find('.dropdown__show-all');
+        const parentBottom = $parent.offset().top + $parent.outerHeight();
+        const showAllBottom = $showAllBlock.offset().top + $showAllBlock.outerHeight();
+
+        // Проверяем, выходит ли .dropdown__show-all за пределы родителя
+        if (showAllBottom > parentBottom) {
+          const $previousElement = $showAllBlock.prev('.dropdown__value'); // Предыдущий элемент перед .dropdown__show-all
+          if ($previousElement.length) {
+            $previousElement.removeClass('visible').addClass('invisible');
+          }
+        }
+      }
+    }
+  }
+
   $('.dropdown__button, .dropdown__sort').on('click', function (e) {
-    e.stopPropagation(); // Остановить всплытие, чтобы не срабатывало событие document
+    e.stopPropagation();
     const $dropdown = $(this).closest('.dropdown');
     const $list = $dropdown.find('.dropdown__list');
     
-    // Проверяем, что .dropdown__list находится внутри .filter__container
     if ($dropdown.closest('.filter__container').length) {
-      const $container = $dropdown.closest('.filter__container'); // Родительский контейнер .filter__container
-
-      // Вычисляем нижнюю позицию кнопки (top) и левую позицию (left) относительно .filter__container
+      const $container = $dropdown.closest('.filter__container');
       const buttonOffset = $(this).offset();
       const containerOffset = $container.offset();
-
       const buttonHeight = $(this).outerHeight();
-      // const buttonWidth = $(this).outerWidth();
-
-      // Вычисляем top и left с учетом padding
       const dropdownTop = buttonOffset.top - containerOffset.top + buttonHeight;
-      // const dropdownLeft = buttonOffset.left - containerOffset.left;
 
-      // Устанавливаем top и left для .dropdown__list
       $list.css({
         top: `${dropdownTop + 4}px`,
-        // left: `${dropdownLeft}px`,
-        // maxWidth: `${buttonWidth}px`,
       });
     }
-
-    // Переключение активного состояния только для текущего dropdown
     $('.dropdown__list').not($list).removeClass('active');
     $('.dropdown__button').not(this).removeClass('active');
     $('.dropdown__sort').removeClass('active');
@@ -80,12 +118,11 @@ function toggleDropdown() {
   });
 
   $('.dropdown__list').on('click', function (e) {
-    e.stopPropagation(); // Предотвращение закрытия при клике внутри списка
+    e.stopPropagation();
   });
 
-  // Обработка чекбоксов
-  $('.input-checkbox-with-label input').on('change', function () {
-    const $dropdown = $(this).closest('.dropdown'); // Ограничиваем область действия текущим dropdown
+  $('.dropdown__list .input-checkbox-with-label input').on('change', function () {
+    const $dropdown = $(this).closest('.dropdown');
     const $list = $dropdown.find('.dropdown__list');
   
     // Остальная логика обработки чекбоксов
@@ -94,17 +131,21 @@ function toggleDropdown() {
     const $valuesContainer = $dropdown.find('.dropdown__values');
     const $selectedValuesCount = $dropdown.find('.dropdown__selected span');
   
-    const $firstCheckbox = $dropdown.find('.input-checkbox-with-label input').first(); // Первый чекбокс (с меткой "Все")
+    const $firstCheckbox = $dropdown.find('.input-checkbox-with-label input').first();
   
     if ($(this).is($firstCheckbox)) {
-      // Если выбран первый чекбокс "Все"
       const allChecked = $firstCheckbox.prop('checked');
+      
+      $dropdown.find('.dropdown__sort').removeClass('opened');
+      $dropdown.find('.dropdown__values').removeClass('opened');
+
+      
       $dropdown.find('.input-checkbox-with-label input').prop('checked', allChecked);
   
       if (allChecked) {
         $sortBlock.show().addClass('active');
         $buttonBlock.hide();
-  
+
         $dropdown.find('.input-checkbox-with-label input').not($firstCheckbox).each(function () {
           const id = $(this).attr('id') || `checkbox-${Math.random().toString(36).substr(2, 9)}`;
           $(this).attr('id', id);
@@ -126,7 +167,6 @@ function toggleDropdown() {
         $valuesContainer.empty();
       }
     } else {
-      // Если выбран любой другой чекбокс
       $firstCheckbox.prop('checked', false);
   
       if (this.checked) {
@@ -154,83 +194,90 @@ function toggleDropdown() {
   
     $selectedValuesCount.text($valuesContainer.children('.dropdown__value').length);
   
-    // Проверить, есть ли выбранные элементы
     if ($valuesContainer.children('.dropdown__value').length === 0) {
       $sortBlock.hide().removeClass('active');
       $buttonBlock.show();
     }
 
+    const $parent = $valuesContainer;
+    const $children = $parent.find('.dropdown__value');
 
-    const $container = $(this).closest('.dropdown__container'); // Родительский контейнер dropdown__container
+    checkVisibility($parent, $children);
+
+    const $container = $(this).closest('.dropdown__container');
+    const containerPosition = $container.position();
+    const containerHeight = $container.outerHeight(); 
+    const dropdownTop = containerPosition.top + containerHeight;
     
-    // Получаем нижнюю позицию контейнера относительно родителя
-    const containerPosition = $container.position(); // Получаем позицию относительно родителя
-    const containerHeight = $container.outerHeight(); // Высота контейнера
-  
-    // Вычисляем новую позицию top для .dropdown__list, устанавливая её ниже контейнера
-    const dropdownTop = containerPosition.top + containerHeight; // Позиция ниже контейнера
-    
-     // Устанавливаем top для .dropdown__list
     $list.css({
-      top: `${dropdownTop + 4}px`, // 4px — дополнительное отступное пространство, можно изменить
+      top: `${dropdownTop + 4}px`,
     });
-  });
-  
 
-  // Удаление элемента из .dropdown__values
+  });
+
+
+  $('.dropdown__values').on('click', '.dropdown__show-all', function (e) {
+    e.stopPropagation();
+    $(this).siblings('.dropdown__value.invisible').removeClass('invisible');
+    $(this).closest('.dropdown__sort').children('.dropdown__values').addClass('opened').removeClass('active');
+    $(this).closest('.dropdown__sort').addClass('opened').removeClass('active');
+    $(this).closest('.dropdown__sort').siblings('.dropdown__list').removeClass('active');
+    $(this).remove();
+  });
+
   $('.dropdown__values').on('click', '.dropdown__value svg', function (e) {
-    e.stopPropagation(); // Предотвращение всплытия клика
-  
+    e.stopPropagation();
+    
     const $valueBlock = $(this).closest('.dropdown__value');
     const id = $valueBlock.data('id');
   
-    const $dropdown = $(this).closest('.dropdown'); // Ограничиваем область dropdown
-    const $list = $dropdown.find('.dropdown__list'); // Список dropdown
-    const $container = $dropdown.find('.dropdown__container'); // Контейнер dropdown
+    const $dropdown = $(this).closest('.dropdown'); 
+    const $list = $dropdown.find('.dropdown__list'); 
+    const $container = $dropdown.find('.dropdown__container');
   
     const $valuesContainer = $dropdown.find('.dropdown__values');
     const $sortBlock = $dropdown.find('.dropdown__sort');
     const $buttonBlock = $dropdown.find('.dropdown__button');
     const $selectedValuesCount = $dropdown.find('.dropdown__selected span');
+
+    const $firstCheckbox = $dropdown.find('.input-checkbox-with-label input').first();
+    $firstCheckbox.prop('checked', false);
   
-    // Убрать checked у соответствующего чекбокса
     $(`.input-checkbox-with-label input[id="${id}"]`).prop('checked', false);
   
-    // Удалить элемент из .dropdown__values
     $valueBlock.remove();
   
-    // Обновить счётчик выбранных значений
     $selectedValuesCount.text($valuesContainer.children('.dropdown__value').length);
   
-    // Проверить, если больше нет выбранных элементов
     if ($valuesContainer.children('.dropdown__value').length === 0) {
       $sortBlock.hide().removeClass('active');
       $buttonBlock.show().removeClass('active');
     }
   
-    // Вычислить и установить новую позицию top для .dropdown__list
-    const containerPosition = $container.position(); // Позиция контейнера
-    const containerHeight = $container.outerHeight(); // Высота контейнера
-  
-    const dropdownTop = containerPosition.top + containerHeight; // Новая позиция top
+    const $parent = $valuesContainer;
+    const $children = $parent.find('.dropdown__value');
+
+    checkVisibility($parent, $children);
+
+    const containerPosition = $container.position(); 
+    const containerHeight = $container.outerHeight();
+    const dropdownTop = containerPosition.top + containerHeight;
+
     $list.css({
-      top: `${dropdownTop + 4}px`, // 4px — отступ, можно настроить
+      top: `${dropdownTop + 4}px`, 
     });
   });
   
 
-  // Переключение active для .dropdown__sort и открытие списка
   $('.dropdown__sort').on('click', function (e) {
     e.stopPropagation();
 
     const $dropdownList = $(this).siblings('.dropdown__list');
 
-    // Закрыть все остальные списки и снять active
     $('.dropdown__list').not($dropdownList).removeClass('active');
     $('.dropdown__sort').not(this).removeClass('active');
     $('.dropdown__button').removeClass('active');
 
-    // Переключить текущий
     $(this).toggleClass('active');
   });
 
