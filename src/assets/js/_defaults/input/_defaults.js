@@ -5,7 +5,7 @@ module.exports = {
     placeholder: 'Введите текст',
     image: {
       enabled: false,
-      src: '/assets/images/tg-channel.png',
+      src: '/assets/images/avatar.png',
       alt: 'image',
     },
     telegram: '',

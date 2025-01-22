@@ -43,6 +43,7 @@ module.exports = {
     isLinks: false,
     isRequired: false,
     isAll: false,
+    isSelected: false,
   },
   mergeConfig(data, defaults) {
     return {
@@ -64,6 +65,7 @@ module.exports = {
       isLinks: data.isLinks !== undefined ? data.isLinks : defaults.isLinks,
       isRequired: data.isRequired !== undefined ? data.isRequired : defaults.isRequired,
       isAll: data.isAll !== undefined ? data.isAll : defaults.isAll,
+      isSelected: data.isSelected !== undefined ? data.isSelected : defaults.isSelected,
     }
   }
 }

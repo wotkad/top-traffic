@@ -1,6 +1,8 @@
 mixin dropdown(data = {})
   - const { defaults, mergeConfig } = require('/assets/js/_defaults/dropdown/_defaults');
   - const modefied = mergeConfig(data, defaults);
+  - const isSelected = modefied.isSelected ? ' selected' : '';
+  - const isStatus = modefied.isStatus ? modefied.color : '';
 
   .dropdown(class=modefied.class)
     if modefied.label
@@ -17,7 +19,7 @@ mixin dropdown(data = {})
             icon: 'other-angle-down-icon',
             isOnlyIcon: true,
           })
-      .dropdown__button(class=modefied.isStatus ? modefied.color : '' + modefied.classButton)
+      .dropdown__button(class=isStatus + isSelected + modefied.classButton)
         .dropdown__inner
           if modefied.image
             img.dropdown__image(src=modefied.src, alt=modefied.alt)
@@ -37,6 +39,7 @@ mixin dropdown(data = {})
             .dropdown__selected Выбрано:
               span 0
             .dropdown__count Показано: 25
+
         if modefied.isLinks && modefied.links
           each link in modefied.links
             +button({
@@ -46,7 +49,7 @@ mixin dropdown(data = {})
               title: link.title,
               href: link.href,
             })
-            
+
         else if modefied.isCheckboxes && modefied.checkboxes
           +search
           .dropdown__items
@@ -73,7 +76,16 @@ mixin dropdown(data = {})
                 checked=button.isChecked)
               p
                 span(class=modefied.isPriority || modefied.isStatus ? button.color : false)= button.title
-
+        
+        else if modefied.isButtons && modefied.buttons
+          each button in modefied.buttons
+            +button({
+              view: 'button',
+              class: 'button-with-icon-full sm',
+              icon: button.icon,
+              title: button.title,
+            })
+            
         else
           each button, index in modefied.buttons
             label.dropdown__item

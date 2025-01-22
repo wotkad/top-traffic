@@ -1,0 +1,80 @@
+mixin heading(data = {})
+  - const { defaults, mergeConfig } = require('/assets/js/_defaults/heading/_defaults-heading');
+  - const modefied = mergeConfig(data, defaults);
+
+  .heading
+    .heading__container
+      .heading__left
+        if modefied.isChannel || modefied.isAdmin
+          .heading__avatar
+            if modefied.image
+              img(src=modefied.src, alt=modefied.alt)
+            else
+              span
+        .heading__content
+          .heading__top
+            h1.heading__title= modefied.title
+
+            if modefied.isChannel || modefied.isAdmin
+              +dropdown({
+                class: 'dropdown-base heading__dropdown-base',
+                isButtons: true,
+                buttons: [
+                  { title: 'Режим редактирования', icon: 'other-edit2-icon' },
+                  { title: 'Удалить', icon: 'other-trash-icon' }
+                ],
+              })
+
+            if modefied.isRk
+              +dropdown({
+                class: 'dropdown-base heading__dropdown-base',
+                isButtons: true,
+                buttons: [
+                  { title: 'Удалить', icon: 'other-trash-icon' }
+                ],
+              })
+
+            if modefied.isChannel || modefied.isAdmin
+              +button({
+                view: 'button',
+                icon: 'aside-favorites-icon',
+                isOnlyIcon: true,
+                class: 'heading__addtofavotites',
+              })
+
+            if modefied.isChannel || modefied.isAdmin
+              .heading__status.status(class="status-green") Активный
+
+            if modefied.isRk
+              +dropdown({
+                class: 'dropdown-status heading__dropdown-status',
+                color: 'status-green',
+                isStatus: true,
+                isButtons: true,
+                title: 'Активный',
+                isSelected: true,
+                buttons: [
+                  { title: '––', color: 'status-transparent'},
+                  { title: 'Активный', color: 'status-green', isChecked: true },
+                  { title: 'Неактивный', color: 'status-gray' },
+                  { title: 'Новая РК', color: 'status-blue' },
+                  { title: 'Подбор каналов', color: 'status-purple' },
+                ],
+              })
+
+          if modefied.isChannel || modefied.isAdmin
+            .heading__bottom
+              a(href="https://t.me/" + modefied.tg target="_blank").heading__channel= modefied.tg
+              if modefied.isChannel
+                .heading__icons
+                  svg
+                    use(xlink:href="#label-verification-icon")
+                  svg
+                    use(xlink:href="#label-warning-icon")
+                  svg
+                    use(xlink:href="#label-scam-icon")
+      .heading__right
+        .heading__lastupdate
+          svg
+            use(xlink:href="#other-info-icon")
+          span Последнее обновление: 12.12.2023

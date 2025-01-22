@@ -15,6 +15,7 @@ import "./base/common/get-header-height";
 import "./base/common/set-filter-height";
 import "./base/common/set-filter-position";
 import "./base/common/set-td-padding";
+import "./base/common/set-page-initials";
 
 import "./components/form/form-login";
 

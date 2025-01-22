@@ -31,5 +31,5 @@
     }
     @apply flex items-center gap-x-[7px];
   }
-  @apply left-[217px] z-50 fixed flex items-center bg-black-700 py-[14px] border-b border-black-500 w-[calc(100%-217px)] h-[60px] transition-all duration-300;
+  @apply left-[217px] z-50 fixed flex items-center bg-black-700 py-3.5 border-b border-black-500 w-[calc(100%-217px)] h-[60px] transition-all duration-300;
 }

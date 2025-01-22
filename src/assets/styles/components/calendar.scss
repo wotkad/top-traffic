@@ -3,7 +3,7 @@
   &:after {
     @apply hidden;
   }
-  @apply fixed mt-[14px] border-black-500 rounded-[10px] font-sans cursor-default;
+  @apply fixed mt-3.5 border-black-500 rounded-[10px] font-sans cursor-default;
 }
 
 .daterangepicker.opensright {

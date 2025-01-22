@@ -13,7 +13,7 @@
       @apply bg-transparent;
     }
     td.only-text {
-      @apply pt-[14px] pb-[13px];
+      @apply pt-3.5 pb-[13px];
     }
   }
   &__channels {
@@ -119,7 +119,7 @@
         &:before {
           @apply left-0 absolute content-[''] rounded-full w-2 h-2;
         }
-        @apply inline-flex relative items-center pl-[14px] min-w-[57px];
+        @apply inline-flex relative items-center pl-3.5 min-w-[57px];
       }
       &.male {
         &:before {
@@ -157,7 +157,7 @@
       @apply inline-block w-auto;
     }
     &.only-text {
-      @apply pt-[16px] pb-[14px];
+      @apply pt-[16px] pb-3.5;
     }
     .status {
       @apply mt-1;

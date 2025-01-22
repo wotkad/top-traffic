@@ -1,0 +1,33 @@
+extends ../layouts/master
+
+block title
+  title Топ Трафик | Клиент
+
+block basicSeo
+  meta(content="Клиент" name="description")
+  meta(content="Клиент" name="keywords")
+  meta(content="Клиент" property="og:title")
+  meta(content="Клиент" name="twitter:title")
+
+block manifestBrowserconfigFiles
+  link(href="../manifest.json" rel="manifest" crossorigin)
+  meta(content="../browserconfig.xml" name="msapplication-config")
+
+block content
+  main.page
+    include ../components/sidebar
+    include ../components/header
+    .wrapper
+      +heading({
+        title: 'ZeroDay | Кибербезопасность',
+        tg: '@cybersec_academy',
+        image: {
+          enabled: true,
+          src: '/assets/images/avatar.png',
+          alt: 'avatar',
+        },
+        isChannel: true,
+      })
+      .inner
+        .content
+          .content-scroll
