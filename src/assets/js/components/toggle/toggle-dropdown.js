@@ -1,16 +1,17 @@
 function toggleDropdown() {
 
-  function checkVisibility($parent, $children) {
+  function checkVisibility($parent) {
+    const $children = $parent.find('.dropdown__value'); // Находим только дочерние элементы для конкретного родителя
     $children.removeClass('invisible').removeClass('visible');
-
+  
     $children.each(function () {
       const $child = $(this);
       const parentTop = $parent.offset().top;
       const parentBottom = parentTop + $parent.outerHeight();
-
+  
       const childTop = $child.offset().top;
       const childBottom = childTop + $child.outerHeight();
-
+  
       // Проверяем, находится ли элемент в видимой области родителя
       if (childBottom > parentTop && childTop < parentBottom) {
         $child.addClass('visible').removeClass('invisible');
@@ -18,24 +19,24 @@ function toggleDropdown() {
         $child.addClass('invisible').removeClass('visible');
       }
     });
-
+  
     // После обновления видимости добавляем блок .dropdown__show-all
     const $visibleChildren = $children.filter('.visible');
     const $hiddenChildren = $children.filter('.invisible');
-
+  
     // Удаляем старый блок .dropdown__show-all, если он существует
     $parent.find('.dropdown__show-all').remove();
-
+  
     if ($hiddenChildren.length) {
       // Добавить новый блок после последнего видимого элемента
       const $lastVisible = $visibleChildren.last();
       $lastVisible.after(`<div class="dropdown__show-all">Ещё ${$hiddenChildren.length}</div>`);
-
+  
       if ($parent.find('.dropdown__show-all').length) {
         const $showAllBlock = $parent.find('.dropdown__show-all');
         const parentBottom = $parent.offset().top + $parent.outerHeight();
         const showAllBottom = $showAllBlock.offset().top + $showAllBlock.outerHeight();
-
+  
         // Проверяем, выходит ли .dropdown__show-all за пределы родителя
         if (showAllBottom > parentBottom) {
           const $previousElement = $showAllBlock.prev('.dropdown__value'); // Предыдущий элемент перед .dropdown__show-all
@@ -46,7 +47,14 @@ function toggleDropdown() {
       }
     }
   }
-
+  
+  // При ресайзе обрабатываем каждый контейнер индивидуально
+  $(window).on('resize', function() {
+    $('.dropdown__values').each(function () {
+      checkVisibility($(this)); // Передаем конкретный контейнер
+    });
+  });
+  
   $('.dropdown__button, .dropdown__sort').on('click', function (e) {
     e.stopPropagation();
     const $dropdown = $(this).closest('.dropdown');
@@ -199,7 +207,7 @@ function toggleDropdown() {
     const $parent = $valuesContainer;
     const $children = $parent.find('.dropdown__value');
 
-    checkVisibility($parent, $children);
+    checkVisibility($parent);
 
     if ($(this).closest('.filter__container').length) {
       const $container = $(this).closest('.dropdown__container');
@@ -256,7 +264,7 @@ function toggleDropdown() {
     const $parent = $valuesContainer;
     const $children = $parent.find('.dropdown__value');
 
-    checkVisibility($parent, $children);
+    checkVisibility($parent);
 
     const containerPosition = $container.position(); 
     const containerHeight = $container.outerHeight();
