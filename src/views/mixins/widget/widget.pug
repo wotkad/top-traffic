@@ -1,0 +1,15 @@
+mixin widget(data = {})
+  - const { defaults, mergeConfig } = require('/assets/js/_defaults/widget/_defaults');
+  - const modefied = mergeConfig(data, defaults);
+
+  .widget
+    .widget__heading
+      svg.widget__icon
+        use(xlink:href="#" + modefied.icon)
+      .widget__title= modefied.title
+      if modefied.tip
+        button(type="button" aria-label="button").widget__tip
+          svg
+            use(xlink:href="#other-info-icon")
+          p= modefied.tip.content
+    .widget__value= modefied.value
