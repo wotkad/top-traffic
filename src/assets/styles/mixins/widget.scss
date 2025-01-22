@@ -12,8 +12,14 @@
     @apply w-3.5 h-3.5;
   }
   &__tip {
+    &:hover
+    &:active {
+      svg {
+        @apply text-blue-200;
+      }
+    }
     svg {
-      @apply w-[9px] max-w-[9px] h-[9px] max-h-[9px];
+      @apply w-[9px] max-w-[9px] h-[9px] max-h-[9px] transition-all duration-300;
     }
   }
   @apply flex flex-col gap-y-[7px] col-span-1 bg-black-700 p-3.5 border border-black-500 rounded-[10px];
