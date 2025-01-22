@@ -222,14 +222,9 @@ function toggleDropdown() {
 
   });
 
-
   $('.dropdown__values').on('click', '.dropdown__show-all', function (e) {
     e.stopPropagation();
-    $(this).siblings('.dropdown__value.invisible').removeClass('invisible');
-    $(this).closest('.dropdown__sort').children('.dropdown__values').addClass('opened').removeClass('active');
-    $(this).closest('.dropdown__sort').addClass('opened').removeClass('active');
-    $(this).closest('.dropdown__sort').siblings('.dropdown__list').removeClass('active');
-    $(this).remove();
+    $(this).closest('.dropdown__sort').siblings('.dropdown__list').addClass('active');
   });
 
   $('.dropdown__values').on('click', '.dropdown__value svg', function (e) {
