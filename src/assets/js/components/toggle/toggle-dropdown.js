@@ -201,14 +201,16 @@ function toggleDropdown() {
 
     checkVisibility($parent, $children);
 
-    const $container = $(this).closest('.dropdown__container');
-    const containerPosition = $container.position();
-    const containerHeight = $container.outerHeight(); 
-    const dropdownTop = containerPosition.top + containerHeight;
-    
-    $list.css({
-      top: `${dropdownTop + 4}px`,
-    });
+    if ($(this).closest('.filter__container').length) {
+      const $container = $(this).closest('.dropdown__container');
+      const containerPosition = $container.position();
+      const containerHeight = $container.outerHeight(); 
+      const dropdownTop = containerPosition.top + containerHeight;
+      
+      $list.css({
+        top: `${dropdownTop + 4}px`,
+      });
+    }
 
   });
 
