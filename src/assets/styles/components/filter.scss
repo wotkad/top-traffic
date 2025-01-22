@@ -36,7 +36,7 @@
     @apply text-12-sb text-black-200 transition-all duration-300;
   }
   &__checkboxes {
-    @apply flex flex-col items-start gap-y-[6px] mt-5;
+    @apply flex flex-col items-start gap-y-1.5 mt-5;
   }
   &__button {
     @apply mt-[37px] relative left-1/2 -translate-x-1/2;

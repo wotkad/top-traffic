@@ -70,7 +70,7 @@
     @apply mr-[5px] rounded-full max-w-[30px] max-h-[30px] object-cover;
   }
   &__results {
-    @apply flex justify-between items-center mb-[6px] px-2;
+    @apply flex justify-between items-center mb-1.5 px-2;
   }
   &__count {
     @apply text-10-r-sm text-black-200;
@@ -112,7 +112,7 @@
       }
       @apply w-[7px] min-w-[7px] h-[7px] min-h-[7px] text-black-200 transition-all duration-300 cursor-pointer;
     }
-    @apply flex items-center gap-x-[6px] bg-black-700 px-[6px] py-px line-clamp-1 border border-black-500 rounded-[3px] text-12-m whitespace-nowrap;
+    @apply flex items-center gap-x-1.5 bg-black-700 px-1.5 py-px line-clamp-1 border border-black-500 rounded-[3px] text-12-m whitespace-nowrap;
   }
   &__show-all {
     &:hover,

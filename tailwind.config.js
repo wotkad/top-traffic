@@ -74,6 +74,7 @@ module.exports = {
         '18-sb': ['18px', { lineHeight: '24px', fontWeight: 600 }],
         '14-m-md': ['14px', { lineHeight: '20px', fontWeight: 500 }],
         '14-sb': ['14px', { lineHeight: '18px', fontWeight: 600 }],
+        '14-sb-p': ['14px', { lineHeight: '120%', fontWeight: 600 }],
         '14-m': ['14px', { lineHeight: '18px', fontWeight: 500 }],
         '14-r': ['14px', { lineHeight: '18px', fontWeight: 400 }],
         '14-m-p': ['14px', { lineHeight: '120%', fontWeight: 500 }],

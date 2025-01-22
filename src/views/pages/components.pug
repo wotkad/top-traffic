@@ -198,6 +198,7 @@ block content
       .text-18-sb 18, Semibold, 24 LH
       .text-14-m-md 14, Medium, 20 LH
       .text-14-sb 14, Semibold, 18 LH
+      .text-14-sb-p 14, Semibold, 16 LH
       .text-14-m 14, Medium, 18 LH
       .text-14-r 14, Regular, 18 LH
       .text-14-m-p 14, Medium, 120% LH
@@ -320,3 +321,15 @@ block content
     .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
       h2.text-2xl.font-bold.pb-4.border-b.w-full Верхнее меню
       include ../components/header
+    .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
+      h2.text-2xl.font-bold.pb-4.border-b.w-full Баджи
+      .badges
+        +badge({
+
+        })
+        +badge({
+          tip: {
+            enabled: true,
+            content: '123',
+          }
+        })

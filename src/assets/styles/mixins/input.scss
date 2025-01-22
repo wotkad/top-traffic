@@ -7,7 +7,7 @@
     svg {
       @apply w-[9px] h-[9px];
     }
-    @apply -ml-[6px] p-0 border-none w-auto h-auto;
+    @apply -ml-1.5 p-0 border-none w-auto h-auto;
   }
   @apply block;
 }
@@ -53,7 +53,7 @@
     }
     &-with-icon {
       img {
-        @apply ml-[6px] rounded-full max-w-[18px] max-h-[18px] object-cover;
+        @apply ml-1.5 rounded-full max-w-[18px] max-h-[18px] object-cover;
       }
       a {
         &:hover {

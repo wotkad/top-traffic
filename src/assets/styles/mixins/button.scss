@@ -84,7 +84,7 @@ label.button {
       @apply bg-purple-300 text-blue-200;
     }
     &.sm {
-      @apply gap-x-[6px] px-2 py-[5px] h-7;
+      @apply gap-x-1.5 px-2 py-[5px] h-7;
     }
     @apply flex items-center gap-x-3 px-3 py-[7px] rounded-md w-full h-8 text-12-m;
   }

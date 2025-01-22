@@ -15,7 +15,7 @@
     }
     .heading__title {
       sup {
-        @apply inline-block ml-[6px] text-12-r text-black-200 -translate-y-1;
+        @apply inline-block ml-1.5 text-12-r text-black-200 -translate-y-1;
       }
       @apply flex items-center text-24-sb;
     }

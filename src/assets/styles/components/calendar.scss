@@ -59,7 +59,7 @@
 
 .daterangepicker .calendar-table table thead tr:nth-child(2) {
   th {
-    @apply pt-2 pb-[6px];
+    @apply pt-2 pb-1.5;
   }
 }
 .daterangepicker td.available span {
@@ -157,7 +157,7 @@
 .daterangepicker .calendar-table .prev,
 .daterangepicker .calendar-table .next {
   span {
-    @apply inline-block absolute bg-no-repeat p-0 border-none rounded-md w-[6px] h-2.5 rotate-0;
+    @apply inline-block absolute bg-no-repeat p-0 border-none rounded-md w-1.5 h-2.5 rotate-0;
   }
   @apply flex justify-center items-center p-0 rounded-[4px] w-auto min-w-max h-5 cursor-pointer;
 }
