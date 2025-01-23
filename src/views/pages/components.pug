@@ -110,6 +110,7 @@ block content
         .py-2.px-12.rounded-md.text-12-r-md.bg-blue-300 #C7D5F1
         .py-2.px-12.rounded-md.text-12-r-md.bg-green-000 #84C9A9
         .py-2.px-12.rounded-md.text-12-r-md.bg-green-100 #DAEFE5
+        .py-2.px-12.rounded-md.text-12-r-md.bg-green-200 #50AF1D
         .py-2.px-12.rounded-md.text-12-r-md.bg-red-000 #FF3333
         .py-2.px-12.rounded-md.text-12-r-md.bg-red-050 #E62D2D
         .py-2.px-12.rounded-md.text-12-r-md.bg-red-100 #DE350B
@@ -322,14 +323,31 @@ block content
       h2.text-2xl.font-bold.pb-4.border-b.w-full Верхнее меню
       include ../components/header
     .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
-      h2.text-2xl.font-bold.pb-4.border-b.w-full Баджи
+      h2.text-2xl.font-bold.pb-4.border-b.w-full Виджеты
       .widgets
         +widget({
 
         })
         +widget({
+          title: 'Кол-во размещений',
+          values: [
+            { value: '1', title: 'Активные' },
+            { value: '25', title: 'Всего' },
+          ],
+          icon: 'widget-layout-icon',
           tip: {
             enabled: true,
             content: '123',
-          }
+          },
+        })
+        +widget({
+          title: 'Подписчики',
+          values: [
+            { value: '22 000 000', title: '+15% за месяц', class: 'discount' },
+          ],
+          icon: 'widget-users-subscribed-icon',
+          tip: {
+            enabled: true,
+            content: '123',
+          },
         })

@@ -12,4 +12,7 @@ mixin widget(data = {})
           svg
             use(xlink:href="#other-info-icon")
           p= modefied.tip.content
-    .widget__value= modefied.value
+    .widget__values
+      each value in modefied.values
+        .widget__value= value.value
+          span(class=value.class)= value.title

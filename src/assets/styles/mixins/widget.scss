@@ -5,8 +5,17 @@
   &__title {
     @apply text-12-sb-p text-black-200;
   }
+  &__values {
+    @apply flex items-center gap-x-3;
+  }
   &__value {
-    @apply text-14-sb-p;
+    span {
+      &.discount {
+        @apply text-10-r-sm text-green-200;
+      }
+      @apply text-12-sb-p text-black-200;
+    }
+    @apply flex items-center gap-x-1 text-14-sb-p;
   }
   &__icon {
     @apply w-3.5 h-3.5;
