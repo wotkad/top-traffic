@@ -213,6 +213,7 @@ block content
       .text-12-r-p 12, Regular, 120% LH
       .text-10-m 10, Medium, 14 LH
       .text-10-r 10, Regular, 14 LH
+      .text-10-m-sm 10, Medium, 12 LH
       .text-10-r-sm 10, Regular, 12 LH
       .text-10-r-p 10, Regular, 120% LH
     .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
@@ -326,7 +327,15 @@ block content
       h2.text-2xl.font-bold.pb-4.border-b.w-full Виджеты
       .widgets
         +widget({
-
+          title: 'Возраст канала',
+          values: [
+            { value: '2 года 11 месяцев' },
+          ],
+          icon: 'widget-clock-icon',
+          tip: {
+            enabled: true,
+            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+          },
         })
         +widget({
           title: 'Кол-во размещений',
@@ -337,7 +346,7 @@ block content
           icon: 'widget-layout-icon',
           tip: {
             enabled: true,
-            content: '123',
+            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
           },
         })
         +widget({
@@ -348,6 +357,514 @@ block content
           icon: 'widget-users-subscribed-icon',
           tip: {
             enabled: true,
-            content: '123',
+            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+          },
+        })
+        +widget({
+          title: 'Аудитория',
+          values: [
+            { value: '65%', title: 'М', class: 'male' },
+            { value: '35%', title: 'Ж', class: 'female' },
+          ],
+          icon: 'widget-users-icon',
+          tip: {
+            enabled: true,
+            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+          },
+        })
+        +widget({
+          title: 'Общий расход',
+          values: [
+            { value: '20 000 000 ₽' },
+          ],
+          icon: 'widget-consumption-icon',
+          tip: {
+            enabled: true,
+            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+          },
+        })
+        +widget({
+          title: 'Просмотры (в среднем)',
+          values: [
+            { value: '20 000 000' },
+          ],
+          icon: 'widget-eye-icon',
+          tip: {
+            enabled: true,
+            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+          },
+        })
+        +widget({
+          title: 'Охват',
+          mainValue: '99 803',
+          isRows: true,
+          isFourValues: true,
+          values: [
+            { value: '99 803', title: '12 часов' },
+            { value: '99 803', title: '48 часов' },
+            { value: '99 803', title: '24 часов' },
+            { value: '99 803', title: '72 часов' },
+          ],
+          icon: 'widget-users-connected-icon',
+          tip: {
+            enabled: true,
+            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+          },
+        })
+        +widget({
+          title: 'ERR',
+          values: [
+            { value: '35.59%' },
+          ],
+          icon: 'widget-favorites-icon',
+          tip: {
+            enabled: true,
+            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+          },
+        })
+        +widget({
+          title: 'Последняя скидка',
+          values: [
+            { value: '5%' },
+          ],
+          icon: 'widget-discount-icon',
+          tip: {
+            enabled: true,
+            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+          },
+        })
+        +widget({
+          title: 'Просмотры (всего)',
+          values: [
+            { value: '20 000 000' },
+          ],
+          icon: 'widget-eye-icon',
+          tip: {
+            enabled: true,
+            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+          },
+        })
+        +widget({
+          title: 'ER',
+          values: [
+            { value: '35.59%' },
+          ],
+          icon: 'widget-reply-icon',
+          tip: {
+            enabled: true,
+            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+          },
+        })
+        +widget({
+          title: 'Каналов в РК',
+          values: [
+            { value: '25' },
+          ],
+          icon: 'widget-screen-icon',
+          tip: {
+            enabled: true,
+            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+          },
+        })
+        +widget({
+          title: 'Кол-во размещений',
+          values: [
+            { value: '1', title: 'Активные' },
+            { value: '25', title: 'Всего' },
+          ],
+          icon: 'widget-layout-icon',
+          tip: {
+            enabled: true,
+            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+          },
+        })
+        +widget({
+          title: 'Общий расход',
+          values: [
+            { value: '20 000 000 ₽' },
+          ],
+          icon: 'widget-consumption-icon',
+          tip: {
+            enabled: true,
+            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+          },
+        })
+        +widget({
+          title: 'Текущая выручка',
+          isRows: true,
+          isProgresses: true,
+          values: [
+            { value: '0 ₽' },
+          ],
+          progresses: [
+            {
+              title: 'плана',
+              value: '0'
+            },
+            {
+              title: 'прогноза',
+              value: '0'
+            },
+          ],
+          icon: 'widget-wallet-plus-icon',
+          subtitle: 'Выполнение',
+          tip: {
+            enabled: true,
+            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+          },
+        })
+        +widget({
+          title: 'Текущая маржа',
+          isRows: true,
+          isProgresses: true,
+          values: [
+            { value: '0 ₽' },
+          ],
+          progresses: [
+            {
+              title: 'плана',
+              value: '0'
+            },
+            {
+              title: 'прогноза',
+              value: '0'
+            },
+          ],
+          icon: 'widget-money-icon',
+          subtitle: 'Выполнение',
+          tip: {
+            enabled: true,
+            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+          },
+        })
+        +widget({
+          title: 'Маржинальность',
+          values: [
+            { value: '0%' },
+          ],
+          icon: 'widget-money-icon',
+          tip: {
+            enabled: true,
+            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+          },
+        })
+        +widget({
+          title: 'Скидка',
+          values: [
+            {
+              value: '0 ₽ (0%)',
+              progress: {
+                enabled: true,
+                value: '10',
+              }
+            },
+          ],
+          icon: 'widget-discount-icon',
+          tip: {
+            enabled: true,
+            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+          },
+        })
+        +widget({
+          title: 'Расход',
+          values: [
+            { value: '0 ₽' },
+          ],
+          icon: 'widget-consumption-icon',
+          tip: {
+            enabled: true,
+            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+          },
+        })
+        +widget({
+          title: 'Подобрано каналов',
+          values: [
+            { value: '0' },
+          ],
+          icon: 'widget-tablet-icon',
+          tip: {
+            enabled: true,
+            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+          },
+          color: 'blue',
+        })
+        +widget({
+          title: 'Проверено каналов',
+          values: [
+            {
+              value: '15/20',
+              progress: {
+                enabled: true,
+                value: '65',
+              }
+            },
+          ],
+          icon: 'widget-tablet-icon',
+          tip: {
+            enabled: true,
+            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+          },
+          color: 'blue',
+        })
+        +widget({
+          title: 'Опрошено',
+          values: [
+            {
+              value: '15/20',
+              progress: {
+                enabled: true,
+                value: '65',
+              }
+            },
+          ],
+          icon: 'widget-tablet-icon',
+          tip: {
+            enabled: true,
+            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+          },
+          color: 'blue',
+        })
+        +widget({
+          title: 'Подтверждено',
+          values: [
+            {
+              value: '12/20',
+              progress: {
+                enabled: true,
+                value: '65',
+              }
+            },
+          ],
+          icon: 'widget-tablet-icon',
+          tip: {
+            enabled: true,
+            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+          },
+          color: 'blue',
+        })
+        +widget({
+          title: 'Медиаплан готов',
+          values: [
+            {
+              value: '157 каналов',
+            },
+          ],
+          icon: 'widget-check-icon',
+          tip: {
+            enabled: true,
+            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+          },
+          buttons: [
+            {
+              view: 'button',
+              icon: 'other-link-icon',
+            },
+            {
+              view: 'link',
+              href: '#',
+              icon: 'other-download-icon',
+              isDownload: true,
+            },
+          ],
+          color: 'blue',
+        })
+        +widget({
+          title: 'Согласовано каналов',
+          values: [
+            {
+              value: '15/20',
+              progress: {
+                enabled: true,
+                value: '65',
+              }
+            },
+          ],
+          icon: 'widget-check-icon',
+          tip: {
+            enabled: true,
+            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+          },
+          color: 'blue',
+        })
+        +widget({
+          title: 'Новых каналов',
+          values: [
+            {
+              value: '15',
+            },
+          ],
+          icon: 'widget-list-plus-icon',
+          tip: {
+            enabled: true,
+            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+          },
+          color: 'blue',
+        })
+        +widget({
+          title: 'Оплачено каналов',
+          values: [
+            {
+              value: '10/20',
+              progress: {
+                enabled: true,
+                value: '65',
+              }
+            },
+          ],
+          icon: 'widget-check-icon',
+          tip: {
+            enabled: true,
+            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+          },
+          color: 'blue',
+        })
+        +widget({
+          title: 'Ожидают оплаты',
+          values: [
+            {
+              value: '5/20',
+              progress: {
+                enabled: true,
+                value: '65',
+              }
+            },
+          ],
+          icon: 'widget-awaiting-icon',
+          tip: {
+            enabled: true,
+            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+          },
+          color: 'blue',
+        })
+        +widget({
+          title: 'Отсутствует счет',
+          values: [
+            {
+              value: '5/20',
+              progress: {
+                enabled: true,
+                value: '65',
+              }
+            },
+          ],
+          icon: 'widget-warning-icon',
+          tip: {
+            enabled: true,
+            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+          },
+          color: 'blue',
+        })
+        +widget({
+          title: 'Размещено постов',
+          values: [
+            {
+              value: '10/20',
+              progress: {
+                enabled: true,
+                value: '65',
+              }
+            },
+          ],
+          icon: 'widget-grid-icon',
+          tip: {
+            enabled: true,
+            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+          },
+          color: 'blue',
+        })
+        +widget({
+          title: 'Постов в работе',
+          values: [
+            {
+              value: '5/20',
+              progress: {
+                enabled: true,
+                value: '65',
+              }
+            },
+          ],
+          icon: 'widget-pulse-icon',
+          tip: {
+            enabled: true,
+            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+          },
+          color: 'blue',
+        })
+        +widget({
+          title: 'Завершено сделок',
+          values: [
+            {
+              value: '5/20',
+              progress: {
+                enabled: true,
+                value: '65',
+              }
+            },
+          ],
+          icon: 'widget-check-icon',
+          tip: {
+            enabled: true,
+            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+          },
+          color: 'blue',
+        })
+        +widget({
+          title: 'Каналы в предложении',
+          values: [
+            {
+              value: '125',
+            },
+          ],
+          icon: 'widget-screen-icon',
+          tip: {
+            enabled: true,
+            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+          },
+        })
+        +widget({
+          title: 'Согласованные каналы',
+          values: [
+            {
+              value: '125',
+              progress: {
+                enabled: true,
+                value: '65',
+              }
+            },
+          ],
+          icon: 'widget-check-icon',
+          tip: {
+            enabled: true,
+            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+          },
+        })
+        +widget({
+          title: 'Бюджет предложения',
+          values: [
+            {
+              value: '2 050 000 ₽',
+            },
+          ],
+          icon: 'widget-wallet-icon',
+          tip: {
+            enabled: true,
+            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+          },
+        })
+        +widget({
+          title: 'Согласованный бюджет',
+          values: [
+            {
+              value: '50 000 ₽',
+              progress: {
+                enabled: true,
+                value: '65',
+              }
+            },
+          ],
+          icon: 'widget-check-icon',
+          tip: {
+            enabled: true,
+            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
           },
         })

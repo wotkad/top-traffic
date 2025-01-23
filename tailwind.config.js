@@ -39,6 +39,7 @@ module.exports = {
           '000': '#84C9A9',
           '100': '#DAEFE5',
           '200': '#50AF1D',
+          '300': '#4CC125',
         },
         red: {
           '000': '#FF3333',
@@ -57,6 +58,7 @@ module.exports = {
         },
         pink: {
           '000': '#F26FB2',
+          '100': '#F958FF',
         },
         orange: {
           '000': '#EC8E71',
@@ -89,6 +91,7 @@ module.exports = {
         '12-r-p': ['12px', { lineHeight: '120%', fontWeight: 400 }],
         '10-m': ['10px', { lineHeight: '14px', fontWeight: 500 }],
         '10-r': ['10px', { lineHeight: '14px', fontWeight: 400 }],
+        '10-m-sm': ['10px', { lineHeight: '12px', fontWeight: 500 }],
         '10-r-sm': ['10px', { lineHeight: '12px', fontWeight: 400 }],
         '10-r-p': ['10px', { lineHeight: '120%', fontWeight: 400 }],
       },

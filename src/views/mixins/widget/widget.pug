@@ -1,18 +1,49 @@
 mixin widget(data = {})
   - const { defaults, mergeConfig } = require('/assets/js/_defaults/widget/_defaults');
   - const modefied = mergeConfig(data, defaults);
+  - const isRows = modefied.isRows ? 'widget-rows' : '';
+  - const color = modefied.color ? 'widget-' + modefied.color : '';
 
-  .widget
+  .widget(class=isRows + color)
     .widget__heading
-      svg.widget__icon
-        use(xlink:href="#" + modefied.icon)
-      .widget__title= modefied.title
-      if modefied.tip
-        button(type="button" aria-label="button").widget__tip
-          svg
-            use(xlink:href="#other-info-icon")
-          p= modefied.tip.content
-    .widget__values
+      .widget__head
+        svg.widget__icon
+          use(xlink:href="#" + modefied.icon)
+        .widget__title= modefied.title
+        if modefied.tip
+          .widget__tip
+            svg
+              use(xlink:href="#other-info-icon")
+            p.widget__hint= modefied.content
+      if modefied.mainValue
+        .widget__mainValue= modefied.mainValue
+    .widget__values(class=modefied.isFourValues ? 'widget__values-fourvalues' : false)
       each value in modefied.values
-        .widget__value= value.value
-          span(class=value.class)= value.title
+        if value.progress
+          .widget__progress
+            .widget__value= value.value
+            span=value.progress.value + '%'
+            progress(value=value.progress.value min="0" max="100")
+        else
+          .widget__value(class=modefied.buttons.length ? 'widget__value-buttons' : '')= value.value
+            if value.title
+              p(class=value.class)= value.title
+            if modefied.buttons.length
+              .widget__buttons
+                each button in modefied.buttons
+                  +button({
+                    view: button.view,
+                    class: 'button-icon widget__button',
+                    href: button.href,
+                    icon: button.icon,
+                    isOnlyIcon: true,
+                    isDownload: button.isDownload,
+                  })
+    if modefied.isProgresses
+      .widget__subtitle= modefied.subtitle
+      .widget__progresses
+        each progress in modefied.progresses
+          .widget__progress
+            p= progress.title
+            span=progress.value + '%'
+            progress(value=progress.value min="0" max="100")

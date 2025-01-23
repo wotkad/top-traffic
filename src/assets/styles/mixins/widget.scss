@@ -1,21 +1,87 @@
 .widget {
+  &-rows {
+    @apply row-span-2;
+  }
   &__heading {
+    @apply flex justify-between items-center;
+  }
+  &__head {
     @apply flex items-center gap-x-1;
   }
   &__title {
-    @apply text-12-sb-p text-black-200;
+    @apply text-12-sb-p text-black-200 leading-none;
   }
   &__values {
+    &-fourvalues {
+      .widget__value {
+        &:nth-child(1),
+        &:nth-child(2) {
+          &:after {
+            @apply -bottom-2.5 left-0 absolute content-[''] bg-black-500 w-[calc(100%)] h-px;
+          }
+        }
+        &:nth-child(2) {
+          &:after {
+            @apply right-0 left-auto;
+          }
+        }
+        &:nth-child(2n) {
+          &:before {
+            @apply -left-2.5 absolute content-[''] bg-black-500 w-px h-full;
+          }
+          @apply items-end;
+        }
+        @apply relative flex flex-col items-start gap-y-[2px] mt-0;
+      }
+      @apply justify-between gap-5 grid grid-cols-2 grid-rows-2 mt-6;
+    }
     @apply flex items-center gap-x-3;
   }
+  &__mainValue {
+    @apply text-14-sb-p;
+  }
   &__value {
-    span {
+    p {
       &.discount {
         @apply text-10-r-sm text-green-200;
       }
+      &.male {
+        @apply flex justify-center items-center bg-purple-300 rounded-full w-6 h-6 text-blue-200;
+      }
+      &.female {
+        @apply flex justify-center items-center bg-purple-200 rounded-full w-6 h-6 text-pink-100;
+      }
       @apply text-12-sb-p text-black-200;
     }
-    @apply flex items-center gap-x-1 text-14-sb-p;
+    &-buttons {
+      @apply flex-1;
+    }
+    @apply flex items-center gap-x-1 mt-1.5 text-14-sb-p;
+  }
+  &__subtitle {
+    @apply mt-5 text-12-sb-p text-black-200;
+  }
+  &__progresses {
+    @apply flex flex-col items-start gap-y-[7px] mt-[7px];
+  }
+  &__progress {
+    p,
+    span {
+      @apply text-10-r-sm;
+    }
+    progress {
+      &::-webkit-progress-bar {
+        @apply bg-black-500 rounded-full;
+      }
+      &::-webkit-progress-value {
+        @apply bg-green-300 rounded-full transition-all duration-300;
+      }
+      &::-moz-progress-bar {
+        @apply bg-black-500 rounded-full;
+      }
+      @apply block mt-1 rounded-full w-full h-1;
+    }
+    @apply flex flex-wrap justify-between items-end w-full;
   }
   &__icon {
     @apply w-3.5 h-3.5;
@@ -28,8 +94,44 @@
       }
     }
     svg {
-      @apply w-[9px] max-w-[9px] h-[9px] max-h-[9px] transition-all duration-300;
+      @apply w-[9px] max-w-[9px] h-[9px] max-h-[9px] transition-all duration-300 cursor-pointer;
     }
+    &:hover {
+      .widget__hint {
+        @apply z-40 opacity-100 visible;
+      }
+    }
+    @apply relative;
   }
-  @apply flex flex-col gap-y-[7px] col-span-1 bg-black-700 p-3.5 border border-black-500 rounded-[10px];
+  &__hint {
+    @apply bottom-[9px] left-[9px] -z-10 absolute bg-black-700 opacity-0 p-2 border border-black-500 rounded-md min-w-[158px] text-10-m-sm text-left transition-all duration-300 invisible;
+  }
+  &-blue {
+    .widget {
+      &__title {
+        @apply text-black-100;
+      }
+      &__value {
+        @apply text-blue-200;
+      }
+      &__progress {
+        progress {
+          &::-webkit-progress-value {
+            @apply bg-blue-200;
+          }
+        }
+      }
+    }
+    @apply bg-purple-300 border-none;
+  }
+  &__buttons {
+    @apply flex flex-1 justify-end items-center gap-x-1;
+  }
+  &__button {
+    svg {
+      @apply w-3.5 h-3.5;
+    }
+    @apply bg-white-000 p-1 w-[22px] h-[22px];
+  }
+  @apply flex flex-col col-span-1 bg-black-700 px-3.5 pt-3 pb-3 border border-black-500 rounded-[10px] min-h-[68px];
 }
