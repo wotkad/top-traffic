@@ -1,14 +1,14 @@
 import gsap from "gsap";
 
-let table = $('.content-scroll table.table-fixed-cols');
-let container = $('.content-scroll');
+let table = $('.content table.table-default');
+let container = $('.content');
 let defaultContainerWidth = container.width();
 let defaultTableWidth = table.width();
 
 let defaultWidthDifference = defaultContainerWidth - defaultTableWidth;
 
 // Функция для вычисления отступов
-export default function setTdPadding(duration = 0) {
+export default function setTdPaddingDefault(duration = 0) {
   // Используем requestAnimationFrame для того, чтобы гарантировать, что изменения уже завершены
   requestAnimationFrame(() => {
     let containerWidth = container.width();
@@ -20,7 +20,7 @@ export default function setTdPadding(duration = 0) {
     let defaultExtraPadding;
     let finalPadding;
 
-    $('table.table-fixed-cols tr').each(function () {
+    $('table.table-default tr').each(function () {
       let tds = $(this).find('td, th');
       let numOfTds = tds.length;
       let minPadding;
@@ -32,8 +32,8 @@ export default function setTdPadding(duration = 0) {
           minPadding = 32;
         }
 
-        extraPadding = widthDifference / (numOfTds - 2); 
-        defaultExtraPadding = defaultWidthDifference / (numOfTds - 2);
+        extraPadding = widthDifference / (numOfTds - 1); 
+        defaultExtraPadding = defaultWidthDifference / (numOfTds - 1);
         
         if (extraPadding < 0) {
           finalPadding = Math.max(minPadding, minPadding + defaultExtraPadding);
@@ -42,17 +42,17 @@ export default function setTdPadding(duration = 0) {
         }
         
         // Анимация с GSAP
-        gsap.to(tds.slice(1, -1), { paddingRight: finalPadding, ease: 'none', duration: duration });
+        gsap.to(tds.slice(0, -1), { paddingRight: finalPadding, ease: 'none', duration: duration });
       }
     });
   });
 }
 // Таймер с задержкой перед запуском
 setTimeout(() => {
-  setTdPadding();
+  setTdPaddingDefault();
 }, 200);
 
 // Обработчик события resize для адаптивности
 $(window).on('resize', () => {
-  setTdPadding();
+  setTdPaddingDefault();
 });

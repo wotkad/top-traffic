@@ -172,4 +172,12 @@
       @apply transition-all duration-300;
     }
   }
+  &.table-default {
+    th,
+    td {
+      &:last-child {
+        @apply pr-[118px];
+      }
+    }
+  }
 }

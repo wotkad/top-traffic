@@ -43,7 +43,7 @@ mixin input(data = {})
           })
   
   else if modefied.isTextarea
-    .textarea
+    .textarea(class=modefied.class)
       if modefied.label
         .dropdown__label !{modefied.label}
           if modefied.isRequired
@@ -53,6 +53,7 @@ mixin input(data = {})
         autocomplete=modefied.autocomplete
         required= modefied.isRequired
         name=modefied.name
+        placeholder=modefied.placeholder
       )
 
   else

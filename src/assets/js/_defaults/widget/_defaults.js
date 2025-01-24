@@ -27,6 +27,7 @@ module.exports = {
     tip: {
       enabled: false,
       content: 'Подсказка',
+      isHidden: false,
     },
     subtitle: 'Подзаголовок',
     color: false,
@@ -44,6 +45,7 @@ module.exports = {
       icon: data.icon !== undefined ? data.icon : defaults.icon,
       tip: data.tip !== undefined ? data.tip.enabled : defaults.tip.enabled,
       content: data.tip !== undefined ? data.tip.content : defaults.tip.content,
+      isHidden: data.tip !== undefined ? data.tip.isHidden : defaults.tip.isHidden,
       subtitle: data.subtitle !== undefined ? data.subtitle : defaults.subtitle,
       color: data.color !== undefined ? data.color : defaults.color,
       isRows: data.isRows !== undefined ? data.isRows : defaults.isRows,

@@ -1,0 +1,50 @@
+.accordion {
+  &__button {
+    p {
+      span {
+        @apply flex justify-center items-center bg-purple-300 rounded-full w-[23px] h-[18px] text-10-m-sm text-blue-200 leading-none;
+      }
+      @apply flex items-center gap-x-1.5 text-12-sb-p;
+    }
+    &.active {
+      .button {
+        @apply rotate-180;
+      }
+    }
+    .button {
+      @apply transition-all duration-300;
+    }
+    @apply flex justify-between items-center p-2 border-b border-black-500;
+  }
+  &__item {
+    @apply flex justify-between items-center px-2.5 py-2;
+  }
+  &__action {
+    svg {
+      @apply w-3.5 h-3.5 text-black-200;
+    }
+    @apply p-0 w-[22px] h-[22px];
+  }
+  &__left {
+    a {
+      &:hover {
+        @apply text-blue-200;
+      }
+      @apply text-12-r-p transition-all duration-300;
+    }
+    time {
+      @apply text-10-r-sm text-black-200;
+    }
+    @apply gap-x-[6px] grid grid-cols-[24px_1fr];
+  }
+  &__right {
+    @apply flex items-center gap-x-1;
+  }
+  &__icon {
+    svg {
+      @apply w-3.5 h-3.5 text-white-000;
+    }
+    @apply flex justify-center items-center row-span-2 bg-black-400 rounded-full w-6 h-6;
+  }
+  @apply mt-2.5;
+}

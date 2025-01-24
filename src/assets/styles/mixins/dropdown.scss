@@ -169,7 +169,7 @@
       .button {
         @apply right-3;
       }
-      @apply px-3 py-[7px] border border-black-500 rounded-md w-full;
+      @apply bg-black-700 px-3 py-[9px] border border-black-500 rounded-md w-full;
     }
     .search {
       @apply px-2;
@@ -228,7 +228,7 @@
       .button {
         @apply right-5;
       }
-      @apply px-3 py-[7px] pr-5 border border-black-500 rounded-md w-full h-9;
+      @apply bg-black-700 px-3 py-[7px] pr-5 border border-black-500 rounded-md w-full h-9 text-black-100;
     }
     .dropdown__inner {
       &.selected {
@@ -248,7 +248,7 @@
           }
           @apply px-2.5;
         }
-        @apply py-[3px];
+        @apply py-[3px] text-black-100;
       }
     }
   }

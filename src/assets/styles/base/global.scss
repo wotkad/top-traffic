@@ -62,32 +62,21 @@ label {
   &.active {
     @apply left-[59px] pl-[46px] w-[calc(100%-59px)];
   }
+  &.collapsed {
+    .expanded {
+      @apply hidden;
+    }
+  }
+  &.expanded {
+    .expanded {
+      @apply block;
+    }
+  }
   @apply top-[60px] left-[217px] fixed bg-white-000 pr-6 pb-20 pl-7 w-[calc(100%-217px)] h-[calc(100%-var(--header-height))] transition-all duration-300 overflow-x-hidden;
 }
 
-.content {
-  &.active {
-    @apply w-[calc(100%-312px)];
-  }
-  scrollbar-width: thin;
-  scrollbar-color: dark;
-  ::-webkit-scrollbar {
-    @apply w-full h-[7px];
-  }
-  ::-webkit-scrollbar-track {
-    @apply bg-transparent;
-  }
-  ::-webkit-scrollbar-thumb {
-    @apply bg-black-300 border border-black-300 rounded-md;
-  }
-  &-scroll {
-    @apply pb-6 overflow-x-auto overflow-y-hidden;
-  }
-  @apply w-full transition-all duration-300;
-}
-
 .inner {
-  @apply flex mt-6;
+  @apply flex justify-between mt-6;
 }
 
 .calendar-icon {

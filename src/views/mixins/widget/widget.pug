@@ -11,7 +11,7 @@ mixin widget(data = {})
           use(xlink:href="#" + modefied.icon)
         .widget__title= modefied.title
         if modefied.tip
-          .widget__tip
+          .widget__tip(class=modefied.isHidden ? 'expanded' : false)
             svg
               use(xlink:href="#other-info-icon")
             p.widget__hint= modefied.content

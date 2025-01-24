@@ -1,0 +1,105 @@
+.content-aside {
+  &__container {
+    &::-webkit-scrollbar {
+      @apply hidden;
+    }
+    .selectors {
+      @apply mt-0;
+    }
+    .selector {
+      &__containers {
+        @apply mt-0;
+      }
+    }
+    .table {
+      th,
+      td {
+        &:nth-child(1),
+        &:nth-child(2) {
+          @apply pl-3;
+        }
+        @apply pl-3 border-black-500 align-middle;
+      }
+      tr:first-child th:first-child {
+        @apply border-t rounded-tl-[10px];
+      }
+      tr:first-child td:last-child {
+        @apply border-t rounded-tr-[10px];
+      }
+      tr:last-child th:first-child {
+        @apply border-b rounded-bl-[10px];
+      }
+      tr:last-child td:last-child {
+        @apply border-b rounded-br-[10px];
+      }
+      tr th:first-child {
+        @apply border-l;
+      }
+      tr td:last-child {
+        @apply pr-3 border-r;
+      }
+      tbody {
+        tr {
+          &:hover {
+            @apply bg-transparent;
+          }
+        }
+      }
+      th {
+        @apply pr-5 border-r w-[129px] min-w-[129px] max-w-[129px] text-12-sb-p;
+      }
+      td {
+        .dropdown {
+          &__button {
+            .button {
+              &.sm {
+                svg {
+                  @apply w-2.5 h-[5px];
+                }
+              }
+              @apply right-0;
+            }
+            @apply p-0 border-none rounded-none w-full h-5;
+          }
+          @apply w-full;
+        }
+        @apply bg-black-700;
+      }
+      @apply border-separate border-spacing-0 mt-4 w-full;
+    }
+    .textarea {
+      @apply min-h-[115px];
+    }
+    @apply relative px-4 pt-3 pb-4 overflow-y-auto;
+  }
+  &:before,
+  &:after {
+    @apply -z-[1] absolute content-[''] from-white-000 opacity-0 rounded-[10px] w-full h-[75px] transition-all duration-300 invisible;
+  }
+  &:before {
+    @apply top-0 bg-gradient-to-b to-transparent;
+  }
+  &:after {
+    @apply bottom-0 bg-gradient-to-t to-transparent;
+  }
+  &.visible-top {
+    &:before {
+      @apply z-10 opacity-100 visible;
+    }
+  }
+  &.visible-bottom {
+    &:after {
+      @apply z-10 opacity-100 visible;
+    }
+  }
+  &__subtitle {
+    svg {
+      @apply text-black-200;
+    }
+    @apply flex items-center gap-x-1 mt-6 text-14-sb-p;
+  }
+  &__textarea {
+    @apply mt-4;
+  }
+  @apply right-6 absolute bg-white-000 border border-black-500 rounded-[10px] min-w-[346px] max-w-[346px];
+}

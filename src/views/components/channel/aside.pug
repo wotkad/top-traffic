@@ -1,0 +1,164 @@
+aside.content-aside
+  .content-aside__container
+    .selectors
+      .selector__buttons
+        .selector__scroll
+          .selector__button(data-id="information").active Информация
+          .selector__button(data-id="posts") Лента
+          .selector__button(data-id="chat") Чат
+      .selector__containers.selector__content
+        .selector__container(data-id="information").active
+          .content-aside__subtitle Общая информация
+          table.table
+            tr.text-black-200
+              th Категория
+              td Интернет технологии
+            tr.text-black-200
+              th Гео
+              td Россия
+            tr.text-black-200
+              th Язык канала
+              td Русский
+            tr.text-black-200
+              th Администратор
+              td
+                .flex.items-center(class="gap-x-[6px]")
+                  img.rounded(class="w-6 h-6" src="/assets/images/avatar.png" alt="tg-channel")
+                  .text-12-r-p Андрей Миронов
+            tr.text-black-200
+              th Организация
+              td
+                .flex.items-center(class="gap-x-1")
+                  img.rounded(class="w-3.5 h-3.5" src="/assets/images/avatar.png" alt="tg-channel")
+                  .text-12-r-p ООО "МедиаКар"
+          .content-aside__subtitle Внутренняя информация
+          table.table
+            tr.text-black-200
+              th Менеджер
+              td
+            tr.text-black-200
+              th Приоритет
+              td
+                +dropdown({
+                  class: 'dropdown-priority',
+                  color: 'priority-transparent',
+                  isPriority: true,
+                  isButtons: true,
+                  title: '––',
+                  buttons: [
+                    { title: '––', color: 'priority-transparent', isChecked: true },
+                    { title: 'Очень высокий', color: 'priority-red' },
+                    { title: 'Высокий', color: 'priority-pink' },
+                    { title: 'Средний', color: 'priority-orange' },
+                    { title: 'Низкий', color: 'priority-peach' },
+                    { title: 'Очень низкий', color: 'priority-yellow' },
+                  ],
+                })
+          .content-aside__subtitle Поле для комментария
+          +input({
+            class: 'content-aside__textarea',
+            isTextarea: true,
+            label: '',
+            placeholder: 'Добавить комментарий...',
+            name: 'comment',
+          })
+          .content-aside__subtitle Общая информация
+            svg
+              use(xlink:href="#other-add-file-icon")
+          .accordions
+            .accordion
+              .accordion__button(data-id="links")
+                p Ссылки
+                  span 2
+                +button({
+                  view: 'button',
+                  class: 'button-icon sm',
+                  icon: 'other-angle-down-icon',
+                  isOnlyIcon: true,
+                })
+              .accordion__container(data-id="links")
+                .accordion__item
+                  .accordion__left
+                    .accordion__icon
+                      svg
+                        use(xlink:href="#other-link-icon")
+                    a(href="#" target="_blank") https://app.asana.com/
+                    time 24 янв. 15:10
+                  .accordion__right
+                    +button({
+                      view: 'button',
+                      class: 'button-icon accordion__action accordion__copy',
+                      icon: 'other-copy-icon',
+                      isOnlyIcon: true,
+                    })
+                .accordion__item
+                  .accordion__left
+                    .accordion__icon
+                      svg
+                        use(xlink:href="#other-link-icon")
+                    a(href="#" target="_blank") https://app.asana.com/
+                    time 24 янв. 15:10
+                  .accordion__right
+                    +button({
+                      view: 'button',
+                      class: 'button-icon accordion__action accordion__copy',
+                      icon: 'other-copy-icon',
+                      isOnlyIcon: true,
+                    })
+            .accordion
+              .accordion__button(data-id="files")
+                p Файлы
+                  span 2
+                +button({
+                  view: 'button',
+                  class: 'button-icon sm',
+                  icon: 'other-angle-down-icon',
+                  isOnlyIcon: true,
+                })
+              .accordion__container(data-id="files")
+                .accordion__item
+                  .accordion__left
+                    .accordion__icon
+                      svg
+                        use(xlink:href="#other-file-icon")
+                    a(href="#" download) Креативы.zip
+                    time 54 KB • 24 янв. 15:10
+                  .accordion__right
+                    +button({
+                      view: 'link',
+                      href: '#',
+                      isDownload: true,
+                      class: 'button-icon accordion__action',
+                      icon: 'other-download-icon',
+                      isOnlyIcon: true,
+                    })
+                    +button({
+                      view: 'button',
+                      class: 'button-icon accordion__action',
+                      icon: 'other-trash-icon',
+                      isOnlyIcon: true,
+                    })
+                .accordion__item
+                  .accordion__left
+                    .accordion__icon
+                      svg
+                        use(xlink:href="#other-file-icon")
+                    a(href="#" download) Креативы new.zip
+                    time 54 KB • 24 янв. 15:10
+                  .accordion__right
+                    +button({
+                      view: 'link',
+                      href: '#',
+                      isDownload: true,
+                      class: 'button-icon accordion__action',
+                      icon: 'other-download-icon',
+                      isOnlyIcon: true,
+                    })
+                    +button({
+                      view: 'button',
+                      class: 'button-icon accordion__action',
+                      icon: 'other-trash-icon',
+                      isOnlyIcon: true,
+                    })
+        .selector__container(data-id="posts")
+        .selector__container(data-id="chat")

@@ -1,20 +1,20 @@
-function setFilterPosition() {
-  let filter = $('.filter');
-  if (filter.length) {
+function setAsidePosition() {
+  let aside = $('.content-aside');
+  if (aside.length) {
     $('.wrapper').on('scroll', function() {
-      let filterPosition = $('.filter').offset().top;
+      let asidePosition = $('.content-aside').offset().top;
       let contentPosition = $('.content').offset().top;
-      if (filterPosition <= 84) {
-        filter
+      if (asidePosition <= 84) {
+        aside
           .css('top', '84px')
           .css('position', 'fixed');
       }
       if (contentPosition >= 84) {
-        filter
+        aside
           .css('top', '')
           .css('position', '');
       }
     });
   }
 }
-setFilterPosition();
+setAsidePosition();

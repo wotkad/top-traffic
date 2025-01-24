@@ -9,10 +9,6 @@ block basicSeo
   meta(content="Клиент" property="og:title")
   meta(content="Клиент" name="twitter:title")
 
-block manifestBrowserconfigFiles
-  link(href="../manifest.json" rel="manifest" crossorigin)
-  meta(content="../browserconfig.xml" name="msapplication-config")
-
 block content
   main.page
     include ../components/sidebar
@@ -29,5 +25,169 @@ block content
         isChannel: true,
       })
       .inner
-        .content
-          .content-scroll
+        .content.content-sm.active
+          .selectors
+            .selector__buttons
+              .selector__scroll
+                .selector__button(data-id="about").active О канале
+                .selector__button(data-id="analytics") Аналитика
+            .selector__containers
+              .selector__container(data-id="about").active
+                .widgets
+                  +widget({
+                    title: 'Возраст канала',
+                    values: [
+                      { value: '2 года 11 месяцев' },
+                    ],
+                    icon: 'widget-clock-icon',
+                    tip: {
+                      enabled: true,
+                      content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+                    },
+                  })
+                  +widget({
+                    title: 'Кол-во размещений',
+                    values: [
+                      { value: '1', title: 'Активные' },
+                      { value: '25', title: 'Всего' },
+                    ],
+                    icon: 'widget-layout-icon',
+                    tip: {
+                      enabled: true,
+                      content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+                    },
+                  })
+                  +widget({
+                    title: 'Подписчики',
+                    values: [
+                      { value: '22 000 000', title: '+15% за месяц', class: 'discount' },
+                    ],
+                    icon: 'widget-users-subscribed-icon',
+                    tip: {
+                      enabled: true,
+                      content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+                    },
+                  })
+                  +widget({
+                    title: 'Аудитория',
+                    values: [
+                      { value: '65%', title: 'М', class: 'male' },
+                      { value: '35%', title: 'Ж', class: 'female' },
+                    ],
+                    icon: 'widget-users-icon',
+                    tip: {
+                      enabled: true,
+                      content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+                    },
+                  })
+              .selector__container(data-id="analytics")
+                .widgets
+                  +widget({
+                    title: 'Общий расход',
+                    values: [
+                      { value: '20 000 000 ₽' },
+                    ],
+                    icon: 'widget-consumption-icon',
+                    tip: {
+                      enabled: true,
+                      content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+                    },
+                  })
+                  +widget({
+                    title: 'Просмотры (в среднем)',
+                    values: [
+                      { value: '20 000 000' },
+                    ],
+                    icon: 'widget-eye-icon',
+                    tip: {
+                      enabled: true,
+                      content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+                      isHidden: true,
+                    },
+                  })
+                  +widget({
+                    title: 'Охват',
+                    mainValue: '99 803',
+                    isRows: true,
+                    isFourValues: true,
+                    values: [
+                      { value: '99 803', title: '12 часов' },
+                      { value: '99 803', title: '48 часов' },
+                      { value: '99 803', title: '24 часов' },
+                      { value: '99 803', title: '72 часов' },
+                    ],
+                    icon: 'widget-users-connected-icon',
+                    tip: {
+                      enabled: true,
+                      content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+                    },
+                  })
+                  +widget({
+                    title: 'ERR',
+                    values: [
+                      { value: '35.59%' },
+                    ],
+                    icon: 'widget-favorites-icon',
+                    tip: {
+                      enabled: true,
+                      content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+                    },
+                  })
+                  +widget({
+                    title: 'Последняя скидка',
+                    values: [
+                      { value: '5%' },
+                    ],
+                    icon: 'widget-discount-icon',
+                    tip: {
+                      enabled: true,
+                      content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+                    },
+                  })
+                  +widget({
+                    title: 'Просмотры (всего)',
+                    values: [
+                      { value: '20 000 000' },
+                    ],
+                    icon: 'widget-eye-icon',
+                    tip: {
+                      enabled: true,
+                      content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+                      isHidden: true,
+                    },
+                  })
+                  +widget({
+                    title: 'ER',
+                    values: [
+                      { value: '35.59%' },
+                    ],
+                    icon: 'widget-reply-icon',
+                    tip: {
+                      enabled: true,
+                      content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+                    },
+                  })
+          .selectors
+            .selector__buttons
+              .selector__scroll
+                .selector__button(data-id="channel-statistics").active Статистика канала
+                .selector__button(data-id="publication-statistics") Статистика публикаций
+                .selector__button(data-id="administration-history") История администрирования
+                  span 25
+                .selector__button(data-id="advertising-campaigns") Рекламные кампании
+                  span 5
+                .selector__button(data-id="transactions-for-payment") Сделки на оплату
+                  span 5
+            .selector__containers.selector__content
+              .selector__container(data-id="channel-statistics").active
+                +search({
+                  containerClass: 'max-w-[240px]',
+                  isForm: true,
+                })
+                .content-scroll
+                  include ../components/channel/table
+              .selector__container(data-id="publication-statistics")
+              .selector__container(data-id="administration-history")
+              .selector__container(data-id="advertising-campaigns")
+              .selector__container(data-id="transactions-for-payment")
+        include ../components/channel/aside

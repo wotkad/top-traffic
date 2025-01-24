@@ -1,0 +1,40 @@
+
+.content {
+  &.active {
+    @apply w-[calc(100%-312px)];
+  }
+  scrollbar-width: thin;
+  scrollbar-color: dark;
+  ::-webkit-scrollbar {
+    @apply w-full h-[7px];
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-black-300 border border-black-300 rounded-md;
+  }
+  &-scroll {
+    @apply pb-6 overflow-x-auto overflow-y-hidden;
+  }
+  .selector {
+    &__content {
+      .table {
+        td,
+        th {
+          &:nth-child(1) {
+            @apply pl-[61px];
+          }
+        }
+        @apply mt-4;
+      }
+      @apply mt-7;
+    }
+  }
+  &-sm {
+    &.active {
+      @apply w-[calc(100%-366px)];
+    }
+  }
+  @apply w-full transition-all duration-300;
+}

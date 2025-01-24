@@ -3,13 +3,13 @@ mixin search(data = {})
   - const modefied = mergeConfig(data, defaults);
   
   if modefied.isForm
-    form(action="#").search
+    form(action="#" class=modefied.containerClass).search
       label.search__label
         input(class="search__input " + modefied.class required type="search" autocomplete="on" placeholder="Поиск..." name="search")
         svg
           use(xlink:href="#other-search-icon")
   else
-    .search
+    .search(class=modefied.containerClass)
       label.search__label
         input(class="search__input " + modefied.class type="search" autocomplete="on" placeholder="Поиск..." name="search")
         svg

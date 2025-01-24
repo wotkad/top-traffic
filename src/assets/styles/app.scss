@@ -31,6 +31,7 @@
 /*
   Компоненты
 */
+@import "./components/content";
 @import "./components/pagination";
 @import "./components/sidebar";
 @import "./components/login";
@@ -41,3 +42,6 @@
 @import "./components/popup";
 @import "./components/calendar";
 @import "./components/widgets";
+@import "./components/selector";
+@import "./components/content-aside";
+@import "./components/accordion";

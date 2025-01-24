@@ -134,7 +134,7 @@
     &.error {
       @apply border-red-100;
     }
-    @apply px-3 pt-[22px] pb-2 border border-black-500 rounded-md w-full h-12 text-14-r transition-all duration-300;
+    @apply bg-black-700 px-3 pt-[22px] pb-2 border border-black-500 rounded-md w-full h-12 text-14-r transition-all duration-300;
   }
   &__tip {
     @apply left-3 absolute text-12-r text-black-200 transition-all duration-300 pointer-events-none;
@@ -178,7 +178,7 @@
     &.error {
       @apply border-red-100;
     }
-    @apply flex-1 px-3 py-[11px] border border-black-500 rounded-md w-full text-12-r-p transition-all duration-300 resize-none;
+    @apply flex-1 bg-black-700 px-3 py-[11px] border border-black-500 rounded-md w-full text-12-r-p transition-all duration-300 resize-none;
   }
   @apply flex flex-col flex-1 gap-y-2;
 }
