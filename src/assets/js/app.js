@@ -19,6 +19,7 @@ import "./base/common/set-aside-position";
 import "./base/common/set-td-padding";
 import "./base/common/set-td-padding-default";
 import "./base/common/set-page-initials";
+import "./base/common/copy-accordion-link";
 
 import "./components/form/form-login";
 

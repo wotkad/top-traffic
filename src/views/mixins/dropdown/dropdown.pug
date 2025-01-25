@@ -56,7 +56,7 @@ mixin dropdown(data = {})
             each checkbox, index in modefied.checkboxes
               +input({
                 type: 'checkbox',
-                class: 'input-checkbox-with-label',
+                class: `input-checkbox-with-label ${checkbox.class !== '' ? checkbox.class : false}`,
                 label: checkbox.title,
                 name: `checkbox-${modefied.class}`,
                 isChecked: checkbox.isChecked,

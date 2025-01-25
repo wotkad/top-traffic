@@ -20,12 +20,6 @@
   .selector {
     &__content {
       .table {
-        td,
-        th {
-          &:nth-child(1) {
-            @apply pl-[61px];
-          }
-        }
         @apply mt-4;
       }
       @apply mt-7;

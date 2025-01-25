@@ -1,6 +1,6 @@
 import gsap from "gsap";
 
-let table = $('.content-scroll table.table-fixed-cols');
+let table = $('table.table-fixed-cols');
 let container = $('.content-scroll');
 let defaultContainerWidth = container.width();
 let defaultTableWidth = table.width();

@@ -3,12 +3,13 @@ mixin heading-table(data = {})
   - const modefied = mergeConfig(data, defaults);
 
   .heading.heading-table(class=modefied.isRows ? 'heading-table-rows' : '')
-    .heading__title
-      h1= modefied.title
-      if modefied.count
-        sup= modefied.count
-    if modefied.buttons.length
-      .heading__buttons
+    if modefied.title
+      .heading__title
+        h1= modefied.title
+        if modefied.count
+          sup= modefied.count
+    .heading__buttons
+      if modefied.isCalendar || modefied.isSearch
         .heading__left
           if modefied.isCalendar
             +button({
@@ -21,8 +22,10 @@ mixin heading-table(data = {})
             })
           if modefied.isSearch
             +search({
-              isForm: true
+              isForm: true,
+              containerClass: 'min-w-[240px] max-w-[240px]',
             })
+      if modefied.buttons.length
         .heading__right
           each button in modefied.buttons
             +button({

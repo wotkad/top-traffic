@@ -30,12 +30,12 @@
       &:hover {
         @apply text-blue-200;
       }
-      @apply text-12-r-p transition-all duration-300;
+      @apply block line-clamp-1 max-w-[110px] text-12-r-p text-ellipsis transition-all duration-300;
     }
     time {
       @apply text-10-r-sm text-black-200;
     }
-    @apply gap-x-[6px] grid grid-cols-[24px_1fr];
+    @apply items-center gap-x-[6px] gap-y-[2px] grid grid-cols-[24px_1fr];
   }
   &__right {
     @apply flex items-center gap-x-1;

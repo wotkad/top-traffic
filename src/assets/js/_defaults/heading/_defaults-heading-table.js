@@ -1,7 +1,7 @@
 module.exports = {
   defaults: {
-    title: 'Страница',
-    count: '',
+    title: false,
+    count: false,
     buttons: [],
     isCalendar: false,
     isSearch: false,

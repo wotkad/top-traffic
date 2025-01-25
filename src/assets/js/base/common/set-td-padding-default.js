@@ -1,7 +1,7 @@
 import gsap from "gsap";
 
-let table = $('.content table.table-default');
-let container = $('.content');
+let table = $('table.table-default');
+let container = $('.content-scroll');
 let defaultContainerWidth = container.width();
 let defaultTableWidth = table.width();
 

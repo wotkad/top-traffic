@@ -1,0 +1,24 @@
+table.table.table-default
+  thead
+    tr
+      th
+        p Рекламная кампания
+      th
+        p Клиент
+      th
+        p Администратор
+      th
+        p Период
+      th
+        p Ставка
+      th
+        p Статус РК
+  tbody
+    +administration-history-row({
+      color: 'status-green',
+      status: 'В работу',
+    })
+    +administration-history-row({
+      color: 'status-blue',
+      status: 'В работе',
+    })

@@ -136,7 +136,7 @@ function toggleDropdown() {
     const $valuesContainer = $dropdown.find('.dropdown__values');
     const $selectedValuesCount = $dropdown.find('.dropdown__selected span');
   
-    const $firstCheckbox = $dropdown.find('.input-checkbox-with-label input').first();
+    const $firstCheckbox = $dropdown.find('.input-checkbox-with-label.check-all input');
   
     if ($(this).is($firstCheckbox)) {
       const allChecked = $firstCheckbox.prop('checked');
@@ -242,7 +242,7 @@ function toggleDropdown() {
     const $buttonBlock = $dropdown.find('.dropdown__button');
     const $selectedValuesCount = $dropdown.find('.dropdown__selected span');
 
-    const $firstCheckbox = $dropdown.find('.input-checkbox-with-label input').first();
+    const $firstCheckbox = $dropdown.find('.input-checkbox-with-label.check-all input').first();
     $firstCheckbox.prop('checked', false);
   
     $(`.input-checkbox-with-label input[id="${id}"]`).prop('checked', false);

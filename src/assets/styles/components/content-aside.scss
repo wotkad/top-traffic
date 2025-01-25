@@ -33,10 +33,10 @@
         @apply border-b rounded-br-[10px];
       }
       tr th:first-child {
-        @apply border-l;
+        @apply border-l h-10;
       }
       tr td:last-child {
-        @apply pr-3 border-r;
+        @apply py-0 pr-3 border-r h-10;
       }
       tbody {
         tr {

@@ -1,6 +1,6 @@
 module.exports = {
   defaults: {
-    title: 'Страница',
+    title: false,
     tg: '',
     image: {
       enabled: false,
