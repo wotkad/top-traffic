@@ -188,7 +188,42 @@ block content
                   .content-scroll.mt-4
                     include ../components/channel/table
                 .selector__container(data-id="publication-statistics")
+                  +heading-table({
+                    isSearch: true,
+                    isCalendar: true,
+                    isRows: true,
+                    buttons: [
+                      {
+                        view: 'link',
+                        class: 'button-with-icon',
+                        icon: 'other-download-icon',
+                        title: 'Скачать',
+                        isDownload: true,
+                      }
+                    ],
+                  })
                 .selector__container(data-id="administration-history")
+                  +heading-table({
+                    isSearch: true,
+                    isRows: true,
+                    buttons: [
+                      {
+                        view: 'button',
+                        class: 'button-with-icon-blue',
+                        icon: 'other-plus-icon',
+                        title: 'Добавить запись',
+                        dataPopupName: 'add-administration-history-post',
+                      },
+                      {
+                        view: 'button',
+                        class: 'button-with-icon filter__toggle',
+                        icon: 'other-controls-icon',
+                        title: 'Фильтр',
+                        isClose: true,
+                        dataFilterName: 'administration-history',
+                      },
+                    ],
+                  })
                 .selector__container(data-id="advertising-campaigns")
                   +heading-table({
                     isSearch: true,

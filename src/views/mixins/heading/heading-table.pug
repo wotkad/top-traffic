@@ -11,6 +11,11 @@ mixin heading-table(data = {})
     .heading__buttons
       if modefied.isCalendar || modefied.isSearch
         .heading__left
+          if modefied.isSearch
+            +search({
+              isForm: true,
+              containerClass: 'min-w-[240px] max-w-[240px]',
+            })
           if modefied.isCalendar
             +button({
               view: 'button',
@@ -19,11 +24,6 @@ mixin heading-table(data = {})
               isCalendar: true,
               isMonthPicker: true,
               isDatePicker: false,
-            })
-          if modefied.isSearch
-            +search({
-              isForm: true,
-              containerClass: 'min-w-[240px] max-w-[240px]',
             })
       if modefied.buttons.length
         .heading__right
