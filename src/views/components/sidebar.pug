@@ -4,83 +4,81 @@ aside.sidebar
       a(href="/").sidebar__logo
         include ./logo
       +button({
-        view: 'button',
-        icon: 'other-expand-menu-icon',
         class: 'button-icon sidebar__toggle narrowed',
+        icon: 'other-expand-menu-icon',
         isOnlyIcon: true,
+        view: 'button',
       })
     .sidebar__company
       .sidebar__preview М
       .sidebar__switch
         .sidebar__name.narrowed Компания
         +button({
-          view: 'button',
-          icon: 'other-angle-down-icon',
           class: 'button-icon sm narrowed',
+          icon: 'other-angle-down-icon',
           isOnlyIcon: true,
+          view: 'button',
         })
     .sidebar__nav
       nav.sidebar__menu
         .sidebar__links
           +button({
-            view: 'link',
-            icon: 'aside-dashboard-icon',
-            title: 'Дашборд',
-            isSwitchable: true,
             class: 'button-with-icon-full',
+            icon: 'aside-dashboard-icon',
+            isSwitchable: true,
+            title: 'Дашборд',
+            view: 'link',
           })
           +button({
-            view: 'link',
-            icon: 'aside-inbox-icon',
-            title: 'Входящие',
-            isSwitchable: true,
             class: 'button-with-icon-full',
+            icon: 'aside-inbox-icon',
+            isSwitchable: true,
+            title: 'Входящие',
+            view: 'link',
           })
         i.sidebar__separator
           span.narrowed Справочники
         .sidebar__links
           +button({
-            view: 'link',
-            icon: 'aside-layout-icon',
-            title: 'Рекламные кампании',
-            isSwitchable: true,
             class: 'button-with-icon-full',
             href: '/companies',
+            icon: 'aside-layout-icon',
+            isSwitchable: true,
+            title: 'Рекламные кампании',
+            view: 'link',
           })
           +button({
-            view: 'link',
-            icon: 'aside-organizations-icon',
-            title: 'Организации',
-            class: 'active',
-            isSwitchable: true,
             class: 'button-with-icon-full',
+            icon: 'aside-organizations-icon',
+            isSwitchable: true,
+            title: 'Организации',
+            view: 'link',
           })
           +button({
-            view: 'link',
-            icon: 'aside-admins-icon',
-            title: 'Администраторы',
-            class: 'disabled',
-            isSwitchable: true,
             class: 'button-with-icon-full',
             href: '/admins',
+            icon: 'aside-admins-icon',
+            isSwitchable: true,
+            title: 'Администраторы',
+            view: 'link',
           })
           +button({
-            view: 'link',
-            icon: 'aside-channels-icon',
-            title: 'Каналы',
-            isSwitchable: true,
             class: 'button-with-icon-full',
             href: '/channels',
+            icon: 'aside-channels-icon',
+            isSwitchable: true,
+            title: 'Каналы',
+            view: 'link',
           })
         i.sidebar__separator
           span.narrowed Отчеты
         .sidebar__links
           +button({
-            view: 'link',
-            icon: 'aside-folder-icon',
-            title: 'Медиапланы',
-            isSwitchable: true,
             class: 'button-with-icon-full',
+            icon: 'aside-folder-icon',
+            isSwitchable: true,
+            title: 'Медиапланы',
+            view: 'link',
           })
         i.sidebar__separator.sidebar__separator-link
           a(href="#")
@@ -91,25 +89,25 @@ aside.sidebar
           span.narrowed Пространство
         .sidebar__links
           +button({
-            view: 'link',
+            class: 'button-with-icon-full',
             icon: 'aside-card-icon',
+            isSwitchable: true,
             title: 'Финансы',
-            isSwitchable: true,
-            class: 'button-with-icon-full',
+            view: 'link',
           })
           +button({
-            view: 'link',
+            class: 'button-with-icon-full',
             icon: 'aside-users-icon',
-            title: 'Сотрудники',
             isSwitchable: true,
-            class: 'button-with-icon-full',
+            title: 'Сотрудники',
+            view: 'link',
           })
           +button({
-            view: 'link',
-            icon: 'aside-settings-icon',
-            title: 'Настройки',
-            isSwitchable: true,
             class: 'button-with-icon-full',
+            icon: 'aside-settings-icon',
+            isSwitchable: true,
+            title: 'Настройки',
+            view: 'link',
           })
   .sidebar__bottom
     .sidebar__info

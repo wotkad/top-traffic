@@ -40,27 +40,46 @@ aside.content-aside
               th Приоритет
               td
                 +dropdown({
+                  buttons: [
+                    {
+                      color: 'priority-transparent',
+                      isChecked: true,
+                      title: '––',
+                    },
+                    {
+                      color: 'priority-red',
+                      title: 'Очень высокий',
+                    },
+                    {
+                      color: 'priority-pink',
+                      title: 'Высокий',
+                    },
+                    {
+                      color: 'priority-orange',
+                      title: 'Средний',
+                    },
+                    {
+                      color: 'priority-peach',
+                      title: 'Низкий',
+                    },
+                    {
+                      color: 'priority-yellow',
+                      title: 'Очень низкий',
+                    },
+                  ],
                   class: 'dropdown-priority',
                   color: 'priority-transparent',
-                  isPriority: true,
                   isButtons: true,
+                  isPriority: true,
                   title: '––',
-                  buttons: [
-                    { title: '––', color: 'priority-transparent', isChecked: true },
-                    { title: 'Очень высокий', color: 'priority-red' },
-                    { title: 'Высокий', color: 'priority-pink' },
-                    { title: 'Средний', color: 'priority-orange' },
-                    { title: 'Низкий', color: 'priority-peach' },
-                    { title: 'Очень низкий', color: 'priority-yellow' },
-                  ],
                 })
           .content-aside__subtitle Поле для комментария
           +input({
             class: 'content-aside__textarea',
             isTextarea: true,
             label: '',
-            placeholder: 'Добавить комментарий...',
             name: 'comment',
+            placeholder: 'Добавить комментарий...',
           })
           .content-aside__subtitle Общая информация
             svg
@@ -71,10 +90,10 @@ aside.content-aside
                 p Ссылки
                   span 2
                 +button({
-                  view: 'button',
                   class: 'button-icon sm',
                   icon: 'other-angle-down-icon',
                   isOnlyIcon: true,
+                  view: 'button',
                 })
               .accordion__container(data-id="links")
                 .accordion__item
@@ -86,10 +105,10 @@ aside.content-aside
                     time 24 янв. 15:10
                   .accordion__right
                     +button({
-                      view: 'button',
                       class: 'button-icon accordion__action accordion__copy',
                       icon: 'other-copy-icon',
                       isOnlyIcon: true,
+                      view: 'button',
                     })
                 .accordion__item
                   .accordion__left
@@ -100,20 +119,20 @@ aside.content-aside
                     time 24 янв. 15:10
                   .accordion__right
                     +button({
-                      view: 'button',
                       class: 'button-icon accordion__action accordion__copy',
                       icon: 'other-copy-icon',
                       isOnlyIcon: true,
+                      view: 'button',
                     })
             .accordion
               .accordion__button(data-id="files")
                 p Файлы
                   span 2
                 +button({
-                  view: 'button',
                   class: 'button-icon sm',
                   icon: 'other-angle-down-icon',
                   isOnlyIcon: true,
+                  view: 'button',
                 })
               .accordion__container(data-id="files")
                 .accordion__item
@@ -125,18 +144,18 @@ aside.content-aside
                     time 54 KB • 24 янв. 15:10
                   .accordion__right
                     +button({
-                      view: 'link',
-                      href: '#',
-                      isDownload: true,
                       class: 'button-icon accordion__action',
+                      href: '#',
                       icon: 'other-download-icon',
+                      isDownload: true,
                       isOnlyIcon: true,
+                      view: 'link',
                     })
                     +button({
-                      view: 'button',
                       class: 'button-icon accordion__action',
                       icon: 'other-trash-icon',
                       isOnlyIcon: true,
+                      view: 'button',
                     })
                 .accordion__item
                   .accordion__left
@@ -147,18 +166,18 @@ aside.content-aside
                     time 54 KB • 24 янв. 15:10
                   .accordion__right
                     +button({
-                      view: 'link',
-                      href: '#',
-                      isDownload: true,
                       class: 'button-icon accordion__action',
+                      href: '#',
                       icon: 'other-download-icon',
+                      isDownload: true,
                       isOnlyIcon: true,
+                      view: 'link',
                     })
                     +button({
-                      view: 'button',
                       class: 'button-icon accordion__action',
                       icon: 'other-trash-icon',
                       isOnlyIcon: true,
+                      view: 'button',
                     })
         .selector__container(data-id="posts")
         .selector__container(data-id="chat")

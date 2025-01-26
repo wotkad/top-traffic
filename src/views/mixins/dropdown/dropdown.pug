@@ -14,10 +14,10 @@ mixin dropdown(data = {})
         .dropdown__sort
           .dropdown__values
           +button({
-            view: 'button',
             class: 'button-icon sm',
             icon: 'other-angle-down-icon',
             isOnlyIcon: true,
+            view: 'button',
           })
       .dropdown__button(class=isStatus + isSelected + modefied.classButton)
         .dropdown__inner
@@ -28,10 +28,10 @@ mixin dropdown(data = {})
           else
             .dropdown__title= modefied.title
         +button({
-          view: 'button',
           class: 'button-icon sm',
           icon: 'other-angle-down-icon',
           isOnlyIcon: true,
+          view: 'button',
         })
       .dropdown__list
         if modefied.isCheckboxes && modefied.checkboxes

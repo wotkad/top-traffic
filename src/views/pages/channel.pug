@@ -15,14 +15,14 @@ block content
     include ../components/header
     .wrapper
       +heading({
-        title: 'ZeroDay | Кибербезопасность',
-        tg: '@cybersec_academy',
         image: {
+          alt: 'avatar',
           enabled: true,
           src: '/assets/images/avatar.png',
-          alt: 'avatar',
         },
         isChannel: true,
+        tg: '@cybersec_academy',
+        title: 'ZeroDay | Кибербезопасность',
       })
       .inner.container
         .content.content-sm
@@ -36,137 +36,181 @@ block content
                 .selector__container(data-id="about").active
                   .widgets
                     +widget({
-                      title: 'Возраст канала',
-                      values: [
-                        { value: '2 года 11 месяцев' },
-                      ],
                       icon: 'widget-clock-icon',
                       tip: {
-                        enabled: true,
                         content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+                        enabled: true,
                       },
+                      title: 'Возраст канала',
+                      values: [
+                        {
+                          value: '2 года 11 месяцев',
+                        },
+                      ],
                     })
                     +widget({
-                      title: 'Кол-во размещений',
-                      values: [
-                        { value: '1', title: 'Активные' },
-                        { value: '25', title: 'Всего' },
-                      ],
                       icon: 'widget-layout-icon',
                       tip: {
-                        enabled: true,
                         content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+                        enabled: true,
                       },
+                      title: 'Кол-во размещений',
+                      values: [
+                        {
+                          title: 'Активные',
+                          value: '1',
+                        },
+                        {
+                          title: 'Всего',
+                          value: '25',
+                        },
+                      ],
                     })
                     +widget({
-                      title: 'Подписчики',
-                      values: [
-                        { value: '22 000 000', title: '+15% за месяц', class: 'discount' },
-                      ],
                       icon: 'widget-users-subscribed-icon',
                       tip: {
-                        enabled: true,
                         content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+                        enabled: true,
                       },
+                      title: 'Подписчики',
+                      values: [
+                        {
+                          class: 'discount',
+                          title: '+15% за месяц',
+                          value: '22 000 000',
+                        },
+                      ],
                     })
                     +widget({
-                      title: 'Аудитория',
-                      values: [
-                        { value: '65%', title: 'М', class: 'male' },
-                        { value: '35%', title: 'Ж', class: 'female' },
-                      ],
                       icon: 'widget-users-icon',
                       tip: {
-                        enabled: true,
                         content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+                        enabled: true,
                       },
+                      title: 'Аудитория',
+                      values: [
+                        {
+                          class: 'male',
+                          title: 'М',
+                          value: '65%',
+                        },
+                        {
+                          class: 'female',
+                          title: 'Ж',
+                          value: '35%',
+                        },
+                      ],
                     })
                 .selector__container(data-id="analytics")
                   .widgets
                     +widget({
-                      title: 'Общий расход',
-                      values: [
-                        { value: '20 000 000 ₽' },
-                      ],
                       icon: 'widget-consumption-icon',
                       tip: {
-                        enabled: true,
                         content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+                        enabled: true,
                       },
+                      title: 'Общий расход',
+                      values: [
+                        {
+                          value: '20 000 000 ₽',
+                        },
+                      ],
                     })
                     +widget({
+                      icon: 'widget-eye-icon',
+                      tip: {
+                        content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+                        enabled: true,
+                        isHidden: true,
+                      },
                       title: 'Просмотры (в среднем)',
                       values: [
-                        { value: '20 000 000' },
+                        {
+                          value: '20 000 000',
+                        },
                       ],
-                      icon: 'widget-eye-icon',
-                      tip: {
-                        enabled: true,
-                        content: 'Введенные данные не соответствуют автоматике. Обновите данные',
-                        isHidden: true,
-                      },
                     })
                     +widget({
-                      title: 'Охват',
-                      mainValue: '99 803',
-                      isRows: true,
-                      isFourValues: true,
-                      values: [
-                        { value: '99 803', title: '12 часов' },
-                        { value: '99 803', title: '48 часов' },
-                        { value: '99 803', title: '24 часов' },
-                        { value: '99 803', title: '72 часов' },
-                      ],
                       icon: 'widget-users-connected-icon',
+                      isFourValues: true,
+                      isRows: true,
+                      mainValue: '99 803',
                       tip: {
-                        enabled: true,
                         content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+                        enabled: true,
                       },
+                      title: 'Охват',
+                      values: [
+                        {
+                          title: '12 часов',
+                          value: '99 803',
+                        },
+                        {
+                          title: '48 часов',
+                          value: '99 803',
+                        },
+                        {
+                          title: '24 часов',
+                          value: '99 803',
+                        },
+                        {
+                          title: '72 часов',
+                          value: '99 803',
+                        },
+                      ],
                     })
                     +widget({
-                      title: 'ERR',
-                      values: [
-                        { value: '35.59%' },
-                      ],
                       icon: 'widget-favorites-icon',
                       tip: {
-                        enabled: true,
                         content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+                        enabled: true,
                       },
+                      title: 'ERR',
+                      values: [
+                        {
+                          value: '35.59%',
+                        },
+                      ],
                     })
                     +widget({
-                      title: 'Последняя скидка',
-                      values: [
-                        { value: '5%' },
-                      ],
                       icon: 'widget-discount-icon',
                       tip: {
-                        enabled: true,
                         content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+                        enabled: true,
                       },
+                      title: 'Последняя скидка',
+                      values: [
+                        {
+                          value: '5%',
+                        },
+                      ],
                     })
                     +widget({
-                      title: 'Просмотры (всего)',
-                      values: [
-                        { value: '20 000 000' },
-                      ],
                       icon: 'widget-eye-icon',
                       tip: {
-                        enabled: true,
                         content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+                        enabled: true,
                         isHidden: true,
                       },
+                      title: 'Просмотры (всего)',
+                      values: [
+                        {
+                          value: '20 000 000',
+                        },
+                      ],
                     })
                     +widget({
-                      title: 'ER',
-                      values: [
-                        { value: '35.59%' },
-                      ],
                       icon: 'widget-reply-icon',
                       tip: {
-                        enabled: true,
                         content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+                        enabled: true,
                       },
+                      title: 'ER',
+                      values: [
+                        {
+                          value: '35.59%',
+                        },
+                      ],
                     })
           .selectors
             .content.content-not-collapsed

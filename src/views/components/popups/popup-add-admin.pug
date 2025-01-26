@@ -6,103 +6,184 @@
         .popup__form.popup__form-two-cols
           .popup__col
             +input({
-              label: 'Наименование',
-              type: 'text',
-              placeholder: 'Введите наименование',
-              isRequired: true,
               isLabel: true,
+              isRequired: true,
+              label: 'Наименование',
               name: 'name',
+              placeholder: 'Введите наименование',
+              type: 'text',
             })
             +input({
-              label: 'Контакт в Телеграм',
-              type: 'text',
-              placeholder: 'Введите тег',
-              isRequired: true,
               isLabel: true,
-              name: 'telegram',
-            })
-            +dropdown({
-              class: 'dropdown-checkboxes',
-              title: 'Выберите каналы',
-              label: 'Каналы',
               isRequired: true,
-              isCheckboxes: true,
-              checkboxes: [
-                { title: 'Все', class: 'check-all' },
-                { title: 'Банки' },
-                { title: 'Банки' },
-                { title: 'Автомобили' },
-                { title: 'Банки' },
-                { title: 'Банки' },
-                { title: 'Автомобили' },
-                { title: 'Автомобили' },
-                { title: 'Автомобили' },
-                { title: 'Автомобили' },
-                { title: 'Автомобили' },
-                { title: 'Автомобили' },
-                { title: 'Автомобили' },
-                { title: 'Автомобили' },
-                { title: 'Автомобили' },
-                { title: 'Автомобили' },
-              ],
+              label: 'Контакт в Телеграм',
+              name: 'telegram',
+              placeholder: 'Введите тег',
+              type: 'text',
             })
             +dropdown({
-              class: 'dropdown-checkboxes',
-              title: 'Выберите организацию',
-              label: 'Организация',
-              isCheckboxes: true,
               checkboxes: [
-                { title: 'Все', class: 'check-all' },
-                { title: 'Банки' },
-                { title: 'Банки' },
-                { title: 'Автомобили' },
-                { title: 'Банки' },
-                { title: 'Банки' },
-                { title: 'Автомобили' },
-                { title: 'Автомобили' },
-                { title: 'Автомобили' },
-                { title: 'Автомобили' },
-                { title: 'Автомобили' },
-                { title: 'Автомобили' },
-                { title: 'Автомобили' },
-                { title: 'Автомобили' },
-                { title: 'Автомобили' },
-                { title: 'Автомобили' },
+                {
+                  class: 'check-all',
+                  title: 'Все',
+                },
+                {
+                  title: 'Банки',
+                },
+                {
+                  title: 'Банки',
+                },
+                {
+                  title: 'Автомобили',
+                },
+                {
+                  title: 'Банки',
+                },
+                {
+                  title: 'Банки',
+                },
+                {
+                  title: 'Автомобили',
+                },
+                {
+                  title: 'Автомобили',
+                },
+                {
+                  title: 'Автомобили',
+                },
+                {
+                  title: 'Автомобили',
+                },
+                {
+                  title: 'Автомобили',
+                },
+                {
+                  title: 'Автомобили',
+                },
+                {
+                  title: 'Автомобили',
+                },
+                {
+                  title: 'Автомобили',
+                },
+                {
+                  title: 'Автомобили',
+                },
+                {
+                  title: 'Автомобили',
+                },
               ],
+              class: 'dropdown-checkboxes',
+              isCheckboxes: true,
+              isRequired: true,
+              label: 'Каналы',
+              title: 'Выберите каналы',
+            })
+            +dropdown({
+              checkboxes: [
+                {
+                  class: 'check-all',
+                  title: 'Все',
+                },
+                {
+                  title: 'Банки',
+                },
+                {
+                  title: 'Банки',
+                },
+                {
+                  title: 'Автомобили',
+                },
+                {
+                  title: 'Банки',
+                },
+                {
+                  title: 'Банки',
+                },
+                {
+                  title: 'Автомобили',
+                },
+                {
+                  title: 'Автомобили',
+                },
+                {
+                  title: 'Автомобили',
+                },
+                {
+                  title: 'Автомобили',
+                },
+                {
+                  title: 'Автомобили',
+                },
+                {
+                  title: 'Автомобили',
+                },
+                {
+                  title: 'Автомобили',
+                },
+                {
+                  title: 'Автомобили',
+                },
+                {
+                  title: 'Автомобили',
+                },
+                {
+                  title: 'Автомобили',
+                },
+              ],
+              class: 'dropdown-checkboxes',
+              isCheckboxes: true,
+              label: 'Организация',
+              title: 'Выберите организацию',
             })
           .popup__col
             +dropdown({
-              class: 'dropdown-priority',
-              title: '––',
-              label: 'Приоритет',
-              isPriority: true,
-              isButtons: true,
               buttons: [
-                { title: 'Очень высокий', color: 'priority-red' },
-                { title: 'Высокий', color: 'priority-pink' },
-                { title: 'Средний', color: 'priority-orange' },
-                { title: 'Низкий', color: 'priority-peach' },
-                { title: 'Очень низкий', color: 'priority-yellow' },
+                {
+                  color: 'priority-red',
+                  title: 'Очень высокий',
+                },
+                {
+                  color: 'priority-pink',
+                  title: 'Высокий',
+                },
+                {
+                  color: 'priority-orange',
+                  title: 'Средний',
+                },
+                {
+                  color: 'priority-peach',
+                  title: 'Низкий',
+                },
+                {
+                  color: 'priority-yellow',
+                  title: 'Очень низкий',
+                },
               ],
+              class: 'dropdown-priority',
+              isButtons: true,
+              isPriority: true,
+              label: 'Приоритет',
+              title: '––',
             })
             +input({
+              isLabel: true,
               isTextarea: true,
               label: 'Описание',
-              placeholder: 'Добавьте описание...',
-              isLabel: true,
               name: 'description',
+              placeholder: 'Добавьте описание...',
             })
         .popup__buttons
           +button({
-            view: 'button',
             class: 'button-with-icon-blue lg popup__close',
-            type: 'submit',
-            title: 'Сохранить',
             dataPopupName: 'add-admin',
+            title: 'Сохранить',
+            type: 'submit',
+            view: 'button',
           })
           +button({
-            view: 'button',
             class: 'button-base lg popup__close',
-            title: 'Отмена',
             dataPopupName: 'add-admin',
+            title: 'Отмена',
+            view: 'button',
           })

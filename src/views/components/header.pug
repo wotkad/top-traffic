@@ -2,40 +2,48 @@ header.header
   .header__wrapper
     .header__search
       +button({
-        view: 'button',
-        icon: 'other-expand-menu-icon',
         class: 'button-icon sidebar__toggle narrowed',
+        icon: 'other-expand-menu-icon',
         isOnlyIcon: true,
+        view: 'button',
       })
       +search({
-        isForm: true,
         class: 'transparent',
+        isForm: true,
       })
     .header__controls
       .header__icons
         +button({
-          view: 'link',
           class: 'button-icon',
           icon: 'other-notification-icon',
           isOnlyIcon: true,
+          view: 'link',
         })
         +button({
-          view: 'link',
           class: 'button-icon',
           icon: 'aside-help-icon',
           isOnlyIcon: true,
+          view: 'link',
         })
       +dropdown({
+        class: 'dropdown-with-icon header__dropdown',
         image: {
+          alt: 'icon',
           enabled: true,
           src: '/assets/images/user-image.png',
-          alt: 'icon',
         },
-        class: 'dropdown-with-icon header__dropdown',
-        title: 'Максим Амбиндер',
         isLinks: true,
         links: [
-          { title: 'Настройки', icon: 'other-settings-icon', href: '#' },
-          { title: 'Выйти', icon: 'other-logout-icon', href: '#' }
-        ]
+          {
+            href: '#',
+            icon: 'other-settings-icon',
+            title: 'Настройки',
+          },
+          {
+            href: '#',
+            icon: 'other-logout-icon',
+            title: 'Выйти',
+          },
+        ],
+        title: 'Максим Амбиндер',
       })

@@ -11,41 +11,41 @@ section
 
         .login__input.login__input-email
           +input({
-            type: 'email',
-            placeholder: 'Почта',
             isDisabled: false,
             isRequired: true,
             name: 'email',
+            placeholder: 'Почта',
+            type: 'email',
           })
 
         .login__input.login__input-password
           +input({
-            type: 'password',
-            placeholder: 'Пароль',
             isDisabled: false,
             isRequired: true,
             name: 'password',
+            placeholder: 'Пароль',
+            type: 'password',
           })
 
         .login__remember
           +input({
-            type: 'checkbox',
             class: 'input-checkbox-with-label lg',
-            label: "Запомнить меня",
             isLabel: true,
+            label: 'Запомнить меня',
+            type: 'checkbox',
             value: 'Запомнить меня',
           })
           a.login__forgot(href="#") Забыли пароль?
 
         .login__button
           +button({
-            view: 'button',
             class: 'button-with-icon-full-lg',
             icon: 'other-arrow-right-icon',
             iconPos: 'after',
-            title: 'Войти',
             isDisabled: true,
+            title: 'Войти',
             type: 'submit',
+            view: 'button',
           })
 
         .login__divider
@@ -54,8 +54,8 @@ section
           .login__line
 
         +button({
-          view: 'link',
           class: 'button-with-icon-full-google',
           icon: 'other-google-icon',
           title: 'Войти с учетной записью Google',
+          view: 'link',
         })

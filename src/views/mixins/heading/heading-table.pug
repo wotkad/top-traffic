@@ -13,17 +13,17 @@ mixin heading-table(data = {})
         .heading__left
           if modefied.isSearch
             +search({
-              isForm: true,
               containerClass: 'min-w-[240px] max-w-[240px]',
+              isForm: true,
             })
           if modefied.isCalendar
             +button({
-              view: 'button',
               class: 'button-with-icon',
               icon: 'other-calendar-icon',
               isCalendar: true,
-              isMonthPicker: true,
               isDatePicker: false,
+              isMonthPicker: true,
+              view: 'button',
             })
       if modefied.buttons.length
         .heading__right
