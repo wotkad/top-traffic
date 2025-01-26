@@ -15,8 +15,8 @@ function toggleAside() {
       gsap.to(sidebar, {maxWidth: '217px', duration: .3, onComplete: () => {
         toggle.removeClass('active');
         sidebar.removeClass('active');
-        setTdPadding(.3);
-        setTdPaddingDefault(.3);
+        setTdPadding();
+        setTdPaddingDefault();
       }});
       header.removeClass('active');
       wrapper.removeClass('active');
@@ -30,10 +30,10 @@ function toggleAside() {
       switchEl.removeClass('active');
       menu.slideDown(0);
       gsap.to(sidebar, {maxWidth: '59px', duration: .3, onComplete: () => {
-        setTdPadding(.3);
-        setTdPaddingDefault(.3);
         wrapper.addClass('expanded');
         wrapper.removeClass('collapsed');
+        setTdPadding();
+        setTdPaddingDefault();
       }});
     }
   });

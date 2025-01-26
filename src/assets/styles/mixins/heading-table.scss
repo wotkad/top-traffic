@@ -7,7 +7,7 @@
       @apply flex justify-between gap-y-[30px];
     }
     .heading__buttons {
-      @apply flex justify-between items-center gap-x-3 w-full;
+      @apply flex justify-between items-center gap-x-3;
     }
     .heading__left,
     .heading__right {

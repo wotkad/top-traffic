@@ -33,11 +33,12 @@ block content
             icon: 'other-controls-icon',
             title: 'Фильтр',
             isClose: true,
+            dataFilterName: 'companies',
           },
         ],
       })
-      .inner
-        .content
+      .inner.container
+        .content.content-collapsed
           .content-scroll
             include ../components/companies/table
           .mt-12

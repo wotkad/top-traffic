@@ -66,5 +66,8 @@
       @apply z-10 opacity-100 visible;
     }
   }
-  @apply -right-[280px] absolute bg-white-000 border border-black-500 rounded-[10px] min-w-[280px] max-w-[280px];
+  &-sm {
+    @apply right-0;
+  }
+  @apply -right-[280px] absolute bg-white-000 shadow-[0_24px_0_#fff] border border-black-500 rounded-[10px] min-w-[280px] max-w-[280px];
 }

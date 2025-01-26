@@ -1,4 +1,7 @@
 import gsap from "gsap";
+import setTdPaddingDefault from "../../base/common/set-td-padding-default";
+import setTdPadding from "../../base/common/set-td-padding";
+import setFilterPosition from "../../base/common/set-filter-position";
 
 function toggleSelector() {
   let button = $('.selector__button');
@@ -12,6 +15,9 @@ function toggleSelector() {
         gsap.to($(this).closest('.selector__buttons').next().find('.selector__container'), {display: 'none', duration: 0});
         gsap.to($(block).attr('data-id', $(this).attr('data-id')), {display: 'block', duration: 0, onComplete: () => {
           gsap.to($(block).attr('data-id', $(this).attr('data-id')), {opacity: 1, duration: 0.3});
+          setTdPadding();
+          setTdPaddingDefault();
+          setFilterPosition();
         }});
       }});
     });

@@ -60,6 +60,9 @@ label {
 
 .wrapper {
   &.active {
+    .content-sm .content-not-collapsed {
+      @apply w-[calc(100%-305px)];
+    }
     @apply left-[59px] pl-[46px] w-[calc(100%-59px)];
   }
   &.collapsed {
@@ -72,11 +75,18 @@ label {
       @apply block;
     }
   }
+  &:before {
+    @apply top-[60px] right-0 z-50 fixed content-[''] bg-white-000 w-6 h-[calc(100%-60px)];
+  }
   @apply top-[60px] left-[217px] fixed bg-white-000 pr-6 pb-20 pl-7 w-[calc(100%-217px)] h-[calc(100%-var(--header-height))] transition-all duration-300 overflow-x-hidden;
 }
 
 .inner {
-  @apply flex justify-between mt-6;
+  @apply mt-6;
+}
+
+.container {
+  @apply flex justify-between;
 }
 
 .calendar-icon {

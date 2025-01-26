@@ -1,23 +1,33 @@
 import gsap from 'gsap';
 
 function toggleFilter() {
-  let toggle = $('.filter__toggle');
-  let filter = $('.filter');
-  let content = $('.content');
-  toggle.on('click', function() {
+  $(document).on('click', '.filter__toggle[data-filter-name]', function() {
+    let toggle = $(this);
+    let filterName = $(this).data('filter-name');
+    let filter = $('.filter[data-filter-name="' + filterName + '"]');
+    console.log(filter);
+    let content = filter.prev('.content');
+
     if (toggle.hasClass('active')) {
-      gsap.to(filter, {x: '0', duration: .3});
+      if (filter.hasClass('filter-sm')) {
+        gsap.to(filter, {x: '0', duration: .3});
+      } else {
+        gsap.to(filter, {x: '0', duration: .3});
+      }
       toggle.removeClass('active');
       filter.removeClass('active');
       content.removeClass('active');
     } else {
-      gsap.to(filter, {x: '-304px', duration: .3})
+      if (filter.hasClass('filter-sm')) {
+        gsap.to(filter, {x: '-390px', duration: .3})
+      } else {
+        gsap.to(filter, {x: '-304px', duration: .3})
+      }
       toggle.addClass('active');
       filter.addClass('active');
       content.addClass('active');
     }
   });
-  
 
   const toggleClearButton = function () {
     $('.filter').each(function () {

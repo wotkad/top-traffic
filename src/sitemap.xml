@@ -2,47 +2,47 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>http://localhost:8080/</loc>
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-25</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>http://localhost:8080/components/</loc>
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-25</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>http://localhost:8080/login/</loc>
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-25</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>http://localhost:8080/channels/</loc>
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-25</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>http://localhost:8080/admins/</loc>
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-25</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>http://localhost:8080/companies/</loc>
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-25</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>http://localhost:8080/companies</loc>
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-25</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>http://localhost:8080/admins</loc>
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-25</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>http://localhost:8080/channels</loc>
-    <lastmod>2025-01-23</lastmod>
+    <lastmod>2025-01-25</lastmod>
     <changefreq>monthly</changefreq>
   </url>
 </urlset>

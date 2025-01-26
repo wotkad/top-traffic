@@ -31,11 +31,12 @@ block content
             icon: 'other-controls-icon',
             title: 'Фильтр',
             isClose: true,
+            dataFilterName: 'admins',
           },
         ],
       })
-      .inner
-        .content
+      .inner.container
+        .content.content-collapsed
           .content-scroll
             include ../components/admins/table
           .mt-12

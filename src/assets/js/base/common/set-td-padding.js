@@ -1,54 +1,46 @@
-import gsap from "gsap";
-
-let table = $('table.table-fixed-cols');
-let container = $('.content-scroll');
-let defaultContainerWidth = container.width();
-let defaultTableWidth = table.width();
-
-let defaultWidthDifference = defaultContainerWidth - defaultTableWidth;
-
-// Функция для вычисления отступов
-export default function setTdPadding(duration = 0) {
-  // Используем requestAnimationFrame для того, чтобы гарантировать, что изменения уже завершены
+export default function setTdPadding() {
+  // Используем requestAnimationFrame для оптимизации
   requestAnimationFrame(() => {
-    let containerWidth = container.width();
-    let tableWidth = table.width();
+    $('table.table-fixed-cols').each(function () {
+      let table = $(this);
 
-    let widthDifference = containerWidth - tableWidth;
-
-    let extraPadding;
-    let defaultExtraPadding;
-    let finalPadding;
-
-    $('table.table-fixed-cols tr').each(function () {
       let tds = $(this).find('td, th');
-      let numOfTds = tds.length;
-      let minPadding;
-      
-      if (numOfTds > 2) {
-        if (widthDifference > 0) {
-          minPadding = Number($(tds[2]).css('padding-right').slice(0, -2));
-        } else {
-          minPadding = 32;
-        }
+      $(tds).css('padding-right', 32);
 
-        extraPadding = widthDifference / (numOfTds - 2); 
-        defaultExtraPadding = defaultWidthDifference / (numOfTds - 2);
-        
-        if (extraPadding < 0) {
-          finalPadding = Math.max(minPadding, minPadding + defaultExtraPadding);
-        } else {
-          finalPadding = Math.max(minPadding, minPadding + extraPadding - 1);
+      let container = table.closest('.content-scroll');
+      let containerWidth = container.width();
+      let tableWidth = table.width();
+      let widthDifference = containerWidth - tableWidth;
+
+      table.find('tr').each(function () {
+        tds = $(this).find('td, th');
+        let numOfTds = tds.length;
+        let minPadding, extraPadding, defaultExtraPadding, finalPadding;
+
+        if (numOfTds > 2) {
+          if (widthDifference > 0 || widthDifference < 0) {
+            minPadding = Number($(tds[2]).css('padding-right').slice(0, -2));
+          } else {
+            minPadding = 32;
+          }
+
+          extraPadding = widthDifference / (numOfTds - 2);
+          defaultExtraPadding = 0; // Можно добавить логику для вычисления разницы по умолчанию, если нужно
+
+          if (extraPadding < 0) {
+            finalPadding = Math.max(minPadding, minPadding + defaultExtraPadding);
+          } else {
+            finalPadding = Math.max(minPadding, minPadding + extraPadding - 1);
+          }
+          $(tds.slice(1, -1)).css('padding-right', finalPadding);
         }
-        
-        // Анимация с GSAP
-        gsap.to(tds.slice(1, -1), { paddingRight: finalPadding, ease: 'none', duration: duration });
-      }
+      });
     });
   });
 }
+
 // Таймер с задержкой перед запуском
-setTimeout(() => {
+setTimeout(function() {
   setTdPadding();
 }, 200);
 

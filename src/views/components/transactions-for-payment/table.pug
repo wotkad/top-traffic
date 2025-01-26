@@ -1,0 +1,98 @@
+table.table.table-default
+  thead
+    tr
+      th
+        p Сделка
+      th
+        p Клиент
+      th
+        p Период
+      th.text-right
+        p Кол-во постов
+      th.text-right
+        p Ставка
+      th.text-right
+        p Сумма сделки
+      th
+        p Статус сделки
+  tbody
+    +transactions-for-payment-row({
+      color: 'status-green',
+      status: 'В работу',
+    })
+    +transactions-for-payment-row({
+      color: 'status-blue',
+      status: 'В работе',
+    })
+    +transactions-for-payment-row({
+      color: 'status-red',
+      status: 'Пауза',
+    })
+    +transactions-for-payment-row({
+      color: 'status-gray',
+      status: 'Завершено',
+    })
+    +transactions-for-payment-row({
+      color: 'status-purple',
+      status: 'Согласование',
+    })
+    +transactions-for-payment-row({
+      color: 'status-red',
+      status: 'Пауза',
+    })
+    +transactions-for-payment-row({
+      color: 'status-gray',
+      status: 'Завершено',
+    })
+    +transactions-for-payment-row({
+      color: 'status-purple',
+      status: 'Согласование',
+    })
+    +transactions-for-payment-row({
+      color: 'status-purple',
+      status: 'Согласование',
+    })
+    +transactions-for-payment-row({
+      color: 'status-blue',
+      status: 'В работе',
+    })
+    +transactions-for-payment-row({
+      color: 'status-red',
+      status: 'Пауза',
+    })
+    +transactions-for-payment-row({
+      color: 'status-gray',
+      status: 'Завершено',
+    })
+    +transactions-for-payment-row({
+      color: 'status-purple',
+      status: 'Согласование',
+    })
+    +transactions-for-payment-row({
+      color: 'status-red',
+      status: 'Пауза',
+    })
+    +transactions-for-payment-row({
+      color: 'status-gray',
+      status: 'Завершено',
+    })
+    +transactions-for-payment-row({
+      color: 'status-purple',
+      status: 'Согласование',
+    })
+    +transactions-for-payment-row({
+      color: 'status-purple',
+      status: 'Согласование',
+    })
+    +transactions-for-payment-row({
+      color: 'status-red',
+      status: 'Пауза',
+    })
+    +transactions-for-payment-row({
+      color: 'status-gray',
+      status: 'Завершено',
+    })
+    +transactions-for-payment-row({
+      color: 'status-purple',
+      status: 'Согласование',
+    })

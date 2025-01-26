@@ -1,8 +1,5 @@
 
 .content {
-  &.active {
-    @apply w-[calc(100%-312px)];
-  }
   scrollbar-width: thin;
   scrollbar-color: dark;
   ::-webkit-scrollbar {
@@ -19,15 +16,24 @@
   }
   .selector {
     &__content {
-      .table {
-        @apply mt-4;
-      }
       @apply mt-7;
     }
   }
   &-sm {
+    .content {
+      &-collapsed {
+        &.active {
+          @apply w-[calc(100%-296px)];
+        }
+      }
+      &-not-collapsed {
+        @apply w-[calc(100%-366px)];
+      }
+    }
+  }
+  &-collapsed {
     &.active {
-      @apply w-[calc(100%-366px)];
+      @apply w-[calc(100%-312px)];
     }
   }
   @apply w-full transition-all duration-300;
