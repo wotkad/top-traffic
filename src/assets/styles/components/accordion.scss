@@ -46,5 +46,8 @@
     }
     @apply flex justify-center items-center row-span-2 bg-black-400 rounded-full w-6 h-6;
   }
+  &__container {
+    @apply hidden;
+  }
   @apply mt-2.5;
 }

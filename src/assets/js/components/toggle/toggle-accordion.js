@@ -6,10 +6,10 @@ function toggleAccordion() {
     }
     if ($(this).hasClass('active')) {
       $(this).removeClass('active');
-      $(this).next().slideDown();
+      $(this).next().slideUp();
     } else {
       $(this).addClass('active');
-      $(this).next().slideUp();
+      $(this).next().slideDown();
     }
   });
 }
