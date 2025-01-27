@@ -8,6 +8,7 @@
 // #################################
 
 import "./base/common/preloader";
+import "./base/common/load-images";
 import "./base/common/smooth-scroll";
 import "./base/common/get-current-year";
 import "./base/common/set-svg-size";
