@@ -2,6 +2,9 @@
   thead {
     @apply bg-black-700;
   }
+  &__sortbutton {
+    @apply hidden;
+  }
   .subrow {
     h3 {
       @apply text-12-sb-p;
@@ -63,6 +66,9 @@
     p {
       @apply text-12-sb whitespace-nowrap;
     }
+    &.sorted {
+      @apply text-blue-000;
+    }
     span {
       &.male,
       &.female {
@@ -83,7 +89,7 @@
       }
       @apply text-10-r;
     }
-    @apply pr-8 border-b border-black-500 h-11 text-left;
+    @apply pr-8 border-b border-black-500 h-11 text-left cursor-pointer;
   }
   td {
     &:nth-child(1) {

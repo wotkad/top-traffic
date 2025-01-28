@@ -2,27 +2,55 @@ table.table.table-fixed-cols
   thead
     tr
       th.border-r.border-black-500(width="280px")
-        .flex.gap-x-2.items-center.text-blue-000
+        .flex.gap-x-2.items-center
           p Канал
-          button(type="button")
+          button(type="button").table__sortbutton
             svg
               use(xlink:href="#other-sort-icon")
       th
-        p Категория
+        .flex.gap-x-2.items-center
+          p Категория
+          button(type="button").table__sortbutton
+            svg
+              use(xlink:href="#other-sort-icon")
       th
-        p.text-right Подписчики
+        .flex.gap-x-2.items-center
+          p.text-right Подписчики
+          button(type="button").table__sortbutton
+            svg
+              use(xlink:href="#other-sort-icon")
       th
-        p Формат
+        .flex.gap-x-2.items-center
+          p Формат
+          button(type="button").table__sortbutton
+            svg
+              use(xlink:href="#other-sort-icon")
       th
-        p.text-right Охват %
-        span.block.text-right (на пост)
+        .flex.gap-x-2.items-center
+          p.text-right Охват %
+            span.block.text-right (на пост)
+          button(type="button").table__sortbutton
+            svg
+              use(xlink:href="#other-sort-icon")
       th
-        p.text-right Охват %
-        span.block.text-right (24 часа)
+        .flex.gap-x-2.items-center
+          p.text-right Охват %
+            span.block.text-right (24 часа)
+          button(type="button").table__sortbutton
+            svg
+              use(xlink:href="#other-sort-icon")
       th
-        p.text-right ER %
+        .flex.gap-x-2.items-center
+          p.text-right ER %
+          button(type="button").table__sortbutton
+            svg
+              use(xlink:href="#other-sort-icon")
       th
-        p.text-right ERR %
+        .flex.gap-x-2.items-center
+          p.text-right ERR %
+          button(type="button").table__sortbutton
+            svg
+              use(xlink:href="#other-sort-icon")
       th
         p.text-center Аудитория
         .flex.justify-center(class="gap-x-2.5 mt-[3px]")

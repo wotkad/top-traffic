@@ -14,7 +14,7 @@
     .button {
       @apply transition-all duration-300;
     }
-    @apply flex justify-between items-center p-2 border-b border-black-500;
+    @apply flex justify-between items-center p-2 border-b border-black-500 cursor-pointer;
   }
   &__item {
     @apply flex justify-between items-center px-2.5 py-2;

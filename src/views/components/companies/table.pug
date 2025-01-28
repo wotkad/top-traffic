@@ -2,21 +2,50 @@ table.table.table-fixed-cols
   thead
     tr
       th
-        p Клиент
+        .flex.gap-x-2.items-center
+          p Клиент
+          button(type="button").table__sortbutton
+            svg
+              use(xlink:href="#other-sort-icon")
       th
-        p Рекламная кампания
+        .flex.gap-x-2.items-center
+          p Рекламная кампания
+          button(type="button").table__sortbutton
+            svg
+              use(xlink:href="#other-sort-icon")
       th
-        p Аккаунт-менеджер
+        .flex.gap-x-2.items-center
+          p Аккаунт-менеджер
+          button(type="button").table__sortbutton
+            svg
+              use(xlink:href="#other-sort-icon")
       th
-        p Куратор
+        .flex.gap-x-2.items-center
+          p Куратор
+          button(type="button").table__sortbutton
+            svg
+              use(xlink:href="#other-sort-icon")
       th
-        p Канал
+        .flex.gap-x-2.items-center
+          p Канал
       th
-        p Сумма сделки
+        .flex.gap-x-2.items-center
+          p Сумма сделки
+          button(type="button").table__sortbutton
+            svg
+              use(xlink:href="#other-sort-icon")
       th
-        p Статус сделки
+        .flex.gap-x-2.items-center
+          p Статус сделки
+          button(type="button").table__sortbutton
+            svg
+              use(xlink:href="#other-sort-icon")
       th
-        p Статус РК
+        .flex.gap-x-2.items-center
+          p Статус РК
+          button(type="button").table__sortbutton
+            svg
+              use(xlink:href="#other-sort-icon")
   tbody
     +companies-subrow({
       title: 'Сентябрь 2024',

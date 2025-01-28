@@ -2,17 +2,41 @@ table.table.table-default
   thead
     tr
       th
-        p Рекламная кампания
+        .flex.gap-x-2.items-center
+          p Рекламная кампания
+          button(type="button").table__sortbutton
+            svg
+              use(xlink:href="#other-sort-icon")
       th
-        p Клиент
+        .flex.gap-x-2.items-center
+          p Клиент
+          button(type="button").table__sortbutton
+            svg
+              use(xlink:href="#other-sort-icon")
       th
-        p Администратор
+        .flex.gap-x-2.items-center
+          p Администратор
+          button(type="button").table__sortbutton
+            svg
+              use(xlink:href="#other-sort-icon")
       th
-        p Период
+        .flex.gap-x-2.items-center
+          p Период
+          button(type="button").table__sortbutton
+            svg
+              use(xlink:href="#other-sort-icon")
       th
-        p Ставка
+        .flex.gap-x-2.items-center
+          p Ставка
+          button(type="button").table__sortbutton
+            svg
+              use(xlink:href="#other-sort-icon")
       th
-        p Статус РК
+        .flex.gap-x-2.items-center
+          p Статус РК
+          button(type="button").table__sortbutton
+            svg
+              use(xlink:href="#other-sort-icon")
   tbody
     +administration-history-row({
       color: 'status-green',

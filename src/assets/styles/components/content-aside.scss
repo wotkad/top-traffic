@@ -96,6 +96,9 @@
     svg {
       @apply text-black-200;
     }
+    .dropdown {
+      @apply w-auto;
+    }
     @apply flex items-center gap-x-1 mt-6 text-14-sb-p;
   }
   &__textarea {

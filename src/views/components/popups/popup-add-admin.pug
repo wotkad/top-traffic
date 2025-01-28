@@ -74,10 +74,10 @@
                 },
               ],
               class: 'dropdown-checkboxes',
+              isAll: true,
               isCheckboxes: true,
               isRequired: true,
               label: 'Каналы',
-              title: 'Выберите каналы',
             })
             +dropdown({
               checkboxes: [
@@ -132,13 +132,18 @@
                 },
               ],
               class: 'dropdown-checkboxes',
+              isAll: true,
               isCheckboxes: true,
               label: 'Организация',
-              title: 'Выберите организацию',
             })
           .popup__col
             +dropdown({
               buttons: [
+                {
+                  color: 'priority-transparent',
+                  isChecked: true,
+                  title: 'Все',
+                },
                 {
                   color: 'priority-red',
                   title: 'Очень высокий',
@@ -164,7 +169,6 @@
               isButtons: true,
               isPriority: true,
               label: 'Приоритет',
-              title: '––',
             })
             +input({
               isLabel: true,

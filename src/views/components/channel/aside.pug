@@ -28,8 +28,8 @@ aside.content-aside
             tr.text-black-200
               th Организация
               td
-                .flex.items-center(class="gap-x-1")
-                  img.rounded(class="w-3.5 h-3.5" src="/assets/images/avatar.png" alt="tg-channel")
+                .flex.items-center(class="gap-x-[6px]")
+                  img.rounded(class="w-6 h-6" src="/assets/images/avatar.png" alt="tg-channel")
                   .text-12-r-p ООО "МедиаКар"
           .content-aside__subtitle Внутренняя информация
           table.table
@@ -44,7 +44,7 @@ aside.content-aside
                     {
                       color: 'priority-transparent',
                       isChecked: true,
-                      title: '––',
+                      title: 'Все',
                     },
                     {
                       color: 'priority-red',
@@ -71,7 +71,6 @@ aside.content-aside
                   color: 'priority-transparent',
                   isButtons: true,
                   isPriority: true,
-                  title: '––',
                 })
           .content-aside__subtitle Поле для комментария
           +input({
@@ -82,8 +81,23 @@ aside.content-aside
             placeholder: 'Добавить комментарий...',
           })
           .content-aside__subtitle Общая информация
-            svg
-              use(xlink:href="#other-add-file-icon")
+            +dropdown({
+              buttons: [
+                {
+                  dataPopupName: 'upload-file',
+                  icon: 'other-new-file-icon',
+                  title: 'Файл',
+                },
+                {
+                  dataPopupName: 'add-link',
+                  icon: 'other-link-icon',
+                  title: 'Ссылка',
+                },
+              ],
+              icon: 'other-add-file-icon',
+              isButtons: true,
+              subtitle: 'Добавить',
+            })
           .accordions
             .accordion
               .accordion__button(data-id="links")

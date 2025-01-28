@@ -160,7 +160,7 @@ block content
             {
               color: 'status-transparent',
               isChecked: true,
-              title: '––',
+              title: 'Все',
             },
             {
               color: 'status-green',
@@ -183,7 +183,6 @@ block content
           color: 'status-transparent',
           isButtons: true,
           isStatus: true,
-          title: '––',
         })
         +dropdown({
           checkboxes: [
@@ -238,15 +237,15 @@ block content
             },
           ],
           class: 'dropdown-checkboxes',
+          isAll: true,
           isCheckboxes: true,
-          title: 'Выберите фильтр',
         })
         +dropdown({
           buttons: [
             {
               color: 'priority-transparent',
               isChecked: true,
-              title: '––',
+              title: 'Все',
             },
             {
               color: 'priority-red',
@@ -273,7 +272,6 @@ block content
           color: 'priority-transparent',
           isButtons: true,
           isPriority: true,
-          title: '––',
         })
     .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
       h2.text-2xl.font-bold.pb-4.border-b.w-full Типографика (Inter)

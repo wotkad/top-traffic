@@ -3,6 +3,9 @@ module.exports = {
     buttons: [
       {
         isChecked: true,
+        title: 'Все',
+      },
+      {
         title: '1/24',
       },
       {
@@ -29,6 +32,7 @@ module.exports = {
     ],
     checkboxes: [
       {
+        class: 'check-all',
         isChecked: true,
         title: 'Все',
       },
@@ -45,6 +49,7 @@ module.exports = {
     class: 'dropdown-base',
     classButton: '',
     color: 'status-transparent',
+    icon: '',
     image: {
       alt: 'image',
       enabled: false,
@@ -93,7 +98,8 @@ module.exports = {
         title: 'Нативный',
       },
     ],
-    title: 'Выберите фильтр',
+    subtitle: '',
+    title: 'Все',
   },
   mergeConfig(data, defaults) {
     return {
@@ -103,6 +109,7 @@ module.exports = {
       class: data.class !== undefined ? data.class : defaults.class,
       classButton: data.classButton !== undefined ? data.classButton : defaults.classButton,
       color: data.color !== undefined ? data.color : defaults.color,
+      icon: data.icon !== undefined ? data.icon : defaults.icon,
       image: data.image !== undefined ? data.image.enabled : defaults.image.enabled,
       isAll: data.isAll !== undefined ? data.isAll : defaults.isAll,
       isButtons: data.isButtons !== undefined ? data.isButtons : defaults.isButtons,
@@ -115,6 +122,7 @@ module.exports = {
       label: data.label !== undefined ? data.label : defaults.label,
       links: data.links !== undefined && data.links.length > 0 ? data.links : defaults.links,
       src: data.image !== undefined ? data.image.src : defaults.image.src,
+      subtitle: data.subtitle !== undefined ? data.subtitle : defaults.subtitle,
       title: data.title !== undefined ? data.title : defaults.title,
     }
   },

@@ -1,3 +1,6 @@
+import setTdPadding from '../../base/common/set-td-padding';
+import setTdPaddingDefault from '../../base/common/set-td-padding-default';
+
 function toggleDropdown() {
 
   function checkVisibility($parent) {
@@ -126,6 +129,11 @@ function toggleDropdown() {
     e.stopPropagation();
   });
 
+  $('table.table .dropdown__list .input-checkbox-with-label input').on('change', function () {
+    setTdPadding();
+    setTdPaddingDefault();
+  });
+
   $('.dropdown__list .input-checkbox-with-label input').on('change', function () {
     const $dropdown = $(this).closest('.dropdown');
     const $list = $dropdown.find('.dropdown__list');
@@ -205,7 +213,6 @@ function toggleDropdown() {
     }
 
     const $parent = $valuesContainer;
-    const $children = $parent.find('.dropdown__value');
 
     checkVisibility($parent);
 
@@ -257,7 +264,6 @@ function toggleDropdown() {
     }
   
     const $parent = $valuesContainer;
-    const $children = $parent.find('.dropdown__value');
 
     checkVisibility($parent);
 

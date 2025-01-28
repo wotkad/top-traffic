@@ -110,7 +110,6 @@ function monthPicker() {
     $this.on('show.daterangepicker', function(ev, picker) {
       monthpicker = picker.container;
 
-      // Обработчик клика по кнопке закрытия
       $(document).on('click', '.filter__clear', function() {
         monthpicker.hide();
         $this.val('');
@@ -130,22 +129,20 @@ function monthPicker() {
         let result;
 
         if (startMoment.year() === endMoment.year() && startMoment.month() === endMoment.month()) {
-          // Если год и месяц совпадают
-          const singleMonth = capitalize(startMoment.locale('ru').format('MMMM YYYY')); // "Апр. 2025"
+          const singleMonth = capitalize(startMoment.locale('ru').format('MMMM YYYY'));
           result = `${singleMonth}`;
         } else if (startMoment.year() === endMoment.year()) {
-          // Если только год совпадает
-          const startMonth = capitalize(startMoment.locale('ru').format('MMM')); // "Апр"
-          const endMonth = capitalize(endMoment.locale('ru').format('MMM'));     // "Ноя"
-          result = `${startMonth} - ${endMonth} ${startMoment.locale('ru').format('YYYY')}`; // "Апр - Ноя 2025"
+          const startMonth = capitalize(startMoment.locale('ru').format('MMMM'));
+          const endMonth = capitalize(endMoment.locale('ru').format('MMMM'));
+          result = `${startMonth} - ${endMonth} ${startMoment.locale('ru').format('YYYY')}`;
         } else {
-          // Если год отличается
-          const startDate = capitalize(startMoment.locale('ru').format('MMM YYYY')); // "Апр 2025"
-          const endDate = capitalize(endMoment.locale('ru').format('MMM YYYY'));     // "Ноя 2026"
+          const startDate = capitalize(startMoment.locale('ru').format('MMMM YYYY'));
+          const endDate = capitalize(endMoment.locale('ru').format('MMMM YYYY'));
           result = `${startDate} - ${endDate}`;
         }
 
         $this.val(result);
+        $(this).parent().attr('data-value', result);
       });
     });
   });

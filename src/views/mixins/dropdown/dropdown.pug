@@ -20,20 +20,31 @@ mixin dropdown(data = {})
             view: 'button',
           })
       .dropdown__button(class=isStatus + isSelected + modefied.classButton)
-        .dropdown__inner
-          if modefied.image
-            img.dropdown__image(src=modefied.src, alt=modefied.alt)
-          if modefied.isAll
-            .dropdown__title.dropdown__title-all Все
-          else
-            .dropdown__title= modefied.title
-        +button({
-          class: 'button-icon sm',
-          icon: 'other-angle-down-icon',
-          isOnlyIcon: true,
-          view: 'button',
-        })
+        if !modefied.icon
+          .dropdown__inner
+            if modefied.image
+              img.dropdown__image(src=modefied.src, alt=modefied.alt)
+            if modefied.isAll
+              .dropdown__title.dropdown__title-all Все
+            else
+              .dropdown__title= modefied.title
+        if !modefied.icon
+          +button({
+            class: 'button-icon sm',
+            icon: 'other-angle-down-icon',
+            isOnlyIcon: true,
+            view: 'button',
+          })
+        else
+          +button({
+            class: 'button-icon sm dropdown__icon',
+            icon: modefied.icon,
+            isOnlyIcon: true,
+            view: 'button',
+          })
       .dropdown__list
+        if modefied.subtitle
+          .dropdown__subtitle= modefied.subtitle
         if modefied.isCheckboxes && modefied.checkboxes
           .dropdown__results
             .dropdown__selected Выбрано:

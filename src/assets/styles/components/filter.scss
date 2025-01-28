@@ -10,13 +10,13 @@
       input {
         @apply w-full;
       }
-      @apply px-3 py-[7px];
+      @apply bg-black-700 px-3 py-[7px] w-full;
     }
     .dropdown__list {
       @apply fixed;
     }
     .dropdown-status .dropdown__button.status-transparent {
-      @apply px-3 py-[7px] border border-black-500 rounded-md w-full h-8;
+      @apply bg-black-700 px-3 py-[7px] border border-black-500 rounded-md w-full h-8;
     }
     @apply relative px-6 pt-5 pb-10 overflow-y-auto;
   }

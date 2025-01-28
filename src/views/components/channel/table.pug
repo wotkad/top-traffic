@@ -2,17 +2,41 @@ table.table.table-default
   thead
     tr
       th
-        p Формат
+        .flex.gap-x-2.items-center
+          p Формат
+          button(type="button").table__sortbutton
+            svg
+              use(xlink:href="#other-sort-icon")
       th
-        p.text-right Охват
+        .flex.gap-x-2.items-center
+          p.text-right Охват
+          button(type="button").table__sortbutton
+            svg
+              use(xlink:href="#other-sort-icon")
       th
-        p.text-right Просмотры
+        .flex.gap-x-2.items-center
+          p.text-right Просмотры
+          button(type="button").table__sortbutton
+            svg
+              use(xlink:href="#other-sort-icon")
       th
-        p.text-right ER %
+        .flex.gap-x-2.items-center
+          p.text-right ER %
+          button(type="button").table__sortbutton
+            svg
+              use(xlink:href="#other-sort-icon")
       th
-        p.text-right ERR %
+        .flex.gap-x-2.items-center
+          p.text-right ERR %
+          button(type="button").table__sortbutton
+            svg
+              use(xlink:href="#other-sort-icon")
       th
-        p.text-right Ставка
+        .flex.gap-x-2.items-center
+          p.text-right Ставка
+          button(type="button").table__sortbutton
+            svg
+              use(xlink:href="#other-sort-icon")
   tbody
     include row
     include row

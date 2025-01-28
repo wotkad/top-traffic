@@ -2,19 +2,47 @@ table.table.table-default
   thead
     tr
       th
-        p Сделка
+        .flex.gap-x-2.items-center
+          p Сделка
+          button(type="button")
+            svg
+              use(xlink:href="#other-sort-icon")
       th
-        p Клиент
+        .flex.gap-x-2.items-center
+          p Клиент
+          button(type="button")
+            svg
+              use(xlink:href="#other-sort-icon")
       th
-        p Период
-      th.text-right
-        p Кол-во постов
-      th.text-right
-        p Ставка
-      th.text-right
-        p Сумма сделки
+        .flex.gap-x-2.items-center
+          p Период
+          button(type="button")
+            svg
+              use(xlink:href="#other-sort-icon")
       th
-        p Статус сделки
+        .flex.gap-x-2.items-center
+          p.text-right Кол-во постов
+          button(type="button")
+            svg
+              use(xlink:href="#other-sort-icon")
+      th
+        .flex.gap-x-2.items-center
+          p.text-right Ставка
+          button(type="button")
+            svg
+              use(xlink:href="#other-sort-icon")
+      th
+        .flex.gap-x-2.items-center
+          p.text-right Сумма сделки
+          button(type="button")
+            svg
+              use(xlink:href="#other-sort-icon")
+      th
+        .flex.gap-x-2.items-center
+          p Статус сделки
+          button(type="button")
+            svg
+              use(xlink:href="#other-sort-icon")
   tbody
     +transactions-for-payment-row({
       color: 'status-green',

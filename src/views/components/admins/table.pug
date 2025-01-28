@@ -2,17 +2,29 @@ table.table.table-fixed-cols
   thead
     tr
       th.border-r.border-black-500(width="234px")
-        .flex.gap-x-2.items-center.text-blue-000
+        .flex.gap-x-2.items-center
           p Администратор
-          button(type="button")
+          button(type="button").table__sortbutton
             svg
               use(xlink:href="#other-sort-icon")
       th
-        p Каналы
+        .flex.gap-x-2.items-center
+          p Каналы
+          button(type="button").table__sortbutton
+            svg
+              use(xlink:href="#other-sort-icon")
       th
-        p Организация
+        .flex.gap-x-2.items-center
+          p Организация
+          button(type="button").table__sortbutton
+            svg
+              use(xlink:href="#other-sort-icon")
       th
-        p Дата добавления
+        .flex.gap-x-2.items-center
+          p Дата добавления
+          button(type="button").table__sortbutton
+            svg
+              use(xlink:href="#other-sort-icon")
   tbody
     include row
     include row

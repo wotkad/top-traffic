@@ -140,6 +140,7 @@ function datePicker() {
           result = picker.startDate.format('DD.MM.YYYY') + ' - ' + picker.endDate.format('DD.MM.YYYY');
         }
         $this.val(result);
+        $(this).parent().attr('data-value', result);
       });
     });
   });
