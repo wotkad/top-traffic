@@ -1,0 +1,21 @@
+.popup(data-popup-name="delete")
+  .popup__bg(data-popup-name="delete")
+  .popup__wrapper(data-scroll-lock-scrollable)
+    .popup__title Подтвердить действие
+    .popup__subtitle Удалить запись?
+    form(action="#")
+      .popup__form
+        .popup__buttons
+          +button({
+            class: 'button-confirm popup-close',
+            dataPopupName: 'delete',
+            title: 'Да',
+            type: 'submit',
+            view: 'button',
+          })
+          +button({
+            class: 'button-base popup-close',
+            dataPopupName: 'delete',
+            title: 'Нет',
+            view: 'button',
+          })

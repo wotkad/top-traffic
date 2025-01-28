@@ -4,7 +4,7 @@ aside.filter.filter-sm(data-filter-name="transactions-for-payment")
       h2 Фильтр
       button(type="button").filter__clear Сбросить
     form(action="#")
-      h3.filter__subtitle Администратор
+      h3.filter__subtitle Сделка
       +dropdown({
         checkboxes: [
           {
@@ -124,7 +124,7 @@ aside.filter.filter-sm(data-filter-name="transactions-for-payment")
         isAll: true,
         isCheckboxes: true,
       })
-      h3.filter__subtitle Канал
+      h3.filter__subtitle Клиент
       +dropdown({
         checkboxes: [
           {
@@ -244,125 +244,15 @@ aside.filter.filter-sm(data-filter-name="transactions-for-payment")
         isAll: true,
         isCheckboxes: true,
       })
-      h3.filter__subtitle Организация
-      +dropdown({
-        checkboxes: [
-          {
-            class: 'check-all',
-            title: 'Все',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-        ],
-        class: 'dropdown-checkboxes',
-        isAll: true,
-        isCheckboxes: true,
+      h3.filter__subtitle Период
+      +button({
+        calendarClass: 'opensleft',
+        class: 'button-with-icon',
+        icon: 'other-calendar-icon',
+        isCalendar: true,
+        isDatePicker: false,
+        isMonthPicker: true,
+        view: 'button',
       })
       +button({
         class: 'button-base filter__button',

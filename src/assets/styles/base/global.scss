@@ -61,7 +61,7 @@ label {
 .wrapper {
   &.active {
     .content-sm .content-not-collapsed {
-      @apply w-[calc(100%-305px)];
+      @apply w-[calc(100%-366px)];
     }
     @apply left-[59px] pl-[46px] w-[calc(100%-59px)];
   }

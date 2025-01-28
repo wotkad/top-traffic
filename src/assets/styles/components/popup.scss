@@ -1,14 +1,9 @@
 .popup {
-  &[data-popup-name] {
-    .popup__wrapper {
-      @apply w-full max-w-[616px];
-    }
-  }
   &__bg {
     @apply z-[100] fixed inset-0 bg-black-100 bg-opacity-25 cursor-pointer;
   }
   &__wrapper {
-    @apply relative z-[200] bg-white-000 px-8 pt-8 pb-10 rounded-[10px];
+    @apply relative z-[200] bg-white-000 px-8 pt-8 pb-10 rounded-[10px] w-full max-w-[616px] transition-all -translate-y-5 duration-300;
   }
   &__title {
     @apply text-24-sb;
@@ -26,7 +21,54 @@
     @apply flex justify-end items-center gap-x-1.5 mt-8;
   }
   &.active {
+    .popup__wrapper {
+      @apply translate-y-0;
+    }
     @apply z-[200] opacity-100 translate-y-0 visible;
   }
-  @apply -z-[1] fixed inset-0 flex justify-center items-start opacity-0 py-[134px] transition-all -translate-y-5 duration-300 invisible overflow-y-auto;
+  &__close {
+    @apply top-3 right-3 absolute w-auto;
+  }
+
+  &[data-popup-name="add-link"] {
+    .popup__wrapper {
+      .popup__title {
+        @apply text-12-sb text-center;
+      }
+      .input-with-label {
+        .input__label {
+          @apply text-12-sb text-black-200;
+        }
+        @apply mt-4;
+      }
+      .popup__form {
+        .button {
+          @apply justify-center mt-6 w-full;
+        }
+        @apply mt-0;
+      }
+      @apply px-6 pt-5 pb-8 max-w-[280px];
+    }
+  }
+  &[data-popup-name="delete"] {
+    .popup__wrapper {
+      .popup__title {
+        @apply text-14-sb-md;
+      }
+      .popup__subtitle {
+        @apply mt-1.5 text-12-m-md;
+      }
+      .popup__form {
+        @apply mt-0;
+      }
+      .popup__buttons {
+        .button {
+          @apply flex-1 px-4;
+        }
+        @apply mt-4;
+      }
+      @apply p-[14px] max-w-[258px];
+    }
+  }
+  @apply -z-[1] fixed inset-0 flex justify-center items-start opacity-0 py-[134px] transition-all duration-300 invisible overflow-y-auto;
 }

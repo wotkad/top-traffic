@@ -1,0 +1,38 @@
+.popup(data-popup-name="add-link")
+  .popup__bg(data-popup-name="add-link")
+  .popup__wrapper(data-scroll-lock-scrollable)
+    .popup__close
+      +button({
+        ariaLabel: 'close',
+        class: 'button-close popup__hide popup-close',
+        dataPopupName: 'add-link',
+        icon: 'other-close-icon',
+        isOnlyIcon: true,
+        view: 'button',
+      })
+    .popup__title URL
+    form(action="#")
+      .popup__form
+        +input({
+          isLabel: true,
+          isRequired: true,
+          label: 'Текст',
+          name: 'text',
+          placeholder: 'Текст',
+          type: 'text',
+        })
+        +input({
+          isLabel: true,
+          isRequired: true,
+          label: 'URL',
+          name: 'url',
+          placeholder: 'URL',
+          type: 'text',
+        })
+        +button({
+          class: 'button-with-icon-blue lg popup-close',
+          dataPopupName: 'add-link',
+          title: 'Сохранить',
+          type: 'submit',
+          view: 'button',
+        })
