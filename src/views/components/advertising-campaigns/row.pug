@@ -2,12 +2,13 @@ mixin administration-history-row(data)
   tr
     td.only-text Test_MTC_September
     td.only-text МТС
-    td(style="min-width:200px")
+    td(style="min-width: 200px;")
       .flex.items-center(class="gap-x-1.5")
         img.rounded.object-cover(class="w-[30px] h-[30px]" src="/assets/images/avatar.png" alt="tg-channel")
         .flex.flex-col.items-start
-          h3 Андрей Миронов
-          a(href="https://t.me/cybersec_academy" target="_blank") @cybersec_academy
+          h3
+            a(href="#").table__channel Андрей Миронов
+          a(href="https://t.me/cybersec_academy" target="_blank").table__link @cybersec_academy
     td.only-text Январь 2024
     td.only-text 20 500 ₽
     td

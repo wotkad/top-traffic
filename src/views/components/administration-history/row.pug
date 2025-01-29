@@ -1,5 +1,5 @@
 tr
-  td(style="min-width:200px; padding-left: 12px;")
+  td(style="padding-left: 12px; min-width: 252px;")
     .flex.items-center(class="gap-x-3")
       +input({
         class: 'md table__checkbox',
@@ -7,8 +7,8 @@ tr
       })
       .flex.items-center(class="gap-x-1.5")
         img.rounded.object-cover(class="w-[30px] h-[30px]" src="/assets/images/avatar.png" alt="tg-channel")
-        .flex.flex-col.items-start.line-clamp-1
-          h3(class="max-w-[149.5px]")
+        .flex.flex-col.items-start
+          h3
             a(href="#").table__channel Андрей Миронов
           a(href="https://t.me/andreym" target="_blank").table__link @andreym
   td.only-text

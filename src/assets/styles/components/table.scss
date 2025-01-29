@@ -119,6 +119,11 @@
     @apply pr-8 border-b border-black-500 h-11 text-left;
   }
   td {
+    h3 {
+      a {
+        @apply block line-clamp-1 max-w-[181px] text-ellipsis;
+      }
+    }
     &:nth-child(1),
     &:nth-child(2) {
       @apply pl-6;
