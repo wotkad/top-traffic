@@ -1,7 +1,12 @@
 import gsap from "gsap";
 import setTdPaddingDefault from "../../base/common/set-td-padding-default";
 import setTdPadding from "../../base/common/set-td-padding";
+
 import setFilterPosition from "../../base/common/set-filter-position";
+import setAsidePosition from "../../base/common/set-aside-position";
+
+import setAsideHeight from "../../base/common/set-aside-height";
+import setFilterHeights from "../../base/common/set-filter-height";
 
 function toggleSelector() {
   let button = $('.selector__button');
@@ -18,6 +23,9 @@ function toggleSelector() {
           setTdPadding();
           setTdPaddingDefault();
           setFilterPosition();
+          setAsidePosition();
+          setAsideHeight();
+          setFilterHeights();
         }});
       }});
     });
