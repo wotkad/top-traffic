@@ -16,6 +16,15 @@ label.button {
     }
     @apply inline-grid relative align-top items-center grid-cols-[18px_1fr] pr-7;
   }
+  &.only-input {
+    svg {
+      @apply hidden;
+    }
+    .button {
+      @apply hidden;
+    }
+    @apply gap-0 grid-cols-1 bg-transparent p-0 border-none h-4;
+  }
   @apply cursor-pointer;
 }
 

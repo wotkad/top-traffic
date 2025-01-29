@@ -15,9 +15,11 @@ module.exports = {
     isDownload: false,
     isMonthPicker: false,
     isOnlyIcon: false,
+    isSinglePicker: false,
     isSwitchable: false,
     title: 'Кнопка',
     type: 'button',
+    value: '',
     view: 'button',
   },
   mergeConfig(data, defaults) {
@@ -37,9 +39,11 @@ module.exports = {
       isDownload: data.isDownload !== undefined ? data.isDownload : defaults.isDownload,
       isMonthPicker: data.isMonthPicker !== undefined ? data.isMonthPicker : defaults.isMonthPicker,
       isOnlyIcon: data.isOnlyIcon !== undefined ? data.isOnlyIcon : defaults.isOnlyIcon,
+      isSinglePicker: data.isSinglePicker !== undefined ? data.isSinglePicker : defaults.isSinglePicker,
       isSwitchable: data.isSwitchable !== undefined ? data.isSwitchable : defaults.isSwitchable,
       title: data.title !== undefined ? data.title : defaults.title,
       type: data.type !== undefined ? data.type : defaults.type,
+      value: data.value !== undefined ? data.value : defaults.value,
       view: data.view !== undefined ? data.view : defaults.view,
     }
   },

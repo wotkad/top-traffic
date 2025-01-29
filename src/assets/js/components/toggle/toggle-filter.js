@@ -5,7 +5,6 @@ function toggleFilter() {
     let toggle = $(this);
     let filterName = $(this).data('filter-name');
     let filter = $('.filter[data-filter-name="' + filterName + '"]');
-    console.log(filter);
     let content = filter.prev('.content');
 
     if (toggle.hasClass('active')) {

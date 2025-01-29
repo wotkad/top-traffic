@@ -78,6 +78,18 @@
       }
       @apply h-[18px] min-h-[18px];
     }
+    &.md {
+      span {
+        &:before {
+          @apply w-4 min-w-4 h-4 min-h-4;
+        }
+        &:after {
+          @apply scale-125;
+        }
+        @apply w-4 min-w-4 h-4 min-h-4;
+      }
+      @apply h-4 min-h-4;
+    }
     @apply relative cursor-pointer;
   }
   &-ranges {

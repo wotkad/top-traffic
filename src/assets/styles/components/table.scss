@@ -5,6 +5,12 @@
   &__sortbutton {
     @apply hidden;
   }
+  &__sort {
+    &.sorted {
+      @apply text-blue-000;
+    }
+    @apply cursor-pointer;
+  }
   .subrow {
     h3 {
       @apply text-12-sb-p;
@@ -18,6 +24,15 @@
     td.only-text {
       @apply pt-3.5 pb-[13px];
     }
+  }
+  &__remove {
+    svg {
+      @apply w-4 h-4;
+    }
+    &.active {
+      @apply opacity-100;
+    }
+    @apply opacity-0 transition-all duration-300;
   }
   &__link {
     svg {
@@ -81,9 +96,6 @@
     p {
       @apply text-12-sb whitespace-nowrap;
     }
-    &.sorted {
-      @apply text-blue-000;
-    }
     span {
       &.male,
       &.female {
@@ -104,7 +116,7 @@
       }
       @apply text-10-r;
     }
-    @apply pr-8 border-b border-black-500 h-11 text-left cursor-pointer;
+    @apply pr-8 border-b border-black-500 h-11 text-left;
   }
   td {
     &:nth-child(1),
@@ -119,6 +131,13 @@
         @apply text-blue-050;
       }
       @apply transition-all duration-300;
+    }
+    .datepicker-trigger,
+    .monthpicker-trigger {
+      &:after,
+      input {
+        @apply font-normal;
+      }
     }
     span {
       &.male,

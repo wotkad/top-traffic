@@ -1,3 +1,8 @@
+.monthpicker,
+.datepicker {
+  @apply min-w-16;
+}
+
 .daterangepicker {
   &:before,
   &:after {

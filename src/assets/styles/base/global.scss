@@ -78,7 +78,7 @@ label {
   &:before {
     @apply top-[60px] right-0 z-50 fixed content-[''] bg-white-000 w-6 h-[calc(100%-60px)];
   }
-  @apply top-[60px] left-[217px] fixed bg-white-000 pr-6 pb-20 pl-7 w-[calc(100%-217px)] h-[calc(100%-var(--header-height))] transition-all duration-300 overflow-x-hidden;
+  @apply top-[60px] left-[217px] fixed bg-white-000 pr-6 pb-[72px] pl-7 w-[calc(100%-217px)] h-[calc(100%-var(--header-height))] transition-all duration-300 overflow-x-hidden;
 }
 
 .inner {

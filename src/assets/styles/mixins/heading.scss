@@ -1,4 +1,8 @@
 .heading {
+  .monthpicker,
+  .datepicker {
+    @apply min-w-[137px];
+  }
   &__title {
     @apply line-clamp-1 max-w-[360px] text-24-sb text-ellipsis whitespace-nowrap;
   }

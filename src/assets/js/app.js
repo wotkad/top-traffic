@@ -38,6 +38,7 @@ import "./components/toggle/toggle-channels";
 import "./components/toggle/toggle-popup";
 import "./components/toggle/toggle-selector";
 import "./components/toggle/toggle-accordion";
+import "./components/toggle/toggle-table-input";
 
 import "./components/scroll/scroll-to-top";
 import "./components/scroll/scroll-filter";

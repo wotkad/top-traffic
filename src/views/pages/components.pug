@@ -316,6 +316,7 @@ block content
           isCalendar: true,
           isDatePicker: false,
           isMonthPicker: true,
+          value: 'Все',
           view: 'button',
         })
         +button({
@@ -324,6 +325,17 @@ block content
           isCalendar: true,
           isDatePicker: true,
           isMonthPicker: false,
+          value: 'Все',
+          view: 'button',
+        })
+        +button({
+          class: 'button-with-icon',
+          icon: 'other-calendar-icon',
+          isCalendar: true,
+          isDatePicker: true,
+          isMonthPicker: false,
+          isSinglePicker: true,
+          value: 'Все',
           view: 'button',
         })
     .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4

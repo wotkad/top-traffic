@@ -32,10 +32,12 @@ mixin button(data = {})
       if modefied.icon && modefied.iconPos == 'before'
         svg.calendar-icon
           use(xlink:href="#" + modefied.icon)
-      if modefied.isDatePicker
-        input.datepicker(type="text" name="date" placeholder="Выберите дату" class=modefied.calendarClass readonly value="Все")
+      if modefied.isDatePicker && !modefied.isSinglePicker
+        input.datepicker.datepicker-range(type="text" name="date" placeholder="Выберите дату" class=modefied.calendarClass readonly value=modefied.value)
       if modefied.isMonthPicker
-        input.monthpicker(type="text" name="date" placeholder="Выберите период" class=modefied.calendarClass readonly value="Все")
+        input.monthpicker(type="text" name="date" placeholder="Выберите период" class=modefied.calendarClass readonly value=modefied.value)
+      if modefied.isDatePicker && modefied.isSinglePicker
+        input.datepicker.datepicker-single(type="text" name="date" placeholder="Выберите дату" class=modefied.calendarClass readonly value=modefied.value)
       if modefied.isCalendar
         <div class="button button-icon sm calendar-close-icon" type="button" aria-label="button"><svg viewBox="0 0 10 6" width="10" height="6"><use xlink:href="#other-angle-down-icon"></use></svg></div>
 

@@ -34,7 +34,7 @@ function datePicker() {
     "firstDay": 1
   };
 
-  $(".datepicker.opensleft").daterangepicker({
+  $(".datepicker-range.opensleft").daterangepicker({
     autoApply: true,
     locale: locale,
     autoUpdateInput: false,
@@ -43,7 +43,16 @@ function datePicker() {
     linkedCalendars: false,
   });
 
-  $(".datepicker.opensright").daterangepicker({
+  $(".datepicker-single.opensleft").daterangepicker({
+    autoApply: true,
+    locale: locale,
+    autoUpdateInput: false,
+    singleDatePicker: true,
+    opens: 'left',
+    parentEl: '.wrapper',
+  });
+
+  $(".datepicker-range.opensright").daterangepicker({
     autoApply: true,
     locale: locale,
     autoUpdateInput: false,
@@ -52,7 +61,17 @@ function datePicker() {
     linkedCalendars: false,
   });
 
-  $(".filter .datepicker.opensleft").daterangepicker({
+  $(".datepicker-single.opensright").daterangepicker({
+    autoApply: true,
+    locale: locale,
+    autoUpdateInput: false,
+    singleDatePicker: true,
+    "startDate": moment(),
+    opens: 'right',
+    parentEl: '.wrapper',
+  });
+
+  $(".filter .datepicker-range.opensleft").daterangepicker({
     autoApply: true,
     locale: locale,
     autoUpdateInput: false,
@@ -61,7 +80,7 @@ function datePicker() {
     linkedCalendars: false,
   });
 
-  $(".filter .datepicker.opensright").daterangepicker({
+  $(".filter .datepicker-range.opensright").daterangepicker({
     autoApply: true,
     locale: locale,
     autoUpdateInput: false,
@@ -70,7 +89,7 @@ function datePicker() {
     linkedCalendars: false,
   });
 
-  $('.datepicker.opensright').each(function() {
+  $('.datepicker-range.opensright').each(function() {
     let $this = $(this);
     $this.on('show.daterangepicker', function(ev, picker) {
       picker.container.css('top', $this.offset().top + 16);
@@ -78,11 +97,32 @@ function datePicker() {
     });
   });
 
-  $('.datepicker.opensleft').each(function() {
+  $('.datepicker-range.opensleft').each(function() {
     let $this = $(this);
     $this.on('show.daterangepicker', function(ev, picker) {
       // Вычисляем top
       picker.container.css('top', $this.offset().top + 16);
+  
+      // Вычисляем right
+      let right = $(window).width() - ($this.offset().left + $this.outerWidth());
+      picker.container.css('right', right);
+      picker.container.css('left', 'auto');
+    });
+  });
+
+  $('.datepicker-single.opensright').each(function() {
+    let $this = $(this);
+    $this.on('show.daterangepicker', function(ev, picker) {
+      picker.container.css('top', $this.offset().top + 8);
+      picker.container.css('left', $this.offset().left);
+    });
+  });
+
+  $('.datepicker-single.opensleft').each(function() {
+    let $this = $(this);
+    $this.on('show.daterangepicker', function(ev, picker) {
+      // Вычисляем top
+      picker.container.css('top', $this.offset().top + 8);
   
       // Вычисляем right
       let right = $(window).width() - ($this.offset().left + $this.outerWidth());
@@ -99,10 +139,12 @@ function datePicker() {
     $('.daterangepicker').hide();
   });
 
-  $('.datepicker').each(function() {
+  $('.datepicker-range').each(function() {
     let $this = $(this);
     let datepicker;
     let buttons;
+
+    $this.css('width', $(this).val().length * 7);
 
     $this.on('show.daterangepicker', function(ev, picker) {
       datepicker = picker.container;
@@ -141,6 +183,45 @@ function datePicker() {
         }
         $this.val(result);
         $(this).parent().attr('data-value', result);
+        $(this).css('width', $(this).val().length * 7);
+      });
+    });
+  });
+
+  $('.datepicker-single').each(function() {
+    let $this = $(this);
+    let datepicker;
+    let buttons;
+
+    $this.css('width', $(this).val().length * 7);
+
+    $this.on('show.daterangepicker', function(ev, picker) {
+      datepicker = picker.container;
+      buttons = picker.container.find('.drp-buttons').clone();
+
+      picker.container.find('.drp-buttons').remove();
+      picker.container.prepend(buttons);
+
+      // Добавляем кнопку закрытия каждый раз, когда календарь открыт
+      picker.container.find(buttons).find('.drp-selected').append('<span class="button button-icon calendar-close-icon" type="button" aria-label="button"><svg viewBox="0 0 9 9" width="9" height="9"><use xlink:href="#other-close-icon"></use></svg></span>');
+
+      // Обработчик клика по кнопке закрытия
+      $(document).on('click', '.drp-buttons .calendar-close-icon', function() {
+        datepicker.hide();
+        $(this).parent().parent().hide();
+        $this.val('');
+        picker.setStartDate(moment());
+        picker.setEndDate(moment());
+      });
+
+      $this.on('apply.daterangepicker', function(ev, picker) {
+        buttons.css('display', 'flex');
+
+        let result = picker.startDate.format('DD.MM.YYYY');
+        
+        $this.val(result);
+        $(this).parent().attr('data-value', result);
+        $(this).css('width', $(this).val().length * 7);
       });
     });
   });

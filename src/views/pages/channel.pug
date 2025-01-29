@@ -216,16 +216,16 @@ block content
             .content.content-not-collapsed
               .selector__buttons
                 .selector__scroll
-                  .selector__button(data-id="channel-statistics").active Статистика канала
+                  .selector__button(data-id="channel-statistics") Статистика канала
                   .selector__button(data-id="publication-statistics") Статистика публикаций
-                  .selector__button(data-id="administration-history") История администрирования
+                  .selector__button(data-id="administration-history").active История администрирования
                     span 25
                   .selector__button(data-id="advertising-campaigns") Рекламные кампании
                     span 5
                   .selector__button(data-id="transactions-for-payment") Сделки на оплату
                     span 5
               .selector__containers.selector__content
-                .selector__container(data-id="channel-statistics").active
+                .selector__container(data-id="channel-statistics")
                   +heading-table({
                     isSearch: true,
                   })
@@ -246,7 +246,7 @@ block content
                       }
                     ],
                   })
-                .selector__container(data-id="administration-history")
+                .selector__container(data-id="administration-history").active
                   +heading-table({
                     isSearch: true,
                     isRows: true,
@@ -268,6 +268,11 @@ block content
                       },
                     ],
                   })
+                  .in-container.mt-4
+                    .content.content-collapsed
+                      .content-scroll
+                        include ../components/administration-history/table
+                    include ../components/administration-history/filter
                 .selector__container(data-id="advertising-campaigns")
                   +heading-table({
                     isSearch: true,
