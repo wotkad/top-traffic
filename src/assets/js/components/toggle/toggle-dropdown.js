@@ -289,6 +289,11 @@ function toggleDropdown() {
     $(this).toggleClass('active');
   });
 
+  $('.dropdown-base .dropdown__list .button').on('click', function () {
+    $(this).closest('.dropdown__list').removeClass('active');
+    $(this).closest('.dropdown__button').removeClass('active');
+  });
+
 }
 
 toggleDropdown();

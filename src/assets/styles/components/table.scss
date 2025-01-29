@@ -19,6 +19,21 @@
       @apply pt-3.5 pb-[13px];
     }
   }
+  &__link {
+    svg {
+      @apply w-3 h-3;
+    }
+    &:hover {
+      @apply text-blue-000;
+    }
+    &:active {
+      @apply text-blue-050;
+    }
+    @apply flex items-center gap-x-[2px] text-10-r transition-all duration-300;
+  }
+  &__channel {
+    @apply font-semibold;
+  }
   &__channels {
     a {
       img {
@@ -92,20 +107,6 @@
     @apply pr-8 border-b border-black-500 h-11 text-left cursor-pointer;
   }
   td {
-    &:nth-child(1) {
-      a {
-        svg {
-          @apply w-3 h-3;
-        }
-        &:hover {
-          @apply text-blue-000;
-        }
-        &:active {
-          @apply text-blue-050;
-        }
-        @apply flex items-center gap-x-[2px] text-10-r transition-all duration-300;
-      }
-    }
     &:nth-child(1),
     &:nth-child(2) {
       @apply pl-6;

@@ -82,7 +82,7 @@ label {
 }
 
 .inner {
-  @apply mt-6;
+  @apply mt-6 min-h-[calc(100%-24px)];
 }
 
 .in-container {
