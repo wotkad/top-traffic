@@ -30,9 +30,9 @@
       @apply w-4 h-4;
     }
     &.active {
-      @apply opacity-100;
+      @apply opacity-100 visible;
     }
-    @apply opacity-0 transition-all duration-300;
+    @apply opacity-0 transition-all duration-300 invisible;
   }
   &__link {
     svg {
