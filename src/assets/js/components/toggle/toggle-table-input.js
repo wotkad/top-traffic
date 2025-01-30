@@ -1,5 +1,6 @@
 import setTdPaddingDefault from "../../base/common/set-td-padding-default";
 import setTdPadding from "../../base/common/set-td-padding";
+import datePicker from "../datepicker";
 
 function toggleTableInput() {
 
@@ -100,6 +101,8 @@ function toggleTableInput() {
       // Обновляем счетчик внутри .subrow-admin
       let count = $adminHeading.nextUntil('.subrow', 'tr').length;
       $adminHeading.find('span').text(count);
+
+      datePicker();
     }
   });
 }

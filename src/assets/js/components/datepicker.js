@@ -1,7 +1,7 @@
 import daterangepicker from 'bootstrap-daterangepicker';
 import moment from "moment";
 
-function datePicker() {
+export default function datePicker() {
   let locale = {
     "format": "DD.MM.YYYY",
     "applyLabel": "Выбрать",
