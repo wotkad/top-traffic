@@ -8,19 +8,9 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const FriendlyErrorsWebpackPlugin = require('@soda/friendly-errors-webpack-plugin');
-const RobotstxtPlugin = require("robotstxt-webpack-plugin");
 const utils = require("./utils");
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
-
-const SitemapGenerator = require('sitemap-generator');
-const generator = SitemapGenerator('http://localhost:8080', {
-  stripQuerystring: false,
-  filepath: './src/sitemap.xml',
-  lastMod: new Date().toISOString(),
-  changeFreq: 'monthly',
-});
-generator.start();
 
 module.exports = (env) => {
   const MODE = env.mode || "production";
@@ -187,8 +177,6 @@ module.exports = (env) => {
     },
 
     plugins: [
-      new RobotstxtPlugin(),
-
       new FriendlyErrorsWebpackPlugin({
         clearConsole: true,
       }),
@@ -196,8 +184,6 @@ module.exports = (env) => {
       new CopyWebpackPlugin({
         patterns: [
           { from: "../manifest.json" },
-          { from: "../.htaccess" },
-          { from: "sitemap.xml" },
           { from: "assets/images", to: "assets/images" },
           { from: "assets/fonts", to: "assets/fonts" },
         ],
