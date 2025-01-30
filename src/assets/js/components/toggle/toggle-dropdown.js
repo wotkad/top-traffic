@@ -110,6 +110,16 @@ function toggleDropdown() {
     buttonPriority.removeClass('active');
   });
 
+  $('.dropdown-radios .dropdown__item input[type="radio"]').on('change', function () {
+    const selectedValue = $(this).siblings('p').text();
+    const selectedImg = $(this).siblings('img').prop('src');
+    const selectedAlt = $(this).siblings('img').prop('alt');
+
+    const titleStatus = $(this).closest('.dropdown__container').find('.dropdown__button').find('.dropdown__title');
+
+    titleStatus.html(`<img class="dropdown__image" src=${selectedImg} alt=${selectedAlt}>` + selectedValue);
+  });
+
   $(document).on('click', function () {
     $('.dropdown__list').removeClass('active');
     $('.dropdown__button').removeClass('active');

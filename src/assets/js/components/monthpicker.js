@@ -107,7 +107,9 @@ function monthPicker() {
     let $this = $(this);
     let monthpicker;
 
-    $this.css('width', $(this).val().length);
+    if (!$this.closest('.filter__container')) {
+      $this.css('width', $(this).val().length * 7);
+    }
 
     $this.on('show.daterangepicker', function(ev, picker) {
       monthpicker = picker.container;
@@ -144,8 +146,10 @@ function monthPicker() {
         }
 
         $this.val(result);
-        $(this).parent().attr('data-value', result);
-        $(this).css('width', $(this).val().length * 7);
+        $this.parent().attr('data-value', result);
+        if (!$this.closest('.filter__container')) {
+          $this.css('width', $this.val().length * 7);
+        }
       });
     });
   });

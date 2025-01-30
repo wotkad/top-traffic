@@ -59,9 +59,20 @@
               }
               @apply right-0;
             }
+            .dropdown__image {
+              @apply w-6 h-6;
+            }
             @apply p-0 border-none rounded-none w-full h-5;
           }
-          @apply w-full;
+          &__title {
+            @apply text-black-100;
+          }
+          &-radios {
+            .dropdown__list {
+              @apply w-[228px];
+            }
+          }
+          @apply flex items-center w-full;
         }
         @apply bg-black-700;
       }

@@ -36,6 +36,31 @@ aside.content-aside
             tr.text-black-200
               th Менеджер
               td
+                +dropdown({
+                  buttons: [
+                    {
+                      class: '',
+                      image: {
+                        alt: 'image',
+                        enabled: true,
+                        src: '/assets/images/user-image.png',
+                      },
+                      isChecked: true,
+                      title: 'ООО “ИП”',
+                    },
+                    {
+                      class: '',
+                      image: {
+                        alt: 'image',
+                        enabled: true,
+                        src: '/assets/images/avatar.png',
+                      },
+                      title: 'ООО “ИП”',
+                    },
+                  ],
+                  class: 'dropdown-radios',
+                  isRadios: true,
+                })
             tr.text-black-200
               th Приоритет
               td

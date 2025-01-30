@@ -10,7 +10,7 @@ mixin dropdown(data = {})
         if modefied.isRequired
           sup *
     .dropdown__container
-      if modefied.checkboxes
+      if !modefied.isRadios && modefied.isCheckboxes
         .dropdown__sort
           .dropdown__values
           +button({
@@ -67,7 +67,7 @@ mixin dropdown(data = {})
             each checkbox, index in modefied.checkboxes
               +input({
                 type: 'checkbox',
-                class: `input-checkbox-with-label ${checkbox.class !== '' ? checkbox.class : false}`,
+                class: `input-checkbox-with-label ${checkbox.class !== '' ? checkbox.class : ''}`,
                 label: checkbox.title,
                 name: `checkbox-${modefied.class}`,
                 isChecked: checkbox.isChecked,
@@ -76,6 +76,16 @@ mixin dropdown(data = {})
                 image: checkbox.image,
                 telegram: checkbox.telegram,
               })
+
+        else if modefied.isRadios && modefied.buttons
+          +search
+          .dropdown__items
+            each radio, index in modefied.buttons
+              label.dropdown__item
+                if radio.image
+                  img.dropdown__image(src=radio.image.src, alt=radio.image.alt)
+                input(type="radio" name=`radio-${modefied.class}` checked=radio.isChecked)
+                p= radio.title
 
         else if modefied.isPriority || modefied.isStatus
           each button, index in modefied.buttons
@@ -101,5 +111,7 @@ mixin dropdown(data = {})
         else
           each button, index in modefied.buttons
             label.dropdown__item
+              if button.image
+                img.dropdown__image(src=button.image.src, alt=button.image.alt)
               input(type="radio" name=`radio-${modefied.class}` checked=button.isChecked)
               p= button.title

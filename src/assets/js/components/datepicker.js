@@ -113,7 +113,7 @@ export default function datePicker() {
   $('.datepicker-single.opensright').each(function() {
     let $this = $(this);
     $this.on('show.daterangepicker', function(ev, picker) {
-      picker.container.css('top', $this.offset().top + 8);
+      picker.container.css('top', $this.offset().top + 16);
       picker.container.css('left', $this.offset().left);
     });
   });
@@ -122,7 +122,7 @@ export default function datePicker() {
     let $this = $(this);
     $this.on('show.daterangepicker', function(ev, picker) {
       // Вычисляем top
-      picker.container.css('top', $this.offset().top + 8);
+      picker.container.css('top', $this.offset().top + 16);
   
       // Вычисляем right
       let right = $(window).width() - ($this.offset().left + $this.outerWidth());
@@ -144,7 +144,9 @@ export default function datePicker() {
     let datepicker;
     let buttons;
 
-    $this.css('width', $(this).val().length * 7);
+    if (!$this.closest('.filter__container')) {
+      $this.css('width', $(this).val().length * 7);
+    }
 
     $this.on('show.daterangepicker', function(ev, picker) {
       datepicker = picker.container;
@@ -182,8 +184,10 @@ export default function datePicker() {
           result = picker.startDate.format('DD.MM.YYYY') + ' - ' + picker.endDate.format('DD.MM.YYYY');
         }
         $this.val(result);
-        $(this).parent().attr('data-value', result);
-        $(this).css('width', $(this).val().length * 7);
+        $this.parent().attr('data-value', result);
+        if (!$this.closest('.filter__container')) {
+          $this.css('width', $this.val().length * 7);
+        }
       });
     });
   });

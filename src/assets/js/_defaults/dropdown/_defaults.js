@@ -17,18 +17,6 @@ module.exports = {
       {
         title: 'Нативный',
       },
-      {
-        title: '1/24',
-      },
-      {
-        title: '1/48',
-      },
-      {
-        title: '1/72',
-      },
-      {
-        title: 'Нативный',
-      },
     ],
     checkboxes: [
       {
@@ -60,27 +48,12 @@ module.exports = {
     isCheckboxes: false,
     isLinks: false,
     isPriority: false,
+    isRadios: false,
     isRequired: false,
     isSelected: false,
     isStatus: false,
     label: '',
     links: [
-      {
-        href: '#',
-        title: '1/24',
-      },
-      {
-        href: '#',
-        title: '1/48',
-      },
-      {
-        href: '#',
-        title: '1/72',
-      },
-      {
-        href: '#',
-        title: 'Нативный',
-      },
       {
         href: '#',
         title: '1/24',
@@ -116,6 +89,7 @@ module.exports = {
       isCheckboxes: data.isCheckboxes !== undefined ? data.isCheckboxes : defaults.isCheckboxes,
       isLinks: data.isLinks !== undefined ? data.isLinks : defaults.isLinks,
       isPriority: data.isPriority !== undefined ? data.isPriority : defaults.isPriority,
+      isRadios: data.isRadios !== undefined ? data.isRadios : defaults.isRadios,
       isRequired: data.isRequired !== undefined ? data.isRequired : defaults.isRequired,
       isSelected: data.isSelected !== undefined ? data.isSelected : defaults.isSelected,
       isStatus: data.isStatus !== undefined ? data.isStatus : defaults.isStatus,
