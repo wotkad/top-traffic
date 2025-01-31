@@ -66,7 +66,7 @@ export default function datePicker() {
     locale: locale,
     autoUpdateInput: false,
     singleDatePicker: true,
-    "startDate": moment(),
+    startDate: moment(),
     opens: 'right',
     parentEl: '.wrapper',
   });
@@ -206,20 +206,21 @@ export default function datePicker() {
       picker.container.find('.drp-buttons').remove();
       picker.container.prepend(buttons);
 
-      // Добавляем кнопку закрытия каждый раз, когда календарь открыт
-      picker.container.find(buttons).find('.drp-selected').append('<span class="button button-icon calendar-close-icon" type="button" aria-label="button"><svg viewBox="0 0 9 9" width="9" height="9"><use xlink:href="#other-close-icon"></use></svg></span>');
+      picker.container.find(buttons).find('.drp-selected').html(picker.startDate.format('DD.MM.YYYY')).append('<span class="button button-icon calendar-close-icon" type="button" aria-label="button"><svg viewBox="0 0 9 9" width="9" height="9"><use xlink:href="#other-close-icon"></use></svg></span>');
 
       // Обработчик клика по кнопке закрытия
       $(document).on('click', '.drp-buttons .calendar-close-icon', function() {
         datepicker.hide();
         $(this).parent().parent().hide();
-        $this.val('');
+        $this.val('дд.мм.гггг');
         picker.setStartDate(moment());
         picker.setEndDate(moment());
       });
 
       $this.on('apply.daterangepicker', function(ev, picker) {
         buttons.css('display', 'flex');
+        $($this).closest('.status__calendar').addClass('selected');
+        $($this).closest('td').addClass('only-text');
 
         let result = picker.startDate.format('DD.MM.YYYY');
         

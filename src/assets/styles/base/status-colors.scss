@@ -2,6 +2,10 @@
   &:before {
     @apply left-2 absolute content-[''] rounded-full w-2 h-2;
   }
+  &__trigger {
+    grid-area: 1 / 2;
+    @apply cursor-pointer;
+  }
   @apply inline-flex relative items-center py-[2px] pr-2 pl-5 rounded-[30px] text-12-m-md;
 }
 .status-red {

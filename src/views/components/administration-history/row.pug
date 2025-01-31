@@ -14,7 +14,6 @@ tr
   td.only-text
     +button({
       class: 'button-with-icon only-input',
-      icon: 'other-calendar-icon',
       isCalendar: true,
       isDatePicker: true,
       isMonthPicker: false,
@@ -23,7 +22,16 @@ tr
       view: 'button',
     })
   td
-    span.status(class="status-green") Активный
+    +button({
+      class: 'button-with-icon only-input status__calendar',
+      isCalendar: true,
+      isDatePicker: true,
+      isMonthPicker: false,
+      isSinglePicker: true,
+      isStatusTrigger: true,
+      value: 'дд.мм.гггг',
+      view: 'button',
+    })
   td
     .grid.items-center(class="gap-x-1.5 grid-cols-[30px_1fr]")
       img.rounded.object-cover(class="w-[30px] h-[30px]" src="/assets/images/avatar.png" alt="tg-channel")

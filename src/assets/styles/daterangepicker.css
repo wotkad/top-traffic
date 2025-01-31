@@ -92,10 +92,6 @@
   float: none;
 }
 
-.daterangepicker.single .drp-selected {
-  display: none;
-}
-
 .daterangepicker.show-calendar .drp-calendar {
   display: block;
 }

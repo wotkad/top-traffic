@@ -73,7 +73,16 @@ function toggleTableInput() {
                   </div>
               </label>
           </td>
-          <td style="padding-right: 32px;"><span class="status status-green">Активный</span></td>
+          <td style="padding-right: 32px;">
+            <label class="button button-with-icon only-input status__calendar datepicker-trigger">
+              <span class="status status-green status__trigger">Активный</span><input class="datepicker datepicker-single opensright" type="text" name="date" placeholder="дд.мм.гггг" readonly="" value="дд.мм.гггг" style="width: 70px;">
+              <div class="button button-icon sm calendar-close-icon" type="button" aria-label="button">
+                <svg viewBox="0 0 10 6" width="10" height="6">
+                  <use xlink:href="#other-angle-down-icon"></use>
+                </svg>
+              </div>
+            </label>
+          </td>
           <td style="padding-right: 32px;">
               <div class="grid items-center gap-x-1.5 grid-cols-[30px_1fr]"><img class="rounded object-cover w-[30px] h-[30px]" src="/assets/images/avatar.png" alt="tg-channel"><span>Илья Сорокин</span></div>
           </td>

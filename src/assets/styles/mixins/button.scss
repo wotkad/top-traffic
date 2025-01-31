@@ -23,7 +23,21 @@ label.button {
     .button {
       @apply hidden;
     }
-    @apply gap-0 grid-cols-1 bg-transparent p-0 border-none h-4;
+    @apply gap-0 grid-cols-1 bg-transparent p-0 border-none h-auto;
+  }
+  &.status__calendar {
+    .datepicker {
+      @apply top-[8.5px] left-0 absolute h-0 overflow-hidden;
+    }
+    &.selected {
+      .status {
+        @apply hidden;
+      }
+      .datepicker {
+        @apply static h-auto;
+      }
+    }
+    @apply inline-grid;
   }
   @apply cursor-pointer;
 }
