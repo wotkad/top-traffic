@@ -219,4 +219,94 @@ aside.content-aside
                       view: 'button',
                     })
         .selector__container(data-id="posts")
+          .content-aside-feed
+            .content-aside-feed__heading
+              .content-aside-feed__title
+                img(src="/assets/images/avatar.png" alt="avatar")
+                h3 ZeroDay | Кибербезопасность
+              +button({
+                class: 'button-icon',
+                icon: 'other-controls-icon',
+                isOnlyIcon: true,
+                view: 'button',
+              })
+            .content-aside-feed__posts
+              .content-aside-feed__post.content-aside-feed__post-deleted
+                .content-aside-feed__header
+                  .content-aside-feed__date 28 Ноября, 15:30
+                  .content-aside-feed__status
+                    span Пост удален
+                    svg
+                      use(xlink:href="#other-info-icon")
+                .content-aside-feed__image
+                  img(src="/assets/images/aside-feed.svg" alt="aside-feed")
+                .content-aside-feed__description
+                  p Стиральная машина для людей. Производитель душевых леек из Японии Science Co. собрал протоип машины, в которой можно постирать человека. Изобретение назвали Mirai Ningen Sentakuki.
+                  p Ванна наполняется водой автоматически, как только в нее садится человек. Стирка и сушка занимает 15 минут.
+                .content-aside-feed__footer
+                  .content-aside-feed__stats
+                    .content-aside-feed__stat
+                      svg
+                        use(xlink:href="#other-eye-icon")
+                      span 50,1k
+                    .content-aside-feed__stat
+                      svg
+                        use(xlink:href="#other-thumbs-up-icon")
+                      span 500
+                    .content-aside-feed__stat
+                      svg
+                        use(xlink:href="#other-comment-icon")
+                      span 500
+                  .content-aside-feed__links
+                    +button({
+                      class: 'button-icon',
+                      icon: 'other-telegram-icon',
+                      isOnlyIcon: true,
+                      view: 'button',
+                    })
+                    +button({
+                      class: 'button-icon',
+                      icon: 'other-share-icon',
+                      isOnlyIcon: true,
+                      view: 'button',
+                    })
+              .content-aside-feed__post.content-aside-feed__post-deleted
+                .content-aside-feed__header
+                  .content-aside-feed__date 28 Ноября, 15:30
+                  .content-aside-feed__status
+                    span Пост удален
+                    svg
+                      use(xlink:href="#other-info-icon")
+                .content-aside-feed__image
+                  img(src="/assets/images/aside-feed.svg" alt="aside-feed")
+                .content-aside-feed__description
+                  p <strong>🥤 БЕЛУЮ Колу выпустили в России.</strong> Новинку от Черноголовки со вкусом мороженого уже можно найти на полках.
+                  p Что ты такое
+                .content-aside-feed__footer
+                  .content-aside-feed__stats
+                    .content-aside-feed__stat
+                      svg
+                        use(xlink:href="#other-eye-icon")
+                      span 50,1k
+                    .content-aside-feed__stat
+                      svg
+                        use(xlink:href="#other-thumbs-up-icon")
+                      span 500
+                    .content-aside-feed__stat
+                      svg
+                        use(xlink:href="#other-comment-icon")
+                      span 500
+                  .content-aside-feed__links
+                    +button({
+                      class: 'button-icon',
+                      icon: 'other-telegram-icon',
+                      isOnlyIcon: true,
+                      view: 'button',
+                    })
+                    +button({
+                      class: 'button-icon',
+                      icon: 'other-share-icon',
+                      isOnlyIcon: true,
+                      view: 'button',
+                    })
         .selector__container(data-id="chat")

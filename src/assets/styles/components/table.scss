@@ -21,6 +21,9 @@
     &:hover {
       @apply bg-transparent;
     }
+    &-admin {
+      @apply hidden;
+    }
     td.only-text {
       @apply pt-3.5 pb-[13px];
     }
