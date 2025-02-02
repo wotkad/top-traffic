@@ -33,7 +33,7 @@
     @apply flex items-center gap-x-[2px];
   }
   &__title {
-    @apply flex items-center gap-x-[2px] line-clamp-1 pr-5 text-12-r text-ellipsis;
+    @apply flex items-center gap-x-[2px] line-clamp-1 pr-5 max-w-[132px] text-12-r text-ellipsis whitespace-nowrap;
   }
   &__subtitle {
     @apply px-2 py-1 text-12-m-md text-black-200;
@@ -235,7 +235,7 @@
       @apply gap-x-1 pr-6;
     }
     .dropdown__title {
-      @apply text-12-m;
+      @apply block text-12-m;
     }
     .dropdown__list {
       .button {

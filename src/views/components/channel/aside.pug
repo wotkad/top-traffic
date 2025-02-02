@@ -1,5 +1,4 @@
 aside.content-aside
-  .content-aside__container
     .selectors
       .selector__buttons
         .selector__scroll
@@ -8,216 +7,217 @@ aside.content-aside
           .selector__button(data-id="chat") Чат
       .selector__containers.selector__content
         .selector__container(data-id="information").active
-          .content-aside__subtitle Общая информация
-          table.table
-            tr.text-black-200
-              th Категория
-              td Интернет технологии
-            tr.text-black-200
-              th Гео
-              td Россия
-            tr.text-black-200
-              th Язык канала
-              td Русский
-            tr.text-black-200
-              th Администратор
-              td
-                .flex.items-center(class="gap-x-1.5")
-                  img.rounded(class="w-6 h-6" src="/assets/images/avatar.png" alt="tg-channel")
-                  .text-12-r-p Андрей Миронов
-            tr.text-black-200
-              th Организация
-              td
-                .flex.items-center(class="gap-x-1.5")
-                  img.rounded(class="w-6 h-6" src="/assets/images/avatar.png" alt="tg-channel")
-                  .text-12-r-p ООО "МедиаКар"
-          .content-aside__subtitle Внутренняя информация
-          table.table
-            tr.text-black-200
-              th Менеджер
-              td
-                +dropdown({
-                  buttons: [
-                    {
-                      class: '',
-                      image: {
-                        alt: 'image',
-                        enabled: true,
-                        src: '/assets/images/user-image.png',
+          .content-aside__container
+            .content-aside__subtitle Общая информация
+            table.table
+              tr.text-black-200
+                th Категория
+                td Интернет технологии
+              tr.text-black-200
+                th Гео
+                td Россия
+              tr.text-black-200
+                th Язык канала
+                td Русский
+              tr.text-black-200
+                th Администратор
+                td
+                  .flex.items-center(class="gap-x-1.5")
+                    img.rounded(class="w-6 h-6" src="/assets/images/avatar.png" alt="tg-channel")
+                    .text-12-r-p Андрей Миронов
+              tr.text-black-200
+                th Организация
+                td
+                  .flex.items-center(class="gap-x-1.5")
+                    img.rounded(class="w-6 h-6" src="/assets/images/avatar.png" alt="tg-channel")
+                    .text-12-r-p ООО "МедиаКар"
+            .content-aside__subtitle Внутренняя информация
+            table.table
+              tr.text-black-200
+                th Менеджер
+                td
+                  +dropdown({
+                    buttons: [
+                      {
+                        class: '',
+                        image: {
+                          alt: 'image',
+                          enabled: true,
+                          src: '/assets/images/user-image.png',
+                        },
+                        isChecked: true,
+                        title: 'ООО “ИП”',
                       },
-                      isChecked: true,
-                      title: 'ООО “ИП”',
-                    },
-                    {
-                      class: '',
-                      image: {
-                        alt: 'image',
-                        enabled: true,
-                        src: '/assets/images/avatar.png',
+                      {
+                        class: '',
+                        image: {
+                          alt: 'image',
+                          enabled: true,
+                          src: '/assets/images/avatar.png',
+                        },
+                        title: 'ООО “ИП”',
                       },
-                      title: 'ООО “ИП”',
-                    },
-                  ],
-                  class: 'dropdown-radios',
-                  isRadios: true,
-                })
-            tr.text-black-200
-              th Приоритет
-              td
-                +dropdown({
-                  buttons: [
-                    {
-                      color: 'priority-transparent',
-                      isChecked: true,
-                      title: 'Все',
-                    },
-                    {
-                      color: 'priority-red',
-                      title: 'Очень высокий',
-                    },
-                    {
-                      color: 'priority-pink',
-                      title: 'Высокий',
-                    },
-                    {
-                      color: 'priority-orange',
-                      title: 'Средний',
-                    },
-                    {
-                      color: 'priority-peach',
-                      title: 'Низкий',
-                    },
-                    {
-                      color: 'priority-yellow',
-                      title: 'Очень низкий',
-                    },
-                  ],
-                  class: 'dropdown-priority',
-                  color: 'priority-transparent',
-                  isButtons: true,
-                  isPriority: true,
-                })
-          .content-aside__subtitle Поле для комментария
-          +input({
-            class: 'content-aside__textarea',
-            isTextarea: true,
-            label: '',
-            name: 'comment',
-            placeholder: 'Добавить комментарий...',
-          })
-          .content-aside__subtitle Общая информация
-            +dropdown({
-              buttons: [
-                {
-                  dataPopupName: 'upload-file',
-                  icon: 'other-new-file-icon',
-                  title: 'Файл',
-                },
-                {
-                  dataPopupName: 'add-link',
-                  icon: 'other-link-icon',
-                  title: 'Ссылка',
-                },
-              ],
-              icon: 'other-add-file-icon',
-              isButtons: true,
-              subtitle: 'Добавить',
+                    ],
+                    class: 'dropdown-radios',
+                    isRadios: true,
+                  })
+              tr.text-black-200
+                th Приоритет
+                td
+                  +dropdown({
+                    buttons: [
+                      {
+                        color: 'priority-transparent',
+                        isChecked: true,
+                        title: 'Все',
+                      },
+                      {
+                        color: 'priority-red',
+                        title: 'Очень высокий',
+                      },
+                      {
+                        color: 'priority-pink',
+                        title: 'Высокий',
+                      },
+                      {
+                        color: 'priority-orange',
+                        title: 'Средний',
+                      },
+                      {
+                        color: 'priority-peach',
+                        title: 'Низкий',
+                      },
+                      {
+                        color: 'priority-yellow',
+                        title: 'Очень низкий',
+                      },
+                    ],
+                    class: 'dropdown-priority',
+                    color: 'priority-transparent',
+                    isButtons: true,
+                    isPriority: true,
+                  })
+            .content-aside__subtitle Поле для комментария
+            +input({
+              class: 'content-aside__textarea',
+              isTextarea: true,
+              label: '',
+              name: 'comment',
+              placeholder: 'Добавить комментарий...',
             })
-          .accordions
-            .accordion
-              .accordion__button(data-id="links")
-                p Ссылки
-                  span 2
-                +button({
-                  class: 'button-icon sm',
-                  icon: 'other-angle-down-icon',
-                  isOnlyIcon: true,
-                  view: 'button',
-                })
-              .accordion__container(data-id="links")
-                .accordion__item
-                  .accordion__left
-                    .accordion__icon
-                      svg
-                        use(xlink:href="#other-link-icon")
-                    a(href="https://app.asana.com/" target="_blank") https://app.asana.com/
-                    time 24 янв. 15:10
-                  .accordion__right
-                    +button({
-                      class: 'button-icon accordion__action accordion__copy',
-                      icon: 'other-copy-icon',
-                      isOnlyIcon: true,
-                      view: 'button',
-                    })
-                .accordion__item
-                  .accordion__left
-                    .accordion__icon
-                      svg
-                        use(xlink:href="#other-link-icon")
-                    a(href="https://app.asana.com/" target="_blank") https://app.asana.com/
-                    time 24 янв. 15:10
-                  .accordion__right
-                    +button({
-                      class: 'button-icon accordion__action accordion__copy',
-                      icon: 'other-copy-icon',
-                      isOnlyIcon: true,
-                      view: 'button',
-                    })
-            .accordion
-              .accordion__button(data-id="files")
-                p Файлы
-                  span 2
-                +button({
-                  class: 'button-icon sm',
-                  icon: 'other-angle-down-icon',
-                  isOnlyIcon: true,
-                  view: 'button',
-                })
-              .accordion__container(data-id="files")
-                .accordion__item
-                  .accordion__left
-                    .accordion__icon
-                      svg
-                        use(xlink:href="#other-file-icon")
-                    a(href="#" download) Креативы.zip
-                    time 54 KB • 24 янв. 15:10
-                  .accordion__right
-                    +button({
-                      class: 'button-icon accordion__action',
-                      href: '#',
-                      icon: 'other-download-icon',
-                      isDownload: true,
-                      isOnlyIcon: true,
-                      view: 'link',
-                    })
-                    +button({
-                      class: 'button-icon accordion__action',
-                      icon: 'other-trash-icon',
-                      isOnlyIcon: true,
-                      view: 'button',
-                    })
-                .accordion__item
-                  .accordion__left
-                    .accordion__icon
-                      svg
-                        use(xlink:href="#other-file-icon")
-                    a(href="#" download) Креативы new.zip
-                    time 54 KB • 24 янв. 15:10
-                  .accordion__right
-                    +button({
-                      class: 'button-icon accordion__action',
-                      href: '#',
-                      icon: 'other-download-icon',
-                      isDownload: true,
-                      isOnlyIcon: true,
-                      view: 'link',
-                    })
-                    +button({
-                      class: 'button-icon accordion__action',
-                      icon: 'other-trash-icon',
-                      isOnlyIcon: true,
-                      view: 'button',
-                    })
+            .content-aside__subtitle Общая информация
+              +dropdown({
+                buttons: [
+                  {
+                    dataPopupName: 'upload-file',
+                    icon: 'other-new-file-icon',
+                    title: 'Файл',
+                  },
+                  {
+                    dataPopupName: 'add-link',
+                    icon: 'other-link-icon',
+                    title: 'Ссылка',
+                  },
+                ],
+                icon: 'other-add-file-icon',
+                isButtons: true,
+                subtitle: 'Добавить',
+              })
+            .accordions
+              .accordion
+                .accordion__button(data-id="links")
+                  p Ссылки
+                    span 2
+                  +button({
+                    class: 'button-icon sm',
+                    icon: 'other-angle-down-icon',
+                    isOnlyIcon: true,
+                    view: 'button',
+                  })
+                .accordion__container(data-id="links")
+                  .accordion__item
+                    .accordion__left
+                      .accordion__icon
+                        svg
+                          use(xlink:href="#other-link-icon")
+                      a(href="https://app.asana.com/" target="_blank") https://app.asana.com/
+                      time 24 янв. 15:10
+                    .accordion__right
+                      +button({
+                        class: 'button-icon accordion__action accordion__copy',
+                        icon: 'other-copy-icon',
+                        isOnlyIcon: true,
+                        view: 'button',
+                      })
+                  .accordion__item
+                    .accordion__left
+                      .accordion__icon
+                        svg
+                          use(xlink:href="#other-link-icon")
+                      a(href="https://app.asana.com/" target="_blank") https://app.asana.com/
+                      time 24 янв. 15:10
+                    .accordion__right
+                      +button({
+                        class: 'button-icon accordion__action accordion__copy',
+                        icon: 'other-copy-icon',
+                        isOnlyIcon: true,
+                        view: 'button',
+                      })
+              .accordion
+                .accordion__button(data-id="files")
+                  p Файлы
+                    span 2
+                  +button({
+                    class: 'button-icon sm',
+                    icon: 'other-angle-down-icon',
+                    isOnlyIcon: true,
+                    view: 'button',
+                  })
+                .accordion__container(data-id="files")
+                  .accordion__item
+                    .accordion__left
+                      .accordion__icon
+                        svg
+                          use(xlink:href="#other-file-icon")
+                      a(href="#" download) Креативы.zip
+                      time 54 KB • 24 янв. 15:10
+                    .accordion__right
+                      +button({
+                        class: 'button-icon accordion__action',
+                        href: '#',
+                        icon: 'other-download-icon',
+                        isDownload: true,
+                        isOnlyIcon: true,
+                        view: 'link',
+                      })
+                      +button({
+                        class: 'button-icon accordion__action',
+                        icon: 'other-trash-icon',
+                        isOnlyIcon: true,
+                        view: 'button',
+                      })
+                  .accordion__item
+                    .accordion__left
+                      .accordion__icon
+                        svg
+                          use(xlink:href="#other-file-icon")
+                      a(href="#" download) Креативы new.zip
+                      time 54 KB • 24 янв. 15:10
+                    .accordion__right
+                      +button({
+                        class: 'button-icon accordion__action',
+                        href: '#',
+                        icon: 'other-download-icon',
+                        isDownload: true,
+                        isOnlyIcon: true,
+                        view: 'link',
+                      })
+                      +button({
+                        class: 'button-icon accordion__action',
+                        icon: 'other-trash-icon',
+                        isOnlyIcon: true,
+                        view: 'button',
+                      })
         .selector__container(data-id="posts")
           .content-aside-feed
             .content-aside-feed__heading
@@ -225,88 +225,94 @@ aside.content-aside
                 img(src="/assets/images/avatar.png" alt="avatar")
                 h3 ZeroDay | Кибербезопасность
               +button({
-                class: 'button-icon',
+                class: 'button-icon content-aside-feed__filter__trigger',
                 icon: 'other-controls-icon',
                 isOnlyIcon: true,
                 view: 'button',
               })
-            .content-aside-feed__posts
-              .content-aside-feed__post.content-aside-feed__post-deleted
-                .content-aside-feed__header
-                  .content-aside-feed__date 28 Ноября, 15:30
-                  .content-aside-feed__status
-                    span Пост удален
-                    svg
-                      use(xlink:href="#other-info-icon")
-                .content-aside-feed__image
-                  img(src="/assets/images/aside-feed.svg" alt="aside-feed")
-                .content-aside-feed__description
-                  p Стиральная машина для людей. Производитель душевых леек из Японии Science Co. собрал протоип машины, в которой можно постирать человека. Изобретение назвали Mirai Ningen Sentakuki.
-                  p Ванна наполняется водой автоматически, как только в нее садится человек. Стирка и сушка занимает 15 минут.
-                .content-aside-feed__footer
-                  .content-aside-feed__stats
-                    .content-aside-feed__stat
+            .content-aside-feed__filter
+              h3 Фильтр
+              +input({
+                class: 'input-checkbox-with-label content-aside-feed__filter__checkbox',
+                isLabel: true,
+                label: 'скрывать удаленные',
+                type: 'checkbox',
+                value: 'скрывать удаленные',
+              })
+            .content-aside__container
+              .content-aside-feed__posts
+                .content-aside-feed__post.content-aside-feed__post-deleted
+                  .content-aside-feed__header
+                    .content-aside-feed__date 28 Ноября, 15:30
+                    .content-aside-feed__status
+                      span Пост удален
                       svg
-                        use(xlink:href="#other-eye-icon")
-                      span 50,1k
-                    .content-aside-feed__stat
-                      svg
-                        use(xlink:href="#other-thumbs-up-icon")
-                      span 500
-                    .content-aside-feed__stat
-                      svg
-                        use(xlink:href="#other-comment-icon")
-                      span 500
-                  .content-aside-feed__links
-                    +button({
-                      class: 'button-icon',
-                      icon: 'other-telegram-icon',
-                      isOnlyIcon: true,
-                      view: 'button',
-                    })
-                    +button({
-                      class: 'button-icon',
-                      icon: 'other-share-icon',
-                      isOnlyIcon: true,
-                      view: 'button',
-                    })
-              .content-aside-feed__post.content-aside-feed__post-deleted
-                .content-aside-feed__header
-                  .content-aside-feed__date 28 Ноября, 15:30
-                  .content-aside-feed__status
-                    span Пост удален
-                    svg
-                      use(xlink:href="#other-info-icon")
-                .content-aside-feed__image
-                  img(src="/assets/images/aside-feed.svg" alt="aside-feed")
-                .content-aside-feed__description
-                  p <strong>🥤 БЕЛУЮ Колу выпустили в России.</strong> Новинку от Черноголовки со вкусом мороженого уже можно найти на полках.
-                  p Что ты такое
-                .content-aside-feed__footer
-                  .content-aside-feed__stats
-                    .content-aside-feed__stat
-                      svg
-                        use(xlink:href="#other-eye-icon")
-                      span 50,1k
-                    .content-aside-feed__stat
-                      svg
-                        use(xlink:href="#other-thumbs-up-icon")
-                      span 500
-                    .content-aside-feed__stat
-                      svg
-                        use(xlink:href="#other-comment-icon")
-                      span 500
-                  .content-aside-feed__links
-                    +button({
-                      class: 'button-icon',
-                      icon: 'other-telegram-icon',
-                      isOnlyIcon: true,
-                      view: 'button',
-                    })
-                    +button({
-                      class: 'button-icon',
-                      icon: 'other-share-icon',
-                      isOnlyIcon: true,
-                      view: 'button',
-                    })
+                        use(xlink:href="#other-info-icon")
+                  .content-aside-feed__image
+                    img(src="/assets/images/aside-feed.svg" alt="aside-feed")
+                  .content-aside-feed__description
+                    p Стиральная машина для людей. Производитель душевых леек из Японии Science Co. собрал протоип машины, в которой можно постирать человека. Изобретение назвали Mirai Ningen Sentakuki.
+                    p Ванна наполняется водой автоматически, как только в нее садится человек. Стирка и сушка занимает 15 минут.
+                  .content-aside-feed__footer
+                    .content-aside-feed__stats
+                      .content-aside-feed__stat
+                        svg
+                          use(xlink:href="#other-eye-icon")
+                        span 50,1k
+                      .content-aside-feed__stat
+                        svg
+                          use(xlink:href="#other-thumbs-up-icon")
+                        span 500
+                      .content-aside-feed__stat
+                        svg
+                          use(xlink:href="#other-comment-icon")
+                        span 500
+                    .content-aside-feed__links
+                      +button({
+                        class: 'button-icon',
+                        icon: 'other-telegram-icon',
+                        isOnlyIcon: true,
+                        view: 'button',
+                      })
+                      +button({
+                        class: 'button-icon',
+                        icon: 'other-share-icon',
+                        isOnlyIcon: true,
+                        view: 'button',
+                      })
+                .content-aside-feed__post
+                  .content-aside-feed__header
+                    .content-aside-feed__date 28 Ноября, 15:30
+                  .content-aside-feed__image
+                    img(src="/assets/images/aside-feed.svg" alt="aside-feed")
+                  .content-aside-feed__description
+                    p <strong>🥤 БЕЛУЮ Колу выпустили в России.</strong> Новинку от Черноголовки со вкусом мороженого уже можно найти на полках.
+                    p Что ты такое
+                  .content-aside-feed__footer
+                    .content-aside-feed__stats
+                      .content-aside-feed__stat
+                        svg
+                          use(xlink:href="#other-eye-icon")
+                        span 50,1k
+                      .content-aside-feed__stat
+                        svg
+                          use(xlink:href="#other-thumbs-up-icon")
+                        span 500
+                      .content-aside-feed__stat
+                        svg
+                          use(xlink:href="#other-comment-icon")
+                        span 500
+                    .content-aside-feed__links
+                      +button({
+                        class: 'button-icon',
+                        icon: 'other-telegram-icon',
+                        isOnlyIcon: true,
+                        view: 'button',
+                      })
+                      +button({
+                        class: 'button-icon',
+                        icon: 'other-share-icon',
+                        isOnlyIcon: true,
+                        view: 'button',
+                      })
         .selector__container(data-id="chat")

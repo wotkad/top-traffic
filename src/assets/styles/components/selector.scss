@@ -32,9 +32,6 @@
     }
     @apply relative flex items-center gap-x-1.5 px-[2px] py-2 text-12-m-p text-black-200 whitespace-nowrap transition-all duration-300 cursor-pointer;
   }
-  &__containers {
-    @apply mt-[15px];
-  }
   &__container {
     &.active {
       @apply block;

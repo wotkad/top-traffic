@@ -4,7 +4,7 @@
       .button {
         @apply text-black-200;
       }
-      @apply flex justify-between items-center;
+      @apply flex justify-between items-center mb-4;
     }
     &__title {
       img {
@@ -16,7 +16,7 @@
       @apply flex items-center gap-x-2;
     }
     &__posts {
-      @apply flex flex-col gap-y-4 mt-4;
+      @apply flex flex-col gap-y-4;
     }
     &__post {
       &-deleted {
@@ -24,7 +24,7 @@
           svg {
             @apply text-red-075;
           }
-          @apply bg-red-025 text-red-075;
+          @apply bg-red-250 text-red-075;
         }
       }
       @apply px-3 pt-3 pb-3.5 border border-black-500 rounded-[10px];
@@ -33,7 +33,7 @@
       @apply flex justify-between items-center;
     }
     &__date {
-      @apply text-12-sb-p;
+      @apply text-12-sb-p leading-5;
     }
     &__status {
       svg {
@@ -73,6 +73,17 @@
         @apply p-0 w-6 h-6;
       }
       @apply flex items-center gap-x-[2px];
+    }
+    &__filter {
+      h3 {
+        @apply mb-[11px] text-12-sb-p;
+      }
+      &__trigger {
+        &.active {
+          @apply bg-purple-300 border-blue-200 text-blue-200;
+        }
+      }
+      @apply hidden mb-4;
     }
     @apply pt-3;
   }

@@ -3,6 +3,10 @@
   @apply min-w-16;
 }
 
+.datepicker-trigger .button.calendar-close-icon {
+  transition: none;
+}
+
 .daterangepicker {
   &:before,
   &:after {

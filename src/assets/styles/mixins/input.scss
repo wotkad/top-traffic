@@ -49,7 +49,7 @@
       }
     }
     &-with-label {
-      @apply flex items-center gap-x-2.5;
+      @apply flex items-center gap-x-2.5 select-none;
     }
     &-with-icon {
       img {

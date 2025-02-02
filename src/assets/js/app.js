@@ -34,6 +34,7 @@ import "./components/toggle/toggle-aside-menu";
 import "./components/toggle/toggle-dropdown";
 import "./components/toggle/toggle-filter";
 import "./components/toggle/toggle-filter-sort";
+import "./components/toggle/toggle-filter-aside-feed";
 import "./components/toggle/toggle-channels";
 import "./components/toggle/toggle-popup";
 import "./components/toggle/toggle-selector";
