@@ -1,0 +1,25 @@
+.popup(data-popup-name="share-post")
+  .popup__bg(data-popup-name="share-post")
+  .popup__wrapper(data-scroll-lock-scrollable)
+    .popup__close
+      +button({
+        ariaLabel: 'close',
+        class: 'button-close popup__hide',
+        dataPopupName: 'share-post',
+        icon: 'other-close-icon',
+        isOnlyIcon: true,
+        view: 'button',
+      })
+    .popup__title
+      svg
+        use(xlink:href="#other-share-icon")
+      span Поделиться публикацией
+    .popup__subtitle Просмотр публикации будет доступен авторизованным пользователям
+    label.popup__copy
+      span https://tttg.ru/channel/@prbezposhady/stat/posts-popular
+      +button({
+        class: 'button-icon',
+        icon: 'other-copy-icon',
+        isOnlyIcon: true,
+        view: 'button',
+      })

@@ -7,7 +7,7 @@
       @apply flex justify-between gap-y-[30px];
     }
     .heading__buttons {
-      @apply flex justify-between items-center gap-x-3;
+      @apply flex justify-between items-start gap-x-3;
     }
     .heading__left,
     .heading__right {
@@ -18,6 +18,15 @@
         @apply inline-block ml-1.5 text-12-r text-black-200 -translate-y-1;
       }
       @apply flex items-center text-24-sb;
+    }
+    .heading__checkboxes {
+      @apply flex gap-x-3;
+    }
+    .heading__left__inner {
+      @apply flex gap-x-3;
+    }
+    .heading__left__checkboxes {
+      @apply flex flex-col items-start gap-y-3;
     }
   }
   @apply mt-[30px];

@@ -5,6 +5,21 @@
   &__sortbutton {
     @apply hidden;
   }
+  &__categories {
+    @apply inline-flex items-center gap-x-[3px] bg-black-500 mr-1 p-[3px] rounded-[11px] translate-y-[3px];
+  }
+  &__publication__text {
+    p {
+      @apply inline;
+    }
+    svg {
+      @apply inline;
+    }
+    span {
+      @apply line-clamp-2 max-w-[311px] text-12-r-md text-ellipsis whitespace-normal;
+    }
+    @apply inline;
+  }
   &__sort {
     &.sorted {
       @apply text-blue-000;
@@ -192,6 +207,9 @@
     }
     &.only-text {
       @apply pt-[16px] pb-3.5;
+    }
+    &.only-text-sm {
+      @apply py-[2px];
     }
     .status {
       @apply mt-1;

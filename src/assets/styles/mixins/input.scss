@@ -49,7 +49,7 @@
       }
     }
     &-with-label {
-      @apply flex items-center gap-x-2.5 select-none;
+      @apply flex items-center gap-x-2 select-none;
     }
     &-with-icon {
       img {
@@ -192,5 +192,5 @@
     }
     @apply flex-1 bg-black-700 px-3 py-[11px] border border-black-500 rounded-md w-full text-12-r-p transition-all duration-300 resize-none;
   }
-  @apply flex flex-col flex-1 gap-y-2;
+  @apply flex flex-col flex-1 items-start gap-y-2;
 }

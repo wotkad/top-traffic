@@ -9,23 +9,40 @@ mixin heading-table(data = {})
         if modefied.count
           sup= modefied.count
     .heading__buttons
-      if modefied.isCalendar || modefied.isSearch
-        .heading__left
-          if modefied.isSearch
-            +search({
-              containerClass: 'min-w-[240px] max-w-[240px]',
-              isForm: true,
-            })
-          if modefied.isCalendar
-            +button({
-              class: 'button-with-icon',
-              icon: 'other-calendar-icon',
-              isCalendar: true,
-              isDatePicker: false,
-              isMonthPicker: true,
-              value: 'Все',
-              view: 'button',
-            })
+      if modefied.isCalendar || modefied.isSearch || modefied.checkboxes
+        .heading__left(class=modefied.isCheckboxes ? 'heading__left__checkboxes' : false)
+          .heading__left__inner
+            if modefied.isSearch
+              +search({
+                containerClass: 'min-w-[294px] max-w-[294px]',
+                isForm: true,
+              })
+            if modefied.isCalendar
+              +button({
+                class: 'button-with-icon',
+                icon: 'other-calendar-icon',
+                isCalendar: true,
+                isDatePicker: modefied.isDatePicker,
+                isMonthPicker: modefied.isMonthPicker,
+                value: 'Все',
+                view: 'button',
+              })
+          if modefied.isCheckboxes
+            .heading__checkboxes
+              +input({
+                class: 'input-checkbox-with-label',
+                isLabel: true,
+                label: 'точное совпадение',
+                type: 'checkbox',
+                value: 'точное совпадение',
+              })
+              +input({
+                class: 'input-checkbox-with-label',
+                isLabel: true,
+                label: 'скрывать удаленные',
+                type: 'checkbox',
+                value: 'скрывать удаленные',
+              })
       if modefied.buttons.length
         .heading__right
           each button in modefied.buttons

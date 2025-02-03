@@ -5,6 +5,9 @@ import setTdPadding from "../../base/common/set-td-padding";
 import setFilterPosition from "../../base/common/set-filter-position";
 import setAsidePosition from "../../base/common/set-aside-position";
 
+import setFilterHeight from "../../base/common/set-filter-height";
+import setAsideHeight from "../../base/common/set-aside-height";
+
 function toggleSelector() {
   let button = $('.selector__button');
   for (let i = 0; i < Array.from(button).length; i++) {

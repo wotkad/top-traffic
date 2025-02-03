@@ -61,7 +61,7 @@ function toggleTableInput() {
               </div>
           </td>
           <td class="only-text" style="padding-right: 32px;">
-              <label class="button button-with-icon only-input datepicker-trigger">
+              <label class="button button-with-icon only-input start-day datepicker-trigger">
                   <svg class="calendar-icon" viewBox="0 0 18 18" width="18" height="18">
                       <use xlink:href="#other-calendar-icon"></use>
                   </svg>
@@ -74,8 +74,9 @@ function toggleTableInput() {
               </label>
           </td>
           <td style="padding-right: 32px;">
-            <label class="button button-with-icon only-input status__calendar datepicker-trigger">
-              <span class="status status-green status__trigger">Активный</span><input class="datepicker datepicker-single opensright" type="text" name="date" placeholder="дд.мм.гггг" readonly="" value="дд.мм.гггг" style="width: 70px;">
+            <label class="button button-with-icon only-input status__calendar end-day datepicker-trigger">
+              <span class="status status-green status__trigger">Активный</span>
+              <input class="datepicker datepicker-single opensright" type="text" name="date" placeholder="дд.мм.гггг" readonly="" value="дд.мм.гггг" style="width: 70px;">
               <div class="button button-icon sm calendar-close-icon" type="button" aria-label="button">
                 <svg viewBox="0 0 10 6" width="10" height="6">
                   <use xlink:href="#other-angle-down-icon"></use>

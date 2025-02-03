@@ -29,7 +29,19 @@
   &__close {
     @apply top-3 right-3 absolute w-auto;
   }
-
+  &__copy {
+    .button {
+      &:hover,
+      &:active {
+        @apply bg-blue-025;
+      }
+      @apply -right-px absolute bg-blue-000 rounded-md w-[30px] h-[30px] text-white-000;
+    }
+    span {
+      @apply text-12-m leading-[12px];
+    }
+    @apply relative flex items-center bg-black-700 mt-5 px-2.5 py-2 border border-black-500 rounded-md;
+  }
   &[data-popup-name="add-link"] {
     .popup__wrapper {
       .popup__title {
@@ -68,6 +80,25 @@
         @apply mt-4;
       }
       @apply p-[14px] max-w-[258px];
+    }
+  }
+  &[data-popup-name="share-post"] {
+    .popup__wrapper {
+      .popup__title {
+        svg {
+          @apply w-[30px] h-[30px];
+        }
+        @apply flex items-center gap-x-1.5 text-24-sb;
+      }
+      .popup__close {
+        svg {
+          @apply w-[9px] h-[9px];
+        }
+      }
+      .popup__subtitle {
+        @apply mt-2 text-14-m-p leading-[19.6px];
+      }
+      @apply px-5 pt-5 pb-6 max-w-[493px];
     }
   }
   @apply -z-[1] fixed inset-0 flex justify-center items-start opacity-0 py-[134px] transition-all duration-300 invisible overflow-y-auto;

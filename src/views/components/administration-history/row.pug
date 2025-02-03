@@ -11,27 +11,8 @@ tr
           h3
             a(href="#").table__channel Андрей Миронов
           a(href="https://t.me/andreym" target="_blank").table__link @andreym
-  td.only-text
-    +button({
-      class: 'button-with-icon only-input',
-      isCalendar: true,
-      isDatePicker: true,
-      isMonthPicker: false,
-      isSinglePicker: true,
-      value: 'дд.мм.гггг',
-      view: 'button',
-    })
-  td
-    +button({
-      class: 'button-with-icon only-input status__calendar',
-      isCalendar: true,
-      isDatePicker: true,
-      isMonthPicker: false,
-      isSinglePicker: true,
-      isStatusTrigger: true,
-      value: 'дд.мм.гггг',
-      view: 'button',
-    })
+  td.only-text 12.12.2023
+  td.only-text 22.12.2023
   td
     .grid.items-center(class="gap-x-1.5 grid-cols-[30px_1fr]")
       img.rounded.object-cover(class="w-[30px] h-[30px]" src="/assets/images/avatar.png" alt="tg-channel")

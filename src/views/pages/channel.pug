@@ -1,7 +1,7 @@
 extends ../layouts/master
 
 block title
-  title Топ Трафик | Клиент
+  title Топ Трафик | Канал
 
 block basicSeo
   meta(content="Клиент" name="description")
@@ -217,8 +217,8 @@ block content
               .selector__buttons
                 .selector__scroll
                   .selector__button(data-id="channel-statistics") Статистика канала
-                  .selector__button(data-id="publication-statistics") Статистика публикаций
-                  .selector__button(data-id="administration-history").active История администрирования
+                  .selector__button(data-id="publication-statistics").active Статистика публикаций
+                  .selector__button(data-id="administration-history") История администрирования
                     span 4
                   .selector__button(data-id="advertising-campaigns") Рекламные кампании
                     span 20
@@ -231,10 +231,12 @@ block content
                   })
                   .content-scroll.mt-4
                     include ../components/channel/table
-                .selector__container(data-id="publication-statistics")
+                .selector__container(data-id="publication-statistics").active
                   +heading-table({
                     isSearch: true,
                     isCalendar: true,
+                    isDatePicker: true,
+                    isCheckboxes: true,
                     isRows: true,
                     buttons: [
                       {
@@ -246,7 +248,13 @@ block content
                       }
                     ],
                   })
-                .selector__container(data-id="administration-history").active
+                  .in-container.mt-4
+                    .content.content-collapsed
+                      .content-scroll
+                        include ../components/publication-statistics/table
+                      .mt-12
+                        include ../components/pagination
+                .selector__container(data-id="administration-history")
                   +heading-table({
                     isSearch: true,
                     isRows: true,

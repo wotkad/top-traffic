@@ -1,0 +1,49 @@
+table.table.table-default
+  thead
+    tr
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Дата
+          button(type="button").table__sortbutton
+            svg
+              use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Время размещения
+          button(type="button").table__sortbutton
+            svg
+              use(xlink:href="#other-sort-icon")
+      th(class="min-w-[311px]")
+        .table__sort.flex.gap-x-2.items-center
+          p Публикация
+          button(type="button").table__sortbutton
+            svg
+              use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Медиаконтент
+          button(type="button").table__sortbutton
+            svg
+              use(xlink:href="#other-sort-icon")
+      th
+        .flex.flex-col.items-center.justify-center(class="gap-y-[2px]")
+          .grid(class="grid-cols-[78px_90px_78px]")
+            .flex.justify-center.flex-1.items-center.border-r.border-black-100(class="gap-x-[3px]")
+              svg(class="min-w-4 min-h-4")
+                use(xlink:href="#label-adult-icon")
+              .text-12-sb-p 18+
+            .flex.justify-center.flex-1.items-center.border-r.border-black-100(class="gap-x-[3px]")
+              svg(class="min-w-4 min-h-4")
+                use(xlink:href="#label-policy-icon")
+              .text-12-sb-p Политика
+            .flex.justify-center.flex-1.items-center(class="gap-x-[3px]")
+              svg(class="min-w-4 min-h-4")
+                use(xlink:href="#label-horror-icon")
+              .text-12-sb-p Жесть
+          span.text-10-r.text-black-200 (% используемых слов в посте)
+  tbody
+    include row
+    include row
+    include row
+    include row
+    include row

@@ -21,6 +21,7 @@ import "./base/common/set-td-padding";
 import "./base/common/set-td-padding-default";
 import "./base/common/set-page-initials";
 import "./base/common/copy-accordion-link";
+import "./base/common/copy-popup-link";
 
 import "./components/form/form-login";
 

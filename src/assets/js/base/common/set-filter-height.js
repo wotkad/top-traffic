@@ -1,6 +1,6 @@
 let isScrolling = false;
 
-export default function setFilterHeights() {
+export default function setFilterHeight() {
   $('.filter__container').each(function () {
     let filterContainer = $(this);
     let filterOffsetTop = filterContainer.offset().top;
@@ -21,11 +21,11 @@ export default function setFilterHeights() {
     }
   });
 }
-setFilterHeights();
+setFilterHeight();
 
 function checkScrollEnd() {
   if (!isScrolling) {
-    setFilterHeights();
+    setFilterHeight();
     return;
   }
   isScrolling = false;
@@ -34,6 +34,6 @@ function checkScrollEnd() {
 
 $('.wrapper').on('scroll', function() {
   isScrolling = true;
-  setFilterHeights();
+  setFilterHeight();
   requestAnimationFrame(checkScrollEnd);
 });
