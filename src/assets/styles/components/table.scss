@@ -33,6 +33,11 @@
     }
     @apply cursor-pointer;
   }
+  &__mediacontent {
+    svg {
+      @apply h-4;
+    }
+  }
   .subrow {
     h3 {
       @apply text-12-sb-p;
