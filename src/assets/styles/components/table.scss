@@ -18,6 +18,13 @@
     span {
       @apply line-clamp-2 max-w-[311px] text-12-r-md text-ellipsis whitespace-normal;
     }
+    .button {
+      &:hover,
+      &:active {
+        @apply bg-transparent;
+      }
+      @apply cursor-pointer;
+    }
     @apply inline;
   }
   &__sort {

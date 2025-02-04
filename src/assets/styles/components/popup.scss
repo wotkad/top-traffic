@@ -101,5 +101,39 @@
       @apply px-5 pt-5 pb-6 max-w-[493px];
     }
   }
+  &[data-popup-name="post"] {
+    .popup__wrapper {
+      .content-aside-feed__post {
+        @apply p-0 border-none rounded-none;
+      }
+      .content-aside-feed__header {
+        @apply mt-2.5;
+      }
+      .content-aside-feed__description {
+        @apply max-h-[300px] overflow-y-auto;
+      }
+      .popup__title {
+        @apply text-18-sb;
+      }
+      .popup__date {
+        @apply mt-1 text-14-m-p;
+      }
+      .popup__avatar {
+        @apply top-0 -left-[66px] absolute w-14 h-14;
+      }
+      .popup__close {
+        svg {
+          @apply w-[11px] h-[11px] text-white-000;
+        }
+        &:hover {
+          svg {
+            @apply text-black-100;
+          }
+        }
+        @apply -top-5 -right-5;
+      }
+      @apply px-4 pt-3.5 pb-4 max-w-[400px];
+    }
+  }
   @apply -z-[1] fixed inset-0 flex justify-center items-start opacity-0 py-[134px] transition-all duration-300 invisible overflow-y-auto;
 }

@@ -24,6 +24,8 @@ function toggleSelector() {
           setTdPaddingDefault();
           setFilterPosition();
           setAsidePosition();
+          setFilterHeight();
+          setAsideHeight();
         }});
       }});
     });
