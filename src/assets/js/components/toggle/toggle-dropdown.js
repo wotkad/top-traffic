@@ -166,28 +166,28 @@ function toggleDropdown() {
       $dropdown.find('.input-checkbox-with-label input').prop('checked', allChecked);
   
       if (allChecked) {
-        $sortBlock.show().addClass('active');
-        $buttonBlock.hide();
-
-        $dropdown.find('.input-checkbox-with-label input').not($firstCheckbox).each(function () {
-          const id = $(this).attr('id') || `checkbox-${Math.random().toString(36).substr(2, 9)}`;
-          $(this).attr('id', id);
-  
-          if ($valuesContainer.find(`.dropdown__value[data-id="${id}"]`).length === 0) {
-            const value = $(this).siblings('p').text();
-            const template = `
-              <div class="dropdown__value" data-id="${id}">
-                <span>${value}</span>
-                <svg width="9" height="9" viewBox="0 0 9 9">
-                  <use xlink:href="#other-close-icon"></use>
-                </svg>
-              </div>
-            `;
-            $valuesContainer.append(template);
-          }
-        });
-      } else {
+        $sortBlock.hide().removeClass('active');
+        $buttonBlock.show();
         $valuesContainer.empty();
+      //   $dropdown.find('.input-checkbox-with-label input').not($firstCheckbox).each(function () {
+      //     const id = $(this).attr('id') || `checkbox-${Math.random().toString(36).substr(2, 9)}`;
+      //     $(this).attr('id', id);
+  
+      //     if ($valuesContainer.find(`.dropdown__value[data-id="${id}"]`).length === 0) {
+      //       const value = $(this).siblings('p').text();
+      //       const template = `
+      //         <div class="dropdown__value" data-id="${id}">
+      //           <span>${value}</span>
+      //           <svg width="9" height="9" viewBox="0 0 9 9">
+      //             <use xlink:href="#other-close-icon"></use>
+      //           </svg>
+      //         </div>
+      //       `;
+      //       $valuesContainer.append(template);
+      //     }
+      //   });
+      // } else {
+      //   $valuesContainer.empty();
       }
     } else {
       $firstCheckbox.prop('checked', false);
@@ -210,17 +210,46 @@ function toggleDropdown() {
         `;
         $valuesContainer.append(template);
       } else {
-        const id = $(this).attr('id');
-        $valuesContainer.find(`.dropdown__value[data-id="${id}"]`).remove();
+        $firstCheckbox.prop('checked', false); // Снимаем "Выбрать все", если сняли один из чекбоксов
+      
+        // Очистить список и заново добавить все отмеченные элементы
+        $valuesContainer.empty();
+        $sortBlock.css('display', 'flex').addClass('active');
+        $buttonBlock.hide();
+      
+        $dropdown.find('.input-checkbox-with-label input:checked').not($firstCheckbox).each(function () {
+          let id = $(this).attr('id') || `checkbox-${Math.random().toString(36).substr(2, 9)}`;
+          $(this).attr('id', id);
+      
+          const value = $(this).siblings('p').text();
+          const template = `
+            <div class="dropdown__value" data-id="${id}">
+              <span>${value}</span>
+              <svg width="9" height="9" viewBox="0 0 9 9">
+                <use xlink:href="#other-close-icon"></use>
+              </svg>
+            </div>
+          `;
+          $valuesContainer.append(template);
+        });
+      
+        // Обновляем счетчик выбранных элементов
+        $selectedValuesCount.text($valuesContainer.children('.dropdown__value').length);
+      
+        // Если больше нет отмеченных элементов, скрываем сортировку и показываем кнопку
+        if ($valuesContainer.children('.dropdown__value').length === 0) {
+          $sortBlock.hide().removeClass('active');
+          $buttonBlock.show();
+        }
       }
     }
-  
-    $selectedValuesCount.text($valuesContainer.children('.dropdown__value').length);
   
     if ($valuesContainer.children('.dropdown__value').length === 0) {
       $sortBlock.hide().removeClass('active');
       $buttonBlock.show();
     }
+
+    $selectedValuesCount.text($dropdown.find('.input-checkbox-with-label input:checked').not($firstCheckbox).length);
 
     const $parent = $valuesContainer;
 

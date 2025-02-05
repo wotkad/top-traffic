@@ -30,12 +30,17 @@ function toggleFilter() {
 
   const toggleClearButton = function () {
     $('.filter').each(function () {
-      const $filterContainer = $(this);
-      const hasCheckedCheckboxes = $filterContainer.find('input[type="checkbox"]:checked').length > 0;
+      const $filter = $(this);
+      const filterName = $filter.data('filter-name');
+
+      const $filterClear = $('.filter__toggle[data-filter-name="' + filterName + '"]');
+      
+      const hasCheckedCheckboxes = $filter.find('input[type="checkbox"]:checked').length > 0;
+      
       if (hasCheckedCheckboxes) {
-        $('.filter-clear').show();
+        $filterClear.addClass('sorted');
       } else {
-        $('.filter-clear').hide();
+        $filterClear.removeClass('sorted');
       }
     });
   };
@@ -51,8 +56,23 @@ function toggleFilter() {
   });
 
   // Сбрасываем все фильтры и скрываем кнопку при клике на .filter__clear
-  $('.filter__clear, .filter-clear').on('click', function () {
-    const $filterContainer = $('.filter');
+  $('.filter__clear, .filter-clear').on('click', function (e) {
+    e.stopPropagation();
+    const $clearButton = $(this);
+    let filterName;
+    
+    if ($(this).hasClass('filter-clear')) {
+      filterName = $clearButton.parent().data('filter-name');
+    }
+
+    if ($(this).hasClass('filter__clear')) {
+      filterName = $clearButton.data('filter-name');
+    }
+
+    let $button = $('.filter__toggle[data-filter-name="' + filterName + '"]');
+
+
+    const $filterContainer = $('.filter[data-filter-name="' + filterName + '"]');
 
     // Снимаем выделение всех чекбоксов
     $filterContainer.find('input[type="checkbox"]').prop('checked', false);
@@ -71,7 +91,7 @@ function toggleFilter() {
     $filterContainer.find('.dropdown__selected span').text('0');
 
     // Скрываем кнопку .filter-clear
-    $('.filter-clear').hide();
+    $button.removeClass('sorted');
   });
 
   // Инициализируем состояние кнопок при загрузке
