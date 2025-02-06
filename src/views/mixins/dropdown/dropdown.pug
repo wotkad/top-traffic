@@ -81,7 +81,7 @@ mixin dropdown(data = {})
           +search
           .dropdown__items
             each radio, index in modefied.buttons
-              label.dropdown__item
+              label.dropdown__item(data-href=radio.linkHref data-title=radio.linkTitle)
                 if radio.image
                   img.dropdown__image(src=radio.image.src, alt=radio.image.alt)
                 input(type="radio" name=`radio-${modefied.class}` checked=radio.isChecked)

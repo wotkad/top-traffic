@@ -14,7 +14,7 @@ mixin heading-table(data = {})
           .heading__left__inner
             if modefied.isSearch
               +search({
-                containerClass: 'min-w-[294px] max-w-[294px]',
+                containerClass: modefied.searchClass,
                 isForm: true,
               })
             if modefied.isCalendar

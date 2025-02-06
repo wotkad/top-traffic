@@ -53,6 +53,8 @@ module.exports = {
     isSelected: false,
     isStatus: false,
     label: '',
+    linkHref: '',
+    linkTitle: '',
     links: [
       {
         href: '#',
@@ -94,7 +96,9 @@ module.exports = {
       isSelected: data.isSelected !== undefined ? data.isSelected : defaults.isSelected,
       isStatus: data.isStatus !== undefined ? data.isStatus : defaults.isStatus,
       label: data.label !== undefined ? data.label : defaults.label,
+      linkHref: data.linkHref !== undefined ? data.linkHref : defaults.linkHref,
       links: data.links !== undefined && data.links.length > 0 ? data.links : defaults.links,
+      linkTitle: data.linkTitle !== undefined ? data.linkTitle : defaults.linkTitle,
       src: data.image !== undefined ? data.image.src : defaults.image.src,
       subtitle: data.subtitle !== undefined ? data.subtitle : defaults.subtitle,
       title: data.title !== undefined ? data.title : defaults.title,

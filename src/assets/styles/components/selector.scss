@@ -25,7 +25,7 @@
       @apply text-black-100;
     }
     span {
-      @apply flex justify-center items-center bg-purple-300 rounded-full w-[23px] h-[18px] text-10-m-sm text-blue-200 leading-none;
+      @apply flex justify-center items-center bg-purple-300 rounded-full w-[23px] h-[18px] text-10-m-sm leading-none;
     }
     &:before {
       @apply bottom-0 left-0 absolute content-[''] bg-black-100 opacity-0 rounded-full w-full h-[2px] transition-all duration-300;

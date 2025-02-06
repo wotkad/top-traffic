@@ -45,7 +45,6 @@ aside.content-aside
                           enabled: true,
                           src: '/assets/images/user-image.png',
                         },
-                        isChecked: true,
                         title: 'ООО “ИП”',
                       },
                       {
@@ -149,6 +148,12 @@ aside.content-aside
                         isOnlyIcon: true,
                         view: 'button',
                       })
+                      +button({
+                        class: 'button-icon accordion__action',
+                        icon: 'other-trash-icon',
+                        isOnlyIcon: true,
+                        view: 'button',
+                      })
                   .accordion__item
                     .accordion__left
                       .accordion__icon
@@ -160,6 +165,12 @@ aside.content-aside
                       +button({
                         class: 'button-icon accordion__action accordion__copy',
                         icon: 'other-copy-icon',
+                        isOnlyIcon: true,
+                        view: 'button',
+                      })
+                      +button({
+                        class: 'button-icon accordion__action',
+                        icon: 'other-trash-icon',
                         isOnlyIcon: true,
                         view: 'button',
                       })

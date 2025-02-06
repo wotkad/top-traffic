@@ -1,6 +1,7 @@
 import setTdPaddingDefault from "../../base/common/set-td-padding-default";
 import setTdPadding from "../../base/common/set-td-padding";
 import datePicker from "../datepicker";
+import toggleDropdown from "./toggle-dropdown";
 
 function toggleTableInput() {
 
@@ -48,17 +49,44 @@ function toggleTableInput() {
       // Генерируем новую строку
       let newRow = $(`
         <tr>
-          <td style="padding-left: 12px; min-width: 200px; max-width: 252px; padding-right: 32px;">
-              <div class="flex items-center gap-x-3">
-                  <div class="checkbox"><label class="input-checkbox md table__checkbox"><input type="checkbox" name="checkbox"><span></span></label></div>
-                  <div class="flex items-center gap-x-1.5">
-                      <img class="rounded object-cover w-[30px] h-[30px]" src="/assets/images/avatar.png" alt="tg-channel">
-                      <div class="flex flex-col items-start">
-                          <h3><a class="table__channel" href="#">Андрей Миронов</a></h3>
-                          <a class="table__link" href="https://t.me/andreym" target="_blank">@andreym</a>
-                      </div>
+          <td style="padding: 6.5px 32px 6.5px 12px; min-width: 200px; max-width: 252px;">
+            <div class="flex items-center w-full gap-x-3 h-[33px]">
+              <div class="checkbox"><label class="input-checkbox md table__checkbox"><input checked type="checkbox" name="checkbox"><span></span></label></div>
+              <div class="dropdown dropdown-radios dropdown-select-admin">
+                <div class="dropdown__container">
+                  <div class="dropdown__button">
+                    <div class="dropdown__inner">
+                      <div class="dropdown__title">Выберете администратора</div>
+                    </div>
+                    <button class="button button-icon sm" type="button" aria-label="button">
+                      <svg viewBox="0 0 10 6" width="10" height="6">
+                        <use xlink:href="#other-angle-down-icon"></use>
+                      </svg>
+                    </button>
                   </div>
+                  <div class="dropdown__list">
+                    <div class="search ">
+                      <label class="search__label">
+                        <input class="search__input " type="search" autocomplete="on" placeholder="Поиск..." name="search">
+                        <svg viewBox="0 0 18 18" width="18" height="18">
+                          <use xlink:href="#other-search-icon"></use>
+                        </svg>
+                      </label>
+                    </div>
+                    <div class="dropdown__items">
+                      <label class="dropdown__item" data-href="https://t.me/andreym" data-title="@andreym">
+                        <img class="dropdown__image" src="/assets/images/user-image.png" alt="image"><input type="radio" name="radio-dropdown-radios dropdown-select-admin">
+                        <p>ООО “ИП”</p>
+                      </label>
+                      <label class="dropdown__item" data-href="https://t.me/andreym" data-title="@andreym">
+                        <img class="dropdown__image" src="/assets/images/avatar.png" alt="image"><input type="radio" name="radio-dropdown-radios dropdown-select-admin">
+                        <p>ООО “ИП”</p>
+                      </label>
+                    </div>
+                  </div>
+                </div>
               </div>
+            </div>
           </td>
           <td class="only-text" style="padding-right: 32px;">
               <label class="button button-with-icon only-input start-day datepicker-trigger">
@@ -89,7 +117,7 @@ function toggleTableInput() {
           </td>
           <td class="only-text" style="padding-right: 32px;">12.12.2023</td>
           <td class="pr-2.5" style="padding-right: 32px;">
-              <button class="button button-icon text-black-200 table__remove" type="button" aria-label="button">
+              <button class="button button-icon text-black-200 table__remove active" type="button" aria-label="button">
                   <svg viewBox="0 0 18 18" width="18" height="18">
                       <use xlink:href="#other-trash-icon"></use>
                   </svg>
@@ -113,6 +141,8 @@ function toggleTableInput() {
       $adminHeading.find('span').text(count);
 
       datePicker();
+      toggleDropdown();
+      
     }
   });
 }

@@ -228,13 +228,15 @@ block content
                 .selector__container(data-id="channel-statistics")
                   +heading-table({
                     isSearch: true,
+                    searchClass: 'min-w-[243px] max-w-[243px]',
                   })
                   .content-scroll.mt-4
-                    include ../components/channel/table
+                    include ../components/channel-statistics/table
                 .selector__container(data-id="publication-statistics")
                   +heading-table({
                     isSearch: true,
                     isMonthPicker: false,
+                    searchClass: 'min-w-[294px] max-w-[294px]',
                     isCalendar: true,
                     isDatePicker: true,
                     isCheckboxes: true,
@@ -259,6 +261,7 @@ block content
                   +heading-table({
                     isSearch: true,
                     isRows: true,
+                    searchClass: 'min-w-[243px] max-w-[243px]',
                     buttons: [
                       {
                         view: 'button',
@@ -286,6 +289,7 @@ block content
                   +heading-table({
                     isSearch: true,
                     isRows: true,
+                    searchClass: 'min-w-[243px] max-w-[243px]',
                     buttons: [
                       {
                         view: 'button',
@@ -308,6 +312,7 @@ block content
                   +heading-table({
                     isSearch: true,
                     isRows: true,
+                    searchClass: 'min-w-[243px] max-w-[243px]',
                     buttons: [
                       {
                         view: 'button',

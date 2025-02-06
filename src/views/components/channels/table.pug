@@ -4,58 +4,67 @@ table.table.table-fixed-cols
       th.border-r.border-black-500(style="min-width: 280px;")
         .table__sort.flex.gap-x-2.items-center
           p Канал
-          button(type="button").table__sortbutton
-            svg
-              use(xlink:href="#other-sort-icon")
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
       th
         .table__sort.flex.gap-x-2.items-center
           p Категория
-          button(type="button").table__sortbutton
-            svg
-              use(xlink:href="#other-sort-icon")
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
       th
         .table__sort.flex.gap-x-2.items-center
           p.text-right Подписчики
-          button(type="button").table__sortbutton
-            svg
-              use(xlink:href="#other-sort-icon")
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
       th
         .table__sort.flex.gap-x-2.items-center
           p Формат
-          button(type="button").table__sortbutton
-            svg
-              use(xlink:href="#other-sort-icon")
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
       th
         .table__sort.flex.gap-x-2.items-center
-          p.text-right Охват %
+          p.text-right.flex.flex-col.justify-center Охват %
             span.block.text-right (на пост)
-          button(type="button").table__sortbutton
-            svg
-              use(xlink:href="#other-sort-icon")
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
       th
         .table__sort.flex.gap-x-2.items-center
-          p.text-right Охват %
+          p.text-right.flex.flex-col.justify-center Охват %
             span.block.text-right (24 часа)
-          button(type="button").table__sortbutton
-            svg
-              use(xlink:href="#other-sort-icon")
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
       th
         .table__sort.flex.gap-x-2.items-center
           p.text-right ER %
-          button(type="button").table__sortbutton
-            svg
-              use(xlink:href="#other-sort-icon")
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
       th
         .table__sort.flex.gap-x-2.items-center
           p.text-right ERR %
-          button(type="button").table__sortbutton
-            svg
-              use(xlink:href="#other-sort-icon")
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
       th
-        p.text-center Аудитория
-        .flex.justify-center(class="gap-x-2.5 mt-[3px]")
-          span.male.inline-block мужчины
-          span.female.inline-block женщины
+        .table__sort.flex.flex-col.items-center
+          p.text-center Аудитория
+          .flex.justify-center(class="gap-x-5 mt-[3px]")
+            .flex.items-center.relative
+              span.male.inline-block мужчины
+              button(type="button").table__sortbutton
+                svg
+                  use(xlink:href="#other-sort-icon")
+            .flex.items-center.relative
+              span.female.inline-block женщины
+              button(type="button").table__sortbutton
+                svg
+                  use(xlink:href="#other-sort-icon")
   tbody
     include row
     include row

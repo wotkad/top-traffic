@@ -1,7 +1,7 @@
 table.table.table-fixed-cols
   thead
     tr
-      th(style="padding-left: 12px; min-width: 200px;")
+      th(style="padding-left: 12px; min-width: 180px;")
         .flex.items-center(class="gap-x-3")
           +input({
             class: 'md table__checkbox',
@@ -9,33 +9,33 @@ table.table.table-fixed-cols
           })
           .table__sort.flex.gap-x-2.items-center
             p Администратор
+              button(type="button").table__sortbutton
+                svg
+                  use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Начало работы
             button(type="button").table__sortbutton
               svg
                 use(xlink:href="#other-sort-icon")
       th
         .table__sort.flex.gap-x-2.items-center
-          p Начало работы
-          button(type="button").table__sortbutton
-            svg
-              use(xlink:href="#other-sort-icon")
-      th
-        .table__sort.flex.gap-x-2.items-center
           p Окончание работы
-          button(type="button").table__sortbutton
-            svg
-              use(xlink:href="#other-sort-icon")
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
       th
         .table__sort.flex.gap-x-2.items-center
           p Автор
-          button(type="button").table__sortbutton
-            svg
-              use(xlink:href="#other-sort-icon")
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
       th
         .table__sort.flex.gap-x-2.items-center
           p Дата создания
-          button(type="button").table__sortbutton
-            svg
-              use(xlink:href="#other-sort-icon")
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
       th(class="pr-2.5")
   tbody
     +administration-history-subrow({

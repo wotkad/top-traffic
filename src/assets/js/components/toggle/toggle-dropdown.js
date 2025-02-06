@@ -1,7 +1,7 @@
 import setTdPadding from '../../base/common/set-td-padding';
 import setTdPaddingDefault from '../../base/common/set-td-padding-default';
 
-function toggleDropdown() {
+export default function toggleDropdown() {
 
   function checkVisibility($parent) {
     const $children = $parent.find('.dropdown__value'); // Находим только дочерние элементы для конкретного родителя
@@ -118,6 +118,30 @@ function toggleDropdown() {
     const titleStatus = $(this).closest('.dropdown__container').find('.dropdown__button').find('.dropdown__title');
 
     titleStatus.html(`<img class="dropdown__image" src=${selectedImg} alt=${selectedAlt}>` + selectedValue);
+  });
+
+  $('.dropdown-radios.dropdown-select-admin .dropdown__item input[type="radio"]').on('change', function () {
+    const dropdown = $(this).closest('.dropdown');
+    dropdown.addClass('selected');
+    const selectedValue = $(this).siblings('p').text();
+    const selectedImg = $(this).siblings('img').prop('src');
+    const selectedAlt = $(this).siblings('img').prop('alt');
+
+    const selectedLinkHref = $(this).parent().data('href');
+    const selectedLinkTitle = $(this).parent().data('title');
+
+
+    const titleStatus = $(this).closest('.dropdown__container').find('.dropdown__button').find('.dropdown__title');
+
+    titleStatus.html(`
+      <div class="flex items-center gap-x-1.5">
+        <img class="rounded object-cover w-[30px] h-[30px]" src="${selectedImg}" alt="${selectedAlt}">
+        <div class="flex flex-col items-start">
+          <h3><a href="#" class="table__channel">${selectedValue}</a></h3>
+          <a href=${selectedLinkHref} target="_blank" class="table__link">${selectedLinkTitle}</a>
+        </div>
+      </div>
+    `);
   });
 
   $(document).on('click', function () {

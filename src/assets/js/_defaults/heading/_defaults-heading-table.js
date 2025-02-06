@@ -10,6 +10,7 @@ module.exports = {
     isMonthPicker: false,
     isRows: false,
     isSearch: false,
+    searchClass: '',
     title: false,
   },
   mergeConfig(data, defaults) {
@@ -22,6 +23,7 @@ module.exports = {
       isMonthPicker: data.isMonthPicker !== undefined ? data.isMonthPicker : defaults.isMonthPicker,
       isRows: data.isRows !== undefined ? data.isRows : defaults.isRows,
       isSearch: data.isSearch !== undefined ? data.isSearch : defaults.isSearch,
+      searchClass: data.searchClass !== undefined ? data.searchClass : defaults.searchClass,
       title: data.title !== undefined ? data.title : defaults.title,
     }
   },
