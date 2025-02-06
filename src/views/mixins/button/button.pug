@@ -3,6 +3,7 @@ mixin button(data = {})
   - const modefied = mergeConfig(data, defaults);
   - const monthPickerClass = modefied.isMonthPicker ? ' monthpicker-trigger' : '';
   - const datePickerClass = modefied.isDatePicker ? ' datepicker-trigger' : '';
+  - const dateTimePickerClass = modefied.isDateTimePicker ? ' datetimepicker-trigger' : '';
   
   if modefied.view == 'button' && !modefied.isCalendar
     button(
@@ -27,7 +28,7 @@ mixin button(data = {})
 
   if modefied.view == 'button' && modefied.isCalendar
     label(
-      class="button " + modefied.class + datePickerClass + monthPickerClass
+      class="button " + modefied.class + datePickerClass + monthPickerClass + dateTimePickerClass
     )
       if modefied.icon && modefied.iconPos == 'before'
         svg.calendar-icon
@@ -38,6 +39,8 @@ mixin button(data = {})
         input.monthpicker(type="text" name="date" placeholder="Выберите период" class=modefied.calendarClass readonly value=modefied.value)
       if modefied.isDatePicker && modefied.isSinglePicker && !modefied.isStatusTrigger
         input.datepicker.datepicker-single(type="text" name="date" placeholder="Выберите дату" class=modefied.calendarClass readonly value=modefied.value)
+      if modefied.isDateTimePicker && modefied.isSinglePicker && !modefied.isStatusTrigger
+        input.datepicker.datetimepicker-single(type="text" name="date" placeholder="Выберите дату" class=modefied.calendarClass readonly value=modefied.value)
       if modefied.isDatePicker && modefied.isSinglePicker && modefied.isStatusTrigger
         span.status(class="status-green status__trigger") Активный
         input.datepicker.datepicker-single(type="text" name="date" placeholder="дд.мм.гггг" class=modefied.calendarClass readonly value=modefied.value)

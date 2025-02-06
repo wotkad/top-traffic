@@ -390,6 +390,17 @@ block content
           value: 'Все',
           view: 'button',
         })
+        +button({
+          class: 'button-with-icon',
+          icon: 'other-calendar-icon',
+          isCalendar: true,
+          isDatePicker: false,
+          isDateTimePicker: true,
+          isMonthPicker: false,
+          isSinglePicker: true,
+          value: 'Все',
+          view: 'button',
+        })
     .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
       h2.text-2xl.font-bold.pb-4.border-b.w-full Поля ввода значений
       form(action="#").w-full

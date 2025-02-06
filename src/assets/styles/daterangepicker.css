@@ -229,29 +229,23 @@
 }
 
 .daterangepicker select.monthselect {
-  margin-right: 2%;
-  width: 56%;
+  @apply w-[56%] mr-[2%];
 }
 
 .daterangepicker select.yearselect {
-  width: 40%;
+  @apply w-[40%];
 }
 
 .daterangepicker select.hourselect, .daterangepicker select.minuteselect, .daterangepicker select.secondselect, .daterangepicker select.ampmselect {
-  width: 50px;
-  margin: 0 auto;
-  background: #eee;
-  border: 1px solid #eee;
-  padding: 2px;
-  outline: 0;
-  font-size: 12px;
+  @apply text-12-m w-[50px] outline-0 p-1.5 rounded-md leading-none bg-black-600 transition-all duration-300 cursor-pointer bg-no-repeat appearance-none bg-[85%_50%] bg-[url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iNiIgdmlld0JveD0iMCAwIDEwIDYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxsaW5lIHgxPSIwLjc1IiB5MT0iLTAuNzUiIHgyPSI2LjMyMTA2IiB5Mj0iLTAuNzUiIHRyYW5zZm9ybT0ibWF0cml4KDAuNzA3MTE0IDAuNzA3MSAtMC43MDcxMTQgMC43MDcxIDAgMSkiIHN0cm9rZT0iIzM3NDE1MSIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8bGluZSB4MT0iMC43NSIgeTE9Ii0wLjc1IiB4Mj0iNi4zMjEwNiIgeTI9Ii0wLjc1IiB0cmFuc2Zvcm09Im1hdHJpeCgwLjcwNzExNCAtMC43MDcxIDAuNzA3MTE0IDAuNzA3MSA1IDYpIiBzdHJva2U9IiMzNzQxNTEiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9zdmc+Cg==)];
 }
 
 .daterangepicker .calendar-time {
   text-align: center;
-  margin: 4px auto 0 auto;
-  line-height: 30px;
   position: relative;
+  display: inline-flex;
+  align-items: center;
+  @apply text-12-m gap-x-1 ml-2;
 }
 
 .daterangepicker .calendar-time select.disabled {

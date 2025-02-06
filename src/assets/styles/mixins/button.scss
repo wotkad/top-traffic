@@ -5,6 +5,7 @@ label.button {
     }
     @apply right-2 absolute;
   }
+  &.datetimepicker-trigger,
   &.datepicker-trigger,
   &.monthpicker-trigger {
     &:after,

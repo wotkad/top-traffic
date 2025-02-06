@@ -34,6 +34,38 @@ export default function datePicker() {
     "firstDay": 1
   };
 
+  let localeTime = {
+    "format": "DD.MM.YYYY HH:mm",
+    "applyLabel": "Выбрать",
+    "cancelLabel": "Отмена",
+    "fromLabel": "с",
+    "toLabel": "по",
+    "daysOfWeek": [
+      "Вс.",
+      "Пн.",
+      "Вт.",
+      "Ср.",
+      "Чт.",
+      "Пт.",
+      "Сб."
+    ],
+    "monthNames": [
+      "Январь",
+      "Февраль",
+      "Март",
+      "Апрель",
+      "Май",
+      "Июнь",
+      "Июль",
+      "Август",
+      "Сентябрь",
+      "Октябрь",
+      "Ноябрь",
+      "Декабрь"
+    ],
+    "firstDay": 1
+  };
+
   function initCalendars(startDate = 0, endDate = 0) {
     $(".datepicker-range.opensleft").daterangepicker({
       autoApply: true,
@@ -75,6 +107,28 @@ export default function datePicker() {
       parentEl: '.wrapper',
       minDate: startDate,
       maxDate: endDate,
+    });
+
+    $(".datetimepicker-single.opensleft").daterangepicker({
+      locale: localeTime,
+      autoUpdateInput: false,
+      timePicker: true,
+      timePicker24Hour: true,
+      singleDatePicker: true,
+      startDate: moment(),
+      opens: 'left',
+      parentEl: '.wrapper',
+    });
+
+    $(".datetimepicker-single.opensright").daterangepicker({
+      locale: localeTime,
+      autoUpdateInput: false,
+      timePicker: true,
+      timePicker24Hour: true,
+      singleDatePicker: true,
+      startDate: moment(),
+      opens: 'right',
+      parentEl: '.wrapper',
     });
 
     $(".filter .datepicker-range.opensleft").daterangepicker({
@@ -128,6 +182,29 @@ export default function datePicker() {
       let $this = $(this);
       $this.on('show.daterangepicker', function(ev, picker) {
         // Вычисляем top
+        picker.container.css('top', $this.offset().top + 16);
+    
+        // Вычисляем right
+        let right = $(window).width() - ($this.offset().left + $this.outerWidth());
+        picker.container.css('right', right);
+        picker.container.css('left', 'auto');
+      });
+    });
+
+    $('.datetimepicker-single.opensright').each(function() {
+      let $this = $(this);
+      $this.on('show.daterangepicker', function(ev, picker) {
+        picker.container.addClass('datetimepicker');
+        picker.container.css('top', $this.offset().top + 16);
+        picker.container.css('left', $this.offset().left);
+      });
+    });
+
+    $('.datetimepicker-single.opensleft').each(function() {
+      let $this = $(this);
+      $this.on('show.daterangepicker', function(ev, picker) {
+        // Вычисляем top
+        picker.container.addClass('datetimepicker');
         picker.container.css('top', $this.offset().top + 16);
     
         // Вычисляем right
@@ -246,7 +323,6 @@ export default function datePicker() {
 
             if ($this.closest('.datepicker-trigger').hasClass('start-day')) {
                 let startDate = picker.startDate.clone(); // Устанавливаем startDate
-                console.log("Start Date Selected:", startDate.format('DD.MM.YYYY'));
 
                 // Найдём календарь конца в той же строке и установим minDate
                 let $endPicker = $row.find('.datepicker-trigger.end-day .datepicker-single');
@@ -258,7 +334,6 @@ export default function datePicker() {
 
             if ($this.closest('.datepicker-trigger').hasClass('end-day')) {
                 let endDate = picker.startDate.clone(); // Устанавливаем endDate
-                console.log("End Date Selected:", endDate.format('DD.MM.YYYY'));
 
                 // Найдём календарь начала в той же строке и установим maxDate
                 let $startPicker = $row.find('.datepicker-trigger.start-day .datepicker-single');
@@ -268,9 +343,61 @@ export default function datePicker() {
                 }
             }
         });
-    });
-});
+    });  
+  });
 
+  $('.datetimepicker-single').each(function() {
+    let $this = $(this);
+    let buttons;
+    let apply;
+
+    $this.css('width', $(this).val().length * 7);
+
+    $this.on('show.daterangepicker', function(ev, picker) {
+      buttons = picker.container.find('.drp-buttons').clone(true);
+      apply = picker.container.find('.applyBtn').clone(true);
+      picker.container.find('.drp-buttons').remove();
+      picker.container.prepend(buttons);
+
+      let result = picker.startDate.format('DD.MM.YYYY HH:mm');
+
+      $(buttons).find('.drp-selected').html(result).append('<span class="button button-icon calendar-close-icon" type="button" aria-label="button"><svg viewBox="0 0 9 9" width="9" height="9"><use xlink:href="#other-close-icon"></use></svg></span>');
+
+      buttons.on('click', '.calendar-close-icon', function() {
+          picker.hide();
+          buttons.find('.drp-selected').hide();
+          $this.val('Все');
+          picker.setStartDate(moment());
+          picker.setEndDate(moment());
+      });
+
+      $this.off('apply.daterangepicker').on('apply.daterangepicker', function(ev, picker) {
+          buttons.find('.drp-selected').css('display', 'inline-flex');
+          result = picker.startDate.format('DD.MM.YYYY HH:mm');
+          $this.val(result);
+          $this.parent().attr('data-value', result);
+          $this.css('width', $this.val().length * 7);
+          observer.observe(picker.container.find('.drp-selected')[0], { childList: true, characterData: true, subtree: true });
+      });
+
+      $(document).on("pointerdown", ".daterangepicker td", function() {
+        observer.observe(picker.container.find('.drp-selected')[0], { childList: true, characterData: true, subtree: true });
+      });
+
+      let observer = new MutationObserver(function(mutationsList) {
+        mutationsList.forEach(function(mutation) {
+            if (mutation.type === "childList" || mutation.type === "characterData") {
+              picker.container.find('.drp-selected').remove();
+              picker.container.find(buttons).append(`<div class="drp-selected">${picker.startDate.format('DD.MM.YYYY HH:mm')}<span class="button button-icon calendar-close-icon" type="button" aria-label="button"><svg viewBox="0 0 9 9" width="9" height="9"><use xlink:href="#other-close-icon"></use></svg></span></div>`);
+              picker.container.find('.drp-selected').css('display', 'inline-flex');
+              picker.container.find('.applyBtn').remove();
+              picker.container.find(buttons).append(apply)
+            }
+        });
+      });
+    });
+  });
+  
 
 }
 datePicker();

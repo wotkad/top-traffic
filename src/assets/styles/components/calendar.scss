@@ -3,6 +3,7 @@
   @apply min-w-16;
 }
 
+.datetimepicker-trigger .button.calendar-close-icon,
 .datepicker-trigger .button.calendar-close-icon {
   transition: none;
 }
@@ -59,7 +60,7 @@
 }
 
 .daterangepicker.show-calendar .drp-buttons {
-  @apply hidden p-4 pb-0 border-none;
+  @apply hidden p-2 pb-0 border-none;
 }
 
 .daterangepicker .drp-calendar.left .calendar-table {
@@ -310,4 +311,36 @@
 
 .monthrangepicker .calendar-table td span {
   @apply text-12-r-md leading-[22px];
+}
+
+.daterangepicker .calendar-table td.off.ends.active.end-date.in-range.available span {
+  @apply bg-blue-000;
+}
+
+.daterangepicker .calendar-table td.off.ends.in-range.available:not(.end-date) {
+  @apply bg-black-600;
+}
+
+.daterangepicker td.weekend.in-range span {
+  @apply text-black-100;
+}
+
+.daterangepicker td.weekend.start-date:hover span {
+  @apply text-white-000;
+}
+
+.daterangepicker td.weekend.in-range.end-date span {
+  @apply text-white-000;
+}
+
+.datetimepicker.daterangepicker.show-calendar .drp-buttons {
+  @apply flex justify-between items-center p-0;
+}
+
+.datetimepicker.daterangepicker.show-calendar .drp-buttons .drp-selected {
+  @apply hidden mt-2 ml-2;
+}
+
+.datetimepicker.daterangepicker.show-calendar .drp-buttons .applyBtn {
+  @apply block right-4 bottom-3.5 absolute m-0 p-0;
 }
