@@ -1,0 +1,21 @@
+.popup__bg(data-popup-name="delete-file")
+.popup(data-popup-name="delete-file")
+  .popup__wrapper(data-scroll-lock-scrollable)
+    .popup__title Подтвердить действие
+    .popup__subtitle Удалить файл?
+    form(action="#")
+      .popup__form
+        .popup__buttons
+          +button({
+            class: 'button-confirm',
+            dataPopupName: 'delete-file',
+            title: 'Да',
+            type: 'submit',
+            view: 'button',
+          })
+          +button({
+            class: 'button-base',
+            dataPopupName: 'delete-file',
+            title: 'Нет',
+            view: 'button',
+          })

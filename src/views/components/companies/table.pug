@@ -28,6 +28,9 @@ table.table.table-fixed-cols
       th
         .flex.gap-x-2.items-center
           p Канал
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
       th
         .table__sort.flex.gap-x-2.items-center
           p Сумма сделки

@@ -1,6 +1,9 @@
 .popup {
   &__bg {
-    @apply z-[100] fixed inset-0 bg-black-100 bg-opacity-25 cursor-pointer;
+    &.active {
+      @apply z-[100] opacity-100 visible;
+    }
+    @apply -z-[1] fixed inset-0 bg-black-100 bg-opacity-25 opacity-0 transition-all duration-300 cursor-pointer invisible;
   }
   &__wrapper {
     @apply relative z-[200] bg-white-000 px-8 pt-8 pb-10 rounded-[10px] w-full max-w-[616px] transition-all -translate-y-5 duration-300;
@@ -42,6 +45,16 @@
     }
     @apply relative flex items-center bg-black-700 mt-5 px-2.5 py-2 border border-black-500 rounded-md;
   }
+  &[data-popup-name="add-admin"] {
+    .popup__wrapper {
+      .dropdown__button {
+        .button {
+          @apply right-3;
+        }
+        @apply bg-black-700 px-3 py-[7px] border border-black-500 rounded-md w-full;
+      }
+    }
+  }
   &[data-popup-name="add-link"] {
     .popup__wrapper {
       .popup__title {
@@ -62,7 +75,8 @@
       @apply px-6 pt-5 pb-8 max-w-[280px];
     }
   }
-  &[data-popup-name="delete"] {
+  &[data-popup-name="delete-link"],
+  &[data-popup-name="delete-post"] {
     .popup__wrapper {
       .popup__title {
         @apply text-14-sb-md;
@@ -135,5 +149,5 @@
       @apply px-4 pt-3.5 pb-4 max-w-[400px];
     }
   }
-  @apply -z-[1] fixed inset-0 flex justify-center items-start opacity-0 py-[134px] transition-all duration-300 invisible overflow-y-auto;
+  @apply -z-[1] fixed inset-0 flex justify-center items-start opacity-0 pt-20 transition-all duration-300 invisible overflow-y-auto;
 }

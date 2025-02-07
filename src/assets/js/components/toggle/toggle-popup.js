@@ -1,24 +1,38 @@
 import { enablePageScroll, disablePageScroll } from "scroll-lock";
 
 function togglePopup() {
-  $('.button[data-popup-name], .popup__bg[data-popup-name]').on('click', function () {
+  $('.button[data-popup-name]').on('click', function () {
     let popupName = $(this).data('popup-name');
     let currentPopup = $('.popup[data-popup-name="' + popupName + '"]');
+    let currentPopupBg = $('.popup__bg[data-popup-name="' + popupName + '"]');
 
-    // Если кликнули на уже открытый попап, закрываем его
     if (currentPopup.hasClass('active')) {
-      currentPopup.removeClass('active');
-      enablePageScroll();
+      closePopup(currentPopup, currentPopupBg);
     } else {
-      // Закрываем все попапы перед открытием нового
-      $('.popup.active').removeClass('active');
+      $('.popup.active, .popup__bg.active').removeClass('active');
       enablePageScroll();
 
-      // Открываем текущий попап
       currentPopup.addClass('active');
+      currentPopupBg.addClass('active');
       disablePageScroll();
     }
   });
+
+  $(document).on('mouseup', function(e) {
+    $('.popup.active').each(function() {
+      let popup = $(this);
+      let popupWrapper = popup.find('.popup__wrapper');
+      if (!popupWrapper.is(e.target) && !popupWrapper.has(e.target).length) {
+        closePopup(popup, popup.prev());
+      }
+    });
+  });
+}
+
+function closePopup(popup, popupBg) {
+  popup.removeClass('active');
+  popupBg.removeClass('active');
+  enablePageScroll();
 }
 
 togglePopup();
