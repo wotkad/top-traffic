@@ -9,7 +9,25 @@ table.table.table-fixed-cols
                 use(xlink:href="#other-sort-icon")
       th
         .table__sort.flex.gap-x-2.items-center
+          p Формат
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Формат (GS)
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
           p Категория
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Администратор
             button(type="button").table__sortbutton
               svg
                 use(xlink:href="#other-sort-icon")
@@ -21,50 +39,192 @@ table.table.table-fixed-cols
                 use(xlink:href="#other-sort-icon")
       th
         .table__sort.flex.gap-x-2.items-center
-          p Формат
+          p.text-right Охват
             button(type="button").table__sortbutton
               svg
                 use(xlink:href="#other-sort-icon")
       th
         .table__sort.flex.gap-x-2.items-center
-          p.text-right.flex.flex-col.justify-center Охват %
-            span.block.text-right (на пост)
+          p.text-right Расходы (GS)
             button(type="button").table__sortbutton
               svg
                 use(xlink:href="#other-sort-icon")
       th
         .table__sort.flex.gap-x-2.items-center
-          p.text-right.flex.flex-col.justify-center Охват %
-            span.block.text-right (24 часа)
+          p.text-right Расходы, факт (GS)
             button(type="button").table__sortbutton
               svg
                 use(xlink:href="#other-sort-icon")
       th
         .table__sort.flex.gap-x-2.items-center
-          p.text-right ER %
+          p.text-right CPV
             button(type="button").table__sortbutton
               svg
                 use(xlink:href="#other-sort-icon")
       th
         .table__sort.flex.gap-x-2.items-center
-          p.text-right ERR %
+          p.text-right охват (24ч)
             button(type="button").table__sortbutton
               svg
                 use(xlink:href="#other-sort-icon")
       th
+        .table__sort.flex.gap-x-2.items-center
+          p.text-right охват (48ч)
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p.text-right охват (72ч)
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p.text-right ИЦ
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p.text-right ER
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p.text-right ERR
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p.text-right ERR (24ч)
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p.text-right ERR (72ч)
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Контакт (GS)
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Адаптация
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Адаптация  (GS)
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Кнопка
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Кнопка (GS)
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Тег
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Тег (GS)
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Комментарий (GS)
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th.audience
         .table__sort.flex.flex-col.items-center
           p.text-center Аудитория
-          .flex.justify-center(class="gap-x-5 mt-[3px]")
+          .flex.justify-center(class="gap-x-[15px] mt-[3px]")
             .flex.items-center.relative
-              span.male.inline-block мужчины
+              span.table__category.male мужчины
               button(type="button").table__sortbutton
                 svg
                   use(xlink:href="#other-sort-icon")
             .flex.items-center.relative
-              span.female.inline-block женщины
+              span.table__category.female женщины
               button(type="button").table__sortbutton
                 svg
                   use(xlink:href="#other-sort-icon")
+      th.adult
+        .table__sort.flex.flex-col.items-center
+          p.text-center 18+
+          .flex.justify-center(class="gap-x-[15px] mt-[3px]")
+            .flex.items-center.relative
+              span.table__category.posts посты
+              button(type="button").table__sortbutton
+                svg
+                  use(xlink:href="#other-sort-icon")
+            .flex.items-center.relative
+              span.table__category.words слова
+              button(type="button").table__sortbutton
+                svg
+                  use(xlink:href="#other-sort-icon")
+      th.policy
+        .table__sort.flex.flex-col.items-center
+          p.text-center Политика
+          .flex.justify-center(class="gap-x-[15px] mt-[3px]")
+            .flex.items-center.relative
+              span.table__category.posts посты
+              button(type="button").table__sortbutton
+                svg
+                  use(xlink:href="#other-sort-icon")
+            .flex.items-center.relative
+              span.table__category.words слова
+              button(type="button").table__sortbutton
+                svg
+                  use(xlink:href="#other-sort-icon")
+      th.horror
+        .table__sort.flex.flex-col.items-center
+          p.text-center Жесть
+          .flex.justify-center(class="gap-x-[15px] mt-[3px]")
+            .flex.items-center.relative
+              span.table__category.posts посты
+              button(type="button").table__sortbutton
+                svg
+                  use(xlink:href="#other-sort-icon")
+            .flex.items-center.relative
+              span.table__category.words слова
+              button(type="button").table__sortbutton
+                svg
+                  use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Посты
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Дата обновления
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
   tbody
     include row
     include row

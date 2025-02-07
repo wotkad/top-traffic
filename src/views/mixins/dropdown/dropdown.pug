@@ -19,9 +19,9 @@ mixin dropdown(data = {})
             isOnlyIcon: true,
             view: 'button',
           })
-      .dropdown__button(class=isStatus + isSelected + modefied.classButton)
+      .dropdown__button(class=isSelected + modefied.classButton)
         if !modefied.icon
-          .dropdown__inner
+          .dropdown__inner(class=isStatus)
             if modefied.image
               img.dropdown__image(src=modefied.src, alt=modefied.alt)
             if modefied.isAll

@@ -86,15 +86,15 @@ export default function toggleDropdown() {
     const selectedValue = $(this).siblings('p').text();
     const selectedColor = $(this).data('color') || '';
 
-    const buttonStatus = $(this).closest('.dropdown-status .dropdown__container').find('.dropdown__button');
+    const buttonStatus = $(this).closest('.dropdown-status .dropdown__container').find('.dropdown__inner');
     const titleStatus = $(this).closest('.dropdown__container').find('.dropdown__button').find('.dropdown__title');
 
     titleStatus.text(selectedValue);
 
     if (selectedColor) {
-      buttonStatus.attr('class', `dropdown__button ${selectedColor} selected`);
+      buttonStatus.attr('class', `dropdown__inner ${selectedColor} selected`);
     } else {
-      buttonStatus.attr('class', 'dropdown__button');
+      buttonStatus.attr('class', 'dropdown__inner');
     }
 
     const buttonPriority = $(this).closest('.dropdown-priority .dropdown__container').find('.dropdown__inner');

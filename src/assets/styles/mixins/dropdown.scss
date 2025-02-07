@@ -14,7 +14,7 @@
   &__button {
     .button {
       svg {
-        @apply w-2.5 h-[5px] transition-all duration-300;
+        @apply w-2.5 h-[5px];
       }
       &.dropdown__icon {
         svg {
@@ -33,7 +33,7 @@
     @apply flex items-center gap-x-[2px];
   }
   &__title {
-    @apply flex items-center gap-x-[2px] line-clamp-1 pr-5 max-w-[132px] text-12-r text-ellipsis whitespace-nowrap;
+    @apply flex items-center gap-x-[2px] line-clamp-1 max-w-[132px] text-12-r text-ellipsis whitespace-nowrap;
   }
   &__subtitle {
     @apply px-2 py-1 text-12-m-md text-black-200;
@@ -249,32 +249,37 @@
   &-status {
     .dropdown__button {
       .button {
-        @apply static;
+        @apply right-3;
       }
+      @apply bg-black-700 px-3 py-[7px] border border-black-500 rounded-md w-full h-9 text-black-100;
+    }
+    .dropdown__title {
+      @apply pr-0 text-12-m;
+    }
+    .dropdown__list {
+      @apply max-h-[200px];
+    }
+    .dropdown__inner {
       &:before {
         @apply left-2 absolute content-[''] rounded-full w-2 h-2;
       }
       &.selected {
         &.status-transparent {
-          @apply pl-2;
+          @apply px-0;
         }
-        @apply py-[3px] pr-2 pl-5;
+        @apply pl-5;
       }
-      @apply rounded-[30px] h-[22px];
-    }
-    .dropdown__list {
-      @apply max-h-[200px];
     }
   }
   &-priority {
     .dropdown__button {
       .button {
-        @apply right-5;
+        @apply right-3;
       }
-      @apply bg-black-700 px-3 py-[7px] pr-5 border border-black-500 rounded-md w-full h-9 text-black-100;
+      @apply bg-black-700 px-3 py-[7px] border border-black-500 rounded-md w-full h-9 text-black-100;
     }
     .dropdown__title {
-      @apply text-12-m;
+      @apply pr-0 text-12-m;
     }
     .dropdown__inner {
       &.selected {

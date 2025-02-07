@@ -37,16 +37,25 @@
     .dropdown__list {
       @apply top-[calc(100%+12px)] left-0 w-auto;
     }
-    @apply ml-1 w-auto min-w-5;
+    @apply ml-2 w-auto min-w-5;
   }
   &__status {
     @apply ml-4;
   }
   &__dropdown-status {
     .dropdown__list {
-      @apply w-auto;
+      @apply right-auto left-0 w-auto;
     }
-    @apply ml-4 w-auto;
+    .dropdown__button {
+      .button {
+        @apply right-2;
+      }
+      @apply bg-transparent p-0 border-none h-auto;
+    }
+    .dropdown__inner {
+      @apply py-[2px] pr-8 pl-5 rounded-[30px];
+    }
+    @apply ml-2 w-auto;
   }
   &__addtofavotites {
     svg {

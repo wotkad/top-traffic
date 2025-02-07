@@ -1,0 +1,28 @@
+extends ../layouts/master
+
+block title
+  title Топ Трафик | Компания
+
+block basicSeo
+  meta(content="Компания" name="description")
+  meta(content="Компания" name="keywords")
+  meta(content="Компания" property="og:title")
+  meta(content="Компания" name="twitter:title")
+
+block content
+  main.page
+    include ../components/sidebar
+    include ../components/header
+    .wrapper
+      +heading({
+        image: {
+          alt: 'avatar',
+          enabled: true,
+          src: '/assets/images/avatar.png',
+        },
+        isRk: true,
+        title: 'Test_MTC_September',
+      })
+      .inner.in-container
+        .content.content-collapsed
+          .content-scroll
