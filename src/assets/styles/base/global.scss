@@ -26,7 +26,7 @@ input,
 button,
 select,
 a {
-  @apply rounded-none touch-manipulation font-normal font-sans text-black-100 outline-none;
+  @apply rounded-none outline-none font-sans font-normal text-black-100 touch-manipulation;
 }
 
 input,
@@ -39,7 +39,7 @@ select {
 
 html,
 body {
-  @apply font-sans text-black-100;
+  @apply overflow-x-hidden font-sans text-black-100;
 }
 
 label {
@@ -55,7 +55,7 @@ label {
 }
 
 .scroll-to-top {
-  @apply right-5 bottom-5 fixed hidden;
+  @apply hidden right-5 bottom-5 fixed;
 }
 
 .wrapper {
@@ -76,9 +76,9 @@ label {
     }
   }
   &:before {
-    @apply top-[60px] right-0 z-50 fixed content-[''] bg-white-000 w-6 h-[calc(100%-60px)];
+    @apply top-[60px] right-0 z-50 fixed bg-white-000 w-6 h-[calc(100%-60px)] content-[''];
   }
-  @apply top-[60px] left-[217px] fixed bg-white-000 pr-6 pb-[72px] pl-7 w-[calc(100%-217px)] h-[calc(100%-var(--header-height))] transition-all duration-300 overflow-x-hidden;
+  @apply top-[60px] left-[217px] fixed bg-white-000 pr-6 pb-[72px] pl-7 w-[calc(100%-217px)] h-[calc(100%-var(--header-height))] overflow-x-hidden transition-all duration-300;
 }
 
 .inner {

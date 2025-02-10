@@ -24,7 +24,7 @@ mixin heading(data = {})
                     title: 'Режим редактирования',
                   },
                   {
-                    dataPopupName: 'delete',
+                    dataPopupName: 'delete-post',
                     icon: 'other-trash-icon',
                     title: 'Удалить',
                   },
@@ -37,6 +37,7 @@ mixin heading(data = {})
               +dropdown({
                 buttons: [
                   {
+                    dataPopupName: 'delete-post',
                     icon: 'other-trash-icon',
                     title: 'Удалить',
                   },
@@ -60,15 +61,6 @@ mixin heading(data = {})
               +dropdown({
                 buttons: [
                   {
-                    color: 'status-green',
-                    isChecked: true,
-                    title: 'Активный',
-                  },
-                  {
-                    color: 'status-gray',
-                    title: 'Неактивный',
-                  },
-                  {
                     color: 'status-blue',
                     title: 'Новая РК',
                   },
@@ -76,13 +68,17 @@ mixin heading(data = {})
                     color: 'status-purple',
                     title: 'Подбор каналов',
                   },
+                  {
+                    color: 'status-gray',
+                    title: 'Отказ',
+                  },
                 ],
                 class: 'dropdown-status heading__dropdown-status',
-                color: 'status-green',
+                color: 'status-blue',
                 isButtons: true,
                 isSelected: true,
                 isStatus: true,
-                title: 'Активный',
+                title: 'Новая РК',
               })
 
           if modefied.isChannel || modefied.isAdmin

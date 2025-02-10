@@ -19,7 +19,7 @@ mixin dropdown(data = {})
             isOnlyIcon: true,
             view: 'button',
           })
-      .dropdown__button(class=isSelected + modefied.classButton)
+      .dropdown__button(class=isSelected + modefied.classButton + ' ' + isStatus)
         if !modefied.icon
           .dropdown__inner(class=isStatus)
             if modefied.image

@@ -86,15 +86,18 @@ export default function toggleDropdown() {
     const selectedValue = $(this).siblings('p').text();
     const selectedColor = $(this).data('color') || '';
 
-    const buttonStatus = $(this).closest('.dropdown-status .dropdown__container').find('.dropdown__inner');
+    const innerStatus = $(this).closest('.dropdown-status .dropdown__container').find('.dropdown__inner');
+    const buttonStatus = $(this).closest('.dropdown-status .dropdown__container').find('.dropdown__button');
     const titleStatus = $(this).closest('.dropdown__container').find('.dropdown__button').find('.dropdown__title');
 
     titleStatus.text(selectedValue);
 
     if (selectedColor) {
-      buttonStatus.attr('class', `dropdown__inner ${selectedColor} selected`);
+      innerStatus.attr('class', `dropdown__inner ${selectedColor} selected`);
+      buttonStatus.attr('class', `dropdown__button ${selectedColor} selected`);
     } else {
-      buttonStatus.attr('class', 'dropdown__inner');
+      innerStatus.attr('class', 'dropdown__inner');
+      buttonStatus.attr('class', 'dropdown__button');
     }
 
     const buttonPriority = $(this).closest('.dropdown-priority .dropdown__container').find('.dropdown__inner');
@@ -106,6 +109,7 @@ export default function toggleDropdown() {
     }
 
     $(this).closest('.dropdown__list').removeClass('active');
+    innerStatus.removeClass('active');
     buttonStatus.removeClass('active');
     buttonPriority.removeClass('active');
   });
