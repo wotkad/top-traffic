@@ -54,6 +54,7 @@ function monthPicker() {
 
   $(".filter .monthpicker.opensleft").monthrangepicker({
     autoApply: true,
+    cancelButtonClasses: '.filter__clear, .filter-clear',
     locale: locale,
     autoUpdateInput: false,
     opens: 'left',
@@ -63,6 +64,7 @@ function monthPicker() {
 
   $(".filter .monthpicker.opensright").monthrangepicker({
     autoApply: true,
+    cancelButtonClasses: '.filter__clear, .filter-clear',
     locale: locale,
     autoUpdateInput: false,
     opens: 'right',
@@ -111,7 +113,13 @@ function monthPicker() {
       $this.css('width', $(this).val().length * 7);
     }
 
+    let $id = Math.random().toString(36).substr(2, 9);
+
     $this.on('show.daterangepicker', function(ev, picker) {
+
+      $this.attr('data-id', $id);
+      picker.container.attr('data-id', $id);
+
       monthpicker = picker.container;
 
       $(document).on('click', '.filter__clear', function() {
