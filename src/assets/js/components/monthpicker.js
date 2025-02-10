@@ -54,7 +54,6 @@ function monthPicker() {
 
   $(".filter .monthpicker.opensleft").monthrangepicker({
     autoApply: true,
-    cancelButtonClasses: '.filter__clear, .filter-clear',
     locale: locale,
     autoUpdateInput: false,
     opens: 'left',
@@ -64,7 +63,6 @@ function monthPicker() {
 
   $(".filter .monthpicker.opensright").monthrangepicker({
     autoApply: true,
-    cancelButtonClasses: '.filter__clear, .filter-clear',
     locale: locale,
     autoUpdateInput: false,
     opens: 'right',
@@ -122,9 +120,8 @@ function monthPicker() {
 
       monthpicker = picker.container;
 
-      $(document).on('click', '.filter__clear', function() {
-        monthpicker.hide();
-        $this.val('');
+
+      $(document).on('click', `.filter__clear[data-filter-name="${$this.closest('.filter').data('filter-name')}"]`, function() {
         picker.setStartDate(moment());
         picker.setEndDate(moment());
       });

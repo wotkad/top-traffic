@@ -2,7 +2,7 @@ aside.filter(data-filter-name="channels")
   .filter__container
     .filter__title
       h2 Фильтр
-      button(type="button").filter__clear Сбросить
+      button(type="button" data-filter-name="channels").filter__clear Сбросить
     form(action="#")
       h3.filter__subtitle Канал
       +dropdown({

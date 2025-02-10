@@ -33,8 +33,10 @@ function toggleFilter() {
       const hasCheckedCheckboxes = $filter.find('input[type="checkbox"]:checked').length > 0;
       const $radioInputs = $filter.find('input[type="radio"]');
       const hasCheckedRadio = $radioInputs.length > 0 && !$radioInputs.first().prop('checked');
+
+      const hasDate = ($filter.find('input[name="date"]').val() > 0 || $filter.find('input[name="date"]').val() !== 'Все') && $filter.find('input[name="date"]').val() !== undefined;
       
-      if (hasCheckedCheckboxes || hasCheckedRadio) {
+      if (hasCheckedCheckboxes || hasCheckedRadio || hasDate) {
         $filterToggle.addClass('sorted');
       } else {
         $filterToggle.removeClass('sorted');
@@ -95,11 +97,7 @@ function toggleFilter() {
     $filterContainer.find('.dropdown__item').first().find('input').prop('checked', true);
     $filterContainer.find('.dropdown__selected span').text('0');
 
-    setTimeout(function() {
-      $filterContainer.find('input[type="text"], input[type="number"], input[type="search"]').val('');
-      $filterContainer.find('input[type="text"].monthpicker, input[type="text"].datepicker').attr('placeholder', 'Все');
-      $filterContainer.find('input[type="text"].monthpicker, input[type="text"].datepicker').val('Все');
-    }, 10);
+    $filterContainer.find('input[type="text"].monthpicker, input[type="text"].datepicker').attr('placeholder', 'Все').val('Все');
 
     $button.removeClass('sorted');
   });

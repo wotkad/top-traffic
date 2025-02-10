@@ -133,7 +133,6 @@ export default function datePicker() {
 
     $(".filter .datepicker-range.opensleft").daterangepicker({
       autoApply: true,
-      cancelButtonClasses: '.filter__clear, .filter-clear',
       locale: locale,
       autoUpdateInput: false,
       opens: 'left',
@@ -143,7 +142,6 @@ export default function datePicker() {
 
     $(".filter .datepicker-range.opensright").daterangepicker({
       autoApply: true,
-      cancelButtonClasses: '.filter__clear, .filter-clear',
       locale: locale,
       autoUpdateInput: false,
       opens: 'right',
