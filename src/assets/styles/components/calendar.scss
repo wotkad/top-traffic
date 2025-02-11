@@ -115,7 +115,7 @@
 }
 
 .daterangepicker .calendar-table td span {
-  @apply inline-block relative z-10 pointer-events-none;
+  @apply inline-block z-10 relative pointer-events-none;
 }
 
 .daterangepicker .calendar-table td.monthPanel {
@@ -309,7 +309,7 @@
 
 // .monthrangepicker .calendar-table thead tr:first-child {
 //   &:before {
-//     @apply bottom-2 left-0 absolute content-[''] bg-black-500 w-full h-px;
+//     @apply bottom-2 left-0 absolute bg-black-500 w-full h-px content-[''];
 //   }
 //   @apply relative;
 // }
@@ -347,5 +347,8 @@
 }
 
 .datetimepicker.daterangepicker.show-calendar .drp-buttons .applyBtn {
-  @apply block right-4 bottom-3.5 absolute m-0 p-0;
+  &:hover {
+    @apply text-black-100;
+  }
+  @apply block right-4 bottom-3.5 absolute m-0 p-0 font-medium text-black-200 transition-all duration-300;
 }
