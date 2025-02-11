@@ -253,6 +253,8 @@ export default function datePicker() {
         picker.hide();
         buttons.hide();
         $this.val('Все');
+        // $this.parent().removeAttr('data-value');
+        // $this.css('width', $this.val().length * 7);
         picker.setStartDate(moment());
         picker.setEndDate(moment());
       });
@@ -305,11 +307,13 @@ export default function datePicker() {
                     $this.closest('.status__calendar').removeClass('selected');
                     $this.closest('td').removeClass('only-text');
                     $this.val('');
-                    $this.parent().attr('data-value', '');
-                    $this.css('width', 'auto');
+                    $this.parent().removeAttr('data-value');
+                    $this.css('width', $this.val().length * 7);
                 }
             } else {
                 $this.val('Все');
+                $this.parent().removeAttr('data-value');
+                $this.css('width', $this.val().length * 7);
             }
             picker.setStartDate(moment());
             picker.setEndDate(moment());
@@ -373,6 +377,8 @@ export default function datePicker() {
           picker.hide();
           buttons.find('.drp-selected').hide();
           $this.val('Все');
+          $this.parent().removeAttr('data-value');
+          $this.css('width', $this.val().length * 7);
           picker.setStartDate(moment());
           picker.setEndDate(moment());
       });
@@ -401,6 +407,27 @@ export default function datePicker() {
             }
         });
       });
+
+      $(document).on('input', '.daterangepicker .hourselect', function() {
+        let picker = $('.datetimepicker-single').data('daterangepicker');
+        
+        picker.container.find('.drp-selected').remove();
+        picker.container.find(buttons).append(`<div class="drp-selected">${picker.startDate.format(`DD.MM.YYYY ${$(this).val()}:mm`)}<span class="button button-icon calendar-close-icon" type="button" aria-label="button"><svg viewBox="0 0 9 9" width="9" height="9"><use xlink:href="#other-close-icon"></use></svg></span></div>`);
+        picker.container.find('.drp-selected').css('display', 'inline-flex');
+        picker.container.find('.applyBtn').remove();
+        picker.container.find(buttons).append(apply);
+      });
+      
+      $(document).on('input', '.daterangepicker .minuteselect', function() {
+          let picker = $('.datetimepicker-single').data('daterangepicker');
+      
+          picker.container.find('.drp-selected').remove();
+          picker.container.find(buttons).append(`<div class="drp-selected">${picker.startDate.format(`DD.MM.YYYY HH:${$(this).val()}`)}<span class="button button-icon calendar-close-icon" type="button" aria-label="button"><svg viewBox="0 0 9 9" width="9" height="9"><use xlink:href="#other-close-icon"></use></svg></span></div>`);
+          picker.container.find('.drp-selected').css('display', 'inline-flex');
+          picker.container.find('.applyBtn').remove();
+          picker.container.find(buttons).append(apply);
+      });
+
     });
   });
   
