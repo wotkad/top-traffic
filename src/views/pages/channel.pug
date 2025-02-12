@@ -30,10 +30,10 @@ block content
             .content.content-not-collapsed
               .selector__buttons
                 .selector__scroll
-                  .selector__button(data-id="about").active О канале
-                  .selector__button(data-id="analytics") Аналитика
+                  .selector__button(data-id="channel-about").active О канале
+                  .selector__button(data-id="channel-analytics") Аналитика
               .selector__containers
-                .selector__container(data-id="about").active
+                .selector__container(data-id="channel-about").active
                   .widgets
                     +widget({
                       icon: 'widget-clock-icon',
@@ -101,7 +101,7 @@ block content
                         },
                       ],
                     })
-                .selector__container(data-id="analytics")
+                .selector__container(data-id="channel-analytics")
                   .widgets
                     +widget({
                       icon: 'widget-consumption-icon',
@@ -218,9 +218,9 @@ block content
                 .selector__scroll
                   .selector__button(data-id="channel-statistics") Статистика канала
                   .selector__button(data-id="publication-statistics") Статистика публикаций
-                  .selector__button(data-id="administration-history") История администрирования
+                  .selector__button(data-id="administration-history").active История администрирования
                     span 4
-                  .selector__button(data-id="advertising-campaigns").active Рекламные кампании
+                  .selector__button(data-id="advertising-campaigns") Рекламные кампании
                     span 20
                   .selector__button(data-id="transactions-for-payment") Сделки на оплату
                     span 20
@@ -257,7 +257,7 @@ block content
                         include ../components/publication-statistics/table
                       .mt-12
                         include ../components/pagination
-                .selector__container(data-id="administration-history")
+                .selector__container(data-id="administration-history").active
                   +heading-table({
                     isSearch: true,
                     isRows: true,
@@ -285,7 +285,7 @@ block content
                       .content-scroll
                         include ../components/administration-history/table
                     include ../components/administration-history/filter
-                .selector__container(data-id="advertising-campaigns").active
+                .selector__container(data-id="advertising-campaigns")
                   +heading-table({
                     isSearch: true,
                     isRows: true,

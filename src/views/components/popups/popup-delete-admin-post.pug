@@ -1,0 +1,20 @@
+.popup__bg(data-popup-name="delete-admin-post")
+.popup(data-popup-name="delete-admin-post")
+  .popup__wrapper(data-scroll-lock-scrollable)
+    .popup__title Подтвердить действие
+    .popup__subtitle Удалить запись?
+    .popup__form
+      .popup__buttons
+        +button({
+          class: 'button-confirm table__delete',
+          dataPopupName: 'delete-admin-post',
+          title: 'Да',
+          type: 'submit',
+          view: 'button',
+        })
+        +button({
+          class: 'button-base',
+          dataPopupName: 'delete-admin-post',
+          title: 'Нет',
+          view: 'button',
+        })

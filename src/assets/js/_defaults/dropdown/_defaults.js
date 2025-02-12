@@ -3,18 +3,23 @@ module.exports = {
     buttons: [
       {
         isChecked: true,
+        name: 'radio',
         title: 'Все',
       },
       {
+        name: 'radio',
         title: '1/24',
       },
       {
+        name: 'radio',
         title: '1/48',
       },
       {
+        name: 'radio',
         title: '1/72',
       },
       {
+        name: 'radio',
         title: 'Нативный',
       },
     ],

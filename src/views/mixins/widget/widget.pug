@@ -4,7 +4,7 @@ mixin widget(data = {})
   - const isRows = modefied.isRows ? 'widget-rows' : '';
   - const color = modefied.color ? 'widget-' + modefied.color : '';
 
-  .widget(class=isRows + color)
+  .widget(class=isRows + color + ' ' + modefied.position)
     .widget__heading
       .widget__head
         svg.widget__icon

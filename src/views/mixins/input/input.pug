@@ -26,7 +26,7 @@ mixin input(data = {})
   else if modefied.type == 'checkbox'
     .checkbox
       label(class=modefied.image ? "input-checkbox input-checkbox-with-icon " + modefied.class : "input-checkbox " + modefied.class)
-        input(type="checkbox" name="checkbox" checked=modefied.isChecked value=modefied.value)
+        input(type="checkbox" name="checkbox" checked=modefied.isChecked value=modefied.value class=modefied.class)
         span
         if modefied.image
           img(src="" + modefied.src, alt="" + modefied.alt)

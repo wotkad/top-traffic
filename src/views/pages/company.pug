@@ -24,5 +24,201 @@ block content
         title: 'Test_MTC_September',
       })
       .inner.in-container
-        .content.content-collapsed
-          .content-scroll
+        .content.content-sm
+          .selectors
+            .content.content-not-collapsed
+              .selector__buttons
+                .selector__scroll
+                  .selector__button(data-id="company-analytics").active Аналитика
+                  .selector__button(data-id="company-statistics") Статистика
+                  .selector__button(data-id="company-employees") Сотрудники
+                label.selector__toggle
+                  input(type="checkbox" name="selector-toggle")
+                  p.awaiting Ожидание
+                  span
+                  p.reality Реальность
+              .selector__containers
+                .selector__container(data-id="company-analytics").active
+                  .widgets
+                    +widget({
+                      icon: 'widget-wallet-plus-icon',
+                      isProgresses: true,
+                      isRows: true,
+                      progresses: [
+                        {
+                          title: 'плана',
+                          value: '0',
+                        },
+                        {
+                          title: 'прогноза',
+                          value: '0',
+                        },
+                      ],
+                      subtitle: 'Выполнение',
+                      tip: {
+                        content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+                        enabled: true,
+                      },
+                      title: 'Текущая выручка',
+                      values: [
+                        {
+                          value: '0 ₽',
+                        },
+                      ],
+                    })
+                    +widget({
+                      icon: 'widget-money-icon',
+                      isProgresses: true,
+                      isRows: true,
+                      progresses: [
+                        {
+                          title: 'плана',
+                          value: '0',
+                        },
+                        {
+                          title: 'прогноза',
+                          value: '0',
+                        },
+                      ],
+                      subtitle: 'Выполнение',
+                      tip: {
+                        content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+                        enabled: true,
+                      },
+                      title: 'Текущая маржа',
+                      values: [
+                        {
+                          value: '0 ₽',
+                        },
+                      ],
+                    })
+                    +widget({
+                      icon: 'widget-money-icon',
+                      tip: {
+                        content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+                        enabled: true,
+                      },
+                      title: 'Маржинальность',
+                      values: [
+                        {
+                          value: '0%',
+                        },
+                      ],
+                    })
+                    +widget({
+                      icon: 'widget-discount-icon',
+                      tip: {
+                        content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+                        enabled: true,
+                      },
+                      title: 'Скидка',
+                      values: [
+                        {
+                          progress: {
+                            enabled: true,
+                            value: '0',
+                          },
+                          value: '0 ₽ (0%)',
+                        },
+                      ],
+                    })
+                    +widget({
+                      icon: 'widget-consumption-icon',
+                      tip: {
+                        content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+                        enabled: true,
+                      },
+                      title: 'Расход',
+                      values: [
+                        {
+                          value: '0 ₽',
+                        },
+                      ],
+                    })
+                .selector__container(data-id="company-statistics")
+                  .widgets
+                    +widget({
+                      icon: 'widget-eye-icon',
+                      tip: {
+                        content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+                        enabled: true,
+                        isHidden: true,
+                      },
+                      title: 'Просмотры (в среднем)',
+                      values: [
+                        {
+                          value: '20 000 000',
+                        },
+                      ],
+                    })
+                    +widget({
+                      icon: 'widget-users-connected-icon',
+                      isFourValues: true,
+                      isRows: true,
+                      mainValue: '99 803',
+                      tip: {
+                        content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+                        enabled: true,
+                      },
+                      title: 'Охват',
+                      values: [
+                        {
+                          title: '12 часов',
+                          value: '99 803',
+                        },
+                        {
+                          title: '48 часов',
+                          value: '99 803',
+                        },
+                        {
+                          title: '24 часов',
+                          value: '99 803',
+                        },
+                        {
+                          title: '72 часов',
+                          value: '99 803',
+                        },
+                      ],
+                    })
+                    +widget({
+                      icon: 'widget-favorites-icon',
+                      tip: {
+                        content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+                        enabled: true,
+                      },
+                      title: 'ERR',
+                      values: [
+                        {
+                          value: '35.59%',
+                        },
+                      ],
+                    })
+                    +widget({
+                      icon: 'widget-eye-icon',
+                      position: 'col-end-2',
+                      tip: {
+                        content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+                        enabled: true,
+                      },
+                      title: 'Просмотры (всего)',
+                      values: [
+                        {
+                          value: '20 000 000',
+                        },
+                      ],
+                    })
+                    +widget({
+                      icon: 'widget-reply-icon',
+                      tip: {
+                        content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+                        enabled: true,
+                      },
+                      title: 'ER',
+                      values: [
+                        {
+                          value: '35.59%',
+                        },
+                      ],
+                    })
+                .selector__container(data-id="company-employees")
+        include ../components/company/aside

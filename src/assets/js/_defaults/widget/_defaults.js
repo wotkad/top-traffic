@@ -9,6 +9,7 @@ module.exports = {
     isProgresses: false,
     isRows: false,
     mainValue: false,
+    position: false,
     progresses: [
       {
         title: 'Название',
@@ -48,6 +49,7 @@ module.exports = {
       isProgresses: data.isProgresses !== undefined ? data.isProgresses : defaults.isProgresses,
       isRows: data.isRows !== undefined ? data.isRows : defaults.isRows,
       mainValue: data.mainValue !== undefined ? data.mainValue : defaults.mainValue,
+      position: data.position !== undefined ? data.position : defaults.position,
       progresses: data.progresses !== undefined && data.progresses.length > 0 ? data.progresses : defaults.progresses,
       subtitle: data.subtitle !== undefined ? data.subtitle : defaults.subtitle,
       tip: data.tip !== undefined ? data.tip.enabled : defaults.tip.enabled,

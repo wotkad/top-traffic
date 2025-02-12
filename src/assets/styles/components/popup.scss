@@ -3,10 +3,10 @@
     &.active {
       @apply z-[100] opacity-100 visible;
     }
-    @apply -z-[1] fixed inset-0 bg-black-100 bg-opacity-25 opacity-0 transition-all duration-300 cursor-pointer invisible;
+    @apply invisible -z-[1] fixed inset-0 bg-black-100 bg-opacity-25 opacity-0 transition-all duration-300 cursor-pointer;
   }
   &__wrapper {
-    @apply relative z-[200] bg-white-000 px-8 pt-8 pb-10 rounded-[10px] w-full max-w-[616px] transition-all -translate-y-5 duration-300;
+    @apply z-[200] relative bg-white-000 px-8 pt-8 pb-10 rounded-[10px] w-full max-w-[616px] transition-all -translate-y-5 duration-300;
   }
   &__title {
     @apply text-24-sb;
@@ -75,6 +75,7 @@
       @apply px-6 pt-5 pb-8 max-w-[280px];
     }
   }
+  &[data-popup-name="delete-admin-post"],
   &[data-popup-name="delete-link"],
   &[data-popup-name="delete-post"] {
     .popup__wrapper {
@@ -149,5 +150,5 @@
       @apply px-4 pt-3.5 pb-4 max-w-[400px];
     }
   }
-  @apply -z-[1] fixed inset-0 flex justify-center items-start opacity-0 pt-20 transition-all duration-300 invisible overflow-y-auto;
+  @apply invisible -z-[1] fixed inset-0 flex justify-center items-start opacity-0 pt-20 overflow-y-auto transition-all duration-300;
 }

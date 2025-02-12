@@ -44,7 +44,7 @@
     }
     .button.button-with-icon-full {
       svg {
-        @apply w-4 max-w-4 h-4 max-h-4;
+        @apply w-4 min-w-4 max-w-4 h-4 min-h-4 max-h-4;
       }
       span {
         @apply whitespace-nowrap;

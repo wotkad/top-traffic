@@ -12,7 +12,7 @@
     @apply flex gap-x-6 -mb-px overflow-x-auto;
   }
   &__buttons {
-    @apply border-b border-black-500;
+    @apply flex justify-between items-center border-b border-black-500;
   }
   &__button {
     &:hover {
@@ -28,7 +28,7 @@
       @apply flex justify-center items-center bg-purple-300 rounded-full w-[23px] h-[18px] text-10-m-sm leading-none;
     }
     &:before {
-      @apply bottom-0 left-0 absolute content-[''] bg-black-100 opacity-0 rounded-full w-full h-[2px] transition-all duration-300;
+      @apply bottom-0 left-0 absolute bg-black-100 opacity-0 rounded-full w-full h-[2px] content-[''] transition-all duration-300;
     }
     @apply relative flex items-center gap-x-1.5 px-[2px] py-2 text-12-m-p text-black-200 whitespace-nowrap transition-all duration-300 cursor-pointer;
   }
@@ -37,5 +37,34 @@
       @apply block;
     }
     @apply hidden;
+  }
+  &__toggle {
+    input {
+      &:checked {
+        & ~ .reality {
+          @apply text-black-100;
+        }
+        & ~ .awaiting {
+          @apply text-black-200;
+        }
+        & ~ span:before {
+          @apply left-[17px];
+        }
+      }
+      @apply invisible top-0 left-0 absolute;
+    }
+    span {
+      &:before {
+        @apply left-[2px] absolute bg-black-100 rounded-full w-3 h-3 content-[''] transition-all duration-300;
+      }
+      @apply relative flex items-center border border-black-100 rounded-[20px] w-[33px] h-[18px];
+    }
+    p {
+      &.awaiting {
+        @apply text-black-100;
+      }
+      @apply text-12-sb text-black-200 transition-all duration-300;
+    }
+    @apply relative flex items-center gap-x-2 cursor-pointer;
   }
 }

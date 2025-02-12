@@ -1,0 +1,227 @@
+aside.content-aside
+    .selectors
+      .selector__buttons
+        .selector__scroll
+          .selector__button(data-id="information").active Информация
+          .selector__button(data-id="chat") Чат
+      .selector__containers.selector__content
+        .selector__container(data-id="information").active
+          .content-aside__container
+            .content-aside__subtitle Общая информация
+            table.table
+              tr.text-black-200
+                th Продукт
+                td KION
+              tr.text-black-200
+                th Модель работы
+                td CPM
+              tr.text-black-200
+                th Дата запроса
+                td 01.01.2024
+              tr.text-black-200
+                th Менеджеры
+                td
+              tr.text-black-200
+                th Приоритет
+                td
+                  +dropdown({
+                    buttons: [
+                      {
+                        class: 'check-all',
+                        color: 'priority-transparent',
+                        isChecked: true,
+                        name: 'priority',
+                        title: 'Все',
+                      },
+                      {
+                        color: 'priority-red',
+                        name: 'priority',
+                        title: 'Очень высокий',
+                      },
+                      {
+                        color: 'priority-pink',
+                        name: 'priority',
+                        title: 'Высокий',
+                      },
+                      {
+                        color: 'priority-orange',
+                        name: 'priority',
+                        title: 'Средний',
+                      },
+                      {
+                        color: 'priority-peach',
+                        name: 'priority',
+                        title: 'Низкий',
+                      },
+                      {
+                        color: 'priority-yellow',
+                        name: 'priority',
+                        title: 'Очень низкий',
+                      },
+                    ],
+                    class: 'dropdown-priority',
+                    color: 'priority-transparent',
+                    isButtons: true,
+                    isPriority: true,
+                  })
+            .content-aside__subtitle Финансовая информация
+            table.table
+              tr.text-black-200
+                th Бюджет
+                td 5 000 000 ₽
+              tr.text-black-200
+                th Наценка
+                td 40%
+              tr.text-black-200
+                th Выручка с НДС, <br> план
+                td 5 000 000 ₽
+              tr.text-black-200
+                th Выручка с НДС, <br> прогноз
+                td
+              tr.text-black-200
+                th Чистая маржа, <br> план
+                td 5 000 000 ₽
+              tr.text-black-200
+                th Чистая маржа, <br> прогноз
+                td
+            .content-aside__subtitle Поле для комментария
+            +input({
+              class: 'content-aside__textarea',
+              isTextarea: true,
+              label: '',
+              name: 'comment',
+              placeholder: 'Добавить комментарий...',
+            })
+            .content-aside__subtitle Дополнительные материалы
+              +dropdown({
+                buttons: [
+                  {
+                    icon: 'other-new-file-icon',
+                    title: 'Медиаплан',
+                  },
+                  {
+                    title: 'Креативы',
+                  },
+                  {
+                    title: 'Другое',
+                  },
+                ],
+                icon: 'other-add-file-icon',
+                isButtons: true,
+                subtitle: 'Добавить',
+              })
+            .accordions
+              .accordion
+                .accordion__button(data-id="links")
+                  p Медиаплан
+                    span 2
+                  +button({
+                    class: 'button-icon sm',
+                    icon: 'other-angle-down-icon',
+                    isOnlyIcon: true,
+                    view: 'button',
+                  })
+                .accordion__container(data-id="links")
+                  .accordion__item
+                    .accordion__left
+                      .accordion__icon
+                        svg
+                          use(xlink:href="#other-link-icon")
+                      a(href="https://app.asana.com/" target="_blank") https://app.asana.com/
+                      time 24 янв. 15:10
+                    .accordion__right
+                      +button({
+                        class: 'button-icon accordion__action accordion__copy',
+                        icon: 'other-copy-icon',
+                        isOnlyIcon: true,
+                        view: 'button',
+                      })
+                      +button({
+                        class: 'button-icon accordion__action',
+                        dataPopupName: 'delete-link',
+                        icon: 'other-trash-icon',
+                        isOnlyIcon: true,
+                        view: 'button',
+                      })
+                  .accordion__item
+                    .accordion__left
+                      .accordion__icon
+                        svg
+                          use(xlink:href="#other-link-icon")
+                      span МП new.xlsx
+                      time 54 KB • 24 янв. 15:10
+                    .accordion__right
+                      +button({
+                        class: 'button-icon accordion__action',
+                        href: '#',
+                        icon: 'other-download-icon',
+                        isDownload: true,
+                        isOnlyIcon: true,
+                        view: 'link',
+                      })
+                      +button({
+                        class: 'button-icon accordion__action',
+                        dataPopupName: 'delete-link',
+                        icon: 'other-trash-icon',
+                        isOnlyIcon: true,
+                        view: 'button',
+                      })
+              .accordion
+                .accordion__button(data-id="files")
+                  p Креативы
+                    span 2
+                  +button({
+                    class: 'button-icon sm',
+                    icon: 'other-angle-down-icon',
+                    isOnlyIcon: true,
+                    view: 'button',
+                  })
+                .accordion__container(data-id="files")
+                  .accordion__item
+                    .accordion__left
+                      .accordion__icon
+                        svg
+                          use(xlink:href="#other-file-icon")
+                      a(href="#" download) Креативы.zip
+                      time 54 KB • 24 янв. 15:10
+                    .accordion__right
+                      +button({
+                        class: 'button-icon accordion__action',
+                        href: '#',
+                        icon: 'other-download-icon',
+                        isDownload: true,
+                        isOnlyIcon: true,
+                        view: 'link',
+                      })
+                      +button({
+                        class: 'button-icon accordion__action',
+                        dataPopupName: 'delete-file',
+                        icon: 'other-trash-icon',
+                        isOnlyIcon: true,
+                        view: 'button',
+                      })
+                  .accordion__item
+                    .accordion__left
+                      .accordion__icon
+                        svg
+                          use(xlink:href="#other-file-icon")
+                      a(href="#" download) Креативы new.zip
+                      time 54 KB • 24 янв. 15:10
+                    .accordion__right
+                      +button({
+                        class: 'button-icon accordion__action',
+                        href: '#',
+                        icon: 'other-download-icon',
+                        isDownload: true,
+                        isOnlyIcon: true,
+                        view: 'link',
+                      })
+                      +button({
+                        class: 'button-icon accordion__action',
+                        dataPopupName: 'delete-file',
+                        icon: 'other-trash-icon',
+                        isOnlyIcon: true,
+                        view: 'button',
+                      })
+        .selector__container(data-id="chat")
+          .my-6.text-14-sb-p.text-black-400 В разработке

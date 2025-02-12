@@ -80,21 +80,22 @@ mixin dropdown(data = {})
         else if modefied.isRadios && modefied.buttons
           +search
           .dropdown__items
-            each radio, index in modefied.buttons
-              label.dropdown__item(data-href=radio.linkHref data-title=radio.linkTitle)
-                if radio.image
-                  img.dropdown__image(src=radio.image.src, alt=radio.image.alt)
-                input(type="radio" name=`radio-${modefied.class}` checked=radio.isChecked)
-                p= radio.title
+            each button, index in modefied.buttons
+              label.dropdown__item(data-href=button.linkHref data-title=button.linkTitle)
+                if button.image
+                  img.dropdown__image(src=button.image.src, alt=button.image.alt)
+                input(type="radio" name=`radio-${button.name}` checked=button.isChecked)
+                p= button.title
 
         else if modefied.isPriority || modefied.isStatus
           each button, index in modefied.buttons
             label.dropdown__item
               input(
                 type="radio"
-                name=`radio-${modefied.class}`
+                name=`radio-${button.name}`
                 data-color=modefied.isPriority || modefied.isStatus ? button.color : false
-                checked=button.isChecked)
+                checked=button.isChecked
+                class=button.class)
               p
                 span(class=modefied.isPriority || modefied.isStatus ? button.color : false)= button.title
         
@@ -113,5 +114,5 @@ mixin dropdown(data = {})
             label.dropdown__item
               if button.image
                 img.dropdown__image(src=button.image.src, alt=button.image.alt)
-              input(type="radio" name=`radio-${modefied.class}` checked=button.isChecked)
+              input(type="radio" name=`radio-${button.name}` checked=button.isChecked)
               p= button.title

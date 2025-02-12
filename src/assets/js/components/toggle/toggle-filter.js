@@ -29,14 +29,17 @@ function toggleFilter() {
       const $filter = $(this);
       const filterName = $filter.data('filter-name');
       const $filterToggle = $('.filter__toggle[data-filter-name="' + filterName + '"]');
-      
-      const hasCheckedCheckboxes = $filter.find('input[type="checkbox"]:checked').length > 0;
-      const $radioInputs = $filter.find('input[type="radio"]');
-      const hasCheckedRadio = $radioInputs.length > 0 && !$radioInputs.first().prop('checked');
-
-      const hasDate = ($filter.find('input[name="date"]').val() > 0 || $filter.find('input[name="date"]').val() !== 'Все') && $filter.find('input[name="date"]').val() !== undefined;
-      
-      if (hasCheckedCheckboxes || hasCheckedRadio || hasDate) {
+  
+      const $checkedInputs = $filter.find('input[type="checkbox"]:checked, input[type="radio"]:checked');
+      const $checkedCheckAll = $filter.find('input.check-all:checked');
+  
+      const hasDate = ($filter.find('input[name="date"]').val() > 0 || $filter.find('input[name="date"]').val() !== 'Все') 
+        && $filter.find('input[name="date"]').val() !== undefined;
+  
+      // Проверяем, выбраны ли только check-all
+      const onlyCheckAllSelected = $checkedInputs.length > 0 && $checkedInputs.length === $checkedCheckAll.length;
+  
+      if ((hasDate || (!onlyCheckAllSelected && $checkedInputs.length > 0))) {
         $filterToggle.addClass('sorted');
       } else {
         $filterToggle.removeClass('sorted');
@@ -102,8 +105,6 @@ function toggleFilter() {
     $button.removeClass('sorted');
   });
 
-
-  toggleClearButton();
 }
 
 toggleFilter();

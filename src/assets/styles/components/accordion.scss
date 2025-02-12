@@ -26,11 +26,14 @@
     @apply p-0 w-[22px] h-[22px];
   }
   &__left {
+    span {
+      @apply block max-w-[110px] text-12-r-p text-ellipsis line-clamp-1;
+    }
     a {
       &:hover {
         @apply text-blue-200;
       }
-      @apply block line-clamp-1 max-w-[110px] text-12-r-p text-ellipsis transition-all duration-300;
+      @apply block max-w-[110px] text-12-r-p text-ellipsis line-clamp-1 transition-all duration-300;
     }
     time {
       @apply text-10-r-sm text-black-200;
