@@ -78,8 +78,8 @@ export default function toggleDropdown() {
     $('.dropdown__button').not(this).removeClass('active');
     $('.dropdown__sort').removeClass('active');
 
-    $(this).toggleClass('active');
-    $list.toggleClass('active');
+    $(this).addClass('active');
+    $list.addClass('active');
   });
 
   $('.dropdown__item input[type="radio"]').on('change', function () {
@@ -163,9 +163,9 @@ export default function toggleDropdown() {
     });
   });
 
-  $('.dropdown__list').on('click', function (e) {
-    e.stopPropagation();
-  });
+  // $('.dropdown__list').on('click', function (e) {
+  //   e.stopPropagation();
+  // });
 
   $('table.table .dropdown__list .input-checkbox-with-label input').on('change', function () {
     setTdPadding();

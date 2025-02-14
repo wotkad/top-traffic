@@ -1,0 +1,72 @@
+.company {
+  &__info {
+    .table {
+      th,
+      td {
+        &:nth-child(1),
+        &:nth-child(2) {
+          @apply pl-3;
+        }
+        @apply pl-3 border-black-500 align-middle;
+      }
+      tr:first-child th:first-child {
+        @apply border-t rounded-tl-[6px];
+      }
+      tr:first-child td:last-child {
+        @apply border-t rounded-tr-[6px];
+      }
+      tr:last-child th:first-child {
+        @apply border-b rounded-bl-[6px];
+      }
+      tr:last-child td:last-child {
+        @apply border-b rounded-br-[6px];
+      }
+      tr th:first-child {
+        @apply border-l h-10;
+      }
+      tr td:last-child {
+        @apply py-0 pr-3 border-r h-10;
+      }
+      tbody {
+        tr {
+          &:hover {
+            @apply bg-transparent;
+          }
+        }
+      }
+      th {
+        @apply pr-4 border-r text-12-sb-p;
+      }
+      td {
+        .dropdown {
+          &__button {
+            .button {
+              &.sm {
+                svg {
+                  @apply w-2.5 h-[5px];
+                }
+              }
+              @apply right-0;
+            }
+            .dropdown__image {
+              @apply w-6 h-6;
+            }
+            @apply p-0 border-none rounded-none w-full h-5;
+          }
+          &__title {
+            @apply text-black-100;
+          }
+          &-radios {
+            .dropdown__list {
+              @apply w-[228px];
+            }
+          }
+          @apply flex items-center w-full;
+        }
+        @apply bg-black-700;
+      }
+      @apply border-separate border-spacing-0;
+    }
+    @apply flex justify-start items-center gap-x-3 mt-6;
+  }
+}

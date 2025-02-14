@@ -14,20 +14,22 @@ mixin widget(data = {})
           .widget__tip(class=modefied.isHidden ? 'expanded' : false)
             svg
               use(xlink:href="#other-info-icon")
-            p.widget__hint= modefied.content
-      if modefied.mainValue
-        .widget__mainValue= modefied.mainValue
+            .widget__hint= modefied.content
+      if modefied.mainValue.value
+        .widget__mainValue(data-awaiting-value=modefied.mainValue.awaiting data-reality-value=modefied.mainValue.reality)= modefied.mainValue.value
     .widget__values(class=modefied.isFourValues ? 'widget__values-fourvalues' : false)
       each value in modefied.values
         if value.progress
           .widget__progress
-            .widget__value= value.value
-            span=value.progress.value + '%'
-            progress(value=value.progress.value min="0" max="100")
+            .widget__value(data-awaiting-value=value.awaiting data-reality-value=value.reality)= value.value
+              .widget__hint !{value.progress.content}
+            span(data-awaiting-value=value.progress.awaiting + '%' data-reality-value=value.progress.reality + '%')=value.progress.value + '%'
+            progress(value=value.progress.value min="0" max="100" data-awaiting-value=value.progress.awaiting data-reality-value=value.progress.reality)
         else
-          .widget__value(class=modefied.buttons.length ? 'widget__value-buttons' : '')= value.value
+          .widget__value
+            span(class=modefied.buttons.length ? 'widget__value-buttons' : '' data-awaiting-value=value.awaiting data-reality-value=value.reality)= value.value
             if value.title
-              p(class=value.class)= value.title
+              p(class=value.class data-awaiting-value=value.class ? value.awaiting : false data-reality-value=value.class ? value.reality : false)= value.title
             if modefied.buttons.length
               .widget__buttons
                 each button in modefied.buttons
@@ -44,6 +46,7 @@ mixin widget(data = {})
       .widget__progresses
         each progress in modefied.progresses
           .widget__progress
-            p= progress.title
-            span=progress.value + '%'
-            progress(value=progress.value min="0" max="100")
+            .widget__progress__title= progress.title
+              .widget__hint !{progress.content}
+            span(data-awaiting-value=progress.awaiting + '%' data-reality-value=progress.reality + '%')=progress.value + '%'
+            progress(value=progress.value min="0" max="100" data-awaiting-value=progress.awaiting data-reality-value=progress.reality)

@@ -23,10 +23,96 @@ block content
         isRk: true,
         title: 'Test_MTC_September',
       })
+      .company__info
+        table.table
+          tr
+            th.text-black-200 Клиент
+            td Мтс
+        table.table
+          tr
+            th.text-black-200 Период
+            td 01.01.2024 - 31.01.2024
+        table.table
+          tr
+            th.text-black-200 Куратор
+            td
+              +dropdown({
+                buttons: [
+                  {
+                    class: '',
+                    image: {
+                      alt: 'image',
+                      enabled: true,
+                      src: '/assets/images/user-image.png',
+                    },
+                    name: 'curator',
+                    title: 'ООО “ИП”',
+                  },
+                  {
+                    class: '',
+                    image: {
+                      alt: 'image',
+                      enabled: true,
+                      src: '/assets/images/avatar.png',
+                    },
+                    name: 'curator',
+                    title: 'ООО “ИП”',
+                  },
+                ],
+                class: 'dropdown-radios',
+                isRadios: true,
+              })
       .inner.in-container
         .content.content-sm
           .selectors
             .content.content-not-collapsed
+              .widgets.widgets-no-controls
+                +widget({
+                  color: 'blue',
+                  icon: 'widget-tablet-icon',
+                  tip: {
+                    content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+                    enabled: true,
+                  },
+                  title: 'Опрошено',
+                  values: [
+                    {
+                      awaiting: '15/20',
+                      progress: {
+                        awaiting: '65',
+                        content: '<strong>Плановое значение:</strong><br><span>25 000 000</span>',
+                        enabled: true,
+                        reality: '100',
+                        value: '65',
+                      },
+                      reality: '20/20',
+                      value: '15/20',
+                    },
+                  ],
+                })
+                +widget({
+                  color: 'blue',
+                  icon: 'widget-tablet-icon',
+                  tip: {
+                    content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+                    enabled: true,
+                  },
+                  title: 'Подтверждено',
+                  values: [
+                    {
+                      awaiting: '12/20',
+                      progress: {
+                        awaiting: '65',
+                        content: '<strong>Плановое значение:</strong><br><span>25 000 000</span>',
+                        enabled: true,
+                        reality: '100',
+                        value: '65',
+                      },
+                      reality: '20/20',
+                      value: '12/20',
+                    },
+                  ],
+                })
               .selector__buttons
                 .selector__scroll
                   .selector__button(data-id="company-analytics").active Аналитика
@@ -46,10 +132,16 @@ block content
                       isRows: true,
                       progresses: [
                         {
+                          awaiting: '0',
+                          content: '<strong>Плановое значение:</strong><br><span>25 000 000</span>',
+                          reality: '100',
                           title: 'плана',
                           value: '0',
                         },
                         {
+                          awaiting: '0',
+                          content: '<strong>Плановое значение:</strong><br><span>25 000 000</span>',
+                          reality: '100',
                           title: 'прогноза',
                           value: '0',
                         },
@@ -62,6 +154,8 @@ block content
                       title: 'Текущая выручка',
                       values: [
                         {
+                          awaiting: '0 ₽',
+                          reality: '100 ₽',
                           value: '0 ₽',
                         },
                       ],
@@ -72,10 +166,16 @@ block content
                       isRows: true,
                       progresses: [
                         {
+                          awaiting: '0',
+                          content: '<strong>Плановое значение:</strong><br><span>25 000 000</span>',
+                          reality: '100',
                           title: 'плана',
                           value: '0',
                         },
                         {
+                          awaiting: '0',
+                          content: '<strong>Плановое значение:</strong><br><span>25 000 000</span>',
+                          reality: '100',
                           title: 'прогноза',
                           value: '0',
                         },
@@ -88,6 +188,8 @@ block content
                       title: 'Текущая маржа',
                       values: [
                         {
+                          awaiting: '0 ₽',
+                          reality: '100 ₽',
                           value: '0 ₽',
                         },
                       ],
@@ -101,6 +203,8 @@ block content
                       title: 'Маржинальность',
                       values: [
                         {
+                          awaiting: '0%',
+                          reality: '100%',
                           value: '0%',
                         },
                       ],
@@ -114,10 +218,15 @@ block content
                       title: 'Скидка',
                       values: [
                         {
+                          awaiting: '0 ₽ (0%)',
                           progress: {
+                            awaiting: '0',
+                            content: '<strong>Плановое значение:</strong><br><span>25 000 000</span>',
                             enabled: true,
+                            reality: '100',
                             value: '0',
                           },
+                          reality: '100 ₽ (100%)',
                           value: '0 ₽ (0%)',
                         },
                       ],
@@ -131,6 +240,8 @@ block content
                       title: 'Расход',
                       values: [
                         {
+                          awaiting: '0 ₽',
+                          reality: '100 ₽',
                           value: '0 ₽',
                         },
                       ],
@@ -147,6 +258,8 @@ block content
                       title: 'Просмотры (в среднем)',
                       values: [
                         {
+                          awaiting: '20 000 000',
+                          reality: '40 000 000',
                           value: '20 000 000',
                         },
                       ],
@@ -155,7 +268,11 @@ block content
                       icon: 'widget-users-connected-icon',
                       isFourValues: true,
                       isRows: true,
-                      mainValue: '99 803',
+                      mainValue: {
+                        awaiting: '99 803',
+                        reality: '100 000',
+                        value: '99 803',
+                      },
                       tip: {
                         content: 'Введенные данные не соответствуют автоматике. Обновите данные',
                         enabled: true,
@@ -163,18 +280,26 @@ block content
                       title: 'Охват',
                       values: [
                         {
+                          awaiting: '99 803',
+                          reality: '100 000',
                           title: '12 часов',
                           value: '99 803',
                         },
                         {
+                          awaiting: '99 803',
+                          reality: '100 000',
                           title: '48 часов',
                           value: '99 803',
                         },
                         {
+                          awaiting: '99 803',
+                          reality: '100 000',
                           title: '24 часов',
                           value: '99 803',
                         },
                         {
+                          awaiting: '99 803',
+                          reality: '100 000',
                           title: '72 часов',
                           value: '99 803',
                         },
@@ -189,6 +314,8 @@ block content
                       title: 'ERR',
                       values: [
                         {
+                          awaiting: '35.59%',
+                          reality: '100.59%',
                           value: '35.59%',
                         },
                       ],
@@ -203,6 +330,8 @@ block content
                       title: 'Просмотры (всего)',
                       values: [
                         {
+                          awaiting: '20 000 000',
+                          reality: '40 000 000',
                           value: '20 000 000',
                         },
                       ],
@@ -216,9 +345,48 @@ block content
                       title: 'ER',
                       values: [
                         {
+                          awaiting: '35.59%',
+                          reality: '100.59%',
                           value: '35.59%',
                         },
                       ],
                     })
                 .selector__container(data-id="company-employees")
+          .selectors
+            .content.content-not-collapsed
+              .selector__buttons
+                .selector__scroll
+                  .selector__button(data-id="company-channels").active Каналы
+                    span 0
+              .selector__containers
+                .selector__container(data-id="company-channels").active
+                  +heading-table({
+                    isSearch: true,
+                    isRows: true,
+                    searchClass: 'min-w-[243px] max-w-[243px]',
+                    buttons: [
+                      {
+                        view: 'button',
+                        class: 'button-with-icon-blue',
+                        icon: 'other-plus-icon',
+                        isDisabled: true,
+                        title: 'Добавить канал',
+                        dataPopupName: 'add-channel',
+                      },
+                      {
+                        view: 'button',
+                        class: 'button-with-icon filter__toggle',
+                        icon: 'other-controls-icon',
+                        isDisabled: true,
+                        title: 'Фильтр',
+                        isClose: true,
+                        dataFilterName: 'company',
+                      },
+                    ],
+                  })
+                  .in-container.mt-4
+                    .content.content-collapsed
+                      .content-scroll
+                        include ../components/company/table
+                    include ../components/company/filter
         include ../components/company/aside

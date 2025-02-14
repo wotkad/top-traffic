@@ -2,7 +2,7 @@
   &__button {
     p {
       span {
-        @apply flex justify-center items-center bg-purple-300 rounded-full w-[23px] h-[18px] text-10-m-sm text-blue-200 leading-none;
+        @apply flex justify-center items-center bg-purple-300 rounded-full w-[23px] h-[18px] text-10-m-sm leading-none;
       }
       @apply flex items-center gap-x-1.5 text-12-sb-p;
     }

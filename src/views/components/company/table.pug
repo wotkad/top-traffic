@@ -1,0 +1,46 @@
+table.table.table-default
+  thead
+    tr
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Канал
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Категория
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Администратор
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Подписчики
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Менеджер
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+  tbody
+    +company-subrow({
+      title: 'Нераспределенные каналы',
+      count: '0',
+    })
+    +company-subrow({
+      title: 'Согласованные каналы',
+      count: '0',
+    })
+    +company-subrow({
+      title: 'Несогласованные каналы',
+      count: '0',
+    })

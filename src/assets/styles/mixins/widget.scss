@@ -65,7 +65,18 @@
     @apply flex flex-col items-start gap-y-[7px] mt-[7px];
   }
   &__progress {
-    p,
+    &__title {
+      .widget__hint {
+        strong {
+          @apply font-semibold text-10-m-sm;
+        }
+        span {
+          @apply text-10-r;
+        }
+        @apply left-full px-2 py-1.5;
+      }
+      @apply relative text-10-r-sm;
+    }
     span {
       @apply text-10-r-sm;
     }
@@ -81,7 +92,14 @@
       }
       @apply block mt-1 rounded-full w-full h-1;
     }
-    @apply flex flex-wrap justify-between items-end w-full;
+    &:hover {
+      .widget__progress__title {
+        .widget__hint {
+          @apply z-40 opacity-100 visible;
+        }
+      }
+    }
+    @apply flex flex-wrap justify-between items-end w-full cursor-pointer;
   }
   &__icon {
     @apply w-3.5 h-3.5;

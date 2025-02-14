@@ -74,6 +74,29 @@
           }
           @apply flex items-center w-full;
         }
+        .input {
+          &__container {
+            .rub {
+              @apply right-2 absolute text-black-200;
+            }
+            @apply relative flex justify-center w-auto;
+          }
+          @apply w-auto;
+        }
+        .input__el {
+          &:focus,
+          &:active,
+          &:hover {
+            @apply border-transparent;
+          }
+          &::placeholder {
+            @apply text-black-100;
+          }
+          &.filled {
+            @apply bg-black-600 pl-2 text-ellipsis line-clamp-1;
+          }
+          @apply p-2 pl-0 border-none rounded-[4px] w-auto max-w-[158px] h-[30px] text-ellipsis line-clamp-1;
+        }
         @apply bg-black-700;
       }
       @apply mt-4 w-full border-separate border-spacing-0;

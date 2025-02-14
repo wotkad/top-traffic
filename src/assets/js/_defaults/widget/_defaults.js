@@ -8,14 +8,24 @@ module.exports = {
     isFourValues: false,
     isProgresses: false,
     isRows: false,
-    mainValue: false,
-    position: false,
+    mainValue: {
+      awaiting: '',
+      reality: '',
+      value: '',
+    },
+    position: '',
     progresses: [
       {
+        awaiting: '0',
+        content: 'Подсказка',
+        reality: '100',
         title: 'Название',
         value: '0',
       },
       {
+        awaiting: '0',
+        content: 'Подсказка',
+        reality: '100',
         title: 'Название',
         value: '0',
       },
@@ -31,7 +41,10 @@ module.exports = {
       {
         class: false,
         progress: {
+          awaiting: '0',
+          content: 'Подсказка',
           enabled: false,
+          reality: '100',
           value: '0',
         },
         value: 'Значение',

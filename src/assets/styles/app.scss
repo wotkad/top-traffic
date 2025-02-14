@@ -7,6 +7,8 @@
 /*
   Базовые стили и утилиты
 */
+@import "./base/variables";
+@import "./mixins/breakpoints";
 @import "./base/global";
 @import "./base/priority-colors";
 @import "./base/status-colors";
@@ -46,3 +48,4 @@
 @import "./components/content-aside";
 @import "./components/content-aside-feed";
 @import "./components/accordion";
+@import "./components/company";

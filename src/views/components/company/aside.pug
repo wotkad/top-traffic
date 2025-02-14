@@ -78,12 +78,26 @@ aside.content-aside
               tr.text-black-200
                 th Выручка с НДС, <br> прогноз
                 td
+                  +input({
+                    autocomplete: 'off',
+                    class: 'currency',
+                    name: 'revenue',
+                    placeholder: '0',
+                    type: 'text',
+                  })
               tr.text-black-200
                 th Чистая маржа, <br> план
                 td 5 000 000 ₽
               tr.text-black-200
                 th Чистая маржа, <br> прогноз
                 td
+                  +input({
+                    autocomplete: 'off',
+                    class: 'currency',
+                    name: 'net-margin',
+                    placeholder: '0',
+                    type: 'text',
+                  })
             .content-aside__subtitle Поле для комментария
             +input({
               class: 'content-aside__textarea',

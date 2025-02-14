@@ -21,7 +21,9 @@ export default function setFilterHeight() {
     }
   });
 }
-setFilterHeight();
+setTimeout(function() {
+  setFilterHeight();
+}, 300);
 
 function checkScrollEnd() {
   if (!isScrolling) {

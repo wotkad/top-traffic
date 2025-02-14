@@ -4,10 +4,21 @@
       &-rows {
         @apply flex-col;
       }
-      @apply flex justify-between gap-y-[30px];
+      @apply flex justify-between gap-y-[30px] mt-[28px];
     }
     .heading__buttons {
-      @apply flex justify-between items-start gap-x-3;
+      .button {
+        &:disabled {
+          &.button-with-icon-blue {
+            @apply bg-black-700 border border-black-500;
+          }
+          &.button-with-icon {
+            @apply border-black-500;
+          }
+          @apply grayscale text-black-200;
+        }
+      }
+      @apply flex flex-wrap justify-between items-start gap-3;
     }
     .heading__left,
     .heading__right {
@@ -29,5 +40,4 @@
       @apply flex flex-col items-start gap-y-3;
     }
   }
-  @apply mt-[30px];
 }

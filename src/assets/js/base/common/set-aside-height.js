@@ -23,7 +23,9 @@ export default function setAsideHeight() {
     }
   });
 }
-setAsideHeight();
+setTimeout(function() {
+  setAsideHeight();
+}, 300);
 
 function checkScrollEnd() {
   if (!isScrolling) {

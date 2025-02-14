@@ -1,0 +1,13 @@
+mixin company-subrow(data)
+  tr.subrow
+    td.only-text(colspan="5")
+      .flex.items-center.justify-between
+        .flex.items-center(class="gap-x-2.5")
+          h3= data.title
+          span= data.count
+        +button({
+          class: 'button-icon sm',
+          icon: 'other-angle-down-icon',
+          isOnlyIcon: true,
+          view: 'button',
+        })

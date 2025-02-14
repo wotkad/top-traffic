@@ -12,7 +12,7 @@
     @apply flex gap-x-6 -mb-px overflow-x-auto;
   }
   &__buttons {
-    @apply flex justify-between items-center border-b border-black-500;
+    @apply flex justify-between items-center gap-x-4 border-b border-black-500;
   }
   &__button {
     &:hover {
