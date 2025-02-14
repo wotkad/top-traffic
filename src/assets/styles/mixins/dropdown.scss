@@ -173,7 +173,8 @@
       @apply text-12-r-p;
     }
   }
-  &-checkboxes {
+  &-checkboxes,
+  &-checkboxes-images {
     .dropdown__button {
       .button {
         @apply right-3;

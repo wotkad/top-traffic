@@ -140,6 +140,9 @@
           &::-webkit-progress-value {
             @apply bg-blue-200;
           }
+          &::-webkit-progress-bar {
+            @apply bg-white-000;
+          }
         }
       }
     }

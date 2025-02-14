@@ -1,4 +1,3 @@
-import gsap from "gsap";
 import setTdPaddingDefault from "../../base/common/set-td-padding-default";
 import setTdPadding from "../../base/common/set-td-padding";
 
@@ -20,26 +19,14 @@ function toggleSelector() {
     $(this).siblings('.selector__button').removeClass('active');
     $(this).addClass('active');
 
-    gsap.to($(this).closest('.selector__buttons').next().find('.selector__container'), {
-      opacity: 0,
-      duration: 0.3,
-      onComplete: () => {
-        gsap.set($(this).closest('.selector__buttons').next().find('.selector__container'), { display: 'none' });
-        gsap.set(block, { display: 'block' });
-        gsap.to(block, {
-          opacity: 1,
-          duration: 0.3,
-          onComplete: () => {
-            setTdPadding();
-            setTdPaddingDefault();
-            setFilterPosition();
-            setAsidePosition();
-            setFilterHeight();
-            setAsideHeight();
-          }
-        });
-      }
-    });
+    $(this).closest('.selector__buttons').next().find('.selector__container').hide();
+    block.show();
+    setTdPadding();
+    setTdPaddingDefault();
+    setFilterPosition();
+    setAsidePosition();
+    setFilterHeight();
+    setAsideHeight();
   });
 }
 

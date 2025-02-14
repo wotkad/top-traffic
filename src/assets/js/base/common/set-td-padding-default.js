@@ -40,6 +40,7 @@ export default function setTdPaddingDefault() {
 }
 
 // Таймер с задержкой перед запуском
+setTdPaddingDefault();
 setTimeout(function() {
   setTdPaddingDefault();
 }, 200);

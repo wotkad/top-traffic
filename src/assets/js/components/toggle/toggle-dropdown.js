@@ -50,11 +50,35 @@ export default function toggleDropdown() {
       }
     }
   }
+
+  function checkVisibilityImages($parent) {
+    const $children = $parent.find('.dropdown__value'); 
+    
+    $children.each(function (index) {
+        const $child = $(this);
+        if (index >= 4) {
+          $child.addClass('invisible').removeClass('visible');
+        } else {
+          $child.addClass('visible').removeClass('invisible');
+        }
+    });
+
+    const $visibleChildren = $children.filter('.visible');
+    const $hiddenChildren = $children.filter('.invisible');
+
+    $parent.find('.dropdown__show-all').remove();
+
+    if ($hiddenChildren.length) {
+        const $lastVisible = $visibleChildren.last();
+        $lastVisible.after(`<div class="dropdown__show-all">+${$hiddenChildren.length}</div>`);
+    }
+  }
+
   
   // При ресайзе обрабатываем каждый контейнер индивидуально
   $(window).on('resize', function() {
-    $('.dropdown__values').each(function () {
-      checkVisibility($(this)); // Передаем конкретный контейнер
+    $('.dropdown__values').not('.dropdown-checkboxes-images .dropdown__values').each(function () {
+        checkVisibility($(this)); // Передаем конкретный контейнер
     });
   });
   
@@ -163,16 +187,16 @@ export default function toggleDropdown() {
     });
   });
 
-  // $('.dropdown__list').on('click', function (e) {
-  //   e.stopPropagation();
-  // });
+  $('.dropdown__list').on('click', function (e) {
+    e.stopPropagation();
+  });
 
   $('table.table .dropdown__list .input-checkbox-with-label input').on('change', function () {
     setTdPadding();
     setTdPaddingDefault();
   });
 
-  $('.dropdown__list .input-checkbox-with-label input').on('change', function () {
+  $('.dropdown-checkboxes .dropdown__list .input-checkbox-with-label input').on('change', function () {
     const $dropdown = $(this).closest('.dropdown');
     const $list = $dropdown.find('.dropdown__list');
   
@@ -271,7 +295,6 @@ export default function toggleDropdown() {
         }
       }
     }
-  
     if ($valuesContainer.children('.dropdown__value').length === 0) {
       $sortBlock.hide().removeClass('active');
       $buttonBlock.show();
@@ -282,6 +305,66 @@ export default function toggleDropdown() {
     const $parent = $valuesContainer;
 
     checkVisibility($parent);
+
+    if ($(this).closest('.filter__container').length) {
+      const $container = $(this).closest('.dropdown__container');
+      const containerPosition = $container.position();
+      const containerHeight = $container.outerHeight(); 
+      const dropdownTop = containerPosition.top + containerHeight;
+      
+      $list.css({
+        top: `${dropdownTop + 4}px`,
+      });
+    }
+
+  });
+
+  $('.dropdown-checkboxes-images .dropdown__list .input-checkbox-with-label input').on('change', function () {
+    const $dropdown = $(this).closest('.dropdown');
+    const $list = $dropdown.find('.dropdown__list');
+  
+    // Остальная логика обработки чекбоксов
+    const $sortBlock = $dropdown.find('.dropdown__sort');
+    const $buttonBlock = $dropdown.find('.dropdown__button');
+    const $valuesContainer = $dropdown.find('.dropdown__values');
+    const $selectedValuesCount = $dropdown.find('.dropdown__selected span');
+  
+    const $firstCheckbox = $dropdown.find('.input-checkbox-with-label.check-all input');
+    let zIndex = $dropdown.find('.input-checkbox-with-label input:checked').not($firstCheckbox).length;
+  
+    // Очистить список и заново добавить все отмеченные элементы
+    $valuesContainer.empty();
+    $sortBlock.css('display', 'flex').addClass('active');
+    $buttonBlock.hide();
+  
+    $dropdown.find('.input-checkbox-with-label input:checked').not($firstCheckbox).each(function () {
+      let id = $(this).attr('id') || `checkbox-${Math.random().toString(36).substr(2, 9)}`;
+      $(this).attr('id', id);
+      
+  
+      const value = $(this).siblings('img').prop('src');
+      const template = `
+        <div class="dropdown__value" data-id="${id}" style="z-index:${zIndex--}">
+          <img src=${value}>
+        </div>
+      `;
+      $valuesContainer.append(template);
+    });
+  
+    // Обновляем счетчик выбранных элементов
+    $selectedValuesCount.text($valuesContainer.children('.dropdown__value').length);
+  
+    // Если больше нет отмеченных элементов, скрываем сортировку и показываем кнопку
+    if ($valuesContainer.children('.dropdown__value').length === 0) {
+      $sortBlock.hide().removeClass('active');
+      $buttonBlock.show();
+    }
+
+    $selectedValuesCount.text($dropdown.find('.input-checkbox-with-label input:checked').not($firstCheckbox).length);
+
+    const $parent = $valuesContainer;
+
+    checkVisibilityImages($parent);
 
     if ($(this).closest('.filter__container').length) {
       const $container = $(this).closest('.dropdown__container');
