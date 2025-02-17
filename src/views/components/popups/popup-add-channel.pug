@@ -46,7 +46,21 @@
               view: 'button',
             })
         .content-scroll
-          include ../company/table-popup
+          include ../company/popup/table-popup
         .mt-12
           include ../pagination
-      include ../company/filter-popup
+      include ../company/popup/filter-popup
+    .popup__buttons.popup__buttons-selected
+      +button({
+        class: 'button-with-icon-blue lg',
+        dataPopupName: 'add-channel',
+        title: 'Сохранить',
+        type: 'submit',
+        view: 'button',
+      })
+      +button({
+        class: 'button-base',
+        dataPopupName: 'add-channel',
+        title: 'Отмена',
+        view: 'button',
+      })

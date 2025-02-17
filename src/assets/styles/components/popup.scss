@@ -21,6 +21,9 @@
     @apply flex flex-col gap-y-4;
   }
   &__buttons {
+    &-selected {
+      @apply mt-2;
+    }
     @apply flex justify-end items-center gap-x-1.5 mt-8;
   }
   &.active {

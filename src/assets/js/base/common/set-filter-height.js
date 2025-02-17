@@ -19,6 +19,14 @@ export default function setFilterHeight() {
     } else {
       filterContainer.css('max-height', `calc(100dvh - ${filterOffsetTop}px - 24px)`);
     }
+
+    if (filterContainer.closest('.popup')) {
+      if (bottomOffset <= 0) {
+        filterContainer.css('max-height', `calc(100dvh - ${filterOffsetTop}px - 102px - ${-bottomOffset}px)`);
+      } else {
+        filterContainer.css('max-height', `calc(100dvh - ${filterOffsetTop}px - 24px)`);
+      }
+    }
   });
 }
 setTimeout(function() {

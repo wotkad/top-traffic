@@ -1,4 +1,10 @@
 .table {
+  &-selected {
+    &.active {
+      @apply block;
+    }
+    @apply hidden;
+  }
   thead {
     @apply bg-black-700;
   }
@@ -28,6 +34,11 @@
     &:hover {
       svg {
         @apply text-black-100;
+      }
+    }
+    &.active {
+      svg {
+        @apply rotate-180;
       }
     }
     @apply flex justify-center items-center border border-white-000 rounded-md w-[26px] h-[22px] text-white-000;
