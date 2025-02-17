@@ -188,7 +188,12 @@ export default function toggleDropdown() {
   });
 
   $('.dropdown__list').on('click', function (e) {
-    e.stopPropagation();
+    if (
+      $(this).closest('.dropdown-checkboxes').length ||
+      $(this).closest('.dropdown-checkboxes-images').length
+    ) {
+      e.stopPropagation();
+    }
   });
 
   $('table.table .dropdown__list .input-checkbox-with-label input').on('change', function () {

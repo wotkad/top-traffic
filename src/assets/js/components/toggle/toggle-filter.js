@@ -90,6 +90,7 @@ function toggleFilter() {
   });
 
   $('.filter__clear, .filter-clear').on('click', function (e) {
+    e.stopPropagation();
     const $clearButton = $(this);
     let filterName = $clearButton.hasClass('filter-clear') 
       ? $clearButton.parent().data('filter-name') 

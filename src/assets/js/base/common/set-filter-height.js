@@ -21,7 +21,7 @@ export default function setFilterHeight() {
     }
 
     if (filterContainer.closest('.popup')) {
-      if (bottomOffset <= 0) {
+      if (bottomOffset <= 80) {
         filterContainer.css('max-height', `calc(100dvh - ${filterOffsetTop}px - 102px - ${-bottomOffset}px)`);
       } else {
         filterContainer.css('max-height', `calc(100dvh - ${filterOffsetTop}px - 24px)`);
