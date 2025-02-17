@@ -57,7 +57,7 @@
   }
   &:before,
   &:after {
-    @apply -z-[1] absolute content-[''] from-white-000 opacity-0 rounded-[10px] w-full h-[75px] transition-all duration-300 invisible;
+    @apply invisible -z-[1] absolute from-white-000 opacity-0 rounded-[10px] w-full h-[75px] content-[''] transition-all duration-300;
   }
   &:before {
     @apply top-0 bg-gradient-to-b to-transparent;

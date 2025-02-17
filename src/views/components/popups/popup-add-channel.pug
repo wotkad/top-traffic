@@ -1,0 +1,52 @@
+.popup__bg(data-popup-name="add-channel")
+.popup(data-popup-name="add-channel")
+  .popup__wrapper(data-scroll-lock-scrollable)
+    .popup__close
+      +button({
+        ariaLabel: 'close',
+        class: 'button-close popup__hide',
+        dataPopupName: 'add-channel',
+        icon: 'other-close-icon',
+        isOnlyIcon: true,
+        view: 'button',
+      })
+    .popup__title Подбор каналов
+    .popup__subtitle В каталоге 93 461 открытых каналов
+    +heading-table({
+      title: 'Каналы',
+      buttons: [
+        {
+          view: 'button',
+          class: 'button-with-icon filter__toggle',
+          icon: 'other-controls-icon',
+          title: 'Фильтр',
+          isClose: true,
+          dataFilterName: 'add-channel',
+        },
+      ],
+    })
+    .inner.in-container
+      .content.content-collapsed
+        .table__selected
+          p Выбрано каналов:
+            span 3
+            +button({
+              ariaLabel: 'close',
+              class: 'table__clear',
+              icon: 'other-close-icon',
+              isOnlyIcon: true,
+              view: 'button',
+            })
+          .table__right
+            +button({
+              ariaLabel: 'toggle',
+              class: 'table__toggle',
+              icon: 'other-angle-down-icon',
+              isOnlyIcon: true,
+              view: 'button',
+            })
+        .content-scroll
+          include ../company/table-popup
+        .mt-12
+          include ../pagination
+      include ../company/filter-popup

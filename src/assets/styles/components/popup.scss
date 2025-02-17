@@ -6,7 +6,7 @@
     @apply invisible -z-[1] fixed inset-0 bg-black-100 bg-opacity-25 opacity-0 transition-all duration-300 cursor-pointer;
   }
   &__wrapper {
-    @apply z-[200] relative bg-white-000 px-8 pt-8 pb-10 rounded-[10px] w-full max-w-[616px] transition-all -translate-y-5 duration-300;
+    @apply z-[200] relative bg-white-000 -mt-5 px-8 pt-8 pb-10 rounded-[10px] w-full max-w-[616px] transition-all duration-300;
   }
   &__title {
     @apply text-24-sb;
@@ -25,12 +25,12 @@
   }
   &.active {
     .popup__wrapper {
-      @apply translate-y-0;
+      @apply mt-0;
     }
-    @apply z-[200] opacity-100 translate-y-0 visible;
+    @apply z-[200] opacity-100 visible;
   }
   &__close {
-    @apply top-3 right-3 absolute w-auto;
+    @apply top-3 right-3 absolute rounded-full w-auto;
   }
   &__copy {
     .button {
@@ -116,6 +116,26 @@
       @apply px-5 pt-5 pb-6 max-w-[493px];
     }
   }
+  &[data-popup-name="add-channel"] {
+    .popup__wrapper {
+      .popup__title {
+        @apply text-24-sb;
+      }
+      .popup__close {
+        .button {
+          @apply w-[30px] h-[30px];
+        }
+        svg {
+          @apply w-3 h-3 text-black-100;
+        }
+        @apply top-8 right-10 bg-black-600;
+      }
+      .popup__subtitle {
+        @apply mt-[5px] text-12-m-p text-black-200;
+      }
+      @apply px-10 pt-8 pb-16 w-[calc(100%-32px)] max-w-[1294px] overflow-x-hidden;
+    }
+  }
   &[data-popup-name="post"] {
     .popup__wrapper {
       .content-aside-feed__post {
@@ -138,7 +158,7 @@
       }
       .popup__close {
         svg {
-          @apply w-[11px] h-[11px] text-white-000;
+          @apply w-3 h-3 text-white-000;
         }
         &:hover {
           svg {
@@ -150,5 +170,5 @@
       @apply px-4 pt-3.5 pb-4 max-w-[400px];
     }
   }
-  @apply invisible -z-[1] fixed inset-0 flex justify-center items-start opacity-0 pt-20 overflow-y-auto transition-all duration-300;
+  @apply invisible -z-[1] fixed inset-0 flex justify-center items-start opacity-0 py-20 overflow-x-hidden overflow-y-auto transition-all duration-300;
 }

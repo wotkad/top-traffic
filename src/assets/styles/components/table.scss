@@ -3,7 +3,34 @@
     @apply bg-black-700;
   }
   &__sortbutton {
-    @apply -right-2.5 absolute hidden;
+    @apply hidden -right-2.5 absolute;
+  }
+  &__selected {
+    p {
+      span {
+        @apply ml-1;
+      }
+      @apply flex items-center text-12-sb-p text-white-000;
+    }
+    @apply flex justify-between items-center bg-blue-000 py-[9px] pr-5 pl-4 h-10;
+  }
+  &__clear {
+    &:hover,
+    &:active {
+      @apply bg-transparent;
+    }
+    @apply flex justify-center items-center ml-1 w-5 h-5 text-white-000;
+  }
+  &__toggle {
+    svg {
+      @apply w-2.5 h-[5px] transition-all duration-300;
+    }
+    &:hover {
+      svg {
+        @apply text-black-100;
+      }
+    }
+    @apply flex justify-center items-center border border-white-000 rounded-md w-[26px] h-[22px] text-white-000;
   }
   &__categories {
     @apply inline-flex items-center gap-x-[3px] bg-black-500 mr-1 p-[3px] rounded-[11px] translate-y-[3px];
@@ -16,7 +43,7 @@
       @apply inline;
     }
     span {
-      @apply line-clamp-2 max-w-[311px] text-12-r-md text-ellipsis whitespace-normal;
+      @apply max-w-[311px] text-12-r-md text-ellipsis line-clamp-2 whitespace-normal;
     }
     .button {
       &:hover,
@@ -62,10 +89,13 @@
     svg {
       @apply w-4 h-4;
     }
+    &-selected {
+      @apply opacity-100 visible;
+    }
     &.active {
       @apply opacity-100 visible;
     }
-    @apply opacity-0 transition-all duration-300 invisible;
+    @apply invisible opacity-0 transition-all duration-300;
   }
   &__link {
     svg {
@@ -88,7 +118,7 @@
         @apply rounded-full max-w-[22px] max-h-[22px] object-cover;
       }
       span {
-        @apply inline-block line-clamp-1 max-w-[98px] text-12-r-p text-ellipsis;
+        @apply inline-block max-w-[98px] text-12-r-p text-ellipsis line-clamp-1;
       }
       &:hover {
         @apply text-blue-000;
@@ -139,7 +169,7 @@
   }
   &__category {
     &:before {
-      @apply left-0 absolute content-[''] rounded-full w-2 h-2;
+      @apply left-0 absolute rounded-full w-2 h-2 content-[''];
     }
     @apply inline-flex relative items-center pl-3;
   }
@@ -197,7 +227,7 @@
   td {
     h3 {
       a {
-        @apply block line-clamp-1 max-w-[181px] text-ellipsis;
+        @apply block max-w-[181px] text-ellipsis line-clamp-1;
       }
     }
     &:nth-child(1),
@@ -222,7 +252,7 @@
       }
     }
     h3 {
-      @apply inline-block line-clamp-1 text-12-sb-p text-ellipsis;
+      @apply inline-block text-12-sb-p text-ellipsis line-clamp-1;
     }
     .dropdown {
       &__label {
@@ -275,7 +305,7 @@
     .status {
       @apply mt-1;
     }
-    @apply align-top py-2 pr-8 border-b border-black-500 text-12-r-p whitespace-nowrap;
+    @apply py-2 pr-8 border-b border-black-500 text-12-r-p align-top whitespace-nowrap;
   }
   tbody {
     tr {

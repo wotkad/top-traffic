@@ -9,13 +9,23 @@ function toggleFilter() {
     let filter = $('.filter[data-filter-name="' + filterName + '"]');
     let content = filter.prev('.content');
 
+    let x;
+
+    if (filter.hasClass('filter-sm')) {
+      x = '-390px';
+    } else if (filter.hasClass('filter-popup')) {
+      x = '-320px';
+    } else {
+      x = '-304px';
+    }
+
     if (toggle.hasClass('active')) {
       gsap.to(filter, {x: '0', duration: .3});
       toggle.removeClass('active');
       filter.removeClass('active');
       content.removeClass('active');
     } else {
-      gsap.to(filter, {x: filter.hasClass('filter-sm') ? '-390px' : '-304px', duration: .3});
+      gsap.to(filter, {x: x, duration: .3});
       toggle.addClass('active');
       filter.addClass('active');
       content.addClass('active');

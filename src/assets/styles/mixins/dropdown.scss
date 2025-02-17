@@ -255,7 +255,7 @@
       @apply bg-black-700 px-3 py-[7px] border border-black-500 rounded-md w-full h-8 text-black-100;
     }
     .dropdown__title {
-      @apply pr-0 text-12-m;
+      @apply pr-0 max-w-full text-12-m line-clamp-none;
     }
     .dropdown__list {
       @apply max-h-[200px];

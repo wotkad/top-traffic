@@ -34,7 +34,7 @@ function checkScrollEnd() {
   requestAnimationFrame(checkScrollEnd);
 }
 
-$('.wrapper').on('scroll', function() {
+$('.wrapper, .popup').on('scroll', function() {
   isScrolling = true;
   setFilterHeight();
   requestAnimationFrame(checkScrollEnd);
