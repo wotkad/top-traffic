@@ -3,6 +3,7 @@ module.exports = {
     buttons: [
 
     ],
+    class: '',
     count: false,
     isCalendar: false,
     isCheckboxes: false,
@@ -16,6 +17,7 @@ module.exports = {
   mergeConfig(data, defaults) {
     return {
       buttons: data.buttons !== undefined && data.buttons.length > 0 ? data.buttons : defaults.buttons,
+      class: data.class !== undefined ? data.class : defaults.class,
       count: data.count !== undefined ? data.count : defaults.count,
       isCalendar: data.isCalendar !== undefined ? data.isCalendar : defaults.isCalendar,
       isCheckboxes: data.isCheckboxes !== undefined ? data.isCheckboxes : defaults.isCheckboxes,

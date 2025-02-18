@@ -8,6 +8,29 @@ tr
         a(href="https://t.me/cybersec_academy" target="_blank").table__link @cybersec_academy
   td.only-text
     +dropdown({
+      buttons: [
+        {
+          name: 'channels-radio',
+          title: 'Все',
+        },
+        {
+          isChecked: true,
+          name: 'channels-radio',
+          title: '1/24',
+        },
+        {
+          name: 'channels-radio',
+          title: '1/48',
+        },
+        {
+          name: 'channels-radio',
+          title: '1/72',
+        },
+        {
+          name: 'channels-radio',
+          title: 'Нативный',
+        },
+      ],
       title: '1/24',
     })
   td.only-text 1/24

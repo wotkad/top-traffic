@@ -2,10 +2,10 @@ mixin heading-table(data = {})
   - const { defaults, mergeConfig } = require('/assets/js/_defaults/heading/_defaults-heading-table');
   - const modefied = mergeConfig(data, defaults);
 
-  .heading.heading-table(class=modefied.isRows ? 'heading-table-rows' : '')
+  .heading.heading-table(class=modefied.isRows ? 'heading-table-rows' : '' + modefied.class)
     if modefied.title
       .heading__title
-        h1= modefied.title
+        span= modefied.title
         if modefied.count
           sup= modefied.count
     .heading__buttons

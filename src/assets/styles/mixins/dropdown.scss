@@ -54,7 +54,8 @@
   }
   &__item {
     input {
-      &:checked ~ p {
+      &:checked ~ p,
+      &[checked] ~ p {
         @apply bg-black-600 bg-[url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTEiIGhlaWdodD0iOCIgdmlld0JveD0iMCAwIDExIDgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xIDMuNjY2NjdMNC4wNzAzMiA2Ljg1MDdDNC4xNDg5NyA2LjkzMjI2IDQuMjc5NiA2LjkzMjI2IDQuMzU4MjUgNi44NTA3TDEwIDEiIHN0cm9rZT0iIzM3NDE1MSIgc3Ryb2tlLXdpZHRoPSIxLjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L3N2Zz4K)];
       }
       @apply invisible top-0 absolute opacity-0 w-0 h-0;

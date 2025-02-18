@@ -151,7 +151,6 @@ function toggleTableInput() {
       $adminHeading.find('span').text(count);
 
       datePicker();
-      toggleDropdown();
     }
   });
 }

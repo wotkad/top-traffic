@@ -114,5 +114,5 @@ mixin dropdown(data = {})
             label.dropdown__item
               if button.image
                 img.dropdown__image(src=button.image.src, alt=button.image.alt)
-              input(type="radio" name=`radio-${button.name}` checked=button.isChecked)
+              input(type="radio" name=`radio-${button.name}` checked=button.isChecked class=button.isChecked ? 'filled' : '')
               p= button.title

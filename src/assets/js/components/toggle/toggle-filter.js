@@ -14,7 +14,7 @@ function toggleFilter() {
     if (filter.hasClass('filter-sm')) {
       x = '-390px';
     } else if (filter.hasClass('filter-popup')) {
-      x = '-320px';
+      x = '-300px';
     } else {
       x = '-304px';
     }

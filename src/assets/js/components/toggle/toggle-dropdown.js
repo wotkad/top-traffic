@@ -82,7 +82,7 @@ export default function toggleDropdown() {
     });
   });
   
-  $('.dropdown__button, .dropdown__sort').on('click', function (e) {
+  $(document).on('click', '.dropdown__button, .dropdown__sort', function (e) {
     e.stopPropagation();
     const $dropdown = $(this).closest('.dropdown');
     const $list = $dropdown.find('.dropdown__list');
@@ -107,6 +107,8 @@ export default function toggleDropdown() {
   });
 
   $('.dropdown__item input[type="radio"]').on('change', function () {
+    $(this).closest('.dropdown__item').siblings().find('input').removeAttr('checked');
+    $(this).attr('checked', true);
     const selectedValue = $(this).siblings('p').text();
     const selectedColor = $(this).data('color') || '';
 

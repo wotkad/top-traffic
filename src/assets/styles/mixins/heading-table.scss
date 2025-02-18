@@ -1,11 +1,5 @@
 .heading {
   &.heading {
-    &-table {
-      &-rows {
-        @apply flex-col;
-      }
-      @apply flex justify-between gap-y-[30px] mt-[28px];
-    }
     .heading__buttons {
       .button {
         &:disabled {
@@ -38,6 +32,17 @@
     }
     .heading__left__checkboxes {
       @apply flex flex-col items-start gap-y-3;
+    }
+    &-table {
+      &-rows {
+        @apply flex-col;
+      }
+      &-popup {
+        .heading__title {
+          @apply text-14-sb-md;
+        }
+      }
+      @apply flex justify-between gap-y-[30px] mt-[28px];
     }
   }
 }

@@ -61,7 +61,7 @@ mixin input(data = {})
         placeholder=modefied.placeholder
       )
 
-  else
+  else if !modefied.isLabel
     label.input
       input.input__el(
         disabled=modefied.isDisabled

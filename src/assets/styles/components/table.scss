@@ -1,9 +1,30 @@
 .table {
   &-selected {
-    &.active {
-      @apply block;
+    thead,
+    tbody {
+      @apply hidden;
     }
-    @apply hidden;
+    &.active {
+      thead {
+        @apply table-header-group;
+      }
+      tbody {
+        @apply table-row-group;
+      }
+    }
+    tr {
+      td,
+      th {
+        &:first-child {
+          .button {
+            svg {
+              @apply w-4 h-4;
+            }
+            @apply bg-transparent p-0 w-auto h-auto;
+          }
+        }
+      }
+    }
   }
   thead {
     @apply bg-black-700;
@@ -18,7 +39,10 @@
       }
       @apply flex items-center text-12-sb-p text-white-000;
     }
-    @apply flex justify-between items-center bg-blue-000 py-[9px] pr-5 pl-4 h-10;
+    &.active {
+      @apply flex justify-between items-center;
+    }
+    @apply hidden bg-blue-000 py-[9px] pr-5 pl-4 h-10;
   }
   &__clear {
     &:hover,

@@ -26,6 +26,24 @@
     }
     @apply flex justify-end items-center gap-x-1.5 mt-8;
   }
+  &__apply {
+    h3 {
+      @apply text-14-sb-md;
+    }
+    p {
+      @apply mt-1.5 text-12-m-md;
+    }
+    .popup__buttons {
+      .button {
+        @apply flex-1;
+      }
+      @apply justify-center;
+    }
+    &.active {
+      @apply z-50 opacity-100 visible;
+    }
+    @apply invisible top-[90px] right-[30px] -z-10 absolute bg-white-000 opacity-0 p-3.5 border border-black-500 rounded-[10px] min-w-[258px] transition-all duration-300;
+  }
   &.active {
     .popup__wrapper {
       @apply mt-0;
@@ -131,12 +149,12 @@
         svg {
           @apply w-3 h-3 text-black-100;
         }
-        @apply top-8 right-10 bg-black-600;
+        @apply top-8 right-5 bg-black-600;
       }
       .popup__subtitle {
         @apply mt-[5px] text-12-m-p text-black-200;
       }
-      @apply px-10 pt-8 pb-16 w-[calc(100%-32px)] max-w-[1294px] overflow-x-hidden;
+      @apply pt-8 pr-5 pb-16 pl-10 w-[calc(100%-32px)] max-w-[1294px] overflow-x-hidden;
     }
   }
   &[data-popup-name="post"] {

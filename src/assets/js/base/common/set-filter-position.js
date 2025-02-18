@@ -2,7 +2,7 @@ function setPosition(filter, content) {
   let filterPosition = filter.offset().top;
   let contentPosition = content.offset().top;
 
-  let right = content.offset().left + content.outerWidth() + filter.outerWidth() + 72;
+  let right = content.offset().left + content.outerWidth() + filter.outerWidth() + 52;
 
   if (filter.closest('.popup').length) {
     if (filterPosition <= 24) {

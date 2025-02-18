@@ -13,6 +13,29 @@ tr
           a(href="https://t.me/andreym" target="_blank").table__link @andreym
   td.only-text
     +dropdown({
+      buttons: [
+        {
+          name: 'add-channel-radio',
+          title: 'Все',
+        },
+        {
+          isChecked: true,
+          name: 'add-channel-radio',
+          title: '1/24',
+        },
+        {
+          name: 'add-channel-radio',
+          title: '1/48',
+        },
+        {
+          name: 'add-channel-radio',
+          title: '1/72',
+        },
+        {
+          name: 'add-channel-radio',
+          title: 'Нативный',
+        },
+      ],
       title: '1/24',
     })
   td.only-text 1/24

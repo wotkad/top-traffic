@@ -1,6 +1,22 @@
 .popup__bg(data-popup-name="add-channel")
 .popup(data-popup-name="add-channel")
   .popup__wrapper(data-scroll-lock-scrollable)
+    .popup__apply
+      h3 Подтвердить действие
+      p Сохранить изменения?
+      .popup__buttons
+        +button({
+          class: 'button-with-icon-blue lg popup-save',
+          dataPopupName: 'add-channel',
+          title: 'Сохранить',
+          view: 'button',
+        })
+        +button({
+          class: 'button-base popup-cancel',
+          dataPopupName: 'add-channel',
+          title: 'Отменить',
+          view: 'button',
+        })
     .popup__close
       +button({
         ariaLabel: 'close',
@@ -13,7 +29,8 @@
     .popup__title Подбор каналов
     .popup__subtitle В каталоге 93 461 открытых каналов
     +heading-table({
-      title: 'Каналы',
+      title: 'Найдено каналов: 93 461',
+      class: 'heading-table-popup',
       buttons: [
         {
           view: 'button',
@@ -29,7 +46,7 @@
       .content.content-collapsed
         .table__selected
           p Выбрано каналов:
-            span 3
+            span 0
             +button({
               ariaLabel: 'close',
               class: 'table__clear',
