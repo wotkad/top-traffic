@@ -1,0 +1,112 @@
+table.table.table-default.table-approval
+  thead
+    tr
+      th.border-r.border-black-500(style="min-width: 76px;")
+        .table__sort.flex.gap-x-3.items-center
+          +input({
+            class: 'md table__checkbox pointer-events-none table__checkbox-accept',
+            isChecked: true,
+            type: 'checkbox',
+          })
+          +input({
+            class: 'md table__checkbox pointer-events-none table__checkbox-decline',
+            isChecked: true,
+            type: 'checkbox',
+          })
+      th(style="min-width: 280px;")
+        .table__sort.flex.gap-x-2.items-center
+          p Канал
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Категория
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Администратор
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p.text-right Подписчики
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center.justify-end
+          p.text-right Охват
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p.text-right Последняя ставка
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p.text-right Последняя скидка
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Менеджер
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Комментарий
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+  tbody
+    +table-approval-row({
+      isRadio: true,
+      accept: true,
+      decline: false,
+      name: 'approval-1'
+    })
+    +table-approval-row({
+      isRadio: true,
+      accept: false,
+      decline: true,
+      name: 'approval-2'
+    })
+    +table-approval-row({
+      isRadio: true,
+      accept: true,
+      decline: false,
+      name: 'approval-3'
+    })
+    +table-approval-row({
+      isRadio: true,
+      accept: false,
+      decline: true,
+      name: 'approval-4'
+    })
+    +table-approval-row({
+      isRadio: true,
+      accept: true,
+      decline: false,
+      name: 'approval-5'
+    })
+    +table-approval-row({
+      isRadio: true,
+      accept: false,
+      decline: true,
+      name: 'approval-6'
+    })
+    +table-approval-row({
+      isRadio: true,
+      accept: false,
+      decline: true,
+      name: 'approval-7'
+    })

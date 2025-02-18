@@ -141,13 +141,15 @@ export default function toggleDropdown() {
   });
 
   $('.dropdown-radios .dropdown__item input[type="radio"]').on('change', function () {
-    const selectedValue = $(this).siblings('p').text();
-    const selectedImg = $(this).siblings('img').prop('src');
-    const selectedAlt = $(this).siblings('img').prop('alt');
+    if ($(this).closest('.dropdown-radios').hasClass('dropdown-copy-image')) {
+      const selectedValue = $(this).siblings('p').text();
+      const selectedImg = $(this).siblings('img').prop('src');
+      const selectedAlt = $(this).siblings('img').prop('alt');
 
-    const titleStatus = $(this).closest('.dropdown__container').find('.dropdown__button').find('.dropdown__title');
+      const titleStatus = $(this).closest('.dropdown__container').find('.dropdown__button').find('.dropdown__title');
 
-    titleStatus.html(`<img class="dropdown__image" src=${selectedImg} alt=${selectedAlt}>` + selectedValue);
+      titleStatus.html(`<img class="dropdown__image" src=${selectedImg} alt=${selectedAlt}>` + selectedValue);
+    }
   });
 
   $('.dropdown-radios.dropdown-select-admin .dropdown__item input[type="radio"]').on('change', function () {

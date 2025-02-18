@@ -14,7 +14,7 @@ mixin input(data = {})
               use(xlink:href="#other-error-icon")
             span Обязательно к заполнению
 
-  if !modefied.isLabel && modefied.type !== 'checkbox' && !modefied.isTextarea
+  if !modefied.isLabel && modefied.type !== 'checkbox' && !modefied.isTextarea && !modefied.isRadio
     label.input.input-with-label
       .input__container
         input.input__el(class=modefied.class disabled=modefied.isDisabled type=modefied.type required=modefied.isRequired autocomplete=modefied.autocomplete placeholder=modefied.placeholder name=modefied.name)
@@ -46,7 +46,7 @@ mixin input(data = {})
             icon: modefied.icon,
             isOnlyIcon: true,
           })
-  
+
   else if modefied.isTextarea
     .textarea(class=modefied.class)
       if modefied.label
@@ -60,6 +60,12 @@ mixin input(data = {})
         name=modefied.name
         placeholder=modefied.placeholder
       )
+  
+  else if modefied.type == 'radio'
+    .checkbox
+      label(class="input-checkbox " + modefied.class)
+        input(type="radio" name=modefied.name checked=modefied.isChecked value=modefied.value class=modefied.class)
+        span
 
   else if !modefied.isLabel
     label.input

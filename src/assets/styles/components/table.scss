@@ -1,4 +1,55 @@
 .table {
+  &.table-approval {
+    .dropdown-radios {
+      .dropdown__title {
+        @apply font-normal;
+      }
+    }
+    th:nth-child(1),
+    td:nth-child(1) {
+      .table__sort {
+        @apply -mr-4;
+      }
+      @apply py-[15px] pl-4;
+    }
+  }
+  .input-checkbox.table__checkbox-accept {
+    input:checked {
+      & ~ span {
+        &:before {
+          @apply bg-green-050 border-green-050;
+        }
+      }
+    }
+    &:hover {
+      span {
+        &:before {
+          @apply border-green-050;
+        }
+      }
+    }
+  }
+  .input-checkbox.table__checkbox-decline {
+    input:checked {
+      & ~ span {
+        &:before {
+          @apply bg-red-100 border-red-100;
+        }
+      }
+    }
+    &:hover {
+      span {
+        &:before {
+          @apply border-red-100;
+        }
+      }
+    }
+    span {
+      &:after {
+        @apply scale-100 bg-[url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIHZpZXdCb3g9IjAgMCAxMCAxMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIuMjE5MzkgMS4yOTkxN0wyLjIxOTM5IDEuMjk5MTdDMS45NjU1NCAxLjA0NTMzIDEuNTUzOTkgMS4wNDUzMyAxLjMwMDE1IDEuMjk5MTdMMS4zMDAxNCAxLjI5OTE3QzEuMDQ2MzEgMS41NTMwMSAxLjA0NjMxIDEuOTY0NTcgMS4zMDAxNCAyLjIxODQxTDEuMzAwMTQgMi4yMTg0MUw0LjA4MTQ0IDQuOTk5NjlMMS4zMDAxOCA3Ljc4MDk4QzEuMzAwMTggNy43ODA5OCAxLjMwMDE4IDcuNzgwOTggMS4zMDAxNyA3Ljc4MDk4QzEuMDQ2MzMgOC4wMzQ4MSAxLjA0NjM0IDguNDQ2MzggMS4zMDAxOCA4LjcwMDIxTDEuMzAwMTggOC43MDAyMUMxLjU1NDAyIDguOTU0MDQgMS45NjU1NyA4Ljk1NDA0IDIuMjE5NDEgOC43MDAyMUwyLjIxOTQxIDguNzAwMjFMNS4wMDA2NyA1LjkxODkzTDcuNzgxOTUgOC43MDAyMUM4LjAzNTc4IDguOTU0MDQgOC40NDczNiA4Ljk1NDA0IDguNzAxMTkgOC43MDAyMUM4Ljk1NTAyIDguNDQ2MzggOC45NTUwMiA4LjAzNDgxIDguNzAxMTkgNy43ODA5OEw1LjkxOTkgNC45OTk3TDguNzAxMjQgMi4yMTg0MUw4LjcwMTI0IDIuMjE4NDFDOC45NTUwNiAxLjk2NDU2IDguOTU1MDYgMS41NTMwMSA4LjcwMTI0IDEuMjk5MTdMOC43MDEyNCAxLjI5OTE3QzguNDQ3NDEgMS4wNDUzMyA4LjAzNTgzIDEuMDQ1MzMgNy43ODIgMS4yOTkxN0M3Ljc4MiAxLjI5OTE3IDcuNzgyIDEuMjk5MTcgNy43ODIgMS4yOTkxN0w1LjAwMDY3IDQuMDgwNDZMMi4yMTkzOSAxLjI5OTE3WiIgZmlsbD0id2hpdGUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMC4zIi8+Cjwvc3ZnPgo=)];
+      }
+    }
+  }
   &-selected {
     thead,
     tbody {
@@ -28,6 +79,9 @@
   }
   thead {
     @apply bg-black-700;
+  }
+  .input-with-label .input__el.table__comment {
+    @apply bg-transparent p-0 border-none rounded-none min-w-[150px] h-3.5;
   }
   &__sortbutton {
     @apply hidden -right-2.5 absolute;
