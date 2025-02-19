@@ -1,5 +1,6 @@
 .table {
-  &.table-approval {
+  &.table-approval,
+  &.table-coordination {
     .dropdown-radios {
       .dropdown__title {
         @apply font-normal;
@@ -11,6 +12,30 @@
         @apply -mr-4;
       }
       @apply py-[15px] pl-4;
+    }
+  }
+  &.table-survey {
+    td {
+      .input {
+        &__container {
+          .rub {
+            @apply right-0 absolute;
+          }
+          @apply relative flex justify-center w-auto;
+        }
+        @apply w-auto;
+      }
+      .input__el {
+        &:focus,
+        &:active,
+        &:hover {
+          @apply bg-black-600 pr-2 border-transparent;
+        }
+        &::placeholder {
+          @apply text-black-100;
+        }
+        @apply bg-transparent -mr-2 p-2 border-none rounded-[4px] w-[70px] min-w-[70px] h-[30px] text-right text-ellipsis line-clamp-1;
+      }
     }
   }
   .input-checkbox.table__checkbox-accept {
@@ -402,6 +427,16 @@
         @apply bg-purple-300;
       }
       @apply transition-all duration-300;
+    }
+    td {
+      .dropdown-status {
+        .dropdown__button {
+          .button {
+            @apply right-0;
+          }
+          @apply px-1.5;
+        }
+      }
     }
   }
   &.table-default {

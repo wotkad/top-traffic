@@ -37,12 +37,18 @@
       .button {
         @apply flex-1;
       }
-      @apply justify-center;
+      @apply justify-center mt-4;
     }
     &.active {
       @apply z-50 opacity-100 visible;
     }
-    @apply invisible top-[90px] right-[30px] -z-10 absolute bg-white-000 opacity-0 p-3.5 border border-black-500 rounded-[10px] min-w-[258px] transition-all duration-300;
+    &-top {
+      @apply top-[72px] right-5;
+    }
+    &-bottom {
+      @apply right-5 bottom-[112px];
+    }
+    @apply invisible -z-10 absolute bg-white-000 opacity-0 p-3.5 border border-black-500 rounded-[10px] min-w-[258px] transition-all duration-300;
   }
   &.active {
     .popup__wrapper {

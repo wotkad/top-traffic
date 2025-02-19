@@ -1,0 +1,171 @@
+aside.filter.filter-sm(data-filter-name="company-survey")
+  .filter__container
+    .filter__title
+      h2 Фильтр
+      button(type="button" data-filter-name="company").filter__clear Сбросить
+    form(action="#")
+      h3.filter__subtitle Рекламная кампания
+      +dropdown({
+        checkboxes: [
+          {
+            class: 'check-all',
+            title: 'Все',
+          },
+          {
+            title: 'Банки',
+          },
+          {
+            title: 'Банки',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Банки',
+          },
+          {
+            title: 'Банки',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+        ],
+        class: 'dropdown-checkboxes',
+        isAll: true,
+        isCheckboxes: true,
+      })
+      h3.filter__subtitle Клиент
+      +dropdown({
+        checkboxes: [
+          {
+            class: 'check-all',
+            title: 'Все',
+          },
+          {
+            title: 'Банки',
+          },
+          {
+            title: 'Банки',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Банки',
+          },
+          {
+            title: 'Банки',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+        ],
+        class: 'dropdown-checkboxes',
+        isAll: true,
+        isCheckboxes: true,
+      })
+      h3.filter__subtitle Период
+      +button({
+        calendarClass: 'opensleft',
+        class: 'button-with-icon',
+        icon: 'other-calendar-icon',
+        isCalendar: true,
+        isDatePicker: false,
+        isMonthPicker: true,
+        value: 'Все',
+        view: 'button',
+      })
+      h3.filter__subtitle Статус рекламной кампании
+      +dropdown({
+        buttons: [
+          {
+            class: 'check-all',
+            color: 'status-transparent',
+            isChecked: true,
+            title: 'Все',
+          },
+          {
+            color: 'status-green',
+            title: 'В работу',
+          },
+          {
+            color: 'status-blue',
+            title: 'В работе',
+          },
+          {
+            color: 'status-red',
+            title: 'Пауза',
+          },
+          {
+            color: 'status-gray',
+            title: 'Завершено',
+          },
+          {
+            color: 'status-purple',
+            title: 'Согласование',
+          },
+        ],
+        class: 'dropdown-status',
+        isButtons: true,
+        isStatus: true,
+      })
+      +button({
+        class: 'button-base filter__button',
+        title: 'Применить',
+        type: 'submit',
+        view: 'button',
+      })

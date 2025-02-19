@@ -1,0 +1,101 @@
+table.table.table-fixed-cols.table-survey
+  thead
+    tr
+      th.border-r.border-black-500(style="min-width: 280px;")
+        .table__sort.flex.gap-x-2.items-center
+          p Канал
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Статус запроса
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Категория
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Администратор
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p.text-right Подписчики
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p.text-right Охват
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p.text-right Последняя ставка
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p.text-right Последняя скидка
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center.justify-end
+          p.text-right Себестоимость
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center.justify-end
+          p.text-right Скидка
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Ближайшая дата поста
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Менеджер
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Комментарий
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+  tbody
+    +company-subrow-survey({
+      title: 'Нераспределенные каналы',
+      count: '4',
+    })
+    include table-survey-row
+    include table-survey-row
+    include table-survey-row
+    include table-survey-row
+    +company-subrow-survey({
+      title: 'Согласованные каналы',
+      count: '0',
+    })
+    +company-subrow-survey({
+      title: 'Несогласованные каналы',
+      count: '3',
+    })
+    include table-survey-row
+    include table-survey-row
+    include table-survey-row

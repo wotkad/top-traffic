@@ -102,7 +102,7 @@
         .input {
           &__container {
             .rub {
-              @apply right-2 absolute text-black-200;
+              @apply right-2 absolute text-black-200 transition-all duration-300;
             }
             @apply relative flex justify-center w-auto;
           }
@@ -112,15 +112,12 @@
           &:focus,
           &:active,
           &:hover {
-            @apply border-transparent;
+            @apply bg-black-600 pl-2 border-transparent;
           }
           &::placeholder {
             @apply text-black-100;
           }
-          &.filled {
-            @apply bg-black-600 pl-2 text-ellipsis line-clamp-1;
-          }
-          @apply p-2 pl-0 border-none rounded-[4px] w-auto max-w-[158px] h-[30px] text-ellipsis line-clamp-1;
+          @apply bg-transparent p-2 pl-0 border-none rounded-[4px] w-auto max-w-[158px] h-[30px];
         }
         @apply bg-black-700;
       }
@@ -169,5 +166,5 @@
   &__textarea {
     @apply mt-4;
   }
-  @apply right-6 absolute bg-white-000 shadow-[0_24px_0_#fff] px-4 pt-3 border border-black-500 rounded-[10px] min-w-[346px] max-w-[346px];
+  @apply right-6 z-20 absolute bg-white-000 shadow-[0_24px_0_#fff] px-4 pt-3 border border-black-500 rounded-[10px] min-w-[346px] max-w-[346px];
 }

@@ -2,7 +2,7 @@ mixin dropdown(data = {})
   - const { defaults, mergeConfig } = require('/assets/js/_defaults/dropdown/_defaults');
   - const modefied = mergeConfig(data, defaults);
   - const isSelected = modefied.isSelected ? ' selected' : '';
-  - const isStatus = modefied.isStatus ? modefied.color : '';
+  - const isStatus = modefied.isStatus ? modefied.color + ' selected' : '';
 
   .dropdown(class=modefied.class)
     if modefied.label

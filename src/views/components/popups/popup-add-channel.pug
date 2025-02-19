@@ -1,7 +1,23 @@
 .popup__bg(data-popup-name="add-channel")
 .popup(data-popup-name="add-channel")
   .popup__wrapper(data-scroll-lock-scrollable)
-    .popup__apply
+    .popup__apply.popup__apply-top
+      h3 Подтвердить действие
+      p Сохранить изменения?
+      .popup__buttons
+        +button({
+          class: 'button-with-icon-blue lg popup-save',
+          dataPopupName: 'add-channel',
+          title: 'Сохранить',
+          view: 'button',
+        })
+        +button({
+          class: 'button-base popup-cancel',
+          dataPopupName: 'add-channel',
+          title: 'Отменить',
+          view: 'button',
+        })
+    .popup__apply.popup__apply-bottom
       h3 Подтвердить действие
       p Сохранить изменения?
       .popup__buttons
@@ -20,8 +36,7 @@
     .popup__close
       +button({
         ariaLabel: 'close',
-        class: 'button-close popup__hide',
-        dataPopupName: 'add-channel',
+        class: 'button-close popup-save-top',
         icon: 'other-close-icon',
         isOnlyIcon: true,
         view: 'button',
@@ -69,14 +84,13 @@
       include ../company/popup/filter-popup
     .popup__buttons.popup__buttons-selected
       +button({
-        class: 'button-with-icon-blue lg',
-        dataPopupName: 'add-channel',
+        class: 'button-with-icon-blue lg popup-save-bottom',
         title: 'Сохранить',
         type: 'submit',
         view: 'button',
       })
       +button({
-        class: 'button-base',
+        class: 'button-base popup-cancel',
         dataPopupName: 'add-channel',
         title: 'Отмена',
         view: 'button',

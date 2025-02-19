@@ -1,7 +1,6 @@
 import setTdPaddingDefault from "../../base/common/set-td-padding-default";
 import setTdPadding from "../../base/common/set-td-padding";
 import datePicker from "../datepicker";
-import toggleDropdown from "./toggle-dropdown";
 
 function generateId() {
   return Math.random().toString(36).substr(2, 9);
