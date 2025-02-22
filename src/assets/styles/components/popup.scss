@@ -39,6 +39,12 @@
       }
       @apply justify-center mt-4;
     }
+    &__bg {
+      &.active {
+        @apply z-40 opacity-100 visible;
+      }
+      @apply invisible -z-[1] fixed inset-0 bg-black-100 bg-opacity-25 opacity-0 transition-all duration-300 cursor-pointer;
+    }
     &.active {
       @apply z-50 opacity-100 visible;
     }

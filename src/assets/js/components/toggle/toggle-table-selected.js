@@ -359,13 +359,16 @@ function toggleTableSelected() {
     $('.table-select input[type="checkbox"]').prop('checked', false);
     updateSelectedCount();
     $(this).closest('.popup__apply').removeClass('active');
+    $(this).closest('.popup').find('.popup__apply__bg').removeClass('active');
   });
 
   $('.popup-save-top').on('click', function() {
+    $(this).closest('.popup').find('.popup__apply__bg').addClass('active');
     $(this).closest('.popup').find('.popup__apply-top').addClass('active');
   });
 
   $('.popup-save-bottom').on('click', function() {
+    $(this).closest('.popup').find('.popup__apply__bg').addClass('active');
     $(this).closest('.popup').find('.popup__apply-bottom').addClass('active');
   });
 
@@ -376,6 +379,7 @@ function toggleTableSelected() {
     $('.table-select input[type="checkbox"]').prop('checked', false);
     updateSelectedCount();
     $(this).closest('.popup').find('.popup__apply').removeClass('active');
+    $(this).closest('.popup').find('.popup__apply__bg').removeClass('active');
   });
 }
 
