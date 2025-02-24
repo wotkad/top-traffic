@@ -1,8 +1,8 @@
-aside.filter.filter-sm(data-filter-name="company-survey")
+aside.filter.filter-sm(data-filter-name="company-mediaplan-agreed")
   .filter__container
     .filter__title
       h2 Фильтр
-      button(type="button" data-filter-name="company-survey").filter__clear Сбросить
+      button(type="button" data-filter-name="company-mediaplan-agreed").filter__clear Сбросить
     form(action="#")
       h3.filter__subtitle Канал
       +dropdown({
@@ -429,6 +429,38 @@ aside.filter.filter-sm(data-filter-name="company-survey")
         isAll: true,
         isCheckboxes: true,
       })
+      h3.filter__subtitle Подтверждение клиента
+      +dropdown({
+        buttons: [
+          {
+            isChecked: true,
+            name: 'mediaplan-agreed-approval-client',
+            title: 'Все',
+          },
+          {
+            name: 'mediaplan-agreed-approval-client',
+            title: 'Да',
+          },
+        ],
+        class: 'dropdown-radios',
+        isRadios: true,
+      })
+      h3.filter__subtitle Подтверждение куратора
+      +dropdown({
+        buttons: [
+          {
+            isChecked: true,
+            name: 'mediaplan-agreed-approval-curator',
+            title: 'Все',
+          },
+          {
+            name: 'mediaplan-agreed-approval-curator',
+            title: 'Да',
+          },
+        ],
+        class: 'dropdown-radios',
+        isRadios: true,
+      })
       h3.filter__subtitle Подписчики
       +input({
         max: '100',
@@ -471,11 +503,11 @@ aside.filter.filter-sm(data-filter-name="company-survey")
         buttons: [
           {
             isChecked: true,
-            name: 'survey-post-type',
+            name: 'mediaplan-agreed-post-type',
             title: 'Все',
           },
           {
-            name: 'survey-post-type',
+            name: 'mediaplan-agreed-post-type',
             title: 'Да',
           },
         ],
@@ -547,11 +579,11 @@ aside.filter.filter-sm(data-filter-name="company-survey")
         buttons: [
           {
             isChecked: true,
-            name: 'survey-contact-gs',
+            name: 'mediaplan-agreed-contact-gs',
             title: 'Все',
           },
           {
-            name: 'survey-contact-gs',
+            name: 'mediaplan-agreed-contact-gs',
             title: 'Да',
           },
         ],
@@ -563,11 +595,11 @@ aside.filter.filter-sm(data-filter-name="company-survey")
         buttons: [
           {
             isChecked: true,
-            name: 'survey-adaptation-gs',
+            name: 'mediaplan-agreed-adaptation-gs',
             title: 'Все',
           },
           {
-            name: 'survey-adaptation-gs',
+            name: 'mediaplan-agreed-adaptation-gs',
             title: 'Да',
           },
         ],
@@ -579,11 +611,11 @@ aside.filter.filter-sm(data-filter-name="company-survey")
         buttons: [
           {
             isChecked: true,
-            name: 'survey-button-gs',
+            name: 'mediaplan-agreed-button-gs',
             title: 'Все',
           },
           {
-            name: 'survey-button-gs',
+            name: 'mediaplan-agreed-button-gs',
             title: 'Да',
           },
         ],

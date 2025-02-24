@@ -1,0 +1,67 @@
+tr
+  td(colspan="17")
+    .flex.items-center(class="gap-x-1.5")
+      img.rounded.object-cover(class="w-[30px] h-[30px]" src="/assets/images/avatar.png" alt="tg-channel")
+      .flex.items-center
+        h3
+          a(href="#").table__channel ZeroDay | Кибербезопасность
+          span / Подписчики: 9 999 999
+tr
+  td.only-text Концепция
+  td.only-text Медведева Валерия
+  td.only-text TeST134
+  td
+    +dropdown({
+      buttons: [
+        {
+          color: 'status-transparent',
+          title: '—',
+        },
+        {
+          color: 'status-green',
+          isChecked: true,
+          title: 'Размещено',
+        },
+      ],
+      class: 'dropdown-status',
+      color: 'status-green',
+      isButtons: true,
+      isStatus: true,
+      title: 'Размещено',
+    })
+  td.only-text
+    +button({
+      class: 'button-with-icon only-input start-day',
+      isCalendar: true,
+      isDatePicker: true,
+      isMonthPicker: false,
+      isSinglePicker: true,
+      value: 'дд.мм.гггг',
+      view: 'button',
+    })
+  td.only-text
+    +button({
+      class: 'button-with-icon only-input start-day',
+      isCalendar: true,
+      isDatePicker: true,
+      isMonthPicker: false,
+      isSinglePicker: true,
+      value: 'дд.мм.гггг',
+      view: 'button',
+    })
+  td
+  td
+  td
+  td
+  td
+  td.only-text 22 505
+  td.only-text 22 505
+  td.only-text 22 505
+  td.only-text 22 505
+  td.only-text 22 505
+  td
+    +input({
+      class: 'table__comment',
+      name: 'comment',
+      placeholder: 'Добавить комментарий...',
+    })

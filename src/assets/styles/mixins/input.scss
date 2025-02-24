@@ -146,6 +146,9 @@
     &.error {
       @apply border-red-100;
     }
+    &.lg {
+      @apply h-12;
+    }
     @apply bg-black-700 px-3 pt-[22px] pb-2 border border-black-500 rounded-md w-full h-12 text-14-r transition-all duration-300;
   }
   &__tip {

@@ -43,7 +43,7 @@ export default function setTdPaddingDefault() {
 setTdPaddingDefault();
 setTimeout(function() {
   setTdPaddingDefault();
-}, 200);
+}, 400);
 
 // Обработчик события resize для адаптивности
 $(window).on('resize', () => {

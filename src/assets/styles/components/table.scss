@@ -14,7 +14,14 @@
       @apply py-[15px] pl-4;
     }
   }
-  &.table-survey {
+  &.table-approval-client,
+  &.table-process-channels,
+  &.table-mediaplan,
+  &.table-mediaplan-agreed,
+  &.table-survey,
+  &.table-approval,
+  &.table-process,
+  &.table-coordination {
     td {
       .input {
         &__container {
@@ -36,6 +43,7 @@
         }
         @apply bg-transparent -mr-2 p-2 border-none rounded-[4px] w-[70px] min-w-[70px] h-[30px] text-right text-ellipsis line-clamp-1;
       }
+      @apply h-[47px];
     }
   }
   .input-checkbox.table__checkbox-accept {
@@ -106,7 +114,15 @@
     @apply bg-black-700;
   }
   .input-with-label .input__el.table__comment {
-    @apply bg-transparent p-0 border-none rounded-none min-w-[150px] h-3.5;
+    &:focus,
+    &:active,
+    &:hover {
+      @apply pl-2;
+    }
+    &::placeholder {
+      @apply text-black-200;
+    }
+    @apply bg-transparent pl-0 border-none min-w-[160px] text-left;
   }
   &__sortbutton {
     @apply hidden -right-2.5 absolute;
@@ -198,6 +214,19 @@
     td.only-text {
       @apply pt-3.5 pb-[13px];
     }
+    &.active {
+      .button {
+        svg {
+          @apply rotate-180;
+        }
+      }
+    }
+    .button {
+      svg {
+        @apply transition-all duration-300;
+      }
+    }
+    @apply cursor-pointer;
   }
   &__remove {
     svg {
@@ -366,7 +395,7 @@
       }
     }
     h3 {
-      @apply inline-block text-12-sb-p text-ellipsis line-clamp-1;
+      @apply inline-flex gap-x-1 text-12-sb-p text-ellipsis line-clamp-1;
     }
     .dropdown {
       &__label {
@@ -434,7 +463,7 @@
           .button {
             @apply right-0;
           }
-          @apply px-1.5;
+          @apply p-1.5 min-w-[134px] h-[30px];
         }
       }
     }

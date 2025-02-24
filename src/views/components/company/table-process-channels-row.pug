@@ -1,21 +1,5 @@
-mixin table-approval-row(data)
+mixin table-process-channels-row(data)
   tr
-    td.border-r.border-black-500(style="min-width: 76px;")
-      .table__sort.flex.gap-x-3.items-center
-        +input({
-          class: 'md table__checkbox table__checkbox-accept',
-          isChecked: data.accept,
-          isRadio: true,
-          type: 'radio',
-          name: data.name,
-        })
-        +input({
-          class: 'md table__checkbox table__checkbox-decline',
-          isChecked: data.decline,
-          isRadio: true,
-          type: 'radio',
-          name: data.name,
-        })
     td(style="min-width: 280px;")
       .flex.items-center(class="gap-x-1.5")
         img.rounded.object-cover(class="w-[30px] h-[30px]" src="/assets/images/avatar.png" alt="tg-channel")
@@ -28,10 +12,14 @@ mixin table-approval-row(data)
       .grid.items-center(class="gap-x-1.5 grid-cols-[30px_1fr]")
         img.rounded.object-cover(class="w-[30px] h-[30px]" src="/assets/images/avatar.png" alt="tg-channel")
         span Илья Сорокин
+    td.only-text ООО “Андрей Миронов”
     td.only-text.text-right 999 999
-    td.only-text.text-right 2 500 500
+    td.only-text.text-right 200 600
     td.only-text.text-right 200 500 ₽
     td.only-text.text-right 25,5%
+    td.only-text.text-right 20 500 ₽
+    td.only-text.text-right 25,5%
+    td.only-text.text-right 24.12.2024
     td.only-text
       +dropdown({
         buttons: [
@@ -147,6 +135,11 @@ mixin table-approval-row(data)
         class: 'dropdown-radios',
         isRadios: true,
       })
+    td
+      span.status(class="" + data.color)= data.status
+    td
+    td
+    td
     td
       +input({
         class: 'table__comment',

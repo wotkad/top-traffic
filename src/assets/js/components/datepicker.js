@@ -185,7 +185,7 @@ export default function datePicker() {
         picker.container.css('top', $this.offset().top + 16);
     
         // Вычисляем right
-        let right = $(window).width() - ($this.offset().left + $this.outerWidth());
+        let right = $(window).width() - ($this.offset().left + $this.parent().width() - 24);
         picker.container.css('right', right);
         picker.container.css('left', 'auto');
       });

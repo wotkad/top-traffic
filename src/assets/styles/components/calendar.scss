@@ -5,12 +5,12 @@
       @apply text-black-100;
     }
   }
-  @apply min-w-16;
+  @apply min-w-[90px];
 }
 
 .datetimepicker-trigger .button.calendar-close-icon,
 .datepicker-trigger .button.calendar-close-icon {
-  transition: none;
+  @apply transition-none;
 }
 
 .daterangepicker {

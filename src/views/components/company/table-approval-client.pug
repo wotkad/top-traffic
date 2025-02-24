@@ -1,15 +1,9 @@
-table.table.table-fixed-cols.table-survey
+table.table.table-default.table-approval-client
   thead
     tr
-      th.border-r.border-black-500(style="min-width: 280px;")
+      th(style="min-width: 280px;")
         .table__sort.flex.gap-x-2.items-center
           p Канал
-            button(type="button").table__sortbutton
-              svg
-                use(xlink:href="#other-sort-icon")
-      th
-        .table__sort.flex.gap-x-2.items-center
-          p Статус запроса
             button(type="button").table__sortbutton
               svg
                 use(xlink:href="#other-sort-icon")
@@ -32,7 +26,7 @@ table.table.table-fixed-cols.table-survey
               svg
                 use(xlink:href="#other-sort-icon")
       th
-        .table__sort.flex.gap-x-2.items-center
+        .table__sort.flex.gap-x-2.items-center.justify-end
           p.text-right Охват
             button(type="button").table__sortbutton
               svg
@@ -75,29 +69,76 @@ table.table.table-fixed-cols.table-survey
                 use(xlink:href="#other-sort-icon")
       th
         .table__sort.flex.gap-x-2.items-center
+          p Согласование клиентом
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Согласование куратором
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
           p Комментарий
             button(type="button").table__sortbutton
               svg
                 use(xlink:href="#other-sort-icon")
   tbody
-    +company-subrow-survey({
-      title: 'Нераспределенные каналы',
-      count: '4',
+    +company-subrow-approval-client({
+      title: 'Согласованные каналы',
+      count: '6',
       class: 'active',
     })
-    include table-survey-row
-    include table-survey-row
-    include table-survey-row
-    include table-survey-row
-    +company-subrow-survey({
-      title: 'Согласованные каналы',
-      count: '0',
+    +table-approval-client-row({
+      isRadio: true,
+      accept: true,
+      decline: false,
+      name: 'approval-client-1'
     })
-    +company-subrow-survey({
-      title: 'Несогласованные каналы',
+    +table-approval-client-row({
+      isRadio: true,
+      accept: false,
+      decline: true,
+      name: 'approval-client-2'
+    })
+    +table-approval-client-row({
+      isRadio: true,
+      accept: true,
+      decline: false,
+      name: 'approval-client-3'
+    })
+    +table-approval-client-row({
+      isRadio: true,
+      accept: false,
+      decline: true,
+      name: 'approval-client-4'
+    })
+    +company-subrow-approval-client({
+      title: 'Несогласованные  каналы',
       count: '3',
       class: 'active',
     })
-    include table-survey-row
-    include table-survey-row
-    include table-survey-row
+    +table-approval-client-row({
+      isRadio: true,
+      accept: true,
+      decline: false,
+      name: 'approval-client-5'
+    })
+    +table-approval-client-row({
+      isRadio: true,
+      accept: false,
+      decline: true,
+      name: 'approval-client-6'
+    })
+    +table-approval-client-row({
+      isRadio: true,
+      accept: false,
+      decline: true,
+      name: 'approval-client-7'
+    })
+    +company-subrow-approval-client({
+      title: 'Нераспределенные каналы',
+      count: '0',
+    })

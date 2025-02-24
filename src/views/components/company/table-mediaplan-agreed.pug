@@ -1,15 +1,9 @@
-table.table.table-fixed-cols.table-survey
+table.table.table-default.table-mediaplan-agreed
   thead
     tr
-      th.border-r.border-black-500(style="min-width: 280px;")
+      th(style="min-width: 280px;")
         .table__sort.flex.gap-x-2.items-center
           p Канал
-            button(type="button").table__sortbutton
-              svg
-                use(xlink:href="#other-sort-icon")
-      th
-        .table__sort.flex.gap-x-2.items-center
-          p Статус запроса
             button(type="button").table__sortbutton
               svg
                 use(xlink:href="#other-sort-icon")
@@ -32,7 +26,7 @@ table.table.table-fixed-cols.table-survey
               svg
                 use(xlink:href="#other-sort-icon")
       th
-        .table__sort.flex.gap-x-2.items-center
+        .table__sort.flex.gap-x-2.items-center.justify-end
           p.text-right Охват
             button(type="button").table__sortbutton
               svg
@@ -75,29 +69,76 @@ table.table.table-fixed-cols.table-survey
                 use(xlink:href="#other-sort-icon")
       th
         .table__sort.flex.gap-x-2.items-center
+          p Согласование клиентом
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Согласование куратором
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
           p Комментарий
             button(type="button").table__sortbutton
               svg
                 use(xlink:href="#other-sort-icon")
   tbody
-    +company-subrow-survey({
-      title: 'Нераспределенные каналы',
-      count: '4',
+    +company-subrow-mediaplan-agreed({
+      title: 'Согласованные каналы',
+      count: '6',
       class: 'active',
     })
-    include table-survey-row
-    include table-survey-row
-    include table-survey-row
-    include table-survey-row
-    +company-subrow-survey({
-      title: 'Согласованные каналы',
-      count: '0',
+    +table-mediaplan-agreed-row({
+      isRadio: true,
+      accept: true,
+      decline: false,
+      name: 'mediaplan-agreed-1'
     })
-    +company-subrow-survey({
-      title: 'Несогласованные каналы',
+    +table-mediaplan-agreed-row({
+      isRadio: true,
+      accept: false,
+      decline: true,
+      name: 'mediaplan-agreed-2'
+    })
+    +table-mediaplan-agreed-row({
+      isRadio: true,
+      accept: true,
+      decline: false,
+      name: 'mediaplan-agreed-3'
+    })
+    +table-mediaplan-agreed-row({
+      isRadio: true,
+      accept: false,
+      decline: true,
+      name: 'mediaplan-agreed-4'
+    })
+    +company-subrow-mediaplan-agreed({
+      title: 'Несогласованные  каналы',
       count: '3',
       class: 'active',
     })
-    include table-survey-row
-    include table-survey-row
-    include table-survey-row
+    +table-mediaplan-agreed-row({
+      isRadio: true,
+      accept: true,
+      decline: false,
+      name: 'mediaplan-agreed-5'
+    })
+    +table-mediaplan-agreed-row({
+      isRadio: true,
+      accept: false,
+      decline: true,
+      name: 'mediaplan-agreed-6'
+    })
+    +table-mediaplan-agreed-row({
+      isRadio: true,
+      accept: false,
+      decline: true,
+      name: 'mediaplan-agreed-7'
+    })
+    +company-subrow-mediaplan-agreed({
+      title: 'Нераспределенные каналы',
+      count: '0',
+    })

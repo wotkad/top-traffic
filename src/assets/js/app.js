@@ -44,6 +44,7 @@ import "./components/toggle/toggle-table-input";
 import "./components/toggle/toggle-widget";
 import "./components/toggle/toggle-table-input-width";
 import "./components/toggle/toggle-table-selected";
+import "./components/toggle/toggle-subrow";
 
 import "./components/scroll/scroll-to-top";
 import "./components/scroll/scroll-filter";
