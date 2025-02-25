@@ -1,397 +1,696 @@
-mixin table-mediaplan-row(data)
-  tr
-    td(style="min-width: 280px;")
-      .flex.items-center(class="gap-x-1.5")
-        img.rounded.object-cover(class="w-[30px] h-[30px]" src="/assets/images/avatar.png" alt="tg-channel")
-        .flex.flex-col.items-start
-          h3
-            a(href="#").table__channel ZeroDay | Кибербезопасность
-          a(href="https://t.me/cybersec_academy" target="_blank").table__link @cybersec_academy
-    td.only-text Интернет технологии
-    td
-      .grid.items-center(class="gap-x-1.5 grid-cols-[30px_1fr]")
-        img.rounded.object-cover(class="w-[30px] h-[30px]" src="/assets/images/avatar.png" alt="tg-channel")
-        span Илья Сорокин
-    td.only-text.text-right 999 999
-    td.only-text.text-right 2 500 500
-    td.only-text.text-right 200 500 ₽
-    td.only-text.text-right 25,5%
-    td.text-right
-      .flex.items-center.justify-end
-        +input({
-          autocomplete: 'off',
-          class: 'currency',
-          name: 'revenue',
-          placeholder: '0',
-          type: 'text',
-        })
-    td.text-right
-      .flex.items-center.justify-end
-        +input({
-          autocomplete: 'off',
-          class: 'percent',
-          name: 'revenue',
-          placeholder: '0',
-          type: 'text',
-        })
-    td.only-text
+aside.filter.filter-sm(data-filter-name="company-mediaplan-agreed")
+  .filter__container
+    .filter__title
+      h2 Фильтр
+      button(type="button" data-filter-name="company-mediaplan-agreed").filter__clear Сбросить
+    form(action="#")
+      h3.filter__subtitle Канал
+      +dropdown({
+        checkboxes: [
+          {
+            class: 'check-all',
+            title: 'Все',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+        ],
+        class: 'dropdown-checkboxes',
+        isAll: true,
+        isCheckboxes: true,
+      })
+      h3.filter__subtitle Статус запроса
+      +dropdown({
+        buttons: [
+          {
+            color: 'status-transparent',
+            isChecked: true,
+            title: 'Все',
+          },
+          {
+            color: 'status-green',
+            title: 'Размещено',
+          },
+        ],
+        class: 'dropdown-status',
+        isButtons: true,
+        isStatus: true,
+      })
+      h3.filter__subtitle Категория
+      +dropdown({
+        checkboxes: [
+          {
+            class: 'check-all',
+            title: 'Все',
+          },
+          {
+            title: 'Банки',
+          },
+          {
+            title: 'Банки',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Банки',
+          },
+          {
+            title: 'Банки',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+        ],
+        class: 'dropdown-checkboxes',
+        isAll: true,
+        isCheckboxes: true,
+      })
+      h3.filter__subtitle Администратор
+      +dropdown({
+        checkboxes: [
+          {
+            class: 'check-all',
+            title: 'Все',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+        ],
+        class: 'dropdown-checkboxes',
+        isAll: true,
+        isCheckboxes: true,
+      })
+      h3.filter__subtitle Менеджер
+      +dropdown({
+        checkboxes: [
+          {
+            class: 'check-all',
+            title: 'Все',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+        ],
+        class: 'dropdown-checkboxes',
+        isAll: true,
+        isCheckboxes: true,
+      })
+      h3.filter__subtitle Подтверждение клиента
+      +dropdown({
+        buttons: [
+          {
+            isChecked: true,
+            name: 'mediaplan-agreed-approval-client',
+            title: 'Все',
+          },
+          {
+            name: 'mediaplan-agreed-approval-client',
+            title: 'Да',
+          },
+        ],
+        class: 'dropdown-radios',
+        isRadios: true,
+      })
+      h3.filter__subtitle Подтверждение куратора
+      +dropdown({
+        buttons: [
+          {
+            isChecked: true,
+            name: 'mediaplan-agreed-approval-curator',
+            title: 'Все',
+          },
+          {
+            name: 'mediaplan-agreed-approval-curator',
+            title: 'Да',
+          },
+        ],
+        class: 'dropdown-radios',
+        isRadios: true,
+      })
+      h3.filter__subtitle Подписчики
+      +input({
+        max: '100',
+        min: '0',
+      })
+      h3.filter__subtitle Последняя ставка
+      +input({
+        max: '100',
+        min: '0',
+      })
+      h3.filter__subtitle Последняя скидка
+      +input({
+        max: '100',
+        min: '0',
+      })
+      h3.filter__subtitle Себестоимость
+      +input({
+        max: '100',
+        min: '0',
+      })
+      h3.filter__subtitle Скидка,%
+      +input({
+        max: '100',
+        min: '0',
+      })
+      h3.filter__subtitle Ближайшая дата поста
       +button({
-        class: 'button-with-icon only-input start-day',
+        calendarClass: 'opensleft',
+        class: 'button-with-icon',
+        icon: 'other-calendar-icon',
         isCalendar: true,
         isDatePicker: true,
         isMonthPicker: false,
         isSinglePicker: true,
-        value: 'дд.мм.гггг',
+        placeholder: 'дд.мм.гггг',
         view: 'button',
       })
-    td.only-text
+      h3.filter__subtitle Тип поста
       +dropdown({
         buttons: [
           {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
+            isChecked: true,
+            name: 'mediaplan-agreed-post-type',
+            title: 'Все',
           },
           {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
+            name: 'mediaplan-agreed-post-type',
+            title: 'Да',
           },
         ],
         class: 'dropdown-radios',
         isRadios: true,
       })
-    td.only-text
-      +dropdown({
-        buttons: [
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-        ],
-        class: 'dropdown-radios',
-        isRadios: true,
-      })
-    td.only-text
-      +dropdown({
-        buttons: [
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-        ],
-        class: 'dropdown-radios',
-        isRadios: true,
-      })
-    td
+      h3.filter__subtitle Охват
       +input({
-        class: 'table__comment',
-        name: 'comment',
-        placeholder: 'Добавить комментарий...',
+        max: '100',
+        min: '0',
+      })
+      h3.filter__subtitle Расход (GS)
+      +input({
+        max: '100',
+        min: '0',
+      })
+      h3.filter__subtitle Расход, факт (GS)
+      +input({
+        max: '100',
+        min: '0',
+      })
+      h3.filter__subtitle CPV
+      +input({
+        max: '100',
+        min: '0',
+      })
+      h3.filter__subtitle Охват (24ч)
+      +input({
+        max: '100',
+        min: '0',
+      })
+      h3.filter__subtitle Охват (48ч)
+      +input({
+        max: '100',
+        min: '0',
+      })
+      h3.filter__subtitle Охват (72ч)
+      +input({
+        max: '100',
+        min: '0',
+      })
+      h3.filter__subtitle ИЦ
+      +input({
+        max: '100',
+        min: '0',
+      })
+      h3.filter__subtitle ER,%
+      +input({
+        max: '100',
+        min: '0',
+      })
+      h3.filter__subtitle ERR,%
+      +input({
+        max: '100',
+        min: '0',
+      })
+      h3.filter__subtitle ERR (24ч),%
+      +input({
+        max: '100',
+        min: '0',
+      })
+      h3.filter__subtitle ERR (72ч),%
+      +input({
+        max: '100',
+        min: '0',
+      })
+      h3.filter__subtitle Контакт (GS)
+      +dropdown({
+        buttons: [
+          {
+            isChecked: true,
+            name: 'mediaplan-agreed-contact-gs',
+            title: 'Все',
+          },
+          {
+            name: 'mediaplan-agreed-contact-gs',
+            title: 'Да',
+          },
+        ],
+        class: 'dropdown-radios',
+        isRadios: true,
+      })
+      h3.filter__subtitle Адаптация (GS)
+      +dropdown({
+        buttons: [
+          {
+            isChecked: true,
+            name: 'mediaplan-agreed-adaptation-gs',
+            title: 'Все',
+          },
+          {
+            name: 'mediaplan-agreed-adaptation-gs',
+            title: 'Да',
+          },
+        ],
+        class: 'dropdown-radios',
+        isRadios: true,
+      })
+      h3.filter__subtitle Кнопка (GS)
+      +dropdown({
+        buttons: [
+          {
+            isChecked: true,
+            name: 'mediaplan-agreed-button-gs',
+            title: 'Все',
+          },
+          {
+            name: 'mediaplan-agreed-button-gs',
+            title: 'Да',
+          },
+        ],
+        class: 'dropdown-radios',
+        isRadios: true,
+      })
+      h3.filter__subtitle Тег (GS)
+      +input({
+        name: 'token',
+        placeholder: 'Введите тег...',
+      })
+      h3.filter__subtitle Мужская аудитория,%
+      +input({
+        max: '100',
+        min: '0',
+      })
+      h3.filter__subtitle Женская аудитория,%
+      +input({
+        max: '100',
+        min: '0',
+      })
+      h3.filter__subtitle 18+ (посты),%
+      +input({
+        max: '100',
+        min: '0',
+      })
+      h3.filter__subtitle 18+ (слова),%
+      +input({
+        max: '100',
+        min: '0',
+      })
+      h3.filter__subtitle Политика (посты),%
+      +input({
+        max: '100',
+        min: '0',
+      })
+      h3.filter__subtitle Политика (слова),%
+      +input({
+        max: '100',
+        min: '0',
+      })
+      h3.filter__subtitle Жесть (посты),%
+      +input({
+        max: '100',
+        min: '0',
+      })
+      h3.filter__subtitle Жесть (слова),%
+      +input({
+        max: '100',
+        min: '0',
+      })
+      h3.filter__subtitle Дата обновления
+      +button({
+        calendarClass: 'opensleft',
+        class: 'button-with-icon',
+        icon: 'other-calendar-icon',
+        isCalendar: true,
+        isDatePicker: true,
+        isMonthPicker: false,
+        isSinglePicker: true,
+        placeholder: 'дд.мм.гггг',
+        view: 'button',
+      })
+      +button({
+        class: 'button-base filter__button',
+        title: 'Применить',
+        type: 'submit',
+        view: 'button',
       })

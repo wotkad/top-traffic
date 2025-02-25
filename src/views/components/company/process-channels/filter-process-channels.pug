@@ -1,8 +1,8 @@
-aside.filter.filter-sm(data-filter-name="company-mediaplan-agreed")
+aside.filter.filter-sm(data-filter-name="company-process-channels")
   .filter__container
     .filter__title
       h2 Фильтр
-      button(type="button" data-filter-name="company-mediaplan-agreed").filter__clear Сбросить
+      button(type="button" data-filter-name="company-survey-channels").filter__clear Сбросить
     form(action="#")
       h3.filter__subtitle Канал
       +dropdown({
@@ -124,23 +124,6 @@ aside.filter.filter-sm(data-filter-name="company-mediaplan-agreed")
         isAll: true,
         isCheckboxes: true,
       })
-      h3.filter__subtitle Статус запроса
-      +dropdown({
-        buttons: [
-          {
-            color: 'status-transparent',
-            isChecked: true,
-            title: 'Все',
-          },
-          {
-            color: 'status-green',
-            title: 'Размещено',
-          },
-        ],
-        class: 'dropdown-status',
-        isButtons: true,
-        isStatus: true,
-      })
       h3.filter__subtitle Категория
       +dropdown({
         checkboxes: [
@@ -149,40 +132,49 @@ aside.filter.filter-sm(data-filter-name="company-mediaplan-agreed")
             title: 'Все',
           },
           {
-            title: 'ZeroDay | Кибезопасность ',
+            title: 'Банки',
           },
           {
-            title: 'ZeroDay | Кибезопасность ',
+            title: 'Банки',
           },
           {
-            title: 'ZeroDay | Кибезопасность ',
+            title: 'Автомобили',
           },
           {
-            title: 'ZeroDay | Кибезопасность ',
+            title: 'Банки',
           },
           {
-            title: 'ZeroDay | Кибезопасность ',
+            title: 'Банки',
           },
           {
-            title: 'ZeroDay | Кибезопасность ',
+            title: 'Автомобили',
           },
           {
-            title: 'ZeroDay | Кибезопасность ',
+            title: 'Автомобили',
           },
           {
-            title: 'ZeroDay | Кибезопасность ',
+            title: 'Автомобили',
           },
           {
-            title: 'ZeroDay | Кибезопасность ',
+            title: 'Автомобили',
           },
           {
-            title: 'ZeroDay | Кибезопасность ',
+            title: 'Автомобили',
           },
           {
-            title: 'ZeroDay | Кибезопасность ',
+            title: 'Автомобили',
           },
           {
-            title: 'ZeroDay | Кибезопасность ',
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
           },
         ],
         class: 'dropdown-checkboxes',
@@ -190,6 +182,126 @@ aside.filter.filter-sm(data-filter-name="company-mediaplan-agreed")
         isCheckboxes: true,
       })
       h3.filter__subtitle Администратор
+      +dropdown({
+        checkboxes: [
+          {
+            class: 'check-all',
+            title: 'Все',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+        ],
+        class: 'dropdown-checkboxes',
+        isAll: true,
+        isCheckboxes: true,
+      })
+      h3.filter__subtitle Юридическое лицо
       +dropdown({
         checkboxes: [
           {
@@ -429,38 +541,6 @@ aside.filter.filter-sm(data-filter-name="company-mediaplan-agreed")
         isAll: true,
         isCheckboxes: true,
       })
-      h3.filter__subtitle Подтверждение клиента
-      +dropdown({
-        buttons: [
-          {
-            isChecked: true,
-            name: 'mediaplan-agreed-approval-client',
-            title: 'Все',
-          },
-          {
-            name: 'mediaplan-agreed-approval-client',
-            title: 'Да',
-          },
-        ],
-        class: 'dropdown-radios',
-        isRadios: true,
-      })
-      h3.filter__subtitle Подтверждение куратора
-      +dropdown({
-        buttons: [
-          {
-            isChecked: true,
-            name: 'mediaplan-agreed-approval-curator',
-            title: 'Все',
-          },
-          {
-            name: 'mediaplan-agreed-approval-curator',
-            title: 'Да',
-          },
-        ],
-        class: 'dropdown-radios',
-        isRadios: true,
-      })
       h3.filter__subtitle Подписчики
       +input({
         max: '100',
@@ -503,11 +583,61 @@ aside.filter.filter-sm(data-filter-name="company-mediaplan-agreed")
         buttons: [
           {
             isChecked: true,
-            name: 'mediaplan-agreed-post-type',
+            name: 'process-channels-post-type',
             title: 'Все',
           },
           {
-            name: 'mediaplan-agreed-post-type',
+            name: 'process-channels-post-type',
+            title: 'Да',
+          },
+        ],
+        class: 'dropdown-radios',
+        isRadios: true,
+      })
+      h3.filter__subtitle Статус сделки
+      +dropdown({
+        buttons: [
+          {
+            color: 'status-transparent',
+            isChecked: true,
+            title: '—',
+          },
+          {
+            color: 'status-green',
+            title: 'Размещено',
+          },
+        ],
+        class: 'dropdown-status',
+        isButtons: true,
+        isStatus: true,
+        title: '—',
+      })
+      h3.filter__subtitle Подтверждение клиента
+      +dropdown({
+        buttons: [
+          {
+            isChecked: true,
+            name: 'process-channels-approval-client',
+            title: 'Все',
+          },
+          {
+            name: 'process-channels-approval-client',
+            title: 'Да',
+          },
+        ],
+        class: 'dropdown-radios',
+        isRadios: true,
+      })
+      h3.filter__subtitle Подтверждение куратора
+      +dropdown({
+        buttons: [
+          {
+            isChecked: true,
+            name: 'process-channels-approval-curator',
+            title: 'Все',
+          },
+          {
+            name: 'process-channels-approval-curator',
             title: 'Да',
           },
         ],
@@ -579,11 +709,11 @@ aside.filter.filter-sm(data-filter-name="company-mediaplan-agreed")
         buttons: [
           {
             isChecked: true,
-            name: 'mediaplan-agreed-contact-gs',
+            name: 'process-channels-contact-gs',
             title: 'Все',
           },
           {
-            name: 'mediaplan-agreed-contact-gs',
+            name: 'process-channels-contact-gs',
             title: 'Да',
           },
         ],
@@ -595,11 +725,11 @@ aside.filter.filter-sm(data-filter-name="company-mediaplan-agreed")
         buttons: [
           {
             isChecked: true,
-            name: 'mediaplan-agreed-adaptation-gs',
+            name: 'process-channels-adaptation-gs',
             title: 'Все',
           },
           {
-            name: 'mediaplan-agreed-adaptation-gs',
+            name: 'process-channels-adaptation-gs',
             title: 'Да',
           },
         ],
@@ -611,11 +741,11 @@ aside.filter.filter-sm(data-filter-name="company-mediaplan-agreed")
         buttons: [
           {
             isChecked: true,
-            name: 'mediaplan-agreed-button-gs',
+            name: 'process-channels-button-gs',
             title: 'Все',
           },
           {
-            name: 'mediaplan-agreed-button-gs',
+            name: 'process-channels-button-gs',
             title: 'Да',
           },
         ],

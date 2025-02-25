@@ -1,9 +1,69 @@
-table.table.table-fixed-cols.table-process
+table.table.table-fixed-cols.table-process-channels
   thead
     tr
+      th(style="min-width: 280px;")
+        .table__sort.flex.gap-x-2.items-center
+          p Канал
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
       th
         .table__sort.flex.gap-x-2.items-center
-          p Концепция
+          p Категория
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Администратор
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Юридическое лицо
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center.justify-end
+          p.text-right Подписчики
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center.justify-end
+          p.text-right Охват
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center.justify-end
+          p.text-right Последняя ставка
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center.justify-end
+          p.text-right Последняя скидка
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center.justify-end
+          p.text-right Себестоимость
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center.justify-end
+          p.text-right Скидка
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Ближайшая дата поста
             button(type="button").table__sortbutton
               svg
                 use(xlink:href="#other-sort-icon")
@@ -15,85 +75,25 @@ table.table.table-fixed-cols.table-process
                 use(xlink:href="#other-sort-icon")
       th
         .table__sort.flex.gap-x-2.items-center
-          p Токен
+          p Статус сделки
             button(type="button").table__sortbutton
               svg
                 use(xlink:href="#other-sort-icon")
       th
         .table__sort.flex.gap-x-2.items-center
-          p Статус размещения
+          p Счет
             button(type="button").table__sortbutton
               svg
                 use(xlink:href="#other-sort-icon")
       th
         .table__sort.flex.gap-x-2.items-center
-          p Дата поста (план)
+          p Согласование клиентом
             button(type="button").table__sortbutton
               svg
                 use(xlink:href="#other-sort-icon")
       th
         .table__sort.flex.gap-x-2.items-center
-          p Дата поста (факт)
-            button(type="button").table__sortbutton
-              svg
-                use(xlink:href="#other-sort-icon")
-      th
-        .table__sort.flex.gap-x-2.items-center
-          p Пост
-            button(type="button").table__sortbutton
-              svg
-                use(xlink:href="#other-sort-icon")
-      th
-        .table__sort.flex.gap-x-2.items-center
-          p Скриншот (старт)
-            button(type="button").table__sortbutton
-              svg
-                use(xlink:href="#other-sort-icon")
-      th
-        .table__sort.flex.gap-x-2.items-center
-          p Скриншот (24 часа)
-            button(type="button").table__sortbutton
-              svg
-                use(xlink:href="#other-sort-icon")
-      th
-        .table__sort.flex.gap-x-2.items-center
-          p Скриншот (48 часов)
-            button(type="button").table__sortbutton
-              svg
-                use(xlink:href="#other-sort-icon")
-      th
-        .table__sort.flex.gap-x-2.items-center
-          p Скриншот (72 часа)
-            button(type="button").table__sortbutton
-              svg
-                use(xlink:href="#other-sort-icon")
-      th
-        .table__sort.flex.gap-x-2.items-center.justify-end
-          p.text-right Показы
-            button(type="button").table__sortbutton
-              svg
-                use(xlink:href="#other-sort-icon")
-      th
-        .table__sort.flex.gap-x-2.items-center.justify-end
-          p.text-right Реакции
-            button(type="button").table__sortbutton
-              svg
-                use(xlink:href="#other-sort-icon")
-      th
-        .table__sort.flex.gap-x-2.items-center.justify-end
-          p.text-right Комментарии
-            button(type="button").table__sortbutton
-              svg
-                use(xlink:href="#other-sort-icon")
-      th
-        .table__sort.flex.gap-x-2.items-center.justify-end
-          p.text-right Репосты
-            button(type="button").table__sortbutton
-              svg
-                use(xlink:href="#other-sort-icon")
-      th
-        .table__sort.flex.gap-x-2.items-center.justify-end
-          p.text-right Ставка
+          p Согласование куратором
             button(type="button").table__sortbutton
               svg
                 use(xlink:href="#other-sort-icon")
@@ -104,6 +104,41 @@ table.table.table-fixed-cols.table-process
               svg
                 use(xlink:href="#other-sort-icon")
   tbody
-    include table-process-row
-    include table-process-row
-    include table-process-row
+    +subrow-process-channels({
+      title: 'Согласованные каналы',
+      count: '4',
+      class: 'active',
+    })
+    +row-process-channels({
+      color: 'status-gray',
+      status: 'Завершено',
+    })
+    +row-process-channels({
+      color: 'status-blue',
+      status: 'Ожидание оплаты',
+    })
+    +row-process-channels({
+      color: 'status-gray',
+      status: 'Завершено',
+    })
+    +row-process-channels({
+      color: 'status-purple',
+      status: 'На согласовании',
+    })
+    +subrow-process-channels({
+      title: 'Несогласованные каналы',
+      count: '3',
+      class: 'active',
+    })
+    +row-process-channels({
+      color: 'status-transparent',
+      status: '––',
+    })
+    +row-process-channels({
+      color: 'status-transparent',
+      status: '––',
+    })
+    +row-process-channels({
+      color: 'status-transparent',
+      status: '––',
+    })

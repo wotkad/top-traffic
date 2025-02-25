@@ -1,6 +1,18 @@
-table.table.table-default.table-approval-client
+table.table.table-default.table-approval
   thead
     tr
+      th.border-r.border-black-500(style="min-width: 76px;")
+        .table__sort.flex.gap-x-3.items-center
+          +input({
+            class: 'md table__checkbox pointer-events-none table__checkbox-accept',
+            isChecked: true,
+            type: 'checkbox',
+          })
+          +input({
+            class: 'md table__checkbox pointer-events-none table__checkbox-decline',
+            isChecked: true,
+            type: 'checkbox',
+          })
       th(style="min-width: 280px;")
         .table__sort.flex.gap-x-2.items-center
           p Канал
@@ -44,38 +56,8 @@ table.table.table-default.table-approval-client
               svg
                 use(xlink:href="#other-sort-icon")
       th
-        .table__sort.flex.gap-x-2.items-center.justify-end
-          p.text-right Себестоимость
-            button(type="button").table__sortbutton
-              svg
-                use(xlink:href="#other-sort-icon")
-      th
-        .table__sort.flex.gap-x-2.items-center.justify-end
-          p.text-right Скидка
-            button(type="button").table__sortbutton
-              svg
-                use(xlink:href="#other-sort-icon")
-      th
-        .table__sort.flex.gap-x-2.items-center
-          p Ближайшая дата поста
-            button(type="button").table__sortbutton
-              svg
-                use(xlink:href="#other-sort-icon")
-      th
         .table__sort.flex.gap-x-2.items-center
           p Менеджер
-            button(type="button").table__sortbutton
-              svg
-                use(xlink:href="#other-sort-icon")
-      th
-        .table__sort.flex.gap-x-2.items-center
-          p Согласование клиентом
-            button(type="button").table__sortbutton
-              svg
-                use(xlink:href="#other-sort-icon")
-      th
-        .table__sort.flex.gap-x-2.items-center
-          p Согласование куратором
             button(type="button").table__sortbutton
               svg
                 use(xlink:href="#other-sort-icon")
@@ -86,59 +68,45 @@ table.table.table-default.table-approval-client
               svg
                 use(xlink:href="#other-sort-icon")
   tbody
-    +company-subrow-approval-client({
-      title: 'Согласованные каналы',
-      count: '6',
-      class: 'active',
-    })
-    +table-approval-client-row({
+    +row-approval({
       isRadio: true,
       accept: true,
       decline: false,
-      name: 'approval-client-1'
+      name: 'approval-1'
     })
-    +table-approval-client-row({
+    +row-approval({
       isRadio: true,
       accept: false,
       decline: true,
-      name: 'approval-client-2'
+      name: 'approval-2'
     })
-    +table-approval-client-row({
+    +row-approval({
       isRadio: true,
       accept: true,
       decline: false,
-      name: 'approval-client-3'
+      name: 'approval-3'
     })
-    +table-approval-client-row({
+    +row-approval({
       isRadio: true,
       accept: false,
       decline: true,
-      name: 'approval-client-4'
+      name: 'approval-4'
     })
-    +company-subrow-approval-client({
-      title: 'Несогласованные  каналы',
-      count: '3',
-      class: 'active',
-    })
-    +table-approval-client-row({
+    +row-approval({
       isRadio: true,
       accept: true,
       decline: false,
-      name: 'approval-client-5'
+      name: 'approval-5'
     })
-    +table-approval-client-row({
+    +row-approval({
       isRadio: true,
       accept: false,
       decline: true,
-      name: 'approval-client-6'
+      name: 'approval-6'
     })
-    +table-approval-client-row({
+    +row-approval({
       isRadio: true,
       accept: false,
       decline: true,
-      name: 'approval-client-7'
-    })
-    +company-subrow-approval-client({
-      title: 'Нераспределенные каналы',
-      count: '0',
+      name: 'approval-7'
     })

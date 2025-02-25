@@ -1,8 +1,8 @@
-aside.filter.filter-sm(data-filter-name="company-coordination")
+aside.filter.filter-sm(data-filter-name="company-approval-client")
   .filter__container
     .filter__title
       h2 Фильтр
-      button(type="button" data-filter-name="company-coordination").filter__clear Сбросить
+      button(type="button" data-filter-name="company-approval-client").filter__clear Сбросить
     form(action="#")
       h3.filter__subtitle Канал
       +dropdown({
@@ -149,40 +149,49 @@ aside.filter.filter-sm(data-filter-name="company-coordination")
             title: 'Все',
           },
           {
-            title: 'ZeroDay | Кибезопасность ',
+            title: 'Банки',
           },
           {
-            title: 'ZeroDay | Кибезопасность ',
+            title: 'Банки',
           },
           {
-            title: 'ZeroDay | Кибезопасность ',
+            title: 'Автомобили',
           },
           {
-            title: 'ZeroDay | Кибезопасность ',
+            title: 'Банки',
           },
           {
-            title: 'ZeroDay | Кибезопасность ',
+            title: 'Банки',
           },
           {
-            title: 'ZeroDay | Кибезопасность ',
+            title: 'Автомобили',
           },
           {
-            title: 'ZeroDay | Кибезопасность ',
+            title: 'Автомобили',
           },
           {
-            title: 'ZeroDay | Кибезопасность ',
+            title: 'Автомобили',
           },
           {
-            title: 'ZeroDay | Кибезопасность ',
+            title: 'Автомобили',
           },
           {
-            title: 'ZeroDay | Кибезопасность ',
+            title: 'Автомобили',
           },
           {
-            title: 'ZeroDay | Кибезопасность ',
+            title: 'Автомобили',
           },
           {
-            title: 'ZeroDay | Кибезопасность ',
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
           },
         ],
         class: 'dropdown-checkboxes',
@@ -429,6 +438,38 @@ aside.filter.filter-sm(data-filter-name="company-coordination")
         isAll: true,
         isCheckboxes: true,
       })
+      h3.filter__subtitle Подтверждение клиента
+      +dropdown({
+        buttons: [
+          {
+            isChecked: true,
+            name: 'approval-client-approval-client',
+            title: 'Все',
+          },
+          {
+            name: 'approval-client-approval-client',
+            title: 'Да',
+          },
+        ],
+        class: 'dropdown-radios',
+        isRadios: true,
+      })
+      h3.filter__subtitle Подтверждение куратора
+      +dropdown({
+        buttons: [
+          {
+            isChecked: true,
+            name: 'approval-client-approval-curator',
+            title: 'Все',
+          },
+          {
+            name: 'approval-client-approval-curator',
+            title: 'Да',
+          },
+        ],
+        class: 'dropdown-radios',
+        isRadios: true,
+      })
       h3.filter__subtitle Подписчики
       +input({
         max: '100',
@@ -471,11 +512,11 @@ aside.filter.filter-sm(data-filter-name="company-coordination")
         buttons: [
           {
             isChecked: true,
-            name: 'coordination-post-type',
+            name: 'approval-client-post-type',
             title: 'Все',
           },
           {
-            name: 'coordination-post-type',
+            name: 'approval-client-post-type',
             title: 'Да',
           },
         ],
@@ -547,11 +588,11 @@ aside.filter.filter-sm(data-filter-name="company-coordination")
         buttons: [
           {
             isChecked: true,
-            name: 'coordination-contact-gs',
+            name: 'approval-client-contact-gs',
             title: 'Все',
           },
           {
-            name: 'coordination-contact-gs',
+            name: 'approval-client-contact-gs',
             title: 'Да',
           },
         ],
@@ -563,11 +604,11 @@ aside.filter.filter-sm(data-filter-name="company-coordination")
         buttons: [
           {
             isChecked: true,
-            name: 'coordination-adaptation-gs',
+            name: 'approval-client-adaptation-gs',
             title: 'Все',
           },
           {
-            name: 'coordination-adaptation-gs',
+            name: 'approval-client-adaptation-gs',
             title: 'Да',
           },
         ],
@@ -579,11 +620,11 @@ aside.filter.filter-sm(data-filter-name="company-coordination")
         buttons: [
           {
             isChecked: true,
-            name: 'coordination-button-gs',
+            name: 'approval-client-button-gs',
             title: 'Все',
           },
           {
-            name: 'coordination-button-gs',
+            name: 'approval-client-button-gs',
             title: 'Да',
           },
         ],

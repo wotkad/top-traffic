@@ -231,7 +231,7 @@ block content
                     searchClass: 'min-w-[243px] max-w-[243px]',
                   })
                   .content-scroll.mt-4
-                    include ../components/channel-statistics/table
+                    include ../components/channel/channel-statistics/table
                 .selector__container(data-id="publication-statistics")
                   +heading-table({
                     isSearch: true,
@@ -254,7 +254,7 @@ block content
                   .in-container.mt-4
                     .content.content-collapsed
                       .content-scroll
-                        include ../components/publication-statistics/table
+                        include ../components/channel/publication-statistics/table
                       .mt-12
                         include ../components/pagination
                 .selector__container(data-id="administration-history").active
@@ -283,8 +283,8 @@ block content
                   .in-container.mt-4
                     .content.content-collapsed
                       .content-scroll
-                        include ../components/administration-history/table
-                    include ../components/administration-history/filter
+                        include ../components/channel/administration-history/table
+                    include ../components/channel/administration-history/filter
                 .selector__container(data-id="advertising-campaigns")
                   +heading-table({
                     isSearch: true,
@@ -304,10 +304,10 @@ block content
                   .in-container.mt-4
                     .content.content-collapsed
                       .content-scroll
-                        include ../components/advertising-campaigns/table
+                        include ../components/channel/advertising-campaigns/table
                       .mt-12
                         include ../components/pagination
-                    include ../components/advertising-campaigns/filter
+                    include ../components/channel/advertising-campaigns/filter
                 .selector__container(data-id="transactions-for-payment")
                   +heading-table({
                     isSearch: true,
@@ -327,8 +327,8 @@ block content
                   .in-container.mt-4
                     .content.content-collapsed
                       .content-scroll
-                        include ../components/transactions-for-payment/table
+                        include ../components/channel/transactions-for-payment/table
                       .mt-12
                         include ../components/pagination
-                    include ../components/transactions-for-payment/filter
+                    include ../components/channel/transactions-for-payment/filter
         include ../components/channel/aside

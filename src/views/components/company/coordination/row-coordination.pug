@@ -1,4 +1,4 @@
-mixin table-approval-row(data)
+mixin row-coordination(data)
   tr
     td.border-r.border-black-500(style="min-width: 76px;")
       .table__sort.flex.gap-x-3.items-center
@@ -32,6 +32,9 @@ mixin table-approval-row(data)
     td.only-text.text-right 2 500 500
     td.only-text.text-right 200 500 ₽
     td.only-text.text-right 25,5%
+    td.only-text.text-right 20 500 ₽
+    td.only-text.text-right 25,5%
+    td.only-text 02.13.2023
     td.only-text
       +dropdown({
         buttons: [
