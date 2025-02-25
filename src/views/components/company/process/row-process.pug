@@ -9,7 +9,13 @@ tr
 tr
   td.only-text Концепция
   td.only-text Медведева Валерия
-  td.only-text TeST134
+  td
+    +input({
+      class: 'table__comment',
+      name: 'token',
+      placeholder: 'Добавить токен...',
+      value: 'TeST134',
+    })
   td
     +dropdown({
       buttons: [

@@ -20,7 +20,9 @@ function toggleFilter() {
     }
 
     if (toggle.hasClass('active')) {
-      gsap.to(filter, {x: '0', duration: .3});
+      gsap.to(filter, {x: '0', duration: .3, onComplete: () => {
+        filter.removeAttr('style');
+      }});
       toggle.removeClass('active');
       filter.removeClass('active');
       content.removeClass('active');

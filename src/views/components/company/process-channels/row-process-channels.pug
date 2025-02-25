@@ -17,9 +17,34 @@ mixin row-process-channels(data)
     td.only-text.text-right 200 600
     td.only-text.text-right 200 500 ₽
     td.only-text.text-right 25,5%
-    td.only-text.text-right 20 500 ₽
-    td.only-text.text-right 25,5%
-    td.only-text.text-right 24.12.2024
+    td.text-right
+      .flex.items-center.justify-end
+        +input({
+          autocomplete: 'off',
+          class: 'currency',
+          name: 'revenue',
+          placeholder: '0',
+          type: 'text',
+        })
+    td.text-right
+      .flex.items-center.justify-end
+        +input({
+          autocomplete: 'off',
+          class: 'percent',
+          name: 'revenue',
+          placeholder: '0',
+          type: 'text',
+        })
+    td.only-text
+      +button({
+        class: 'button-with-icon only-input start-day',
+        isCalendar: true,
+        isDatePicker: true,
+        isMonthPicker: false,
+        isSinglePicker: true,
+        value: 'дд.мм.гггг',
+        view: 'button',
+      })
     td.only-text
       +dropdown({
         buttons: [
@@ -137,7 +162,22 @@ mixin row-process-channels(data)
       })
     td
       span.status(class="" + data.color)= data.status
-    td
+    if data.file !== undefined
+      td.only-text
+        label.table__file
+          input(type="file")
+          <span class="button button-icon" type="button" aria-label="button"><svg viewBox="0 0 20 20" width="20" height="20"><use xlink:href="#other-attachment-icon"></use></svg></span>
+          span.table__file__value= data.file
+          +button({
+            class: 'button-icon table__file__remove',
+            dataPopupName: 'delete-table-file',
+            icon: 'other-trash-icon',
+            isOnlyIcon: true,
+            view: 'button',
+          })
+    else
+      td.only-text
+        span ––
     td.only-text
       +dropdown({
         buttons: [

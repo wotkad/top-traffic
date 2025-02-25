@@ -1,0 +1,20 @@
+.popup__bg(data-popup-name="delete-table-file")
+.popup(data-popup-name="delete-table-file")
+  .popup__wrapper(data-scroll-lock-scrollable)
+    .popup__title Подтвердить действие
+    .popup__subtitle Удалить файл?
+    .popup__form
+      .popup__buttons
+        +button({
+          class: 'button-confirm table__file__delete',
+          dataPopupName: 'delete-table-file',
+          title: 'Да',
+          type: 'submit',
+          view: 'button',
+        })
+        +button({
+          class: 'button-base',
+          dataPopupName: 'delete-table-file',
+          title: 'Нет',
+          view: 'button',
+        })

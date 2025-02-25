@@ -16,9 +16,34 @@ mixin row-approval-client(data)
     td.only-text.text-right 2 500 500
     td.only-text.text-right 200 500 ₽
     td.only-text.text-right 25,5%
-    td.only-text.text-right 20 500 ₽
-    td.only-text.text-right 25,5%
-    td.only-text.text-right 24.12.2024
+    td.text-right
+      .flex.items-center.justify-end
+        +input({
+          autocomplete: 'off',
+          class: 'currency',
+          name: 'revenue',
+          placeholder: '0',
+          type: 'text',
+        })
+    td.text-right
+      .flex.items-center.justify-end
+        +input({
+          autocomplete: 'off',
+          class: 'percent',
+          name: 'revenue',
+          placeholder: '0',
+          type: 'text',
+        })
+    td.only-text
+      +button({
+        class: 'button-with-icon only-input start-day',
+        isCalendar: true,
+        isDatePicker: true,
+        isMonthPicker: false,
+        isSinglePicker: true,
+        value: 'дд.мм.гггг',
+        view: 'button',
+      })
     td.only-text
       +dropdown({
         buttons: [

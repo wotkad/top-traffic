@@ -124,6 +124,36 @@
     }
     @apply bg-transparent pl-0 border-none min-w-[160px] text-left;
   }
+  &__file {
+    input {
+      @apply absolute opacity-0 w-0 h-0;
+    }
+    .button {
+      &:hover,
+      &:focus,
+      &:active {
+        @apply bg-transparent;
+      }
+      @apply -my-[2px] p-0 w-auto h-auto cursor-pointer;
+    }
+    &__value {
+      @apply block pt-[2px] max-w-[200px] text-12-r-p text-ellipsis line-clamp-1;
+    }
+    &.filled {
+      &:hover {
+        .table__file__remove {
+          @apply opacity-100 visible;
+        }
+      }
+    }
+    &__remove {
+      svg {
+        @apply w-3.5 h-3.5;
+      }
+      @apply invisible opacity-0;
+    }
+    @apply relative flex items-center gap-x-1 -ml-2.5 pr-4;
+  }
   &__sortbutton {
     @apply hidden -right-2.5 absolute;
   }
