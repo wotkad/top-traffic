@@ -9,8 +9,8 @@ function toggleTableInputWidth() {
       $(this).css('padding-right', 21);
 
       // Проверяем, есть ли уже знак рубля, если нет — добавляем
-      if ($(this).siblings('.rub').length === 0) {
-        $(this).parent().append('<div class="rub">₽</div>');
+      if ($(this).siblings('.symbol').length === 0) {
+        $(this).parent().append('<div class="symbol">₽</div>');
       }
 
       let formattedValue = Number(rawValue).toLocaleString('ru-RU'); // Добавляем пробелы
@@ -31,7 +31,7 @@ function toggleTableInputWidth() {
 
       $(this).css('width', newWidth + 'px');
     } else {
-      $(this).parent().find('.rub').remove();
+      $(this).parent().find('.symbol').remove();
       $(this).parent().removeAttr('data-value');
       $(this).css('width', 'auto');
     }
@@ -49,8 +49,8 @@ function toggleTableInputWidth() {
       $(this).css('padding-right', 21);
 
       // Проверяем, есть ли уже знак процента, если нет — добавляем
-      if ($(this).siblings('.rub').length === 0) {
-        $(this).parent().append('<div class="rub">%</div>');
+      if ($(this).siblings('.symbol').length === 0) {
+        $(this).parent().append('<div class="symbol">%</div>');
       }
 
       // Корректно рассчитываем ширину с учетом пробелов
@@ -66,7 +66,7 @@ function toggleTableInputWidth() {
 
       $(this).css('width', newWidth + 'px');
     } else {
-      $(this).parent().find('.rub').remove();
+      $(this).parent().find('.symbol').remove();
       $(this).parent().removeAttr('data-value');
       $(this).css('padding-right', 8);
     }

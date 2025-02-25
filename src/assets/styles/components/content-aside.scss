@@ -101,8 +101,8 @@
         }
         .input {
           &__container {
-            .rub {
-              @apply right-2 absolute text-black-200 transition-all duration-300;
+            .symbol {
+              @apply right-0 absolute bg-black-700 pr-5 pl-1 text-black-200 transition-all duration-300;
             }
             @apply relative flex justify-center w-auto;
           }
@@ -112,6 +112,9 @@
           &:focus,
           &:active,
           &:hover {
+            & ~ .symbol {
+              @apply bg-black-600 pr-2;
+            }
             @apply bg-black-600 pl-2 border-transparent;
           }
           &::placeholder {

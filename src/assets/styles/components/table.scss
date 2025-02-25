@@ -25,7 +25,7 @@
     td {
       .input {
         &__container {
-          .rub {
+          .symbol {
             @apply right-0 absolute;
           }
           @apply relative flex justify-center w-auto;
@@ -121,6 +121,9 @@
     }
     &::placeholder {
       @apply text-black-200;
+    }
+    &.sm {
+      @apply min-w-[120px];
     }
     @apply bg-transparent pl-0 border-none min-w-[160px] text-left;
   }
