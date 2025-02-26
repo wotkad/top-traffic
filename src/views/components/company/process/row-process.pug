@@ -55,11 +55,119 @@ tr
       value: 'дд.мм.гггг',
       view: 'button',
     })
-  td
-  td
-  td
-  td
-  td
+  td.only-text
+    .table__attachedlink
+      .table__icon.button(data-popup-name="add-link")
+        svg
+          use(xlink:href="#other-attachment-icon")
+      span.table__attachedlink__value Добавить
+      +dropdown({
+        buttons: [
+          {
+            class: 'table__attachedlink__edit',
+            dataPopupName: 'add-link',
+            icon: 'other-edit-icon',
+            title: 'Изменить',
+          },
+          {
+            class: 'table__attachedlink__remove',
+            dataPopupName: 'delete-attachedlink',
+            icon: 'other-trash-icon',
+            title: 'Удалить',
+          },
+        ],
+        class: 'table__attachedlink__dropdown',
+        isButtons: true,
+        title: '',
+      })
+  td.only-text
+    .table__attachedfile
+      input(type="file")
+      .table__icon
+        svg
+          use(xlink:href="#other-file-icon")
+      span.table__attachedfile__value Прикрепить
+      +dropdown({
+        buttons: [
+          {
+            icon: 'other-attachment-icon',
+            title: 'Заменить',
+          },
+          {
+            icon: 'other-trash-icon',
+            title: 'Удалить',
+          },
+        ],
+        class: 'table__attachedlink__dropdown',
+        isButtons: true,
+        title: '',
+      })
+  td.only-text
+    .table__attachedfile
+      input(type="file")
+      .table__icon
+        svg
+          use(xlink:href="#other-file-icon")
+      span.table__attachedfile__value Прикрепить
+      +dropdown({
+        buttons: [
+          {
+            icon: 'other-attachment-icon',
+            title: 'Заменить',
+          },
+          {
+            icon: 'other-trash-icon',
+            title: 'Удалить',
+          },
+        ],
+        class: 'table__attachedlink__dropdown',
+        isButtons: true,
+        title: '',
+      })
+  td.only-text
+    .table__attachedfile
+      input(type="file")
+      .table__icon
+        svg
+          use(xlink:href="#other-file-icon")
+      span.table__attachedfile__value Прикрепить
+      +dropdown({
+        buttons: [
+          {
+            icon: 'other-attachment-icon',
+            title: 'Заменить',
+          },
+          {
+            icon: 'other-trash-icon',
+            title: 'Удалить',
+          },
+        ],
+        class: 'table__attachedlink__dropdown',
+        isButtons: true,
+        title: '',
+      })
+  td.only-text
+    .table__attachedfile
+      input(type="file")
+      .table__icon
+        svg
+          use(xlink:href="#other-file-icon")
+      span.table__attachedfile__value Прикрепить
+      +dropdown({
+        buttons: [
+          {
+            icon: 'other-attachment-icon',
+            title: 'Заменить',
+          },
+          {
+            icon: 'other-trash-icon',
+            title: 'Удалить',
+          },
+        ],
+        class: 'table__attachedfile__dropdown',
+        isButtons: true,
+        title: '',
+      })
   td.only-text 22 505
   td.only-text 22 505
   td.only-text 22 505

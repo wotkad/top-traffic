@@ -65,7 +65,7 @@
         }
         @apply bg-black-700;
       }
-      @apply border-separate border-spacing-0;
+      @apply min-w-max border-separate border-spacing-0;
     }
     @apply flex justify-start items-center gap-x-3 mt-6;
   }

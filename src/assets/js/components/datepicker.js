@@ -317,6 +317,29 @@ export default function datePicker() {
             }
             picker.setStartDate(moment());
             picker.setEndDate(moment());
+            
+            let $row = $this.closest('tr'); // Получаем строку, в которой находятся оба календаря
+
+            if ($this.closest('.datepicker-trigger').hasClass('start-day')) {
+
+                // Найдём календарь конца в той же строке и установим minDate
+                let $endPicker = $row.find('.datepicker-trigger.end-day .datepicker-single');
+                if ($endPicker.length && $endPicker.data('daterangepicker')) {
+                    $endPicker.data('daterangepicker').minDate = false;
+                    $endPicker.data('daterangepicker').updateView();
+                }
+            }
+
+            if ($this.closest('.datepicker-trigger').hasClass('end-day')) {
+
+                // Найдём календарь начала в той же строке и установим maxDate
+                let $startPicker = $row.find('.datepicker-trigger.start-day .datepicker-single');
+                if ($startPicker.length && $startPicker.data('daterangepicker')) {
+                    $startPicker.data('daterangepicker').maxDate = false;
+                    $startPicker.data('daterangepicker').updateView();
+                }
+            }
+
         });
 
         $this.off('apply.daterangepicker').on('apply.daterangepicker', function(ev, picker) {

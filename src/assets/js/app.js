@@ -23,6 +23,8 @@ import "./base/common/set-page-initials";
 import "./base/common/copy-accordion-link";
 import "./base/common/copy-popup-link";
 import "./base/common/table-input-file";
+import "./base/common/table-attachmentlink";
+import "./base/common/table-attachmentfile";
 
 import "./components/form/form-login";
 

@@ -1,0 +1,20 @@
+.popup__bg(data-popup-name="delete-attachedlink")
+.popup(data-popup-name="delete-attachedlink")
+  .popup__wrapper(data-scroll-lock-scrollable)
+    .popup__title Подтвердить действие
+    .popup__subtitle Удалить ссылку?
+    .popup__form
+      .popup__buttons
+        +button({
+          class: 'button-confirm table__attachedlink__delete',
+          dataPopupName: 'delete-attachedlink',
+          title: 'Да',
+          type: 'submit',
+          view: 'button',
+        })
+        +button({
+          class: 'button-base',
+          dataPopupName: 'delete-attachedlink',
+          title: 'Нет',
+          view: 'button',
+        })

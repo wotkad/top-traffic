@@ -103,7 +103,7 @@ mixin dropdown(data = {})
           each button in modefied.buttons
             +button({
               view: 'button',
-              class: 'button-with-icon-full sm',
+              class: 'button-with-icon-full sm ' + button.class,
               icon: button.icon,
               title: button.title,
               dataPopupName: button.dataPopupName,
