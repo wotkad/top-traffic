@@ -15,7 +15,7 @@ export default function setFilterHeight() {
     let bottomOffset = innerBottom - windowBottom;
 
     if (bottomOffset <= 0) {
-      filterContainer.css('max-height', `calc(100dvh - ${filterOffsetTop}px - 8px - ${-bottomOffset}px)`);
+      filterContainer.css('max-height', `calc(100dvh - ${filterOffsetTop}px - 16px - ${-bottomOffset}px)`);
     } else {
       filterContainer.css('max-height', `calc(100dvh - ${filterOffsetTop}px - 24px)`);
     }

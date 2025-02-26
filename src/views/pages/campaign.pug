@@ -577,244 +577,244 @@ block content
                       ],
                     })
                 .selector__container(data-id="company-employees")
-          .selectors
-            .content.content-not-collapsed
-              .selector__buttons
-                .selector__scroll
-                  .selector__button(data-id="company-channels").active Каналы
-                    span 0
-              .selector__containers
-                .selector__container(data-id="company-channels").active
-                  +heading-table({
-                    isSearch: true,
-                    isRows: true,
-                    searchClass: 'min-w-[243px] max-w-[243px]',
-                    buttons: [
-                      {
-                        view: 'button',
-                        class: 'button-with-icon-blue',
-                        icon: 'other-plus-icon',
-                        isDisabled: true,
-                        title: 'Добавить канал',
-                        dataPopupName: 'add-channel',
-                      },
-                      {
-                        view: 'button',
-                        class: 'button-with-icon filter__toggle',
-                        icon: 'other-controls-icon',
-                        isDisabled: true,
-                        title: 'Фильтр',
-                        isClose: true,
-                        dataFilterName: 'company',
-                      },
-                    ],
-                  })
-                  .in-container.mt-4
-                    .content.content-collapsed
-                      .content-scroll
-                        include ../components/company/table
-                    include ../components/company/filter
-          .selectors
-            .content.content-not-collapsed
-              .selector__buttons
-                .selector__scroll
-                  .selector__button(data-id="company-channels").active Каналы
-                    span 6
-              .selector__containers
-                .selector__container(data-id="company-channels").active
-                  +heading-table({
-                    isSearch: true,
-                    isRows: true,
-                    searchClass: 'min-w-[243px] max-w-[243px]',
-                    buttons: [
-                      {
-                        view: 'button',
-                        class: 'button-with-icon-blue',
-                        icon: 'other-plus-icon',
-                        title: 'Добавить канал',
-                        dataPopupName: 'add-channel',
-                      }
-                    ],
-                  })
-                  .in-container.mt-4
-                    .content.content-collapsed
-                      .content-scroll
-                        include ../components/company/approval/table-approval
-          .selectors
-            .content.content-not-collapsed
-              .selector__buttons
-                .selector__scroll
-                  .selector__button(data-id="company-channels").active Каналы
-                    span 6
-              .selector__containers
-                .selector__container(data-id="company-channels").active
-                  +heading-table({
-                    isSearch: true,
-                    isRows: true,
-                    searchClass: 'min-w-[243px] max-w-[243px]',
-                    buttons: [
-                      {
-                        view: 'button',
-                        class: 'button-with-icon-blue',
-                        icon: 'other-plus-icon',
-                        title: 'Добавить канал',
-                        dataPopupName: 'add-channel',
-                      },
-                      {
-                        view: 'button',
-                        class: 'button-with-icon filter__toggle',
-                        icon: 'other-controls-icon',
-                        title: 'Фильтр',
-                        isClose: true,
-                        dataFilterName: 'company-survey',
-                      },
-                    ],
-                  })
-                  .in-container.mt-4
-                    .content.content-collapsed
-                      .content-scroll
-                        include ../components/company/survey/table-survey
-                    include ../components/company/survey/filter-survey
-          .selectors
-            .content.content-not-collapsed
-              .selector__buttons
-                .selector__scroll
-                  .selector__button(data-id="company-channels").active Каналы
-                    span 6
-              .selector__containers
-                .selector__container(data-id="company-channels").active
-                  +heading-table({
-                    isSearch: true,
-                    isRows: true,
-                    searchClass: 'min-w-[243px] max-w-[243px]',
-                    buttons: [
-                      {
-                        view: 'button',
-                        class: 'button-with-icon-blue',
-                        icon: 'other-plus-icon',
-                        title: 'Добавить канал',
-                        dataPopupName: 'add-channel',
-                      },
-                      {
-                        view: 'button',
-                        class: 'button-with-icon filter__toggle',
-                        icon: 'other-controls-icon',
-                        title: 'Фильтр',
-                        isClose: true,
-                        dataFilterName: 'company-coordination',
-                      },
-                    ],
-                  })
-                  .in-container.mt-4
-                    .content.content-collapsed
-                      .content-scroll
-                        include ../components/company/coordination/table-coordination
-                    include ../components/company/coordination/filter-coordination
-          .selectors
-            .content.content-not-collapsed
-              .selector__buttons
-                .selector__scroll
-                  .selector__button(data-id="company-channels").active Каналы
-                    span 6
-              .selector__containers
-                .selector__container(data-id="company-channels").active
-                  +heading-table({
-                    isSearch: true,
-                    isRows: true,
-                    searchClass: 'min-w-[243px] max-w-[243px]',
-                    buttons: [
-                      {
-                        view: 'button',
-                        class: 'button-with-icon-blue',
-                        icon: 'other-plus-icon',
-                        title: 'Добавить канал',
-                        dataPopupName: 'add-channel',
-                      },
-                      {
-                        view: 'button',
-                        class: 'button-with-icon filter__toggle',
-                        icon: 'other-controls-icon',
-                        title: 'Фильтр',
-                        isClose: true,
-                        dataFilterName: 'company-approval-client',
-                      },
-                    ],
-                  })
-                  .in-container.mt-4
-                    .content.content-collapsed
-                      .content-scroll
-                        include ../components/company/approval-client/table-approval-client
-                    include ../components/company/approval-client/filter-approval-client
-          .selectors
-            .content.content-not-collapsed
-              .selector__buttons
-                .selector__scroll
-                  .selector__button(data-id="company-channels").active Каналы
-                    span 6
-              .selector__containers
-                .selector__container(data-id="company-channels").active
-                  +heading-table({
-                    isSearch: true,
-                    isRows: true,
-                    searchClass: 'min-w-[243px] max-w-[243px]',
-                    buttons: [
-                      {
-                        view: 'button',
-                        class: 'button-with-icon-blue',
-                        icon: 'other-plus-icon',
-                        title: 'Добавить канал',
-                        dataPopupName: 'add-channel',
-                      },
-                      {
-                        view: 'button',
-                        class: 'button-with-icon filter__toggle',
-                        icon: 'other-controls-icon',
-                        title: 'Фильтр',
-                        isClose: true,
-                        dataFilterName: 'company-mediaplan',
-                      },
-                    ],
-                  })
-                  .in-container.mt-4
-                    .content.content-collapsed
-                      .content-scroll
-                        include ../components/company/mediaplan/table-mediaplan
-                    include ../components/company/mediaplan/filter-mediaplan
-          .selectors
-            .content.content-not-collapsed
-              .selector__buttons
-                .selector__scroll
-                  .selector__button(data-id="company-channels").active Каналы
-                    span 6
-              .selector__containers
-                .selector__container(data-id="company-channels").active
-                  +heading-table({
-                    isSearch: true,
-                    isRows: true,
-                    searchClass: 'min-w-[243px] max-w-[243px]',
-                    buttons: [
-                      {
-                        view: 'button',
-                        class: 'button-with-icon-blue',
-                        icon: 'other-plus-icon',
-                        title: 'Добавить канал',
-                        dataPopupName: 'add-channel',
-                      },
-                      {
-                        view: 'button',
-                        class: 'button-with-icon filter__toggle',
-                        icon: 'other-controls-icon',
-                        title: 'Фильтр',
-                        isClose: true,
-                        dataFilterName: 'company-mediaplan-agreed',
-                      },
-                    ],
-                  })
-                  .in-container.mt-4
-                    .content.content-collapsed
-                      .content-scroll
-                        include ../components/company/mediaplan-agreed/table-mediaplan-agreed
-                    include ../components/company/mediaplan-agreed/filter-mediaplan-agreed
+          //- .selectors
+          //-   .content.content-not-collapsed
+          //-     .selector__buttons
+          //-       .selector__scroll
+          //-         .selector__button(data-id="company-channels").active Каналы
+          //-           span 0
+          //-     .selector__containers
+          //-       .selector__container(data-id="company-channels").active
+          //-         +heading-table({
+          //-           isSearch: true,
+          //-           isRows: true,
+          //-           searchClass: 'min-w-[243px] max-w-[243px]',
+          //-           buttons: [
+          //-             {
+          //-               view: 'button',
+          //-               class: 'button-with-icon-blue',
+          //-               icon: 'other-plus-icon',
+          //-               isDisabled: true,
+          //-               title: 'Добавить канал',
+          //-               dataPopupName: 'add-channel',
+          //-             },
+          //-             {
+          //-               view: 'button',
+          //-               class: 'button-with-icon filter__toggle',
+          //-               icon: 'other-controls-icon',
+          //-               isDisabled: true,
+          //-               title: 'Фильтр',
+          //-               isClose: true,
+          //-               dataFilterName: 'company',
+          //-             },
+          //-           ],
+          //-         })
+          //-         .in-container.mt-4
+          //-           .content.content-collapsed
+          //-             .content-scroll
+          //-               include ../components/company/table
+          //-           include ../components/company/filter
+          //- .selectors
+          //-   .content.content-not-collapsed
+          //-     .selector__buttons
+          //-       .selector__scroll
+          //-         .selector__button(data-id="company-channels").active Каналы
+          //-           span 6
+          //-     .selector__containers
+          //-       .selector__container(data-id="company-channels").active
+          //-         +heading-table({
+          //-           isSearch: true,
+          //-           isRows: true,
+          //-           searchClass: 'min-w-[243px] max-w-[243px]',
+          //-           buttons: [
+          //-             {
+          //-               view: 'button',
+          //-               class: 'button-with-icon-blue',
+          //-               icon: 'other-plus-icon',
+          //-               title: 'Добавить канал',
+          //-               dataPopupName: 'add-channel',
+          //-             }
+          //-           ],
+          //-         })
+          //-         .in-container.mt-4
+          //-           .content.content-collapsed
+          //-             .content-scroll
+          //-               include ../components/company/approval/table-approval
+          //- .selectors
+          //-   .content.content-not-collapsed
+          //-     .selector__buttons
+          //-       .selector__scroll
+          //-         .selector__button(data-id="company-channels").active Каналы
+          //-           span 6
+          //-     .selector__containers
+          //-       .selector__container(data-id="company-channels").active
+          //-         +heading-table({
+          //-           isSearch: true,
+          //-           isRows: true,
+          //-           searchClass: 'min-w-[243px] max-w-[243px]',
+          //-           buttons: [
+          //-             {
+          //-               view: 'button',
+          //-               class: 'button-with-icon-blue',
+          //-               icon: 'other-plus-icon',
+          //-               title: 'Добавить канал',
+          //-               dataPopupName: 'add-channel',
+          //-             },
+          //-             {
+          //-               view: 'button',
+          //-               class: 'button-with-icon filter__toggle',
+          //-               icon: 'other-controls-icon',
+          //-               title: 'Фильтр',
+          //-               isClose: true,
+          //-               dataFilterName: 'company-survey',
+          //-             },
+          //-           ],
+          //-         })
+          //-         .in-container.mt-4
+          //-           .content.content-collapsed
+          //-             .content-scroll
+          //-               include ../components/company/survey/table-survey
+          //-           include ../components/company/survey/filter-survey
+          //- .selectors
+          //-   .content.content-not-collapsed
+          //-     .selector__buttons
+          //-       .selector__scroll
+          //-         .selector__button(data-id="company-channels").active Каналы
+          //-           span 6
+          //-     .selector__containers
+          //-       .selector__container(data-id="company-channels").active
+          //-         +heading-table({
+          //-           isSearch: true,
+          //-           isRows: true,
+          //-           searchClass: 'min-w-[243px] max-w-[243px]',
+          //-           buttons: [
+          //-             {
+          //-               view: 'button',
+          //-               class: 'button-with-icon-blue',
+          //-               icon: 'other-plus-icon',
+          //-               title: 'Добавить канал',
+          //-               dataPopupName: 'add-channel',
+          //-             },
+          //-             {
+          //-               view: 'button',
+          //-               class: 'button-with-icon filter__toggle',
+          //-               icon: 'other-controls-icon',
+          //-               title: 'Фильтр',
+          //-               isClose: true,
+          //-               dataFilterName: 'company-coordination',
+          //-             },
+          //-           ],
+          //-         })
+          //-         .in-container.mt-4
+          //-           .content.content-collapsed
+          //-             .content-scroll
+          //-               include ../components/company/coordination/table-coordination
+          //-           include ../components/company/coordination/filter-coordination
+          //- .selectors
+          //-   .content.content-not-collapsed
+          //-     .selector__buttons
+          //-       .selector__scroll
+          //-         .selector__button(data-id="company-channels").active Каналы
+          //-           span 6
+          //-     .selector__containers
+          //-       .selector__container(data-id="company-channels").active
+          //-         +heading-table({
+          //-           isSearch: true,
+          //-           isRows: true,
+          //-           searchClass: 'min-w-[243px] max-w-[243px]',
+          //-           buttons: [
+          //-             {
+          //-               view: 'button',
+          //-               class: 'button-with-icon-blue',
+          //-               icon: 'other-plus-icon',
+          //-               title: 'Добавить канал',
+          //-               dataPopupName: 'add-channel',
+          //-             },
+          //-             {
+          //-               view: 'button',
+          //-               class: 'button-with-icon filter__toggle',
+          //-               icon: 'other-controls-icon',
+          //-               title: 'Фильтр',
+          //-               isClose: true,
+          //-               dataFilterName: 'company-approval-client',
+          //-             },
+          //-           ],
+          //-         })
+          //-         .in-container.mt-4
+          //-           .content.content-collapsed
+          //-             .content-scroll
+          //-               include ../components/company/approval-client/table-approval-client
+          //-           include ../components/company/approval-client/filter-approval-client
+          //- .selectors
+          //-   .content.content-not-collapsed
+          //-     .selector__buttons
+          //-       .selector__scroll
+          //-         .selector__button(data-id="company-channels").active Каналы
+          //-           span 6
+          //-     .selector__containers
+          //-       .selector__container(data-id="company-channels").active
+          //-         +heading-table({
+          //-           isSearch: true,
+          //-           isRows: true,
+          //-           searchClass: 'min-w-[243px] max-w-[243px]',
+          //-           buttons: [
+          //-             {
+          //-               view: 'button',
+          //-               class: 'button-with-icon-blue',
+          //-               icon: 'other-plus-icon',
+          //-               title: 'Добавить канал',
+          //-               dataPopupName: 'add-channel',
+          //-             },
+          //-             {
+          //-               view: 'button',
+          //-               class: 'button-with-icon filter__toggle',
+          //-               icon: 'other-controls-icon',
+          //-               title: 'Фильтр',
+          //-               isClose: true,
+          //-               dataFilterName: 'company-mediaplan',
+          //-             },
+          //-           ],
+          //-         })
+          //-         .in-container.mt-4
+          //-           .content.content-collapsed
+          //-             .content-scroll
+          //-               include ../components/company/mediaplan/table-mediaplan
+          //-           include ../components/company/mediaplan/filter-mediaplan
+          //- .selectors
+          //-   .content.content-not-collapsed
+          //-     .selector__buttons
+          //-       .selector__scroll
+          //-         .selector__button(data-id="company-channels").active Каналы
+          //-           span 6
+          //-     .selector__containers
+          //-       .selector__container(data-id="company-channels").active
+          //-         +heading-table({
+          //-           isSearch: true,
+          //-           isRows: true,
+          //-           searchClass: 'min-w-[243px] max-w-[243px]',
+          //-           buttons: [
+          //-             {
+          //-               view: 'button',
+          //-               class: 'button-with-icon-blue',
+          //-               icon: 'other-plus-icon',
+          //-               title: 'Добавить канал',
+          //-               dataPopupName: 'add-channel',
+          //-             },
+          //-             {
+          //-               view: 'button',
+          //-               class: 'button-with-icon filter__toggle',
+          //-               icon: 'other-controls-icon',
+          //-               title: 'Фильтр',
+          //-               isClose: true,
+          //-               dataFilterName: 'company-mediaplan-agreed',
+          //-             },
+          //-           ],
+          //-         })
+          //-         .in-container.mt-4
+          //-           .content.content-collapsed
+          //-             .content-scroll
+          //-               include ../components/company/mediaplan-agreed/table-mediaplan-agreed
+          //-           include ../components/company/mediaplan-agreed/filter-mediaplan-agreed
           .selectors
             .content.content-not-collapsed
               .selector__buttons

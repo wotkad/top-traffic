@@ -1,0 +1,20 @@
+.popup__bg(data-popup-name="delete-attachedfile")
+.popup(data-popup-name="delete-attachedfile")
+  .popup__wrapper(data-scroll-lock-scrollable)
+    .popup__title Подтвердить действие
+    .popup__subtitle Удалить файл?
+    .popup__form
+      .popup__buttons
+        +button({
+          class: 'button-confirm table__attachedfile__delete',
+          dataPopupName: 'delete-attachedfile',
+          title: 'Да',
+          type: 'submit',
+          view: 'button',
+        })
+        +button({
+          class: 'button-base',
+          dataPopupName: 'delete-attachedfile',
+          title: 'Нет',
+          view: 'button',
+        })
