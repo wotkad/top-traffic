@@ -37,6 +37,11 @@
     .dropdown__list {
       @apply top-[calc(100%+12px)] left-0 w-auto;
     }
+    .button {
+      svg {
+        @apply w-[12px] h-1.5;
+      }
+    }
     @apply ml-2 w-auto min-w-5;
   }
   &__status {
@@ -50,10 +55,10 @@
       .button {
         @apply right-2 w-4 min-w-4 h-3 min-h-3;
       }
-      @apply bg-transparent p-0 border-none h-auto;
+      @apply bg-transparent p-0 border-none h-[22px];
     }
     .dropdown__inner {
-      @apply py-[2px] pr-[30px] pl-5 rounded-[30px];
+      @apply py-[2px] pr-[30px] pl-5 rounded-[30px] h-full;
     }
     @apply ml-2 w-auto;
   }

@@ -1,0 +1,21 @@
+.popup__bg(data-popup-name="delete-rk")
+.popup(data-popup-name="delete-rk")
+  .popup__wrapper(data-scroll-lock-scrollable)
+    .popup__title Подтвердить действие
+    .popup__subtitle Удалить рекламную компанию?
+    form(action="#")
+      .popup__form
+        .popup__buttons
+          +button({
+            class: 'button-confirm',
+            dataPopupName: 'delete-rk',
+            title: 'Да',
+            type: 'submit',
+            view: 'button',
+          })
+          +button({
+            class: 'button-base',
+            dataPopupName: 'delete-rk',
+            title: 'Нет',
+            view: 'button',
+          })

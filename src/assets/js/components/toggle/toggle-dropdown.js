@@ -104,6 +104,7 @@ export default function toggleDropdown() {
 
     $(this).addClass('active');
     $list.addClass('active');
+
   });
 
   $('.dropdown__item input[type="radio"]').on('change', function () {
@@ -435,19 +436,6 @@ export default function toggleDropdown() {
     });
   });
   
-
-  $('.dropdown__sort').on('click', function (e) {
-    e.stopPropagation();
-
-    const $dropdownList = $(this).siblings('.dropdown__list');
-
-    $('.dropdown__list').not($dropdownList).removeClass('active');
-    $('.dropdown__sort').not(this).removeClass('active');
-    $('.dropdown__button').removeClass('active');
-
-    $(this).toggleClass('active');
-  });
-
   $('.dropdown-base .dropdown__list .button').on('click', function () {
     $(this).closest('.dropdown__list').removeClass('active');
     $(this).closest('.dropdown__button').removeClass('active');

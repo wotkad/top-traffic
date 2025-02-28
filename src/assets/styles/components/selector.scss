@@ -63,7 +63,7 @@
       &.awaiting {
         @apply text-black-100;
       }
-      @apply text-12-sb text-black-200 transition-all duration-300;
+      @apply text-12-m-p text-black-200 transition-all duration-300;
     }
     @apply relative flex items-center gap-x-2 cursor-pointer;
   }

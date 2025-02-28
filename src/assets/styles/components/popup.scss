@@ -113,7 +113,8 @@
   &[data-popup-name="delete-attachedlink"],
   &[data-popup-name="delete-attachedfile"],
   &[data-popup-name="delete-link"],
-  &[data-popup-name="delete-post"] {
+  &[data-popup-name="delete-post"],
+  &[data-popup-name="delete-rk"] {
     .popup__wrapper {
       .popup__title {
         @apply text-14-sb-md;
