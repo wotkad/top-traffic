@@ -33,7 +33,7 @@ function toggleTableInputWidth() {
     } else {
       $(this).parent().find('.symbol').remove();
       $(this).parent().removeAttr('data-value');
-      $(this).css('width', 'auto');
+      $(this).css('padding-right', 8);
     }
 
     $(this).parent().attr('data-value', rawValue);

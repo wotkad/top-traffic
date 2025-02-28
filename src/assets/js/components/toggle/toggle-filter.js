@@ -41,17 +41,20 @@ function toggleFilter() {
       const $filter = $(this);
       const filterName = $filter.data('filter-name');
       const $filterToggle = $('.filter__toggle[data-filter-name="' + filterName + '"]');
-  
+
       const $checkedInputs = $filter.find('input[type="checkbox"]:checked, input[type="radio"]:checked');
       const $checkedCheckAll = $filter.find('input.check-all:checked');
-  
+
       const hasDate = ($filter.find('input[name="date"]').val() > 0 || $filter.find('input[name="date"]').val() !== 'Все') 
         && $filter.find('input[name="date"]').val() !== undefined;
-  
-      // Проверяем, выбраны ли только check-all
+
+      const hasNumber = $filter.find('input[type="number"]').filter(function() {
+        return $(this).val() !== '';
+      }).length > 0;
+
       const onlyCheckAllSelected = $checkedInputs.length > 0 && $checkedInputs.length === $checkedCheckAll.length;
-  
-      if ((hasDate || (!onlyCheckAllSelected && $checkedInputs.length > 0))) {
+
+      if (hasDate || hasNumber || (!onlyCheckAllSelected && $checkedInputs.length > 0)) {
         $filterToggle.addClass('sorted');
       } else {
         $filterToggle.removeClass('sorted');
@@ -73,16 +76,14 @@ function toggleFilter() {
           }
         });
       });
-  
+
       observer.observe(targetNode, { attributes: true, attributeFilter: ['data-value'] });
     });
   }
-  
-  // Запускаем отслеживание
-  observeDataValueChanges();
-  
 
-  $('.filter').on('change', 'input[type="checkbox"], input[type="radio"]', function () {
+  observeDataValueChanges();
+
+  $('.filter').on('change input', 'input[type="checkbox"], input[type="radio"], input[type="number"]', function () {
     toggleClearButton();
   });
 
@@ -101,7 +102,7 @@ function toggleFilter() {
     let $button = $('.filter__toggle[data-filter-name="' + filterName + '"]');
     const $filterContainer = $('.filter[data-filter-name="' + filterName + '"]');
 
-    $filterContainer.find('input[type="checkbox"], input[type="radio"]').prop('checked', false);
+    $filterContainer.find('input[type="checkbox"], input[type="radio"], input[type="number"]').prop('checked', false).val('');
     $filterContainer.find('.dropdown__values').empty();
     $filterContainer.find('.dropdown__sort').hide().removeClass('active');
     $filterContainer.find('.dropdown__button').show().removeClass('active');
@@ -117,7 +118,6 @@ function toggleFilter() {
 
     $button.removeClass('sorted');
   });
-
 }
 
 toggleFilter();

@@ -195,7 +195,8 @@ export default function toggleDropdown() {
   $('.dropdown__list').on('click', function (e) {
     if (
       $(this).closest('.dropdown-checkboxes').length ||
-      $(this).closest('.dropdown-checkboxes-images').length
+      $(this).closest('.dropdown-checkboxes-images').length ||
+      $(this).closest('.dropdown-radios').length
     ) {
       e.stopPropagation();
     }

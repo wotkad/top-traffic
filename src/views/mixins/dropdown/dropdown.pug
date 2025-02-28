@@ -78,7 +78,8 @@ mixin dropdown(data = {})
               })
 
         else if modefied.isRadios && modefied.buttons
-          +search
+          if modefied.isSearch
+            +search
           .dropdown__items
             each button, index in modefied.buttons
               label.dropdown__item(data-href=button.linkHref data-title=button.linkTitle)
