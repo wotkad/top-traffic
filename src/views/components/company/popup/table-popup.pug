@@ -5,14 +5,14 @@ table.table.table-fixed-cols.table-selected
 table.table.table-fixed-cols.table-select
   thead
     tr
-      th(style="padding-left: 12px; min-width: 180px;")
+      th(style="padding-left: 12px; min-width: 280px;").fixed-th.fixed-th-border
         .flex.items-center(class="gap-x-3")
           +input({
             class: 'md table__checkbox',
             type: 'checkbox',
           })
           .table__sort.flex.gap-x-2.items-center
-            p Администратор
+            p Канал
               button(type="button").table__sortbutton
                 svg
                   use(xlink:href="#other-sort-icon")
@@ -47,7 +47,7 @@ table.table.table-fixed-cols.table-select
               svg
                 use(xlink:href="#other-sort-icon")
       th
-        .table__sort.flex.gap-x-2.items-center
+        .table__sort.flex.gap-x-2.items-center.justify-end
           p.text-right Охват
             button(type="button").table__sortbutton
               svg
@@ -65,55 +65,55 @@ table.table.table-fixed-cols.table-select
               svg
                 use(xlink:href="#other-sort-icon")
       th
-        .table__sort.flex.gap-x-2.items-center
+        .table__sort.flex.gap-x-2.items-center.justify-end
           p.text-right CPV
             button(type="button").table__sortbutton
               svg
                 use(xlink:href="#other-sort-icon")
       th
-        .table__sort.flex.gap-x-2.items-center
+        .table__sort.flex.gap-x-2.items-center.justify-end
           p.text-right Охват (24ч)
             button(type="button").table__sortbutton
               svg
                 use(xlink:href="#other-sort-icon")
       th
-        .table__sort.flex.gap-x-2.items-center
+        .table__sort.flex.gap-x-2.items-center.justify-end
           p.text-right Охват (48ч)
             button(type="button").table__sortbutton
               svg
                 use(xlink:href="#other-sort-icon")
       th
-        .table__sort.flex.gap-x-2.items-center
+        .table__sort.flex.gap-x-2.items-center.justify-end
           p.text-right Охват (72ч)
             button(type="button").table__sortbutton
               svg
                 use(xlink:href="#other-sort-icon")
       th
-        .table__sort.flex.gap-x-2.items-center
+        .table__sort.flex.gap-x-2.items-center.justify-end
           p.text-right ИЦ
             button(type="button").table__sortbutton
               svg
                 use(xlink:href="#other-sort-icon")
       th
-        .table__sort.flex.gap-x-2.items-center
+        .table__sort.flex.gap-x-2.items-center.justify-end
           p.text-right ER
             button(type="button").table__sortbutton
               svg
                 use(xlink:href="#other-sort-icon")
       th
-        .table__sort.flex.gap-x-2.items-center
+        .table__sort.flex.gap-x-2.items-center.justify-end
           p.text-right ERR
             button(type="button").table__sortbutton
               svg
                 use(xlink:href="#other-sort-icon")
       th
-        .table__sort.flex.gap-x-2.items-center
+        .table__sort.flex.gap-x-2.items-center.justify-end
           p.text-right ERR (24ч)
             button(type="button").table__sortbutton
               svg
                 use(xlink:href="#other-sort-icon")
       th
-        .table__sort.flex.gap-x-2.items-center
+        .table__sort.flex.gap-x-2.items-center.justify-end
           p.text-right ERR (72ч)
             button(type="button").table__sortbutton
               svg
@@ -223,8 +223,8 @@ table.table.table-fixed-cols.table-select
                 svg
                   use(xlink:href="#other-sort-icon")
       th
-        .table__sort.flex.gap-x-2.items-center
-          p Посты
+        .table__sort.flex.gap-x-2.items-center.justify-end
+          p.text-right Посты
             button(type="button").table__sortbutton
               svg
                 use(xlink:href="#other-sort-icon")

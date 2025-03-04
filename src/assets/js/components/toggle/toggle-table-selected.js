@@ -47,7 +47,7 @@ function toggleTableSelected() {
     if ($(this).prop('checked')) {
       $('.table-selected tbody').append(`
         <tr id="${rowId}">
-          <td style="padding: 6.5px 32px 6.5px 12px; min-width: 180px; max-width: 252px;">
+          <td class="fixed-td fixed-td-border" style="z-index: 10; padding: 6.5px 32px 6.5px 12px; min-width: 280px; max-width: 280px;">
             <div class="flex items-center w-full gap-x-3 h-[33px]">
               <button class="button button-icon text-black-200 table-remove-row" type="button" aria-label="button">
                 <svg viewBox="0 0 18 18" width="18" height="18">
@@ -232,7 +232,7 @@ function toggleTableSelected() {
         if ($('.table-selected tbody tr#' + rowId).length === 0) {
           $('.table-selected tbody').append(`
             <tr id="${rowId}">
-              <td style="padding: 6.5px 32px 6.5px 12px; min-width: 180px; max-width: 252px;">
+              <td class="fixed-td" style="padding: 6.5px 32px 6.5px 12px; min-width: 180px; max-width: 252px;">
                 <div class="flex items-center w-full gap-x-3 h-[33px]">
                   <button class="button button-icon text-black-200 table-remove-row" type="button" aria-label="button">
                     <svg viewBox="0 0 18 18" width="18" height="18">
@@ -363,6 +363,11 @@ function toggleTableSelected() {
     updateSelectedCount();
     $(this).closest('.popup__apply').removeClass('active');
     $(this).closest('.popup').find('.popup__apply__bg').removeClass('active');
+  });
+
+  $('.popup-cancel-bottom').on('click', function() {
+    $(this).closest('.popup').find('.popup__apply__bg').addClass('active');
+    $(this).closest('.popup').find('.popup__apply-cancel').addClass('active');
   });
 
   $('.popup-save-top').on('click', function() {

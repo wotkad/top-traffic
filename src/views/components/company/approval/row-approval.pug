@@ -1,6 +1,6 @@
 mixin row-approval(data)
   tr
-    td.border-r.border-black-500(style="min-width: 76px;")
+    td(style="min-width: 76px;").fixed-td.fixed-td-border
       .table__sort.flex.gap-x-3.items-center
         +input({
           class: 'md table__checkbox table__checkbox-accept',
@@ -16,14 +16,14 @@ mixin row-approval(data)
           type: 'radio',
           name: data.name,
         })
-    td(style="min-width: 280px;")
+    td(style="min-width: 280px;").fixed-td.fixed-td-border.fixed-td-prev-checkbox
       .flex.items-center(class="gap-x-1.5")
         img.rounded.object-cover(class="w-[30px] h-[30px]" src="/assets/images/avatar.png" alt="tg-channel")
         .flex.flex-col.items-start
           h3
             a(href="#").table__channel ZeroDay | Кибербезопасность
           a(href="https://t.me/cybersec_academy" target="_blank").table__link @cybersec_academy
-    td.only-text Интернет технологии
+    td.only-text(style="padding-left: 32px;") Интернет технологии
     td
       .grid.items-center(class="gap-x-1.5 grid-cols-[30px_1fr]")
         img.rounded.object-cover(class="w-[30px] h-[30px]" src="/assets/images/avatar.png" alt="tg-channel")

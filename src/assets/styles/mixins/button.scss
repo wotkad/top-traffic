@@ -13,9 +13,9 @@ label.button {
       grid-area: 1 / 2;
     }
     &:after {
-      @apply content-[attr(data-value)_'_'] whitespace-pre-wrap invisible;
+      @apply invisible content-[attr(data-value)_'_'] whitespace-pre-wrap;
     }
-    @apply inline-grid relative align-top items-center grid-cols-[18px_1fr] pr-7;
+    @apply inline-grid relative items-center grid-cols-[18px_1fr] pr-7 align-top;
   }
   &.only-input {
     svg {
@@ -81,6 +81,9 @@ label.button {
     span {
       @apply whitespace-nowrap;
     }
+    &[disabled] {
+      @apply bg-transparent;
+    }
     input {
       @apply bg-transparent text-12-m leading-3 pointer-events-none;
     }
@@ -138,11 +141,11 @@ label.button {
     }
     &.sm {
       svg {
-        @apply w-2.5 h-[5px];
+        @apply w-3 h-1.5;
       }
       @apply p-0 w-5 min-w-5 h-4 min-h-4;
     }
-    @apply flex justify-center items-center bg-transparent py-[7px] p-1.5 rounded w-[29px] h-[27px];
+    @apply flex justify-center items-center bg-transparent p-1.5 py-[7px] rounded w-[29px] h-[27px];
   }
   &-icon-round {
     &:hover {

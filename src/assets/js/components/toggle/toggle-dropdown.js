@@ -102,8 +102,8 @@ export default function toggleDropdown() {
     $('.dropdown__button').not(this).removeClass('active');
     $('.dropdown__sort').removeClass('active');
 
-    $(this).addClass('active');
-    $list.addClass('active');
+    $(this).toggleClass('active');
+    $list.toggleClass('active');
 
   });
 

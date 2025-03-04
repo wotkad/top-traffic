@@ -1,6 +1,7 @@
 import gsap from 'gsap';
 import setFilterHeight from '../../base/common/set-filter-height';
 import setAsideHeight from '../../base/common/set-aside-height';
+import setSubrowPosition from '../../base/common/set-subrow-position';
 
 function toggleFilter() {
   $(document).on('click', '.filter__toggle[data-filter-name]', function() {
@@ -14,7 +15,7 @@ function toggleFilter() {
     if (filter.hasClass('filter-sm')) {
       x = '-390px';
     } else if (filter.hasClass('filter-popup')) {
-      x = '-300px';
+      x = '-320px';
     } else {
       x = '-304px';
     }
@@ -22,12 +23,15 @@ function toggleFilter() {
     if (toggle.hasClass('active')) {
       gsap.to(filter, {x: '0', duration: .3, onComplete: () => {
         filter.removeAttr('style');
+        setSubrowPosition();
       }});
       toggle.removeClass('active');
       filter.removeClass('active');
       content.removeClass('active');
     } else {
-      gsap.to(filter, {x: x, duration: .3});
+      gsap.to(filter, {x: x, duration: .3, onComplete: () => {
+        setSubrowPosition();
+      }});
       toggle.addClass('active');
       filter.addClass('active');
       content.addClass('active');
@@ -36,31 +40,29 @@ function toggleFilter() {
     setAsideHeight();
   });
 
-  const toggleClearButton = function () {
-    $('.filter').each(function () {
-      const $filter = $(this);
-      const filterName = $filter.data('filter-name');
-      const $filterToggle = $('.filter__toggle[data-filter-name="' + filterName + '"]');
-
-      const $checkedInputs = $filter.find('input[type="checkbox"]:checked, input[type="radio"]:checked');
-      const $checkedCheckAll = $filter.find('input.check-all:checked');
-
-      const hasDate = ($filter.find('input[name="date"]').val() > 0 || $filter.find('input[name="date"]').val() !== 'Все') 
-        && $filter.find('input[name="date"]').val() !== undefined;
-
-      const hasNumber = $filter.find('input[type="number"]').filter(function() {
-        return $(this).val() !== '';
-      }).length > 0;
-
-      const onlyCheckAllSelected = $checkedInputs.length > 0 && $checkedInputs.length === $checkedCheckAll.length;
-
-      if (hasDate || hasNumber || (!onlyCheckAllSelected && $checkedInputs.length > 0)) {
-        $filterToggle.addClass('sorted');
-      } else {
-        $filterToggle.removeClass('sorted');
-      }
-    });
+  const toggleClearButton = function ($filter) {
+    const filterName = $filter.data('filter-name');
+    const $filterToggle = $('.filter__toggle[data-filter-name="' + filterName + '"]');
+  
+    const $checkedInputs = $filter.find('input[type="checkbox"]:checked, input[type="radio"]:checked');
+    const $checkedCheckAll = $filter.find('input.check-all:checked');
+  
+    const hasDate = ($filter.find('input[name="date"]').val() > 0 || $filter.find('input[name="date"]').val() !== 'Все') 
+      && $filter.find('input[name="date"]').val() !== undefined;
+  
+    const hasNumber = $filter.find('input[type="number"]').filter(function () {
+      return $(this).val() !== '';
+    }).length > 0;
+  
+    const onlyCheckAllSelected = $checkedInputs.length > 0 && $checkedInputs.length === $checkedCheckAll.length;
+  
+    if (hasDate || hasNumber || (!onlyCheckAllSelected && $checkedInputs.length > 0)) {
+      $filterToggle.addClass('sorted');
+    } else {
+      $filterToggle.removeClass('sorted');
+    }
   };
+  
 
   function observeDataValueChanges() {
     $('.monthpicker-trigger, .datepicker-trigger').each(function () {
@@ -84,12 +86,14 @@ function toggleFilter() {
   observeDataValueChanges();
 
   $('.filter').on('change input', 'input[type="checkbox"], input[type="radio"], input[type="number"]', function () {
-    toggleClearButton();
+    let $filter = $(this).closest('.filter');
+    toggleClearButton($filter);
   });
-
+  
   $('.dropdown__values').on('click', '.dropdown__value svg', function (e) {
     e.stopPropagation();
-    toggleClearButton();
+    let $filter = $(this).closest('.filter');
+    toggleClearButton($filter);
   });
 
   $('.filter__clear, .filter-clear').on('click', function (e) {
@@ -103,6 +107,7 @@ function toggleFilter() {
     const $filterContainer = $('.filter[data-filter-name="' + filterName + '"]');
 
     $filterContainer.find('input[type="checkbox"], input[type="radio"], input[type="number"]').prop('checked', false).val('');
+    $filterContainer.find('input[type="text"]').val('');
     $filterContainer.find('.dropdown__values').empty();
     $filterContainer.find('.dropdown__sort').hide().removeClass('active');
     $filterContainer.find('.dropdown__button').show().removeClass('active');
@@ -115,6 +120,11 @@ function toggleFilter() {
     $filterContainer.find('.dropdown__selected span').text('0');
 
     $filterContainer.find('input[type="text"].monthpicker, input[type="text"].datepicker').attr('placeholder', 'Все').val('Все');
+
+    let monthpickerId = $filterContainer.find('input[type="text"].monthpicker').attr('data-id');
+    let datepickerId = $filterContainer.find('input[type="text"].datepicker').attr('data-id');
+
+    $(`.daterangepicker[data-id="${datepickerId}"]`).find('.drp-buttons').hide();
 
     $button.removeClass('sorted');
   });

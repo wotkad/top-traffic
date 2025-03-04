@@ -13,9 +13,6 @@
   }
   &__button {
     .button {
-      svg {
-        @apply w-2.5 h-[5px];
-      }
       &.dropdown__icon {
         svg {
           @apply w-4 h-4;
@@ -93,9 +90,6 @@
   }
   &__sort {
     .button {
-      svg {
-        @apply w-2.5 h-[5px];
-      }
       @apply top-[7px] right-[11px] absolute p-0 transition-all duration-300;
     }
     &.active {
@@ -129,7 +123,7 @@
     &:active {
       @apply border-blue-200 text-blue-200;
     }
-    @apply order-2 transition-all duration-300;
+    @apply flex justify-center items-center order-2 w-6 h-6 transition-all duration-300;
   }
   &__value {
     span {

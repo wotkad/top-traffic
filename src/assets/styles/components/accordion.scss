@@ -45,9 +45,9 @@
   }
   &__icon {
     svg {
-      @apply w-3.5 h-3.5 text-white-000;
+      @apply w-3.5 min-w-3.5 max-w-3.5 h-3.5 min-h-3.5 max-h-3.5 text-white-000;
     }
-    @apply flex justify-center items-center row-span-2 bg-black-400 rounded-full w-6 h-6;
+    @apply flex justify-center items-center row-span-2 bg-black-500 rounded-full w-6 h-6;
   }
   &__container {
     @apply hidden;

@@ -4,18 +4,17 @@
     .popup__apply__bg
     .popup__apply.popup__apply-top
       h3 Подтвердить действие
-      p Сохранить изменения?
+      p Выйти без сохранения?
       .popup__buttons
         +button({
           class: 'button-with-icon-blue lg popup-save',
           dataPopupName: 'add-channel',
-          title: 'Сохранить',
+          title: 'Да',
           view: 'button',
         })
         +button({
           class: 'button-base popup-cancel',
-          dataPopupName: 'add-channel',
-          title: 'Отменить',
+          title: 'Нет',
           view: 'button',
         })
     .popup__apply.popup__apply-bottom
@@ -32,6 +31,21 @@
           class: 'button-base popup-cancel',
           dataPopupName: 'add-channel',
           title: 'Отменить',
+          view: 'button',
+        })
+    .popup__apply.popup__apply-cancel
+      h3 Подтвердить действие
+      p Выйти без сохранения?
+      .popup__buttons
+        +button({
+          class: 'button-with-icon-blue lg popup-save',
+          dataPopupName: 'add-channel',
+          title: 'Да',
+          view: 'button',
+        })
+        +button({
+          class: 'button-base popup-cancel',
+          title: 'Нет',
           view: 'button',
         })
     .popup__close
@@ -91,8 +105,7 @@
         view: 'button',
       })
       +button({
-        class: 'button-base popup-cancel',
-        dataPopupName: 'add-channel',
+        class: 'button-base popup-cancel-bottom',
         title: 'Отмена',
         view: 'button',
       })

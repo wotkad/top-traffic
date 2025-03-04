@@ -57,10 +57,11 @@ tr
     })
   td.only-text
     .table__attachedlink
-      .table__icon.button(data-popup-name="add-link")
-        svg
-          use(xlink:href="#other-attachment-icon")
-      span.table__attachedlink__value Добавить
+      label.table__attachedlink__container.button(data-popup-name="add-link")
+        .table__icon
+          svg
+            use(xlink:href="#other-attachment-icon")
+        span.table__attachedlink__value Добавить
       +dropdown({
         buttons: [
           {
@@ -82,11 +83,12 @@ tr
       })
   td.only-text
     .table__attachedfile
-      label.table__icon
-        input(type="file")
-        svg
-          use(xlink:href="#other-file-icon")
-      span.table__attachedfile__value Прикрепить
+      label.table__attachedfile__container
+        .table__icon
+          input(type="file")
+          svg
+            use(xlink:href="#other-file-icon")
+        span.table__attachedfile__value Прикрепить
       +dropdown({
         buttons: [
           {
@@ -107,11 +109,12 @@ tr
       })
   td.only-text
     .table__attachedfile
-      label.table__icon
-        input(type="file")
-        svg
-          use(xlink:href="#other-file-icon")
-      span.table__attachedfile__value Прикрепить
+      label.table__attachedfile__container
+        .table__icon
+          input(type="file")
+          svg
+            use(xlink:href="#other-file-icon")
+        span.table__attachedfile__value Прикрепить
       +dropdown({
         buttons: [
           {
@@ -132,11 +135,12 @@ tr
       })
   td.only-text
     .table__attachedfile
-      label.table__icon
-        input(type="file")
-        svg
-          use(xlink:href="#other-file-icon")
-      span.table__attachedfile__value Прикрепить
+      label.table__attachedfile__container
+        .table__icon
+          input(type="file")
+          svg
+            use(xlink:href="#other-file-icon")
+        span.table__attachedfile__value Прикрепить
       +dropdown({
         buttons: [
           {
@@ -157,11 +161,12 @@ tr
       })
   td.only-text
     .table__attachedfile
-      label.table__icon
-        input(type="file")
-        svg
-          use(xlink:href="#other-file-icon")
-      span.table__attachedfile__value Прикрепить
+      label.table__attachedfile__container
+        .table__icon
+          input(type="file")
+          svg
+            use(xlink:href="#other-file-icon")
+        span.table__attachedfile__value Прикрепить
       +dropdown({
         buttons: [
           {
@@ -180,11 +185,11 @@ tr
         isButtons: true,
         title: '',
       })
-  td.only-text 22 505
-  td.only-text 22 505
-  td.only-text 22 505
-  td.only-text 22 505
-  td.only-text 22 505
+  td.only-text.text-right 22 505
+  td.only-text.text-right 22 505
+  td.only-text.text-right 22 505
+  td.only-text.text-right 22 505
+  td.only-text.text-right 22 505
   td
     +input({
       class: 'table__comment',

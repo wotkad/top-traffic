@@ -7,5 +7,4 @@ function toggleSubrow() {
     }
   });
 }
-
 toggleSubrow();

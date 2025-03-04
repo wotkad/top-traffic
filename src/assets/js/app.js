@@ -17,6 +17,7 @@ import "./base/common/set-filter-height";
 import "./base/common/set-aside-height";
 import "./base/common/set-filter-position";
 import "./base/common/set-aside-position";
+import "./base/common/set-subrow-position";
 import "./base/common/set-td-padding";
 import "./base/common/set-td-padding-default";
 import "./base/common/set-page-initials";
@@ -24,6 +25,7 @@ import "./base/common/copy-accordion-link";
 import "./base/common/copy-popup-link";
 import "./base/common/table-attachmentlink";
 import "./base/common/table-attachmentfile";
+import "./base/common/table-attachmentbill";
 
 import "./components/form/form-login";
 

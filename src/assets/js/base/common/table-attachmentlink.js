@@ -23,9 +23,9 @@ function openPopupWithData(parent) {
     }
 }
 
-function tableInputLink() {
+function tableAttachmentLink() {
     // Открытие попапа при клике на "Добавить ссылку"
-    $(document).on("click", ".table__icon.button[data-popup-name='add-link']", function () {
+    $(document).on("click", ".table__attachedlink__container.button[data-popup-name='add-link']", function () {
         let parent = $(this).closest(".table__attachedlink");
         openPopupWithData(parent);
     });
@@ -79,5 +79,4 @@ function tableInputLink() {
         popup.removeAttr("data-popup-id"); // Убираем ID из попапа
     });
 }
-
-tableInputLink();
+tableAttachmentLink();

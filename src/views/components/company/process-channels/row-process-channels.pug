@@ -1,6 +1,6 @@
 mixin row-process-channels(data)
   tr
-    td(style="min-width: 280px;")
+    td(style="min-width: 280px;").fixed-td.fixed-td-border
       .flex.items-center(class="gap-x-1.5")
         img.rounded.object-cover(class="w-[30px] h-[30px]" src="/assets/images/avatar.png" alt="tg-channel")
         .flex.flex-col.items-start
@@ -165,17 +165,20 @@ mixin row-process-channels(data)
       span.status(class="" + data.color)= data.status
     if data.file !== undefined
       td.only-text
-        label.table__file
-          input(type="file")
-          <span class="button button-icon" type="button" aria-label="button"><svg viewBox="0 0 20 20" width="20" height="20"><use xlink:href="#other-attachment-icon"></use></svg></span>
-          span.table__file__value= data.file
-          +button({
-            class: 'button-icon table__file__remove',
-            dataPopupName: 'delete-table-file',
-            icon: 'other-trash-icon',
-            isOnlyIcon: true,
-            view: 'button',
-          })
+        .table__attachedbill
+          label.table__attachedbill__container
+            .table__icon
+              input(type="file")
+              svg
+                use(xlink:href="#other-link-icon")
+            span.table__attachedbill__value= data.file
+            +button({
+              class: 'button-icon table__attachedbill__remove',
+              dataPopupName: 'delete-attachedbill',
+              icon: 'other-trash-icon',
+              isOnlyIcon: true,
+              view: 'button',
+            })
     else
       td.only-text
         span ––

@@ -1,7 +1,7 @@
 table.table.table-default.table-approval
   thead
     tr
-      th.border-r.border-black-500(style="min-width: 76px;")
+      th(style="min-width: 76px;").fixed-th.fixed-th-border
         .table__sort.flex.gap-x-3.items-center
           +input({
             class: 'md table__checkbox pointer-events-none table__checkbox-accept',
@@ -13,13 +13,13 @@ table.table.table-default.table-approval
             isChecked: true,
             type: 'checkbox',
           })
-      th(style="min-width: 280px;")
+      th(style="min-width: 280px;").fixed-th.fixed-th-border.fixed-th-prev-checkbox
         .table__sort.flex.gap-x-2.items-center
           p Канал
             button(type="button").table__sortbutton
               svg
                 use(xlink:href="#other-sort-icon")
-      th
+      th(style="padding-left: 32px;")
         .table__sort.flex.gap-x-2.items-center
           p Категория
             button(type="button").table__sortbutton

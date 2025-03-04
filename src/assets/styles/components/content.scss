@@ -23,7 +23,7 @@
     .content {
       &-collapsed {
         &.active {
-          @apply w-[calc(100%-296px)];
+          @apply w-[calc(100%-294px)];
         }
       }
       &-not-collapsed {
@@ -33,7 +33,7 @@
   }
   &-collapsed {
     &.active {
-      @apply w-[calc(100%-312px)];
+      @apply w-[calc(100%-294px)];
     }
   }
   @apply w-full transition-all duration-300;
