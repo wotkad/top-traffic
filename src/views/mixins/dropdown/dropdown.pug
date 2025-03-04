@@ -100,7 +100,7 @@ mixin dropdown(data = {})
               p
                 span(class=modefied.isPriority || modefied.isStatus ? button.color : false)= button.title
         
-        else if modefied.isButtons && modefied.buttons
+        else if modefied.isButtons && modefied.buttons && !modefied.isMultiSelect
           each button in modefied.buttons
             +button({
               view: 'button',
@@ -108,6 +108,17 @@ mixin dropdown(data = {})
               icon: button.icon,
               title: button.title,
               dataPopupName: button.dataPopupName,
+            })
+            
+        else if modefied.isButtons && modefied.buttons && modefied.isMultiSelect
+          each button in modefied.buttons
+            +button({
+              view: 'button-multi-select',
+              class: 'button-with-icon-full sm ' + button.class,
+              icon: button.icon,
+              title: button.title,
+              dataPopupName: button.dataPopupName,
+              icons: button.icons,
             })
             
         else

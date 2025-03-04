@@ -8,6 +8,9 @@ module.exports = {
     href: '#',
     icon: '',
     iconPos: 'before',
+    icons: [
+
+    ],
     isCalendar: false,
     isClose: false,
     isDatePicker: false,
@@ -34,6 +37,7 @@ module.exports = {
       href: data.href !== undefined ? data.href : defaults.href,
       icon: data.icon !== undefined ? data.icon : defaults.icon,
       iconPos: data.iconPos !== undefined ? data.iconPos : defaults.iconPos,
+      icons: data.icons !== undefined && data.icons.length > 0 ? data.icons : defaults.icons,
       isCalendar: data.isCalendar !== undefined ? data.isCalendar : defaults.isCalendar,
       isClose: data.isClose !== undefined ? data.isClose : defaults.isClose,
       isDatePicker: data.isDatePicker !== undefined ? data.isDatePicker : defaults.isDatePicker,

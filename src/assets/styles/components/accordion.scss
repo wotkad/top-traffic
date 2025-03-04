@@ -25,6 +25,9 @@
     }
     @apply p-0 w-[22px] h-[22px];
   }
+  &__original {
+    @apply left-[166px] absolute px-2 py-1 border border-blue-200 rounded-[30px] text-10-m-sm text-blue-200;
+  }
   &__left {
     span {
       @apply block max-w-[110px] text-12-r-p text-ellipsis line-clamp-1;

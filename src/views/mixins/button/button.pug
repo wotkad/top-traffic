@@ -62,3 +62,20 @@ mixin button(data = {})
       if modefied.isClose
         svg.button-clear.filter-clear
           use(xlink:href="#other-close-icon")
+
+  if modefied.view == 'button-multi-select'
+    div(
+      class="button " + modefied.class
+    )
+      span= modefied.title
+      if modefied.icons.length > 0
+        .content-aside__buttons
+          each icon in modefied.icons
+            button(
+              class="button"
+              type=icon.type
+              data-popup-name=icon.dataPopupName
+              aria-label=icon.ariaLabel
+            )
+              svg
+                use(xlink:href="#" + icon.icon)

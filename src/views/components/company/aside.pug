@@ -247,7 +247,17 @@ aside.content-aside
               +dropdown({
                 buttons: [
                   {
-                    icon: 'other-new-file-icon',
+                    icons: [
+                      {
+                        dataPopupName: 'add-link',
+                        icon: 'other-attachment-icon',
+                        type: 'button',
+                      },
+                      {
+                        icon: 'other-new-file-icon',
+                        type: 'button',
+                      },
+                    ],
                     title: 'Медиаплан',
                   },
                   {
@@ -257,8 +267,10 @@ aside.content-aside
                     title: 'Другое',
                   },
                 ],
+                class: 'content-aside__multiselect',
                 icon: 'other-add-file-icon',
                 isButtons: true,
+                isMultiSelect: true,
                 subtitle: 'Добавить',
               })
             .accordions
@@ -280,6 +292,7 @@ aside.content-aside
                           use(xlink:href="#other-attachment-icon")
                       a(href="https://app.asana.com/" target="_blank") https://app.asana.com/
                       time 24 янв. 15:10
+                    .accordion__original Оригинал
                     .accordion__right
                       +button({
                         class: 'button-icon accordion__action accordion__copy',
