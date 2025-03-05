@@ -21,4 +21,3 @@ function toggleWidget() {
 }
 
 toggleWidget();
-``
