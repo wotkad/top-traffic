@@ -26,6 +26,7 @@ import "./base/common/copy-popup-link";
 import "./base/common/table-attachmentlink";
 import "./base/common/table-attachmentfile";
 import "./base/common/table-attachmentbill";
+import "./base/common/aside-attachment";
 
 import "./components/form/form-login";
 
@@ -44,6 +45,7 @@ import "./components/toggle/toggle-channels";
 import "./components/toggle/toggle-popup";
 import "./components/toggle/toggle-selector";
 import "./components/toggle/toggle-accordion";
+import "./components/toggle/toggle-accordion-item";
 import "./components/toggle/toggle-table-input";
 import "./components/toggle/toggle-widget";
 import "./components/toggle/toggle-table-input-width";

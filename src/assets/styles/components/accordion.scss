@@ -1,3 +1,43 @@
+.accordions {
+  &__counter {
+    .checkbox {
+      input:checked ~ span {
+        &:before {
+          @apply bg-green-050 border-green-050;
+        }
+      }
+      &:hover {
+        span {
+          &:before {
+            @apply border-green-050;
+          }
+        }
+      }
+      @apply mr-2.5;
+    }
+    p {
+      @apply mr-1.5 text-12-sb-p;
+    }
+    &.active {
+      @apply flex;
+    }
+    @apply hidden items-center bg-black-600 mt-2 -mb-2.5 px-2 py-[14px] rounded-md;
+  }
+  &__clear {
+    &:hover,
+    &:focus,
+    &:active {
+      svg {
+        @apply text-black-100;
+      }
+      @apply bg-transparent;
+    }
+    svg {
+      @apply text-black-200 transition-all duration-300;
+    }
+    @apply p-0 border-none w-auto h-auto;
+  }
+}
 .accordion {
   &__button {
     p {
@@ -17,7 +57,23 @@
     @apply flex justify-between items-center p-2 border-b border-black-500 cursor-pointer;
   }
   &__item {
-    @apply flex justify-between items-center px-2.5 py-2;
+    &:first-child {
+      @apply mt-1;
+    }
+    &:hover {
+      @apply bg-black-600;
+    }
+    &.active {
+      .accordion__left {
+        & > .checkbox {
+          @apply flex;
+        }
+      }
+    }
+    @apply flex justify-between items-center px-2.5 py-2 rounded-md transition-all duration-300 cursor-pointer;
+  }
+  &__value {
+    @apply ml-[2px];
   }
   &__action {
     svg {
@@ -26,22 +82,40 @@
     @apply p-0 w-[22px] h-[22px];
   }
   &__original {
-    @apply left-[166px] absolute px-2 py-1 border border-blue-200 rounded-[30px] text-10-m-sm text-blue-200;
+    @apply px-2 py-1 border border-blue-200 rounded-[30px] text-10-m-sm text-blue-200;
   }
   &__left {
-    span {
-      @apply block max-w-[110px] text-12-r-p text-ellipsis line-clamp-1;
-    }
-    a {
-      &:hover {
-        @apply text-blue-200;
+    .checkbox {
+      input:checked ~ span {
+        &:before {
+          @apply bg-green-050 border-green-050;
+        }
       }
-      @apply block max-w-[110px] text-12-r-p text-ellipsis line-clamp-1 whitespace-nowrap transition-all duration-300;
+      &:hover {
+        span {
+          &:before {
+            @apply border-green-050;
+          }
+        }
+      }
+      @apply hidden pointer-events-none;
     }
-    time {
-      @apply text-10-r-sm text-black-200;
+    &__container {
+      span {
+        @apply block max-w-[110px] text-12-r-p text-ellipsis line-clamp-1;
+      }
+      a {
+        &:hover {
+          @apply text-blue-200;
+        }
+        @apply block max-w-[110px] text-12-r-p text-ellipsis line-clamp-1 whitespace-nowrap transition-all duration-300;
+      }
+      time {
+        @apply text-10-r-sm text-black-200;
+      }
+      @apply items-center gap-x-[6px] gap-y-[2px] grid grid-cols-[24px_1fr];
     }
-    @apply items-center gap-x-[6px] gap-y-[2px] grid grid-cols-[24px_1fr];
+    @apply flex items-center gap-x-2.5;
   }
   &__right {
     @apply flex items-center gap-x-1;
@@ -49,6 +123,16 @@
   &__icon {
     svg {
       @apply w-3.5 min-w-3.5 max-w-3.5 h-3.5 min-h-3.5 max-h-3.5 text-white-000;
+    }
+    &-sm {
+      svg {
+        @apply w-3 min-w-3 max-w-3 h-3 min-h-3 max-h-3;
+      }
+    }
+    &-lg {
+      svg {
+        @apply w-4 min-w-4 max-w-4 h-4 min-h-4 max-h-4;
+      }
     }
     @apply flex justify-center items-center row-span-2 bg-black-500 rounded-full w-6 h-6;
   }

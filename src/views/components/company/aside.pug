@@ -249,7 +249,7 @@ aside.content-aside
                   {
                     icons: [
                       {
-                        dataPopupName: 'add-link',
+                        dataPopupName: 'add-link-mediaplan',
                         icon: 'other-attachment-icon',
                         type: 'button',
                       },
@@ -261,21 +261,56 @@ aside.content-aside
                     title: 'Медиаплан',
                   },
                   {
+                    icons: [
+                      {
+                        dataPopupName: 'add-link-creative',
+                        icon: 'other-attachment-icon',
+                        type: 'button',
+                      },
+                      {
+                        icon: 'other-new-file-icon',
+                        type: 'button',
+                      },
+                    ],
                     title: 'Креативы',
                   },
                   {
+                    icons: [
+                      {
+                        dataPopupName: 'add-link-other',
+                        icon: 'other-attachment-icon',
+                        type: 'button',
+                      },
+                      {
+                        icon: 'other-new-file-icon',
+                        type: 'button',
+                      },
+                    ],
                     title: 'Другое',
                   },
                 ],
-                class: 'content-aside__multiselect',
+                class: 'dropdown-multiselect',
                 icon: 'other-add-file-icon',
                 isButtons: true,
                 isMultiSelect: true,
                 subtitle: 'Добавить',
               })
             .accordions
+              .accordions__counter
+                +input({
+                  class: 'md accordion__checkbox',
+                  type: 'checkbox',
+                })
+                p Выбрано:
+                  span.accordion__value 0
+                +button({
+                  class: 'button button-with-icon accordions__clear',
+                  icon: 'other-close-icon',
+                  isOnlyIcon: true,
+                  view: 'button',
+                })
               .accordion
-                .accordion__button(data-id="links")
+                .accordion__button(data-id="mediaplan")
                   p Медиаплан
                     span 2
                   +button({
@@ -284,15 +319,19 @@ aside.content-aside
                     isOnlyIcon: true,
                     view: 'button',
                   })
-                .accordion__container(data-id="links")
+                .accordion__container(data-id="mediaplan")
                   .accordion__item
                     .accordion__left
-                      .accordion__icon
-                        svg
-                          use(xlink:href="#other-attachment-icon")
-                      a(href="https://app.asana.com/" target="_blank") https://app.asana.com/
-                      time 24 янв. 15:10
-                    .accordion__original Оригинал
+                      +input({
+                        class: 'md accordion__checkbox',
+                        type: 'checkbox',
+                      })
+                      .accordion__left__container
+                        .accordion__icon
+                          svg
+                            use(xlink:href="#other-attachment-icon")
+                        a(href="https://app.asana.com/" target="_blank") https://app.asana.com/
+                        time 24 янв. 15:10
                     .accordion__right
                       +button({
                         class: 'button-icon accordion__action accordion__copy',
@@ -309,11 +348,16 @@ aside.content-aside
                       })
                   .accordion__item
                     .accordion__left
-                      .accordion__icon
-                        svg
-                          use(xlink:href="#other-link-icon")
-                      span МП new.xlsx
-                      time 54 KB • 24 янв. 15:10
+                      +input({
+                        class: 'md accordion__checkbox',
+                        type: 'checkbox',
+                      })
+                      .accordion__left__container
+                        .accordion__icon.accordion__icon-lg
+                          svg
+                            use(xlink:href="#other-link-icon")
+                        a(href="#" target="_blank") МП new.xlsx
+                        time 54 KB • 24 янв. 15:10
                     .accordion__right
                       +button({
                         class: 'button-icon accordion__action',
@@ -331,7 +375,7 @@ aside.content-aside
                         view: 'button',
                       })
               .accordion
-                .accordion__button(data-id="files")
+                .accordion__button(data-id="creative")
                   p Креативы
                     span 2
                   +button({
@@ -340,14 +384,19 @@ aside.content-aside
                     isOnlyIcon: true,
                     view: 'button',
                   })
-                .accordion__container(data-id="files")
+                .accordion__container(data-id="creative")
                   .accordion__item
                     .accordion__left
-                      .accordion__icon
-                        svg
-                          use(xlink:href="#other-file-icon")
-                      a(href="#" download) Креативы.zip
-                      time 54 KB • 24 янв. 15:10
+                      +input({
+                        class: 'md accordion__checkbox',
+                        type: 'checkbox',
+                      })
+                      .accordion__left__container
+                        .accordion__icon.accordion__icon-sm
+                          svg
+                            use(xlink:href="#other-file-icon")
+                        a(href="#" download) Креативы.zip
+                        time 54 KB • 24 янв. 15:10
                     .accordion__right
                       +button({
                         class: 'button-icon accordion__action',
@@ -366,11 +415,16 @@ aside.content-aside
                       })
                   .accordion__item
                     .accordion__left
-                      .accordion__icon
-                        svg
-                          use(xlink:href="#other-file-icon")
-                      a(href="#" download) Креативы new.zip
-                      time 54 KB • 24 янв. 15:10
+                      +input({
+                        class: 'md accordion__checkbox',
+                        type: 'checkbox',
+                      })
+                      .accordion__left__container
+                        .accordion__icon.accordion__icon-sm
+                          svg
+                            use(xlink:href="#other-file-icon")
+                        a(href="#" download) Креативы new.zip
+                        time 54 KB • 24 янв. 15:10
                     .accordion__right
                       +button({
                         class: 'button-icon accordion__action',
@@ -400,11 +454,16 @@ aside.content-aside
                 .accordion__container(data-id="other")
                   .accordion__item
                     .accordion__left
-                      .accordion__icon
-                        svg
-                          use(xlink:href="#other-file-icon")
-                      a(href="#" download) Описание проекта.zip
-                      time 54 KB • 24 янв. 15:10
+                      +input({
+                        class: 'md accordion__checkbox',
+                        type: 'checkbox',
+                      })
+                      .accordion__left__container
+                        .accordion__icon.accordion__icon-sm
+                          svg
+                            use(xlink:href="#other-file-icon")
+                        a(href="#" download) Описание проекта.zip
+                        time 54 KB • 24 янв. 15:10
                     .accordion__right
                       +button({
                         class: 'button-icon accordion__action',

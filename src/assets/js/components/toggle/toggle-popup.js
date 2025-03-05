@@ -1,7 +1,9 @@
 import { enablePageScroll, disablePageScroll } from "scroll-lock";
 
 function togglePopup() {
-  $(document).on('click', '.button[data-popup-name]', function () {
+  $(document).on('click', '.button[data-popup-name]', function (e) {
+    e.stopPropagation();
+
     let popupName = $(this).data('popup-name');
     let currentPopup = $('.popup[data-popup-name="' + popupName + '"]');
     let currentPopupBg = $('.popup__bg[data-popup-name="' + popupName + '"]');

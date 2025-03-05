@@ -94,7 +94,10 @@
       }
     }
   }
-  &[data-popup-name="add-link"] {
+  &[data-popup-name="add-link"],
+  &[data-popup-name="add-link-mediaplan"],
+  &[data-popup-name="add-link-creative"],
+  &[data-popup-name="add-link-other"] {
     .popup__wrapper {
       .popup__title {
         @apply text-12-sb text-center;

@@ -3,19 +3,17 @@
   .popup__wrapper(data-scroll-lock-scrollable)
     .popup__title Подтвердить действие
     .popup__subtitle Удалить ссылку?
-    form(action="#")
-      .popup__form
-        .popup__buttons
-          +button({
-            class: 'button-confirm',
-            dataPopupName: 'delete-link',
-            title: 'Да',
-            type: 'submit',
-            view: 'button',
-          })
-          +button({
-            class: 'button-base',
-            dataPopupName: 'delete-link',
-            title: 'Нет',
-            view: 'button',
-          })
+    .popup__form
+      .popup__buttons
+        +button({
+          class: 'button-confirm',
+          dataPopupName: 'delete-link',
+          title: 'Да',
+          view: 'button',
+        })
+        +button({
+          class: 'button-base',
+          dataPopupName: 'delete-link',
+          title: 'Нет',
+          view: 'button',
+        })

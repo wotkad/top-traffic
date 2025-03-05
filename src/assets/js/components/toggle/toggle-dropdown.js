@@ -177,8 +177,10 @@ export default function toggleDropdown() {
     `);
   });
 
-  $(document).on('click', function () {
-    $('.dropdown__list').removeClass('active');
+  $(document).on('click', function (e) {
+    if (!$('.dropdown-multiselect .dropdown__list').is(e.target) && !$('.dropdown-multiselect .dropdown__list').has(e.target).length) {
+      $('.dropdown__list').removeClass('active');
+    }
     $('.dropdown__button').removeClass('active');
     $('.dropdown__sort').removeClass('active');
 

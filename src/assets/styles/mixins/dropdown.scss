@@ -198,6 +198,29 @@
     }
     @apply px-2;
   }
+  &-multiselect {
+    .dropdown__list {
+      .button {
+        &:hover {
+          .content-aside__buttons {
+            @apply opacity-100;
+          }
+        }
+        @apply justify-between;
+      }
+      button {
+        svg {
+          @apply text-black-200 transition-all duration-300;
+        }
+        &:hover {
+          svg {
+            @apply text-black-100;
+          }
+        }
+      }
+      @apply min-w-[167px];
+    }
+  }
   &-radios {
     &.dropdown-copy-image {
       .dropdown__title {
