@@ -5,7 +5,7 @@ function toggleTableInputWidth() {
   inputCurrency.on('input', function () {
     let rawValue = $(this).val().replace(/\s/g, ''); // Убираем пробелы перед обработкой
 
-    if (!isNaN(rawValue) && rawValue !== '') {
+    if (!isNaN(rawValue) && rawValue !== '' && rawValue !== '0') {
       $(this).css('padding-right', 21);
 
       // Проверяем, есть ли уже знак рубля, если нет — добавляем
@@ -45,7 +45,7 @@ function toggleTableInputWidth() {
     // Заменяем запятую на точку для правильной обработки
     rawValue = rawValue.replace(',', '.');
 
-    if (!isNaN(rawValue) && rawValue !== '') {
+    if (!isNaN(rawValue) && rawValue !== '' && rawValue !== '0') {
       $(this).css('padding-right', 21);
 
       // Проверяем, есть ли уже знак процента, если нет — добавляем

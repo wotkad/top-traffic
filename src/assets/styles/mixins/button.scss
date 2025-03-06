@@ -216,5 +216,5 @@ label.button {
   &-base {
     @apply bg-white-000 px-5 py-2 border border-black-500 rounded-[4px] h-[34px] text-12-m-md;
   }
-  @apply transition-colors duration-300;
+  @apply transition-all duration-300;
 }

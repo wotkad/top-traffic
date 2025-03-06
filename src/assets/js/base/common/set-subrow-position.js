@@ -1,5 +1,5 @@
 export default function setSubrowPosition() {
-  $('tr.subrow .button').each(function() {
+  $('tr.subrow .fixed-subrow .button').each(function() {
     let contentWidth = $(this).closest('.content').width();
     $(this).css({
       'position': 'absolute',

@@ -1,6 +1,5 @@
 import setTdPaddingDefault from "../../base/common/set-td-padding-default";
 import setTdPadding from "../../base/common/set-td-padding";
-import toggleDropdown from "./toggle-dropdown";
 
 function generateId() {
   return Math.random().toString(36).substr(2, 9);
@@ -146,7 +145,6 @@ function toggleTableSelected() {
         $('.table__selected').addClass('active');
         $('.table-selected').show();
       }
-      toggleDropdown();
       
     } else {
       $('.table-selected tbody tr').each(function() {
@@ -352,6 +350,9 @@ function toggleTableSelected() {
     if (count == 0) {
       $('.table__selected').removeClass('active');
       $('.table-selected').hide();
+      $('.popup-save-bottom').attr('disabled', true);
+    } else {
+      $('.popup-save-bottom').attr('disabled', false);
     }
   }
   

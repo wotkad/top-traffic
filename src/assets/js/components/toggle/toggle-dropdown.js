@@ -107,7 +107,7 @@ export default function toggleDropdown() {
 
   });
 
-  $('.dropdown__item input[type="radio"]').on('change', function () {
+  $(document).on('change', '.dropdown__item input[type="radio"]', function () {
     $(this).closest('.dropdown__item').siblings().find('input').removeAttr('checked');
     $(this).attr('checked', true);
     const selectedValue = $(this).siblings('p').text();
@@ -183,6 +183,14 @@ export default function toggleDropdown() {
     }
     $('.dropdown__button').removeClass('active');
     $('.dropdown__sort').removeClass('active');
+    if (
+      !$('.datepicker-trigger').is(e.target) && !$('.datepicker-trigger').has(e.target).length &&
+      !$('.datetimepicker-trigger').is(e.target) && !$('.datetimepicker-trigger').has(e.target).length &&
+      !$('.monthpicker-trigger').is(e.target) && !$('.monthpicker-trigger').has(e.target).length &&
+      !$('.datepicker').is(e.target) && !$('.datepicker').has(e.target).length // чтобы календарь не закрывался при клике внутри самого календаря
+    ) {
+      $('.datepicker').removeClass('active');
+    }
 
     let selectedValues = $('.dropdown__items .checkbox .input-checkbox-with-label input');
     Array.from(selectedValues).forEach(el => {

@@ -24,12 +24,12 @@
         +button({
           class: 'button-with-icon-blue lg popup-save',
           dataPopupName: 'add-channel',
+          isDisabled: true,
           title: 'Сохранить',
           view: 'button',
         })
         +button({
           class: 'button-base popup-cancel',
-          dataPopupName: 'add-channel',
           title: 'Отменить',
           view: 'button',
         })
@@ -100,6 +100,7 @@
     .popup__buttons.popup__buttons-selected
       +button({
         class: 'button-with-icon-blue lg popup-save-bottom',
+        isDisabled: true,
         title: 'Сохранить',
         type: 'submit',
         view: 'button',

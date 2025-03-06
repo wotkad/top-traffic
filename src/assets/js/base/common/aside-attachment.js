@@ -1,6 +1,6 @@
 $(document).ready(function() {
   // Обработчик отправки формы
-  $('form[action="#"]').submit(function(event) {
+  $('form[action="#"]').on('submit', function(event) {
     event.preventDefault(); // предотвращаем стандартное поведение формы
 
     // Получаем родительский попап, из которого отправляется форма
@@ -65,7 +65,7 @@ $(document).ready(function() {
     $('.accordion__container[data-id="' + containerId + '"]').append(newLink);
 
     // Закрываем попап
-    popup.closest('.popup').hide();
-    popup.closest('.popup__bg').hide();
+    popup.closest('.popup').removeClass('active');
+    popup.closest('.popup__bg').removeClass('active');
   });
 });

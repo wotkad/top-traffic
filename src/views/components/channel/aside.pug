@@ -140,11 +140,12 @@ aside.content-aside
                 .accordion__container(data-id="links")
                   .accordion__item
                     .accordion__left
-                      .accordion__icon
-                        svg
-                          use(xlink:href="#other-link-icon")
-                      a(href="https://app.asana.com/" target="_blank") https://app.asana.com/
-                      time 24 янв. 15:10
+                      .accordion__left__container
+                        .accordion__icon.accordion__icon-lg
+                          svg
+                            use(xlink:href="#other-link-icon")
+                        a(href="https://app.asana.com/" target="_blank") https://app.asana.com/
+                        time 24 янв. 15:10
                     .accordion__right
                       +button({
                         class: 'button-icon accordion__action accordion__copy',
@@ -161,11 +162,12 @@ aside.content-aside
                       })
                   .accordion__item
                     .accordion__left
-                      .accordion__icon
-                        svg
-                          use(xlink:href="#other-link-icon")
-                      a(href="https://app.asana.com/" target="_blank") https://app.asana.com/
-                      time 24 янв. 15:10
+                      .accordion__left__container
+                        .accordion__icon.accordion__icon-lg
+                          svg
+                            use(xlink:href="#other-link-icon")
+                        a(href="https://app.asana.com/" target="_blank") https://app.asana.com/
+                        time 24 янв. 15:10
                     .accordion__right
                       +button({
                         class: 'button-icon accordion__action accordion__copy',
@@ -193,11 +195,12 @@ aside.content-aside
                 .accordion__container(data-id="files")
                   .accordion__item
                     .accordion__left
-                      .accordion__icon
-                        svg
-                          use(xlink:href="#other-file-icon")
-                      a(href="#" download) Креативы.zip
-                      time 54 KB • 24 янв. 15:10
+                      .accordion__left__container
+                        .accordion__icon.accordion__icon-sm
+                          svg
+                            use(xlink:href="#other-file-icon")
+                        a(href="#" download) Креативы.zip
+                        time 54 KB • 24 янв. 15:10
                     .accordion__right
                       +button({
                         class: 'button-icon accordion__action',
@@ -216,11 +219,12 @@ aside.content-aside
                       })
                   .accordion__item
                     .accordion__left
-                      .accordion__icon
-                        svg
-                          use(xlink:href="#other-file-icon")
-                      a(href="#" download) Креативы new.zip
-                      time 54 KB • 24 янв. 15:10
+                      .accordion__left__container
+                        .accordion__icon.accordion__icon-sm
+                          svg
+                            use(xlink:href="#other-file-icon")
+                        a(href="#" download) Креативы new.zip
+                        time 54 KB • 24 янв. 15:10
                     .accordion__right
                       +button({
                         class: 'button-icon accordion__action',
