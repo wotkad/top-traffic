@@ -23,10 +23,11 @@ import "./base/common/set-td-padding-default";
 import "./base/common/set-page-initials";
 import "./base/common/copy-accordion-link";
 import "./base/common/copy-popup-link";
-import "./base/common/table-attachmentlink";
-import "./base/common/table-attachmentfile";
-import "./base/common/table-attachmentbill";
-import "./base/common/aside-attachment";
+import "./base/common/table-attachment-link";
+import "./base/common/table-attachment-file";
+import "./base/common/table-attachment-bill";
+import "./base/common/aside-attachment-link";
+import "./base/common/aside-attachment-file";
 
 import "./components/form/form-login";
 

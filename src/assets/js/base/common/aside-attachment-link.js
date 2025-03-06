@@ -1,4 +1,4 @@
-$(document).ready(function() {
+function asideAttachmentLink() {
   // Обработчик отправки формы
   $('form[action="#"]').on('submit', function(event) {
     event.preventDefault(); // предотвращаем стандартное поведение формы
@@ -9,6 +9,10 @@ $(document).ready(function() {
     // Получаем значения из полей формы внутри текущего попапа
     var text = popup.find('input[name="text"]').val();
     var url = popup.find('input[name="url"]').val();
+
+    if (!text || !url) {
+      return; // Прекращаем выполнение, если поля пустые
+    }
 
     // Получаем название попапа (например, add-link-mediaplan, add-link-creative, add-link-other)
     var popupName = popup.data('popup-name');
@@ -62,10 +66,19 @@ $(document).ready(function() {
     `;
 
     // Добавляем ссылку в соответствующий контейнер
-    $('.accordion__container[data-id="' + containerId + '"]').append(newLink);
+    var container = $('.accordion__container[data-id="' + containerId + '"]');
+    container.append(newLink);
+
+    // Обновляем количество элементов
+    var count = container.find('.accordion__item').length;
+    $('.accordion__button[data-id="' + containerId + '"]').find('.accordion__count').text(count);
 
     // Закрываем попап
-    popup.closest('.popup').removeClass('active');
+    popup.removeClass('active');
     popup.closest('.popup__bg').removeClass('active');
+
+    // Очищаем поля формы после добавления
+    popup.find('input[name="text"], input[name="url"]').val('');
   });
-});
+}
+asideAttachmentLink();

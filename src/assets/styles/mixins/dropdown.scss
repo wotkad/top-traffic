@@ -220,6 +220,7 @@
         }
         @apply justify-between;
       }
+      label,
       button {
         svg {
           @apply text-black-200 transition-all duration-300;

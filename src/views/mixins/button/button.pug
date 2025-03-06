@@ -71,11 +71,20 @@ mixin button(data = {})
       if modefied.icons.length > 0
         .content-aside__buttons
           each icon in modefied.icons
-            button(
-              class="button"
-              type=icon.type
-              data-popup-name=icon.dataPopupName
-              aria-label=icon.ariaLabel
-            )
-              svg
-                use(xlink:href="#" + icon.icon)
+            if icon.isFileUpload
+              label(
+                class="button"
+                data-id-file=icon.dataIdFile
+              )
+                input(type="file")
+                svg
+                  use(xlink:href="#" + icon.icon)
+            else
+              button(
+                class="button"
+                type=icon.type
+                data-popup-name=icon.dataPopupName
+                aria-label=icon.ariaLabel
+              )
+                svg
+                  use(xlink:href="#" + icon.icon)

@@ -254,7 +254,9 @@ aside.content-aside
                         type: 'button',
                       },
                       {
+                        dataIdFile: 'add-upload-mediaplan',
                         icon: 'other-new-file-icon',
+                        isFileUpload: true,
                         type: 'button',
                       },
                     ],
@@ -268,7 +270,9 @@ aside.content-aside
                         type: 'button',
                       },
                       {
+                        dataIdFile: 'add-upload-creative',
                         icon: 'other-new-file-icon',
+                        isFileUpload: true,
                         type: 'button',
                       },
                     ],
@@ -282,7 +286,9 @@ aside.content-aside
                         type: 'button',
                       },
                       {
+                        dataIdFile: 'add-upload-other',
                         icon: 'other-new-file-icon',
+                        isFileUpload: true,
                         type: 'button',
                       },
                     ],
@@ -312,7 +318,7 @@ aside.content-aside
               .accordion
                 .accordion__button(data-id="mediaplan")
                   p Медиаплан
-                    span 2
+                    span.accordion__count 2
                   +button({
                     class: 'button-icon sm',
                     icon: 'other-angle-down-icon',
@@ -353,10 +359,10 @@ aside.content-aside
                         type: 'checkbox',
                       })
                       .accordion__left__container
-                        .accordion__icon.accordion__icon-lg
+                        .accordion__icon.accordion__icon-sm
                           svg
-                            use(xlink:href="#other-link-icon")
-                        a(href="#" target="_blank") МП new.xlsx
+                            use(xlink:href="#other-file-icon")
+                        a(href="#" download) МП new.xlsx
                         time 54 KB • 24 янв. 15:10
                     .accordion__right
                       +button({
@@ -377,7 +383,7 @@ aside.content-aside
               .accordion
                 .accordion__button(data-id="creative")
                   p Креативы
-                    span 2
+                    span.accordion__count 2
                   +button({
                     class: 'button-icon sm',
                     icon: 'other-angle-down-icon',
@@ -444,7 +450,7 @@ aside.content-aside
               .accordion
                 .accordion__button(data-id="other")
                   p Другое
-                    span 1
+                    span.accordion__count 1
                   +button({
                     class: 'button-icon sm',
                     icon: 'other-angle-down-icon',
