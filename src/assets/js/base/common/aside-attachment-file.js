@@ -19,7 +19,10 @@ function asideAttachmentFile() {
     var formattedTime = `${day} ${month} ${hours}:${minutes}`;
 
     // Формат размера файла
-    var fileSize = (file.size / 1024).toFixed(0) + ' KB';
+    var fileSize = file.size / 1024; // KB
+    var fileSizeText = fileSize > 1024
+      ? (fileSize / 1024).toFixed(1) + ' MB'
+      : Math.ceil(fileSize) + ' KB';
 
     // Формируем HTML для файла
     var newFile = `
@@ -38,7 +41,7 @@ function asideAttachmentFile() {
               </svg>
             </div>
             <a href="${file.name}" download>${file.name}</a>
-            <time>${fileSize} • ${formattedTime}</time>
+            <time>${fileSizeText} • ${formattedTime}</time>
           </div>
         </div>
         <div class="accordion__right">
