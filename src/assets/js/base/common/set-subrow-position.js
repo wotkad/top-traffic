@@ -1,6 +1,6 @@
 export default function setSubrowPosition() {
   $('tr.subrow .fixed-subrow .button').each(function() {
-    let contentWidth = $(this).closest('.content').width();
+    let contentWidth = $(this).closest('.content').outerWidth(); // Лучше использовать outerWidth()
     $(this).css({
       'position': 'absolute',
       'left': contentWidth - 52
@@ -8,7 +8,10 @@ export default function setSubrowPosition() {
   });
 }
 
-requestAnimationFrame(setSubrowPosition);
 setTimeout(setSubrowPosition, 400);
 
-$(window).on('resize', setSubrowPosition);
+$(window).on('resize load', function() {
+  requestAnimationFrame(() => {
+    setTimeout(setSubrowPosition, 50);
+  });
+});

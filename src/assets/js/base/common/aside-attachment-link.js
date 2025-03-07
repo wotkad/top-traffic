@@ -80,5 +80,88 @@ function asideAttachmentLink() {
     // Очищаем поля формы после добавления
     popup.find('input[name="text"], input[name="url"]').val('');
   });
+
+  function generateId() {
+    return Math.random().toString(36).substr(2, 9);
+  }
+
+  function openDeletePopup(parent, popupName) {
+      let uniqueId = generateId();
+      parent.attr("data-popup-id", uniqueId);
+      let popup = $(`.popup[data-popup-name='${popupName}']`);
+      popup.attr("data-popup-id", uniqueId);
+
+      // Привязываем ID к кнопке удаления в попапе
+      popup.find(".button-confirm").attr("data-delete-id", uniqueId);
+  }
+
+  // Функция для обновления счетчика
+  function updateAccordionCount(containerId) {
+    let container = $(`.accordion__container[data-id='${containerId}']`);
+    let button = $(`.accordion__button[data-id='${containerId}']`);
+    let count = container.find(".accordion__item").length;
+
+    if (count === 0) {
+        container.hide(); // Скрываем контейнер
+        button.removeClass("active"); // Убираем активный класс
+    }
+
+    button.find(".accordion__count").text(count);
+  }
+
+  // Открытие попапа при клике на "Удалить ссылку"
+  $(document).on("click", ".accordion__right .button[data-popup-name='delete-link']", function () {
+      let parent = $(this).closest(".accordion__item");
+      openDeletePopup(parent, "delete-link");
+  });
+
+  // Открытие попапа при клике на "Удалить файл"
+  $(document).on("click", ".accordion__right .button[data-popup-name='delete-file']", function () {
+      let parent = $(this).closest(".accordion__item");
+      openDeletePopup(parent, "delete-file");
+  });
+
+  // Подтверждение удаления ссылки
+  $(document).on("click", ".popup[data-popup-name='delete-link'] .button-confirm", function () {
+      let deleteId = $(this).attr("data-delete-id");
+      let linkedParent = $(`.accordion__item[data-popup-id='${deleteId}']`);
+
+      if (linkedParent.length) {
+          let container = linkedParent.closest(".accordion__container");
+          linkedParent.remove();
+          updateAccordionCount(container.data("id"));
+      }
+
+      closePopup("delete-link");
+  });
+
+  // Подтверждение удаления файла
+  $(document).on("click", ".popup[data-popup-name='delete-file'] .button-confirm", function () {
+      let deleteId = $(this).attr("data-delete-id");
+      let linkedParent = $(`.accordion__item[data-popup-id='${deleteId}']`);
+
+      if (linkedParent.length) {
+          let container = linkedParent.closest(".accordion__container");
+          linkedParent.remove();
+          updateAccordionCount(container.data("id"));
+      }
+
+      closePopup("delete-file");
+  });
+
+  // Закрытие попапа по кнопке "Нет"
+  $(document).on("click", ".popup .button-base", function () {
+      let popupName = $(this).closest(".popup").data("popup-name");
+      closePopup(popupName);
+  });
+
+  function closePopup(popupName) {
+      let popup = $(`.popup[data-popup-name='${popupName}']`);
+
+      // Очищаем привязанный ID
+      popup.removeAttr("data-popup-id");
+      popup.find(".button-confirm").removeAttr("data-delete-id");
+  }
+
 }
 asideAttachmentLink();

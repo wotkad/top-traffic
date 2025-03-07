@@ -1,9 +1,9 @@
 function toggleAccordion() {
   let button = $('.accordion__button');
   button.on('click', function() {
-    if ($(this).next().is(':animated')) {
-      return;
-    }
+    if (!$(this).next().children().length) return;
+    if ($(this).next().is(':animated')) return;
+    
     if ($(this).hasClass('active')) {
       $(this).removeClass('active');
       $(this).next().slideUp();

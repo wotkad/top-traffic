@@ -338,17 +338,11 @@ aside.content-aside
                             use(xlink:href="#other-attachment-icon")
                         a(href="https://app.asana.com/" target="_blank") https://app.asana.com/
                         time 24 янв. 15:10
+                      .accordion__original Оригинал
                     .accordion__right
                       +button({
                         class: 'button-icon accordion__action accordion__copy',
                         icon: 'other-copy-icon',
-                        isOnlyIcon: true,
-                        view: 'button',
-                      })
-                      +button({
-                        class: 'button-icon accordion__action',
-                        dataPopupName: 'delete-link',
-                        icon: 'other-trash-icon',
                         isOnlyIcon: true,
                         view: 'button',
                       })
@@ -375,7 +369,7 @@ aside.content-aside
                       })
                       +button({
                         class: 'button-icon accordion__action',
-                        dataPopupName: 'delete-link',
+                        dataPopupName: 'delete-file',
                         icon: 'other-trash-icon',
                         isOnlyIcon: true,
                         view: 'button',
