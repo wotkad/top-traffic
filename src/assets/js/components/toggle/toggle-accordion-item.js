@@ -34,5 +34,18 @@ function toggleAccordionItem() {
       checkbox.prop('checked', !checkbox.prop('checked')).trigger('change');
     }
   });
+
+  $(document).on('click', '.popup[data-popup-name="delete-link"] .button-confirm, .popup[data-popup-name="delete-file"] .button-confirm', function () {
+    setTimeout(function () {
+      $('.accordions').each(function () {
+        let accordions = $(this);
+        let counter = accordions.find('.accordions__counter');
+        let checkedItems = accordions.find('.accordion__checkbox:checked').not('.accordions__counter .accordion__checkbox').length;
+        
+        counter.find('.accordion__value').text(checkedItems);
+        counter.toggleClass('active', checkedItems > 0);
+      });
+    }, 0);
+  });
 }
 toggleAccordionItem();
