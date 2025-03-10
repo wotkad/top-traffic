@@ -1,8 +1,8 @@
-aside.filter.filter-sm(data-filter-name="company-process-channels")
+aside.filter.filter-sm(data-filter-name="campaign")
   .filter__container
     .filter__title
       h2 Фильтр
-      button(type="button" data-filter-name="company-survey-channels").filter__clear Сбросить
+      button(type="button" data-filter-name="campaign").filter__clear Сбросить
     form(action="#")
       h3.filter__subtitle Канал
       +dropdown({
@@ -132,49 +132,40 @@ aside.filter.filter-sm(data-filter-name="company-process-channels")
             title: 'Все',
           },
           {
-            title: 'Банки',
+            title: 'ZeroDay | Кибезопасность ',
           },
           {
-            title: 'Банки',
+            title: 'ZeroDay | Кибезопасность ',
           },
           {
-            title: 'Автомобили',
+            title: 'ZeroDay | Кибезопасность ',
           },
           {
-            title: 'Банки',
+            title: 'ZeroDay | Кибезопасность ',
           },
           {
-            title: 'Банки',
+            title: 'ZeroDay | Кибезопасность ',
           },
           {
-            title: 'Автомобили',
+            title: 'ZeroDay | Кибезопасность ',
           },
           {
-            title: 'Автомобили',
+            title: 'ZeroDay | Кибезопасность ',
           },
           {
-            title: 'Автомобили',
+            title: 'ZeroDay | Кибезопасность ',
           },
           {
-            title: 'Автомобили',
+            title: 'ZeroDay | Кибезопасность ',
           },
           {
-            title: 'Автомобили',
+            title: 'ZeroDay | Кибезопасность ',
           },
           {
-            title: 'Автомобили',
+            title: 'ZeroDay | Кибезопасность ',
           },
           {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
+            title: 'ZeroDay | Кибезопасность ',
           },
         ],
         class: 'dropdown-checkboxes',
@@ -182,126 +173,6 @@ aside.filter.filter-sm(data-filter-name="company-process-channels")
         isCheckboxes: true,
       })
       h3.filter__subtitle Администратор
-      +dropdown({
-        checkboxes: [
-          {
-            class: 'check-all',
-            title: 'Все',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-        ],
-        class: 'dropdown-checkboxes',
-        isAll: true,
-        isCheckboxes: true,
-      })
-      h3.filter__subtitle Юридическое лицо
       +dropdown({
         checkboxes: [
           {
@@ -556,94 +427,6 @@ aside.filter.filter-sm(data-filter-name="company-process-channels")
         max: '100',
         min: '0',
       })
-      h3.filter__subtitle Себестоимость
-      +input({
-        max: '100',
-        min: '0',
-      })
-      h3.filter__subtitle Скидка,%
-      +input({
-        max: '100',
-        min: '0',
-      })
-      h3.filter__subtitle Ближайшая дата поста
-      +button({
-        calendarClass: 'opensleft',
-        class: 'button-with-icon',
-        icon: 'other-calendar-icon',
-        isCalendar: true,
-        isDatePicker: true,
-        isMonthPicker: false,
-        isSinglePicker: true,
-        placeholder: 'дд.мм.гггг',
-        view: 'button',
-      })
-      h3.filter__subtitle Тип поста
-      +dropdown({
-        buttons: [
-          {
-            isChecked: true,
-            name: 'process-channels-post-type',
-            title: 'Все',
-          },
-          {
-            name: 'process-channels-post-type',
-            title: 'Да',
-          },
-        ],
-        class: 'dropdown-radios',
-        isRadios: true,
-      })
-      h3.filter__subtitle Статус сделки
-      +dropdown({
-        buttons: [
-          {
-            color: 'status-transparent',
-            isChecked: true,
-            title: '—',
-          },
-          {
-            color: 'status-green',
-            title: 'Размещено',
-          },
-        ],
-        class: 'dropdown-status',
-        isButtons: true,
-        isStatus: true,
-        title: '—',
-      })
-      h3.filter__subtitle Подтверждение клиента
-      +dropdown({
-        buttons: [
-          {
-            isChecked: true,
-            name: 'process-channels-approval-client',
-            title: 'Все',
-          },
-          {
-            name: 'process-channels-approval-client',
-            title: 'Да',
-          },
-        ],
-        class: 'dropdown-radios',
-        isRadios: true,
-      })
-      h3.filter__subtitle Подтверждение куратора
-      +dropdown({
-        buttons: [
-          {
-            isChecked: true,
-            name: 'process-channels-approval-curator',
-            title: 'Все',
-          },
-          {
-            name: 'process-channels-approval-curator',
-            title: 'Да',
-          },
-        ],
-        class: 'dropdown-radios',
-        isRadios: true,
-      })
       h3.filter__subtitle Охват
       +input({
         max: '100',
@@ -709,11 +492,11 @@ aside.filter.filter-sm(data-filter-name="company-process-channels")
         buttons: [
           {
             isChecked: true,
-            name: 'process-channels-contact-gs',
+            name: 'contact-gs',
             title: 'Все',
           },
           {
-            name: 'process-channels-contact-gs',
+            name: 'contact-gs',
             title: 'Да',
           },
         ],
@@ -725,11 +508,11 @@ aside.filter.filter-sm(data-filter-name="company-process-channels")
         buttons: [
           {
             isChecked: true,
-            name: 'process-channels-adaptation-gs',
+            name: 'adaptation-gs',
             title: 'Все',
           },
           {
-            name: 'process-channels-adaptation-gs',
+            name: 'adaptation-gs',
             title: 'Да',
           },
         ],
@@ -741,11 +524,11 @@ aside.filter.filter-sm(data-filter-name="company-process-channels")
         buttons: [
           {
             isChecked: true,
-            name: 'process-channels-button-gs',
+            name: 'button-gs',
             title: 'Все',
           },
           {
-            name: 'process-channels-button-gs',
+            name: 'button-gs',
             title: 'Да',
           },
         ],

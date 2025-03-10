@@ -1,178 +1,10 @@
-aside.filter.filter-sm(data-filter-name="company")
+aside.filter.filter-sm(data-filter-name="campaign-process")
   .filter__container
     .filter__title
       h2 Фильтр
-      button(type="button" data-filter-name="company").filter__clear Сбросить
+      button(type="button" data-filter-name="campaign-survey").filter__clear Сбросить
     form(action="#")
       h3.filter__subtitle Канал
-      +dropdown({
-        checkboxes: [
-          {
-            class: 'check-all',
-            title: 'Все',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            image: {
-              alt: 'image',
-              enabled: true,
-              src: '/assets/images/avatar.png',
-            },
-            telegram: 'andreym',
-            title: 'ZeroDay | Кибезопасность ',
-          },
-        ],
-        class: 'dropdown-checkboxes',
-        isAll: true,
-        isCheckboxes: true,
-      })
-      h3.filter__subtitle Категория
-      +dropdown({
-        checkboxes: [
-          {
-            class: 'check-all',
-            title: 'Все',
-          },
-          {
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            title: 'ZeroDay | Кибезопасность ',
-          },
-          {
-            title: 'ZeroDay | Кибезопасность ',
-          },
-        ],
-        class: 'dropdown-checkboxes',
-        isAll: true,
-        isCheckboxes: true,
-      })
-      h3.filter__subtitle Администратор
       +dropdown({
         checkboxes: [
           {
@@ -412,175 +244,30 @@ aside.filter.filter-sm(data-filter-name="company")
         isAll: true,
         isCheckboxes: true,
       })
-      h3.filter__subtitle Подписчики
-      +input({
-        max: '100',
-        min: '0',
-      })
-      h3.filter__subtitle Последняя ставка
-      +input({
-        max: '100',
-        min: '0',
-      })
-      h3.filter__subtitle Последняя скидка
-      +input({
-        max: '100',
-        min: '0',
-      })
-      h3.filter__subtitle Охват
-      +input({
-        max: '100',
-        min: '0',
-      })
-      h3.filter__subtitle Расход (GS)
-      +input({
-        max: '100',
-        min: '0',
-      })
-      h3.filter__subtitle Расход, факт (GS)
-      +input({
-        max: '100',
-        min: '0',
-      })
-      h3.filter__subtitle CPV
-      +input({
-        max: '100',
-        min: '0',
-      })
-      h3.filter__subtitle Охват (24ч)
-      +input({
-        max: '100',
-        min: '0',
-      })
-      h3.filter__subtitle Охват (48ч)
-      +input({
-        max: '100',
-        min: '0',
-      })
-      h3.filter__subtitle Охват (72ч)
-      +input({
-        max: '100',
-        min: '0',
-      })
-      h3.filter__subtitle ИЦ
-      +input({
-        max: '100',
-        min: '0',
-      })
-      h3.filter__subtitle ER,%
-      +input({
-        max: '100',
-        min: '0',
-      })
-      h3.filter__subtitle ERR,%
-      +input({
-        max: '100',
-        min: '0',
-      })
-      h3.filter__subtitle ERR (24ч),%
-      +input({
-        max: '100',
-        min: '0',
-      })
-      h3.filter__subtitle ERR (72ч),%
-      +input({
-        max: '100',
-        min: '0',
-      })
-      h3.filter__subtitle Контакт (GS)
-      +dropdown({
-        buttons: [
-          {
-            isChecked: true,
-            name: 'contact-gs',
-            title: 'Все',
-          },
-          {
-            name: 'contact-gs',
-            title: 'Да',
-          },
-        ],
-        class: 'dropdown-radios',
-        isRadios: true,
-      })
-      h3.filter__subtitle Адаптация (GS)
-      +dropdown({
-        buttons: [
-          {
-            isChecked: true,
-            name: 'adaptation-gs',
-            title: 'Все',
-          },
-          {
-            name: 'adaptation-gs',
-            title: 'Да',
-          },
-        ],
-        class: 'dropdown-radios',
-        isRadios: true,
-      })
-      h3.filter__subtitle Кнопка (GS)
-      +dropdown({
-        buttons: [
-          {
-            isChecked: true,
-            name: 'button-gs',
-            title: 'Все',
-          },
-          {
-            name: 'button-gs',
-            title: 'Да',
-          },
-        ],
-        class: 'dropdown-radios',
-        isRadios: true,
-      })
-      h3.filter__subtitle Тег (GS)
+      h3.filter__subtitle Токен
       +input({
         name: 'token',
-        placeholder: 'Введите тег...',
+        placeholder: 'Введите токен...',
       })
-      h3.filter__subtitle Мужская аудитория,%
-      +input({
-        max: '100',
-        min: '0',
+      h3.filter__subtitle Статус размещения
+      +dropdown({
+        buttons: [
+          {
+            color: 'status-transparent',
+            isChecked: true,
+            title: '—',
+          },
+          {
+            color: 'status-green',
+            title: 'Размещено',
+          },
+        ],
+        class: 'dropdown-status',
+        isButtons: true,
+        isStatus: true,
+        title: '—',
       })
-      h3.filter__subtitle Женская аудитория,%
-      +input({
-        max: '100',
-        min: '0',
-      })
-      h3.filter__subtitle 18+ (посты),%
-      +input({
-        max: '100',
-        min: '0',
-      })
-      h3.filter__subtitle 18+ (слова),%
-      +input({
-        max: '100',
-        min: '0',
-      })
-      h3.filter__subtitle Политика (посты),%
-      +input({
-        max: '100',
-        min: '0',
-      })
-      h3.filter__subtitle Политика (слова),%
-      +input({
-        max: '100',
-        min: '0',
-      })
-      h3.filter__subtitle Жесть (посты),%
-      +input({
-        max: '100',
-        min: '0',
-      })
-      h3.filter__subtitle Жесть (слова),%
-      +input({
-        max: '100',
-        min: '0',
-      })
-      h3.filter__subtitle Дата обновления
+      h3.filter__subtitle Дата поста (план)
       +button({
         calendarClass: 'opensleft',
         class: 'button-with-icon',
@@ -591,6 +278,107 @@ aside.filter.filter-sm(data-filter-name="company")
         isSinglePicker: true,
         placeholder: 'дд.мм.гггг',
         view: 'button',
+      })
+      h3.filter__subtitle Дата поста (факт)
+      +button({
+        calendarClass: 'opensleft',
+        class: 'button-with-icon',
+        icon: 'other-calendar-icon',
+        isCalendar: true,
+        isDatePicker: true,
+        isMonthPicker: false,
+        isSinglePicker: true,
+        placeholder: 'дд.мм.гггг',
+        view: 'button',
+      })
+      h3.filter__subtitle Наличие скриншота (старт)
+      +dropdown({
+        buttons: [
+          {
+            isChecked: true,
+            name: 'process-screenshot-start',
+            title: 'Все',
+          },
+          {
+            name: 'process-screenshot-start',
+            title: 'Да',
+          },
+        ],
+        class: 'dropdown-radios',
+        isRadios: true,
+      })
+      h3.filter__subtitle Наличие скриншота (24 часа)
+      +dropdown({
+        buttons: [
+          {
+            isChecked: true,
+            name: 'process-screenshot-24',
+            title: 'Все',
+          },
+          {
+            name: 'process-screenshot-24',
+            title: 'Да',
+          },
+        ],
+        class: 'dropdown-radios',
+        isRadios: true,
+      })
+      h3.filter__subtitle Наличие скриншота (48 часов)
+      +dropdown({
+        buttons: [
+          {
+            isChecked: true,
+            name: 'process-screenshot-48',
+            title: 'Все',
+          },
+          {
+            name: 'process-screenshot-48',
+            title: 'Да',
+          },
+        ],
+        class: 'dropdown-radios',
+        isRadios: true,
+      })
+      h3.filter__subtitle Наличие скриншота (72 часа)
+      +dropdown({
+        buttons: [
+          {
+            isChecked: true,
+            name: 'process-screenshot-72',
+            title: 'Все',
+          },
+          {
+            name: 'process-screenshot-72',
+            title: 'Да',
+          },
+        ],
+        class: 'dropdown-radios',
+        isRadios: true,
+      })
+      h3.filter__subtitle Показы
+      +input({
+        max: '100',
+        min: '0',
+      })
+      h3.filter__subtitle Реакции
+      +input({
+        max: '100',
+        min: '0',
+      })
+      h3.filter__subtitle Комментарии
+      +input({
+        max: '100',
+        min: '0',
+      })
+      h3.filter__subtitle Репосты
+      +input({
+        max: '100',
+        min: '0',
+      })
+      h3.filter__subtitle Ставка
+      +input({
+        max: '100',
+        min: '0',
       })
       +button({
         class: 'button-base filter__button',

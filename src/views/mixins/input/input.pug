@@ -53,6 +53,14 @@ mixin input(data = {})
         .dropdown__label !{modefied.label}
           if modefied.isRequired
             sup *
+      if modefied.isFileUpload
+        label(
+          class="button"
+          data-id-file="add-upload-comment"
+        )
+          input(type="file")
+          svg
+            use(xlink:href="#other-link-icon")
       textarea(
         disabled=modefied.isDisabled
         autocomplete=modefied.autocomplete
@@ -60,7 +68,7 @@ mixin input(data = {})
         name=modefied.name
         placeholder=modefied.placeholder
       )
-  
+
   else if modefied.type == 'radio'
     .checkbox
       label(class="input-checkbox " + modefied.class)

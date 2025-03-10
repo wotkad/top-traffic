@@ -75,6 +75,15 @@ label {
     .expanded {
       @apply block;
     }
+    .messages {
+      .message {
+        @apply pl-7;
+      }
+      &__footer {
+        @apply pl-7;
+      }
+      @apply -ml-7;
+    }
   }
   &:before {
     @apply top-[60px] right-0 z-50 fixed bg-white-000 w-6 h-[calc(100%-60px)] content-[''];

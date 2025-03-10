@@ -146,6 +146,9 @@
       }
     }
     &.filled {
+      .table__attachedfile__value {
+        @apply text-black-100;
+      }
       &:hover {
         .table__attachedfile__remove {
           @apply opacity-100 visible;
