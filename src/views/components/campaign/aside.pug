@@ -303,18 +303,35 @@ aside.content-aside
               })
             .accordions
               .accordions__counter
-                +input({
-                  class: 'md accordion__checkbox',
-                  type: 'checkbox',
-                })
-                p Выбрано:
-                  span.accordion__value 0
-                +button({
-                  class: 'button button-with-icon accordions__clear',
-                  icon: 'other-close-icon',
-                  isOnlyIcon: true,
-                  view: 'button',
-                })
+                .accordions__counter__left
+                  +input({
+                    class: 'md accordion__checkbox',
+                    type: 'checkbox',
+                  })
+                  p Выбрано:
+                    span.accordion__value 0
+                  +button({
+                    class: 'button button-with-icon accordions__clear',
+                    icon: 'other-close-icon',
+                    isOnlyIcon: true,
+                    view: 'button',
+                  })
+                .accordions__counter__right
+                  +button({
+                    class: 'button-icon accordion__action download-all',
+                    href: '#',
+                    icon: 'other-download-icon',
+                    isDownload: true,
+                    isOnlyIcon: true,
+                    view: 'link',
+                  })
+                  +button({
+                    class: 'button-icon accordion__action',
+                    dataPopupName: 'delete-all-files',
+                    icon: 'other-trash-icon',
+                    isOnlyIcon: true,
+                    view: 'button',
+                  })
               .accordion
                 .accordion__button(data-id="mediaplan")
                   p Медиаплан
@@ -328,16 +345,12 @@ aside.content-aside
                 .accordion__container(data-id="mediaplan")
                   .accordion__item
                     .accordion__left
-                      +input({
-                        class: 'md accordion__checkbox',
-                        type: 'checkbox',
-                      })
                       .accordion__left__container
                         .accordion__icon
                           svg
                             use(xlink:href="#other-attachment-icon")
                         a(href="https://app.asana.com/" target="_blank") https://app.asana.com/
-                        time 24 янв. 15:10
+                        time 24.01.2025 15:10
                       .accordion__original Оригинал
                     .accordion__right
                       +button({
@@ -356,12 +369,12 @@ aside.content-aside
                         .accordion__icon.accordion__icon-sm
                           svg
                             use(xlink:href="#other-file-icon")
-                        a(href="#" download) МП new.xlsx
-                        time 54 KB • 24 янв. 15:10
+                        a(href="/assets/images/login-bg.png" download) МП new.xlsx
+                        time 54 KB • 24.01.2025 15:10
                     .accordion__right
                       +button({
                         class: 'button-icon accordion__action',
-                        href: '#',
+                        href: '/assets/images/login-bg.png',
                         icon: 'other-download-icon',
                         isDownload: true,
                         isOnlyIcon: true,
@@ -395,12 +408,12 @@ aside.content-aside
                         .accordion__icon.accordion__icon-sm
                           svg
                             use(xlink:href="#other-file-icon")
-                        a(href="#" download) Креативы.zip
-                        time 54 KB • 24 янв. 15:10
+                        a(href="/assets/images/user-image.png" download) Креативы.zip
+                        time 54 KB • 24.01.2025 15:10
                     .accordion__right
                       +button({
                         class: 'button-icon accordion__action',
-                        href: '#',
+                        href: '/assets/images/user-image.png',
                         icon: 'other-download-icon',
                         isDownload: true,
                         isOnlyIcon: true,
@@ -424,7 +437,7 @@ aside.content-aside
                           svg
                             use(xlink:href="#other-file-icon")
                         a(href="#" download) Креативы new.zip
-                        time 54 KB • 24 янв. 15:10
+                        time 54 KB • 24.01.2025 15:10
                     .accordion__right
                       +button({
                         class: 'button-icon accordion__action',
@@ -463,7 +476,7 @@ aside.content-aside
                           svg
                             use(xlink:href="#other-file-icon")
                         a(href="#" download) Описание проекта.zip
-                        time 54 KB • 24 янв. 15:10
+                        time 54 KB • 24.01.2025 15:10
                     .accordion__right
                       +button({
                         class: 'button-icon accordion__action',

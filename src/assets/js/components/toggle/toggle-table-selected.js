@@ -42,10 +42,11 @@ function toggleTableSelected() {
   checkboxes.on('change', function() {
     let selectedRow = $(this).closest('tr');
     let rowId = selectedRow.attr('id');
+    $(this).addClass('changed');
 
     if ($(this).prop('checked')) {
       $('.table-selected tbody').append(`
-        <tr id="${rowId}">
+        <tr class="changed" id="${rowId}">
           <td class="fixed-td fixed-td-border" style="z-index: 10; padding: 6.5px 32px 6.5px 12px; min-width: 280px; max-width: 280px;">
             <div class="flex items-center w-full gap-x-3 h-[33px]">
               <button class="button button-icon text-black-200 table-remove-row" type="button" aria-label="button">
@@ -145,7 +146,7 @@ function toggleTableSelected() {
         $('.table__selected').addClass('active');
         $('.table-selected').show();
       }
-      
+
     } else {
       $('.table-selected tbody tr').each(function() {
         if ($(this).attr('id') === rowId) {
@@ -153,6 +154,8 @@ function toggleTableSelected() {
         }
       });
     }
+
+    $(this).closest('.popup').addClass('changed');
 
     if ($('.table-selected tbody tr').length == 0) {
       $('.table__selected').removeClass('active');
@@ -211,157 +214,39 @@ function toggleTableSelected() {
     updateSelectedCount();
   });
 
-  $(document).on('change', '.table-select thead input', function() {
-    let isChecked = $(this).prop('checked');  // Состояние чекбокса в заголовке
-  
-    // Отмечаем или снимаем галочки со всех чекбоксов в tbody
-    $('.table-select tbody input[type="checkbox"]').each(function() {
-      $(this).prop('checked', isChecked);  // Устанавливаем состояние всех чекбоксов
-    });
-  
-    // Обновляем строки в .table-selected tbody
-    if (isChecked) {
-      // Добавляем все выбранные строки в .table-selected tbody
-      $('.table-select tbody input[type="checkbox"]:checked').each(function() {
-        let selectedRow = $(this).closest('tr');
-        let rowId = selectedRow.attr('id');
-  
-        // Проверяем, если строка еще не была добавлена в .table-selected tbody
-        if ($('.table-selected tbody tr#' + rowId).length === 0) {
-          $('.table-selected tbody').append(`
-            <tr id="${rowId}">
-              <td class="fixed-td" style="padding: 6.5px 32px 6.5px 12px; min-width: 180px; max-width: 252px;">
-                <div class="flex items-center w-full gap-x-3 h-[33px]">
-                  <button class="button button-icon text-black-200 table-remove-row" type="button" aria-label="button">
-                    <svg viewBox="0 0 18 18" width="18" height="18">
-                      <use xlink:href="#other-trash-icon"></use>
-                    </svg>
-                  </button>
-                  <div class="flex items-center gap-x-1.5">
-                    <img class="rounded object-cover w-[30px] h-[30px]" src="/assets/images/avatar.png" alt="tg-channel">
-                    <div class="flex flex-col items-start">
-                      <h3><a class="table__channel" href="#">Андрей Миронов</a></h3>
-                      <a class="table__link" href="https://t.me/andreym" target="_blank">@andreym</a>
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td class="only-text" style="padding-right: 32px;">
-                <div class="dropdown dropdown-base">
-                  <div class="dropdown__container">
-                    <div class="dropdown__button">
-                      <div class="dropdown__inner">
-                        <div class="dropdown__title">1/24</div>
-                      </div>
-                      <button class="button button-icon sm" type="button" aria-label="button">
-                        <svg viewBox="0 0 10 6" width="10" height="6">
-                          <use xlink:href="#other-angle-down-icon"></use>
-                        </svg>
-                      </button>
-                    </div>
-                    <div class="dropdown__list">
-                      <label class="dropdown__item">
-                        <input type="radio" name="radio-add-channel-radio">
-                        <p>Все</p>
-                      </label>
-                      <label class="dropdown__item">
-                        <input class="filled" type="radio" name="radio-add-channel-radio" checked="">
-                        <p>1/24</p>
-                      </label>
-                      <label class="dropdown__item">
-                        <input type="radio" name="radio-add-channel-radio">
-                        <p>1/48</p>
-                      </label>
-                      <label class="dropdown__item">
-                        <input type="radio" name="radio-add-channel-radio">
-                        <p>1/72</p>
-                      </label>
-                      <label class="dropdown__item">
-                        <input type="radio" name="radio-add-channel-radio">
-                        <p>Нативный</p>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td class="only-text" style="padding-right: 32px;">1/24</td>
-              <td class="only-text" style="padding-right: 32px;">Интернет технологии</td>
-              <td class="only-text" style="padding-right: 32px;">Андрей Миронов</td>
-              <td class="only-text text-right" style="padding-right: 32px;">999 999</td>
-              <td class="only-text text-right" style="padding-right: 32px;">152 564</td>
-              <td class="only-text text-right" style="padding-right: 32px;">999 999</td>
-              <td class="only-text text-right" style="padding-right: 32px;">999 999</td>
-              <td class="only-text text-right" style="padding-right: 32px;">0,16</td>
-              <td class="only-text text-right" style="padding-right: 32px;">152 564</td>
-              <td class="only-text text-right" style="padding-right: 32px;">152 564</td>
-              <td class="only-text text-right" style="padding-right: 32px;">152 564</td>
-              <td class="only-text text-right" style="padding-right: 32px;">16</td>
-              <td class="only-text text-right" style="padding-right: 32px;">25,5%</td>
-              <td class="only-text text-right" style="padding-right: 32px;">25,5%</td>
-              <td class="only-text text-right" style="padding-right: 32px;">25,5%</td>
-              <td class="only-text text-right" style="padding-right: 32px;">25,5%</td>
-              <td class="only-text" style="padding-right: 32px;"><a href="https://t.me/futuread" target="_blank">https://t.me/futuread</a></td>
-              <td class="only-text" style="padding-right: 32px;">да</td>
-              <td class="only-text" style="padding-right: 32px;">возможно</td>
-              <td class="only-text" style="padding-right: 32px;">да</td>
-              <td class="only-text" style="padding-right: 32px;">возможно</td>
-              <td class="only-text" style="padding-right: 32px;">да</td>
-              <td class="only-text" style="padding-right: 32px;">возможно</td>
-              <td class="only-text" style="padding-right: 32px;">да</td>
-              <td class="only-text audience" style="padding-right: 32px;">
-                <div class="flex justify-center gap-x-5"><span class="table__category male">0,25%</span><span class="table__category female">0,54%</span></div>
-              </td>
-              <td class="only-text adult" style="padding-right: 32px;">
-                <div class="flex justify-center gap-x-5"><span class="table__category posts">0,25%</span><span class="table__category words">0,54%</span></div>
-              </td>
-              <td class="only-text policy" style="padding-right: 32px;">
-                <div class="flex justify-center gap-x-5"><span class="table__category posts">0,25%</span><span class="table__category words">0,54%</span></div>
-              </td>
-              <td class="only-text horror" style="padding-right: 32px;">
-                <div class="flex justify-center gap-x-5"><span class="table__category posts">0,25%</span><span class="table__category words">0,54%</span></div>
-              </td>
-              <td class="only-text text-right" style="padding-right: 32px;">152 564</td>
-              <td class="only-text" style="padding-right: 32px;">24.01.2025</td>
-            </tr>
-          `);
-        }
-      });
-  
-      // Показываем .table-selected и добавляем класс active
-      if ($('.table-selected tbody tr').length > 0) {
-        $('.table__selected').addClass('active');
-        $('.table-selected').show();
-      }
-    } else {
-      // Убираем все строки из .table-selected tbody
-      $('.table-selected tbody').empty();
-      $('.table__selected').removeClass('active');
-      $('.table-selected').hide();
-    }
-  
-    // Обновляем количество выбранных строк
-    updateSelectedCount();
-  });
-
   function updateSelectedCount() {
     let count = $('.table-selected tbody tr').length;
     $('.table__selected').find('span').text(count);
 
-    if (count == 0) {
+    if ($('.popup[data-popup-name="add-channel"]').hasClass('changed')) {
+      $('.table__selected').addClass('active');
+      $('.table-selected').show();
+      $('.popup-save-bottom').attr('disabled', false);
+      $('.popup-save').attr('disabled', false);
+      if (count == 0) {
+        $('.table__selected').removeClass('active');
+        $('.table-selected').hide();
+      } else {
+        $('.table__selected').addClass('active');
+        $('.table-selected').show();
+      }
+    } else {
       $('.table__selected').removeClass('active');
       $('.table-selected').hide();
       $('.popup-save-bottom').attr('disabled', true);
+      $('.popup-save').attr('disabled', true);
+    }
+
+    if (count == 0) {
+      $('.table__selected').removeClass('active');
+      $('.table-selected').hide();
     } else {
-      $('.popup-save-bottom').attr('disabled', false);
+      $('.table__selected').addClass('active');
+      $('.table-selected').show();
     }
   }
   
   $('.popup-cancel').on('click', function() {
-    $('.table-selected tbody').empty();
-    $('.table__selected').removeClass('active');
-    $('.table-selected').hide();
-    $('.table-select input[type="checkbox"]').prop('checked', false);
-    updateSelectedCount();
     $(this).closest('.popup__apply').removeClass('active');
     $(this).closest('.popup').find('.popup__apply__bg').removeClass('active');
   });
@@ -381,14 +266,42 @@ function toggleTableSelected() {
     $(this).closest('.popup').find('.popup__apply-bottom').addClass('active');
   });
 
-  $('.popup-save').on('click', function() {
-    $('.table-selected tbody').empty();
-    $('.table__selected').removeClass('active');
-    $('.table-selected').hide();
-    $('.table-select input[type="checkbox"]').prop('checked', false);
+  $('.popup-nosave').on('click', function() {
+    checkboxes.each(function() {
+      if ($(this).closest('.popup').hasClass('changed')) {
+        $('.table-select input[type="checkbox"].changed').prop('checked', false);
+        $('.table-selected tbody tr.changed').remove();
+        $('.popup-save').attr('disabled', true);
+        $(this).closest('.popup').find('.popup__apply').removeClass('active');
+        $(this).closest('.popup').find('.popup__apply__bg').removeClass('active');
+        $(this).closest('.popup').removeClass('changed');
+      } else {
+        $(this).closest('.popup').find('.popup__apply').removeClass('active');
+        $(this).closest('.popup').find('.popup__apply__bg').removeClass('active');
+      }
+    });
     updateSelectedCount();
+  });
+
+  $('.popup-save').on('click', function() {
+    let count = $('.table-selected tbody tr').length;
+    checkboxes.each(function() {
+      $(this).removeClass('changed');
+      if (count == 0) {
+        $('.table__selected').removeClass('active');
+        $('.table-selected').hide();
+        $('.popup-save-bottom').attr('disabled', true);
+        $('.popup-save').attr('disabled', true);
+      }
+    });
+    $('.popup-save-bottom').attr('disabled', true);
+    $('.popup-save').attr('disabled', true);
+    $(this).closest('.popup').removeClass('changed');
+    $('.table-selected tbody tr').removeClass('changed');
     $(this).closest('.popup').find('.popup__apply').removeClass('active');
     $(this).closest('.popup').find('.popup__apply__bg').removeClass('active');
+    $('.popup[data-popup-name="add-channel"]').removeClass('active');
+    $('.popup__bg[data-popup-name="add-channel"]').removeClass('active');
   });
 }
 

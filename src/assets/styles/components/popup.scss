@@ -1,5 +1,6 @@
 .popup {
-  &-save {
+  &-save,
+  &-nosave {
     @apply justify-center;
   }
   &__bg {
@@ -123,6 +124,7 @@
   &[data-popup-name="delete-attachedfile"],
   &[data-popup-name="delete-link"],
   &[data-popup-name="delete-file"],
+  &[data-popup-name="delete-all-files"],
   &[data-popup-name="delete-post"],
   &[data-popup-name="delete-rk"] {
     .popup__wrapper {

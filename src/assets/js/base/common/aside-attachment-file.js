@@ -11,12 +11,12 @@ function asideAttachmentFile() {
 
     // Форматирование даты
     var currentDate = new Date();
-    var months = ['янв.', 'фев.', 'мар.', 'апр.', 'май', 'июн.', 'июл.', 'авг.', 'сен.', 'окт.', 'ноя.', 'дек.'];
     var day = String(currentDate.getDate()).padStart(2, '0');
-    var month = months[currentDate.getMonth()];
+    var year = currentDate.getFullYear();
+    var month = String(currentDate.getMonth() + 1).padStart(2, '0');
     var hours = String(currentDate.getHours()).padStart(2, '0');
     var minutes = String(currentDate.getMinutes()).padStart(2, '0');
-    var formattedTime = `${day} ${month} ${hours}:${minutes}`;
+    var formattedTime = `${day}.${month}.${year} ${hours}:${minutes}`;
 
     // Формат размера файла
     var fileSize = file.size / 1024; // KB

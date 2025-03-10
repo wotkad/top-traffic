@@ -1,5 +1,11 @@
 .accordions {
   &__counter {
+    &__left {
+      @apply flex items-center;
+    }
+    &__right {
+      @apply flex items-center gap-x-1;
+    }
     .checkbox {
       input:checked ~ span {
         &:before {
@@ -21,7 +27,7 @@
     &.active {
       @apply flex;
     }
-    @apply hidden items-center bg-black-600 mt-2 -mb-2.5 px-2 py-[14px] rounded-md;
+    @apply hidden justify-between items-center bg-black-600 mt-2 -mb-2.5 px-2 py-[14px] rounded-md;
   }
   &__clear {
     &:hover,
@@ -70,14 +76,19 @@
         }
       }
     }
-    @apply flex justify-between items-center px-2.5 py-2 rounded-md transition-all duration-300 cursor-pointer;
+    @apply flex justify-between items-center px-2 py-2 rounded-md transition-all duration-300 cursor-pointer;
   }
   &__value {
     @apply ml-[2px];
   }
   &__action {
     svg {
-      @apply w-3.5 h-3.5 text-black-200;
+      @apply w-3.5 h-3.5 text-black-200 transition-all duration-300;
+    }
+    &:hover {
+      svg {
+        @apply text-black-100;
+      }
     }
     @apply p-0 w-[22px] h-[22px];
   }
@@ -108,12 +119,12 @@
         &:hover {
           @apply text-blue-200;
         }
-        @apply block max-w-[110px] text-12-r-p text-ellipsis line-clamp-1 whitespace-nowrap transition-all duration-300;
+        @apply inline-block max-w-[110px] text-12-r-p text-ellipsis line-clamp-1 whitespace-nowrap transition-all duration-300;
       }
       time {
         @apply text-10-r-sm text-black-200;
       }
-      @apply items-center gap-x-[6px] gap-y-[2px] grid grid-cols-[24px_1fr];
+      @apply justify-start items-center gap-x-[6px] gap-y-[2px] grid grid-cols-[24px_1fr];
     }
     @apply flex items-center gap-x-2.5;
   }

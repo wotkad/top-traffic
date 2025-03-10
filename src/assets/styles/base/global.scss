@@ -88,7 +88,7 @@ label {
   &:before {
     @apply top-[60px] right-0 z-50 fixed bg-white-000 w-6 h-[calc(100%-60px)] content-[''];
   }
-  @apply top-[60px] left-[217px] fixed bg-white-000 pr-6 pb-[72px] pl-7 w-[calc(100%-217px)] h-[calc(100%-var(--header-height))] overflow-x-hidden transition-all duration-300;
+  @apply top-[60px] left-[217px] fixed bg-white-000 pr-6 pb-[88px] pl-7 w-[calc(100%-217px)] h-[calc(100%-var(--header-height))] overflow-x-hidden transition-all duration-300;
 }
 
 .inner {

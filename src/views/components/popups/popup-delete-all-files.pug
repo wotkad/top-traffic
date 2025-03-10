@@ -1,0 +1,19 @@
+.popup__bg(data-popup-name="delete-all-files")
+.popup(data-popup-name="delete-all-files")
+  .popup__wrapper(data-scroll-lock-scrollable)
+    .popup__title Подтвердить действие
+    .popup__subtitle Удалить выбранные материалы?
+    .popup__form
+      .popup__buttons
+        +button({
+          class: 'button-confirm',
+          dataPopupName: 'delete-all-files',
+          title: 'Да',
+          view: 'button',
+        })
+        +button({
+          class: 'button-base',
+          dataPopupName: 'delete-all-files',
+          title: 'Нет',
+          view: 'button',
+        })
