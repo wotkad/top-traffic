@@ -36,7 +36,7 @@ mixin row-coordination(data)
       .flex.items-center.justify-end
         +input({
           autocomplete: 'off',
-          class: 'currency',
+          class: 'currency only-numbers',
           name: 'revenue',
           placeholder: '0',
           type: 'text',
@@ -45,7 +45,7 @@ mixin row-coordination(data)
       .flex.items-center.justify-end
         +input({
           autocomplete: 'off',
-          class: 'percent',
+          class: 'percent only-numbers',
           name: 'revenue',
           placeholder: '0',
           type: 'text',

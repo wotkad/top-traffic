@@ -6,12 +6,12 @@ function generateId() {
 }
 
 function toggleTableSelected() {
-  let button = $('.table__toggle');
+  let button = $('.table__selected');
   let empty = $('.table__empty');
 
   button.on('click', function() {
-    $(this).closest('.table__selected').next().find('.table-selected').toggleClass('active');
-    $(this).toggleClass('active');
+    $(this).next().find('.table-selected').toggleClass('active');
+    $(this).find('.table__toggle').toggleClass('active');
 
     setTdPaddingDefault();
     setTdPadding();
@@ -19,7 +19,7 @@ function toggleTableSelected() {
 
   empty.on('click', function() {
     $(this).closest('.table__selected').next().find('.table-selected').removeClass('active');
-    button.removeClass('active');
+    button.find('.table__toggle').removeClass('active');
 
     // Очищаем все выбранные элементы
     $('.table-selected tbody').empty();

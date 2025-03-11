@@ -39,7 +39,7 @@
           @apply bg-black-600 pr-2 border-transparent;
         }
         &::placeholder {
-          @apply text-black-100;
+          @apply text-black-200;
         }
         @apply bg-transparent -mr-2 p-2 border-none rounded-[4px] w-[70px] min-w-[70px] h-[30px] text-right text-ellipsis line-clamp-1;
       }
@@ -299,7 +299,7 @@
     &.active {
       @apply flex justify-between items-center;
     }
-    @apply hidden bg-blue-000 py-[9px] pr-5 pl-4 h-10;
+    @apply hidden bg-blue-000 py-[9px] pr-5 pl-4 h-10 cursor-pointer;
   }
   &__clear {
     &:hover,

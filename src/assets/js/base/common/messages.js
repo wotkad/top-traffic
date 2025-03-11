@@ -40,10 +40,22 @@ function messages() {
     popup.find(".button-confirm").removeAttr("data-delete-id");
   }
 
+  // Функция получения текущей даты и времени
+  function getFormattedDate() {
+    let now = new Date();
+    let day = now.getDate().toString().padStart(2, "0");
+    let month = (now.getMonth() + 1).toString().padStart(2, "0");
+    let year = now.getFullYear();
+    let hours = now.getHours().toString().padStart(2, "0");
+    let minutes = now.getMinutes().toString().padStart(2, "0");
+
+    return `${day}.${month}.${year} в ${hours}:${minutes}`;
+  }
+
   // Открытие редактирования сообщения
   $(document).on("click", ".message__edit", function () {
     let parent = $(this).closest(".message");
-    let messageText = parent.find("p").text(); // Получаем текст сообщения
+    let messageText = parent.find(".message__author > p").text(); // Получаем текст сообщения
     let messageId = generateId();
 
     // Удаляем предыдущий блок редактирования, если он был
@@ -82,19 +94,37 @@ function messages() {
     if (!newMessageText) return; // Если текст пустой, не обновляем
 
     let editId = $(".message[data-edit-id]").attr("data-edit-id");
-
+    let messageElement = $(`.message[data-edit-id='${editId}']`);
+    
     // Обновляем текст в сообщении
-    $(`.message[data-edit-id='${editId}'] p`).text(newMessageText);
+    messageElement.find(".message__author > p").text(newMessageText);
 
+    let timeElement = messageElement.find(".message__time");
+    let oldText = timeElement.contents().filter(function() {
+      return this.nodeType === 3; // Получаем текстовый узел (без <span>)
+    }).text().trim();
+
+    let timeSpan = timeElement.find("span");
+    let oldDate = timeSpan.text().trim();
+    let newDate = getFormattedDate();
+
+    if (!oldText.includes("(изменено)")) {
+      timeElement.html(`${oldText} (изменено) <span>${oldDate} (${newDate})</span>`);
+    } else {
+      let updatedText = oldDate.replace(/\(\d{2}\.\d{2}\.\d{4} в \d{2}:\d{2}\)$/, `(${newDate})`);
+      timeSpan.text(updatedText);
+    }
+    $(this).closest(".message").removeAttr('data-edit-id');
     // Очищаем и скрываем блок редактирования
     $(".messages__edit").remove();
     $(this).find("textarea[name='comment']").val("");
   });
 
-  // Обработчик отправки формы редактирования
-  $(document).on("click", ".messages__cancel", function (event) {
+  // Обработчик отмены редактирования
+  $(document).on("click", ".messages__cancel", function () {
     $(".messages__edit").remove();
-    $(this).closest('.messages__form').find("textarea[name='comment']").val("");
+    $(this).closest(".message").removeAttr('data-edit-id');
+    $(this).closest(".messages__form").find("textarea[name='comment']").val("");
   });
 }
 

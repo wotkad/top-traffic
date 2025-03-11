@@ -71,7 +71,9 @@ function toggleAccordionItem() {
   // Удаление всех выбранных элементов
   $(document).on('click', '.popup[data-popup-name="delete-all-files"] .button-confirm', function () {
     let checkedItems = $('.accordion__checkbox:checked').closest('.accordion__item');
+    let items = $('.accordion__checkbox').closest('.accordion__item');
     checkedItems.remove();
+    items.removeClass('active');
     updateFileCounters();
   });
 

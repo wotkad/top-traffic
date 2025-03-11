@@ -30,6 +30,7 @@ import "./base/common/table-attachment-bill";
 import "./base/common/aside-attachment-link";
 import "./base/common/aside-attachment-file";
 import "./base/common/messages";
+import "./base/common/only-numbers";
 
 import "./components/form/form-login";
 

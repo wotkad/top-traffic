@@ -132,44 +132,6 @@
         icon: 'other-angle-down-icon',
         isButtons: true,
       })
-  .message
-    .message__comment
-      .message__avatar
-        span(style="background-color: #E5E4FC;")
-      .message__author
-        .message__head
-          h3 Валерия Медеведева
-          .message__time 10 минут назад (изменено)
-            span 15.10.2024 в 16:25 (15.10.2024 в 16:30)
-        p Спасибо большое!
-      +dropdown({
-        buttons: [
-          {
-            class: 'message__reply',
-            icon: 'other-reply-icon',
-            title: 'Ответить',
-          },
-          {
-            class: 'message__copy',
-            icon: 'other-copy-icon',
-            title: 'Копировать',
-          },
-          {
-            class: 'message__edit',
-            icon: 'other-edit-icon',
-            title: 'Редактировать',
-          },
-          {
-            class: 'message__delete',
-            dataPopupName: 'delete-comment',
-            icon: 'other-trash-icon',
-            title: 'Удалить',
-          },
-        ],
-        class: 'dropdown-comment',
-        icon: 'other-angle-down-icon',
-        isButtons: true,
-      })
   .message.message-changed
     <h3>Валерия Медеведева</h3><p>удалил(а) комментарий “1. Добавлено поле с комментарием 2. Убрана иконка "Помощь" 3. Страница согласования медиаплана объединена со страницей РК 4. Добавлена группировка в раздел "Каналы" 5. Добавлен раздел "Посты" для статуса "В процессе"”</p><time> • 2 дня назад</time><button type="button">Восстановить</button>
   .message.message-changed
