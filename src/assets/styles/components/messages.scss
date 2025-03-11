@@ -2,6 +2,18 @@
   &__new {
     @apply inline-block self-center bg-purple-300 mt-3 mb-1.5 px-5 py-2 rounded-md text-10-m-sm text-blue-200;
   }
+  &__icon {
+    svg {
+      @apply text-blue-200;
+    }
+    @apply flex justify-center items-center w-10;
+  }
+  &__cancel {
+    @apply hidden;
+  }
+  &__submit {
+    @apply px-5 rounded-[4px];
+  }
   &__day {
     @apply mt-1 text-12-m-p text-black-200 text-center;
   }
@@ -57,7 +69,7 @@
         @apply flex items-center gap-x-1 text-12-sb-p text-blue-200;
       }
       p {
-        @apply mt-1 text-12-r-p text-black-200;
+        @apply mt-[2px] text-12-r-p text-black-200;
       }
       & ~ p {
         @apply mt-1.5;
@@ -79,15 +91,51 @@
       .dropdown__list {
         @apply min-w-[144px] max-w-full;
       }
-      @apply invisible right-3.5 absolute opacity-0 w-auto transition-all duration-300;
+      @apply invisible top-3 right-3.5 -z-10 absolute opacity-0 w-auto transition-all duration-300;
     }
     &:hover {
       .dropdown-comment {
-        @apply opacity-100 visible;
+        @apply z-50 opacity-100 visible;
       }
       @apply bg-black-600;
     }
+    &-changed {
+      h3 {
+        @apply inline text-12-sb-p;
+      }
+      p {
+        @apply inline ml-1 text-12-m-p text-black-200;
+      }
+      time {
+        @apply font-normal text-10-r-sm text-black-200;
+      }
+      button {
+        &:hover {
+          @apply text-blue-100;
+        }
+        @apply ml-1.5 text-10-r-sm text-blue-200 transition-all duration-300;
+      }
+      &:hover {
+        @apply bg-transparent;
+      }
+      @apply py-2 pl-16 leading-none;
+    }
     @apply relative py-4 pl-7 transition-all duration-300;
+  }
+  &__edit {
+    .message__answered {
+      @apply mt-0 rounded-tl-sm rounded-bl-sm;
+    }
+    & ~ .messages__form {
+      .messages__cancel {
+        @apply flex;
+      }
+      .messages__upload {
+        @apply flex-auto w-full;
+      }
+      @apply flex-wrap justify-end gap-y-3;
+    }
+    @apply flex items-center mb-3;
   }
   &__footer {
     @apply mt-4 pl-7;

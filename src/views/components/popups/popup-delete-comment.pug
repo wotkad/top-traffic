@@ -1,0 +1,19 @@
+.popup__bg(data-popup-name="delete-comment")
+.popup(data-popup-name="delete-comment")
+  .popup__wrapper(data-scroll-lock-scrollable)
+    .popup__title Подтвердить действие
+    .popup__subtitle Удалить комментарий?
+    .popup__form
+      .popup__buttons
+        +button({
+          class: 'button-confirm message__remove',
+          dataPopupName: 'delete-comment',
+          title: 'Да',
+          view: 'button',
+        })
+        +button({
+          class: 'button-base',
+          dataPopupName: 'delete-comment',
+          title: 'Нет',
+          view: 'button',
+        })

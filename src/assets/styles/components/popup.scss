@@ -118,13 +118,23 @@
       @apply px-6 pt-5 pb-8 max-w-[280px];
     }
   }
+  &[data-popup-name="delete-all-channels"] {
+    @apply z-[300];
+  }
+  &__bg {
+    &[data-popup-name="delete-all-channels"] {
+      @apply z-[299];
+    }
+  }
   &[data-popup-name="delete-admin-post"],
   &[data-popup-name="delete-attachedbill"],
   &[data-popup-name="delete-attachedlink"],
   &[data-popup-name="delete-attachedfile"],
   &[data-popup-name="delete-link"],
   &[data-popup-name="delete-file"],
+  &[data-popup-name="delete-comment"],
   &[data-popup-name="delete-all-files"],
+  &[data-popup-name="delete-all-channels"],
   &[data-popup-name="delete-post"],
   &[data-popup-name="delete-rk"] {
     .popup__wrapper {

@@ -1,0 +1,19 @@
+.popup__bg(data-popup-name="delete-all-channels")
+.popup(data-popup-name="delete-all-channels")
+  .popup__wrapper(data-scroll-lock-scrollable)
+    .popup__title Подтвердить действие
+    .popup__subtitle Удалить выбранные каналы?
+    .popup__form
+      .popup__buttons
+        +button({
+          class: 'button-confirm table__empty',
+          dataPopupName: 'delete-all-channels',
+          title: 'Да',
+          view: 'button',
+        })
+        +button({
+          class: 'button-base',
+          dataPopupName: 'delete-all-channels',
+          title: 'Нет',
+          view: 'button',
+        })

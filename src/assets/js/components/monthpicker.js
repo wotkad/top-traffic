@@ -160,3 +160,5 @@ function monthPicker() {
   });
 }
 monthPicker();
+
+window.monthPicker = monthPicker;

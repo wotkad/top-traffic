@@ -7,7 +7,7 @@ function generateId() {
 
 function toggleTableSelected() {
   let button = $('.table__toggle');
-  let clear = $('.table__clear');
+  let empty = $('.table__empty');
 
   button.on('click', function() {
     $(this).closest('.table__selected').next().find('.table-selected').toggleClass('active');
@@ -17,7 +17,7 @@ function toggleTableSelected() {
     setTdPadding();
   });
 
-  clear.on('click', function() {
+  empty.on('click', function() {
     $(this).closest('.table__selected').next().find('.table-selected').removeClass('active');
     button.removeClass('active');
 
@@ -199,21 +199,6 @@ function toggleTableSelected() {
     updateSelectedCount();
   });
 
-  $(document).on('click', '.table-selected thead .table-remove-row', function() {
-    // Очищаем все строки в .table-selected tbody
-    $('.table-selected tbody').empty();
-
-    $('.table-select input[type="checkbox"]').prop('checked', false);
-  
-
-    if ($('.table-selected tbody tr').length == 0) {
-      $('.table__selected').removeClass('active');
-      $('.table__toggle').removeClass('active');
-      $('.table-selected').removeClass('active');
-    }
-    updateSelectedCount();
-  });
-
   function updateSelectedCount() {
     let count = $('.table-selected tbody tr').length;
     $('.table__selected').find('span').text(count);
@@ -294,8 +279,6 @@ function toggleTableSelected() {
         $('.popup-save').attr('disabled', true);
       }
     });
-    $('.popup-save-bottom').attr('disabled', true);
-    $('.popup-save').attr('disabled', true);
     $(this).closest('.popup').removeClass('changed');
     $('.table-selected tbody tr').removeClass('changed');
     $(this).closest('.popup').find('.popup__apply').removeClass('active');

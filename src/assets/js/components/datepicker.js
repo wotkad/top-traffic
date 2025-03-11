@@ -486,6 +486,7 @@ export default function datePicker() {
     });
   });
   
-
 }
 datePicker();
+
+window.datePicker = datePicker;
