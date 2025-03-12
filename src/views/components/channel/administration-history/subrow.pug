@@ -1,6 +1,7 @@
 mixin administration-history-subrow(data)
   tr.subrow(class=data.class)
     td.only-text(colspan="6" style="padding-left: 12px;")
-      .flex.items-center(class="gap-x-2.5")
-        h3= data.title
-        span= data.count
+      .fixed-subrow
+        .flex.items-center(class="gap-x-2.5")
+          h3= data.title
+          span= data.count

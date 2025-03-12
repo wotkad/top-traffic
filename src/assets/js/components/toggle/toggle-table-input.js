@@ -7,8 +7,14 @@ function generateId() {
 }
 
 function assignAdminIds() {
-  $(".selector__container[data-id='administration-history'] table tr").each(function () {
+  let rows = $(".selector__container[data-id='administration-history'] table tr");
+  let totalRows = rows.length;
+
+  rows.each(function (index) {
     let uniqueId = generateId();
+    let reversedIndex = totalRows - index - 1; // Обратный порядок индексов
+    
+    $(this).css('z-index', reversedIndex).css('position', 'relative');
     $(this).attr("data-admin-id", uniqueId);
     $(this).find(".table__remove").attr("data-admin-id", uniqueId);
   });
@@ -62,7 +68,7 @@ function toggleTableInput() {
       let newId = generateId();
       let newRow = $(`
         <tr data-admin-id="${newId}">
-          <td class="fixed-td fixed-td-border" style="z-index: 10; padding: 6.5px 32px 6.5px 12px; min-width: 280px; max-width: 280px;">
+          <td class="fixed-td" style="padding: 6.5px 32px 6.5px 12px; min-width: 280px; max-width: 280px;">
             <div class="flex items-center w-full gap-x-3 h-[33px]">
               <div class="checkbox"><label class="input-checkbox md table__checkbox"><input checked type="checkbox" name="checkbox"><span></span></label></div>
               <div class="dropdown dropdown-radios dropdown-select-admin">
@@ -88,11 +94,11 @@ function toggleTableInput() {
                     </div>
                     <div class="dropdown__items">
                       <label class="dropdown__item" data-href="https://t.me/andreym" data-title="@andreym">
-                        <img class="dropdown__image" src="/assets/images/user-image.png" alt="image"><input type="radio" name="radio-dropdown-radios dropdown-select-admin">
+                        <img class="dropdown__image" src="/assets/images/user-image.png" alt="image"><input type="radio" name="radio-dropdown-radios">
                         <p>ООО “ИП”</p>
                       </label>
                       <label class="dropdown__item" data-href="https://t.me/andreym" data-title="@andreym">
-                        <img class="dropdown__image" src="/assets/images/avatar.png" alt="image"><input type="radio" name="radio-dropdown-radios dropdown-select-admin">
+                        <img class="dropdown__image" src="/assets/images/avatar.png" alt="image"><input type="radio" name="radio-dropdown-radios">
                         <p>ООО “ИП”</p>
                       </label>
                     </div>
@@ -150,6 +156,7 @@ function toggleTableInput() {
       $adminHeading.find('span').text(count);
 
       datePicker();
+      assignAdminIds();
     }
   });
 }

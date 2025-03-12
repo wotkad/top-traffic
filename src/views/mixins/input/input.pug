@@ -58,7 +58,7 @@ mixin input(data = {})
           class="button"
           data-id-file="add-upload-comment"
         )
-          input(type="file")
+          input(type="file" multiple=modefied.isMultiple)
           svg
             use(xlink:href="#other-link-icon")
       textarea(

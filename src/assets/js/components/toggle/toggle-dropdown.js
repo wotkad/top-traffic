@@ -153,7 +153,7 @@ export default function toggleDropdown() {
     }
   });
 
-  $('.dropdown-radios.dropdown-select-admin .dropdown__item input[type="radio"]').on('change', function () {
+  $(document).on('change', '.dropdown-radios.dropdown-select-admin .dropdown__item input[type="radio"]', function () {
     const dropdown = $(this).closest('.dropdown');
     dropdown.addClass('selected');
     const selectedValue = $(this).siblings('p').text();

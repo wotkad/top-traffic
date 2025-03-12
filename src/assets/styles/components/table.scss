@@ -613,7 +613,7 @@
           }
           @apply bg-transparent p-0 border-none rounded-none;
         }
-        @apply inline-flex bg-white-000 px-3 py-[7px] border border-black-500 rounded-md min-w-[calc(100%+4px)];
+        @apply inline-flex bg-white-000 px-3 py-[7px] border border-black-500 rounded-md max-w-[220px];
       }
       @apply inline-flex w-auto;
     }
