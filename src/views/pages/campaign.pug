@@ -39,6 +39,12 @@ block content
               +dropdown({
                 buttons: [
                   {
+                    class: 'cancel-all',
+                    isChecked: true,
+                    name: 'cancel',
+                    title: '—',
+                  },
+                  {
                     class: '',
                     image: {
                       alt: 'image',
@@ -59,9 +65,10 @@ block content
                     title: 'ООО “ИП”',
                   },
                 ],
-                class: 'dropdown-radios',
+                class: 'dropdown-radios dropdown-copy-image',
                 isRadios: true,
                 isSearch: true,
+                title: '—',
               })
       .inner.in-container
         .content.content-sm

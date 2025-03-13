@@ -176,9 +176,6 @@
       }
       @apply bg-black-700 px-3 py-[7px] border border-black-500 rounded-md w-full;
     }
-    .search {
-      @apply px-2;
-    }
     .checkbox {
       @apply w-full;
     }
@@ -205,10 +202,7 @@
     }
   }
   .search {
-    & ~ .dropdown__items {
-      @apply mt-2;
-    }
-    @apply px-2;
+    @apply hidden mb-2 px-2;
   }
   &-multiselect {
     .dropdown__list {

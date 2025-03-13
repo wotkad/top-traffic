@@ -30,6 +30,10 @@ a {
   @apply rounded-none outline-none font-sans font-normal text-black-100 touch-manipulation;
 }
 
+button {
+  @apply select-none;
+}
+
 input,
 textarea,
 select {

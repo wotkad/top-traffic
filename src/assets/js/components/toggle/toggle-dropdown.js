@@ -108,73 +108,74 @@ export default function toggleDropdown() {
   });
 
   $(document).on('change', '.dropdown__item input[type="radio"]', function () {
-    $(this).closest('.dropdown__item').siblings().find('input').removeAttr('checked');
-    $(this).attr('checked', true);
-    const selectedValue = $(this).siblings('p').text();
-    const selectedColor = $(this).data('color') || '';
+    if ($(this).closest('.dropdown').hasClass('dropdown-status') || $(this).closest('.dropdown').hasClass('dropdown-priority')) {
+      const selectedValue = $(this).siblings('p').text();
+      const selectedColor = $(this).data('color') || '';
+      const innerStatus = $(this).closest('.dropdown-status .dropdown__container').find('.dropdown__inner');
+      const buttonStatus = $(this).closest('.dropdown-status .dropdown__container').find('.dropdown__button');
+      const titleStatus = $(this).closest('.dropdown__container').find('.dropdown__button').find('.dropdown__title');
+      const buttonPriority = $(this).closest('.dropdown-priority .dropdown__container').find('.dropdown__inner');
+      titleStatus.text(selectedValue);
+      if (selectedColor) {
+        innerStatus.attr('class', `dropdown__inner ${selectedColor} selected`);
+        buttonStatus.attr('class', `dropdown__button ${selectedColor} selected`);
+      } else {
+        innerStatus.attr('class', 'dropdown__inner');
+        buttonStatus.attr('class', 'dropdown__button');
+      }
+      if (selectedColor) {
+        buttonPriority.attr('class', `dropdown__inner ${selectedColor} selected`);
+      } else {
+        buttonPriority.attr('class', 'dropdown__inner');
+      }
+      $(this).closest('.dropdown__list').removeClass('active');
+      innerStatus.removeClass('active');
+      buttonStatus.removeClass('active');
+      buttonPriority.removeClass('active');
 
-    const innerStatus = $(this).closest('.dropdown-status .dropdown__container').find('.dropdown__inner');
-    const buttonStatus = $(this).closest('.dropdown-status .dropdown__container').find('.dropdown__button');
-    const titleStatus = $(this).closest('.dropdown__container').find('.dropdown__button').find('.dropdown__title');
-
-    titleStatus.text(selectedValue);
-
-    if (selectedColor) {
-      innerStatus.attr('class', `dropdown__inner ${selectedColor} selected`);
-      buttonStatus.attr('class', `dropdown__button ${selectedColor} selected`);
-    } else {
-      innerStatus.attr('class', 'dropdown__inner');
-      buttonStatus.attr('class', 'dropdown__button');
-    }
-
-    const buttonPriority = $(this).closest('.dropdown-priority .dropdown__container').find('.dropdown__inner');
-
-    if (selectedColor) {
-      buttonPriority.attr('class', `dropdown__inner ${selectedColor} selected`);
-    } else {
-      buttonPriority.attr('class', 'dropdown__inner');
-    }
-
-    $(this).closest('.dropdown__list').removeClass('active');
-    innerStatus.removeClass('active');
-    buttonStatus.removeClass('active');
-    buttonPriority.removeClass('active');
-  });
-
-  $('.dropdown-radios .dropdown__item input[type="radio"]').on('change', function () {
-    if ($(this).closest('.dropdown-radios').hasClass('dropdown-copy-image')) {
+    } else if ($(this).closest('.dropdown-radios').hasClass('dropdown-copy-image')) {
+      
       const selectedValue = $(this).siblings('p').text();
       const selectedImg = $(this).siblings('img').prop('src');
       const selectedAlt = $(this).siblings('img').prop('alt');
-
       const titleStatus = $(this).closest('.dropdown__container').find('.dropdown__button').find('.dropdown__title');
+      titleStatus.html(
+        selectedImg ? 
+        `<img class="dropdown__image" src=${selectedImg} alt=${selectedAlt}>` + selectedValue : 
+        selectedValue
+      );
+      $(this).closest('.dropdown__list').removeClass('active');
 
-      titleStatus.html(`<img class="dropdown__image" src=${selectedImg} alt=${selectedAlt}>` + selectedValue);
-    }
-  });
+    } else if ($(this).closest('.dropdown').hasClass('dropdown-select-admin')) {
 
-  $(document).on('change', '.dropdown-radios.dropdown-select-admin .dropdown__item input[type="radio"]', function () {
-    const dropdown = $(this).closest('.dropdown');
-    dropdown.addClass('selected');
-    const selectedValue = $(this).siblings('p').text();
-    const selectedImg = $(this).siblings('img').prop('src');
-    const selectedAlt = $(this).siblings('img').prop('alt');
-
-    const selectedLinkHref = $(this).parent().data('href');
-    const selectedLinkTitle = $(this).parent().data('title');
-
-
-    const titleStatus = $(this).closest('.dropdown__container').find('.dropdown__button').find('.dropdown__title');
-
-    titleStatus.html(`
-      <div class="flex items-center gap-x-1.5">
-        <img class="rounded object-cover w-[30px] h-[30px]" src="${selectedImg}" alt="${selectedAlt}">
-        <div class="flex flex-col items-start">
-          <h3><a href="#" class="table__channel">${selectedValue}</a></h3>
-          <a href=${selectedLinkHref} target="_blank" class="table__link">${selectedLinkTitle}</a>
+      const dropdown = $(this).closest('.dropdown');
+      dropdown.addClass('selected');
+      const selectedValue = $(this).siblings('p').text();
+      const selectedImg = $(this).siblings('img').prop('src');
+      const selectedAlt = $(this).siblings('img').prop('alt');
+      const selectedLinkHref = $(this).parent().data('href');
+      const selectedLinkTitle = $(this).parent().data('title');
+      const titleStatus = $(this).closest('.dropdown__container').find('.dropdown__button').find('.dropdown__title');
+      titleStatus.html(`
+        <div class="flex items-center gap-x-1.5">
+          <img class="rounded object-cover w-[30px] h-[30px]" src="${selectedImg}" alt="${selectedAlt}">
+          <div class="flex flex-col items-start">
+            <h3><a href="#" class="table__channel">${selectedValue}</a></h3>
+            <a href=${selectedLinkHref} target="_blank" class="table__link">${selectedLinkTitle}</a>
+          </div>
         </div>
-      </div>
-    `);
+      `);
+
+    } else {
+
+      const selectedValue = $(this).siblings('p').text();
+      const titleStatus = $(this).closest('.dropdown__container').find('.dropdown__button').find('.dropdown__title');
+      titleStatus.text(selectedValue);
+      $(this).closest('.dropdown__list').removeClass('active');
+    }
+    $(this).closest('.dropdown__item').siblings().find('input').prop('checked', false);
+    $(this).closest('.dropdown__item').siblings().find('input').removeAttr('checked');
+    $(this).attr('checked', true);
   });
 
   $(document).on('click', function (e) {
@@ -217,32 +218,48 @@ export default function toggleDropdown() {
     setTdPaddingDefault();
   });
 
+  $('.dropdown .dropdown__list .input-checkbox-with-label input').on('change', function () {
+    const $dropdown = $(this).closest('.dropdown');
+    const $firstCheckbox = $dropdown.find('.input-checkbox-with-label.check-all input');
+    const $allCheckboxes = $dropdown.find('.input-checkbox-with-label input').not($firstCheckbox);
+    
+    if ($(this).is($firstCheckbox)) {
+        // Если изменили чекбокс "Выбрать все"
+        const allChecked = $firstCheckbox.prop('checked');
+        $allCheckboxes.prop('checked', allChecked);
+    } else {
+        // Если изменили обычный чекбокс
+        const allCheckedExceptFirst = $allCheckboxes.length === $allCheckboxes.filter(':checked').length;
+        $firstCheckbox.prop('checked', allCheckedExceptFirst);
+    }
+  });
+
   $('.dropdown-checkboxes .dropdown__list .input-checkbox-with-label input').on('change', function () {
     const $dropdown = $(this).closest('.dropdown');
     const $list = $dropdown.find('.dropdown__list');
   
-    // Остальная логика обработки чекбоксов
+    // Логика обработки чекбоксов
     const $sortBlock = $dropdown.find('.dropdown__sort');
     const $buttonBlock = $dropdown.find('.dropdown__button');
     const $valuesContainer = $dropdown.find('.dropdown__values');
     const $selectedValuesCount = $dropdown.find('.dropdown__selected span');
   
     const $firstCheckbox = $dropdown.find('.input-checkbox-with-label.check-all input');
-  
-    if ($(this).is($firstCheckbox)) {
-      const allChecked = $firstCheckbox.prop('checked');
-      
-      $dropdown.find('.dropdown__sort').removeClass('opened');
-      $dropdown.find('.dropdown__values').removeClass('opened');
+    const $allCheckboxes = $dropdown.find('.input-checkbox-with-label input').not($firstCheckbox);
 
-      
-      $dropdown.find('.input-checkbox-with-label input').prop('checked', allChecked);
-  
-      if (allChecked) {
-        $sortBlock.hide().removeClass('active');
-        $buttonBlock.show();
-        $valuesContainer.empty();
-      //   $dropdown.find('.input-checkbox-with-label input').not($firstCheckbox).each(function () {
+    if ($(this).is($firstCheckbox)) {
+        const allChecked = $firstCheckbox.prop('checked');
+        
+        $dropdown.find('.dropdown__sort').removeClass('opened');
+        $dropdown.find('.dropdown__values').removeClass('opened');
+
+        $allCheckboxes.prop('checked', allChecked);
+
+        if (allChecked) {
+            $sortBlock.hide().removeClass('active');
+            $buttonBlock.show();
+            $valuesContainer.empty();
+            //   $dropdown.find('.input-checkbox-with-label input').not($firstCheckbox).each(function () {
       //     const id = $(this).attr('id') || `checkbox-${Math.random().toString(36).substr(2, 9)}`;
       //     $(this).attr('id', id);
   
@@ -261,83 +278,79 @@ export default function toggleDropdown() {
       //   });
       // } else {
       //   $valuesContainer.empty();
-      }
-    } else {
-      $firstCheckbox.prop('checked', false);
-  
-      if (this.checked) {
-        $sortBlock.css('display', 'flex').addClass('active');
-        $buttonBlock.hide();
-  
-        let id = $(this).attr('id') || `checkbox-${Math.random().toString(36).substr(2, 9)}`;
-        $(this).attr('id', id);
-  
-        const value = $(this).siblings('p').text();
-        const template = `
-          <div class="dropdown__value" data-id="${id}">
-            <span>${value}</span>
-            <svg width="9" height="9" viewBox="0 0 9 9">
-              <use xlink:href="#other-close-icon"></use>
-            </svg>
-          </div>
-        `;
-        $valuesContainer.append(template);
-      } else {
-        $firstCheckbox.prop('checked', false); // Снимаем "Выбрать все", если сняли один из чекбоксов
-      
-        // Очистить список и заново добавить все отмеченные элементы
-        $valuesContainer.empty();
-        $sortBlock.css('display', 'flex').addClass('active');
-        $buttonBlock.hide();
-      
-        $dropdown.find('.input-checkbox-with-label input:checked').not($firstCheckbox).each(function () {
-          let id = $(this).attr('id') || `checkbox-${Math.random().toString(36).substr(2, 9)}`;
-          $(this).attr('id', id);
-      
-          const value = $(this).siblings('p').text();
-          const template = `
-            <div class="dropdown__value" data-id="${id}">
-              <span>${value}</span>
-              <svg width="9" height="9" viewBox="0 0 9 9">
-                <use xlink:href="#other-close-icon"></use>
-              </svg>
-            </div>
-          `;
-          $valuesContainer.append(template);
-        });
-      
-        // Обновляем счетчик выбранных элементов
-        $selectedValuesCount.text($valuesContainer.children('.dropdown__value').length);
-      
-        // Если больше нет отмеченных элементов, скрываем сортировку и показываем кнопку
-        if ($valuesContainer.children('.dropdown__value').length === 0) {
-          $sortBlock.hide().removeClass('active');
-          $buttonBlock.show();
         }
-      }
-    }
-    if ($valuesContainer.children('.dropdown__value').length === 0) {
-      $sortBlock.hide().removeClass('active');
-      $buttonBlock.show();
+    } else {
+        const allCheckedExceptFirst = $allCheckboxes.length === $allCheckboxes.filter(':checked').length;
+        $firstCheckbox.prop('checked', allCheckedExceptFirst);
+
+        if (this.checked) {
+            $sortBlock.css('display', 'flex').addClass('active');
+            $buttonBlock.hide();
+
+            let id = $(this).attr('id') || `checkbox-${Math.random().toString(36).substr(2, 9)}`;
+            $(this).attr('id', id);
+
+            const value = $(this).siblings('p').text();
+            const template = `
+                <div class="dropdown__value" data-id="${id}">
+                    <span>${value}</span>
+                    <svg width="9" height="9" viewBox="0 0 9 9">
+                        <use xlink:href="#other-close-icon"></use>
+                    </svg>
+                </div>
+            `;
+            $valuesContainer.append(template);
+        } else {
+            $valuesContainer.empty();
+            $sortBlock.css('display', 'flex').addClass('active');
+            $buttonBlock.hide();
+
+            $allCheckboxes.filter(':checked').each(function () {
+                let id = $(this).attr('id') || `checkbox-${Math.random().toString(36).substr(2, 9)}`;
+                $(this).attr('id', id);
+
+                const value = $(this).siblings('p').text();
+                const template = `
+                    <div class="dropdown__value" data-id="${id}">
+                        <span>${value}</span>
+                        <svg width="9" height="9" viewBox="0 0 9 9">
+                            <use xlink:href="#other-close-icon"></use>
+                        </svg>
+                    </div>
+                `;
+                $valuesContainer.append(template);
+            });
+
+            // Обновляем счетчик выбранных элементов
+            $selectedValuesCount.text($valuesContainer.children('.dropdown__value').length);
+
+            if ($valuesContainer.children('.dropdown__value').length === 0) {
+                $sortBlock.hide().removeClass('active');
+                $buttonBlock.show();
+            }
+        }
     }
 
-    $selectedValuesCount.text($dropdown.find('.input-checkbox-with-label input:checked').not($firstCheckbox).length);
+    if ($valuesContainer.children('.dropdown__value').length === 0) {
+        $sortBlock.hide().removeClass('active');
+        $buttonBlock.show();
+    }
+
+    $selectedValuesCount.text($allCheckboxes.filter(':checked').length);
 
     const $parent = $valuesContainer;
-
     checkVisibility($parent);
 
     if ($(this).closest('.filter__container').length) {
-      const $container = $(this).closest('.dropdown__container');
-      const containerPosition = $container.position();
-      const containerHeight = $container.outerHeight(); 
-      const dropdownTop = containerPosition.top + containerHeight;
-      
-      $list.css({
-        top: `${dropdownTop + 4}px`,
-      });
-    }
+        const $container = $(this).closest('.dropdown__container');
+        const containerPosition = $container.position();
+        const containerHeight = $container.outerHeight();
+        const dropdownTop = containerPosition.top + containerHeight;
 
+        $list.css({
+            top: `${dropdownTop + 4}px`,
+        });
+    }
   });
 
   $('.dropdown-checkboxes-images .dropdown__list .input-checkbox-with-label input').on('change', function () {
@@ -451,6 +464,17 @@ export default function toggleDropdown() {
     $(this).closest('.dropdown__list').removeClass('active');
     $(this).closest('.dropdown__button').removeClass('active');
   });
+
+  function isSearchShow() {
+    $('.dropdown').each(function() {
+      if ($(this).find('.dropdown__items').children().length > 5) {
+        $(this).find('.search').show();
+      } else {
+        $(this).find('.search').hide();
+      }
+    })
+  }
+  isSearchShow();
 
 }
 
