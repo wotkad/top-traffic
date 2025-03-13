@@ -473,7 +473,14 @@ function messages() {
     $(".messages__upload textarea[name='comment']").val(""); // Очищаем поле ввода
     $(".messages__upload textarea[name='comment']").attr("required", true);
     
-});
+  });
+
+  $(document).on("click", ".message__copy", function () {
+    let text = $(this).closest(".message").find(".message__author > p").text().trim();
+    if (text) {
+      navigator.clipboard.writeText(text);
+    }
+  });
 
 }
 
