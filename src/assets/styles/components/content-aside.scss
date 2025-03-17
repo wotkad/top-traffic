@@ -65,21 +65,21 @@
             @apply p-0 border-none rounded-none w-full h-6;
           }
           &__title {
-            @apply font-medium text-black-100;
+            @apply font-normal text-black-100;
           }
           &-radios,
           &-checkboxes-images {
             .dropdown__list {
-              @apply w-[228px];
+              @apply min-w-[228px];
             }
             .dropdown__sort {
               .button {
                 @apply top-auto right-0;
               }
-              @apply items-center p-0 border-none min-h-6 max-h-6;
+              @apply items-center p-0 border-none min-h-[26px] max-h-[26px];
             }
             .dropdown__values {
-              @apply max-h-6;
+              @apply max-h-[26px];
             }
             .dropdown__value {
               img {
@@ -88,7 +88,7 @@
               &:not(:first-child) {
                 @apply -ml-3;
               }
-              @apply bg-transparent p-0 border-none max-w-6;
+              @apply bg-transparent p-0 border-none max-w-[26px];
             }
             .dropdown__items {
               @apply max-h-[116px];

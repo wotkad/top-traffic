@@ -58,7 +58,7 @@
           }
           &-radios {
             .dropdown__list {
-              @apply w-[228px];
+              @apply min-w-[228px];
             }
           }
           @apply flex items-center w-full;

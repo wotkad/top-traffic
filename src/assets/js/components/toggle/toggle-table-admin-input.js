@@ -7,13 +7,12 @@ function generateId() {
 }
 
 function assignAdminIds() {
-  let rows = $(".selector__container[data-id='administration-history'] table tr");
+  let rows = $(".selector__container[data-id='admin-channels'] table tr").not('.subrow');
   let totalRows = rows.length;
 
   rows.each(function (index) {
     let uniqueId = generateId();
     let reversedIndex = totalRows - index - 1; // Обратный порядок индексов
-    
     $(this).css('z-index', reversedIndex).css('position', 'relative');
     $(this).attr("data-admin-id", uniqueId);
     $(this).find(".table__remove").attr("data-admin-id", uniqueId);
@@ -59,7 +58,7 @@ function toggleTableInput() {
     }
   });
 
-  let addButton = $('.button[data-popup-name="add-administration-history-post"]');
+  let addButton = $('.button[data-popup-name="add-admin-channels-post"]');
 
   addButton.on('click', function() {
     let $adminHeading = $(this).closest('.heading').next().find('.subrow-admin');
@@ -93,13 +92,13 @@ function toggleTableInput() {
                       </label>
                     </div>
                     <div class="dropdown__items">
-                      <label class="dropdown__item" data-href="https://t.me/andreym" data-title="@andreym">
+                      <label class="dropdown__item" data-href="https://t.me/cybersec_academy" data-title="@cybersec_academy">
                         <img class="dropdown__image" src="/assets/images/user-image.png" alt="image"><input type="radio" name="radio-dropdown-radios">
-                        <p>ООО “ИП”</p>
+                        <p>ZeroDay | Кибербезопасность</p>
                       </label>
-                      <label class="dropdown__item" data-href="https://t.me/andreym" data-title="@andreym">
+                      <label class="dropdown__item" data-href="https://t.me/cybersec_academy" data-title="@cybersec_academy">
                         <img class="dropdown__image" src="/assets/images/avatar.png" alt="image"><input type="radio" name="radio-dropdown-radios">
-                        <p>ООО “ИП”</p>
+                        <p>ZeroDay | Кибербезопасность</p>
                       </label>
                     </div>
                   </div>
@@ -108,22 +107,14 @@ function toggleTableInput() {
             </div>
           </td>
           <td class="only-text" style="padding-right: 32px;">
-              <label class="button button-with-icon only-input start-day datepicker-trigger">
-                  <svg class="calendar-icon" viewBox="0 0 18 18" width="18" height="18">
-                      <use xlink:href="#other-calendar-icon"></use>
-                  </svg>
-                  <input class="datepicker datepicker-single opensright" type="text" name="date" placeholder="Выберите дату" readonly="" value="дд.мм.гггг" style="width: 70px;">
-                  <div class="button button-icon sm calendar-close-icon" type="button" aria-label="button">
-                      <svg viewBox="0 0 10 6" width="10" height="6">
-                          <use xlink:href="#other-angle-down-icon"></use>
-                      </svg>
-                  </div>
-              </label>
+            ––
           </td>
-          <td style="padding-right: 32px;">
-            <label class="button button-with-icon only-input status__calendar end-day datepicker-trigger">
-              <span class="status status-green status__trigger">Активный</span>
-              <input class="datepicker datepicker-single opensright" type="text" name="date" placeholder="дд.мм.гггг" readonly="" value="дд.мм.гггг" style="width: 70px;">
+          <td class="only-text text-right" style="padding-right: 32px;">
+            ––
+          </td>
+          <td class="only-text" style="padding-right: 32px;">
+            <label class="button button-with-icon only-input start-day datepicker-trigger">
+              <input class="datepicker datepicker-single opensright" type="text" name="date" placeholder="Выберите дату" readonly="" value="дд.мм.гггг" style="width: 70px;">
               <div class="button button-icon sm calendar-close-icon" type="button" aria-label="button">
                 <svg viewBox="0 0 10 6" width="10" height="6">
                   <use xlink:href="#other-angle-down-icon"></use>
@@ -132,9 +123,15 @@ function toggleTableInput() {
             </label>
           </td>
           <td style="padding-right: 32px;">
-              <div class="grid items-center gap-x-1.5 grid-cols-[30px_1fr]"><img class="rounded object-cover w-[30px] h-[30px]" src="/assets/images/avatar.png" alt="tg-channel"><span>Илья Сорокин</span></div>
+            <label class="button button-with-icon only-input status__calendar end-day datepicker-trigger">
+              <span class="status status-green status__trigger">Активный</span><input class="datepicker datepicker-single opensright" type="text" name="date" placeholder="дд.мм.гггг" readonly="" value="дд.мм.гггг" style="width: 70px;">
+              <div class="button button-icon sm calendar-close-icon" type="button" aria-label="button">
+                <svg viewBox="0 0 10 6" width="10" height="6">
+                  <use xlink:href="#other-angle-down-icon"></use>
+                </svg>
+              </div>
+            </label>
           </td>
-          <td class="only-text" style="padding-right: 32px;">12.12.2023</td>
           <td class="pr-2.5" style="padding-right: 32px;">
               <button class="button button-icon text-black-200 table__remove active" type="button" aria-label="button" data-popup-name="delete-admin-post" data-admin-id="${newId}">
                   <svg viewBox="0 0 18 18" width="18" height="18">

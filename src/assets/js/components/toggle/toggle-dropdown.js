@@ -48,6 +48,12 @@ export default function toggleDropdown() {
           }
         }
       }
+
+      // Пересчитываем скрытые элементы после вставки кнопки
+      const newHiddenChildren = $children.filter('.invisible');
+
+      // Обновляем текст кнопки
+      $('.dropdown__show-all').text(`Ещё ${newHiddenChildren.length}`);
     }
   }
 

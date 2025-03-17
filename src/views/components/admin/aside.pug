@@ -10,14 +10,53 @@ aside.content-aside
             .content-aside__subtitle Общая информация
             table.table
               tr.text-black-200
-                th Продукт
-                td KION
-              tr.text-black-200
-                th Модель работы
-                td CPM
-              tr.text-black-200
-                th Дата запроса
-                td 01.01.2024
+                th Роль
+                td Администратор
+              tr
+                th.text-black-200 Организация
+                td
+                  +dropdown({
+                    buttons: [
+                      {
+                        class: 'cancel-all',
+                        isChecked: true,
+                        name: 'curator',
+                        title: '—',
+                      },
+                      {
+                        class: '',
+                        image: {
+                          alt: 'image',
+                          enabled: true,
+                          src: '/assets/images/user-image.png',
+                        },
+                        name: 'curator',
+                        title: 'ООО “ИП”',
+                      },
+                      {
+                        class: '',
+                        image: {
+                          alt: 'image',
+                          enabled: true,
+                          src: '/assets/images/avatar.png',
+                        },
+                        name: 'curator',
+                        title: 'ООО “ИП”',
+                      },
+                    ],
+                    class: 'dropdown-radios dropdown-copy-image',
+                    isRadios: true,
+                    isSearch: true,
+                    title: '—',
+                  })
+              tr
+                th.text-black-200 Почта
+                td andreykarp@gmail.com
+              tr
+                th.text-black-200 Телефон
+                td +7 (916)-317-04-69
+            .content-aside__subtitle Внутренняя информация
+            table.table
               tr.text-black-200
                 th Менеджер
                 td
@@ -163,6 +202,15 @@ aside.content-aside
                     title: '—',
                   })
               tr.text-black-200
+                th Автор
+                td
+                  .flex.items-center(class="gap-x-1.5")
+                    img.rounded(class="w-6 h-6" src="/assets/images/avatar.png" alt="tg-channel")
+                    .text-12-r-p Андрей Миронов
+              tr.text-black-200
+                th Дата создания
+                td 12.12.2023 в 16:45
+              tr.text-black-200
                 th Приоритет
                 td
                   +dropdown({
@@ -171,32 +219,26 @@ aside.content-aside
                         class: 'check-all',
                         color: 'priority-transparent',
                         isChecked: true,
-                        name: 'priority',
                         title: 'Все',
                       },
                       {
                         color: 'priority-red',
-                        name: 'priority',
                         title: 'Очень высокий',
                       },
                       {
                         color: 'priority-pink',
-                        name: 'priority',
                         title: 'Высокий',
                       },
                       {
                         color: 'priority-orange',
-                        name: 'priority',
                         title: 'Средний',
                       },
                       {
                         color: 'priority-peach',
-                        name: 'priority',
                         title: 'Низкий',
                       },
                       {
                         color: 'priority-yellow',
-                        name: 'priority',
                         title: 'Очень низкий',
                       },
                     ],
@@ -204,40 +246,6 @@ aside.content-aside
                     color: 'priority-transparent',
                     isButtons: true,
                     isPriority: true,
-                  })
-            .content-aside__subtitle Финансовая информация
-            table.table
-              tr.text-black-200
-                th Бюджет
-                td 5 000 000 ₽
-              tr.text-black-200
-                th Наценка
-                td 40%
-              tr.text-black-200
-                th Выручка с НДС, <br> план
-                td 5 000 000 ₽
-              tr.text-black-200
-                th Выручка с НДС, <br> прогноз
-                td
-                  +input({
-                    autocomplete: 'off',
-                    class: 'currency only-numbers',
-                    name: 'revenue',
-                    placeholder: '0',
-                    type: 'text',
-                  })
-              tr.text-black-200
-                th Чистая маржа, <br> план
-                td 5 000 000 ₽
-              tr.text-black-200
-                th Чистая маржа, <br> прогноз
-                td
-                  +input({
-                    autocomplete: 'off',
-                    class: 'currency only-numbers',
-                    name: 'net-margin',
-                    placeholder: '0',
-                    type: 'text',
                   })
             .content-aside__subtitle Поле для комментария
             +input({
@@ -251,111 +259,40 @@ aside.content-aside
               +dropdown({
                 buttons: [
                   {
-                    icons: [
-                      {
-                        dataPopupName: 'add-link-mediaplan',
-                        icon: 'other-attachment-icon',
-                        type: 'button',
-                      },
-                      {
-                        dataIdFile: 'add-upload-mediaplan',
-                        icon: 'other-new-file-icon',
-                        isFileUpload: true,
-                        type: 'button',
-                      },
-                    ],
-                    title: 'Медиаплан',
+                    dataPopupName: 'upload-file',
+                    icon: 'other-new-file-icon',
+                    title: 'Файл',
                   },
                   {
-                    icons: [
-                      {
-                        dataPopupName: 'add-link-creative',
-                        icon: 'other-attachment-icon',
-                        type: 'button',
-                      },
-                      {
-                        dataIdFile: 'add-upload-creative',
-                        icon: 'other-new-file-icon',
-                        isFileUpload: true,
-                        type: 'button',
-                      },
-                    ],
-                    title: 'Креативы',
-                  },
-                  {
-                    icons: [
-                      {
-                        dataPopupName: 'add-link-other',
-                        icon: 'other-attachment-icon',
-                        type: 'button',
-                      },
-                      {
-                        dataIdFile: 'add-upload-other',
-                        icon: 'other-new-file-icon',
-                        isFileUpload: true,
-                        type: 'button',
-                      },
-                    ],
-                    title: 'Другое',
+                    dataPopupName: 'add-link',
+                    icon: 'other-link-icon',
+                    title: 'Ссылка',
                   },
                 ],
-                class: 'dropdown-multiselect',
                 icon: 'other-add-file-icon',
                 isButtons: true,
-                isMultiSelect: true,
                 subtitle: 'Добавить',
               })
             .accordions
-              .accordions__counter
-                .accordions__counter__left
-                  +input({
-                    class: 'md accordion__checkbox',
-                    type: 'checkbox',
-                  })
-                  p Выбрано:
-                    span.accordion__value 0
-                  +button({
-                    class: 'button button-with-icon accordions__clear',
-                    icon: 'other-close-icon',
-                    isOnlyIcon: true,
-                    view: 'button',
-                  })
-                .accordions__counter__right
-                  +button({
-                    class: 'button-icon accordion__action download-all',
-                    href: '#',
-                    icon: 'other-download-icon',
-                    isDownload: true,
-                    isOnlyIcon: true,
-                    view: 'link',
-                  })
-                  +button({
-                    class: 'button-icon accordion__action',
-                    dataPopupName: 'delete-all-files',
-                    icon: 'other-trash-icon',
-                    isOnlyIcon: true,
-                    view: 'button',
-                  })
               .accordion
-                .accordion__button(data-id="mediaplan")
-                  p Медиаплан
-                    span.accordion__count 2
+                .accordion__button(data-id="links")
+                  p Ссылки
+                    span 2
                   +button({
                     class: 'button-icon sm',
                     icon: 'other-angle-down-icon',
                     isOnlyIcon: true,
                     view: 'button',
                   })
-                .accordion__container(data-id="mediaplan")
+                .accordion__container(data-id="links")
                   .accordion__item
                     .accordion__left
                       .accordion__left__container
-                        .accordion__icon
+                        .accordion__icon.accordion__icon-lg
                           svg
-                            use(xlink:href="#other-attachment-icon")
+                            use(xlink:href="#other-link-icon")
                         a(href="https://app.asana.com/" target="_blank") https://app.asana.com/
-                        time 24.01.2025 15:10
-                      .accordion__original Оригинал
+                        time 24 янв. 15:10
                     .accordion__right
                       +button({
                         class: 'button-icon accordion__action accordion__copy',
@@ -363,18 +300,54 @@ aside.content-aside
                         isOnlyIcon: true,
                         view: 'button',
                       })
+                      +button({
+                        class: 'button-icon accordion__action',
+                        dataPopupName: 'delete-link',
+                        icon: 'other-trash-icon',
+                        isOnlyIcon: true,
+                        view: 'button',
+                      })
                   .accordion__item
                     .accordion__left
-                      +input({
-                        class: 'md accordion__checkbox',
-                        type: 'checkbox',
+                      .accordion__left__container
+                        .accordion__icon.accordion__icon-lg
+                          svg
+                            use(xlink:href="#other-link-icon")
+                        a(href="https://app.asana.com/" target="_blank") https://app.asana.com/
+                        time 24 янв. 15:10
+                    .accordion__right
+                      +button({
+                        class: 'button-icon accordion__action accordion__copy',
+                        icon: 'other-copy-icon',
+                        isOnlyIcon: true,
+                        view: 'button',
                       })
+                      +button({
+                        class: 'button-icon accordion__action',
+                        dataPopupName: 'delete-link',
+                        icon: 'other-trash-icon',
+                        isOnlyIcon: true,
+                        view: 'button',
+                      })
+              .accordion
+                .accordion__button(data-id="files")
+                  p Файлы
+                    span 2
+                  +button({
+                    class: 'button-icon sm',
+                    icon: 'other-angle-down-icon',
+                    isOnlyIcon: true,
+                    view: 'button',
+                  })
+                .accordion__container(data-id="files")
+                  .accordion__item
+                    .accordion__left
                       .accordion__left__container
                         .accordion__icon.accordion__icon-sm
                           svg
                             use(xlink:href="#other-file-icon")
-                        a(href="#" download) МП new.xlsx
-                        time 54 KB • 24.01.2025 15:10
+                        a(href="#" download) Креативы.zip
+                        time 54 KB • 24 янв. 15:10
                     .accordion__right
                       +button({
                         class: 'button-icon accordion__action',
@@ -391,96 +364,14 @@ aside.content-aside
                         isOnlyIcon: true,
                         view: 'button',
                       })
-              .accordion
-                .accordion__button(data-id="creative")
-                  p Креативы
-                    span.accordion__count 2
-                  +button({
-                    class: 'button-icon sm',
-                    icon: 'other-angle-down-icon',
-                    isOnlyIcon: true,
-                    view: 'button',
-                  })
-                .accordion__container(data-id="creative")
                   .accordion__item
                     .accordion__left
-                      +input({
-                        class: 'md accordion__checkbox',
-                        type: 'checkbox',
-                      })
-                      .accordion__left__container
-                        .accordion__icon.accordion__icon-sm
-                          svg
-                            use(xlink:href="#other-file-icon")
-                        a(href="/assets/images/user-image.png" download) Креативы.zip
-                        time 54 KB • 24.01.2025 15:10
-                    .accordion__right
-                      +button({
-                        class: 'button-icon accordion__action',
-                        href: '/assets/images/user-image.png',
-                        icon: 'other-download-icon',
-                        isDownload: true,
-                        isOnlyIcon: true,
-                        view: 'link',
-                      })
-                      +button({
-                        class: 'button-icon accordion__action',
-                        dataPopupName: 'delete-file',
-                        icon: 'other-trash-icon',
-                        isOnlyIcon: true,
-                        view: 'button',
-                      })
-                  .accordion__item
-                    .accordion__left
-                      +input({
-                        class: 'md accordion__checkbox',
-                        type: 'checkbox',
-                      })
                       .accordion__left__container
                         .accordion__icon.accordion__icon-sm
                           svg
                             use(xlink:href="#other-file-icon")
                         a(href="#" download) Креативы new.zip
-                        time 54 KB • 24.01.2025 15:10
-                    .accordion__right
-                      +button({
-                        class: 'button-icon accordion__action',
-                        href: '#',
-                        icon: 'other-download-icon',
-                        isDownload: true,
-                        isOnlyIcon: true,
-                        view: 'link',
-                      })
-                      +button({
-                        class: 'button-icon accordion__action',
-                        dataPopupName: 'delete-file',
-                        icon: 'other-trash-icon',
-                        isOnlyIcon: true,
-                        view: 'button',
-                      })
-              .accordion
-                .accordion__button(data-id="other")
-                  p Другое
-                    span.accordion__count 1
-                  +button({
-                    class: 'button-icon sm',
-                    icon: 'other-angle-down-icon',
-                    isOnlyIcon: true,
-                    view: 'button',
-                  })
-                .accordion__container(data-id="other")
-                  .accordion__item
-                    .accordion__left
-                      +input({
-                        class: 'md accordion__checkbox',
-                        type: 'checkbox',
-                      })
-                      .accordion__left__container
-                        .accordion__icon.accordion__icon-sm
-                          svg
-                            use(xlink:href="#other-file-icon")
-                        a(href="#" download) Описание проекта.zip
-                        time 54 KB • 24.01.2025 15:10
+                        time 54 KB • 24 янв. 15:10
                     .accordion__right
                       +button({
                         class: 'button-icon accordion__action',

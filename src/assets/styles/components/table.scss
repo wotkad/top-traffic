@@ -599,7 +599,7 @@
           @apply w-full;
         }
         .dropdown__list {
-          @apply top-7 right-auto -left-[13px] w-[240px];
+          @apply top-7 right-auto -left-[13px] w-max max-w-[300px];
         }
         .dropdown__inner {
           @apply w-full;
@@ -613,7 +613,7 @@
           }
           @apply bg-transparent p-0 border-none rounded-none;
         }
-        @apply inline-flex bg-white-000 px-3 py-[7px] border border-black-500 rounded-md max-w-[220px];
+        @apply inline-flex bg-white-000 px-3 py-[7px] border border-black-500 rounded-md;
       }
       @apply inline-flex w-auto;
     }

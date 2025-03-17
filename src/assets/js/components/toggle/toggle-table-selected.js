@@ -9,16 +9,18 @@ function toggleTableSelected() {
   let button = $('.table__selected');
   let empty = $('.table__empty');
 
-  button.on('click', function() {
-    $(this).next().find('.table-selected').toggleClass('active');
-    $(this).find('.table__toggle').toggleClass('active');
+  button.on('click', function(e) {
+    if (!button.find('.button').is(e.target) && !button.find('.button').has(e.target).length) {
+      $(this).next().find('.table-selected').toggleClass('active');
+      $(this).find('.table__toggle').toggleClass('active');
 
-    setTdPaddingDefault();
-    setTdPadding();
+      setTdPaddingDefault();
+      setTdPadding();
+    }
   });
 
   empty.on('click', function() {
-    $(this).closest('.table__selected').next().find('.table-selected').removeClass('active');
+    $('.table-selected').removeClass('active');
     button.find('.table__toggle').removeClass('active');
 
     // Очищаем все выбранные элементы

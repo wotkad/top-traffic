@@ -15,13 +15,30 @@ mixin heading(data = {})
           .heading__top
             h1.heading__title= modefied.title
 
-            if modefied.isChannel || modefied.isAdmin
+            if modefied.isChannel
               +dropdown({
                 buttons: [
                   {
                     dataPopupName: 'edit-mode',
                     icon: 'other-edit2-icon',
                     title: 'Режим редактирования',
+                  },
+                  {
+                    dataPopupName: 'delete-post',
+                    icon: 'other-trash-icon',
+                    title: 'Удалить',
+                  },
+                ],
+                class: 'dropdown-base heading__dropdown-base',
+                isButtons: true,
+              })
+
+            if modefied.isAdmin
+              +dropdown({
+                buttons: [
+                  {
+                    icon: 'other-archive-icon',
+                    title: 'Архивировать',
                   },
                   {
                     dataPopupName: 'delete-post',
