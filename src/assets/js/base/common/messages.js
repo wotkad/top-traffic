@@ -1,3 +1,5 @@
+import setCommentInitials from "./set-comment-initials";
+
 function messages() {
   function generateId() {
     return Math.random().toString(36).substr(2, 9);
@@ -91,7 +93,7 @@ function messages() {
   // Обработчик отправки формы редактирования
   $(document).on("submit", ".messages__form.edited", function (event) {
     event.preventDefault();
-    let form = $('.messages__form');
+    event.stopPropagation();
 
     let newMessageText = $(this).find("textarea[name='comment']").val().trim();
     if (!newMessageText) return; // Если текст пустой, не обновляем
@@ -121,7 +123,7 @@ function messages() {
     // Очищаем и скрываем блок редактирования
     $(".messages__edit").remove();
     $(this).find("textarea[name='comment']").val("");
-    form.removeClass('edited');
+    $(this).removeClass('edited');
   });
 
   // Открытие формы ответа
@@ -155,7 +157,7 @@ function messages() {
   // Отправка ответа
   $(document).on("submit", ".messages__form.replied", function (event) {
     event.preventDefault();
-    let form = $('.messages__form');
+    event.stopPropagation();
   
     let textarea = $(this).find("textarea[name='comment']");
     let newMessageText = textarea.val().trim();
@@ -168,7 +170,7 @@ function messages() {
     let newMessage = `
       <div class="message">
         <div class="message__comment">
-          <div class="message__avatar"><span style="background-color: #FCEAE4;">ВА</span></div>
+          <div class="message__avatar"><span style="background-color: #FCEAE4;"></span></div>
           <div class="message__author">
             <div class="message__head">
               <h3>Ваше Имя</h3>
@@ -219,14 +221,13 @@ function messages() {
     let messagesContainer = $(".messages");
     if (messagesContainer.length) {
       messagesContainer.append(newMessage);
-    } else {
-      console.error("Контейнер .messages не найден!");
     }
   
     // Очищаем поле ввода и скрываем блок ответа
     $(".messages__reply").remove();
     textarea.val("");
-    form.removeClass('replied');
+    $(this).removeClass('replied');
+    setCommentInitials();
   });
 
   // Обработчик отмены редактирования
@@ -344,7 +345,6 @@ function messages() {
   }
 
   function simulateUpload(fileElement) {
-    let progress = 88;
     let startTime = performance.now();
     
     function update() {
@@ -401,7 +401,7 @@ function messages() {
     $(".messages__bottom .messages__files").remove();
   });
 
-  $(document).on("submit", ".messages__form", function (event) {
+  $(document).on("submit", $(".messages__form"), function (event) {
     event.preventDefault();
     let messageText = $("textarea[name='comment']").val().trim();
     let filesContainer = $(".messages__bottom .messages__files");
@@ -411,7 +411,7 @@ function messages() {
     // Добавляем текст комментария, если он есть
     newMessage.append(`
     <div class="message__comment">
-      <div class="message__avatar"><span style="background-color: #FCEAE4;">ВА</span></div>
+      <div class="message__avatar"><span style="background-color: #FCEAE4;"></span></div>
       <div class="message__author">
         <div class="message__head">
           <h3>Ваше Имя</h3>
@@ -434,6 +434,18 @@ function messages() {
                 <use xlink:href="#other-reply-icon"></use>
               </svg>
               <span>Ответить</span>
+            </button>
+            <button class="button button-with-icon-full sm message__copy" type="button">
+              <svg viewBox="0 0 18 18" width="18" height="18">
+                <use xlink:href="#other-copy-icon"></use>
+              </svg>
+              <span>Копировать</span>
+            </button>
+            <button class="button button-with-icon-full sm message__edit" type="button">
+              <svg viewBox="0 0 16 16" width="16" height="16">
+                <use xlink:href="#other-edit-icon"></use>
+              </svg>
+              <span>Редактировать</span>
             </button>
             <button class="button button-with-icon-full sm message__delete" type="button" data-popup-name="delete-comment">
               <svg viewBox="0 0 18 18" width="18" height="18">
@@ -472,7 +484,7 @@ function messages() {
     $(".messages").append(newMessage);
     $(".messages__upload textarea[name='comment']").val(""); // Очищаем поле ввода
     $(".messages__upload textarea[name='comment']").attr("required", true);
-    
+    setCommentInitials();
   });
 
   $(document).on("click", ".message__copy", function () {

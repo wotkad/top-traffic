@@ -1,4 +1,4 @@
-function setCommentInitials() {
+export default function setCommentInitials() {
   $('.message__comment').each(function() {
     const $title = $(this).find('.message__head h3');
     let fullName = $title.text().trim();
