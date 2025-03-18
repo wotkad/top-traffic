@@ -6,15 +6,15 @@
     .popup__form
       .popup__buttons
         +button({
+          class: 'button-base',
+          dataPopupName: 'delete-attachedbill',
+          title: 'Нет',
+          view: 'button',
+        })
+        +button({
           class: 'button-confirm table__attachedbill__delete',
           dataPopupName: 'delete-attachedbill',
           title: 'Да',
           type: 'submit',
-          view: 'button',
-        })
-        +button({
-          class: 'button-base',
-          dataPopupName: 'delete-attachedbill',
-          title: 'Нет',
           view: 'button',
         })

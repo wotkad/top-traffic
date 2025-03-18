@@ -633,270 +633,270 @@ block content
                   include ../components/campaign/messages
                 .selector__container(data-id="actions").active
                   include ../components/campaign/actions
-          .selectors
-            .content.content-not-collapsed
-              .selector__buttons
-                .selector__scroll
-                  button.selector__button(data-id="campaign-channels").active Каналы
-                    span 6
-              .selector__containers
-                .selector__container(data-id="campaign-channels").active
-                  +heading-table({
-                    isSearch: true,
-                    isRows: true,
-                    searchClass: 'min-w-[243px] max-w-[243px]',
-                    buttons: [
-                      {
-                        view: 'button',
-                        class: 'button-with-icon-blue',
-                        icon: 'other-plus-icon',
-                        title: 'Добавить канал',
-                        dataPopupName: 'add-channel',
-                      }
-                    ],
-                  })
-                  .in-container.mt-4
-                    .content.content-collapsed
-                      .content-scroll
-                        include ../components/campaign/approval/table-approval
-          .selectors
-            .content.content-not-collapsed
-              .selector__buttons
-                .selector__scroll
-                  button.selector__button(data-id="campaign-channels").active Каналы
-                    span 6
-              .selector__containers
-                .selector__container(data-id="campaign-channels").active
-                  +heading-table({
-                    isSearch: true,
-                    isRows: true,
-                    searchClass: 'min-w-[243px] max-w-[243px]',
-                    buttons: [
-                      {
-                        view: 'button',
-                        class: 'button-with-icon-blue',
-                        icon: 'other-plus-icon',
-                        title: 'Добавить канал',
-                        dataPopupName: 'add-channel',
-                      },
-                      {
-                        view: 'button',
-                        class: 'button-with-icon filter__toggle',
-                        icon: 'other-controls-icon',
-                        title: 'Фильтр',
-                        isClose: true,
-                        dataFilterName: 'campaign-survey',
-                      },
-                    ],
-                  })
-                  .in-container.mt-4
-                    .content.content-collapsed
-                      .content-scroll
-                        include ../components/campaign/survey/table-survey
-                    include ../components/campaign/survey/filter-survey
-          .selectors
-            .content.content-not-collapsed
-              .selector__buttons
-                .selector__scroll
-                  button.selector__button(data-id="campaign-channels").active Каналы
-                    span 6
-              .selector__containers
-                .selector__container(data-id="campaign-channels").active
-                  +heading-table({
-                    isSearch: true,
-                    isRows: true,
-                    searchClass: 'min-w-[243px] max-w-[243px]',
-                    buttons: [
-                      {
-                        view: 'button',
-                        class: 'button-with-icon-blue',
-                        icon: 'other-plus-icon',
-                        title: 'Добавить канал',
-                        dataPopupName: 'add-channel',
-                      },
-                      {
-                        view: 'button',
-                        class: 'button-with-icon filter__toggle',
-                        icon: 'other-controls-icon',
-                        title: 'Фильтр',
-                        isClose: true,
-                        dataFilterName: 'campaign-coordination',
-                      },
-                    ],
-                  })
-                  .in-container.mt-4
-                    .content.content-collapsed
-                      .content-scroll
-                        include ../components/campaign/coordination/table-coordination
-                    include ../components/campaign/coordination/filter-coordination
-          .selectors
-            .content.content-not-collapsed
-              .selector__buttons
-                .selector__scroll
-                  button.selector__button(data-id="campaign-channels").active Каналы
-                    span 6
-              .selector__containers
-                .selector__container(data-id="campaign-channels").active
-                  +heading-table({
-                    isSearch: true,
-                    isRows: true,
-                    searchClass: 'min-w-[243px] max-w-[243px]',
-                    buttons: [
-                      {
-                        view: 'button',
-                        class: 'button-with-icon-blue',
-                        icon: 'other-plus-icon',
-                        title: 'Добавить канал',
-                        dataPopupName: 'add-channel',
-                      },
-                      {
-                        view: 'button',
-                        class: 'button-with-icon filter__toggle',
-                        icon: 'other-controls-icon',
-                        title: 'Фильтр',
-                        isClose: true,
-                        dataFilterName: 'campaign-approval-client',
-                      },
-                    ],
-                  })
-                  .in-container.mt-4
-                    .content.content-collapsed
-                      .content-scroll
-                        include ../components/campaign/approval-client/table-approval-client
-                    include ../components/campaign/approval-client/filter-approval-client
-          .selectors
-            .content.content-not-collapsed
-              .selector__buttons
-                .selector__scroll
-                  button.selector__button(data-id="campaign-channels").active Каналы
-                    span 6
-              .selector__containers
-                .selector__container(data-id="campaign-channels").active
-                  +heading-table({
-                    isSearch: true,
-                    isRows: true,
-                    searchClass: 'min-w-[243px] max-w-[243px]',
-                    buttons: [
-                      {
-                        view: 'button',
-                        class: 'button-with-icon-blue',
-                        icon: 'other-plus-icon',
-                        title: 'Добавить канал',
-                        dataPopupName: 'add-channel',
-                      },
-                      {
-                        view: 'button',
-                        class: 'button-with-icon filter__toggle',
-                        icon: 'other-controls-icon',
-                        title: 'Фильтр',
-                        isClose: true,
-                        dataFilterName: 'campaign-mediaplan',
-                      },
-                    ],
-                  })
-                  .in-container.mt-4
-                    .content.content-collapsed
-                      .content-scroll
-                        include ../components/campaign/mediaplan/table-mediaplan
-                    include ../components/campaign/mediaplan/filter-mediaplan
-          .selectors
-            .content.content-not-collapsed
-              .selector__buttons
-                .selector__scroll
-                  button.selector__button(data-id="campaign-channels").active Каналы
-                    span 6
-              .selector__containers
-                .selector__container(data-id="campaign-channels").active
-                  +heading-table({
-                    isSearch: true,
-                    isRows: true,
-                    searchClass: 'min-w-[243px] max-w-[243px]',
-                    buttons: [
-                      {
-                        view: 'button',
-                        class: 'button-with-icon-blue',
-                        icon: 'other-plus-icon',
-                        title: 'Добавить канал',
-                        dataPopupName: 'add-channel',
-                      },
-                      {
-                        view: 'button',
-                        class: 'button-with-icon filter__toggle',
-                        icon: 'other-controls-icon',
-                        title: 'Фильтр',
-                        isClose: true,
-                        dataFilterName: 'campaign-mediaplan-agreed',
-                      },
-                    ],
-                  })
-                  .in-container.mt-4
-                    .content.content-collapsed
-                      .content-scroll
-                        include ../components/campaign/mediaplan-agreed/table-mediaplan-agreed
-                    include ../components/campaign/mediaplan-agreed/filter-mediaplan-agreed
-          .selectors
-            .content.content-not-collapsed
-              .selector__buttons
-                .selector__scroll
-                  button.selector__button(data-id="campaign-channels").active Каналы
-                    span 6
-                  button.selector__button(data-id="campaign-posts") Посты
-                    span 6
-              .selector__containers
-                .selector__container(data-id="campaign-channels").active
-                  +heading-table({
-                    isSearch: true,
-                    isRows: true,
-                    searchClass: 'min-w-[243px] max-w-[243px]',
-                    buttons: [
-                      {
-                        view: 'button',
-                        class: 'button-with-icon-blue',
-                        icon: 'other-plus-icon',
-                        title: 'Добавить канал',
-                        dataPopupName: 'add-channel',
-                      },
-                      {
-                        view: 'button',
-                        class: 'button-with-icon filter__toggle',
-                        icon: 'other-controls-icon',
-                        title: 'Фильтр',
-                        isClose: true,
-                        dataFilterName: 'campaign-process-channels',
-                      },
-                    ],
-                  })
-                  .in-container.mt-4
-                    .content.content-collapsed
-                      .content-scroll
-                        include ../components/campaign/process-channels/table-process-channels
-                    include ../components/campaign/process-channels/filter-process-channels
-                .selector__container(data-id="campaign-posts")
-                  +heading-table({
-                    isSearch: true,
-                    isRows: true,
-                    searchClass: 'min-w-[243px] max-w-[243px]',
-                    buttons: [
-                      {
-                        view: 'button',
-                        class: 'button-with-icon-blue',
-                        icon: 'other-plus-icon',
-                        title: 'Добавить канал',
-                        dataPopupName: 'add-channel',
-                      },
-                      {
-                        view: 'button',
-                        class: 'button-with-icon filter__toggle',
-                        icon: 'other-controls-icon',
-                        title: 'Фильтр',
-                        isClose: true,
-                        dataFilterName: 'campaign-process',
-                      },
-                    ],
-                  })
-                  .in-container.mt-4
-                    .content.content-collapsed
-                      .content-scroll
-                        include ../components/campaign/process/table-process
-                    include ../components/campaign/process/filter-process
+          //- .selectors
+          //-   .content.content-not-collapsed
+          //-     .selector__buttons
+          //-       .selector__scroll
+          //-         button.selector__button(data-id="campaign-channels").active Каналы
+          //-           span 6
+          //-     .selector__containers
+          //-       .selector__container(data-id="campaign-channels").active
+          //-         +heading-table({
+          //-           isSearch: true,
+          //-           isRows: true,
+          //-           searchClass: 'min-w-[243px] max-w-[243px]',
+          //-           buttons: [
+          //-             {
+          //-               view: 'button',
+          //-               class: 'button-with-icon-blue',
+          //-               icon: 'other-plus-icon',
+          //-               title: 'Добавить канал',
+          //-               dataPopupName: 'add-channel',
+          //-             }
+          //-           ],
+          //-         })
+          //-         .in-container.mt-4
+          //-           .content.content-collapsed
+          //-             .content-scroll
+          //-               include ../components/campaign/approval/table-approval
+          //- .selectors
+          //-   .content.content-not-collapsed
+          //-     .selector__buttons
+          //-       .selector__scroll
+          //-         button.selector__button(data-id="campaign-channels").active Каналы
+          //-           span 6
+          //-     .selector__containers
+          //-       .selector__container(data-id="campaign-channels").active
+          //-         +heading-table({
+          //-           isSearch: true,
+          //-           isRows: true,
+          //-           searchClass: 'min-w-[243px] max-w-[243px]',
+          //-           buttons: [
+          //-             {
+          //-               view: 'button',
+          //-               class: 'button-with-icon-blue',
+          //-               icon: 'other-plus-icon',
+          //-               title: 'Добавить канал',
+          //-               dataPopupName: 'add-channel',
+          //-             },
+          //-             {
+          //-               view: 'button',
+          //-               class: 'button-with-icon filter__toggle',
+          //-               icon: 'other-controls-icon',
+          //-               title: 'Фильтр',
+          //-               isClose: true,
+          //-               dataFilterName: 'campaign-survey',
+          //-             },
+          //-           ],
+          //-         })
+          //-         .in-container.mt-4
+          //-           .content.content-collapsed
+          //-             .content-scroll
+          //-               include ../components/campaign/survey/table-survey
+          //-           include ../components/campaign/survey/filter-survey
+          //- .selectors
+          //-   .content.content-not-collapsed
+          //-     .selector__buttons
+          //-       .selector__scroll
+          //-         button.selector__button(data-id="campaign-channels").active Каналы
+          //-           span 6
+          //-     .selector__containers
+          //-       .selector__container(data-id="campaign-channels").active
+          //-         +heading-table({
+          //-           isSearch: true,
+          //-           isRows: true,
+          //-           searchClass: 'min-w-[243px] max-w-[243px]',
+          //-           buttons: [
+          //-             {
+          //-               view: 'button',
+          //-               class: 'button-with-icon-blue',
+          //-               icon: 'other-plus-icon',
+          //-               title: 'Добавить канал',
+          //-               dataPopupName: 'add-channel',
+          //-             },
+          //-             {
+          //-               view: 'button',
+          //-               class: 'button-with-icon filter__toggle',
+          //-               icon: 'other-controls-icon',
+          //-               title: 'Фильтр',
+          //-               isClose: true,
+          //-               dataFilterName: 'campaign-coordination',
+          //-             },
+          //-           ],
+          //-         })
+          //-         .in-container.mt-4
+          //-           .content.content-collapsed
+          //-             .content-scroll
+          //-               include ../components/campaign/coordination/table-coordination
+          //-           include ../components/campaign/coordination/filter-coordination
+          //- .selectors
+          //-   .content.content-not-collapsed
+          //-     .selector__buttons
+          //-       .selector__scroll
+          //-         button.selector__button(data-id="campaign-channels").active Каналы
+          //-           span 6
+          //-     .selector__containers
+          //-       .selector__container(data-id="campaign-channels").active
+          //-         +heading-table({
+          //-           isSearch: true,
+          //-           isRows: true,
+          //-           searchClass: 'min-w-[243px] max-w-[243px]',
+          //-           buttons: [
+          //-             {
+          //-               view: 'button',
+          //-               class: 'button-with-icon-blue',
+          //-               icon: 'other-plus-icon',
+          //-               title: 'Добавить канал',
+          //-               dataPopupName: 'add-channel',
+          //-             },
+          //-             {
+          //-               view: 'button',
+          //-               class: 'button-with-icon filter__toggle',
+          //-               icon: 'other-controls-icon',
+          //-               title: 'Фильтр',
+          //-               isClose: true,
+          //-               dataFilterName: 'campaign-approval-client',
+          //-             },
+          //-           ],
+          //-         })
+          //-         .in-container.mt-4
+          //-           .content.content-collapsed
+          //-             .content-scroll
+          //-               include ../components/campaign/approval-client/table-approval-client
+          //-           include ../components/campaign/approval-client/filter-approval-client
+          //- .selectors
+          //-   .content.content-not-collapsed
+          //-     .selector__buttons
+          //-       .selector__scroll
+          //-         button.selector__button(data-id="campaign-channels").active Каналы
+          //-           span 6
+          //-     .selector__containers
+          //-       .selector__container(data-id="campaign-channels").active
+          //-         +heading-table({
+          //-           isSearch: true,
+          //-           isRows: true,
+          //-           searchClass: 'min-w-[243px] max-w-[243px]',
+          //-           buttons: [
+          //-             {
+          //-               view: 'button',
+          //-               class: 'button-with-icon-blue',
+          //-               icon: 'other-plus-icon',
+          //-               title: 'Добавить канал',
+          //-               dataPopupName: 'add-channel',
+          //-             },
+          //-             {
+          //-               view: 'button',
+          //-               class: 'button-with-icon filter__toggle',
+          //-               icon: 'other-controls-icon',
+          //-               title: 'Фильтр',
+          //-               isClose: true,
+          //-               dataFilterName: 'campaign-mediaplan',
+          //-             },
+          //-           ],
+          //-         })
+          //-         .in-container.mt-4
+          //-           .content.content-collapsed
+          //-             .content-scroll
+          //-               include ../components/campaign/mediaplan/table-mediaplan
+          //-           include ../components/campaign/mediaplan/filter-mediaplan
+          //- .selectors
+          //-   .content.content-not-collapsed
+          //-     .selector__buttons
+          //-       .selector__scroll
+          //-         button.selector__button(data-id="campaign-channels").active Каналы
+          //-           span 6
+          //-     .selector__containers
+          //-       .selector__container(data-id="campaign-channels").active
+          //-         +heading-table({
+          //-           isSearch: true,
+          //-           isRows: true,
+          //-           searchClass: 'min-w-[243px] max-w-[243px]',
+          //-           buttons: [
+          //-             {
+          //-               view: 'button',
+          //-               class: 'button-with-icon-blue',
+          //-               icon: 'other-plus-icon',
+          //-               title: 'Добавить канал',
+          //-               dataPopupName: 'add-channel',
+          //-             },
+          //-             {
+          //-               view: 'button',
+          //-               class: 'button-with-icon filter__toggle',
+          //-               icon: 'other-controls-icon',
+          //-               title: 'Фильтр',
+          //-               isClose: true,
+          //-               dataFilterName: 'campaign-mediaplan-agreed',
+          //-             },
+          //-           ],
+          //-         })
+          //-         .in-container.mt-4
+          //-           .content.content-collapsed
+          //-             .content-scroll
+          //-               include ../components/campaign/mediaplan-agreed/table-mediaplan-agreed
+          //-           include ../components/campaign/mediaplan-agreed/filter-mediaplan-agreed
+          //- .selectors
+          //-   .content.content-not-collapsed
+          //-     .selector__buttons
+          //-       .selector__scroll
+          //-         button.selector__button(data-id="campaign-channels").active Каналы
+          //-           span 6
+          //-         button.selector__button(data-id="campaign-posts") Посты
+          //-           span 6
+          //-     .selector__containers
+          //-       .selector__container(data-id="campaign-channels").active
+          //-         +heading-table({
+          //-           isSearch: true,
+          //-           isRows: true,
+          //-           searchClass: 'min-w-[243px] max-w-[243px]',
+          //-           buttons: [
+          //-             {
+          //-               view: 'button',
+          //-               class: 'button-with-icon-blue',
+          //-               icon: 'other-plus-icon',
+          //-               title: 'Добавить канал',
+          //-               dataPopupName: 'add-channel',
+          //-             },
+          //-             {
+          //-               view: 'button',
+          //-               class: 'button-with-icon filter__toggle',
+          //-               icon: 'other-controls-icon',
+          //-               title: 'Фильтр',
+          //-               isClose: true,
+          //-               dataFilterName: 'campaign-process-channels',
+          //-             },
+          //-           ],
+          //-         })
+          //-         .in-container.mt-4
+          //-           .content.content-collapsed
+          //-             .content-scroll
+          //-               include ../components/campaign/process-channels/table-process-channels
+          //-           include ../components/campaign/process-channels/filter-process-channels
+          //-       .selector__container(data-id="campaign-posts")
+          //-         +heading-table({
+          //-           isSearch: true,
+          //-           isRows: true,
+          //-           searchClass: 'min-w-[243px] max-w-[243px]',
+          //-           buttons: [
+          //-             {
+          //-               view: 'button',
+          //-               class: 'button-with-icon-blue',
+          //-               icon: 'other-plus-icon',
+          //-               title: 'Добавить канал',
+          //-               dataPopupName: 'add-channel',
+          //-             },
+          //-             {
+          //-               view: 'button',
+          //-               class: 'button-with-icon filter__toggle',
+          //-               icon: 'other-controls-icon',
+          //-               title: 'Фильтр',
+          //-               isClose: true,
+          //-               dataFilterName: 'campaign-process',
+          //-             },
+          //-           ],
+          //-         })
+          //-         .in-container.mt-4
+          //-           .content.content-collapsed
+          //-             .content-scroll
+          //-               include ../components/campaign/process/table-process
+          //-           include ../components/campaign/process/filter-process
         include ../components/campaign/aside

@@ -292,29 +292,34 @@ aside.content-aside
                   +dropdown({
                     buttons: [
                       {
-                        class: 'check-all',
                         color: 'priority-transparent',
                         isChecked: true,
-                        title: 'Все',
+                        name: 'priority',
+                        title: '—',
                       },
                       {
                         color: 'priority-red',
+                        name: 'priority',
                         title: 'Очень высокий',
                       },
                       {
                         color: 'priority-pink',
+                        name: 'priority',
                         title: 'Высокий',
                       },
                       {
                         color: 'priority-orange',
+                        name: 'priority',
                         title: 'Средний',
                       },
                       {
                         color: 'priority-peach',
+                        name: 'priority',
                         title: 'Низкий',
                       },
                       {
                         color: 'priority-yellow',
+                        name: 'priority',
                         title: 'Очень низкий',
                       },
                     ],
@@ -322,6 +327,7 @@ aside.content-aside
                     color: 'priority-transparent',
                     isButtons: true,
                     isPriority: true,
+                    title: '—',
                   })
             .content-aside__subtitle Поле для комментария
             +input({

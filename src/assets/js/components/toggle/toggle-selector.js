@@ -16,11 +16,14 @@ function toggleSelector() {
     let id = $(this).attr('data-id');
     let block = $(this).closest('.selector__buttons').next().find('.selector__container[data-id="' + id + '"]');
 
+    button.removeClass('active');
+    $(this).closest('.selector__buttons').next().find('.selector__container').hide();
+
     $(this).siblings('.selector__button').removeClass('active');
     $(this).addClass('active');
 
-    $(this).closest('.selector__buttons').next().find('.selector__container').hide();
-    block.show();
+    $(this).closest('.selector__buttons').next().find('.selector__container').removeClass('active');
+    block.show().addClass('active');
     setTdPadding();
     setTdPaddingDefault();
     setFilterPosition();

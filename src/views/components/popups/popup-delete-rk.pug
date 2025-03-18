@@ -7,15 +7,15 @@
       .popup__form
         .popup__buttons
           +button({
+            class: 'button-base',
+            dataPopupName: 'delete-rk',
+            title: 'Нет',
+            view: 'button',
+          })
+          +button({
             class: 'button-confirm',
             dataPopupName: 'delete-rk',
             title: 'Да',
             type: 'submit',
-            view: 'button',
-          })
-          +button({
-            class: 'button-base',
-            dataPopupName: 'delete-rk',
-            title: 'Нет',
             view: 'button',
           })

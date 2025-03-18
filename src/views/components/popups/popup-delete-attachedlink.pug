@@ -6,15 +6,15 @@
     .popup__form
       .popup__buttons
         +button({
+          class: 'button-base',
+          dataPopupName: 'delete-attachedlink',
+          title: 'Нет',
+          view: 'button',
+        })
+        +button({
           class: 'button-confirm table__attachedlink__delete',
           dataPopupName: 'delete-attachedlink',
           title: 'Да',
           type: 'submit',
-          view: 'button',
-        })
-        +button({
-          class: 'button-base',
-          dataPopupName: 'delete-attachedlink',
-          title: 'Нет',
           view: 'button',
         })

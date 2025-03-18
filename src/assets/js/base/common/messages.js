@@ -365,7 +365,7 @@ function messages() {
     requestAnimationFrame(update);
   }
 
-  $(document).on("input", "input[type='file']", function (event) {
+  $(document).on("input", ".messages__upload input[type='file']", function (event) {
     let files = event.target.files;
     if (!files.length) {
       return;

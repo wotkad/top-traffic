@@ -1,0 +1,146 @@
+.messages
+  .messages__day Среда, 15 октября
+  .message
+    .message__comment
+      .message__avatar
+        span(style="background-color: #E5E4FC;")
+      .message__author
+        .message__head
+          h3 Валерия Медеведева
+          .message__time 16:25
+            span 15.10.2024 в 16:25
+        p Добрый день! Старт РК 16.10
+      +dropdown({
+        buttons: [
+          {
+            class: 'message__reply',
+            icon: 'other-reply-icon',
+            title: 'Ответить',
+          },
+          {
+            class: 'message__copy',
+            icon: 'other-copy-icon',
+            title: 'Копировать',
+          },
+          {
+            class: 'message__edit',
+            icon: 'other-edit-icon',
+            title: 'Редактировать',
+          },
+          {
+            class: 'message__delete',
+            dataPopupName: 'delete-comment',
+            icon: 'other-trash-icon',
+            title: 'Удалить',
+          },
+        ],
+        class: 'dropdown-comment',
+        icon: 'other-angle-down-icon',
+        isButtons: true,
+      })
+  .messages__day Четверг, 16 октября
+  .messages__new Новые сообщения
+  .message
+    .message__comment
+      .message__avatar
+        span(style="background-color: #FCEAE4;")
+      .message__author
+        .message__head
+          h3 Максим Амбиндер
+          .message__time 12 минут назад
+            span 15.10.2024 в 16:25
+        .message__answered
+          h3 Валерия Медведева
+          p Добрый день! Старт РК 16.10
+        p Добрый день! Спасибо, старт запланирован
+      +dropdown({
+        buttons: [
+          {
+            class: 'message__reply',
+            icon: 'other-reply-icon',
+            title: 'Ответить',
+          },
+          {
+            class: 'message__copy',
+            icon: 'other-copy-icon',
+            title: 'Копировать',
+          },
+          {
+            class: 'message__edit',
+            icon: 'other-edit-icon',
+            title: 'Редактировать',
+          },
+          {
+            class: 'message__delete',
+            dataPopupName: 'delete-comment',
+            icon: 'other-trash-icon',
+            title: 'Удалить',
+          },
+        ],
+        class: 'dropdown-comment',
+        icon: 'other-angle-down-icon',
+        isButtons: true,
+      })
+  .message
+    .message__comment
+      .message__avatar
+        span(style="background-color: #E5E4FC;")
+      .message__author
+        .message__head
+          h3 Валерия Медеведева
+          .message__time 10 минут назад
+            span 15.10.2024 в 16:25
+        p Спасибо!
+      +dropdown({
+        buttons: [
+          {
+            class: 'message__reply',
+            icon: 'other-reply-icon',
+            title: 'Ответить',
+          },
+          {
+            class: 'message__copy',
+            icon: 'other-copy-icon',
+            title: 'Копировать',
+          },
+          {
+            class: 'message__edit',
+            icon: 'other-edit-icon',
+            title: 'Редактировать',
+          },
+          {
+            class: 'message__delete',
+            dataPopupName: 'delete-comment',
+            icon: 'other-trash-icon',
+            title: 'Удалить',
+          },
+        ],
+        class: 'dropdown-comment',
+        icon: 'other-angle-down-icon',
+        isButtons: true,
+      })
+.messages__bottom
+  .messages__footer
+    form(action="#").messages__form.default
+      +input({
+        class: 'messages__upload',
+        isFileUpload: true,
+        isMultiple: true,
+        isRequired: true,
+        isTextarea: true,
+        label: '',
+        name: 'comment',
+        placeholder: 'Отправить комментарий...',
+      })
+      +button({
+        class: 'button-with-icon-blue messages__submit',
+        title: 'Отправить',
+        type: 'submit',
+        view: 'button',
+      })
+      +button({
+        class: 'button-base messages__cancel',
+        title: 'Отменить',
+        type: 'button',
+        view: 'button',
+      })

@@ -5,16 +5,16 @@
     .popup__apply.popup__apply-top
       h3 Подтвердить действие
       p Выйти без сохранения?
+        +button({
+          class: 'button-base popup-cancel',
+          title: 'Нет',
+          view: 'button',
+        })
       .popup__buttons
         +button({
           class: 'button-with-icon-blue lg popup-nosave',
           dataPopupName: 'add-channel',
           title: 'Да',
-          view: 'button',
-        })
-        +button({
-          class: 'button-base popup-cancel',
-          title: 'Нет',
           view: 'button',
         })
     .popup__apply.popup__apply-bottom
@@ -22,15 +22,15 @@
       p Сохранить изменения?
       .popup__buttons
         +button({
+          class: 'button-base popup-cancel',
+          title: 'Отменить',
+          view: 'button',
+        })
+        +button({
           class: 'button-with-icon-blue lg popup-save',
           dataPopupName: 'add-channel',
           isDisabled: true,
           title: 'Сохранить',
-          view: 'button',
-        })
-        +button({
-          class: 'button-base popup-cancel',
-          title: 'Отменить',
           view: 'button',
         })
     .popup__apply.popup__apply-cancel
@@ -38,14 +38,14 @@
       p Выйти без сохранения?
       .popup__buttons
         +button({
-          class: 'button-with-icon-blue lg popup-nosave',
-          dataPopupName: 'add-channel',
-          title: 'Да',
+          class: 'button-base popup-cancel',
+          title: 'Нет',
           view: 'button',
         })
         +button({
-          class: 'button-base popup-cancel',
-          title: 'Нет',
+          class: 'button-with-icon-blue lg popup-nosave',
+          dataPopupName: 'add-channel',
+          title: 'Да',
           view: 'button',
         })
     .popup__close
@@ -100,15 +100,15 @@
       include ../campaign/popup/filter-popup
     .popup__buttons.popup__buttons-selected
       +button({
+        class: 'button-base popup-cancel-bottom',
+        title: 'Отмена',
+        view: 'button',
+      })
+      +button({
         class: 'button-with-icon-blue lg popup-save-bottom',
         isDisabled: true,
         title: 'Сохранить',
         type: 'submit',
-        view: 'button',
-      })
-      +button({
-        class: 'button-base popup-cancel-bottom',
-        title: 'Отмена',
         view: 'button',
       })
   

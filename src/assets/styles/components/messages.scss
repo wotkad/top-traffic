@@ -1,6 +1,6 @@
 .messages {
   &__new {
-    @apply inline-block self-center bg-purple-300 mt-3 mb-1.5 px-5 py-2 rounded-md text-10-m-sm text-blue-200;
+    @apply inline-block self-center bg-purple-300 my-1.5 px-5 py-2 rounded-md text-10-m-sm text-blue-200;
   }
   &__icon {
     svg {
@@ -15,10 +15,10 @@
     @apply px-5 rounded-[4px];
   }
   &__day {
-    @apply mt-1 text-12-m-p text-black-200 text-center;
+    @apply mt-1 mb-1.5 text-12-m-p text-black-200 text-center;
   }
   &__actions {
-    @apply my-4;
+    @apply mt-2.5 mb-4;
   }
   &__action {
     h3 {
@@ -83,7 +83,7 @@
           @apply invisible opacity-0;
         }
         &-file {
-          @apply opacity-100 visible;
+          @apply visible opacity-100;
         }
       }
       .messages__file__remove,
@@ -174,7 +174,7 @@
     }
     &:hover {
       span {
-        @apply opacity-100 visible;
+        @apply visible opacity-100;
       }
     }
     @apply relative font-normal text-10-r-sm text-black-200;
@@ -200,7 +200,7 @@
         @apply hidden;
       }
       &-file {
-        @apply opacity-100 visible;
+        @apply visible opacity-100;
       }
     }
     .messages__file__remove {
@@ -227,7 +227,7 @@
   }
   &:hover {
     .dropdown-comment {
-      @apply z-50 opacity-100 visible;
+      @apply visible z-50 opacity-100;
     }
     @apply bg-black-600;
   }
