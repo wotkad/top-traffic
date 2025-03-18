@@ -1,10 +1,42 @@
-mixin transactions-for-payment-row(data)
-  tr
-    td.only-text Test_MTC_September
-    td.only-text МТС
-    td.only-text Январь 2024
-    td.only-text.text-right 2
-    td.only-text.text-right 20 500 ₽
-    td.only-text.text-right 20 500 ₽
-    td
-      span.status(class="" + data.color)= data.status
+tr
+  td.only-text Test_MTC_September
+  td
+    .table__channels.table__channels-companies
+      a(href="#")
+        span Test_MTC_September
+      a(href="#")
+        span Test_MTC_September
+      a(href="#")
+        span Test_MTC_September
+      a(href="#")
+        span Test_MTC_September
+      +button({
+        class: 'table__channels-toggle',
+        icon: 'other-angle-down-icon',
+        isOnlyIcon: true,
+      })
+  td
+    .table__channels
+      a(href="#")
+        img(src="/assets/images/avatar.png" alt="tg-channel")
+        span ZeroDay | Кибербезопасность
+      a(href="#")
+        img(src="/assets/images/avatar.png" alt="tg-channel")
+        span Топор 18+
+      a(href="#")
+        img(src="/assets/images/avatar.png" alt="tg-channel")
+        span ZeroDay | Кибербезопасность
+      a(href="#")
+        img(src="/assets/images/avatar.png" alt="tg-channel")
+        span ZeroDay | Кибербезопасность
+      a(href="#")
+        img(src="/assets/images/avatar.png" alt="tg-channel")
+        span Топор 18+
+      a(href="#")
+        img(src="/assets/images/avatar.png" alt="tg-channel")
+        span ZeroDay | Кибербезопасность
+      +button({
+        class: 'table__channels-toggle',
+        icon: 'other-angle-down-icon',
+        isOnlyIcon: true,
+      })

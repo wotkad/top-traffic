@@ -120,12 +120,6 @@ function monthPicker() {
 
       monthpicker = picker.container;
 
-
-      $(document).on('click', `.filter__clear[data-filter-name="${$this.closest('.filter').data('filter-name')}"]`, function() {
-        picker.setStartDate(moment());
-        picker.setEndDate(moment());
-      });
-
       $this.on('apply.daterangepicker', function(ev, picker) {
         
         const startTimestamp = picker.startDate;

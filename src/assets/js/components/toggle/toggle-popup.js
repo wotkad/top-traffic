@@ -8,6 +8,11 @@ function togglePopup() {
     let currentPopup = $('.popup[data-popup-name="' + popupName + '"]');
     let currentPopupBg = $('.popup__bg[data-popup-name="' + popupName + '"]');
 
+    if (popupName == 'share-post') {
+      $('.popup').removeClass('active');
+      $('.popup__bg').removeClass('active');
+    }
+
     if (currentPopup.hasClass('active')) {
       closePopup(currentPopup, currentPopupBg);
     } else {
@@ -15,6 +20,11 @@ function togglePopup() {
       currentPopupBg.addClass('active');
       disablePageScroll();
     }
+  });
+
+  $(document).on('click', '.popup__hide', function (e) {
+    $('.popup').removeClass('active');
+    $('.popup__bg').removeClass('active');
   });
 
   // $(document).on('mouseup', function(e) {

@@ -1,8 +1,8 @@
-aside.filter.filter-sm(data-filter-name="advertising-campaigns")
+aside.filter.filter-sm(data-filter-name="admin-advertising-campaigns")
   .filter__container
     .filter__title
       h2 Фильтр
-      button(type="button" data-filter-name="advertising-campaigns").filter__clear Сбросить
+      button(type="button" data-filter-name="admin-advertising-campaigns").filter__clear Сбросить
     form(action="#")
       h3.filter__subtitle Рекламная кампания
       +dropdown({
@@ -60,6 +60,128 @@ aside.filter.filter-sm(data-filter-name="advertising-campaigns")
         class: 'dropdown-checkboxes',
         isAll: true,
         isCheckboxes: true,
+        isResults: true,
+      })
+      h3.filter__subtitle Канал
+      +dropdown({
+        checkboxes: [
+          {
+            class: 'check-all',
+            title: 'Все',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+          {
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/avatar.png',
+            },
+            telegram: 'andreym',
+            title: 'ZeroDay | Кибезопасность ',
+          },
+        ],
+        class: 'dropdown-checkboxes',
+        isAll: true,
+        isCheckboxes: true,
+        isResults: true,
       })
       h3.filter__subtitle Клиент
       +dropdown({
@@ -117,6 +239,7 @@ aside.filter.filter-sm(data-filter-name="advertising-campaigns")
         class: 'dropdown-checkboxes',
         isAll: true,
         isCheckboxes: true,
+        isResults: true,
       })
       h3.filter__subtitle Период
       +button({

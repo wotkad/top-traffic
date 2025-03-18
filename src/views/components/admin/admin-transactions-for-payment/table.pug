@@ -9,118 +9,17 @@ table.table.table-default
                 use(xlink:href="#other-sort-icon")
       th
         .table__sort.flex.gap-x-2.items-center
-          p Клиент
+          p Рекламная кампания
             button(type="button").table__sortbutton
               svg
                 use(xlink:href="#other-sort-icon")
       th
         .table__sort.flex.gap-x-2.items-center
-          p Период
-            button(type="button").table__sortbutton
-              svg
-                use(xlink:href="#other-sort-icon")
-      th
-        .table__sort.flex.gap-x-2.items-center
-          p.text-right Кол-во постов
-            button(type="button").table__sortbutton
-              svg
-                use(xlink:href="#other-sort-icon")
-      th
-        .table__sort.flex.gap-x-2.items-center.justify-end
-          p.text-right Ставка
-            button(type="button").table__sortbutton
-              svg
-                use(xlink:href="#other-sort-icon")
-      th
-        .table__sort.flex.gap-x-2.items-center
-          p.text-right Сумма сделки
-            button(type="button").table__sortbutton
-              svg
-                use(xlink:href="#other-sort-icon")
-      th
-        .table__sort.flex.gap-x-2.items-center
-          p Статус сделки
+          p Канал
             button(type="button").table__sortbutton
               svg
                 use(xlink:href="#other-sort-icon")
   tbody
-    +transactions-for-payment-row({
-      color: 'status-green',
-      status: 'В работу',
-    })
-    +transactions-for-payment-row({
-      color: 'status-blue',
-      status: 'В работе',
-    })
-    +transactions-for-payment-row({
-      color: 'status-red',
-      status: 'Пауза',
-    })
-    +transactions-for-payment-row({
-      color: 'status-gray',
-      status: 'Завершено',
-    })
-    +transactions-for-payment-row({
-      color: 'status-purple',
-      status: 'Согласование',
-    })
-    +transactions-for-payment-row({
-      color: 'status-red',
-      status: 'Пауза',
-    })
-    +transactions-for-payment-row({
-      color: 'status-gray',
-      status: 'Завершено',
-    })
-    +transactions-for-payment-row({
-      color: 'status-purple',
-      status: 'Согласование',
-    })
-    +transactions-for-payment-row({
-      color: 'status-purple',
-      status: 'Согласование',
-    })
-    +transactions-for-payment-row({
-      color: 'status-blue',
-      status: 'В работе',
-    })
-    +transactions-for-payment-row({
-      color: 'status-red',
-      status: 'Пауза',
-    })
-    +transactions-for-payment-row({
-      color: 'status-gray',
-      status: 'Завершено',
-    })
-    +transactions-for-payment-row({
-      color: 'status-purple',
-      status: 'Согласование',
-    })
-    +transactions-for-payment-row({
-      color: 'status-red',
-      status: 'Пауза',
-    })
-    +transactions-for-payment-row({
-      color: 'status-gray',
-      status: 'Завершено',
-    })
-    +transactions-for-payment-row({
-      color: 'status-purple',
-      status: 'Согласование',
-    })
-    +transactions-for-payment-row({
-      color: 'status-purple',
-      status: 'Согласование',
-    })
-    +transactions-for-payment-row({
-      color: 'status-red',
-      status: 'Пауза',
-    })
-    +transactions-for-payment-row({
-      color: 'status-gray',
-      status: 'Завершено',
-    })
-    +transactions-for-payment-row({
-      color: 'status-purple',
-      status: 'Согласование',
-    })
+    include row
+    include row
+    include row

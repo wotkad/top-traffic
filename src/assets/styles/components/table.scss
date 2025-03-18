@@ -151,7 +151,7 @@
       }
       &:hover {
         .table__attachedfile__remove {
-          @apply opacity-100 visible;
+          @apply visible opacity-100;
         }
       }
     }
@@ -191,7 +191,7 @@
       &:hover {
         .table__attachedlink__dropdown,
         .table__attachedfile__dropdown {
-          @apply opacity-100 visible;
+          @apply visible opacity-100;
         }
       }
     }
@@ -199,7 +199,7 @@
       &.filled {
         &:hover {
           .table__attachedbill__remove {
-            @apply opacity-100 visible;
+            @apply visible opacity-100;
           }
         }
       }
@@ -405,10 +405,10 @@
       @apply w-4 h-4;
     }
     &-selected {
-      @apply opacity-100 visible;
+      @apply visible opacity-100;
     }
     &.active {
-      @apply opacity-100 visible;
+      @apply visible opacity-100;
     }
     @apply invisible opacity-0 transition-all duration-300;
   }
@@ -439,7 +439,7 @@
         @apply rounded-full max-w-[22px] max-h-[22px] object-cover;
       }
       span {
-        @apply inline-block max-w-[98px] text-12-r-p text-ellipsis line-clamp-1;
+        @apply inline-block text-12-r-p text-ellipsis line-clamp-1;
       }
       &:hover {
         @apply text-blue-000;
@@ -447,7 +447,10 @@
       &:active {
         @apply text-blue-050;
       }
-      @apply flex items-center gap-x-1 bg-white-000 px-1.5 py-[3px] border border-black-500 rounded-md transition-all duration-300;
+      @apply flex items-center gap-x-1 bg-white-000 px-1.5 py-[3px] border border-black-500 rounded-md max-w-[136px] min-h-[30px] transition-all duration-300;
+    }
+    &-companies {
+      @apply min-w-[310px] max-w-[310px];
     }
     &-toggle {
       &:hover {
@@ -470,7 +473,7 @@
     &.active {
       @apply h-auto;
     }
-    @apply relative flex flex-wrap gap-1.5 pr-8 min-w-[421px] max-w-[421px] h-[30px] overflow-hidden;
+    @apply relative flex flex-wrap gap-1.5 pr-8 min-w-[416px] max-w-[416px] h-[30px] overflow-hidden;
   }
   th {
     &:nth-child(1),

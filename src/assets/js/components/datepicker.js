@@ -257,6 +257,7 @@ export default function datePicker() {
   $('.datepicker-range').each(function() {
     let $this = $(this);
     let buttons;
+    let $id = Math.random().toString(36).substr(2, 9);
 
     if (!$this.closest('.filter__container')) {
       $this.css('width', $(this).val().length * 7);
@@ -264,6 +265,8 @@ export default function datePicker() {
 
     $this.on('show.daterangepicker', function(ev, picker) {
       buttons = picker.container.find('.drp-buttons').clone();
+      $this.attr('data-id', $id);
+      picker.container.attr('data-id', $id);
 
       picker.container.find('.drp-buttons').remove();
       picker.container.prepend(buttons);
@@ -414,7 +417,7 @@ export default function datePicker() {
     let $this = $(this);
     let buttons;
     let apply;
-
+    let $id = Math.random().toString(36).substr(2, 9);
     $this.css('width', $(this).val().length * 7);
 
     $this.on('show.daterangepicker', function(ev, picker) {
@@ -422,6 +425,8 @@ export default function datePicker() {
       apply = picker.container.find('.applyBtn').clone(true);
       picker.container.find('.drp-buttons').remove();
       picker.container.prepend(buttons);
+      $this.attr('data-id', $id);
+      picker.container.attr('data-id', $id);
 
       let result = picker.startDate.format('DD.MM.YYYY HH:mm');
 

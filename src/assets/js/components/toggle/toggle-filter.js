@@ -2,6 +2,7 @@ import gsap from 'gsap';
 import setFilterHeight from '../../base/common/set-filter-height';
 import setAsideHeight from '../../base/common/set-aside-height';
 import setSubrowPosition from '../../base/common/set-subrow-position';
+import moment from "moment";
 
 function toggleFilter() {
   $(document).on('click', '.filter__toggle[data-filter-name]', function() {
@@ -119,14 +120,22 @@ function toggleFilter() {
     $filterContainer.find('.dropdown__item').first().find('input').prop('checked', true);
     $filterContainer.find('.dropdown__selected span').text('0');
 
-    $filterContainer.find('input[type="text"].monthpicker, input[type="text"].datepicker').attr('placeholder', 'Все').val('Все');
-
-    let monthpickerId = $filterContainer.find('input[type="text"].monthpicker').attr('data-id');
-    let datepickerId = $filterContainer.find('input[type="text"].datepicker').attr('data-id');
-
-    $(`.daterangepicker[data-id="${datepickerId}"]`).find('.drp-buttons').hide();
-
+    $('.daterangepicker').find('.drp-buttons').hide();
     $button.removeClass('sorted');
+
+    $filterContainer.find('input[type="text"].datepicker').each(function () {
+      const $datepicker = $(this);
+      const picker = $datepicker.data('daterangepicker');
+  
+      if (picker) {
+          // Задаём дефолтные даты или очищаем по твоей логике
+          picker.setStartDate(moment()); // Можно поставить начальную дату по умолчанию
+          picker.setEndDate(moment());   // Можно поставить конечную дату по умолчанию
+      }
+  
+      // Очищаем поле или ставим плейсхолдер "Все"
+      $datepicker.val('Все').attr('placeholder', 'Все');
+  });
   });
 }
 

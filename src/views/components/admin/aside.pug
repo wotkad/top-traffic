@@ -43,6 +43,66 @@ aside.content-aside
                         name: 'curator',
                         title: 'ООО “ИП”',
                       },
+                      {
+                        class: '',
+                        image: {
+                          alt: 'image',
+                          enabled: true,
+                          src: '/assets/images/avatar.png',
+                        },
+                        name: 'curator',
+                        title: 'ООО “ИП”',
+                      },
+                      {
+                        class: '',
+                        image: {
+                          alt: 'image',
+                          enabled: true,
+                          src: '/assets/images/avatar.png',
+                        },
+                        name: 'curator',
+                        title: 'ООО “ИП”',
+                      },
+                      {
+                        class: '',
+                        image: {
+                          alt: 'image',
+                          enabled: true,
+                          src: '/assets/images/avatar.png',
+                        },
+                        name: 'curator',
+                        title: 'ООО “ИП”',
+                      },
+                      {
+                        class: '',
+                        image: {
+                          alt: 'image',
+                          enabled: true,
+                          src: '/assets/images/avatar.png',
+                        },
+                        name: 'curator',
+                        title: 'ООО “ИП”',
+                      },
+                      {
+                        class: '',
+                        image: {
+                          alt: 'image',
+                          enabled: true,
+                          src: '/assets/images/avatar.png',
+                        },
+                        name: 'curator',
+                        title: 'ООО “ИП”',
+                      },
+                      {
+                        class: '',
+                        image: {
+                          alt: 'image',
+                          enabled: true,
+                          src: '/assets/images/avatar.png',
+                        },
+                        name: 'curator',
+                        title: 'ООО “ИП”',
+                      },
                     ],
                     class: 'dropdown-radios dropdown-copy-image',
                     isRadios: true,
@@ -51,10 +111,26 @@ aside.content-aside
                   })
               tr
                 th.text-black-200 Почта
-                td andreykarp@gmail.com
+                td
+                  +input({
+                    autocomplete: 'off',
+                    class: '',
+                    name: 'email',
+                    placeholder: 'Введите почту...',
+                    type: 'email',
+                    value: 'andreykarp@gmail.com',
+                  })
               tr
                 th.text-black-200 Телефон
-                td +7 (916)-317-04-69
+                td
+                  +input({
+                    autocomplete: 'off',
+                    class: '',
+                    name: 'phone',
+                    placeholder: '+7',
+                    type: 'tel',
+                    value: '+7 (916)-317-04-69',
+                  })
             .content-aside__subtitle Внутренняя информация
             table.table
               tr.text-black-200

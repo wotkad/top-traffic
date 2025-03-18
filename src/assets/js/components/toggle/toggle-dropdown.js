@@ -371,24 +371,35 @@ export default function toggleDropdown() {
   
     const $firstCheckbox = $dropdown.find('.input-checkbox-with-label.check-all input');
     let zIndex = $dropdown.find('.input-checkbox-with-label input:checked').not($firstCheckbox).length;
+
+    const checkedInputs = $dropdown.find('.input-checkbox-with-label input:checked').not($firstCheckbox);
+    const isSingle = checkedInputs.length === 1;
   
     // Очистить список и заново добавить все отмеченные элементы
     $valuesContainer.empty();
     $sortBlock.css('display', 'flex').addClass('active');
     $buttonBlock.hide();
   
-    $dropdown.find('.input-checkbox-with-label input:checked').not($firstCheckbox).each(function () {
+    checkedInputs.each(function (index) {
       let id = $(this).attr('id') || `checkbox-${Math.random().toString(36).substr(2, 9)}`;
       $(this).attr('id', id);
-      
-  
+    
       const value = $(this).siblings('img').prop('src');
+    
       const template = `
         <div class="dropdown__value" data-id="${id}" style="z-index:${zIndex--}">
-          <img src=${value}>
+          <img src="${value}">
         </div>
       `;
-      $valuesContainer.append(template);
+      const template2 = `
+        <div class="dropdown__value" data-id="${id}" style="max-width: 100%;">
+          <img style="max-width: 26px;" src="${value}">
+          <div class="dropdown__title">${$(this).val()}</div>
+        </div>
+      `;
+    
+      // Если выбран один — рендерим template2, иначе — всегда template
+      $valuesContainer.append(isSingle ? template2 : template);
     });
   
     // Обновляем счетчик выбранных элементов

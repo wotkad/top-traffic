@@ -17,7 +17,7 @@ mixin input(data = {})
   else if !modefied.isLabel && modefied.type !== 'checkbox' && !modefied.isTextarea && !modefied.isRadio && !modefied.min && !modefied.max
     label.input.input-with-label
       .input__container
-        input.input__el(class=modefied.class disabled=modefied.isDisabled type=modefied.type required=modefied.isRequired autocomplete=modefied.autocomplete placeholder=modefied.placeholder name=modefied.name)
+        input.input__el(class=modefied.class disabled=modefied.isDisabled type=modefied.type required=modefied.isRequired value=modefied.value autocomplete=modefied.autocomplete placeholder=modefied.placeholder name=modefied.name)
   
   else if modefied.min || modefied.max
     .input-ranges

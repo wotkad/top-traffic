@@ -45,7 +45,7 @@ mixin dropdown(data = {})
       .dropdown__list
         if modefied.subtitle
           .dropdown__subtitle= modefied.subtitle
-        if modefied.isCheckboxes && modefied.checkboxes
+        if modefied.isCheckboxes && modefied.checkboxes && modefied.isResults
           .dropdown__results
             .dropdown__selected Выбрано:
               span 0

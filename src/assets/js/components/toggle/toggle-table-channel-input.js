@@ -67,7 +67,7 @@ function toggleTableInput() {
       let newId = generateId();
       let newRow = $(`
         <tr data-admin-id="${newId}">
-          <td class="fixed-td" style="padding: 6.5px 32px 6.5px 12px; min-width: 280px; max-width: 280px;">
+          <td class="fixed-td fixed-td-border" style="padding: 6.5px 32px 6.5px 12px; min-width: 280px; max-width: 280px;">
             <div class="flex items-center w-full gap-x-3 h-[33px]">
               <div class="checkbox"><label class="input-checkbox md table__checkbox"><input checked type="checkbox" name="checkbox"><span></span></label></div>
               <div class="dropdown dropdown-radios dropdown-select-admin">
