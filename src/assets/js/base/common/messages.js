@@ -1,9 +1,8 @@
 import createFileElement from "./messages/create-file";
+import simulateUpload from "./messages/simulate-upload";
+import generateId from "./messages/generate-id";
 
 function messages() {
-  function generateId() {
-    return Math.random().toString(36).substr(2, 9);
-  }
 
   function openDeletePopupComment(parent, popupName) {
     let uniqueId = generateId();
@@ -52,27 +51,6 @@ function messages() {
     form.find("textarea[name='comment']").val("");
   });
 
-  function simulateUpload(fileElement) {
-    let startTime = performance.now();
-    
-    function update() {
-        let elapsed = performance.now() - startTime;
-        let percentage = Math.min(elapsed / 300, 1); // Ограничиваем максимум 100%
-        let newProgress = 88 * (1 - percentage); // Прогресс от 88 до 0
-        
-        fileElement.find("circle").attr("stroke-dashoffset", newProgress);
-        
-        if (percentage < 1) {
-            requestAnimationFrame(update);
-        } else {
-            fileElement.addClass("loaded");
-            checkAllFilesLoaded();
-        }
-    }
-    
-    requestAnimationFrame(update);
-  }
-
   $(document).on("input", ".messages__upload input[type='file']", function (event) {
     let files = event.target.files;
     if (!files.length) {
@@ -99,12 +77,6 @@ function messages() {
     checkSubmitButtonState();
     $(".messages__footer textarea[name='comment']").focus();
   });
-
-  // // Проверяем, загружены ли все файлы
-  function checkAllFilesLoaded() {
-    let allLoaded = $(".messages__file").length === $(".messages__file.loaded").length;
-    $(".messages__submit").prop("disabled", !allLoaded);
-  }
 
   // Функция проверки состояния кнопки
   function checkSubmitButtonState() {

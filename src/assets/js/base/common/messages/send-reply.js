@@ -50,6 +50,15 @@ $(document).on("submit", ".messages__form.replied", function (event) {
             </svg>
           </button>
         </div>
+        <div class="popup" data-popup-name="delete-comment">
+          <div class="popup__wrapper" data-scroll-lock-scrollable="">
+            <div class="popup__title">Подтвердить действие</div>
+            <div class="popup__subtitle">Удалить комментарий?</div>
+            <div class="popup__form">
+              <div class="popup__buttons"><button class="button button-base" type="button" aria-label="button" data-popup-name="delete-comment"><span>Нет</span></button><button class="button button-confirm message__remove" type="button" aria-label="button" data-popup-name="delete-comment"><span>Да</span></button></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   `;

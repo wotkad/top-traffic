@@ -53,6 +53,24 @@
           type: 'button',
           view: 'button',
         })
+      .popup(data-popup-name="delete-comment")
+        .popup__wrapper(data-scroll-lock-scrollable)
+          .popup__title Подтвердить действие
+          .popup__subtitle Удалить комментарий?
+          .popup__form
+            .popup__buttons
+              +button({
+                class: 'button-base',
+                dataPopupName: 'delete-comment',
+                title: 'Нет',
+                view: 'button',
+              })
+              +button({
+                class: 'button-confirm message__remove',
+                dataPopupName: 'delete-comment',
+                title: 'Да',
+                view: 'button',
+              })
   .messages__day Четверг, 16 октября
   .messages__new Новые комментарии
   .message
@@ -98,6 +116,24 @@
           type: 'button',
           view: 'button',
         })
+      .popup(data-popup-name="delete-comment")
+        .popup__wrapper(data-scroll-lock-scrollable)
+          .popup__title Подтвердить действие
+          .popup__subtitle Удалить комментарий?
+          .popup__form
+            .popup__buttons
+              +button({
+                class: 'button-base',
+                dataPopupName: 'delete-comment',
+                title: 'Нет',
+                view: 'button',
+              })
+              +button({
+                class: 'button-confirm message__remove',
+                dataPopupName: 'delete-comment',
+                title: 'Да',
+                view: 'button',
+              })
   .message
     .message__comment
       .message__avatar
@@ -138,61 +174,28 @@
           type: 'button',
           view: 'button',
         })
+      .popup(data-popup-name="delete-comment")
+        .popup__wrapper(data-scroll-lock-scrollable)
+          .popup__title Подтвердить действие
+          .popup__subtitle Удалить комментарий?
+          .popup__form
+            .popup__buttons
+              +button({
+                class: 'button-base',
+                dataPopupName: 'delete-comment',
+                title: 'Нет',
+                view: 'button',
+              })
+              +button({
+                class: 'button-confirm message__remove',
+                dataPopupName: 'delete-comment',
+                title: 'Да',
+                view: 'button',
+              })
   .message.message-changed
     <h3>Валерия Медеведева</h3><p>удалил(а) комментарий “1. Добавлено поле с комментарием 2. Убрана иконка "Помощь" 3. Страница согласования медиаплана объединена со страницей РК 4. Добавлена группировка в раздел "Каналы" 5. Добавлен раздел "Посты" для статуса "В процессе"”</p><time> • 2 дня назад</time><button type="button">Восстановить</button>
   .message.message-changed
     <h3>Валерия Медеведева</h3><p>отредактировал(а) комментарий с “1. Добавлено поле с комментарием 2. Убрана иконка "Помощь"” на “1. Страница согласования медиаплана объединена со страницей РК 2. Добавлена группировка в раздел "Каналы" 5. Добавлен раздел "Посты" для статуса "В процессе"”</p><time> • 2 дня назад</time>
-  .message
-    .message__comment
-      .message__avatar
-        span(style="background-color: #E5E4FC;")
-      .message__author
-        .message__head
-          h3 Валерия Медеведева
-          .message__time 10 минут назад
-            span 15.10.2024 в 16:25
-      .message__buttons
-        +button({
-          class: 'message__button message__reply',
-          icon: 'other-reply-icon',
-          isOnlyIcon: true,
-          type: 'button',
-          view: 'button',
-        })
-        +button({
-          class: 'message__button message__edit',
-          icon: 'other-edit-icon',
-          isOnlyIcon: true,
-          type: 'button',
-          view: 'button',
-        })
-        +button({
-          class: 'message__button message__delete',
-          dataPopupName: 'delete-comment',
-          icon: 'other-trash-icon',
-          isOnlyIcon: true,
-          type: 'button',
-          view: 'button',
-        })
-    .messages__files
-      .messages__file.messages__file-file.loaded
-        a(href='#' download='')
-        .messages__file__content
-          .messages__file-left
-            button.messages__file__icon.messages__file__icon-close(type='button')
-              svg(viewbox='0 0 9 9' width='9' height='9')
-                use(xlink:href='#other-close-icon')
-              svg.file-loading(width='48' height='48' viewbox='-6 -6 60 60')
-                circle(r='14' cx='24' cy='24' stroke='#ffffff' stroke-width='2' stroke-linecap='round' stroke-dashoffset='0' stroke-dasharray='87.92px' fill='transparent')
-            button.messages__file__icon.messages__file__icon-file(type='button')
-              svg.messages__file__icon-file(viewbox='0 0 10 12' width='10' height='12')
-                use(xlink:href='#other-file-icon')
-          .messages__file-right
-            h3 Файл.png
-            span 31.4 MB
-          button.messages__file__remove(type='button')
-            svg(viewbox='0 0 9 9' width='9' height='9')
-              use(xlink:href='#other-close-icon')
 .messages__bottom
   .messages__footer
     form(action="#").messages__form.default

@@ -24,11 +24,13 @@ $(document).on("submit", $(".messages__form"), function (event) {
           <use xlink:href="#other-reply-icon"></use>
         </svg>
       </button>
-      <button class="button message__button message__copy" type="button" aria-label="button">
-        <svg viewBox="0 0 18 18" width="18" height="18">
-          <use xlink:href="#other-copy-icon"></use>
-        </svg>
-      </button>
+      ${messageText ? `
+        <button class="button message__button message__copy" type="button" aria-label="button">
+          <svg viewBox="0 0 18 18" width="18" height="18">
+            <use xlink:href="#other-copy-icon"></use>
+          </svg>
+        </button>
+      ` : ``}
       <button class="button message__button message__edit" type="button" aria-label="button">
         <svg viewBox="0 0 16 16" width="16" height="16">
           <use xlink:href="#other-edit-icon"></use>
@@ -40,30 +42,40 @@ $(document).on("submit", $(".messages__form"), function (event) {
         </svg>
       </button>
     </div>
+    <div class="popup" data-popup-name="delete-comment">
+      <div class="popup__wrapper" data-scroll-lock-scrollable="">
+        <div class="popup__title">Подтвердить действие</div>
+        <div class="popup__subtitle">Удалить комментарий?</div>
+        <div class="popup__form">
+          <div class="popup__buttons"><button class="button button-base" type="button" aria-label="button" data-popup-name="delete-comment"><span>Нет</span></button><button class="button button-confirm message__remove" type="button" aria-label="button" data-popup-name="delete-comment"><span>Да</span></button></div>
+        </div>
+      </div>
+    </div>
   </div>
   `);
 
   // Переносим файлы в новое сообщение
   if (filesContainer.length) {
-      let clonedFiles = $('<div class="messages__files"></div>');
-      
-      filesContainer.find(".messages__file").each(function () {
-          let fileClone = $(this).clone();
-          
-          // Восстанавливаем src изображений
-          let img = $(this).find("img");
-          if (img.length) {
-              let src = img.attr("src");
-              fileClone.find("img").attr("src", src);
-          }
+    let clonedFiles = $('<div class="messages__files"></div>');
+    
+    filesContainer.find(".messages__file").each(function () {
+        let fileClone = $(this).clone();
 
-          clonedFiles.append(fileClone);
-      });
+        // Восстанавливаем src изображений
+        let img = $(this).find("img");
+        if (img.length) {
+            let src = img.attr("src");
+            fileClone.find("img").attr("src", src);
+        }
 
-      newMessage.append(clonedFiles);
-      
-      // Удаляем старый контейнер с файлами
-      filesContainer.remove();
+        clonedFiles.append(fileClone);
+    });
+
+    // Вставляем файлы сразу после .message__head
+    newMessage.find(".message__head").after(clonedFiles);
+
+    // Удаляем старый контейнер с файлами
+    filesContainer.remove();
   }
 
   $(".messages").append(newMessage);

@@ -1,3 +1,5 @@
+import generateId from "./generate-id";
+
 // Открытие редактирования сообщения
 $(document).on("click", ".message__edit", function () {
   let parent = $(this).closest(".message");

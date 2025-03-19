@@ -5,7 +5,7 @@
   }
   &__bg {
     &.active {
-      @apply z-[100] opacity-100 visible;
+      @apply visible z-[100] opacity-100;
     }
     @apply invisible -z-[1] fixed inset-0 bg-black-100 bg-opacity-25 opacity-0 transition-all duration-300 cursor-pointer;
   }
@@ -45,12 +45,12 @@
     }
     &__bg {
       &.active {
-        @apply z-40 opacity-100 visible;
+        @apply visible z-40 opacity-100;
       }
       @apply invisible -z-[1] fixed inset-0 bg-black-100 bg-opacity-25 opacity-0 transition-all duration-300 cursor-pointer;
     }
     &.active {
-      @apply z-50 opacity-100 visible;
+      @apply visible z-50 opacity-100;
     }
     &-top {
       @apply top-[72px] right-5;
@@ -67,7 +67,7 @@
     .popup__wrapper {
       @apply mt-0;
     }
-    @apply z-[200] opacity-100 visible;
+    @apply visible z-[200] opacity-100;
   }
   &__close {
     @apply top-3 right-3 absolute rounded-full w-auto;
