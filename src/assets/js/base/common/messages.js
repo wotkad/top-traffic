@@ -126,7 +126,7 @@ function messages() {
     $(this).closest(".messages__file").remove();
 
     // Если файлов больше нет — удаляем контейнер
-    if ($("messages__bottom .messages__files .messages__file").length === 0) {
+    if ($(".messages__bottom .messages__files .messages__file").length === 0) {
       $(".messages__bottom .messages__files").remove();
     }
 
