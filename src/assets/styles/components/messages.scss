@@ -9,10 +9,28 @@
     @apply flex justify-center items-center w-10;
   }
   &__cancel {
-    @apply hidden;
+    svg {
+      @apply w-3.5 h-3.5 text-black-200 transition-all duration-300;
+    }
+    &:hover {
+      svg {
+        @apply text-white-000;
+      }
+      @apply bg-blue-000;
+    }
+    @apply flex justify-center items-center bg-black-600 w-[34px] h-[34px];
   }
   &__submit {
-    @apply px-5 rounded-[4px];
+    &:disabled {
+      &:hover {
+        @apply bg-black-500;
+      }
+      @apply bg-black-500;
+    }
+    svg {
+      @apply w-6 h-6 text-white-000;
+    }
+    @apply bg-blue-000 p-0 rounded-full w-[34px] h-[34px];
   }
   &__day {
     @apply mt-1 mb-1.5 text-12-m-p text-black-200 text-center;
@@ -38,15 +56,9 @@
       @apply mt-0 rounded-tl-sm rounded-bl-sm;
     }
     & ~ .messages__form {
-      .messages__cancel {
-        @apply flex;
-      }
-      .messages__upload {
-        @apply flex-auto w-full;
-      }
       @apply flex-wrap justify-end gap-y-3;
     }
-    @apply flex items-center mb-3;
+    @apply flex justify-between items-center mb-3;
   }
   &__files, 
   &__files-sended {
@@ -124,6 +136,9 @@
     @apply relative flex items-center rounded-lg;
   }
   &__footer {
+    &__container {
+      @apply flex items-center;
+    }
     @apply mt-4;
   }
   &__form {
@@ -208,25 +223,22 @@
     }
     @apply inline-flex bg-black-600 mt-2 ml-9 p-2 rounded-[10px];
   }
-  .dropdown-comment {
-    .dropdown__button {
-      .button {
-        svg {
-          @apply w-3 h-1.5;
-        }
-        &:hover {
-          @apply bg-black-500;
-        }
-        @apply p-0 w-6 h-5;
+  &__buttons {
+    .message__button {
+      svg {
+        @apply text-black-200 transition-all duration-300;
       }
+      &:hover {
+        svg {
+          @apply text-black-100;
+        }
+      }
+      @apply p-0;
     }
-    .dropdown__list {
-      @apply min-w-[144px] max-w-full;
-    }
-    @apply invisible -top-1 right-3.5 -z-10 absolute opacity-0 w-auto transition-all duration-300;
+    @apply invisible -top-1 right-3.5 -z-10 absolute flex gap-x-2.5 opacity-0 w-auto transition-all duration-300;
   }
   &:hover {
-    .dropdown-comment {
+    .message__buttons {
       @apply visible z-50 opacity-100;
     }
     @apply bg-black-600;

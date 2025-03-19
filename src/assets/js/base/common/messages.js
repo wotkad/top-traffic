@@ -60,10 +60,14 @@ function messages() {
     let messageText = parent.find(".message__author > p").text(); // Получаем текст сообщения
     let messageId = generateId();
     let form = $('.messages__form');
+    form.removeClass('replied');
     form.addClass('edited');
+    $('.messages__submit').prop('disabled', false);
+    $(".messages__reply").remove();
 
     // Удаляем предыдущий блок редактирования, если он был
     $(".messages__edit").remove();
+    $(".messages__bottom .messages__files").remove();
 
     // Добавляем ID текущему сообщению
     parent.attr("data-edit-id", messageId);
@@ -71,15 +75,23 @@ function messages() {
     // Создаем шаблон редактирования
     let editTemplate = `
       <div class="messages__edit">
-        <div class="messages__icon">
-          <svg viewBox="0 0 18 18" width="18" height="18">
-            <use xlink:href="#other-edit-icon"></use>
+        <div class="messages__footer__container">
+          <div class="messages__icon">
+            <svg viewBox="0 0 18 18" width="18" height="18">
+              <use xlink:href="#other-edit-icon"></use>
+            </svg>
+          </div>
+          <div class="message__answered">
+            <h3>Редактирование</h3>
+            <p>${messageText}</p>
+          </div>
+        </div>
+        <button class="button button-icon-round messages__cancel" type="button" aria-label="button">
+          <svg id="other-close-icon" width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1L8 7.99986" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+            <path d="M1 7.99976L8 0.9999" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
           </svg>
-        </div>
-        <div class="message__answered">
-          <h3>Редактирование</h3>
-          <p>${messageText}</p>
-        </div>
+        </button>
       </div>
     `;
 
@@ -124,29 +136,44 @@ function messages() {
     $(".messages__edit").remove();
     $(this).find("textarea[name='comment']").val("");
     $(this).removeClass('edited');
+    $('.messages__submit').prop('disabled', true);
   });
 
   // Открытие формы ответа
   $(document).on("click", ".message__reply", function () {
     let parent = $(this).closest(".message");
+    $(".messages__edit").remove();
+    $(".messages__reply").remove();
+    $('.messages__form').find("textarea[name='comment']").val("");
+    $(".messages__bottom .messages__files").remove();
 
     let repliedUser = parent.find(".message__head h3").text().trim();
     let repliedText = parent.find(".message__author > p").text().trim();
 
     let form = $('.messages__form');
     form.addClass('replied');
+    form.removeClass('edited');
+    $('.messages__submit').prop('disabled', false);
 
     let replyTemplate = `
       <div class="messages__reply">
-        <div class="messages__icon">
-          <svg viewBox="0 0 18 18" width="18" height="18">
-            <use xlink:href="#other-reply-icon"></use>
+        <div class="messages__footer__container">
+          <div class="messages__icon">
+            <svg viewBox="0 0 18 18" width="18" height="18">
+              <use xlink:href="#other-reply-icon"></use>
+            </svg>
+          </div>
+          <div class="message__answered">
+            <h3>${repliedUser}</h3>
+            <p>${repliedText}</p>
+          </div>
+        </div>
+        <button class="button button-icon-round messages__cancel" type="button" aria-label="button">
+          <svg id="other-close-icon" width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1L8 7.99986" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+            <path d="M1 7.99976L8 0.9999" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
           </svg>
-        </div>
-        <div class="message__answered">
-          <h3>${repliedUser}</h3>
-          <p>${repliedText}</p>
-        </div>
+        </button>
       </div>
     `;
 
@@ -182,36 +209,27 @@ function messages() {
             </div>
             <p>${newMessageText}</p>
           </div>
-          <div class="dropdown dropdown-comment">
-            <div class="dropdown__container">
-              <div class="dropdown__button">
-                <button class="button button-icon sm dropdown__icon" type="button">
-                  <svg viewBox="0 0 10 6" width="10" height="6">
-                    <use xlink:href="#other-angle-down-icon"></use>
-                  </svg>
-                </button>
-              </div>
-              <div class="dropdown__list">
-                <button class="button button-with-icon-full sm message__reply" type="button">
-                  <svg viewBox="0 0 18 18" width="18" height="18">
-                    <use xlink:href="#other-reply-icon"></use>
-                  </svg>
-                  <span>Ответить</span>
-                </button>
-                <button class="button button-with-icon-full sm message__edit" type="button">
-                  <svg viewBox="0 0 16 16" width="16" height="16">
-                    <use xlink:href="#other-edit-icon"></use>
-                  </svg>
-                  <span>Редактировать</span>
-                </button>
-                <button class="button button-with-icon-full sm message__delete" type="button">
-                  <svg viewBox="0 0 18 18" width="18" height="18">
-                    <use xlink:href="#other-trash-icon"></use>
-                  </svg>
-                  <span>Удалить</span>
-                </button>
-              </div>
-            </div>
+          <div class="message__buttons">
+            <button class="button message__button message__reply" type="button" aria-label="button">
+              <svg viewBox="0 0 18 18" width="18" height="18">
+                <use xlink:href="#other-reply-icon"></use>
+              </svg>
+            </button>
+            <button class="button message__button message__copy" type="button" aria-label="button">
+              <svg viewBox="0 0 18 18" width="18" height="18">
+                <use xlink:href="#other-copy-icon"></use>
+              </svg>
+            </button>
+            <button class="button message__button message__edit" type="button" aria-label="button">
+              <svg viewBox="0 0 16 16" width="16" height="16">
+                <use xlink:href="#other-edit-icon"></use>
+              </svg>
+            </button>
+            <button class="button message__button message__delete" type="button" aria-label="button" data-popup-name="delete-comment">
+              <svg viewBox="0 0 18 18" width="18" height="18">
+                <use xlink:href="#other-trash-icon"></use>
+              </svg>
+            </button>
           </div>
         </div>
       </div>
@@ -225,6 +243,7 @@ function messages() {
   
     // Очищаем поле ввода и скрываем блок ответа
     $(".messages__reply").remove();
+    $('.messages__submit').attr('disabled', true);
     textarea.val("");
     $(this).removeClass('replied');
     setCommentInitials();
@@ -234,11 +253,12 @@ function messages() {
   $(document).on("click", ".messages__cancel", function () {
     $(".messages__edit").remove();
     $(".messages__reply").remove();
+    $('.messages__submit').prop('disabled', true);
     let form = $('.messages__form');
     form.removeClass('edited');
     form.removeClass('replied');
     $(this).closest(".message").removeAttr('data-edit-id');
-    $(this).closest(".messages__form").find("textarea[name='comment']").val("");
+    form.find("textarea[name='comment']").val("");
   });
 
   function formatFileSize(bytes) {
@@ -388,17 +408,49 @@ function messages() {
         $(".messages__upload textarea[name='comment']").removeAttr("required");
       }
     }
+    checkSubmitButtonState();
+    $(".messages__footer textarea[name='comment']").focus();
   });
 
-  // Проверяем, загружены ли все файлы
+  // // Проверяем, загружены ли все файлы
   function checkAllFilesLoaded() {
     let allLoaded = $(".messages__file").length === $(".messages__file.loaded").length;
     $(".messages__submit").prop("disabled", !allLoaded);
   }
 
+  // Функция проверки состояния кнопки
+  function checkSubmitButtonState() {
+    const text = $(".messages__form textarea[name='comment']").val().trim();
+    const hasText = text.length > 0;
+    const hasFiles = $(".messages__bottom .messages__files .messages__file").length > 0;
+    const isEdited = $('.messages__form').hasClass('edited');
+    const isReplied = $('.messages__form').hasClass('replied');
+  
+    // Условие — активировать кнопку если:
+    // 1. Введён текст
+    // 2. Или есть файлы (неважно, текст есть или нет)
+    if (hasText || hasFiles || isEdited || isReplied) {
+      $(".messages__submit").attr("disabled", false);
+    } else {
+      $(".messages__submit").attr("disabled", true);
+    }
+  }
+
+  // Удаление файла
   $(document).on("click", ".messages__file__remove, .messages__file__icon-close", function () {
     $(this).closest(".messages__file").remove();
-    $(".messages__bottom .messages__files").remove();
+
+    // Если файлов больше нет — удаляем контейнер
+    if ($("messages__bottom .messages__files .messages__file").length === 0) {
+      $(".messages__bottom .messages__files").remove();
+    }
+
+    checkSubmitButtonState();
+  });
+
+  // Отслеживание ввода текста
+  $(document).on("input", ".messages__form textarea[name='comment']", function () {
+    checkSubmitButtonState();
   });
 
   $(document).on("submit", $(".messages__form"), function (event) {
@@ -419,43 +471,29 @@ function messages() {
         </div>
         ${messageText ? `<p>${messageText}</p>` : ''}
       </div>
-      <div class="dropdown dropdown-comment">
-        <div class="dropdown__container">
-          <div class="dropdown__button">
-            <button class="button button-icon sm dropdown__icon" type="button">
-              <svg viewBox="0 0 10 6" width="10" height="6">
-                <use xlink:href="#other-angle-down-icon"></use>
-              </svg>
-            </button>
-          </div>
-          <div class="dropdown__list">
-            <button class="button button-with-icon-full sm message__reply" type="button">
-              <svg viewBox="0 0 18 18" width="18" height="18">
-                <use xlink:href="#other-reply-icon"></use>
-              </svg>
-              <span>Ответить</span>
-            </button>
-            <button class="button button-with-icon-full sm message__copy" type="button">
-              <svg viewBox="0 0 18 18" width="18" height="18">
-                <use xlink:href="#other-copy-icon"></use>
-              </svg>
-              <span>Копировать</span>
-            </button>
-            <button class="button button-with-icon-full sm message__edit" type="button">
-              <svg viewBox="0 0 16 16" width="16" height="16">
-                <use xlink:href="#other-edit-icon"></use>
-              </svg>
-              <span>Редактировать</span>
-            </button>
-            <button class="button button-with-icon-full sm message__delete" type="button" data-popup-name="delete-comment">
-              <svg viewBox="0 0 18 18" width="18" height="18">
-                <use xlink:href="#other-trash-icon"></use>
-              </svg>
-              <span>Удалить</span>
-            </button>
-          </div>
-        </div>
+      <div class="message__buttons">
+        <button class="button message__button message__reply" type="button" aria-label="button">
+          <svg viewBox="0 0 18 18" width="18" height="18">
+            <use xlink:href="#other-reply-icon"></use>
+          </svg>
+        </button>
+        <button class="button message__button message__copy" type="button" aria-label="button">
+          <svg viewBox="0 0 18 18" width="18" height="18">
+            <use xlink:href="#other-copy-icon"></use>
+          </svg>
+        </button>
+        <button class="button message__button message__edit" type="button" aria-label="button">
+          <svg viewBox="0 0 16 16" width="16" height="16">
+            <use xlink:href="#other-edit-icon"></use>
+          </svg>
+        </button>
+        <button class="button message__button message__delete" type="button" aria-label="button" data-popup-name="delete-comment">
+          <svg viewBox="0 0 18 18" width="18" height="18">
+            <use xlink:href="#other-trash-icon"></use>
+          </svg>
+        </button>
       </div>
+    </div>
     `);
 
     // Переносим файлы в новое сообщение
@@ -485,6 +523,7 @@ function messages() {
     $(".messages__upload textarea[name='comment']").val(""); // Очищаем поле ввода
     $(".messages__upload textarea[name='comment']").attr("required", true);
     setCommentInitials();
+    $(".messages__submit").prop("disabled", true);
   });
 
   $(document).on("click", ".message__copy", function () {

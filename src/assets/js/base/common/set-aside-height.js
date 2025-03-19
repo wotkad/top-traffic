@@ -14,7 +14,7 @@ export default function setAsideHeight() {
     let innerBottom = innerOffset + innerHeight;
     let bottomOffset = innerBottom - windowBottom;
 
-    if (bottomOffset <= 0) {
+    if (bottomOffset <= -24) {
       asideContainer.css('max-height', `calc(100dvh - ${asideOffsetTop}px - ${-bottomOffset}px)`);
       asideContainer.css('height', `calc(100dvh - ${asideOffsetTop}px - ${-bottomOffset}px)`);
     } else {
