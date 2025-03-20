@@ -2,6 +2,9 @@
   &__new {
     @apply inline-block self-center bg-purple-300 my-1.5 px-5 py-2 rounded-md text-10-m-sm text-blue-200;
   }
+  &__show-all {
+    @apply text-12-r-p text-black-200;
+  }
   &__icon {
     svg {
       @apply text-blue-200;
@@ -64,9 +67,12 @@
     &:before {
       @apply top-0 -left-7 absolute bg-black-500 w-[calc(100%+28px+20px)] h-px content-[''];
     }
-    @apply relative flex flex-col gap-3 mt-3.5 pt-4 pl-3;
+    @apply relative flex flex-col items-start gap-3 mt-3.5 pt-4 pl-3;
   }
   &__file {
+    &.hide {
+      @apply hidden;
+    }
     &__image {
       @apply relative flex justify-center items-center;
     }
@@ -133,7 +139,10 @@
         }
         @apply text-blue-000;
       }
-      @apply flex items-center max-w-[200px] text-12-r-p text-ellipsis line-clamp-1 transition-all duration-300;
+      p {
+        @apply max-w-[200px] text-12-r-p text-ellipsis line-clamp-1;
+      }
+      @apply flex items-center transition-all duration-300;
     }
     &__content {
       span {

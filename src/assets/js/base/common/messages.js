@@ -73,6 +73,8 @@ function messages() {
       if (files.length) {
         $(".messages__upload textarea[name='comment']").removeAttr("required");
       }
+      messagesFiles.append(fileElement);
+      handleFileLimit(messagesFiles);
     }
     checkSubmitButtonState();
     $(".messages__footer textarea[name='comment']").focus();
@@ -93,6 +95,54 @@ function messages() {
     }
   }
 
+  $(document).on('click', '.messages__show-all', function () {
+    const container = $(this).closest('.messages__files');
+    const isExpanded = $(this).text() === 'Скрыть все';
+  
+    if (isExpanded) {
+      // Сворачиваем
+      container.find('.messages__file').each(function(index) {
+        $(this).toggleClass('hide', index >= 3);
+      });
+      $(this).text('Показать все');
+    } else {
+      // Раскрываем
+      container.find('.messages__file').removeClass('hide');
+      $(this).text('Скрыть все');
+    }
+  });
+
+  function handleFileLimit(container) {
+    const files = container.find('.messages__file');
+    const showAllBtnClass = 'messages__show-all';
+    let showAllBtn = container.find('.' + showAllBtnClass);
+  
+    // Проверяем — есть ли кнопка и развернуты ли файлы
+    const isExpanded = showAllBtn.length && showAllBtn.text() === 'Скрыть все';
+  
+    // Удаляем старую кнопку для переотрисовки
+    showAllBtn.remove();
+  
+    if (files.length > 3) {
+      if (!isExpanded) {
+        // Если НЕ раскрыто — прячем с 4-го
+        files.each(function(index) {
+          $(this).toggleClass('hide', index >= 3);
+        });
+      } else {
+        // Если раскрыто — показываем все
+        files.removeClass('hide');
+      }
+  
+      // Добавляем кнопку в конец контейнера
+      const newBtn = $(`<button type="button" class="${showAllBtnClass}">${isExpanded ? 'Скрыть все' : 'Показать все'}</button>`);
+      container.append(newBtn);
+    } else {
+      // Меньше 4 файлов — всегда показываем всё
+      files.removeClass('hide');
+    }
+  }
+
   // Удаление файла
   $(document).on("click", ".messages__file__remove, .messages__file__icon-close", function () {
     $(this).closest(".messages__file").remove();
@@ -103,6 +153,7 @@ function messages() {
     }
 
     checkSubmitButtonState();
+    handleFileLimit($('.messages__files'));
   });
 
   // Отслеживание ввода текста

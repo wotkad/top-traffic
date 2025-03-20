@@ -57,24 +57,24 @@ $(document).on("submit", $(".messages__form"), function (event) {
   // Переносим файлы в новое сообщение
   if (filesContainer.length) {
     let clonedFiles = $('<div class="messages__files"></div>');
-    
+
     filesContainer.find(".messages__file").each(function () {
-        let fileClone = $(this).clone();
-
-        // Восстанавливаем src изображений
-        let img = $(this).find("img");
-        if (img.length) {
-            let src = img.attr("src");
-            fileClone.find("img").attr("src", src);
-        }
-
-        clonedFiles.append(fileClone);
+      let fileClone = $(this).clone();
+      let img = $(this).find("img");
+      if (img.length) {
+        let src = img.attr("src");
+        fileClone.find("img").attr("src", src);
+      }
+      clonedFiles.append(fileClone);
     });
 
-    // Вставляем файлы сразу после .message__head
-    newMessage.find(".message__head").after(clonedFiles);
+    // Клонируем кнопку "Показать все", если она есть
+    let showAllBtn = filesContainer.find('.messages__show-all');
+    if (showAllBtn.length) {
+      clonedFiles.append(showAllBtn.clone());
+    }
 
-    // Удаляем старый контейнер с файлами
+    newMessage.find(".message__head").after(clonedFiles);
     filesContainer.remove();
   }
 

@@ -2,15 +2,17 @@ import formatFileSize from "./format-file-size";
 import generateThumbnail from "./generate-thumbnail";
 
 export default function createFileElement(file, progress) {
-  let fileType = file.type.split("/")[0];
+  const fileExtension = '.' + file.name.split('.').pop().toLowerCase();
+  const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.bmp', '.svg', '.ico', '.tiff', '.avif'];
+  const isImage = imageExtensions.includes(fileExtension);
   let fileSize = formatFileSize(file.size);
   let fileName = file.name;
 
   let fileTemplate = $(`
-    <div class="messages__file ${fileType === "image" ? "messages__file-image" : "messages__file-file"}">
+    <div class="messages__file ${isImage ? "messages__file-image" : "messages__file-file"}">
       <div class="messages__file__image">
         <a class="messages__file__sublink" href="${fileName}" download></a>
-        ${fileType === "image" ? `
+        ${isImage ? `
         <img src="" alt="file">
         <button type="button" class="messages__file__icon messages__file__icon-close">
           <svg viewBox="0 0 9 9" width="9" height="9"><use xlink:href="#other-close-icon"></use></svg>
@@ -38,7 +40,7 @@ export default function createFileElement(file, progress) {
       </div>
   
       <div class="messages__file__content">
-        <a class="messages__file__link" href="${fileName}" download>${fileName}
+        <a class="messages__file__link" href="${fileName}" download><p>${fileName}</p>
           <button class="button message__button message__download" type="button" aria-label="button">
             <svg viewBox="0 0 18 18" width="18" height="18">
               <use xlink:href="#other-download-icon"></use>
@@ -51,13 +53,13 @@ export default function createFileElement(file, progress) {
   `);
   
 
-  if (fileType === "image") {
+  if (isImage) {
     let reader = new FileReader();
     reader.onload = function (e) {
       fileTemplate.find("img").attr("src", e.target.result);
     };
     reader.readAsDataURL(file);
-  } else if (fileType === "video") {
+  } else if (file.type.startsWith("video/")) {
     generateThumbnail(file, function (thumbnail) {
       fileTemplate.find("img").attr("src", thumbnail);
     });
