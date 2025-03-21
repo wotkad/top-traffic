@@ -1,5 +1,4 @@
-import setTdPadding from '../../base/common/set-td-padding';
-import setTdPaddingDefault from '../../base/common/set-td-padding-default';
+import { applyDefaultTablePadding, applyFixedColsPadding } from '../../base/common/set-td-padding';
 
 export default function toggleDropdown() {
 
@@ -114,6 +113,7 @@ export default function toggleDropdown() {
   });
 
   $(document).on('change', '.dropdown__item input[type="radio"]', function () {
+    $(this).closest('.dropdown__container').find('.dropdown__button').addClass('changed');
     if ($(this).closest('.dropdown').hasClass('dropdown-status') || $(this).closest('.dropdown').hasClass('dropdown-priority')) {
       const selectedValue = $(this).siblings('p').text();
       const selectedColor = $(this).data('color') || '';
@@ -220,8 +220,8 @@ export default function toggleDropdown() {
   });
 
   $('table.table .dropdown__list .input-checkbox-with-label input').on('change', function () {
-    setTdPadding();
-    setTdPaddingDefault();
+    applyFixedColsPadding();
+    applyDefaultTablePadding();
   });
 
   $('.dropdown .dropdown__list .input-checkbox-with-label input').on('change', function () {

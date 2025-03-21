@@ -341,40 +341,111 @@ aside.content-aside
               +dropdown({
                 buttons: [
                   {
-                    dataPopupName: 'upload-file',
-                    icon: 'other-new-file-icon',
-                    title: 'Файл',
+                    icons: [
+                      {
+                        dataPopupName: 'add-link-mediaplan',
+                        icon: 'other-attachment-icon',
+                        type: 'button',
+                      },
+                      {
+                        dataIdFile: 'add-upload-mediaplan',
+                        icon: 'other-new-file-icon',
+                        isFileUpload: true,
+                        type: 'button',
+                      },
+                    ],
+                    title: 'Медиаплан',
                   },
                   {
-                    dataPopupName: 'add-link',
-                    icon: 'other-link-icon',
-                    title: 'Ссылка',
+                    icons: [
+                      {
+                        dataPopupName: 'add-link-creative',
+                        icon: 'other-attachment-icon',
+                        type: 'button',
+                      },
+                      {
+                        dataIdFile: 'add-upload-creative',
+                        icon: 'other-new-file-icon',
+                        isFileUpload: true,
+                        type: 'button',
+                      },
+                    ],
+                    title: 'Креативы',
+                  },
+                  {
+                    icons: [
+                      {
+                        dataPopupName: 'add-link-other',
+                        icon: 'other-attachment-icon',
+                        type: 'button',
+                      },
+                      {
+                        dataIdFile: 'add-upload-other',
+                        icon: 'other-new-file-icon',
+                        isFileUpload: true,
+                        type: 'button',
+                      },
+                    ],
+                    title: 'Другое',
                   },
                 ],
+                class: 'dropdown-multiselect',
                 icon: 'other-add-file-icon',
                 isButtons: true,
+                isMultiSelect: true,
                 subtitle: 'Добавить',
               })
             .accordions
+              .accordions__counter
+                .accordions__counter__left
+                  +input({
+                    class: 'md accordion__checkbox',
+                    type: 'checkbox',
+                  })
+                  p Выбрано:
+                    span.accordion__value 0
+                  +button({
+                    class: 'button button-with-icon accordions__clear',
+                    icon: 'other-close-icon',
+                    isOnlyIcon: true,
+                    view: 'button',
+                  })
+                .accordions__counter__right
+                  +button({
+                    class: 'button-icon accordion__action download-all',
+                    href: '#',
+                    icon: 'other-download-icon',
+                    isDownload: true,
+                    isOnlyIcon: true,
+                    view: 'link',
+                  })
+                  +button({
+                    class: 'button-icon accordion__action',
+                    dataPopupName: 'delete-all-files',
+                    icon: 'other-trash-icon',
+                    isOnlyIcon: true,
+                    view: 'button',
+                  })
               .accordion
-                .accordion__button(data-id="links")
-                  p Ссылки
-                    span 2
+                .accordion__button(data-id="mediaplan")
+                  p Медиаплан
+                    span.accordion__count 2
                   +button({
                     class: 'button-icon sm',
                     icon: 'other-angle-down-icon',
                     isOnlyIcon: true,
                     view: 'button',
                   })
-                .accordion__container(data-id="links")
+                .accordion__container(data-id="mediaplan")
                   .accordion__item
                     .accordion__left
                       .accordion__left__container
-                        .accordion__icon.accordion__icon-lg
+                        .accordion__icon
                           svg
-                            use(xlink:href="#other-link-icon")
+                            use(xlink:href="#other-attachment-icon")
                         a(href="https://app.asana.com/" target="_blank") https://app.asana.com/
-                        time 24 янв. 15:10
+                        time 24.01.2025 15:10
+                      .accordion__original Оригинал
                     .accordion__right
                       +button({
                         class: 'button-icon accordion__action accordion__copy',
@@ -382,54 +453,18 @@ aside.content-aside
                         isOnlyIcon: true,
                         view: 'button',
                       })
-                      +button({
-                        class: 'button-icon accordion__action',
-                        dataPopupName: 'delete-link',
-                        icon: 'other-trash-icon',
-                        isOnlyIcon: true,
-                        view: 'button',
-                      })
                   .accordion__item
                     .accordion__left
-                      .accordion__left__container
-                        .accordion__icon.accordion__icon-lg
-                          svg
-                            use(xlink:href="#other-link-icon")
-                        a(href="https://app.asana.com/" target="_blank") https://app.asana.com/
-                        time 24 янв. 15:10
-                    .accordion__right
-                      +button({
-                        class: 'button-icon accordion__action accordion__copy',
-                        icon: 'other-copy-icon',
-                        isOnlyIcon: true,
-                        view: 'button',
+                      +input({
+                        class: 'md accordion__checkbox',
+                        type: 'checkbox',
                       })
-                      +button({
-                        class: 'button-icon accordion__action',
-                        dataPopupName: 'delete-link',
-                        icon: 'other-trash-icon',
-                        isOnlyIcon: true,
-                        view: 'button',
-                      })
-              .accordion
-                .accordion__button(data-id="files")
-                  p Файлы
-                    span 2
-                  +button({
-                    class: 'button-icon sm',
-                    icon: 'other-angle-down-icon',
-                    isOnlyIcon: true,
-                    view: 'button',
-                  })
-                .accordion__container(data-id="files")
-                  .accordion__item
-                    .accordion__left
                       .accordion__left__container
                         .accordion__icon.accordion__icon-sm
                           svg
                             use(xlink:href="#other-file-icon")
-                        a(href="#" download) Креативы.zip
-                        time 54 KB • 24 янв. 15:10
+                        a(href="#" download) МП new.xlsx
+                        time 54 KB • 24.01.2025 15:10
                     .accordion__right
                       +button({
                         class: 'button-icon accordion__action',
@@ -446,14 +481,96 @@ aside.content-aside
                         isOnlyIcon: true,
                         view: 'button',
                       })
+              .accordion
+                .accordion__button(data-id="creative")
+                  p Креативы
+                    span.accordion__count 2
+                  +button({
+                    class: 'button-icon sm',
+                    icon: 'other-angle-down-icon',
+                    isOnlyIcon: true,
+                    view: 'button',
+                  })
+                .accordion__container(data-id="creative")
                   .accordion__item
                     .accordion__left
+                      +input({
+                        class: 'md accordion__checkbox',
+                        type: 'checkbox',
+                      })
+                      .accordion__left__container
+                        .accordion__icon.accordion__icon-sm
+                          svg
+                            use(xlink:href="#other-file-icon")
+                        a(href="/assets/images/user-image.png" download) Креативы.zip
+                        time 54 KB • 24.01.2025 15:10
+                    .accordion__right
+                      +button({
+                        class: 'button-icon accordion__action',
+                        href: '/assets/images/user-image.png',
+                        icon: 'other-download-icon',
+                        isDownload: true,
+                        isOnlyIcon: true,
+                        view: 'link',
+                      })
+                      +button({
+                        class: 'button-icon accordion__action',
+                        dataPopupName: 'delete-file',
+                        icon: 'other-trash-icon',
+                        isOnlyIcon: true,
+                        view: 'button',
+                      })
+                  .accordion__item
+                    .accordion__left
+                      +input({
+                        class: 'md accordion__checkbox',
+                        type: 'checkbox',
+                      })
                       .accordion__left__container
                         .accordion__icon.accordion__icon-sm
                           svg
                             use(xlink:href="#other-file-icon")
                         a(href="#" download) Креативы new.zip
-                        time 54 KB • 24 янв. 15:10
+                        time 54 KB • 24.01.2025 15:10
+                    .accordion__right
+                      +button({
+                        class: 'button-icon accordion__action',
+                        href: '#',
+                        icon: 'other-download-icon',
+                        isDownload: true,
+                        isOnlyIcon: true,
+                        view: 'link',
+                      })
+                      +button({
+                        class: 'button-icon accordion__action',
+                        dataPopupName: 'delete-file',
+                        icon: 'other-trash-icon',
+                        isOnlyIcon: true,
+                        view: 'button',
+                      })
+              .accordion
+                .accordion__button(data-id="other")
+                  p Другое
+                    span.accordion__count 1
+                  +button({
+                    class: 'button-icon sm',
+                    icon: 'other-angle-down-icon',
+                    isOnlyIcon: true,
+                    view: 'button',
+                  })
+                .accordion__container(data-id="other")
+                  .accordion__item
+                    .accordion__left
+                      +input({
+                        class: 'md accordion__checkbox',
+                        type: 'checkbox',
+                      })
+                      .accordion__left__container
+                        .accordion__icon.accordion__icon-sm
+                          svg
+                            use(xlink:href="#other-file-icon")
+                        a(href="#" download) Описание проекта.zip
+                        time 54 KB • 24.01.2025 15:10
                     .accordion__right
                       +button({
                         class: 'button-icon accordion__action',

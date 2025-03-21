@@ -1,7 +1,6 @@
 import gsap from 'gsap';
-import setTdPadding from '../../base/common/set-td-padding';
-import setTdPaddingDefault from '../../base/common/set-td-padding-default';
 import setSubrowPosition from '../../base/common/set-subrow-position';
+import { applyDefaultTablePadding, applyFixedColsPadding } from '../../base/common/set-td-padding';
 
 function toggleAside() {
   let switchEl = $('.sidebar__switch');
@@ -16,8 +15,8 @@ function toggleAside() {
       gsap.to(sidebar, {maxWidth: '217px', duration: .3, onComplete: () => {
         toggle.removeClass('active');
         sidebar.removeClass('active');
-        setTdPadding();
-        setTdPaddingDefault();
+        applyFixedColsPadding();
+        applyDefaultTablePadding();
         setSubrowPosition();
       }});
       header.removeClass('active');
@@ -34,8 +33,8 @@ function toggleAside() {
       gsap.to(sidebar, {maxWidth: '59px', duration: .3, onComplete: () => {
         wrapper.addClass('expanded');
         wrapper.removeClass('collapsed');
-        setTdPadding();
-        setTdPaddingDefault();
+        applyFixedColsPadding()
+        applyDefaultTablePadding();
         setSubrowPosition();
       }});
     }

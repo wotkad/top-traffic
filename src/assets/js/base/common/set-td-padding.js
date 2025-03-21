@@ -1,11 +1,10 @@
-export default function setTdPadding() {
-  // Используем requestAnimationFrame для оптимизации
+function setTdPaddingUniversal(tableClass, sliceStart, sliceEndOffset) {
   requestAnimationFrame(() => {
-    $('table.table-fixed-cols').each(function () {
+    $(`table.${tableClass}`).each(function () {
       let table = $(this);
 
-      let tds = $(this).find('td, th');
-      $(tds).css('padding-right', 32);
+      let tds = table.find('td, th');
+      tds.css('padding-right', 32);
 
       let container = table.closest('.content-scroll');
       let containerWidth = container.width();
@@ -13,39 +12,52 @@ export default function setTdPadding() {
       let widthDifference = containerWidth - tableWidth;
 
       table.find('tr').each(function () {
-        tds = $(this).find('td, th');
+        let tds = $(this).find('td, th');
         let numOfTds = tds.length;
-        let minPadding, extraPadding, defaultExtraPadding, finalPadding;
+        let minPadding, extraPadding, defaultExtraPadding = 0, finalPadding;
 
         if (numOfTds > 2) {
-          if (widthDifference > 0 || widthDifference < 0) {
-            minPadding = Number($(tds[2]).css('padding-right').slice(0, -2));
-          } else {
-            minPadding = 32;
-          }
+          minPadding = (widthDifference !== 0)
+            ? Number($(tds[2]).css('padding-right').slice(0, -2))
+            : 32;
 
-          extraPadding = widthDifference / (numOfTds - 2);
-          defaultExtraPadding = 0; // Можно добавить логику для вычисления разницы по умолчанию, если нужно
+          // sliceEndOffset - сколько ячеек оставить нетронутыми с конца
+          let adjustableTdsCount = numOfTds - sliceEndOffset;
+          extraPadding = widthDifference / (adjustableTdsCount - sliceStart);
 
           if (extraPadding < 0) {
             finalPadding = Math.max(minPadding, minPadding + defaultExtraPadding);
           } else {
             finalPadding = Math.max(minPadding, minPadding + extraPadding - 1);
           }
-          $(tds.slice(1, -1)).css('padding-right', finalPadding);
+
+          $(tds.slice(sliceStart, -sliceEndOffset)).css('padding-right', finalPadding);
         }
       });
     });
   });
 }
 
-// Таймер с задержкой перед запуском
-setTdPadding();
-setTimeout(function() {
-  setTdPadding();
+// Для .table-fixed-cols
+export function applyFixedColsPadding() {
+  setTdPaddingUniversal('table-fixed-cols', 1, 1);
+}
+
+// Для .table-default
+export function applyDefaultTablePadding() {
+  setTdPaddingUniversal('table-default', 0, 1);
+}
+
+// Запуск с таймером
+applyFixedColsPadding();
+applyDefaultTablePadding();
+setTimeout(() => {
+  applyFixedColsPadding();
+  applyDefaultTablePadding();
 }, 400);
 
-// Обработчик события resize для адаптивности
+// Адаптивность при изменении окна
 $(window).on('resize', () => {
-  setTdPadding();
+  applyFixedColsPadding();
+  applyDefaultTablePadding();
 });

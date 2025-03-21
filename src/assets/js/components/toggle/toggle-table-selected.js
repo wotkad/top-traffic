@@ -1,5 +1,4 @@
-import setTdPaddingDefault from "../../base/common/set-td-padding-default";
-import setTdPadding from "../../base/common/set-td-padding";
+import { applyDefaultTablePadding, applyFixedColsPadding } from '../../base/common/set-td-padding';
 
 function generateId() {
   return Math.random().toString(36).substr(2, 9);
@@ -14,8 +13,8 @@ function toggleTableSelected() {
       $(this).next().find('.table-selected').toggleClass('active');
       $(this).find('.table__toggle').toggleClass('active');
 
-      setTdPaddingDefault();
-      setTdPadding();
+      applyFixedColsPadding();
+      applyDefaultTablePadding();
     }
   });
 

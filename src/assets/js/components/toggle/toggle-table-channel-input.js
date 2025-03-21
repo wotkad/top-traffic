@@ -1,5 +1,5 @@
-import setTdPaddingDefault from "../../base/common/set-td-padding-default";
-import setTdPadding from "../../base/common/set-td-padding";
+import { applyDefaultTablePadding, applyFixedColsPadding } from '../../base/common/set-td-padding';
+
 import datePicker from "../datepicker";
 
 function generateId() {
@@ -46,8 +46,8 @@ function toggleTableInput() {
 
     $row.remove();
 
-    setTdPaddingDefault();
-    setTdPadding();
+    applyFixedColsPadding();
+    applyDefaultTablePadding();
 
     if ($prevSubrow.length) {
       let count = $prevSubrow.nextUntil(".subrow", "tr").length;

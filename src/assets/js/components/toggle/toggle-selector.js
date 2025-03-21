@@ -1,5 +1,4 @@
-import setTdPaddingDefault from "../../base/common/set-td-padding-default";
-import setTdPadding from "../../base/common/set-td-padding";
+import { applyDefaultTablePadding, applyFixedColsPadding } from '../../base/common/set-td-padding';
 
 import setFilterPosition from "../../base/common/set-filter-position";
 import setAsidePosition from "../../base/common/set-aside-position";
@@ -24,8 +23,8 @@ function toggleSelector() {
 
     $(this).closest('.selector__buttons').next().find('.selector__container').removeClass('active');
     block.show().addClass('active');
-    setTdPadding();
-    setTdPaddingDefault();
+    applyFixedColsPadding();
+    applyDefaultTablePadding();
     setFilterPosition();
     setAsidePosition();
     setFilterHeight();

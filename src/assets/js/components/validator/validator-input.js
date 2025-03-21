@@ -7,6 +7,12 @@ function validatorInput() {
       $(this).addClass('filled');
     }
   });
-
+  $('textarea').on('input', function() {
+    if ($(this).val() == 0) {
+      $(this).removeClass('filled');
+    } else {
+      $(this).addClass('filled');
+    }
+  });
 }
 validatorInput();

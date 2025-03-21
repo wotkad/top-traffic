@@ -37,7 +37,7 @@
   }
   &__list {
     &.active {
-      @apply z-50 opacity-100 visible;
+      @apply visible z-50 opacity-100;
     }
     .button.button-with-icon-full {
       svg {
