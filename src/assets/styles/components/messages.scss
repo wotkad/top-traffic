@@ -173,7 +173,7 @@
     }
     .button {
       svg {
-        @apply text-black-200 rotate-45;
+        @apply text-black-200;
       }
       @apply left-3 absolute flex justify-center items-center rounded-[4px] w-5 h-5;
     }
@@ -217,7 +217,7 @@
     h3 {
       @apply flex items-center gap-x-1 text-12-r-p;
     }
-    p {
+    & > p {
       @apply mt-1 text-12-r-p;
     }
     @apply flex flex-col w-full;
@@ -250,7 +250,10 @@
       @apply flex items-center gap-x-1 text-12-sb-p text-blue-200;
     }
     p {
-      @apply mt-[2px] text-12-r-p text-black-200;
+      svg {
+        @apply w-4 h-4 text-black-100;
+      }
+      @apply flex items-center gap-x-1 mt-1 text-12-r-p text-black-200;
     }
     & ~ p {
       @apply mt-1.5;
@@ -272,7 +275,7 @@
     .messages__file__remove {
       @apply hidden;
     }
-    @apply inline-flex flex-col gap-y-2 mt-3 p-0 rounded-[10px];
+    @apply inline-flex flex-col gap-y-2 mt-3 mb-1 p-0 rounded-[10px];
   }
   &__buttons {
     .message__button {
