@@ -95,7 +95,7 @@
     &:hover {
       .widget__progress__title {
         .widget__hint {
-          @apply z-40 opacity-100 visible;
+          @apply visible z-40 opacity-100;
         }
       }
     }
@@ -105,18 +105,18 @@
     @apply w-3.5 h-3.5;
   }
   &__tip {
-    &:hover
+    svg {
+      @apply w-[9px] max-w-[9px] h-[9px] max-h-[9px] text-black-200 transition-all duration-300 cursor-pointer;
+    }
+    &:hover,
     &:active {
       svg {
-        @apply text-blue-200;
+        @apply text-black-000;
       }
-    }
-    svg {
-      @apply w-[9px] max-w-[9px] h-[9px] max-h-[9px] transition-all duration-300 cursor-pointer;
     }
     &:hover {
       .widget__hint {
-        @apply z-40 opacity-100 visible;
+        @apply visible z-40 opacity-100;
       }
     }
     &.expanded {

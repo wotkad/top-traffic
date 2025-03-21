@@ -156,10 +156,18 @@
       }
     }
   }
+  &.scrolled {
+    .fixed-th-border,
+    .fixed-td-border {
+      &:after {
+        @apply opacity-100;
+      }
+    }
+  }
   .fixed-th {
     &-border {
       &:after {
-        @apply top-0 right-0 absolute bg-black-500 w-px h-full content-[''];
+        @apply top-0 right-0 absolute bg-black-500 opacity-0 w-px h-full content-[''];
       }
     }
     &-prev-checkbox {
@@ -170,7 +178,7 @@
   .fixed-td {
     &-border {
       &:after {
-        @apply top-0 right-0 absolute bg-black-500 w-px h-full content-[''];
+        @apply top-0 right-0 absolute bg-black-500 opacity-0 w-px h-full content-[''];
       }
     }
     &-prev-checkbox {
@@ -608,7 +616,7 @@
           @apply w-full;
         }
         .dropdown__title {
-          @apply max-w-[162px] font-normal;
+          @apply max-w-full font-normal;
         }
         &.selected {
           .button {
@@ -671,5 +679,6 @@
         @apply pr-16;
       }
     }
+    @apply min-w-full;
   }
 }

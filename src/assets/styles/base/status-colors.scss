@@ -46,12 +46,12 @@
 }
 .status-purple {
   &:before {
-    @apply bg-purple-050;
+    @apply bg-purple-000;
   }
   .dropdown__title {
     @apply font-medium;
   }
-  @apply bg-purple-050 bg-opacity-30 text-purple-050;
+  @apply bg-purple-100 text-purple-000;
 }
 .status-transparent {
   &:before {

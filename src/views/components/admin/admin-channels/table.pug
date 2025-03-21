@@ -1,7 +1,7 @@
 table.table.table-fixed-cols
   thead
     tr
-      th(style="padding-left: 12px; min-width: 280px;").fixed-th
+      th(style="padding-left: 12px; min-width: 288px;").fixed-th.fixed-th-border
         .flex.items-center(class="gap-x-3")
           +input({
             class: 'md table__checkbox',
@@ -39,12 +39,12 @@ table.table.table-fixed-cols
       th(class="pr-2.5")
   tbody
     +admin-channels-subrow({
-      title: 'Активные администраторы',
+      title: 'Активные каналы',
       class: 'subrow-admin',
       count: '3',
     })
     +admin-channels-subrow({
-      title: 'Неактивные администраторы',
+      title: 'Неактивные каналы',
       count: '3',
     })
     include row

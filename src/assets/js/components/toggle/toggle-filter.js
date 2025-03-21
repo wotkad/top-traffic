@@ -3,6 +3,7 @@ import setFilterHeight from '../../base/common/set-filter-height';
 import setAsideHeight from '../../base/common/set-aside-height';
 import setSubrowPosition from '../../base/common/set-subrow-position';
 import moment from "moment";
+import { applyDefaultTablePadding, applyFixedColsPadding } from '../../base/common/set-td-padding';
 
 function toggleFilter() {
   $(document).on('click', '.filter__toggle[data-filter-name]', function() {
@@ -25,6 +26,8 @@ function toggleFilter() {
       gsap.to(filter, {x: '0', duration: .3, onComplete: () => {
         filter.removeAttr('style');
         setSubrowPosition();
+        applyDefaultTablePadding();
+        applyFixedColsPadding();
       }});
       toggle.removeClass('active');
       filter.removeClass('active');

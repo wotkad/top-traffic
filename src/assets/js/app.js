@@ -64,6 +64,7 @@ import "./components/toggle/toggle-subrow";
 import "./components/scroll/scroll-to-top";
 import "./components/scroll/scroll-filter";
 import "./components/scroll/scroll-content-aside";
+import "./components/scroll/scroll-table";
 
 import "./components/datepicker";
 import "./components/monthpicker";
