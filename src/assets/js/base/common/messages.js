@@ -1,6 +1,6 @@
 import createFileElement from "./messages/create-file";
 import simulateUpload from "./messages/simulate-upload";
-import generateId from "./messages/generate-id";
+import generateId from "./generate-id";
 
 function messages() {
 

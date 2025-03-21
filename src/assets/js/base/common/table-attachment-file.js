@@ -1,6 +1,4 @@
-function generateId() {
-return Math.random().toString(36).substr(2, 9);
-}
+import generateId from "./generate-id";
 
 function tableAttachmentFile() {
 // При выборе файла

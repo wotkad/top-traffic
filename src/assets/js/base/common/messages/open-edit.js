@@ -1,4 +1,4 @@
-import generateId from "./generate-id";
+import generateId from "./../generate-id";
 
 // Открытие редактирования сообщения
 $(document).on("click", ".message__edit", function () {

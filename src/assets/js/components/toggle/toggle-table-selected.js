@@ -1,8 +1,6 @@
 import { applyDefaultTablePadding, applyFixedColsPadding } from '../../base/common/set-td-padding';
 
-function generateId() {
-  return Math.random().toString(36).substr(2, 9);
-}
+import generateId from "../../base/common/generate-id";
 
 function toggleTableSelected() {
   let button = $('.table__selected');

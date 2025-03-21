@@ -2,9 +2,7 @@ import { applyDefaultTablePadding, applyFixedColsPadding } from '../../base/comm
 
 import datePicker from "../datepicker";
 
-function generateId() {
-  return Math.random().toString(36).substr(2, 9);
-}
+import generateId from "../../base/common/generate-id";
 
 function assignAdminIds() {
   let rows = $(".selector__container[data-id='administration-history'] table tr").not('.subrow');

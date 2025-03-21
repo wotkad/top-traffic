@@ -1,3 +1,5 @@
+import generateId from "./generate-id";
+
 function asideAttachmentLink() {
   // Обработчик отправки формы
   $('form[action="#"]').on('submit', function(event) {
@@ -80,10 +82,6 @@ function asideAttachmentLink() {
     // Очищаем поля формы после добавления
     popup.find('input[name="text"], input[name="url"]').val('');
   });
-
-  function generateId() {
-    return Math.random().toString(36).substr(2, 9);
-  }
 
   function openDeletePopup(parent, popupName) {
       let uniqueId = generateId();
