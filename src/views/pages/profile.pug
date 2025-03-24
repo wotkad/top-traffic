@@ -1,0 +1,32 @@
+extends ../layouts/master
+
+block title
+  title Топ Трафик | Профиль
+
+block basicSeo
+  meta(content="Профиль" name="description")
+  meta(content="Профиль" name="keywords")
+  meta(content="Профиль" property="og:title")
+  meta(content="Профиль" name="twitter:title")
+
+block content
+  main.page
+    include ../components/sidebar
+    include ../components/header
+    .wrapper
+      section.profile
+        form(action="#").profile__form
+          .profile__header
+            h1 Профиль
+            .profile__buttons
+              +button({
+                class: 'button-with-icon-blue',
+                title: 'Сохранить изменения',
+                type: 'submit',
+                view: 'button',
+              })
+              +button({
+                class: 'button-base',
+                title: 'Отмена',
+                view: 'button',
+              })

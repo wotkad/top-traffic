@@ -10,1105 +10,1108 @@ block basicSeo
   meta(content="Компоненты" name="twitter:title")
 
 block content
-  main.components.p-4
-    .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
-      h2.text-2xl.font-bold.pb-4.border-b.w-full Кнопки
-      +button({
-        class: 'button-confirm',
-        title: 'Да',
-        view: 'button',
-      })
-      +button({
-        class: 'button-with-icon',
-        icon: 'other-download-icon',
-        isDownload: true,
-        title: 'Скачать',
-        view: 'link',
-      })
-      +button({
-        class: 'button-with-icon',
-        icon: 'other-controls-icon',
-        title: 'Фильтр',
-        view: 'button',
-      })
-      +button({
-        class: 'button-with-icon',
-        icon: 'other-controls-icon',
-        isClose: true,
-        title: 'Фильтр',
-        view: 'button',
-      })
-      +button({
-        class: 'button-with-icon-blue',
-        icon: 'other-plus-icon',
-        title: 'Добавить канал',
-        view: 'button',
-      })
-      +button({
-        class: 'button-base',
-        title: 'Применить',
-        view: 'button',
-      })
-      +button({
-        class: 'button-with-icon-full',
-        icon: 'aside-channels-icon',
-        title: 'Каналы',
-        view: 'link',
-      })
-      +breadcrumbs({
-        values: [
-          {
-            href: '#',
-            title: 'Условия',
-          },
-          {
-            href: '',
-            title: 'Конфиденциальность',
-          },
-        ],
-      })
-      +breadcrumbs
-      +button({
-        class: 'button-icon',
-        icon: 'other-expand-menu-icon',
-        isOnlyIcon: true,
-        view: 'button',
-      })
-      +button({
-        class: 'button-icon-round',
-        icon: 'other-arrow-up-icon',
-        isOnlyIcon: true,
-        view: 'link',
-      })
-      +button({
-        class: 'button-with-icon-full-lg',
-        icon: 'other-arrow-right-icon',
-        title: 'Войти',
-        view: 'button',
-      })
-      +button({
-        class: 'button-with-icon-full-google',
-        icon: 'other-google-icon',
-        title: 'Войти с учетной записью Google',
-        view: 'link',
-      })
-      include ../components/pagination
-    .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
-      h2.text-2xl.font-bold.pb-4.border-b.w-full Иконки
-      .flex.flex-wrap.gap-4
-        include ../components/icons/_icons
-    .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
-      h2.text-2xl.font-bold.pb-4.border-b.w-full Цвета
-      .grid.gap-4.w-full(class="grid-cols-[repeat(auto-fit,_minmax(170px,_1fr))]")
-        .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-black-000.text-white-000 #000000
-        .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-black-025.text-white-000 #19161D
-        .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-black-050.text-white-000 #222222
-        .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-black-100.text-white-000 #374151
-        .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-black-200.text-white-000 #959BA4
-        .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-black-300 #CACDD1
-        .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-black-400 #C8CBCF
-        .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-black-500 #E3E5EB
-        .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-black-550 #F1F1F2
-        .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-black-600 #F4F5F6
-        .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-black-700.border.border-black-000 #FBFBFB
-        .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-white-000.border.border-black-000 #FFFFFF
-        .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-blue-000.text-white-000 #005CFF
-        .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-blue-025.text-white-000 #0556E4
-        .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-blue-050.text-white-000 #004BCF
-        .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-blue-100.text-white-000 #4673D2
-        .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-blue-200.text-white-000 #5893FF
-        .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-blue-300 #C7D5F1
-        .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-green-000 #84C9A9
-        .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-green-025 #A9FF58
-        .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-green-050 #1CDE0B
-        .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-green-100 #DAEFE5
-        .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-green-200 #50AF1D
-        .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-green-300 #4CC125
-        .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-red-000.text-white-000 #FF3333
-        .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-red-050.text-white-000 #E62D2D
-        .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-red-075.text-white-000 #C23636
-        .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-red-100.text-white-000 #DE350B
-        .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-red-200.text-white-000 #F06A6A
-        .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-red-250 #FFCCCC
-        .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-red-300 #FBD2D2
-        .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-red-400 #F2E1DD
-        .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-purple-000 #BD6AF0
-        .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-purple-050 #AD84C9
-        .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-purple-100 #EBD2FB
-        .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-purple-200 #E5E4FC
-        .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-purple-300 #E6EFFE
-        .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-pink-000 #F26FB2
-        .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-pink-100 #F958FF
-        .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-orange-000 #EC8E71
-        .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-peach-000 #F1BD6C
-        .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-yellow-000 #F8DF72
-        .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-yellow-100 #FFC658
-    .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
-      h2.text-2xl.font-bold.pb-4.border-b.w-full Дропдаун
-      .w-full.flex.flex-col.gap-y-4.items-start
-        +dropdown
-        +dropdown({
-          buttons: [
-            {
-              class: '',
-              image: {
-                alt: 'image',
-                enabled: true,
-                src: '/assets/images/user-image.png',
-              },
-              name: 'organization',
-              title: 'ООО “ИП”',
-            },
-            {
-              class: '',
-              image: {
-                alt: 'image',
-                enabled: true,
-                src: '/assets/images/avatar.png',
-              },
-              name: 'organization',
-              title: 'ООО “ИП”',
-            },
-          ],
-          class: 'dropdown-radios dropdown-copy-image',
-          isRadios: true,
-          isSearch: true,
+  main.page
+    include ../components/sidebar
+    include ../components/header
+    .wrapper
+      .mt-6.flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
+        h2.text-2xl.font-bold.pb-4.border-b.w-full Кнопки
+        +button({
+          class: 'button-confirm',
+          title: 'Да',
+          view: 'button',
         })
-        +dropdown({
-          class: 'dropdown-with-icon',
-          image: {
-            alt: 'icon',
-            enabled: true,
-            src: '/assets/images/user-image.png',
-          },
-          isLinks: true,
-          links: [
+        +button({
+          class: 'button-with-icon',
+          icon: 'other-download-icon',
+          isDownload: true,
+          title: 'Скачать',
+          view: 'link',
+        })
+        +button({
+          class: 'button-with-icon',
+          icon: 'other-controls-icon',
+          title: 'Фильтр',
+          view: 'button',
+        })
+        +button({
+          class: 'button-with-icon',
+          icon: 'other-controls-icon',
+          isClose: true,
+          title: 'Фильтр',
+          view: 'button',
+        })
+        +button({
+          class: 'button-with-icon-blue',
+          icon: 'other-plus-icon',
+          title: 'Добавить канал',
+          view: 'button',
+        })
+        +button({
+          class: 'button-base',
+          title: 'Применить',
+          view: 'button',
+        })
+        +button({
+          class: 'button-with-icon-full',
+          icon: 'aside-channels-icon',
+          title: 'Каналы',
+          view: 'link',
+        })
+        +breadcrumbs({
+          values: [
             {
               href: '#',
-              icon: 'other-settings-icon',
-              title: 'Настройки',
+              title: 'Условия',
             },
             {
-              href: '#',
-              icon: 'other-logout-icon',
-              title: 'Выйти',
+              href: '',
+              title: 'Конфиденциальность',
             },
           ],
-          title: 'Максим Амбиндер',
         })
-        +dropdown({
-          buttons: [
-            {
-              class: 'check-all',
-              color: 'status-transparent',
-              isChecked: true,
-              title: 'Все',
-            },
-            {
-              color: 'status-green',
-              title: 'Активный',
-            },
-            {
-              color: 'status-gray',
-              title: 'Неактивный',
-            },
-            {
-              color: 'status-blue',
-              title: 'Новая РК',
-            },
-            {
-              color: 'status-purple',
-              title: 'Подбор каналов',
-            },
-          ],
-          class: 'dropdown-status',
-          color: 'status-transparent',
-          isButtons: true,
-          isStatus: true,
-        })
-        +dropdown({
-          checkboxes: [
-            {
-              class: 'check-all',
-              title: 'Все',
-            },
-            {
-              class: '',
-              title: 'Банки',
-            },
-            {
-              class: '',
-              title: 'Банки',
-            },
-            {
-              class: '',
-              title: 'Автомобили',
-            },
-            {
-              class: '',
-              title: 'Банки',
-            },
-            {
-              class: '',
-              title: 'Банки',
-            },
-            {
-              class: '',
-              title: 'Автомобили',
-            },
-            {
-              class: '',
-              title: 'Автомобили',
-            },
-            {
-              class: '',
-              title: 'Автомобили',
-            },
-            {
-              class: '',
-              title: 'Автомобили',
-            },
-            {
-              class: '',
-              title: 'Автомобили',
-            },
-            {
-              class: '',
-              title: 'Автомобили',
-            },
-            {
-              class: '',
-              title: 'Автомобили',
-            },
-            {
-              class: '',
-              title: 'Автомобили',
-            },
-            {
-              class: '',
-              title: 'Автомобили',
-            },
-            {
-              class: '',
-              title: 'Автомобили',
-            },
-          ],
-          class: 'dropdown-checkboxes',
-          isAll: true,
-          isCheckboxes: true,
-        })
-        +dropdown({
-          buttons: [
-            {
-              color: 'priority-transparent',
-              isChecked: true,
-              title: 'Все',
-            },
-            {
-              color: 'priority-red',
-              title: 'Очень высокий',
-            },
-            {
-              color: 'priority-pink',
-              title: 'Высокий',
-            },
-            {
-              color: 'priority-orange',
-              title: 'Средний',
-            },
-            {
-              color: 'priority-peach',
-              title: 'Низкий',
-            },
-            {
-              color: 'priority-yellow',
-              title: 'Очень низкий',
-            },
-          ],
-          class: 'dropdown-priority',
-          color: 'priority-transparent',
-          isButtons: true,
-          isPriority: true,
-        })
-    .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
-      h2.text-2xl.font-bold.pb-4.border-b.w-full Типографика (Inter)
-      .text-30-m-p 30, Medium, 120% LH
-      .text-24-sb 24, Semibold, 30 LH
-      .text-18-sb 18, Semibold, 24 LH
-      .text-14-sb-md 14, Semibold, 20 LH
-      .text-14-m-md 14, Medium, 20 LH
-      .text-14-sb 14, Semibold, 18 LH
-      .text-14-sb-p 14, Semibold, 16 LH
-      .text-14-m 14, Medium, 18 LH
-      .text-14-r 14, Regular, 18 LH
-      .text-14-m-p 14, Medium, 120% LH
-      .text-12-sb-p 12, Semibold, 120% LH
-      .text-12-sb 12, Semibold, 16 LH
-      .text-12-m-md 12, Medium, 18 LH
-      .text-12-r-md 12, Regular, 18 LH
-      .text-12-m 12, Medium, 16 LH
-      .text-12-m-p 12, Medium, 120% LH
-      .text-12-r 12, Regular, 16 LH
-      .text-12-r-p 12, Regular, 120% LH
-      .text-10-m 10, Medium, 14 LH
-      .text-10-r 10, Regular, 14 LH
-      .text-10-m-sm 10, Medium, 12 LH
-      .text-10-r-sm 10, Regular, 12 LH
-      .text-10-r-p 10, Regular, 120% LH
-    .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
-      h2.text-2xl.font-bold.pb-4.border-b.w-full Логотип
-      include ../components/logo
-    .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
-      h2.text-2xl.font-bold.pb-4.border-b.w-full Поиск
-      +search
-      +search({
-        class: 'transparent',
-      })
-    .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
-      h2.text-2xl.font-bold.pb-4.border-b.w-full Календарь
-      .flex.items-center.gap-x-4
+        +breadcrumbs
         +button({
-          class: 'button-with-icon',
-          icon: 'other-calendar-icon',
-          isCalendar: true,
-          isDatePicker: false,
-          isMonthPicker: true,
-          value: 'Все',
+          class: 'button-icon',
+          icon: 'other-expand-menu-icon',
+          isOnlyIcon: true,
           view: 'button',
         })
         +button({
-          class: 'button-with-icon',
-          icon: 'other-calendar-icon',
-          isCalendar: true,
-          isDatePicker: true,
-          isMonthPicker: false,
-          value: 'Все',
+          class: 'button-icon-round',
+          icon: 'other-arrow-up-icon',
+          isOnlyIcon: true,
+          view: 'link',
+        })
+        +button({
+          class: 'button-with-icon-full-lg',
+          icon: 'other-arrow-right-icon',
+          title: 'Войти',
           view: 'button',
         })
         +button({
-          class: 'button-with-icon',
-          icon: 'other-calendar-icon',
-          isCalendar: true,
-          isDatePicker: true,
-          isMonthPicker: false,
-          isSinglePicker: true,
-          value: 'Все',
-          view: 'button',
+          class: 'button-with-icon-full-google',
+          icon: 'other-google-icon',
+          title: 'Войти с учетной записью Google',
+          view: 'link',
         })
+        include ../components/pagination
+      .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
+        h2.text-2xl.font-bold.pb-4.border-b.w-full Иконки
+        .flex.flex-wrap.gap-4
+          include ../components/icons/_icons
+      .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
+        h2.text-2xl.font-bold.pb-4.border-b.w-full Цвета
+        .grid.gap-4.w-full(class="grid-cols-[repeat(auto-fit,_minmax(170px,_1fr))]")
+          .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-black-000.text-white-000 #000000
+          .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-black-025.text-white-000 #19161D
+          .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-black-050.text-white-000 #222222
+          .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-black-100.text-white-000 #374151
+          .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-black-200.text-white-000 #959BA4
+          .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-black-300 #CACDD1
+          .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-black-400 #C8CBCF
+          .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-black-500 #E3E5EB
+          .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-black-550 #F1F1F2
+          .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-black-600 #F4F5F6
+          .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-black-700.border.border-black-000 #FBFBFB
+          .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-white-000.border.border-black-000 #FFFFFF
+          .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-blue-000.text-white-000 #005CFF
+          .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-blue-025.text-white-000 #0556E4
+          .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-blue-050.text-white-000 #004BCF
+          .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-blue-100.text-white-000 #4673D2
+          .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-blue-200.text-white-000 #5893FF
+          .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-blue-300 #C7D5F1
+          .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-green-000 #84C9A9
+          .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-green-025 #A9FF58
+          .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-green-050 #1CDE0B
+          .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-green-100 #DAEFE5
+          .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-green-200 #50AF1D
+          .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-green-300 #4CC125
+          .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-red-000.text-white-000 #FF3333
+          .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-red-050.text-white-000 #E62D2D
+          .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-red-075.text-white-000 #C23636
+          .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-red-100.text-white-000 #DE350B
+          .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-red-200.text-white-000 #F06A6A
+          .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-red-250 #FFCCCC
+          .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-red-300 #FBD2D2
+          .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-red-400 #F2E1DD
+          .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-purple-000 #BD6AF0
+          .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-purple-050 #AD84C9
+          .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-purple-100 #EBD2FB
+          .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-purple-200 #E5E4FC
+          .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-purple-300 #E6EFFE
+          .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-pink-000 #F26FB2
+          .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-pink-100 #F958FF
+          .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-orange-000 #EC8E71
+          .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-peach-000 #F1BD6C
+          .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-yellow-000 #F8DF72
+          .py-2.px-12.rounded-md.text-center.text-12-r-md.bg-yellow-100 #FFC658
+      .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
+        h2.text-2xl.font-bold.pb-4.border-b.w-full Дропдаун
+        .w-full.flex.flex-col.gap-y-4.items-start
+          +dropdown
+          +dropdown({
+            buttons: [
+              {
+                class: '',
+                image: {
+                  alt: 'image',
+                  enabled: true,
+                  src: '/assets/images/user-image.png',
+                },
+                name: 'organization',
+                title: 'ООО “ИП”',
+              },
+              {
+                class: '',
+                image: {
+                  alt: 'image',
+                  enabled: true,
+                  src: '/assets/images/avatar.png',
+                },
+                name: 'organization',
+                title: 'ООО “ИП”',
+              },
+            ],
+            class: 'dropdown-radios dropdown-copy-image',
+            isRadios: true,
+            isSearch: true,
+          })
+          +dropdown({
+            class: 'dropdown-with-icon',
+            image: {
+              alt: 'icon',
+              enabled: true,
+              src: '/assets/images/user-image.png',
+            },
+            isLinks: true,
+            links: [
+              {
+                href: '#',
+                icon: 'other-settings-icon',
+                title: 'Настройки',
+              },
+              {
+                href: '#',
+                icon: 'other-logout-icon',
+                title: 'Выйти',
+              },
+            ],
+            title: 'Максим Амбиндер',
+          })
+          +dropdown({
+            buttons: [
+              {
+                class: 'check-all',
+                color: 'status-transparent',
+                isChecked: true,
+                title: 'Все',
+              },
+              {
+                color: 'status-green',
+                title: 'Активный',
+              },
+              {
+                color: 'status-gray',
+                title: 'Неактивный',
+              },
+              {
+                color: 'status-blue',
+                title: 'Новая РК',
+              },
+              {
+                color: 'status-purple',
+                title: 'Подбор каналов',
+              },
+            ],
+            class: 'dropdown-status',
+            color: 'status-transparent',
+            isButtons: true,
+            isStatus: true,
+          })
+          +dropdown({
+            checkboxes: [
+              {
+                class: 'check-all',
+                title: 'Все',
+              },
+              {
+                class: '',
+                title: 'Банки',
+              },
+              {
+                class: '',
+                title: 'Банки',
+              },
+              {
+                class: '',
+                title: 'Автомобили',
+              },
+              {
+                class: '',
+                title: 'Банки',
+              },
+              {
+                class: '',
+                title: 'Банки',
+              },
+              {
+                class: '',
+                title: 'Автомобили',
+              },
+              {
+                class: '',
+                title: 'Автомобили',
+              },
+              {
+                class: '',
+                title: 'Автомобили',
+              },
+              {
+                class: '',
+                title: 'Автомобили',
+              },
+              {
+                class: '',
+                title: 'Автомобили',
+              },
+              {
+                class: '',
+                title: 'Автомобили',
+              },
+              {
+                class: '',
+                title: 'Автомобили',
+              },
+              {
+                class: '',
+                title: 'Автомобили',
+              },
+              {
+                class: '',
+                title: 'Автомобили',
+              },
+              {
+                class: '',
+                title: 'Автомобили',
+              },
+            ],
+            class: 'dropdown-checkboxes',
+            isAll: true,
+            isCheckboxes: true,
+          })
+          +dropdown({
+            buttons: [
+              {
+                color: 'priority-transparent',
+                isChecked: true,
+                title: 'Все',
+              },
+              {
+                color: 'priority-red',
+                title: 'Очень высокий',
+              },
+              {
+                color: 'priority-pink',
+                title: 'Высокий',
+              },
+              {
+                color: 'priority-orange',
+                title: 'Средний',
+              },
+              {
+                color: 'priority-peach',
+                title: 'Низкий',
+              },
+              {
+                color: 'priority-yellow',
+                title: 'Очень низкий',
+              },
+            ],
+            class: 'dropdown-priority',
+            color: 'priority-transparent',
+            isButtons: true,
+            isPriority: true,
+          })
+      .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
+        h2.text-2xl.font-bold.pb-4.border-b.w-full Типографика (Inter)
+        .text-30-m-p 30, Medium, 120% LH
+        .text-24-sb 24, Semibold, 30 LH
+        .text-18-sb 18, Semibold, 24 LH
+        .text-14-sb-md 14, Semibold, 20 LH
+        .text-14-m-md 14, Medium, 20 LH
+        .text-14-sb 14, Semibold, 18 LH
+        .text-14-sb-p 14, Semibold, 16 LH
+        .text-14-m 14, Medium, 18 LH
+        .text-14-r 14, Regular, 18 LH
+        .text-14-m-p 14, Medium, 120% LH
+        .text-12-sb-p 12, Semibold, 120% LH
+        .text-12-sb 12, Semibold, 16 LH
+        .text-12-m-md 12, Medium, 18 LH
+        .text-12-r-md 12, Regular, 18 LH
+        .text-12-m 12, Medium, 16 LH
+        .text-12-m-p 12, Medium, 120% LH
+        .text-12-r 12, Regular, 16 LH
+        .text-12-r-p 12, Regular, 120% LH
+        .text-10-m 10, Medium, 14 LH
+        .text-10-r 10, Regular, 14 LH
+        .text-10-m-sm 10, Medium, 12 LH
+        .text-10-r-sm 10, Regular, 12 LH
+        .text-10-r-p 10, Regular, 120% LH
+      .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
+        h2.text-2xl.font-bold.pb-4.border-b.w-full Логотип
+        include ../components/logo
+      .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
+        h2.text-2xl.font-bold.pb-4.border-b.w-full Поиск
+        +search
+        +search({
+          class: 'transparent',
+        })
+      .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
+        h2.text-2xl.font-bold.pb-4.border-b.w-full Календарь
+        .flex.items-center.gap-x-4
+          +button({
+            class: 'button-with-icon',
+            icon: 'other-calendar-icon',
+            isCalendar: true,
+            isDatePicker: false,
+            isMonthPicker: true,
+            value: 'Все',
+            view: 'button',
+          })
+          +button({
+            class: 'button-with-icon',
+            icon: 'other-calendar-icon',
+            isCalendar: true,
+            isDatePicker: true,
+            isMonthPicker: false,
+            value: 'Все',
+            view: 'button',
+          })
+          +button({
+            class: 'button-with-icon',
+            icon: 'other-calendar-icon',
+            isCalendar: true,
+            isDatePicker: true,
+            isMonthPicker: false,
+            isSinglePicker: true,
+            value: 'Все',
+            view: 'button',
+          })
+          +button({
+            class: 'button-with-icon',
+            icon: 'other-calendar-icon',
+            isCalendar: true,
+            isDatePicker: false,
+            isDateTimePicker: true,
+            isMonthPicker: false,
+            isSinglePicker: true,
+            value: 'Все',
+            view: 'button',
+          })
+      .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
+        h2.text-2xl.font-bold.pb-4.border-b.w-full Поля ввода значений
+        form(action="#").w-full
+          +input({
+            isRequired: true,
+            name: 'email',
+            placeholder: 'Почта',
+            type: 'email',
+          })
+        form(action="#").w-full
+          +input({
+            isRequired: true,
+            name: 'password',
+            placeholder: 'Пароль',
+            type: 'password',
+          })
+        form(action="#").w-full
+          +input({
+            isLabel: true,
+            isRequired: true,
+            label: 'Наименование',
+            name: 'name',
+            placeholder: 'Введите наименование',
+            type: 'text',
+          })
+        form(action="#").w-full
+          +input({
+            class: 'error',
+            isLabel: true,
+            isRequired: true,
+            label: 'Наименование',
+            name: 'name',
+            placeholder: 'Введите наименование',
+            type: 'text',
+          })
+        form(action="#").w-full
+          +input({
+            max: '100',
+            min: '0',
+          })
+      .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
+        h2.text-2xl.font-bold.pb-4.border-b.w-full Чекбокс
+        form(action="#").w-full.flex.gap-x-4.items-center
+          +input({
+            type: 'checkbox',
+            value: 'Запомнить меня',
+          })
+          +input({
+            isChecked: true,
+            type: 'checkbox',
+            value: 'Запомнить меня',
+          })
+          +input({
+            class: 'lg',
+            type: 'checkbox',
+            value: 'Запомнить меня',
+          })
+          +input({
+            class: 'input-checkbox-with-label lg',
+            isLabel: true,
+            label: 'Запомнить меня',
+            type: 'checkbox',
+            value: 'Запомнить меня',
+          })
+      .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
+        h2.text-2xl.font-bold.pb-4.border-b.w-full Кнопка закрытия
         +button({
-          class: 'button-with-icon',
-          icon: 'other-calendar-icon',
-          isCalendar: true,
-          isDatePicker: false,
-          isDateTimePicker: true,
-          isMonthPicker: false,
-          isSinglePicker: true,
-          value: 'Все',
+          ariaLabel: 'close',
+          class: 'button-close',
+          icon: 'other-close-icon',
+          isOnlyIcon: true,
           view: 'button',
         })
-    .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
-      h2.text-2xl.font-bold.pb-4.border-b.w-full Поля ввода значений
-      form(action="#").w-full
-        +input({
-          isRequired: true,
-          name: 'email',
-          placeholder: 'Почта',
-          type: 'email',
-        })
-      form(action="#").w-full
-        +input({
-          isRequired: true,
-          name: 'password',
-          placeholder: 'Пароль',
-          type: 'password',
-        })
-      form(action="#").w-full
-        +input({
-          isLabel: true,
-          isRequired: true,
-          label: 'Наименование',
-          name: 'name',
-          placeholder: 'Введите наименование',
-          type: 'text',
-        })
-      form(action="#").w-full
-        +input({
-          class: 'error',
-          isLabel: true,
-          isRequired: true,
-          label: 'Наименование',
-          name: 'name',
-          placeholder: 'Введите наименование',
-          type: 'text',
-        })
-      form(action="#").w-full
-        +input({
-          max: '100',
-          min: '0',
-        })
-    .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
-      h2.text-2xl.font-bold.pb-4.border-b.w-full Чекбокс
-      form(action="#").w-full.flex.gap-x-4.items-center
-        +input({
-          type: 'checkbox',
-          value: 'Запомнить меня',
-        })
-        +input({
-          isChecked: true,
-          type: 'checkbox',
-          value: 'Запомнить меня',
-        })
-        +input({
-          class: 'lg',
-          type: 'checkbox',
-          value: 'Запомнить меня',
-        })
-        +input({
-          class: 'input-checkbox-with-label lg',
-          isLabel: true,
-          label: 'Запомнить меня',
-          type: 'checkbox',
-          value: 'Запомнить меня',
-        })
-    .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
-      h2.text-2xl.font-bold.pb-4.border-b.w-full Кнопка закрытия
-      +button({
-        ariaLabel: 'close',
-        class: 'button-close',
-        icon: 'other-close-icon',
-        isOnlyIcon: true,
-        view: 'button',
-      })
-    .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
-      h2.text-2xl.font-bold.pb-4.border-b.w-full Боковое меню
-      include ../components/sidebar
-    .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
-      h2.text-2xl.font-bold.pb-4.border-b.w-full Верхнее меню
-      include ../components/header
-    .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
-      h2.text-2xl.font-bold.pb-4.border-b.w-full Виджеты
-      .widgets
-        +widget({
-          icon: 'widget-clock-icon',
-          tip: {
-            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
-            enabled: true,
-          },
-          title: 'Возраст канала',
-          values: [
-            {
-              value: '2 года 11 месяцев',
+      .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
+        h2.text-2xl.font-bold.pb-4.border-b.w-full Боковое меню
+        include ../components/sidebar
+      .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
+        h2.text-2xl.font-bold.pb-4.border-b.w-full Верхнее меню
+        include ../components/header
+      .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md
+        h2.text-2xl.font-bold.pb-4.border-b.w-full Виджеты
+        .widgets
+          +widget({
+            icon: 'widget-clock-icon',
+            tip: {
+              content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+              enabled: true,
             },
-          ],
-        })
-        +widget({
-          icon: 'widget-layout-icon',
-          tip: {
-            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
-            enabled: true,
-          },
-          title: 'Кол-во размещений',
-          values: [
-            {
-              title: 'Активные',
-              value: '1',
+            title: 'Возраст канала',
+            values: [
+              {
+                value: '2 года 11 месяцев',
+              },
+            ],
+          })
+          +widget({
+            icon: 'widget-layout-icon',
+            tip: {
+              content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+              enabled: true,
             },
-            {
-              title: 'Всего',
-              value: '25',
+            title: 'Кол-во размещений',
+            values: [
+              {
+                title: 'Активные',
+                value: '1',
+              },
+              {
+                title: 'Всего',
+                value: '25',
+              },
+            ],
+          })
+          +widget({
+            icon: 'widget-users-subscribed-icon',
+            tip: {
+              content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+              enabled: true,
             },
-          ],
-        })
-        +widget({
-          icon: 'widget-users-subscribed-icon',
-          tip: {
-            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
-            enabled: true,
-          },
-          title: 'Подписчики',
-          values: [
-            {
-              class: 'discount',
-              title: '+15% за месяц',
-              value: '22 000 000',
+            title: 'Подписчики',
+            values: [
+              {
+                class: 'discount',
+                title: '+15% за месяц',
+                value: '22 000 000',
+              },
+            ],
+          })
+          +widget({
+            icon: 'widget-users-icon',
+            tip: {
+              content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+              enabled: true,
             },
-          ],
-        })
-        +widget({
-          icon: 'widget-users-icon',
-          tip: {
-            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
-            enabled: true,
-          },
-          title: 'Аудитория',
-          values: [
-            {
-              class: 'male',
-              title: 'М',
-              value: '65%',
+            title: 'Аудитория',
+            values: [
+              {
+                class: 'male',
+                title: 'М',
+                value: '65%',
+              },
+              {
+                class: 'female',
+                title: 'Ж',
+                value: '35%',
+              },
+            ],
+          })
+          +widget({
+            icon: 'widget-consumption-icon',
+            tip: {
+              content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+              enabled: true,
             },
-            {
-              class: 'female',
-              title: 'Ж',
-              value: '35%',
+            title: 'Общий расход',
+            values: [
+              {
+                value: '20 000 000 ₽',
+              },
+            ],
+          })
+          +widget({
+            icon: 'widget-eye-icon',
+            tip: {
+              content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+              enabled: true,
             },
-          ],
-        })
-        +widget({
-          icon: 'widget-consumption-icon',
-          tip: {
-            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
-            enabled: true,
-          },
-          title: 'Общий расход',
-          values: [
-            {
-              value: '20 000 000 ₽',
+            title: 'Просмотры (в среднем)',
+            values: [
+              {
+                value: '20 000 000',
+              },
+            ],
+          })
+          +widget({
+            icon: 'widget-users-connected-icon',
+            isFourValues: true,
+            isRows: true,
+            mainValue: '99 803',
+            tip: {
+              content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+              enabled: true,
             },
-          ],
-        })
-        +widget({
-          icon: 'widget-eye-icon',
-          tip: {
-            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
-            enabled: true,
-          },
-          title: 'Просмотры (в среднем)',
-          values: [
-            {
-              value: '20 000 000',
+            title: 'Охват',
+            values: [
+              {
+                title: '12 часов',
+                value: '99 803',
+              },
+              {
+                title: '48 часов',
+                value: '99 803',
+              },
+              {
+                title: '24 часов',
+                value: '99 803',
+              },
+              {
+                title: '72 часов',
+                value: '99 803',
+              },
+            ],
+          })
+          +widget({
+            icon: 'widget-favorites-icon',
+            tip: {
+              content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+              enabled: true,
             },
-          ],
-        })
-        +widget({
-          icon: 'widget-users-connected-icon',
-          isFourValues: true,
-          isRows: true,
-          mainValue: '99 803',
-          tip: {
-            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
-            enabled: true,
-          },
-          title: 'Охват',
-          values: [
-            {
-              title: '12 часов',
-              value: '99 803',
+            title: 'ERR',
+            values: [
+              {
+                value: '35.59%',
+              },
+            ],
+          })
+          +widget({
+            icon: 'widget-discount-icon',
+            tip: {
+              content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+              enabled: true,
             },
-            {
-              title: '48 часов',
-              value: '99 803',
+            title: 'Последняя скидка',
+            values: [
+              {
+                value: '5%',
+              },
+            ],
+          })
+          +widget({
+            icon: 'widget-eye-icon',
+            tip: {
+              content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+              enabled: true,
             },
-            {
-              title: '24 часов',
-              value: '99 803',
+            title: 'Просмотры (всего)',
+            values: [
+              {
+                value: '20 000 000',
+              },
+            ],
+          })
+          +widget({
+            icon: 'widget-reply-icon',
+            tip: {
+              content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+              enabled: true,
             },
-            {
-              title: '72 часов',
-              value: '99 803',
+            title: 'ER',
+            values: [
+              {
+                value: '35.59%',
+              },
+            ],
+          })
+          +widget({
+            icon: 'widget-screen-icon',
+            tip: {
+              content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+              enabled: true,
             },
-          ],
-        })
-        +widget({
-          icon: 'widget-favorites-icon',
-          tip: {
-            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
-            enabled: true,
-          },
-          title: 'ERR',
-          values: [
-            {
-              value: '35.59%',
+            title: 'Каналов в РК',
+            values: [
+              {
+                value: '25',
+              },
+            ],
+          })
+          +widget({
+            icon: 'widget-layout-icon',
+            tip: {
+              content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+              enabled: true,
             },
-          ],
-        })
-        +widget({
-          icon: 'widget-discount-icon',
-          tip: {
-            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
-            enabled: true,
-          },
-          title: 'Последняя скидка',
-          values: [
-            {
-              value: '5%',
+            title: 'Кол-во размещений',
+            values: [
+              {
+                title: 'Активные',
+                value: '1',
+              },
+              {
+                title: 'Всего',
+                value: '25',
+              },
+            ],
+          })
+          +widget({
+            icon: 'widget-consumption-icon',
+            tip: {
+              content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+              enabled: true,
             },
-          ],
-        })
-        +widget({
-          icon: 'widget-eye-icon',
-          tip: {
-            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
-            enabled: true,
-          },
-          title: 'Просмотры (всего)',
-          values: [
-            {
-              value: '20 000 000',
-            },
-          ],
-        })
-        +widget({
-          icon: 'widget-reply-icon',
-          tip: {
-            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
-            enabled: true,
-          },
-          title: 'ER',
-          values: [
-            {
-              value: '35.59%',
-            },
-          ],
-        })
-        +widget({
-          icon: 'widget-screen-icon',
-          tip: {
-            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
-            enabled: true,
-          },
-          title: 'Каналов в РК',
-          values: [
-            {
-              value: '25',
-            },
-          ],
-        })
-        +widget({
-          icon: 'widget-layout-icon',
-          tip: {
-            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
-            enabled: true,
-          },
-          title: 'Кол-во размещений',
-          values: [
-            {
-              title: 'Активные',
-              value: '1',
-            },
-            {
-              title: 'Всего',
-              value: '25',
-            },
-          ],
-        })
-        +widget({
-          icon: 'widget-consumption-icon',
-          tip: {
-            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
-            enabled: true,
-          },
-          title: 'Общий расход',
-          values: [
-            {
-              value: '20 000 000 ₽',
-            },
-          ],
-        })
-        +widget({
-          icon: 'widget-wallet-plus-icon',
-          isProgresses: true,
-          isRows: true,
-          progresses: [
-            {
-              content: '<strong>Плановое значение:</strong><br><span>25 000 000</span>',
-              title: 'плана',
-              value: '0',
-            },
-            {
-              content: '<strong>Плановое значение:</strong><br><span>25 000 000</span>',
-              title: 'прогноза',
-              value: '0',
-            },
-          ],
-          subtitle: 'Выполнение',
-          tip: {
-            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
-            enabled: true,
-          },
-          title: 'Текущая выручка',
-          values: [
-            {
-              value: '0 ₽',
-            },
-          ],
-        })
-        +widget({
-          icon: 'widget-money-icon',
-          isProgresses: true,
-          isRows: true,
-          progresses: [
-            {
-              content: '<strong>Плановое значение:</strong><br><span>25 000 000</span>',
-              title: 'плана',
-              value: '0',
-            },
-            {
-              content: '<strong>Плановое значение:</strong><br><span>25 000 000</span>',
-              title: 'прогноза',
-              value: '0',
-            },
-          ],
-          subtitle: 'Выполнение',
-          tip: {
-            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
-            enabled: true,
-          },
-          title: 'Текущая маржа',
-          values: [
-            {
-              value: '0 ₽',
-            },
-          ],
-        })
-        +widget({
-          icon: 'widget-money-icon',
-          tip: {
-            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
-            enabled: true,
-          },
-          title: 'Маржинальность',
-          values: [
-            {
-              value: '0%',
-            },
-          ],
-        })
-        +widget({
-          icon: 'widget-discount-icon',
-          tip: {
-            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
-            enabled: true,
-          },
-          title: 'Скидка',
-          values: [
-            {
-              progress: {
+            title: 'Общий расход',
+            values: [
+              {
+                value: '20 000 000 ₽',
+              },
+            ],
+          })
+          +widget({
+            icon: 'widget-wallet-plus-icon',
+            isProgresses: true,
+            isRows: true,
+            progresses: [
+              {
                 content: '<strong>Плановое значение:</strong><br><span>25 000 000</span>',
-                enabled: true,
+                title: 'плана',
                 value: '0',
               },
-              value: '0 ₽ (0%)',
-            },
-          ],
-        })
-        +widget({
-          icon: 'widget-consumption-icon',
-          tip: {
-            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
-            enabled: true,
-          },
-          title: 'Расход',
-          values: [
-            {
-              value: '0 ₽',
-            },
-          ],
-        })
-        +widget({
-          color: 'blue',
-          icon: 'widget-tablet-icon',
-          tip: {
-            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
-            enabled: true,
-          },
-          title: 'Подобрано каналов',
-          values: [
-            {
-              value: '0',
-            },
-          ],
-        })
-        +widget({
-          color: 'blue',
-          icon: 'widget-tablet-icon',
-          tip: {
-            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
-            enabled: true,
-          },
-          title: 'Проверено каналов',
-          values: [
-            {
-              progress: {
+              {
                 content: '<strong>Плановое значение:</strong><br><span>25 000 000</span>',
-                enabled: true,
-                value: '65',
+                title: 'прогноза',
+                value: '0',
               },
-              value: '15/20',
+            ],
+            subtitle: 'Выполнение',
+            tip: {
+              content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+              enabled: true,
             },
-          ],
-        })
-        +widget({
-          color: 'blue',
-          icon: 'widget-tablet-icon',
-          tip: {
-            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
-            enabled: true,
-          },
-          title: 'Опрошено',
-          values: [
-            {
-              progress: {
+            title: 'Текущая выручка',
+            values: [
+              {
+                value: '0 ₽',
+              },
+            ],
+          })
+          +widget({
+            icon: 'widget-money-icon',
+            isProgresses: true,
+            isRows: true,
+            progresses: [
+              {
                 content: '<strong>Плановое значение:</strong><br><span>25 000 000</span>',
-                enabled: true,
-                value: '65',
+                title: 'плана',
+                value: '0',
               },
-              value: '15/20',
-            },
-          ],
-        })
-        +widget({
-          color: 'blue',
-          icon: 'widget-tablet-icon',
-          tip: {
-            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
-            enabled: true,
-          },
-          title: 'Подтверждено',
-          values: [
-            {
-              progress: {
+              {
                 content: '<strong>Плановое значение:</strong><br><span>25 000 000</span>',
-                enabled: true,
-                value: '65',
+                title: 'прогноза',
+                value: '0',
               },
-              value: '12/20',
+            ],
+            subtitle: 'Выполнение',
+            tip: {
+              content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+              enabled: true,
             },
-          ],
-        })
-        +widget({
-          buttons: [
-            {
-              href: '#',
-              icon: 'other-attachment-icon',
-              view: 'link',
-            },
-            {
-              href: '#',
-              icon: 'other-download-icon',
-              isDownload: true,
-              view: 'link',
-            },
-          ],
-          color: 'blue',
-          icon: 'widget-check-icon',
-          tip: {
-            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
-            enabled: true,
-          },
-          title: 'Медиаплан готов',
-          values: [
-            {
-              value: '157 каналов',
-            },
-          ],
-        })
-        +widget({
-          color: 'blue',
-          icon: 'widget-check-icon',
-          tip: {
-            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
-            enabled: true,
-          },
-          title: 'Согласовано каналов',
-          values: [
-            {
-              progress: {
-                content: '<strong>Плановое значение:</strong><br><span>25 000 000</span>',
-                enabled: true,
-                value: '65',
+            title: 'Текущая маржа',
+            values: [
+              {
+                value: '0 ₽',
               },
-              value: '15/20',
+            ],
+          })
+          +widget({
+            icon: 'widget-money-icon',
+            tip: {
+              content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+              enabled: true,
             },
-          ],
-        })
-        +widget({
-          color: 'blue',
-          icon: 'widget-list-plus-icon',
-          tip: {
-            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
-            enabled: true,
-          },
-          title: 'Новых каналов',
-          values: [
-            {
-              value: '15',
-            },
-          ],
-        })
-        +widget({
-          color: 'blue',
-          icon: 'widget-check-icon',
-          tip: {
-            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
-            enabled: true,
-          },
-          title: 'Оплачено каналов',
-          values: [
-            {
-              progress: {
-                content: '<strong>Плановое значение:</strong><br><span>25 000 000</span>',
-                enabled: true,
-                value: '65',
+            title: 'Маржинальность',
+            values: [
+              {
+                value: '0%',
               },
-              value: '10/20',
+            ],
+          })
+          +widget({
+            icon: 'widget-discount-icon',
+            tip: {
+              content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+              enabled: true,
             },
-          ],
-        })
-        +widget({
-          color: 'blue',
-          icon: 'widget-awaiting-icon',
-          tip: {
-            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
-            enabled: true,
-          },
-          title: 'Ожидают оплаты',
-          values: [
-            {
-              progress: {
-                content: '<strong>Плановое значение:</strong><br><span>25 000 000</span>',
-                enabled: true,
-                value: '65',
+            title: 'Скидка',
+            values: [
+              {
+                progress: {
+                  content: '<strong>Плановое значение:</strong><br><span>25 000 000</span>',
+                  enabled: true,
+                  value: '0',
+                },
+                value: '0 ₽ (0%)',
               },
-              value: '5/20',
+            ],
+          })
+          +widget({
+            icon: 'widget-consumption-icon',
+            tip: {
+              content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+              enabled: true,
             },
-          ],
-        })
-        +widget({
-          color: 'blue',
-          icon: 'widget-warning-icon',
-          tip: {
-            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
-            enabled: true,
-          },
-          title: 'Отсутствует счет',
-          values: [
-            {
-              progress: {
-                content: '<strong>Плановое значение:</strong><br><span>25 000 000</span>',
-                enabled: true,
-                value: '65',
+            title: 'Расход',
+            values: [
+              {
+                value: '0 ₽',
               },
-              value: '5/20',
+            ],
+          })
+          +widget({
+            color: 'blue',
+            icon: 'widget-tablet-icon',
+            tip: {
+              content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+              enabled: true,
             },
-          ],
-        })
-        +widget({
-          color: 'blue',
-          icon: 'widget-grid-icon',
-          tip: {
-            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
-            enabled: true,
-          },
-          title: 'Размещено постов',
-          values: [
-            {
-              progress: {
-                content: '<strong>Плановое значение:</strong><br><span>25 000 000</span>',
-                enabled: true,
-                value: '65',
+            title: 'Подобрано каналов',
+            values: [
+              {
+                value: '0',
               },
-              value: '10/20',
+            ],
+          })
+          +widget({
+            color: 'blue',
+            icon: 'widget-tablet-icon',
+            tip: {
+              content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+              enabled: true,
             },
-          ],
-        })
-        +widget({
-          color: 'blue',
-          icon: 'widget-pulse-icon',
-          tip: {
-            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
-            enabled: true,
-          },
-          title: 'Постов в работе',
-          values: [
-            {
-              progress: {
-                content: '<strong>Плановое значение:</strong><br><span>25 000 000</span>',
-                enabled: true,
-                value: '65',
+            title: 'Проверено каналов',
+            values: [
+              {
+                progress: {
+                  content: '<strong>Плановое значение:</strong><br><span>25 000 000</span>',
+                  enabled: true,
+                  value: '65',
+                },
+                value: '15/20',
               },
-              value: '5/20',
+            ],
+          })
+          +widget({
+            color: 'blue',
+            icon: 'widget-tablet-icon',
+            tip: {
+              content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+              enabled: true,
             },
-          ],
-        })
-        +widget({
-          color: 'blue',
-          icon: 'widget-check-icon',
-          tip: {
-            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
-            enabled: true,
-          },
-          title: 'Завершено сделок',
-          values: [
-            {
-              progress: {
-                content: '<strong>Плановое значение:</strong><br><span>25 000 000</span>',
-                enabled: true,
-                value: '65',
+            title: 'Опрошено',
+            values: [
+              {
+                progress: {
+                  content: '<strong>Плановое значение:</strong><br><span>25 000 000</span>',
+                  enabled: true,
+                  value: '65',
+                },
+                value: '15/20',
               },
-              value: '5/20',
+            ],
+          })
+          +widget({
+            color: 'blue',
+            icon: 'widget-tablet-icon',
+            tip: {
+              content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+              enabled: true,
             },
-          ],
-        })
-        +widget({
-          icon: 'widget-screen-icon',
-          tip: {
-            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
-            enabled: true,
-          },
-          title: 'Каналы в предложении',
-          values: [
-            {
-              value: '125',
-            },
-          ],
-        })
-        +widget({
-          icon: 'widget-check-icon',
-          tip: {
-            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
-            enabled: true,
-          },
-          title: 'Согласованные каналы',
-          values: [
-            {
-              progress: {
-                content: '<strong>Плановое значение:</strong><br><span>25 000 000</span>',
-                enabled: true,
-                value: '65',
+            title: 'Подтверждено',
+            values: [
+              {
+                progress: {
+                  content: '<strong>Плановое значение:</strong><br><span>25 000 000</span>',
+                  enabled: true,
+                  value: '65',
+                },
+                value: '12/20',
               },
-              value: '125',
-            },
-          ],
-        })
-        +widget({
-          icon: 'widget-wallet-icon',
-          tip: {
-            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
-            enabled: true,
-          },
-          title: 'Бюджет предложения',
-          values: [
-            {
-              value: '2 050 000 ₽',
-            },
-          ],
-        })
-        +widget({
-          icon: 'widget-check-icon',
-          tip: {
-            content: 'Введенные данные не соответствуют автоматике. Обновите данные',
-            enabled: true,
-          },
-          title: 'Согласованный бюджет',
-          values: [
-            {
-              progress: {
-                content: '<strong>Плановое значение:</strong><br><span>25 000 000</span>',
-                enabled: true,
-                value: '65',
+            ],
+          })
+          +widget({
+            buttons: [
+              {
+                href: '#',
+                icon: 'other-attachment-icon',
+                view: 'link',
               },
-              value: '50 000 ₽',
+              {
+                href: '#',
+                icon: 'other-download-icon',
+                isDownload: true,
+                view: 'link',
+              },
+            ],
+            color: 'blue',
+            icon: 'widget-check-icon',
+            tip: {
+              content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+              enabled: true,
             },
-          ],
-        })
+            title: 'Медиаплан готов',
+            values: [
+              {
+                value: '157 каналов',
+              },
+            ],
+          })
+          +widget({
+            color: 'blue',
+            icon: 'widget-check-icon',
+            tip: {
+              content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+              enabled: true,
+            },
+            title: 'Согласовано каналов',
+            values: [
+              {
+                progress: {
+                  content: '<strong>Плановое значение:</strong><br><span>25 000 000</span>',
+                  enabled: true,
+                  value: '65',
+                },
+                value: '15/20',
+              },
+            ],
+          })
+          +widget({
+            color: 'blue',
+            icon: 'widget-list-plus-icon',
+            tip: {
+              content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+              enabled: true,
+            },
+            title: 'Новых каналов',
+            values: [
+              {
+                value: '15',
+              },
+            ],
+          })
+          +widget({
+            color: 'blue',
+            icon: 'widget-check-icon',
+            tip: {
+              content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+              enabled: true,
+            },
+            title: 'Оплачено каналов',
+            values: [
+              {
+                progress: {
+                  content: '<strong>Плановое значение:</strong><br><span>25 000 000</span>',
+                  enabled: true,
+                  value: '65',
+                },
+                value: '10/20',
+              },
+            ],
+          })
+          +widget({
+            color: 'blue',
+            icon: 'widget-awaiting-icon',
+            tip: {
+              content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+              enabled: true,
+            },
+            title: 'Ожидают оплаты',
+            values: [
+              {
+                progress: {
+                  content: '<strong>Плановое значение:</strong><br><span>25 000 000</span>',
+                  enabled: true,
+                  value: '65',
+                },
+                value: '5/20',
+              },
+            ],
+          })
+          +widget({
+            color: 'blue',
+            icon: 'widget-warning-icon',
+            tip: {
+              content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+              enabled: true,
+            },
+            title: 'Отсутствует счет',
+            values: [
+              {
+                progress: {
+                  content: '<strong>Плановое значение:</strong><br><span>25 000 000</span>',
+                  enabled: true,
+                  value: '65',
+                },
+                value: '5/20',
+              },
+            ],
+          })
+          +widget({
+            color: 'blue',
+            icon: 'widget-grid-icon',
+            tip: {
+              content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+              enabled: true,
+            },
+            title: 'Размещено постов',
+            values: [
+              {
+                progress: {
+                  content: '<strong>Плановое значение:</strong><br><span>25 000 000</span>',
+                  enabled: true,
+                  value: '65',
+                },
+                value: '10/20',
+              },
+            ],
+          })
+          +widget({
+            color: 'blue',
+            icon: 'widget-pulse-icon',
+            tip: {
+              content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+              enabled: true,
+            },
+            title: 'Постов в работе',
+            values: [
+              {
+                progress: {
+                  content: '<strong>Плановое значение:</strong><br><span>25 000 000</span>',
+                  enabled: true,
+                  value: '65',
+                },
+                value: '5/20',
+              },
+            ],
+          })
+          +widget({
+            color: 'blue',
+            icon: 'widget-check-icon',
+            tip: {
+              content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+              enabled: true,
+            },
+            title: 'Завершено сделок',
+            values: [
+              {
+                progress: {
+                  content: '<strong>Плановое значение:</strong><br><span>25 000 000</span>',
+                  enabled: true,
+                  value: '65',
+                },
+                value: '5/20',
+              },
+            ],
+          })
+          +widget({
+            icon: 'widget-screen-icon',
+            tip: {
+              content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+              enabled: true,
+            },
+            title: 'Каналы в предложении',
+            values: [
+              {
+                value: '125',
+              },
+            ],
+          })
+          +widget({
+            icon: 'widget-check-icon',
+            tip: {
+              content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+              enabled: true,
+            },
+            title: 'Согласованные каналы',
+            values: [
+              {
+                progress: {
+                  content: '<strong>Плановое значение:</strong><br><span>25 000 000</span>',
+                  enabled: true,
+                  value: '65',
+                },
+                value: '125',
+              },
+            ],
+          })
+          +widget({
+            icon: 'widget-wallet-icon',
+            tip: {
+              content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+              enabled: true,
+            },
+            title: 'Бюджет предложения',
+            values: [
+              {
+                value: '2 050 000 ₽',
+              },
+            ],
+          })
+          +widget({
+            icon: 'widget-check-icon',
+            tip: {
+              content: 'Введенные данные не соответствуют автоматике. Обновите данные',
+              enabled: true,
+            },
+            title: 'Согласованный бюджет',
+            values: [
+              {
+                progress: {
+                  content: '<strong>Плановое значение:</strong><br><span>25 000 000</span>',
+                  enabled: true,
+                  value: '65',
+                },
+                value: '50 000 ₽',
+              },
+            ],
+          })

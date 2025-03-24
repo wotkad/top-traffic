@@ -1,0 +1,12 @@
+.profile {
+  &__header {
+    h1 {
+      @apply text-24-sb;
+    }
+    @apply flex justify-between items-center;
+  }
+  &__buttons {
+    @apply flex items-center gap-x-3;
+  }
+  @apply pt-[30px];
+}
