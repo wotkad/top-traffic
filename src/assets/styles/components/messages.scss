@@ -51,7 +51,7 @@
     time {
       @apply font-normal text-10-r-sm text-black-200;
     }
-    @apply flex items-center gap-x-1 mt-[7px] ml-9;
+    @apply flex flex-wrap items-center gap-x-1 mt-[7px] ml-9;
   }
   &__reply,
   &__edit {
@@ -226,7 +226,7 @@
     h3 {
       @apply text-12-sb-p;
     }
-    @apply flex items-center gap-x-1;
+    @apply flex flex-wrap items-center gap-x-1 gap-y-[2px];
   }
   &__time {
     span {

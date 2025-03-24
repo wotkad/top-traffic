@@ -178,6 +178,7 @@ export default function toggleDropdown() {
       const titleStatus = $(this).closest('.dropdown__container').find('.dropdown__button').find('.dropdown__title');
       titleStatus.text(selectedValue);
       $(this).closest('.dropdown__list').removeClass('active');
+      $(this).closest('.dropdown__list').prev().removeClass('active');
     }
     $(this).closest('.dropdown__item').siblings().find('input').prop('checked', false);
     $(this).closest('.dropdown__item').siblings().find('input').removeAttr('checked');
