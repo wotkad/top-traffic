@@ -633,6 +633,27 @@ block content
                   include ../components/campaign/messages
                 .selector__container(data-id="actions").active
                   include ../components/campaign/actions
+                .messages__bottom
+                  .messages__footer
+                    form(action="#").messages__form.default
+                      +input({
+                        class: 'messages__upload',
+                        isFileUpload: true,
+                        isMultiple: true,
+                        isRequired: true,
+                        isTextarea: true,
+                        label: '',
+                        name: 'comment',
+                        placeholder: 'Отправить комментарий...',
+                      })
+                      +button({
+                        class: 'button-icon-round messages__submit',
+                        icon: 'other-send-icon',
+                        isDisabled: true,
+                        isOnlyIcon: true,
+                        type: 'submit',
+                        view: 'button',
+                      })
           //- .selectors
           //-   .content.content-not-collapsed
           //-     .selector__buttons

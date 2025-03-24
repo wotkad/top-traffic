@@ -1,0 +1,198 @@
+.messages
+  .messages__day Среда, 15 октября
+  .messages__actions
+    .messages__action
+      h3 Валерия Медеведева
+      p создал(а) кампанию
+      time • 2 дня назад
+    .messages__action
+      h3 Валерия Медеведева
+      p изменил(а) Приоритет с “Средний” на “Высокий”
+      time • 2 дня назад
+    .messages__action
+      h3 Валерия Медеведева
+      p изменил(а) Приоритет с “Высокий” на “Средний”
+      time • 2 дня назад
+  .message
+    .message__comment
+      .message__avatar
+        span(style="background-color: #E5E4FC;")
+      .message__author
+        .message__head
+          h3 Валерия Медеведева
+          .message__time 16:25
+            span 15.10.2024 в 16:25
+        p Добрый день! Старт РК 16.10
+      .message__buttons
+        +button({
+          class: 'message__button message__reply',
+          icon: 'other-reply-icon',
+          isOnlyIcon: true,
+          type: 'button',
+          view: 'button',
+        })
+        +button({
+          class: 'message__button message__copy',
+          icon: 'other-copy-icon',
+          isOnlyIcon: true,
+          type: 'button',
+          view: 'button',
+        })
+        +button({
+          class: 'message__button message__edit',
+          icon: 'other-edit-icon',
+          isOnlyIcon: true,
+          type: 'button',
+          view: 'button',
+        })
+        +button({
+          class: 'message__button message__delete',
+          dataPopupName: 'delete-comment',
+          icon: 'other-trash-icon',
+          isOnlyIcon: true,
+          type: 'button',
+          view: 'button',
+        })
+      .popup(data-popup-name="delete-comment")
+        .popup__wrapper(data-scroll-lock-scrollable)
+          .popup__title Подтвердить действие
+          .popup__subtitle Удалить комментарий?
+          .popup__form
+            .popup__buttons
+              +button({
+                class: 'button-base',
+                dataPopupName: 'delete-comment',
+                title: 'Нет',
+                view: 'button',
+              })
+              +button({
+                class: 'button-confirm message__remove',
+                dataPopupName: 'delete-comment',
+                title: 'Да',
+                view: 'button',
+              })
+  .messages__day Четверг, 16 октября
+  .messages__new Новые комментарии
+  .message
+    .message__comment
+      .message__avatar
+        span(style="background-color: #FCEAE4;")
+      .message__author
+        .message__head
+          h3 Максим Амбиндер
+          .message__time 12 минут назад
+            span 15.10.2024 в 16:25
+        .message__answered
+          h3 Валерия Медведева
+          p Добрый день! Старт РК 16.10
+        p Добрый день! Спасибо, старт запланирован
+      .message__buttons
+        +button({
+          class: 'message__button message__reply',
+          icon: 'other-reply-icon',
+          isOnlyIcon: true,
+          type: 'button',
+          view: 'button',
+        })
+        +button({
+          class: 'message__button message__copy',
+          icon: 'other-copy-icon',
+          isOnlyIcon: true,
+          type: 'button',
+          view: 'button',
+        })
+        +button({
+          class: 'message__button message__edit',
+          icon: 'other-edit-icon',
+          isOnlyIcon: true,
+          type: 'button',
+          view: 'button',
+        })
+        +button({
+          class: 'message__button message__delete',
+          dataPopupName: 'delete-comment',
+          icon: 'other-trash-icon',
+          isOnlyIcon: true,
+          type: 'button',
+          view: 'button',
+        })
+      .popup(data-popup-name="delete-comment")
+        .popup__wrapper(data-scroll-lock-scrollable)
+          .popup__title Подтвердить действие
+          .popup__subtitle Удалить комментарий?
+          .popup__form
+            .popup__buttons
+              +button({
+                class: 'button-base',
+                dataPopupName: 'delete-comment',
+                title: 'Нет',
+                view: 'button',
+              })
+              +button({
+                class: 'button-confirm message__remove',
+                dataPopupName: 'delete-comment',
+                title: 'Да',
+                view: 'button',
+              })
+  .message
+    .message__comment
+      .message__avatar
+        span(style="background-color: #E5E4FC;")
+      .message__author
+        .message__head
+          h3 Валерия Медеведева
+          .message__time 10 минут назад (изменено)
+            span 15.10.2024 в 16:25 (19.03.2025 в 02:21)
+        p Спасибо!
+      .message__buttons
+        +button({
+          class: 'message__button message__reply',
+          icon: 'other-reply-icon',
+          isOnlyIcon: true,
+          type: 'button',
+          view: 'button',
+        })
+        +button({
+          class: 'message__button message__copy',
+          icon: 'other-copy-icon',
+          isOnlyIcon: true,
+          type: 'button',
+          view: 'button',
+        })
+        +button({
+          class: 'message__button message__edit',
+          icon: 'other-edit-icon',
+          isOnlyIcon: true,
+          type: 'button',
+          view: 'button',
+        })
+        +button({
+          class: 'message__button message__delete',
+          dataPopupName: 'delete-comment',
+          icon: 'other-trash-icon',
+          isOnlyIcon: true,
+          type: 'button',
+          view: 'button',
+        })
+      .popup(data-popup-name="delete-comment")
+        .popup__wrapper(data-scroll-lock-scrollable)
+          .popup__title Подтвердить действие
+          .popup__subtitle Удалить комментарий?
+          .popup__form
+            .popup__buttons
+              +button({
+                class: 'button-base',
+                dataPopupName: 'delete-comment',
+                title: 'Нет',
+                view: 'button',
+              })
+              +button({
+                class: 'button-confirm message__remove',
+                dataPopupName: 'delete-comment',
+                title: 'Да',
+                view: 'button',
+              })
+  .message.message-changed
+    <h3>Валерия Медеведева</h3><p>удалил(а) комментарий “1. Добавлено поле с комментарием 2. Убрана иконка "Помощь" 3. Страница согласования медиаплана объединена со страницей РК 4. Добавлена группировка в раздел "Каналы" 5. Добавлен раздел "Посты" для статуса "В процессе"”</p><time> • 2 дня назад</time><button type="button">Восстановить</button>
+  .message.message-changed
+    <h3>Валерия Медеведева</h3><p>отредактировал(а) комментарий с “1. Добавлено поле с комментарием 2. Убрана иконка "Помощь"” на “1. Страница согласования медиаплана объединена со страницей РК 2. Добавлена группировка в раздел "Каналы" 5. Добавлен раздел "Посты" для статуса "В процессе"”</p><time> • 2 дня назад</time>
