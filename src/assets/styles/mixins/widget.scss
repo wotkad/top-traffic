@@ -135,6 +135,17 @@
       &__value {
         @apply flex-1 text-blue-200;
       }
+      &__tip {
+        svg {
+          @apply text-black-100;
+        }
+        &:hover,
+        &:active {
+          svg {
+            @apply text-black-200;
+          }
+        }
+      }
       &__progress {
         progress {
           &::-webkit-progress-value {
