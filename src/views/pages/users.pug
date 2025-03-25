@@ -14,21 +14,19 @@ block content
     include ../components/sidebar
     include ../components/header
     .wrapper
-      form(action="#").profile
+      section.profile
+        form(action="#").profile__form
         +heading-table({
           buttons: [
             {
+              view: 'button',
               class: 'button-with-icon-blue',
-              title: 'Сохранить изменения',
-              type: 'submit',
-              view: 'button',
-            },
-            {
-              class: 'button-base',
-              title: 'Отмена',
-              type: 'button',
-              view: 'button',
+              icon: 'other-plus-icon',
+              title: 'Добавить пользователя',
+              dataPopupName: 'add-user',
             },
           ],
-          title: 'Профиль',
+          isSearch: true,
+          searchClass: 'min-w-[243px] max-w-[243px]',
+          title: 'Пользователи',
         })
