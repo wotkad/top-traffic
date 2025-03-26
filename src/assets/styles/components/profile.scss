@@ -31,7 +31,7 @@
   }
   &__avatar {
     img {
-      @apply row-span-2 rounded-full max-w-16 max-h-16 object-cover;
+      @apply row-span-2 rounded-full min-w-16 max-w-16 min-h-16 max-h-16 object-cover;
     }
     span {
       @apply flex justify-center items-center row-span-2 border-2 border-black-100 rounded-full w-16 h-16 font-semibold text-[20px] leading-[26px];
