@@ -1,5 +1,6 @@
 module.exports = {
   defaults: {
+    alert: '',
     autocomplete: 'on',
     class: 'input',
     icon: '',
@@ -27,6 +28,7 @@ module.exports = {
   },
   mergeConfig(data, defaults) {
     return {
+      alert: data.alert !== undefined ? data.alert : defaults.alert,
       alt: data.image !== undefined ? data.image.alt : defaults.image.alt,
       autocomplete: data.autocomplete !== undefined ? data.autocomplete : defaults.autocomplete,
       class: data.class !== undefined ? data.class : defaults.class,

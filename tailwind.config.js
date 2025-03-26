@@ -40,9 +40,11 @@ module.exports = {
           '000': '#84C9A9',
           '025': '#A9FF58',
           '050': '#1CDE0B',
+          '075': '#1A8754',
           '100': '#DAEFE5',
           '200': '#50AF1D',
           '300': '#4CC125',
+          '400': '#E4FCE5',
           '900': '#28834C',
         },
         red: {
@@ -85,6 +87,7 @@ module.exports = {
         '30-m-p': ['30px', { lineHeight: '120%', fontWeight: 500 }],
         '24-sb': ['24px', { lineHeight: '30px', fontWeight: 600 }],
         '18-sb': ['18px', { lineHeight: '24px', fontWeight: 600 }],
+        '16-sb-p': ['16px', { lineHeight: '140%', fontWeight: 600 }],
         '14-sb-md': ['14px', { lineHeight: '20px', fontWeight: 600 }],
         '14-m-md': ['14px', { lineHeight: '20px', fontWeight: 500 }],
         '14-sb': ['14px', { lineHeight: '18px', fontWeight: 600 }],
@@ -104,6 +107,7 @@ module.exports = {
         '10-r': ['10px', { lineHeight: '14px', fontWeight: 400 }],
         '10-m-sm': ['10px', { lineHeight: '12px', fontWeight: 500 }],
         '10-r-sm': ['10px', { lineHeight: '12px', fontWeight: 400 }],
+        '10-m-p': ['10px', { lineHeight: '120%', fontWeight: 500 }],
         '10-r-p': ['10px', { lineHeight: '120%', fontWeight: 400 }],
       },
       fontFamily: {

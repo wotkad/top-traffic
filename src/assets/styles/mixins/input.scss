@@ -12,6 +12,9 @@
   @apply block;
 }
 .input {
+  &__alert {
+    @apply text-10-m;
+  }
   &__container {
     @apply flex flex-col items-start gap-y-1 w-full;
   }
@@ -106,19 +109,10 @@
   }
   &-with-label {
     .input__el {
-      &.error {
-        & ~ .error__text {
-          @apply opacity-100 w-auto h-auto text-12-r-p visible;
-        }
-        @apply bg-red-400 border-red-100;
-      }
       &::placeholder {
         @apply visible;
       }
       @apply px-3 py-[11px] h-9 text-12-r-p;
-    }
-    .error__text {
-      @apply invisible flex items-center gap-x-1 opacity-0 w-0 h-0 text-[0] text-red-100 transition-[opacity,visibility] duration-300;
     }
     @apply flex flex-col items-start gap-y-2;
   }
@@ -129,8 +123,24 @@
     @apply text-14-m-p;
   }
   &__el {
+    & ~ .error__text {
+      @apply invisible flex items-center gap-x-1 opacity-0 w-0 h-0 text-[0] text-12-r-p text-red-100 transition-[opacity,visibility] duration-300;
+    }
+    &.error {
+      & ~ .error__text {
+        @apply visible opacity-100 w-auto h-auto;
+      }
+      @apply bg-red-400 border-red-100;
+    }
     &::placeholder {
       @apply invisible;
+    }
+    &[disabled] {
+      &:hover,
+      &:focus {
+        @apply border-black-500;
+      }
+      @apply text-black-200 cursor-not-allowed;
     }
     &:hover,
     &:focus {
@@ -149,6 +159,22 @@
     &.lg {
       @apply h-12;
     }
+    &.sm[type="password"],
+    &.sm[type="text"] {
+      & ~ .input__tip {
+        @apply hidden;
+      }
+      & ~ .input__toggle {
+        @apply top-[42px];
+      }
+      &::placeholder {
+        @apply visible;
+      }
+      @apply px-3 py-[11px] h-9 text-12-r-p;
+    }
+    & ~ .input__toggle {
+      @apply top-6;
+    }
     @apply bg-black-700 px-3 pt-[22px] pb-2 border border-black-500 rounded-md w-full h-12 text-14-r transition-all duration-300;
   }
   &__tip {
@@ -163,7 +189,7 @@
         @apply block;
       }
     }
-    @apply hidden top-1/2 absolute right-3 -translate-y-1/2;
+    @apply hidden top-6 absolute right-3 -translate-y-1/2;
   }
   &__eye {
     &-hide {

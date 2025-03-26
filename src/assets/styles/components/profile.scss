@@ -1,0 +1,53 @@
+.profile {
+  &__block {
+    h3 {
+      @apply mb-4 text-14-sb-p;
+    }
+    &-password {
+      @apply pb-[52px];
+    }
+    &-google {
+      h3 {
+        @apply mb-1 text-16-sb-p;
+      }
+      p {
+        @apply text-14-m-p text-green-075;
+      }
+      @apply py-3.5;
+    }
+    @apply py-6 border-b border-black-500;
+  }
+  &__upload {
+    input {
+      @apply invisible absolute opacity-0 w-0 h-0;
+    }
+    p {
+      @apply text-10-m-p;
+    }
+    @apply flex items-end gap-x-3.5 cursor-pointer;
+  }
+  &__container {
+    @apply flex flex-col justify-end items-start gap-y-1.5;
+  }
+  &__avatar {
+    img {
+      @apply row-span-2 rounded-full max-w-16 max-h-16 object-cover;
+    }
+    span {
+      @apply flex justify-center items-center row-span-2 border-2 border-black-100 rounded-full w-16 h-16 font-semibold text-[20px] leading-[26px];
+    }
+    @apply relative grid;
+  }
+  &__remove {
+    @apply hidden -top-1 -right-1 absolute;
+  }
+  &__fields {
+    @apply gap-x-8 gap-y-4 grid grid-cols-[repeat(2,_minmax(262px,0))];
+  }
+  &__alert {
+    span {
+      @apply text-12-m-p;
+    }
+    @apply inline-flex items-center gap-x-2 bg-green-400 bottom-10 fixed left-1/2 -translate-x-1/2 px-3 py-2.5 rounded-md;
+  }
+}
