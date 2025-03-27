@@ -130,7 +130,7 @@ function toggleTableInput() {
               </div>
             </label>
           </td>
-          <td class="pr-2.5" style="padding-right: 32px;">
+          <td class="pr-2.5" style="padding-right: 16px;">
               <button class="button button-icon text-black-200 table__remove active" type="button" aria-label="button" data-popup-name="delete-admin-post" data-admin-id="${newId}">
                   <svg viewBox="0 0 18 18" width="18" height="18">
                     <use xlink:href="#other-trash-icon"></use>

@@ -132,7 +132,7 @@ function toggleTableInput() {
               <div class="grid items-center gap-x-1.5 grid-cols-[30px_1fr]"><img class="rounded object-cover w-[30px] h-[30px]" src="/assets/images/avatar.png" alt="tg-channel"><span>Илья Сорокин</span></div>
           </td>
           <td class="only-text" style="padding-right: 32px;">12.12.2023</td>
-          <td class="pr-2.5" style="padding-right: 32px;">
+          <td class="pr-2.5" style="padding-right: 16px;">
               <button class="button button-icon text-black-200 table__remove active" type="button" aria-label="button" data-popup-name="delete-admin-post" data-admin-id="${newId}">
                   <svg viewBox="0 0 18 18" width="18" height="18">
                     <use xlink:href="#other-trash-icon"></use>

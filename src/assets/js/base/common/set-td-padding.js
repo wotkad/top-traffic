@@ -2,7 +2,6 @@ function setTdPaddingUniversal(tableClass, sliceStart, sliceEndOffset) {
   requestAnimationFrame(() => {
     $(`table.${tableClass}`).each(function () {
       let table = $(this);
-
       let tds = table.find('td, th');
       tds.css('padding-right', 32);
 
@@ -21,7 +20,6 @@ function setTdPaddingUniversal(tableClass, sliceStart, sliceEndOffset) {
             ? Number($(tds[2]).css('padding-right').slice(0, -2))
             : 32;
 
-          // sliceEndOffset - сколько ячеек оставить нетронутыми с конца
           let adjustableTdsCount = numOfTds - sliceEndOffset;
           extraPadding = widthDifference / (adjustableTdsCount - sliceStart);
 
@@ -32,6 +30,11 @@ function setTdPaddingUniversal(tableClass, sliceStart, sliceEndOffset) {
           }
 
           $(tds.slice(sliceStart, -sliceEndOffset)).css('padding-right', finalPadding);
+        }
+
+        if (table.hasClass('table-can-remove')) {
+          $(tds.eq(-2)).css('padding-right', 16);
+          $(tds.eq(-1)).css('padding-right', 16);
         }
       });
     });
