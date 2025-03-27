@@ -681,4 +681,7 @@
     }
     @apply min-w-full;
   }
+  &.table-fixed-cols {
+    @apply min-w-full;
+  }
 }

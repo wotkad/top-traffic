@@ -154,6 +154,8 @@ function toggleTableInput() {
 
       datePicker();
       assignAdminIds();
+      applyFixedColsPadding();
+      applyDefaultTablePadding();
     }
   });
 }
