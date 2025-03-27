@@ -34,21 +34,22 @@ block content
         })
         .profile__block
           h3 Аватар
-          label.profile__upload
-            input(type="file")
+          .profile__upload
             .profile__avatar
               img(src="")
               span
               .profile__remove
                 svg
                   use(xlink:href="#other-close-icon")
-            .profile__container
+            label.profile__container
+              input(type="file")
               <div class="button button-with-icon-blue" type="button" aria-label="button"><svg viewBox="0 0 16 16" width="16" height="16"><use xlink:href="#other-upload-icon"></use></svg><span>Загрузить</span></div>
               p Аватар виден вам и вашей команде
         .profile__block
           h3 Персональные данные
           .profile__fields
             +input({
+              isButtonClear: true,
               isLabel: true,
               label: 'Имя',
               name: 'name',
@@ -56,6 +57,7 @@ block content
               type: 'text',
             })
             +input({
+              isButtonClear: true,
               isLabel: true,
               label: 'Фамилия',
               name: 'surname',
@@ -73,6 +75,7 @@ block content
               value: 'alexxxtop@toptraffic.ru',
             })
             +input({
+              isButtonClear: true,
               isLabel: true,
               label: 'Telegram',
               name: 'telegram',
@@ -80,6 +83,7 @@ block content
               type: 'text',
             })
             +input({
+              isButtonClear: true,
               isLabel: true,
               label: 'Должность',
               name: 'role',

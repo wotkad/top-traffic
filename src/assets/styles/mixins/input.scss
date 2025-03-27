@@ -12,6 +12,9 @@
   @apply block;
 }
 .input {
+  &__clear {
+    @apply invisible top-1.5 right-1 absolute flex justify-center items-center opacity-0 w-6 h-6 transition-all duration-300;
+  }
   &__alert {
     @apply text-10-m;
   }
@@ -108,6 +111,9 @@
     @apply flex items-center;
   }
   &-with-label {
+    .input__clear {
+      @apply top-[31px];
+    }
     .input__el {
       &::placeholder {
         @apply visible;
@@ -151,6 +157,12 @@
     &.filled {
       & ~ .input__tip {
         @apply -translate-y-[11px];
+      }
+      @apply bg-white-000;
+    }
+    &.filled {
+      & ~ .input__clear {
+        @apply visible opacity-100;
       }
     }
     &.error {

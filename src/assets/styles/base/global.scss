@@ -88,6 +88,9 @@ label {
       }
       @apply -ml-7;
     }
+    .profile__alert {
+      @apply left-[calc(50%+(59px/2))];
+    }
   }
   &:before {
     @apply top-[60px] right-0 z-50 fixed bg-white-000 w-6 h-[calc(100%-60px)] content-[''];

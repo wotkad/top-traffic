@@ -18,28 +18,31 @@
     @apply py-6 border-b border-black-500;
   }
   &__upload {
-    input {
-      @apply invisible absolute opacity-0 w-0 h-0;
-    }
     p {
       @apply text-10-m-p;
     }
-    @apply flex items-end gap-x-3.5 cursor-pointer;
+    @apply flex items-end gap-x-3.5;
   }
   &__container {
+    .button {
+      @apply cursor-pointer;
+    }
+    input {
+      @apply invisible absolute opacity-0 w-0 h-0;
+    }
     @apply flex flex-col justify-end items-start gap-y-1.5;
   }
   &__avatar {
     img {
-      @apply row-span-2 rounded-full min-w-16 max-w-16 min-h-16 max-h-16 object-cover;
+      @apply col-start-1 row-span-2 row-start-1 rounded-full min-w-16 max-w-16 min-h-16 max-h-16 object-cover;
     }
     span {
-      @apply flex justify-center items-center row-span-2 border-2 border-black-100 rounded-full w-16 h-16 font-semibold text-[20px] leading-[26px];
+      @apply flex justify-center items-center col-start-1 row-span-2 row-start-1 border-2 border-black-100 rounded-full w-16 h-16 font-semibold text-[20px] leading-[26px];
     }
     @apply relative grid;
   }
   &__remove {
-    @apply hidden -top-1 -right-1 absolute;
+    @apply hidden -top-1 -right-1 absolute cursor-pointer;
   }
   &__fields {
     @apply gap-x-8 gap-y-4 grid grid-cols-[repeat(2,_minmax(262px,0))];
@@ -48,6 +51,6 @@
     span {
       @apply text-12-m-p;
     }
-    @apply inline-flex items-center gap-x-2 bg-green-400 bottom-10 fixed left-1/2 -translate-x-1/2 px-3 py-2.5 rounded-md;
+    @apply inline-flex items-center gap-x-2 transition-all duration-300 bg-green-400 bottom-10 fixed left-[calc(50%+(217px/2))] -translate-x-1/2 px-3 py-2.5 rounded-md;
   }
 }
