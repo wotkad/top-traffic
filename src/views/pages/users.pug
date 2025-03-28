@@ -14,19 +14,26 @@ block content
     include ../components/sidebar
     include ../components/header
     .wrapper
-      section.profile
-        form(action="#").profile__form
-        +heading-table({
-          buttons: [
-            {
-              view: 'button',
-              class: 'button-with-icon-blue',
-              icon: 'other-plus-icon',
-              title: 'Добавить пользователя',
-              dataPopupName: 'add-user',
-            },
-          ],
-          isSearch: true,
-          searchClass: 'min-w-[243px] max-w-[243px]',
-          title: 'Пользователи',
-        })
+      +heading-table({
+        buttons: [
+          {
+            view: 'button',
+            class: 'button-with-icon-blue',
+            icon: 'other-plus-icon',
+            title: 'Добавить пользователя',
+            dataPopupName: 'add-user',
+          },
+        ],
+        isSearch: true,
+        searchClass: 'min-w-[243px] max-w-[243px]',
+        title: 'Пользователи',
+      })
+      .users__block.users__block-awaiting
+        .users__heading
+          h3 Ожидают одобрения
+          button(type="button") Подтвердить все
+      .users__buttons
+        button(type="button").users__button.active Все (26)
+        button(type="button").users__button Внутренние пользователи (25)
+        button(type="button").users__button Гости (1)
+      .users__block

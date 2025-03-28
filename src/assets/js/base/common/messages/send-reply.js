@@ -10,7 +10,7 @@ $(document).on("submit", ".messages__form.replied", function (event) {
   if (!newMessageText) return;
 
   let repliedBlock = $(".messages__reply");
-  let repliedUser = repliedBlock.find("h3").text();
+  let repliedUser = repliedBlock.find("h3").text().replace(/^Ответить: /, "").trim();
 
   // Поиск оригинального сообщения, чтобы проверить текст и файлы
   let originalMessage = $(".messages .message").filter(function () {
@@ -113,6 +113,7 @@ $(document).on("submit", ".messages__form.replied", function (event) {
 
   // Очищаем поле ввода и скрываем блок ответа
   $(".messages__reply").remove();
+  $(".messages__files").remove();
   $('.messages__submit').attr('disabled', true);
   textarea.val("");
   $(this).removeClass('replied');

@@ -16,12 +16,9 @@
       @apply w-3.5 h-3.5 text-black-200 transition-all duration-300;
     }
     &:hover {
-      svg {
-        @apply text-white-000;
-      }
-      @apply bg-blue-000;
+      @apply bg-black-600;
     }
-    @apply flex justify-center items-center bg-black-600 w-[34px] h-[34px];
+    @apply flex justify-center items-center bg-transparent w-[34px] h-[34px];
   }
   &__submit {
     &:disabled {
@@ -30,8 +27,12 @@
       }
       @apply bg-black-500;
     }
+    &:hover,
+    &:active {
+      @apply bg-blue-025;
+    }
     svg {
-      @apply w-6 h-6 text-white-000;
+      @apply -mr-[3px] w-4 h-4 text-white-000;
     }
     @apply bg-blue-000 p-0 rounded-full w-[34px] h-[34px];
   }
@@ -51,7 +52,7 @@
     time {
       @apply font-normal text-10-r-sm text-black-200;
     }
-    @apply flex flex-wrap items-center gap-x-1 mt-[7px] ml-9;
+    @apply flex flex-wrap items-center gap-x-1 mt-[7px] ml-16;
   }
   &__reply,
   &__edit {
@@ -95,7 +96,7 @@
       svg {
         @apply w-1.5 h-1.5 text-white-000;
       }
-      @apply -top-1.5 -right-1.5 absolute flex justify-center items-center bg-black-100 bg-opacity-50 opacity-0 border border-white-000 rounded-full w-4 h-4 transition-all duration-300;
+      @apply -top-1.5 -right-1.5 z-10 absolute flex justify-center items-center bg-black-100 bg-opacity-50 opacity-0 border border-white-000 rounded-full w-4 h-4 transition-all duration-300;
     }
     &.loaded {
       .messages__file__icon {
@@ -173,7 +174,12 @@
     }
     .button {
       svg {
-        @apply text-black-200;
+        @apply text-black-200 transition-all duration-300;
+      }
+      &:hover {
+        svg {
+          @apply text-black-100;
+        }
       }
       @apply left-3 absolute flex justify-center items-center rounded-[4px] w-5 h-5;
     }

@@ -44,6 +44,7 @@ function messages() {
   $(document).on("click", ".messages__cancel", function () {
     $(".messages__edit").remove();
     $(".messages__reply").remove();
+    $(".messages__files").remove();
     $('.messages__submit').prop('disabled', true);
     let form = $('.messages__form');
     form.removeClass('edited').removeClass('replied');
@@ -145,16 +146,22 @@ function messages() {
 
   // Удаление файла
   $(document).on("click", ".messages__file__remove, .messages__file__icon-close", function () {
+    let fileContainer = $(this).closest(".messages__files");
     $(this).closest(".messages__file").remove();
 
-    // Если файлов больше нет — удаляем контейнер
+    // Если файлов больше нет — удаляем контейнер (только в .messages__bottom)
     if ($(".messages__bottom .messages__files .messages__file").length === 0) {
       $(".messages__bottom .messages__files").remove();
     }
 
     checkSubmitButtonState();
-    handleFileLimit($('.messages__files'));
+
+    // Ограничиваем действие только на .messages__bottom .messages__files
+    if (fileContainer.closest(".messages__bottom").length) {
+      handleFileLimit(fileContainer);
+    }
   });
+
 
   // Отслеживание ввода текста
   $(document).on("input", ".messages__form textarea[name='comment']", function () {

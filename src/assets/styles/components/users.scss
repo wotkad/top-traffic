@@ -1,0 +1,29 @@
+.users {
+  &__block {
+    &-awaiting {
+    @apply mt-[26px] px-4 py-3.5 border border-black-500 rounded-[10px];
+    }
+  }
+  &__heading {
+    h3 {
+      @apply text-14-sb-p;
+    }
+    button {
+      @apply text-12-m text-blue-000;
+    }
+    @apply flex justify-between items-center;
+  }
+  &__buttons {
+    @apply flex items-center gap-x-5 mt-10;
+  }
+  &__button {
+    &.active {
+      @apply text-black-100;
+    }
+    &:hover,
+    &:active {
+      @apply text-black-100;
+    }
+    @apply text-12-sb-p text-black-200 transition-all duration-300;
+  }
+}

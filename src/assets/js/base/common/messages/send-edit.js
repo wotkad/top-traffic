@@ -60,6 +60,7 @@ $(document).on("submit", ".messages__form.edited", function (event) {
   // Сброс редактирования
   $(this).closest(".message").removeAttr('data-edit-id');
   $(".messages__edit").remove();
+  $(".messages__files").remove();
   $(this).find("textarea[name='comment']").val("");
   $(this).removeClass('edited');
   $('.messages__submit').prop('disabled', true);

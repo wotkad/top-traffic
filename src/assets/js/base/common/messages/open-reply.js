@@ -5,11 +5,13 @@ $(document).on("click", ".message__reply", function () {
   $(".messages__reply").remove();
   $('.messages__form').find("textarea[name='comment']").val("");
   $(".messages__bottom .messages__files").remove();
-
+  
   let repliedUser = parent.find(".message__head h3").text().trim();
   let repliedText = parent.find(".message__author > p").text().trim();
   let hasText = repliedText.length > 0;
   let hasFiles = parent.find(".message__author .messages__files .messages__file").length > 0;
+
+  let displayedUser = `Ответить: ${repliedUser}`;
 
   // Если в сообщении только файлы и нет текста — берём название первого файла
   if (!hasText && hasFiles) {
@@ -22,8 +24,17 @@ $(document).on("click", ".message__reply", function () {
 
   // Формируем контент блока ответа
   let repliedContent = '';
-  if (hasText || !hasFiles) {
-    // Если есть текст или нет файлов, показываем с иконкой
+  if (hasText && !hasFiles) {
+    repliedContent = `
+      <p>
+        ${repliedText}
+      </p>`;
+  } else if (hasFiles && !hasText) {
+    repliedContent = `
+      <p>
+        ${repliedText}
+      </p>`;
+  } else if (hasFiles && hasText) {
     repliedContent = `
       <p>
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -32,8 +43,10 @@ $(document).on("click", ".message__reply", function () {
         ${repliedText}
       </p>`;
   } else {
-    // Если текста нет, но есть файлы — выводим только название файла без иконки
-    repliedContent = `<p>${repliedText}</p>`;
+    repliedContent = `
+      <p>
+        ${repliedText}
+      </p>`;
   }
 
   // Шаблон для ответа
@@ -46,7 +59,7 @@ $(document).on("click", ".message__reply", function () {
           </svg>
         </div>
         <div class="message__answered">
-          <h3>${repliedUser}</h3>
+          <h3>${displayedUser}</h3>
           ${repliedContent}
         </div>
       </div>
