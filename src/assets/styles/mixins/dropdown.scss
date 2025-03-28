@@ -235,7 +235,7 @@
       }
     }
     .dropdown__list {
-      @apply gap-y-0 bg-white-000 px-2 py-3 w-[240px] max-w-[240px] max-h-[168px];
+      @apply gap-y-0 bg-white-000 p-2 w-[240px] max-w-[240px] max-h-[168px];
     }
     .dropdown__title {
       @apply block font-medium;
@@ -259,7 +259,10 @@
       &:after {
         @apply top-0 left-0 absolute bg-black-600 opacity-0 rounded-[4px] w-full h-full content-[''] transition-all duration-300;
       }
-      @apply flex items-center px-2;
+      span {
+        @apply z-10 relative bg-transparent pb-1 text-12-r-md text-black-200 whitespace-normal cursor-pointer;
+      }
+      @apply flex flex-col items-center px-2;
     }
   }
   &-with-icon {
@@ -333,6 +336,48 @@
         }
         @apply py-[3px] text-black-100;
       }
+    }
+  }
+  &-roles {
+    .dropdown__button {
+      &.role-admin {
+        .button.button-icon {
+          svg {
+            @apply text-blue-200;
+          }
+        }
+        @apply border-blue-200 text-blue-200;
+      }
+      &.role-manager {
+        .button.button-icon {
+          svg {
+            @apply text-red-150;
+          }
+        }
+        @apply border-red-150 text-red-150;
+      }
+      &.role-admin {
+        .button.button-icon {
+          svg {
+            @apply text-blue-200;
+          }
+        }
+        @apply border-blue-200 text-blue-200;
+      }
+      .button.button-icon {
+        svg {
+          @apply w-2.5 h-[5px];
+        }
+        &:hover,
+        &:active {
+          @apply bg-transparent;
+        }
+        @apply p-0 w-auto min-w-0 h-auto;
+      }
+      @apply gap-x-2 p-2 border rounded-[5px];
+    }
+    .dropdown__list {
+      @apply min-w-[240px];
     }
   }
   @apply flex flex-col items-start gap-y-2 w-full;

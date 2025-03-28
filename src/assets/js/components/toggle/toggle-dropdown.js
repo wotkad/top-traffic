@@ -172,6 +172,22 @@ export default function toggleDropdown() {
         </div>
       `);
 
+    } else if ($(this).closest('.dropdown-radios').hasClass('dropdown-roles')) {
+      
+      const selectedValue = $(this).siblings('p').text();
+      const selectedColor = $(this).data('role') || '';
+      const buttonStatus = $(this).closest('.dropdown-roles .dropdown__container').find('.dropdown__button');
+      const titleStatus = $(this).closest('.dropdown__container').find('.dropdown__button').find('.dropdown__title');
+      titleStatus.text(selectedValue);
+      if (selectedColor) {
+        buttonStatus.attr('class', `dropdown__button ${selectedColor}`);
+      } else {
+        buttonStatus.attr('class', 'dropdown__button');
+      }
+      
+      $(this).closest('.dropdown__list').removeClass('active');
+      buttonStatus.removeClass('active');
+
     } else {
 
       const selectedValue = $(this).siblings('p').text();

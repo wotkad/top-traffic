@@ -24,6 +24,7 @@ import "./base/common/set-profile-initials";
 import "./base/common/set-profile-photo";
 import "./base/common/set-comment-initials";
 import "./base/common/copy-accordion-link";
+import "./base/common/copy-users-link";
 import "./base/common/copy-popup-link";
 import "./base/common/table-attachment-link";
 import "./base/common/table-attachment-file";

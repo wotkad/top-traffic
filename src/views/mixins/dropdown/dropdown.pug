@@ -85,8 +85,13 @@ mixin dropdown(data = {})
               label.dropdown__item(data-href=button.linkHref data-title=button.linkTitle)
                 if button.image
                   img.dropdown__image(src=button.image.src, alt=button.image.alt)
-                input(type="radio" name=`radio-${button.name}` checked=button.isChecked)
-                p= button.title
+                input(
+                  type="radio"
+                  name=`radio-${button.name}`
+                  checked=button.isChecked
+                  data-role=button.role ? button.role : false)
+                p(class=button.class)= button.title
+                span= button.description
 
         else if modefied.isPriority || modefied.isStatus
           each button, index in modefied.buttons

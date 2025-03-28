@@ -1,7 +1,44 @@
 .users {
+  &__link {
+    button {
+      svg {
+        @apply w-2.5 h-2.5 text-black-200 transition-all duration-300;
+      }
+      &:hover {
+        svg {
+          @apply text-black-100;
+        }
+      }
+    }
+    @apply flex items-center gap-x-1;
+  }
   &__block {
+    .inner {
+      @apply mt-2;
+    }
+    .table tbody tr {
+      &:last-child {
+        td {
+          @apply pb-0 border-b-0;
+        }
+      }
+      &:hover {
+        @apply bg-transparent;
+      }
+    }
+    .table tbody tr:hover .fixed-td, .table tbody tr:hover .fixed-th {
+      @apply bg-transparent;
+    }
+    .table {
+      &__link {
+        @apply text-10-m; 
+      }
+    }
     &-awaiting {
-    @apply mt-[26px] px-4 py-3.5 border border-black-500 rounded-[10px];
+      @apply mt-[26px] px-4 py-3.5 border border-black-500 rounded-[10px];
+    }
+    .content-scroll {
+      @apply pb-0;
     }
   }
   &__heading {
@@ -24,6 +61,39 @@
     &:active {
       @apply text-black-100;
     }
-    @apply text-12-sb-p text-black-200 transition-all duration-300;
+    @apply text-12-sb-p text-black-200 leading-[14px] transition-all duration-300;
+  }
+  &__avatar {
+    img {
+      @apply col-start-1 row-start-1 rounded-full max-w-16 max-h-16 object-cover;
+    }
+    span {
+      @apply flex justify-center items-center col-start-1 row-start-1 rounded-full w-[30px] h-[30px] font-semibold text-12-sb-p;
+    }
+    @apply grid bg-purple-200 rounded-full;
+  }
+}
+
+table td.users {
+  &-row {
+    &__user {
+      @apply py-[15px];
+    }
+    &__role {
+      @apply py-3;
+    }
+    &__status {
+      @apply py-[22px];
+    }
+    &__activity {
+      @apply py-[22px];
+    }
+    &__buttons {
+      .button-base {
+        @apply flex items-center p-2 h-8;
+      }
+      padding-right: 0 !important;
+      @apply py-3;
+    }
   }
 }
