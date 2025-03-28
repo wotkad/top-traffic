@@ -16,6 +16,9 @@
   }
   .selector {
     &__content {
+      &.users__tables {
+        @apply mt-0;
+      }
       @apply mt-7;
     }
   }

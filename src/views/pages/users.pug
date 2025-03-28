@@ -35,9 +35,31 @@ block content
         .inner.in-container
           .content.content-collapsed
             .content-scroll
-              include ../components/users/table
-      .users__buttons
-        button(type="button").users__button.active Все (26)
-        button(type="button").users__button Внутренние пользователи (25)
-        button(type="button").users__button Гости (1)
+              include ../components/users/awaiting/table
       .users__block
+        .selectors
+          .content.content-not-collapsed
+            .selector__buttons.users__buttons
+              .selector__scroll
+                button.selector__button.users__button.active(data-id="users-all") Все
+                  span (26)
+                button.selector__button.users__button(data-id="users-inner") Внутренние пользователи
+                  span (25)
+                button.selector__button.users__button(data-id="users-guests") Гости
+                  span (1)
+            .selector__containers.selector__content.users__tables
+              .selector__container(data-id="users-all").active
+                .in-container.mt-4
+                  .content.content-collapsed
+                    .content-scroll
+                      include ../components/users/all/table
+              .selector__container(data-id="users-inner")
+                .in-container.mt-4
+                  .content.content-collapsed
+                    .content-scroll
+                      include ../components/users/inner/table
+              .selector__container(data-id="users-guests")
+                .in-container.mt-4
+                  .content.content-collapsed
+                    .content-scroll
+                      include ../components/users/guests/table

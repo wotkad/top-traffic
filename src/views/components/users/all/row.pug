@@ -1,0 +1,72 @@
+mixin users-all-row(data)
+  tr(class=data.isActive ? '' : 'disabled')
+    td(style="padding-left: 16px; min-width: 200px;").fixed-td.fixed-td-border.users-row__user
+      .flex.items-center.w-full(class="gap-x-3 h-[30px]")
+        .flex.items-center(class="gap-x-1.5")
+          .users__avatar
+            img(src="")
+            span ВМ
+          .flex.flex-col.items-start
+            h3
+              .table__channel Валерия Медеведева
+            .users__link
+              .table__link valeramedved@toptraffic.ru
+              button(type="button")
+                svg
+                  use(xlink:href="#other-copy-icon")
+    td.users-row__role
+      +dropdown({
+        buttons: [
+          {
+            description: 'Полный доступ к сервису, доступ к редактированию данных',
+            isChecked: true,
+            name: 'role',
+            role: 'role-admin',
+            title: 'Администратор',
+          },
+          {
+            description: 'Полный доступ к сервису, ограниченный доступ к редактированию данных',
+            name: 'role',
+            role: 'role-manager',
+            title: 'Менеджер',
+          },
+          {
+            description: 'Полный доступ к сервису, доступ к редактированию данных',
+            name: 'role',
+            role: 'role-guest',
+            title: 'Гость',
+          },
+        ],
+        class: 'dropdown-radios dropdown-roles',
+        classButton: 'role-admin',
+        isRadios: true,
+        title: 'Администратор',
+      })
+    td.users-row__status
+      if data.isActive
+        .text-12-m-p.text-green-000.users__state.users__state-active Активен
+      else
+        .text-12-m-p.text-black-200.users__state.users__state-disabled Отключен
+    td.users-row__activity
+      .text-12-m-p.text-black-200= data.lastActivity
+    td.users-row__buttons
+      .flex.items-center.gap-x-3.justify-between.ml-auto(class="min-w-[200px] max-w-[200px]")
+        if data.isActive
+          +button({
+            class: 'button-base',
+            title: 'Ограничить доступ',
+            view: 'button',
+          })
+        else
+          +button({
+            class: 'button-base',
+            title: 'Восстановить доступ',
+            view: 'button',
+          })
+        +button({
+          class: 'button-icon text-black-200 users__remove',
+          dataPopupName: 'delete-user',
+          icon: 'other-trash-icon',
+          isOnlyIcon: true,
+          view: 'button',
+        })

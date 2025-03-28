@@ -356,13 +356,13 @@
         }
         @apply border-red-150 text-red-150;
       }
-      &.role-admin {
+      &.role-guest {
         .button.button-icon {
           svg {
-            @apply text-blue-200;
+            @apply text-purple-400;
           }
         }
-        @apply border-blue-200 text-blue-200;
+        @apply border-purple-400 text-purple-400;
       }
       .button.button-icon {
         svg {
@@ -377,7 +377,7 @@
       @apply gap-x-2 p-2 border rounded-[5px];
     }
     .dropdown__list {
-      @apply min-w-[240px];
+      @apply min-w-[240px] max-h-max;
     }
   }
   @apply flex flex-col items-start gap-y-2 w-full;

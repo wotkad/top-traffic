@@ -1,5 +1,5 @@
 tr
-  td(style="padding-left: 0px; min-width: 200px;").fixed-td.fixed-td-border.users-row__user
+  td(style="padding-left: 0px;").fixed-td.fixed-td-border.users-row__user
     .flex.items-center.w-full(class="gap-x-3 h-[30px]")
       .flex.items-center(class="gap-x-1.5")
         .users__avatar
@@ -43,9 +43,9 @@ tr
     })
   td.users-row__status
     .text-12-m-p.text-black-200 Запрос получен 22.08.2024
-  td.users-row__activity(style="min-width: 240px;")
+  td.users-row__activity
   td.users-row__buttons
-    .flex.items-center.gap-x-3.justify-end
+    .flex.items-center.gap-x-3.justify-between.ml-auto(class="min-w-[200px] max-w-[200px]")
       +button({
         class: 'button-with-icon-blue',
         title: 'Подтвердить',

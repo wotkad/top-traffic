@@ -1,0 +1,58 @@
+table.table.table-fixed-cols.table-can-remove
+  thead
+    tr
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Пользователь
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Роль
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Статус активности
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Последняя активность
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+  tbody
+    +users-all-row({
+      isActive: true,
+      lastActivity: 'Сегодня',
+    })
+    +users-all-row({
+      isActive: true,
+      lastActivity: 'Вчера',
+    })
+    +users-all-row({
+      isActive: true,
+      lastActivity: '22.03.2025',
+    })
+    +users-all-row({
+      isActive: true,
+      lastActivity: '21.03.2025',
+    })
+    +users-all-row({
+      isActive: true,
+      lastActivity: '20.03.2025',
+    })
+    +users-all-row({
+      isActive: false,
+      lastActivity: '19.03.2025',
+    })
