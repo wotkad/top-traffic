@@ -5,12 +5,12 @@
     .popup__apply.popup__apply-top
       h3 Подтвердить действие
       p Выйти без сохранения?
+      .popup__buttons
         +button({
           class: 'button-base popup-cancel',
           title: 'Нет',
           view: 'button',
         })
-      .popup__buttons
         +button({
           class: 'button-with-icon-blue lg popup-nosave',
           dataPopupName: 'add-channel',

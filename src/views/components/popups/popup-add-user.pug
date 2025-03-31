@@ -1,0 +1,28 @@
+.popup__bg(data-popup-name="add-user")
+.popup(data-popup-name="add-user")
+  .popup__wrapper(data-scroll-lock-scrollable)
+    .popup__close
+      +button({
+        ariaLabel: 'close',
+        class: 'button-close',
+        dataPopupName: 'add-user',
+        icon: 'other-close-icon',
+        isOnlyIcon: true,
+        view: 'button',
+      })
+    .popup__title Пригласить пользователя
+    .popup__subtitle После отправки приглашения пользователь сможет авторизоваться под указанной почтой
+    .popup__textarea(contenteditable="true")
+      p.popup__paragraph
+        br.popup__trailing-break
+      .popup__placeholder valeramedved@toptraffic.ru, valermed@toptraffic.ru, ...
+    .popup__buttons
+      +button({
+        class: 'button-with-icon-blue lg',
+        dataPopupName: 'add-user',
+        isDisabled: true,
+        title: 'Отправить',
+        type: 'submit',
+        view: 'button',
+      })
+  

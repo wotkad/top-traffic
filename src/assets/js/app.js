@@ -39,6 +39,7 @@ import "./base/common/messages/open-edit";
 import "./base/common/messages/open-reply";
 import "./base/common/only-numbers";
 import "./base/common/users";
+import "./base/common/add-user";
 
 import "./components/form/form-login";
 
