@@ -8,8 +8,10 @@ function togglePopup() {
     let currentPopup = $('.popup[data-popup-name="' + popupName + '"]');
     let currentPopupBg = $('.popup__bg[data-popup-name="' + popupName + '"]');
     let currentMessage = $(this).closest('.message');
+    let currentUser = $(this).closest('.user');
 
     $('.message').removeClass('active');
+    $('.user').removeClass('active');
 
     if (popupName == 'share-post') {
       $('.popup').removeClass('active');
@@ -17,11 +19,12 @@ function togglePopup() {
     }
 
     if (currentPopup.hasClass('active')) {
-      closePopup(currentPopup, currentPopupBg, currentMessage);
+      closePopup(currentPopup, currentPopupBg, currentMessage, currentUser);
     } else {
       currentPopup.addClass('active');
       currentPopupBg.addClass('active');
       currentMessage.addClass('active');
+      currentUser.addClass('active');
       disablePageScroll();
     }
   });
@@ -35,24 +38,30 @@ function togglePopup() {
   $(document).on('mouseup', function(e) {
     $('.popup.active').each(function() {
       let popup = $(this);
+      let currentMessage = $(this).closest('.message');
+      let currentUser = $(this).closest('.user');
       let popupWrapper = popup.find('.popup__wrapper');
       if (!popupWrapper.is(e.target) && !popupWrapper.has(e.target).length) {
         closePopup(popup, popup.prev());
+        currentMessage.removeClass('active');
+        currentUser.removeClass('active');
       }
     });
   });
 }
 
-function closePopup(popup, popupBg, currentMessage) {
+function closePopup(popup, popupBg, currentMessage, currentUser) {
   popup.removeClass('active');
   popupBg.removeClass('active');
   
-  // Проверяем наличие currentMessage и удаляем класс, если он есть
   if (currentMessage && currentMessage.length) {
     currentMessage.removeClass('active');
   }
 
-  // Включаем прокрутку, только если все попапы закрыты
+  if (currentUser && currentUser.length) {
+    currentUser.removeClass('active');
+  }
+
   if (!$('.popup.active').length) {
     enablePageScroll();
   }

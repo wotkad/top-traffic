@@ -1,0 +1,36 @@
+.popup__bg(data-popup-name="restore-access")
+.popup(data-popup-name="restore-access")
+  .popup__wrapper(data-scroll-lock-scrollable)
+    .popup__title Восстановить доступ пользователя?
+    .popup__subtitle После подтверждения пользователь сможет авторизоваться под своей прежней учетной записью
+    .popup__user
+      .flex.items-center.w-full(class="gap-x-3 h-[30px]")
+        .flex.items-center(class="gap-x-1.5")
+          .users__avatar
+            img(src="")
+            span ВМ
+          .flex.flex-col.items-start
+            h3
+              .table__channel Валерия Медеведева
+            .users__link
+              .table__link valeramedved@toptraffic.ru
+              button(type="button")
+                svg
+                  use(xlink:href="#other-copy-icon")
+      .popup__user__status.role-admin Администратор
+    .popup__text Если необходимо изменить уровень доступа, восстановите доступ пользователя, а затем смените его в инструменте администратора
+    .popup__buttons
+      +button({
+        class: 'button-base',
+        dataPopupName: 'restore-access',
+        title: 'Отмена',
+        view: 'button',
+      })
+      +button({
+        class: 'button-with-icon-blue lg',
+        dataPopupName: 'restore-access',
+        title: 'Восстановить',
+        type: 'button',
+        view: 'button',
+      })
+  

@@ -495,7 +495,7 @@
       @apply text-10-r;
     }
     .table__category {
-      @apply text-black-200;
+      @apply bg-transparent text-black-200;
     }
     @apply pr-8 border-b border-black-500 h-11 text-left;
   }

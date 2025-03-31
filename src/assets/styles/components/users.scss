@@ -109,7 +109,7 @@
               .button-base {
                 @apply flex justify-center items-center p-2 h-8;
               }
-              @apply py-[7px];
+              @apply relative py-[7px];
             }
           }
         }
@@ -175,5 +175,16 @@
       @apply flex justify-center items-center col-start-1 row-start-1 rounded-full w-[30px] h-[30px] font-semibold text-12-sb-p;
     }
     @apply grid bg-purple-200 rounded-full;
+  }
+}
+
+.user {
+  .popup {
+    @apply hidden top-9 right-5 absolute inset-auto;
+  }
+  &.active {
+    .popup.active {
+      @apply block p-0 border border-black-500 rounded-[10px] w-full max-w-[258px] overflow-visible;
+    }
   }
 }

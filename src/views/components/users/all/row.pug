@@ -1,5 +1,5 @@
 mixin users-all-row(data)
-  tr(class=data.isActive ? '' : 'disabled')
+  tr(class=data.isActive ? '' : 'disabled').user
     td(style="padding-left: 16px; min-width: 200px;").fixed-td.fixed-td-border.users-row__user
       .flex.items-center.w-full(class="gap-x-3 h-[30px]")
         .flex.items-center(class="gap-x-1.5")
@@ -14,7 +14,7 @@ mixin users-all-row(data)
               button(type="button")
                 svg
                   use(xlink:href="#other-copy-icon")
-    td.users-row__role
+    td.users-row__role(class="min-w-[200px]")
       +dropdown({
         buttons: [
           {
@@ -60,13 +60,32 @@ mixin users-all-row(data)
         else
           +button({
             class: 'button-base',
+            dataPopupName: 'restore-access',
             title: 'Восстановить доступ',
             view: 'button',
           })
         +button({
-          class: 'button-icon text-black-200 users__remove',
+          class: 'button-icon text-black-200 users__delete',
           dataPopupName: 'delete-user',
           icon: 'other-trash-icon',
           isOnlyIcon: true,
           view: 'button',
         })
+        .popup(data-popup-name="delete-user")
+          .popup__wrapper(data-scroll-lock-scrollable)
+              .popup__title Подтвердить действие
+              .popup__subtitle Удалить запись о пользователе?
+              .popup__form
+                .popup__buttons
+                  +button({
+                    class: 'button-base',
+                    dataPopupName: 'delete-user',
+                    title: 'Нет',
+                    view: 'button',
+                  })
+                  +button({
+                    class: 'button-confirm users__remove',
+                    dataPopupName: 'delete-user',
+                    title: 'Да',
+                    view: 'button',
+                  })

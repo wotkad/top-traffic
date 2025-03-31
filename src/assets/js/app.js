@@ -38,6 +38,7 @@ import "./base/common/messages/send-reply";
 import "./base/common/messages/open-edit";
 import "./base/common/messages/open-reply";
 import "./base/common/only-numbers";
+import "./base/common/users";
 
 import "./components/form/form-login";
 
