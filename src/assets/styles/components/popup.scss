@@ -229,6 +229,9 @@
       .button[disabled] {
         @apply bg-black-700 px-5 py-2 border border-black-500 rounded-md h-[34px] text-12-m-md text-black-200;
       }
+      .popup__content {
+        @apply relative;
+      }
       .popup__close {
         .button {
           @apply w-[30px] h-[30px];
@@ -248,10 +251,10 @@
           }
           @apply inline-flex items-center gap-x-1 bg-black-200 bg-opacity-10 mb-1 px-1.5 py-[2px] border border-black-500;
         }
-        @apply relative bg-black-700 mt-6 p-3 border border-black-500 rounded-lg outline-none min-h-[84px] text-12-r break-words whitespace-pre-wrap;
+        @apply bg-black-700 mt-6 p-3 border border-black-500 rounded-lg outline-none min-h-[84px] text-12-r break-words whitespace-pre-wrap;
       }
       .popup__placeholder {
-        @apply top-3 left-3 absolute text-12-r text-black-200;
+        @apply top-3 left-3 absolute text-12-r text-black-200 pointer-events-none select-none;
       }
       @apply p-8 max-w-[618px];
     }

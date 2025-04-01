@@ -2,87 +2,101 @@ function addUser() {
   let $textarea = $('.popup__textarea');
   let $placeholder = $('.popup__placeholder');
   let $popupButton = $('.popup[data-popup-name="add-user"] .popup__buttons button');
-    
+  let typingTimeout;
+
   function togglePopupButton() {
-      if ($('.popup__email').length > 0) {
-        $popupButton.removeAttr('disabled');
-      } else {
-        $popupButton.attr('disabled', 'disabled');
-      }
+    if ($('.popup__email').length > 0) {
+      $popupButton.removeAttr('disabled');
+    } else {
+      $popupButton.attr('disabled', 'disabled');
+    }
   }
-  
+
   $textarea.on('focus', function() {
+    if ($('.popup__email').length > 0 || $textarea.text().length > 0) {
       $placeholder.hide();
+    } else {
+      $placeholder.show();;
+    }
   });
-  
+
   $textarea.on('input', function() {
+    if ($('.popup__email').length > 0 && $textarea.text().length > 0) {
+      $popupButton.removeAttr('disabled');
+    } else {
+      $popupButton.attr('disabled', 'disabled');
+    }
+
+    let content = $textarea.text().trim();
+    
+    // Ожидание окончания ввода почты с задержкой
+    clearTimeout(typingTimeout);
+    typingTimeout = setTimeout(function() {
+      processEmails($textarea);
+    }, 500);
+
+    if (content === '') {
+      $placeholder.show();
+    } else {
       $placeholder.hide();
-      
-      let $paragraph = $textarea.find('p.popup__paragraph');
-      let content = $paragraph.text().trim();
-      let emailPattern = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/g;
-      let matches = content.match(emailPattern);
-      
-      if (matches) {
-          matches.forEach(email => {
-              if ($paragraph.find(`.popup__email:contains('${email}')`).length === 0) {
-                  let emailHtml = `<div class="popup__email" contenteditable="true"><span>${email}</span>
-                      <button class="button button-close" type="button" aria-label="close">
-                          <svg viewBox="0 0 9 9" width="9" height="9">
-                              <use xlink:href="#other-close-icon"></use>
-                          </svg>
-                      </button>
-                  </div> `;
-                  
-                  let newHtml = $paragraph.html().replace(email, emailHtml);
-                  $paragraph.html(newHtml);
-                  placeCursorAtEnd($paragraph[0]);
-                  togglePopupButton();
-              }
-          });
-      }
-      
-      if (content === '') {
-          $paragraph.html('<br class="popup__trailing-break">');
-          $placeholder.show();
-      }
-      togglePopupButton();
+    }
+    removeEmptyEmails($textarea);
   });
-  
-  $textarea.on('keydown', function(e) {
-      if (e.key === ' ' || e.key === 'Enter') {
-          let $paragraph = $textarea.find('p.popup__paragraph');
-          let content = $paragraph.text().trim();
-          let emailPattern = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/g;
-          let matches = content.match(emailPattern);
+
+  function removeEmptyEmails($textarea) {
+    $textarea.find('.popup__email').each(function() {
+      let $emailSpan = $(this).find('span');
+      if ($emailSpan.html().trim() === '<br>') {
+        $(this).remove();
+      }
+    });
+  }
+
+  function processEmails($textarea) {
+    let content = $textarea.text().trim();
+    let emailPattern = /([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})(?=\s|$)/g;
+    let matches = content.match(emailPattern);
+
+    if (matches) {
+      matches.forEach(email => {
+        if ($textarea.find(`.popup__email:contains('${email}')`).length === 0) {
+          let emailHtml = `<div class="popup__email"><span contenteditable="true">${email}</span>
+            <button class="button button-close" type="button" aria-label="close">
+                <svg viewBox="0 0 9 9" width="9" height="9">
+                    <use xlink:href="#other-close-icon"></use>
+                </svg>
+            </button>
+          </div> `;
           
-          if (matches) {
-              matches.forEach(email => {
-                  if ($paragraph.find(`.popup__email:contains('${email}')`).length === 0) {
-                      let emailHtml = `<div class="popup__email" contenteditable="true"><span>${email}</span>
-                          <button class="button button-close" type="button" aria-label="close">
-                              <svg viewBox="0 0 9 9" width="9" height="9">
-                                  <use xlink:href="#other-close-icon"></use>
-                              </svg>
-                          </button>
-                      </div> `;
-                      
-                      let newHtml = $paragraph.html().replace(email, emailHtml);
-                      $paragraph.html(newHtml);
-                      placeCursorAtEnd($paragraph[0]);
-                      togglePopupButton();
-                  }
-              });
-              e.preventDefault();
-          }
-      }
-  });
-  
+          let newHtml = $textarea.html().replace(email, emailHtml);
+          $textarea.html(newHtml);
+          placeCursorAtEnd($textarea[0]);
+          togglePopupButton();
+        }
+      });
+    }
+  }
+
   $(document).on('click', '.button-close', function() {
-      $(this).parent('.popup__email').remove();
-      togglePopupButton();
+    let $email = $(this).parent('.popup__email');
+    $email.remove();
+
+    // Убираем пустые элементы после удаления почты
+    if ($textarea.find('.popup__email').length === 0) {
+      $textarea.html('');
+    }
+
+    placeCursorAtEnd($textarea[0]);
+    togglePopupButton();
   });
-  
+
+  // Остановим переход на новую строку
+  $textarea.on('keydown', function(event) {
+    if (event.key === 'Enter' || event.keyCode === 13) {
+      event.preventDefault(); // Останавливаем создание новой строки
+    }
+  });
+
   function placeCursorAtEnd(el) {
       let range = document.createRange();
       let sel = window.getSelection();
@@ -93,4 +107,5 @@ function addUser() {
       el.focus();
   }
 }
+
 addUser();
