@@ -262,7 +262,7 @@
       span {
         @apply z-10 relative bg-transparent pb-1 text-12-r-md text-black-200 whitespace-normal cursor-pointer;
       }
-      @apply flex flex-col items-center px-2;
+      @apply flex items-center px-2;
     }
   }
   &-with-icon {
@@ -378,6 +378,9 @@
     }
     .dropdown__list {
       @apply min-w-[240px] max-h-max;
+    }
+    .dropdown__item {
+      @apply flex-col;
     }
   }
   @apply flex flex-col items-start gap-y-2 w-full;

@@ -47,6 +47,9 @@
   &__fields {
     @apply gap-x-8 gap-y-4 grid grid-cols-[repeat(2,_minmax(262px,0))];
   }
+  &__button {
+    @apply flex flex-col items-start gap-y-1.5;
+  }
   &__alert {
     span {
       @apply text-12-m-p;

@@ -87,11 +87,25 @@ export default function toggleDropdown() {
     });
   });
   
-  $(document).on('click', '.dropdown__button, .dropdown__sort', function (e) {
+  $(document).on('click', '.dropdown .dropdown__button, .dropdown__sort', function (e) {
     e.stopPropagation();
     const $dropdown = $(this).closest('.dropdown');
     const $list = $dropdown.find('.dropdown__list');
     
+    if ($list.hasClass('active')) {
+        // Если список уже активен, скрываем его и сбрасываем стили
+        $list.removeClass('active').css({ right: '', top: '' });
+        $(this).removeClass('active');
+        return;
+    }
+
+    const buttonOffset = $(this).offset();
+    const buttonWidth = $(this).outerWidth();
+    const buttonHeight = $(this).outerHeight();
+    const dropdownRight = $(window).width() - (buttonOffset.left + buttonWidth);
+
+    const dropdownTop = buttonOffset.top + buttonHeight + 4;
+
     if ($dropdown.closest('.filter__container').length) {
       const $container = $dropdown.closest('.filter__container');
       const buttonOffset = $(this).offset();
@@ -102,14 +116,27 @@ export default function toggleDropdown() {
       $list.css({
         top: `${dropdownTop + 4}px`,
       });
+    } else {
+
+      $list.css({
+        position: 'fixed',
+        top: `${dropdownTop}px`,
+        right: `${dropdownRight}px`,
+      });
     }
-    $('.dropdown__list').not($list).removeClass('active');
+
+    $('.dropdown__list').not($list).removeClass('active').css({ right: '', top: '' });
     $('.dropdown__button').not(this).removeClass('active');
     $('.dropdown__sort').removeClass('active');
 
-    $(this).toggleClass('active');
-    $list.toggleClass('active');
+    $(this).addClass('active');
+    $list.addClass('active');
+  });
 
+  $('.wrapper').on('scroll', function() {
+    $('.dropdown__list').removeClass('active').css({ right: '', top: '' });
+    $('.dropdown__button').removeClass('active');
+    $('.dropdown__sort').removeClass('active');
   });
 
   $(document).on('change', '.dropdown__item input[type="radio"]', function () {

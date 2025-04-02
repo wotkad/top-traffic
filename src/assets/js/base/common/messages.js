@@ -25,6 +25,14 @@ function messages() {
 
     if (linkedParent.length) {
       linkedParent.remove();
+      $(".messages__footer .messages__edit").remove();
+      $(".messages__footer .messages__reply").remove();
+      $(".messages__footer .messages__files").remove();
+      $('.messages__submit').prop('disabled', true);
+      let form = $('.messages__form');
+      form.removeClass('edited').removeClass('replied');
+      $(this).closest(".message").removeAttr('data-edit-id');
+      form.find("textarea[name='comment']").val("");
     }
 
     closePopup("delete-comment");
@@ -42,9 +50,9 @@ function messages() {
   }
 
   $(document).on("click", ".messages__cancel", function () {
-    $(".messages__edit").remove();
-    $(".messages__reply").remove();
-    $(".messages__files").remove();
+    $(".messages__footer .messages__edit").remove();
+    $(".messages__footer .messages__reply").remove();
+    $(".messages__footer .messages__files").remove();
     $('.messages__submit').prop('disabled', true);
     let form = $('.messages__form');
     form.removeClass('edited').removeClass('replied');

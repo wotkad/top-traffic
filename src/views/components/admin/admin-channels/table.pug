@@ -1,7 +1,7 @@
 table.table.table-fixed-cols.table-can-remove
   thead
     tr
-      th(style="padding-left: 12px; min-width: 288px;").fixed-th.fixed-th-border
+      th(style="padding-left: 12px; min-width: 288px; max-width: 310px; width: 310px;").fixed-th.fixed-th-border
         .flex.items-center(class="gap-x-3")
           +input({
             class: 'md table__checkbox',
@@ -12,19 +12,19 @@ table.table.table-fixed-cols.table-can-remove
               button(type="button").table__sortbutton
                 svg
                   use(xlink:href="#other-sort-icon")
-      th
+      th(style="width: 220px;")
         .table__sort.flex.gap-x-2.items-center
           p Категория
             button(type="button").table__sortbutton
               svg
                 use(xlink:href="#other-sort-icon")
-      th
+      th(style="width: 160px;")
         .table__sort.flex.gap-x-2.items-center.justify-end
           p Подписчики
             button(type="button").table__sortbutton
               svg
                 use(xlink:href="#other-sort-icon")
-      th
+      th(style="padding-left: 32px;")
         .table__sort.flex.gap-x-2.items-center
           p Начало работы
             button(type="button").table__sortbutton

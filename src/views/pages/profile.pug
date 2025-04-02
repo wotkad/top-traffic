@@ -41,9 +41,10 @@ block content
               .profile__remove
                 svg
                   use(xlink:href="#other-close-icon")
-            label.profile__container
-              input(type="file")
-              <div class="button button-with-icon-blue" type="button" aria-label="button"><svg viewBox="0 0 16 16" width="16" height="16"><use xlink:href="#other-upload-icon"></use></svg><span>Загрузить</span></div>
+            .profile__button
+              label.profile__container
+                input(type="file")
+                <div class="button button-with-icon-blue" type="button" aria-label="button"><svg viewBox="0 0 16 16" width="16" height="16"><use xlink:href="#other-upload-icon"></use></svg><span>Загрузить</span></div>
               p Аватар виден вам и вашей команде
         .profile__block
           h3 Персональные данные
