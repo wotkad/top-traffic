@@ -247,9 +247,12 @@
             @apply text-12-r;
           }
           button {
+            svg {
+              @apply w-[7px] h-[7px];
+            }
             @apply w-4 h-4;
           }
-          @apply inline-flex items-center gap-x-1 bg-black-200 bg-opacity-10 mb-1 px-1.5 py-[2px] border border-black-500;
+          @apply inline-flex items-center gap-x-1 bg-black-200 bg-opacity-10 mb-1 px-1.5 py-[2px] border border-black-500 rounded-[2px];
         }
         @apply bg-black-700 mt-6 p-3 border border-black-500 rounded-lg outline-none min-h-[84px] text-12-r break-words whitespace-pre-wrap;
       }

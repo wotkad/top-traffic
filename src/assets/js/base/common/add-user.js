@@ -106,6 +106,13 @@ function addUser() {
       sel.addRange(range);
       el.focus();
   }
+
+  $('.popup[data-popup-name="add-user"] .popup__wrapper .popup__close .button').on('click', function() {
+    let $email = $('.popup__email');
+    $email.remove();
+
+    togglePopupButton();
+  });
 }
 
 addUser();
