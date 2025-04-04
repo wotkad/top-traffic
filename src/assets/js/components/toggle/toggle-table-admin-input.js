@@ -110,7 +110,7 @@ function toggleTableInput() {
           <td class="only-text text-right" style="padding-right: 32px;">
             ––
           </td>
-          <td class="only-text" style="padding-right: 32px;">
+          <td class="only-text" style="padding-left: 32px; padding-right: 32px;">
             <label class="button button-with-icon only-input start-day datepicker-trigger">
               <input class="datepicker datepicker-single opensright" type="text" name="date" placeholder="Выберите дату" readonly="" value="дд.мм.гггг" style="width: 70px;">
               <div class="button button-icon sm calendar-close-icon" type="button" aria-label="button">

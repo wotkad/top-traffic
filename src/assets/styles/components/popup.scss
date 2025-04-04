@@ -252,7 +252,7 @@
             }
             @apply w-4 h-4;
           }
-          @apply inline-flex items-center gap-x-1 bg-black-200 bg-opacity-10 mb-1 px-1.5 py-[2px] border border-black-500 rounded-[2px];
+          @apply inline-flex items-center gap-x-1 bg-black-200 bg-opacity-10 mb-1 py-[2px] pr-[2px] pl-1.5 border border-black-500 rounded-[2px];
         }
         @apply bg-black-700 mt-6 p-3 border border-black-500 rounded-lg outline-none min-h-[84px] text-12-r break-words whitespace-pre-wrap;
       }
