@@ -34,7 +34,6 @@ function togglePopup() {
     $('.popup__bg').removeClass('active');
   });
 
-
   $(document).on('mouseup', function(e) {
     $('.popup.active').each(function() {
       let popup = $(this);
@@ -44,9 +43,12 @@ function togglePopup() {
       if (!popupWrapper.closest('.popup[data-popup-name="add-user"]')) {
         if (!popupWrapper.is(e.target) && !popupWrapper.has(e.target).length) {
           closePopup(popup, popup.prev());
-          currentMessage.removeClass('active');
-          currentUser.removeClass('active');
         }
+      }
+      if (!popupWrapper.is(e.target) && !popupWrapper.has(e.target).length) {
+        closePopup(popup, popup.prev());
+        currentMessage.removeClass('active');
+        currentUser.removeClass('active');
       }
     });
   });

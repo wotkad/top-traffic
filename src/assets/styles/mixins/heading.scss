@@ -34,8 +34,8 @@
     .dropdown__inner {
       @apply hidden;
     }
-    .dropdown__list {
-      @apply top-[calc(100%+12px)] left-0 w-auto;
+    .dropdown__button {
+      @apply h-4;
     }
     .button {
       svg {
@@ -48,9 +48,6 @@
     @apply ml-4;
   }
   &__dropdown-status {
-    .dropdown__list {
-      @apply right-auto left-0 w-auto;
-    }
     .dropdown__button {
       .button {
         @apply right-2 w-4 min-w-4 h-3 min-h-3;

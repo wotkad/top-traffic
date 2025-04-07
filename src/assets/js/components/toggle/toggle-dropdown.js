@@ -139,6 +139,12 @@ export default function toggleDropdown() {
     $('.dropdown__sort').removeClass('active');
   });
 
+  $(window).on('resize', function() {
+    $('.dropdown__list').removeClass('active').css({ right: '', top: '' });
+    $('.dropdown__button').removeClass('active');
+    $('.dropdown__sort').removeClass('active');
+  });
+
   $(document).on('change', '.dropdown__item input[type="radio"]', function () {
     $(this).closest('.dropdown__container').find('.dropdown__button').addClass('changed');
     if ($(this).closest('.dropdown').hasClass('dropdown-status') || $(this).closest('.dropdown').hasClass('dropdown-priority')) {
