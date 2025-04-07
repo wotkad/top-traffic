@@ -1,0 +1,42 @@
+.popup__bg(data-popup-name="edit-mode")
+.popup(data-popup-name="edit-mode")
+  .popup__wrapper(data-scroll-lock-scrollable)
+    .popup__heading
+      .popup__icon
+        svg
+          use(xlink:href="#other-edit-mode")
+      h2 Режим редактирования
+    .popup__container
+      .popup__controls
+        .popup__alert
+          svg
+            use(xlink:href="#other-warning-icon")
+          span Введенные данные не соответствуют автоматике. Обновите данные
+        button(type="button").popup__refresh
+          svg
+            use(xlink:href="#other-refresh-icon")
+          span Сбросить данные
+      .popup__block
+        h2 Основная информация
+        .popup__items
+      .popup__block
+        h2 Статистика
+        .popup__items
+      .popup__save
+        svg
+          use(xlink:href="#other-check-icon")
+        span Изменения сохранены
+      .popup__buttons
+        +button({
+          class: 'button-base',
+          dataPopupName: 'edit-mode',
+          title: 'Отменить',
+          view: 'button',
+        })
+        +button({
+          class: 'button-with-icon-blue lg',
+          dataPopupName: 'edit-mode',
+          title: 'Сохранить',
+          type: 'submit',
+          view: 'button',
+        })
