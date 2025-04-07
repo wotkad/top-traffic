@@ -45,7 +45,7 @@
     @apply ml-2 w-auto min-w-5;
   }
   &__status {
-    @apply ml-4;
+    @apply ml-3;
   }
   &__dropdown-status {
     .dropdown__button {
@@ -59,13 +59,18 @@
     }
     @apply ml-2 w-auto;
   }
-  &__addtofavotites {
+  &__addtofavorites {
     svg {
       @apply w-4 h-4;
     }
     &:hover,
     &:active {
       @apply bg-transparent;
+    }
+    &.active {
+      svg {
+        @apply text-yellow-100;
+      }
     }
     @apply ml-2 p-0 border-none;
   }
