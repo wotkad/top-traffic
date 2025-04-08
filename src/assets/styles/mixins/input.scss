@@ -12,6 +12,56 @@
   @apply block;
 }
 .input {
+  &__datas {
+    .input__container {
+      @apply flex flex-row items-center gap-x-4 mt-1.5;
+    }
+  }
+  &__data {
+    span {
+      @apply text-12-m-p;
+    }
+    p {
+      @apply text-12-sb-p;
+    }
+    input.input__el {
+      @apply mr-[3px] ml-1.5 px-1 py-0 rounded-[4px] w-[37px] h-6 text-center transition-all duration-300;
+    }
+    @apply flex items-center;
+  }
+  &__sexes {
+    .input__container {
+      @apply flex flex-row items-center gap-x-4 mt-1.5;
+    }
+  }
+  &__sex {
+    span {
+      @apply text-12-m-p;
+    }
+    p {
+      @apply text-12-sb-p;
+    }
+    input.input__el {
+      @apply mr-[3px] ml-1.5 px-1 py-0 rounded-[4px] w-[37px] h-6 text-center transition-all duration-300;
+    }
+    &.input-male,
+    &.input-female {
+      p {
+        @apply flex justify-center items-center rounded-full w-6 h-6;
+      }
+    }
+    &.input-male {
+      p {
+        @apply bg-purple-300 text-blue-200;
+      }
+    }
+    &.input-female {
+      p {
+        @apply bg-purple-200 text-pink-100;
+      }
+    }
+    @apply flex items-center;
+  }
   &__clear {
     @apply invisible top-1.5 right-1 absolute flex justify-center items-center opacity-0 w-6 h-6 transition-all duration-300;
   }
@@ -127,6 +177,18 @@
       @apply ml-px text-red-100;
     }
     @apply text-14-m-p;
+  }
+  .error__text {
+    @apply invisible flex items-center gap-x-1 opacity-0 w-0 h-0 text-[0] text-10-r-p text-red-100 transition-[opacity,visibility] duration-300;
+  }
+  &.error {
+    input {
+      @apply border-red-100;
+    }
+    .error__text {
+      @apply visible opacity-100 w-auto h-auto;
+    }
+    @apply border-red-100;
   }
   &__el {
     & ~ .error__text {

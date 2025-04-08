@@ -152,7 +152,7 @@
       @apply flex flex-col items-start gap-y-3 mt-5;
     }
     .popup__items {
-      @apply gap-x-6 gap-y-3.5 grid grid-cols-3 p-4 border border-black-500 rounded-[10px] w-full;
+      @apply gap-x-6 gap-y-3.5 grid grid-cols-3 p-4 pb-8 border border-black-500 rounded-[10px] w-full;
     }
     .popup__buttons {
       @apply mt-6;

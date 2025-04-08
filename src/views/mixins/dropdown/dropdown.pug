@@ -75,6 +75,7 @@ mixin dropdown(data = {})
                 isLabel: true,
                 image: checkbox.image,
                 telegram: checkbox.telegram,
+                errorText: checkbox.errorText,
               })
 
         else if modefied.isRadios && modefied.buttons
@@ -135,3 +136,9 @@ mixin dropdown(data = {})
                 img.dropdown__image(src=button.image.src, alt=button.image.alt)
               input(type="radio" name=`radio-${button.name}` checked=button.isChecked class=button.isChecked ? 'filled' : '')
               p= button.title
+
+    if modefied.isError
+      .error__text
+        svg
+          use(xlink:href="#other-error-icon")
+        span= modefied.errorText

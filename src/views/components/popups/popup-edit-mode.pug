@@ -1,12 +1,12 @@
-.popup__bg(data-popup-name="edit-mode")
-.popup(data-popup-name="edit-mode")
+.popup__bg(data-popup-name="edit-mode").active
+.popup(data-popup-name="edit-mode").active
   .popup__wrapper(data-scroll-lock-scrollable)
     .popup__heading
       .popup__icon
         svg
           use(xlink:href="#other-edit-mode")
       h2 Режим редактирования
-    .popup__container
+    form(action="#").popup__container
       .popup__controls
         .popup__alert
           svg
@@ -30,7 +30,7 @@
           +input({
             isLabel: true,
             label: 'Тег в Telegram',
-            name: 'name',
+            name: 'tag',
             placeholder: 'Введите тег',
             type: 'text',
             value: '@cybersec_academy',
@@ -87,9 +87,11 @@
                 title: 'Спорт',
               },
             ],
-            class: 'dropdown-checkboxes',
+            class: 'dropdown-checkboxes error',
+            errorText: 'Автоматическое значение: Автомобили',
             isAll: true,
             isCheckboxes: true,
+            isError: true,
             isLabel: true,
             isResults: true,
             label: 'Категория',
@@ -146,9 +148,11 @@
                 title: 'Россия',
               },
             ],
-            class: 'dropdown-checkboxes',
+            class: 'dropdown-checkboxes error',
+            errorText: 'Автоматическое значение: Болгария, Россия',
             isAll: true,
             isCheckboxes: true,
+            isError: true,
             isLabel: true,
             isResults: true,
             label: 'ГЕО',
@@ -215,6 +219,52 @@
       .popup__block
         h2 Статистика
         .popup__items
+          +input({
+            isLabel: true,
+            label: 'Подписчики',
+            name: 'subscribers',
+            placeholder: 'Введите значение',
+            type: 'text',
+            value: '82 918',
+          })
+          .input.input-with-label.input__sexes.error
+            span.input__label Аудитория
+            .input__container
+              label.input__sex.input-male
+                p М
+                input.input__el.input(type="text" name="male" value="52")
+                span %
+              label.input__sex.input-female
+                p Ж
+                input.input__el.input(type="text" name="female" value="48")
+                span %
+            .error__text Автоматическое значение: М (53%), Ж (47%)
+          +input({
+            isLabel: true,
+            label: 'Индекс цитирования (ИЦ)',
+            name: 'quote-intex',
+            placeholder: 'Введите значение',
+            type: 'text',
+            value: '2.6',
+          })
+          .input.input-with-label.input__datas
+            span.input__label Уровень вовлеченности
+            .input__container
+              label.input__data
+                p ERR
+                input.input__el.input(type="text" name="err")
+                span %
+              label.input__data
+                p ER
+                input.input__el.input(type="text" name="er")
+                span %
+          +input({
+            isLabel: true,
+            label: 'Охват',
+            name: 'count',
+            placeholder: 'Введите значение',
+            type: 'text',
+          })
       .popup__save
         svg
           use(xlink:href="#other-check-icon")
