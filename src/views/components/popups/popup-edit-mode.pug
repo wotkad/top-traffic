@@ -19,6 +19,199 @@
       .popup__block
         h2 Основная информация
         .popup__items
+          +input({
+            isLabel: true,
+            label: 'Наименование',
+            name: 'name',
+            placeholder: 'Введите наименование',
+            type: 'text',
+            value: 'ZeroDay | Кибербезопасность',
+          })
+          +input({
+            isLabel: true,
+            label: 'Тег в Telegram',
+            name: 'name',
+            placeholder: 'Введите тег',
+            type: 'text',
+            value: '@cybersec_academy',
+          })
+          +dropdown({
+            checkboxes: [
+              {
+                class: 'check-all',
+                title: 'Все',
+              },
+              {
+                title: 'Спорт',
+              },
+              {
+                title: 'Фитнес',
+              },
+              {
+                title: 'Спорт',
+              },
+              {
+                title: 'Фитнес',
+              },
+              {
+                title: 'Банки',
+              },
+              {
+                title: 'Фитнес',
+              },
+              {
+                title: 'Спорт',
+              },
+              {
+                title: 'Фитнес',
+              },
+              {
+                title: 'Спорт',
+              },
+              {
+                title: 'Фитнес',
+              },
+              {
+                title: 'Спорт',
+              },
+              {
+                title: 'Фитнес',
+              },
+              {
+                title: 'Спорт',
+              },
+              {
+                title: 'Фитнес',
+              },
+              {
+                title: 'Спорт',
+              },
+            ],
+            class: 'dropdown-checkboxes',
+            isAll: true,
+            isCheckboxes: true,
+            isLabel: true,
+            isResults: true,
+            label: 'Категория',
+          })
+          +dropdown({
+            checkboxes: [
+              {
+                class: 'check-all',
+                title: 'Все',
+              },
+              {
+                title: 'Россия',
+              },
+              {
+                title: 'США',
+              },
+              {
+                title: 'Россия',
+              },
+              {
+                title: 'США',
+              },
+              {
+                title: 'Россия',
+              },
+              {
+                title: 'США',
+              },
+              {
+                title: 'Россия',
+              },
+              {
+                title: 'США',
+              },
+              {
+                title: 'Россия',
+              },
+              {
+                title: 'США',
+              },
+              {
+                title: 'Россия',
+              },
+              {
+                title: 'США',
+              },
+              {
+                title: 'Россия',
+              },
+              {
+                title: 'США',
+              },
+              {
+                title: 'Россия',
+              },
+            ],
+            class: 'dropdown-checkboxes',
+            isAll: true,
+            isCheckboxes: true,
+            isLabel: true,
+            isResults: true,
+            label: 'ГЕО',
+          })
+          +dropdown({
+            checkboxes: [
+              {
+                class: 'check-all',
+                title: 'Все',
+              },
+              {
+                title: 'Русский',
+              },
+              {
+                title: 'Английский',
+              },
+              {
+                title: 'Русский',
+              },
+              {
+                title: 'Английский',
+              },
+              {
+                title: 'Русский',
+              },
+              {
+                title: 'Английский',
+              },
+              {
+                title: 'Русский',
+              },
+              {
+                title: 'Английский',
+              },
+              {
+                title: 'Русский',
+              },
+              {
+                title: 'Английский',
+              },
+              {
+                title: 'Русский',
+              },
+              {
+                title: 'Английский',
+              },
+              {
+                title: 'Русский',
+              },
+              {
+                title: 'Английский',
+              },
+              {
+                title: 'Русский',
+              },
+            ],
+            class: 'dropdown-checkboxes',
+            isAll: true,
+            isCheckboxes: true,
+            isLabel: true,
+            isResults: true,
+            label: 'Язык канала',
+          })
       .popup__block
         h2 Статистика
         .popup__items
