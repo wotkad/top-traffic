@@ -171,6 +171,37 @@
     .popup__wrapper {
       @apply relative px-0 pt-0 pb-10 max-w-[642px];
     }
+    .popup__content {
+      h2 {
+        @apply text-14-sb-p;
+      }
+      .popup__block {
+        h3 {
+          @apply text-14-m-p;
+        }
+        @apply mt-3.5 px-3.5 py-3 border border-black-500 rounded-[10px];
+      }
+      .popup__changes {
+        .input__sexes {
+          .input__container {
+            @apply mt-0;
+          }
+        }
+        .input__sex {
+          input {
+            @apply h-6 text-12-m-p;
+          }
+        }
+        @apply items-center gap-x-3 grid grid-cols-[1fr_26px_1fr] mt-2;
+      }
+      .popup__change {
+        &.old {
+          @apply opacity-70 grayscale;
+        }
+        @apply flex items-center bg-black-700 px-2 border border-black-500 rounded-md h-9 text-12-m-p pointer-events-none;
+      }
+      @apply px-5 pt-5;
+    }
     .popup__heading {
       h2 {
         @apply text-14-sb-p;
