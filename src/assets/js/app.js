@@ -67,6 +67,7 @@ import "./components/toggle/toggle-table-selected";
 import "./components/toggle/toggle-subrow";
 import "./components/toggle/toggle-input-clear";
 import "./components/toggle/toggle-favorites";
+import "./components/toggle/toggle-confirm";
 
 import "./components/scroll/scroll-to-top";
 import "./components/scroll/scroll-filter";

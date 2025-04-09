@@ -7,6 +7,9 @@
     &.active {
       @apply visible z-[100] opacity-100;
     }
+    &[data-popup-name="confirm-changes"] {
+      @apply z-[201];
+    }
     @apply invisible -z-[1] fixed inset-0 bg-black-100 bg-opacity-25 opacity-0 transition-all duration-300 cursor-pointer;
   }
   &__wrapper {
@@ -39,7 +42,7 @@
     }
     .popup__buttons {
       .button {
-        @apply flex-1;
+        @apply flex-1 justify-center;
       }
       @apply justify-center mt-4;
     }
@@ -66,6 +69,9 @@
   &.active {
     .popup__wrapper {
       @apply mt-0;
+    }
+    &[data-popup-name="confirm-changes"] {
+      @apply z-[300];
     }
     @apply visible z-[200] opacity-100;
   }
@@ -156,6 +162,23 @@
     }
     .popup__buttons {
       @apply mt-6;
+    }
+    .popup__apply {
+      @apply right-5 bottom-[88px];
+    }
+  }
+  &[data-popup-name="confirm-changes"] {
+    .popup__wrapper {
+      @apply relative px-0 pt-0 pb-10 max-w-[642px];
+    }
+    .popup__heading {
+      h2 {
+        @apply text-14-sb-p;
+      }
+      @apply flex items-center gap-x-2 bg-purple-300 px-5 py-4 rounded-[10px];
+    }
+    .popup__container {
+      @apply px-5;
     }
   }
   &[data-popup-name="add-link"],

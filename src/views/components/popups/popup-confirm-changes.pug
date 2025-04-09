@@ -1,0 +1,20 @@
+.popup__bg(data-popup-name="confirm-changes")
+.popup(data-popup-name="confirm-changes")
+  .popup__wrapper(data-scroll-lock-scrollable)
+    .popup__heading
+      .popup__icon
+        svg
+          use(xlink:href="#other-edit-mode")
+      h2 Подтвердите сброс данных
+    .popup__container
+      .popup__buttons
+        +button({
+          class: 'button-base popup-confirm-changes-cancel',
+          title: 'Отменить',
+          view: 'button',
+        })
+        +button({
+          class: 'button-with-icon-blue lg popup-confirm-changes-reset',
+          title: 'Сбросить',
+          view: 'button',
+        })

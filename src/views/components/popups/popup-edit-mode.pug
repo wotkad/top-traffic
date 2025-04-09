@@ -1,6 +1,35 @@
-.popup__bg(data-popup-name="edit-mode").active
-.popup(data-popup-name="edit-mode").active
+.popup__bg(data-popup-name="edit-mode")
+.popup(data-popup-name="edit-mode")
   .popup__wrapper(data-scroll-lock-scrollable)
+    .popup__apply__bg
+    .popup__apply.popup__apply-confirm
+      h3 Подтвердить действие
+      p Сохранить изменения?
+      .popup__buttons
+        +button({
+          class: 'button-base popup-edit-mode-cancel',
+          title: 'Нет',
+          view: 'button',
+        })
+        +button({
+          class: 'button-with-icon-blue lg popup-edit-mode-save',
+          title: 'Да',
+          view: 'button',
+        })
+    .popup__apply.popup__apply-nosave
+      h3 Вы внесли изменения
+      p Выйти из режима редактирования <br>без сохранения?
+      .popup__buttons
+        +button({
+          class: 'button-base popup-edit-mode-cancel',
+          title: 'Нет',
+          view: 'button',
+        })
+        +button({
+          class: 'button-with-icon-blue lg popup-edit-mode-nosave',
+          title: 'Да',
+          view: 'button',
+        })
     .popup__heading
       .popup__icon
         svg
@@ -12,7 +41,7 @@
           svg
             use(xlink:href="#other-warning-icon")
           span Введенные данные не соответствуют автоматике. Обновите данные
-        button(type="button").popup__refresh
+        button(type="button" data-popup-name="confirm-changes").button.popup__refresh
           svg
             use(xlink:href="#other-refresh-icon")
           span Сбросить данные
@@ -295,14 +324,12 @@
         span Изменения сохранены
       .popup__buttons
         +button({
-          class: 'button-base',
-          dataPopupName: 'edit-mode',
+          class: 'button-base edit-mode-cancel',
           title: 'Отменить',
           view: 'button',
         })
         +button({
-          class: 'button-with-icon-blue lg',
-          dataPopupName: 'edit-mode',
+          class: 'button-with-icon-blue lg edit-mode-save',
           title: 'Сохранить',
           type: 'submit',
           view: 'button',
