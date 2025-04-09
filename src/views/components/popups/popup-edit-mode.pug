@@ -216,6 +216,30 @@
             isResults: true,
             label: 'Язык канала',
           })
+          .input.input-with-label.input__checkes
+            span.input__label Наличие меток
+            .input__container
+              .input__check
+                label
+                  input.input__el.input.error(type="checkbox" name="verification")
+                  span Верификация
+                  svg
+                    use(xlink:href="#label-verification-icon")
+                  .error__text Верификация: есть
+              .input__check
+                label
+                  input.input__el.input(type="checkbox" name="mark")
+                  span Красная метка
+                  svg
+                    use(xlink:href="#label-warning-icon")
+                  .error__text Метка: есть
+              .input__check
+                label
+                  input.input__el.input(type="checkbox" name="mark")
+                  span SCAM/FAKE
+                  svg
+                    use(xlink:href="#label-scam-icon")
+                  .error__text Верификация: есть
       .popup__block
         h2 Статистика
         .popup__items
