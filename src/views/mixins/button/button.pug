@@ -63,6 +63,18 @@ mixin button(data = {})
         svg.button-clear.filter-clear
           use(xlink:href="#other-close-icon")
 
+  if modefied.view == 'button-single-select'
+    label(
+      class="button " + modefied.class
+      data-id-file=modefied.dataIdFile
+      data-popup-name=modefied.dataPopupName
+    )
+      if modefied.isFileUpload
+        input(type="file")
+      svg
+        use(xlink:href="#" + modefied.icon)
+      span= modefied.title
+
   if modefied.view == 'button-multi-select'
     div(
       class="button " + modefied.class

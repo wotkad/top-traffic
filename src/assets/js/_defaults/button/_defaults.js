@@ -36,6 +36,7 @@ module.exports = {
       calendarClass: data.calendarClass !== undefined ? data.calendarClass : defaults.calendarClass,
       class: data.class !== undefined ? data.class : defaults.class,
       dataFilterName: data.dataFilterName !== undefined ? data.dataFilterName : defaults.dataFilterName,
+      dataIdFile: data.dataIdFile !== undefined ? data.dataIdFile : defaults.dataIdFile,
       dataPopupName: data.dataPopupName !== undefined ? data.dataPopupName : defaults.dataPopupName,
       description: data.description !== undefined ? data.description : defaults.description,
       href: data.href !== undefined ? data.href : defaults.href,

@@ -240,6 +240,17 @@
       @apply min-w-[167px];
     }
   }
+  &-singleselect {
+    .dropdown__list {
+      label {
+        input {
+          @apply invisible absolute opacity-0;
+        }
+        @apply flex items-center gap-x-2;
+      }
+      @apply min-w-[167px];
+    }
+  }
   &-radios {
     &.dropdown-copy-image {
       .dropdown__title {

@@ -3,14 +3,14 @@ import generateId from "./generate-id";
 function openPopupWithData(parent) {
     let uniqueId = generateId(); // Генерируем новый ID всегда
     parent.attr("data-popup-id", uniqueId);
-    $(".popup[data-popup-name='add-link']").attr("data-popup-id", uniqueId);
+    $(".popup[data-popup-name='add-link-table']").attr("data-popup-id", uniqueId);
 
     // Обновляем ID у кнопки удаления внутри попапа
-    $(".popup[data-popup-name='add-link'] .table__attachedlink__delete").attr("data-delete-id", uniqueId);
+    $(".popup[data-popup-name='add-link-table'] .table__attachedlink__delete").attr("data-delete-id", uniqueId);
 
     let existingLink = parent.find(".table__attachedlink__value a");
-    let textInput = $(".popup[data-popup-name='add-link']").find("input[name='text']");
-    let urlInput = $(".popup[data-popup-name='add-link']").find("input[name='url']");
+    let textInput = $(".popup[data-popup-name='add-link-table']").find("input[name='text']");
+    let urlInput = $(".popup[data-popup-name='add-link-table']").find("input[name='url']");
 
     if (existingLink.length) {
         textInput.val(existingLink.text());
@@ -23,7 +23,7 @@ function openPopupWithData(parent) {
 
 function tableAttachmentLink() {
     // Открытие попапа при клике на "Добавить ссылку"
-    $(document).on("click", ".table__attachedlink__container.button[data-popup-name='add-link']", function () {
+    $(document).on("click", ".table__attachedlink__container.button[data-popup-name='add-link-table']", function () {
         let parent = $(this).closest(".table__attachedlink");
         openPopupWithData(parent);
     });
@@ -59,7 +59,7 @@ function tableAttachmentLink() {
     });
 
     // Сохранение данных при отправке формы
-    $(".popup[data-popup-name='add-link'] form").on("submit", function (event) {
+    $(".popup[data-popup-name='add-link-table'] form").on("submit", function (event) {
         event.preventDefault();
         let popup = $(this).closest(".popup");
         let popupId = popup.attr("data-popup-id");

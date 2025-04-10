@@ -7,7 +7,7 @@
     @apply max-w-[360px] text-24-sb text-ellipsis line-clamp-1 whitespace-nowrap;
   }
   &__container {
-    @apply flex flex-wrap justify-between items-start gap-x-2.5;
+    @apply flex flex-wrap justify-between items-start gap-2.5;
   }
   &__content {
     @apply flex flex-col items-start gap-y-1;
