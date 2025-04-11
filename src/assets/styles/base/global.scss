@@ -56,6 +56,12 @@ label {
 }
 
 .page {
+  &-post {
+    .post__bg {
+      @apply absolute inset-0;
+    }
+    @apply relative min-h-dvh overflow-hidden;
+  }
   @apply flex;
 }
 

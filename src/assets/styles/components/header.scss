@@ -31,5 +31,11 @@
     }
     @apply flex items-center gap-x-[7px];
   }
+  &-post {
+    .header__wrapper {
+      @apply px-6;
+    }
+    @apply left-0 bg-white-000 border-none w-full;
+  }
   @apply left-[217px] z-10 fixed flex items-center bg-black-700 py-3.5 border-b border-black-500 w-[calc(100%-217px)] h-[60px] transition-all duration-300;
 }
