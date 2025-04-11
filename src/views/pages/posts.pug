@@ -13,3 +13,37 @@ block content
   main.page
     include ../components/sidebar
     include ../components/header
+    .wrapper
+      +heading-table({
+        title: 'Поиск по публикациям',
+        count: '> 93,5 млн',
+        isSearch: true,
+        searchClass: 'min-w-[243px] max-w-[243px]',
+        isRows: true,
+        isCalendar: true,
+        isDatePicker: true,
+        buttons: [
+          {
+            view: 'link',
+            class: 'button-with-icon',
+            icon: 'other-download-icon',
+            title: 'Скачать',
+            isDownload: true,
+          },
+          {
+            view: 'button',
+            class: 'button-with-icon filter__toggle',
+            icon: 'other-controls-icon',
+            title: 'Фильтр',
+            isClose: true,
+            dataFilterName: 'posts',
+          },
+        ],
+      })
+      .inner.in-container
+        .content.content-collapsed
+          .content-scroll
+            include ../components/posts/table
+          .mt-12
+            include ../components/pagination
+        include ../components/posts/filter

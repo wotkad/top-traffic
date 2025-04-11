@@ -13,6 +13,12 @@ table.table.table-default
             button(type="button").table__sortbutton
               svg
                 use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Автор
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
       th(class="min-w-[311px]")
         .table__sort.flex.gap-x-2.items-center
           p Публикация
@@ -50,6 +56,12 @@ table.table.table-default
                   svg
                     use(xlink:href="#other-sort-icon")
           span.text-10-r.text-black-200 (% используемых слов в посте)
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Актуальность
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
   tbody
     include row
     include row

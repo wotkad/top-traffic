@@ -26,6 +26,8 @@ mixin dropdown(data = {})
               img.dropdown__image(src=modefied.src, alt=modefied.alt)
             if modefied.isAll
               .dropdown__title.dropdown__title-all Все
+            else if modefied.isAny
+              .dropdown__title.dropdown__title-all Любое
             else
               .dropdown__title= modefied.title
         if !modefied.icon
@@ -62,7 +64,8 @@ mixin dropdown(data = {})
             })
 
         else if modefied.isCheckboxes && modefied.checkboxes
-          +search
+          if modefied.isSearch
+            +search
           .dropdown__items
             each checkbox, index in modefied.checkboxes
               +input({
