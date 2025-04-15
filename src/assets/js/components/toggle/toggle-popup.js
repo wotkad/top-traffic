@@ -37,21 +37,26 @@ function togglePopup() {
   $(document).on('mouseup', function(e) {
     $('.popup.active').each(function() {
       let popup = $(this);
-      let currentMessage = $(this).closest('.message');
-      let currentUser = $(this).closest('.user');
+      let currentMessage = popup.closest('.message');
+      let currentUser = popup.closest('.user');
       let popupWrapper = popup.find('.popup__wrapper');
-      if (!popupWrapper.closest('.popup[data-popup-name="add-user"]')) {
+  
+      let isExcludedPopup =
+        popup.is('[data-popup-name="add-user"]') ||
+        popup.is('[data-popup-name="edit-mode"]') ||
+        popup.is('[data-popup-name="confirm-changes"]') ||
+        popup.is('[data-popup-name="add-channel"]');
+  
+      if (!isExcludedPopup) {
         if (!popupWrapper.is(e.target) && !popupWrapper.has(e.target).length) {
           closePopup(popup, popup.prev());
+          currentMessage.removeClass('active');
+          currentUser.removeClass('active');
         }
-      }
-      if (!popupWrapper.is(e.target) && !popupWrapper.has(e.target).length) {
-        closePopup(popup, popup.prev());
-        currentMessage.removeClass('active');
-        currentUser.removeClass('active');
       }
     });
   });
+  
 }
 
 function closePopup(popup, popupBg, currentMessage, currentUser) {
