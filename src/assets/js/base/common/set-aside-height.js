@@ -1,7 +1,7 @@
 let isScrolling = false;
 
 export default function setAsideHeight() {
-  $('.content-aside__container').each(function () {
+  $('.content-aside__container, .chat__conversations').each(function () {
     let asideContainer = $(this);
     let asideOffsetTop = asideContainer.offset().top;
 

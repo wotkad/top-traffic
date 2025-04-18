@@ -131,6 +131,9 @@
     }
     @apply relative pb-3 overflow-y-auto;
   }
+  &__wrapper {
+    @apply relative pb-3;
+  }
   &:before,
   &:after {
     @apply invisible -z-[1] absolute from-white-000 opacity-0 rounded-[10px] w-full h-[75px] content-[''] transition-all duration-300;

@@ -68,6 +68,8 @@ import "./components/toggle/toggle-subrow";
 import "./components/toggle/toggle-input-clear";
 import "./components/toggle/toggle-favorites";
 import "./components/toggle/toggle-confirm";
+import "./components/toggle/toggle-chat-categories";
+import "./components/toggle/toggle-pinned-state";
 
 import "./components/scroll/scroll-to-top";
 import "./components/scroll/scroll-filter";
