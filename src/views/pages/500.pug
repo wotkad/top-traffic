@@ -1,13 +1,13 @@
 extends ../layouts/master
 
 block title
-  title Топ Трафик | 400
+  title Топ Трафик | 500
 
 block basicSeo
-  meta(content="400" name="description")
-  meta(content="400" name="keywords")
-  meta(content="400" property="og:title")
-  meta(content="400" name="twitter:title")
+  meta(content="500" name="description")
+  meta(content="500" name="keywords")
+  meta(content="500" property="og:title")
+  meta(content="500" name="twitter:title")
 
 block content
   main.error-page
@@ -28,9 +28,9 @@ block content
           path(d="M596.51 45.9102V60.8902H566.62V75.1802H591.03V90.1002H566.59V118.05H547.66V116.77C547.66 96.1702 547.66 75.5802 547.66 54.9802C547.66 49.3502 551.06 45.9302 556.68 45.9302C569.51 45.9302 582.35 45.9302 595.18 45.9302C595.58 45.9302 595.97 45.9302 596.51 45.9302V45.9102Z" fill="#005CFF")
           path(d="M676.78 118.071H658.04C658.04 117.591 658.04 117.161 658.04 116.731C658.04 96.0607 658.04 75.3907 658.04 54.7207C658.04 49.3507 661.43 45.9307 666.77 45.9107C670.08 45.9007 673.39 45.9107 676.78 45.9107V118.071Z" fill="#005CFF")
     .error-page__content
-      span 404
-      h1 Кажется, что-то пошло не так
-      p Страница, которую вы запрашиваете, не существует. Возможно, она устарела, была удалена или в адресной строке был введён неверный адрес
+      span 500
+      h1 Кажется, что-то сломалось
+      p Внутренняя ошибка сервера. Мы уже работаем над её устранением. Пожалуйста, попробуйте обновить страницу чуть позже
       +button({
         class: 'button-with-icon-blue lg',
         href: '/',

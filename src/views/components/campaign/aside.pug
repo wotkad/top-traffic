@@ -2,10 +2,10 @@ aside.content-aside
     .selectors
       .selector__buttons
         .selector__scroll
-          button.selector__button(data-id="information").active Информация
-          button.selector__button(data-id="chat") Чат
+          button.selector__button(data-id="information") Информация
+          button.selector__button(data-id="chat").active Чат
       .selector__containers.selector__content
-        .selector__container(data-id="information").active
+        .selector__container(data-id="information")
           .content-aside__container
             .content-aside__subtitle Общая информация
             table.table
@@ -497,5 +497,6 @@ aside.content-aside
                         isOnlyIcon: true,
                         view: 'button',
                       })
-        .selector__container(data-id="chat")
-          .my-6.text-14-sb-p.text-black-400 В разработке
+        .selector__container(data-id="chat").active
+          .content-aside__container
+            include ./../chat.pug

@@ -1,0 +1,20 @@
+.error-page {
+  .logo {
+    @apply top-4 left-4 absolute;
+  }
+  &__content {
+    & > span {
+      @apply absolute font-medium text-[500px] text-black-500 leading-[500px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+    }
+    h1 {
+      @apply z-10 relative font-bold text-[48px] text-center leading-[38px];
+    }
+    p {
+      @apply z-10 relative mt-4 max-w-[1018px] font-medium text-[24px] text-center leading-[38px];
+    }
+    .button {
+      @apply z-10 relative mt-5 px-[35px] py-3.5 h-auto font-medium text-[18px] leading-5;
+    }
+    @apply relative flex flex-col justify-center items-center p-4 h-dvh;
+  }
+}
