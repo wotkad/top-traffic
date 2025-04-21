@@ -1,3 +1,5 @@
+import setAsideHeight from '../../base/common/set-aside-height';
+
 function toggleChatCategory() {
   let button = $('.chat__category');
 
@@ -14,6 +16,7 @@ function toggleChatCategory() {
 
     $(this).closest('.chat__categories').next().find('.chat__block').removeClass('active');
     block.show();
+    setAsideHeight();
   });
 }
 

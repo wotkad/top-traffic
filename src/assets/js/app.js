@@ -7,6 +7,15 @@
 
 // #################################
 
+import setAsideHeight from "./base/common/set-aside-height";
+
+window.addEventListener('load', function() {
+  setAsideHeight();
+  this.setTimeout(function() {
+    setAsideHeight();
+  }, 400);
+});
+
 import "./base/common/preloader";
 import "./base/common/load-images";
 import "./base/common/smooth-scroll";

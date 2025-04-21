@@ -53,7 +53,10 @@
     span {
       @apply font-semibold text-[8px] leading-[120%];
     }
-    @apply flex justify-center items-center rounded-full min-w-9 min-h-9;
+    img {
+      @apply rounded-full min-w-9 max-w-9 min-h-9 max-h-9 object-cover overflow-hidden;
+    }
+    @apply flex justify-center items-center rounded-full min-w-9 min-h-9 overflow-hidden;
   }
   &__heading {
     @apply flex justify-between items-center w-full;
@@ -98,5 +101,76 @@
     }
     @apply right-0 bottom-0 absolute;
   }
-  @apply mt-3;
+  &__messages {
+    @apply top-0 -left-4 absolute bg-white-000 px-4 rounded-[10px] w-[calc(100%+32px)] h-full overflow-hidden;
+  }
+  &__close {
+    &:hover,
+    &:active {
+      svg {
+        @apply text-black-100;
+      }
+      @apply bg-transparent;
+    }
+    svg {
+      @apply w-[7px] h-3.5 text-black-000;
+    }
+    @apply flex justify-center items-center p-0 border-none rounded-none w-4 min-w-4 h-4 min-h-4;
+  }
+  &__header {
+    .chat__avatar {
+      @apply ml-2.5;
+    }
+    @apply flex justify-between items-center;
+  }
+  &__title {
+    @apply flex items-center gap-x-2;
+  }
+  &__name {
+    @apply text-12-m-p;
+  }
+  &__controls {
+    .button {
+      &:hover,
+      &:active {
+        svg {
+          @apply text-black-100;
+        }
+        @apply bg-transparent;
+      }
+      svg {
+        @apply text-black-200;
+      }
+      @apply flex justify-center items-center p-0 border-none rounded-none w-4 min-w-4 h-4 min-h-4;
+    }
+    @apply flex gap-x-1;
+  }
+  &__search {
+    .search {
+      ::-webkit-search-cancel-button {
+        @apply hidden;
+      }
+    }
+    .button {
+      &:hover,
+      &:active {
+        svg {
+          @apply text-black-100;
+        }
+        @apply bg-transparent;
+      }
+      svg {
+        @apply text-black-200;
+      }
+      @apply flex justify-center items-center p-0 border-none rounded-none w-4 min-w-4 h-4 min-h-4;
+    }
+    &__buttons {
+      @apply flex items-center gap-x-2;
+    }
+    & > .button {
+      @apply ml-1;
+    }
+    @apply flex items-center gap-x-2 mt-2.5;
+  }
+  @apply relative mt-3;
 }
