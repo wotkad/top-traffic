@@ -1,0 +1,212 @@
+
+.chat
+  .chat__day Среда, 15 октября
+  .message
+    .message__comment
+      .message__avatar
+        span(style="background-color: #E5E4FC;")
+      .message__authors
+        .message__author
+          .message__head
+            h3 Валерия Медеведева
+            .message__time 12:00
+              span 15.10.2024 в 16:25
+          p Добрый день! Старт РК 16.10
+      .message__buttons
+        +button({
+          class: 'message__button message__reply',
+          icon: 'other-reply-icon',
+          isOnlyIcon: true,
+          type: 'button',
+          view: 'button',
+        })
+        +button({
+          class: 'message__button message__copy',
+          icon: 'other-copy-icon',
+          isOnlyIcon: true,
+          type: 'button',
+          view: 'button',
+        })
+        +button({
+          class: 'message__button message__edit',
+          icon: 'other-edit-icon',
+          isOnlyIcon: true,
+          type: 'button',
+          view: 'button',
+        })
+        +button({
+          class: 'message__button message__delete',
+          dataPopupName: 'delete-comment',
+          icon: 'other-trash-icon',
+          isOnlyIcon: true,
+          type: 'button',
+          view: 'button',
+        })
+      .popup(data-popup-name="delete-comment")
+        .popup__wrapper(data-scroll-lock-scrollable)
+          .popup__title Подтвердить действие
+          .popup__subtitle Удалить комментарий?
+          .popup__form
+            .popup__buttons
+              +button({
+                class: 'button-base',
+                dataPopupName: 'delete-comment',
+                title: 'Нет',
+                view: 'button',
+              })
+              +button({
+                class: 'button-confirm message__remove',
+                dataPopupName: 'delete-comment',
+                title: 'Да',
+                view: 'button',
+              })
+  .chat__day Четверг, 16 октября
+  .message
+    .message__comment
+      .message__avatar
+        span(style="background-color: #FCEAE4;")
+      .message__authors
+        .message__author
+          .message__head
+            h3 Максим Амбиндер
+            .message__time 12:00
+              span 15.10.2024 в 16:25
+          .message__answered
+            h3 Валерия Медведева
+            p Добрый день! Старт РК 16.10
+          p Добрый день! Спасибо, старт запланирован
+      .message__buttons
+        +button({
+          class: 'message__button message__reply',
+          icon: 'other-reply-icon',
+          isOnlyIcon: true,
+          type: 'button',
+          view: 'button',
+        })
+        +button({
+          class: 'message__button message__copy',
+          icon: 'other-copy-icon',
+          isOnlyIcon: true,
+          type: 'button',
+          view: 'button',
+        })
+        +button({
+          class: 'message__button message__edit',
+          icon: 'other-edit-icon',
+          isOnlyIcon: true,
+          type: 'button',
+          view: 'button',
+        })
+        +button({
+          class: 'message__button message__delete',
+          dataPopupName: 'delete-comment',
+          icon: 'other-trash-icon',
+          isOnlyIcon: true,
+          type: 'button',
+          view: 'button',
+        })
+      .popup(data-popup-name="delete-comment")
+        .popup__wrapper(data-scroll-lock-scrollable)
+          .popup__title Подтвердить действие
+          .popup__subtitle Удалить комментарий?
+          .popup__form
+            .popup__buttons
+              +button({
+                class: 'button-base',
+                dataPopupName: 'delete-comment',
+                title: 'Нет',
+                view: 'button',
+              })
+              +button({
+                class: 'button-confirm message__remove',
+                dataPopupName: 'delete-comment',
+                title: 'Да',
+                view: 'button',
+              })
+  .message
+    .message__comment
+      .message__avatar
+        span(style="background-color: #E5E4FC;")
+      .message__authors
+        .message__author
+          .message__head
+            h3 Валерия Медеведева
+            .message__time 12:00
+              span 15.10.2024 в 16:25 (19.03.2025 в 02:21)
+          p Спасибо!
+        .message__author
+          .message__head
+            h3 Валерия Медеведева
+            .message__time 12:00
+              span 15.10.2024 в 16:25 (19.03.2025 в 02:21)
+          p Спасибо!
+            span.message__changed изменено
+      .message__buttons
+        +button({
+          class: 'message__button message__reply',
+          icon: 'other-reply-icon',
+          isOnlyIcon: true,
+          type: 'button',
+          view: 'button',
+        })
+        +button({
+          class: 'message__button message__copy',
+          icon: 'other-copy-icon',
+          isOnlyIcon: true,
+          type: 'button',
+          view: 'button',
+        })
+        +button({
+          class: 'message__button message__edit',
+          icon: 'other-edit-icon',
+          isOnlyIcon: true,
+          type: 'button',
+          view: 'button',
+        })
+        +button({
+          class: 'message__button message__delete',
+          dataPopupName: 'delete-comment',
+          icon: 'other-trash-icon',
+          isOnlyIcon: true,
+          type: 'button',
+          view: 'button',
+        })
+      .popup(data-popup-name="delete-comment")
+        .popup__wrapper(data-scroll-lock-scrollable)
+          .popup__title Подтвердить действие
+          .popup__subtitle Удалить комментарий?
+          .popup__form
+            .popup__buttons
+              +button({
+                class: 'button-base',
+                dataPopupName: 'delete-comment',
+                title: 'Нет',
+                view: 'button',
+              })
+              +button({
+                class: 'button-confirm message__remove',
+                dataPopupName: 'delete-comment',
+                title: 'Да',
+                view: 'button',
+              })
+.chat__bottom
+  .chat__footer
+    form(action="#").chat__form.default
+      +input({
+        class: 'chat__upload',
+        isFileUpload: true,
+        isMultiple: true,
+        isRequired: true,
+        isTextarea: true,
+        label: '',
+        name: 'comment',
+        placeholder: 'Отправить комментарий...',
+      })
+      +button({
+        class: 'button-icon-round chat__submit',
+        icon: 'other-send-icon',
+        isDisabled: true,
+        isOnlyIcon: true,
+        type: 'submit',
+        view: 'button',
+      })

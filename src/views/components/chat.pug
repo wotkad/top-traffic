@@ -498,7 +498,7 @@
                   use(xlink:href="#other-pinned-icon")
               .chat__state.chat__state-messages
                 span 9
-  .chat__messages
+  .chat__container.active
     .chat__header
       .chat__title
         +button({
@@ -543,3 +543,5 @@
         isOnlyIcon: true,
         view: 'button',
       })
+    .chat__messages
+      include ./chat-messages

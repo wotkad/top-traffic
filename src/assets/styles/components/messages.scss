@@ -264,7 +264,7 @@
     & ~ p {
       @apply mt-1.5;
     }
-    @apply flex flex-col items-start mt-1.5 pl-2.5 border-blue-200 border-l-[3px];
+    @apply flex flex-col items-start mt-1.5 pl-2.5 border-blue-200 border-l-[3px] rounded-tl-sm rounded-bl-sm;
   }
   .messages__files {
     &:before {

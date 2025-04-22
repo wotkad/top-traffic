@@ -2,6 +2,32 @@
   &__categories {
     @apply flex items-center gap-x-2 mt-2.5;
   }
+  &__form {
+    textarea {
+      @apply px-3 py-[9px] max-h-[34px];
+    }
+    @apply flex items-center gap-x-3;
+  }
+  &__upload {
+    textarea {
+      @apply pl-10;
+    }
+    input {
+      @apply invisible absolute opacity-0;
+    }
+    .button {
+      svg {
+        @apply text-black-200 transition-all duration-300;
+      }
+      &:hover {
+        svg {
+          @apply text-black-100;
+        }
+      }
+      @apply left-3 absolute flex justify-center items-center rounded-[4px] w-5 h-5;
+    }
+    @apply relative flex justify-center items-start;
+  }
   &__pin {
     span {
       @apply text-12-m-md;
@@ -70,11 +96,6 @@
   &__icons {
     @apply flex items-center gap-x-1;
   }
-  &__icon {
-    svg {
-      @apply w-[15px] h-[15px];
-    }
-  }
   &__time {
     @apply text-12-r-p text-black-200;
   }
@@ -101,8 +122,11 @@
     }
     @apply right-0 bottom-0 absolute;
   }
-  &__messages {
-    @apply top-0 -left-4 absolute bg-white-000 px-4 rounded-[10px] w-[calc(100%+32px)] h-full overflow-hidden;
+  &__container {
+    &.active {
+      @apply block;
+    }
+    @apply hidden top-0 -left-4 absolute bg-white-000 px-4 rounded-[10px] w-[calc(100%+32px)] h-full overflow-hidden;
   }
   &__close {
     &:hover,
@@ -120,6 +144,12 @@
   &__header {
     .chat__avatar {
       @apply ml-2.5;
+    }
+    .chat__icon {
+      svg {
+        @apply w-[15px] h-[15px] text-black-100;
+      }
+      @apply w-auto;
     }
     @apply flex justify-between items-center;
   }
@@ -139,7 +169,7 @@
         @apply bg-transparent;
       }
       svg {
-        @apply text-black-200;
+        @apply text-black-200 transition-colors duration-300;
       }
       @apply flex justify-center items-center p-0 border-none rounded-none w-4 min-w-4 h-4 min-h-4;
     }
@@ -160,7 +190,7 @@
         @apply bg-transparent;
       }
       svg {
-        @apply text-black-200;
+        @apply text-black-200 transition-colors duration-300;;
       }
       @apply flex justify-center items-center p-0 border-none rounded-none w-4 min-w-4 h-4 min-h-4;
     }
@@ -171,6 +201,201 @@
       @apply ml-1;
     }
     @apply flex items-center gap-x-2 mt-2.5;
+  }
+  &__bottom {
+    @apply right-0 bottom-0 left-0 absolute bg-white-000 pb-4;
+  }
+  &__day {
+    @apply mt-1 mb-1.5 text-12-m-p text-black-200 text-center;
+  }
+  &__footer {
+    @apply px-4;
+  }
+  &__submit {
+    &:disabled {
+      &:hover {
+        svg {
+          @apply text-black-200;
+        }
+      }
+      svg {
+        @apply text-black-200;
+      }
+    }
+    &:hover:not(:disabled) {
+      svg {
+        @apply text-blue-000;
+      }
+    }
+    &:hover {
+      @apply bg-transparent;
+    }
+    svg {
+      @apply text-black-200 transition-colors duration-300;
+    }
+    @apply right-7 absolute bg-transparent w-4 h-4 text-black-200;
+  }
+  &__files {
+    &:before {
+      @apply top-0 -left-7 absolute bg-black-500 w-[calc(100%+28px+20px)] h-px content-[''];
+    }
+    @apply relative flex flex-col items-start gap-3 mt-3.5 pt-4 pl-3;
+  }
+  &__file {
+    &.hide {
+      @apply hidden;
+    }
+    &__image {
+      @apply relative flex justify-center items-center;
+    }
+    &__sublink {
+      @apply absolute inset-0 w-full h-full;
+    }
+    &__icon {
+      svg {
+        circle {
+          @apply ease-linear;
+        }
+        @apply absolute text-white-000;
+      }
+      &-file {
+        @apply invisible opacity-0;
+      }
+      @apply z-10 absolute flex justify-center items-center rounded-full w-[30px] h-[30px];
+    }
+    &__remove {
+      svg {
+        @apply w-1.5 h-1.5 text-white-000;
+      }
+      @apply -top-1.5 -right-1.5 z-10 absolute flex justify-center items-center bg-black-100 bg-opacity-50 opacity-0 border border-white-000 rounded-full w-4 h-4 transition-all duration-300;
+    }
+    &.loaded {
+      .messages__file__icon {
+        &-close {
+          @apply invisible opacity-0;
+        }
+        &-file {
+          @apply visible opacity-100;
+        }
+      }
+      .messages__file__remove {
+        @apply opacity-100;
+      }
+    }
+    &-image {
+      .messages__file__image {
+        @apply rounded-lg w-12 h-12;
+      }
+      .messages__file__icon {
+        @apply bg-black-100 bg-opacity-50;
+      }
+      img {
+        @apply border border-black-000 border-opacity-10 rounded-lg w-full h-full object-cover;
+      }
+    }
+    &-file {
+      .messages__file__image {
+        @apply rounded-full w-[30px] h-[30px];
+      }
+      .messages__file__icon {
+        @apply bg-blue-000;
+      }
+      @apply bg-opacity-10;
+    }
+    &__link {
+      &:hover {
+        .message__download {
+          svg {
+            @apply text-blue-000;
+          }
+        }
+        @apply text-blue-000;
+      }
+      p {
+        @apply max-w-[162px] text-12-r-p text-ellipsis line-clamp-1;
+      }
+      @apply flex items-center transition-all duration-300;
+    }
+    &__content {
+      span {
+        @apply mt-[2px] max-w-[200px] text-12-r-p text-black-200 text-ellipsis line-clamp-1;;
+      }
+      @apply flex flex-col gap-x-[2px];
+    }
+    @apply relative flex items-center gap-x-1.5 rounded-lg;
+  }
+  &__reply,
+  &__edit {
+    .message__answered {
+      @apply mt-0 rounded-tl-sm rounded-bl-sm;
+    }
+    & ~ .messages__form {
+      @apply flex-wrap justify-end gap-y-3;
+    }
+    @apply flex justify-between items-center mb-3;
+  }
+  &__show-all {
+    @apply text-12-r-p text-black-200;
+  }
+  &__icon {
+    svg {
+      @apply text-blue-200;
+    }
+    @apply flex justify-center items-center w-10;
+  }
+  &__cancel {
+    svg {
+      @apply w-3.5 h-3.5 text-black-200 transition-all duration-300;
+    }
+    &:hover {
+      @apply bg-black-600;
+    }
+    @apply flex justify-center items-center bg-transparent w-[34px] h-[34px];
+  }
+  &__messages {
+    .chat {
+      .message {
+        &__authors {
+          .message__author {
+            &:last-child {
+              &:before {
+                background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTUiIHZpZXdCb3g9IjAgMCAxMiAxNSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik00LjI5OTggMEgxMS4yOTk4VjEySDExLjE0NzZDMTEuMTE4IDEyLjA5NiAxMS4wNTgzIDEyLjE4MjcgMTAuOTcxMSAxMi4yNDVDNy44MzMxNSAxNC40ODY3IDMuNDkzNzcgMTQuOTE0MiAwLjUwNjQ0NyAxNC45ODY1QzAuMDYxMTI1OCAxNC45OTczIC0wLjE2NDU3NyAxNC40NTY5IDAuMTM4NDUyIDE0LjEzMDRDMi4yNTQ5NiAxMS44NSAzLjU0MDg1IDkuNzQ4NTggNC4yOTk4IDcuNTIyNDlWMFoiIGZpbGw9IiNGNEY1RjYiLz4KPC9zdmc+Cg==);
+                @apply bottom-0 -left-1 absolute w-[11px] h-[15px] content-[''];
+              }
+              @apply rounded-tl-lg rounded-bl-2xl;
+            }
+            @apply relative;
+          }
+          @apply flex flex-col gap-y-[2px];
+        }
+        &:hover {
+          @apply bg-transparent;
+        }
+        &__avatar {
+          @apply bottom-0 translate-y-0;
+        }
+        &__author {
+          p {
+            @apply mr-7 leading-4;
+          }
+          @apply relative bg-black-600 mr-2 px-2.5 py-2 rounded-2xl rounded-bl-lg;
+        }
+        &__changed {
+          @apply ml-1.5 text-10-r-p text-black-200;
+        }
+        &__time {
+          span {
+            @apply right-auto left-0 -translate-x-full;
+          }
+          @apply right-2.5 bottom-2 absolute;
+        }
+        &__answered {
+          @apply bg-purple-300 py-[2px];
+        }
+        @apply py-0 pl-4;
+      }
+      @apply bottom-0 relative flex flex-col gap-y-[9px] mt-4 -ml-4 pt-0 overflow-y-auto;
+    }
   }
   @apply relative mt-3;
 }

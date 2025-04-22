@@ -49,6 +49,8 @@ import "./base/common/messages/open-reply";
 import "./base/common/only-numbers";
 import "./base/common/users";
 import "./base/common/add-user";
+import "./base/common/chat";
+import "./base/common/chat-messages";
 
 import "./components/form/form-login";
 
