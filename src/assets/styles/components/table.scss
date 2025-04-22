@@ -442,20 +442,23 @@
     @apply font-semibold;
   }
   &__channels {
-    a {
-      img {
-        @apply rounded-full max-w-[22px] max-h-[22px] object-cover;
+    &__items {
+      a {
+        img {
+          @apply rounded-full max-w-[22px] max-h-[22px] object-cover;
+        }
+        span {
+          @apply inline-block text-12-r-p text-ellipsis line-clamp-1;
+        }
+        &:hover {
+          @apply text-blue-000;
+        }
+        &:active {
+          @apply text-blue-050;
+        }
+        @apply flex items-center gap-x-1 bg-white-000 px-1.5 py-[3px] border border-black-500 rounded-md max-w-[123px] min-h-[30px] transition-all duration-300;
       }
-      span {
-        @apply inline-block text-12-r-p text-ellipsis line-clamp-1;
-      }
-      &:hover {
-        @apply text-blue-000;
-      }
-      &:active {
-        @apply text-blue-050;
-      }
-      @apply flex items-center gap-x-1 bg-white-000 px-1.5 py-[3px] border border-black-500 rounded-md max-w-[136px] min-h-[30px] transition-all duration-300;
+      @apply flex flex-wrap gap-1.5;
     }
     &-companies {
       @apply min-w-[310px] max-w-[310px];
@@ -476,12 +479,12 @@
         }
         @apply border-blue-500;
       }
-      @apply top-1 right-0 absolute flex justify-center items-center bg-white-000 p-0 border border-black-500 rounded-md w-[26px] h-[22px];
+      @apply top-1 relative flex justify-center items-center bg-white-000 p-0 border border-black-500 rounded-md w-[26px] min-w-[26px] h-[22px] min-h-[22px];
     }
     &.active {
       @apply h-auto;
     }
-    @apply relative flex flex-wrap gap-1.5 pr-8 min-w-[416px] max-w-[416px] h-[30px] overflow-hidden;
+    @apply relative flex justify-between min-w-[416px] max-w-[416px] h-[30px] overflow-hidden;
   }
   th {
     &:nth-child(1),

@@ -10,7 +10,7 @@ mixin heading-table(data = {})
           sup= modefied.count
     .heading__buttons
       if modefied.isCalendar || modefied.isSearch || modefied.checkboxes
-        .heading__left(class=modefied.isCheckboxes ? 'heading__left__checkboxes' : false)
+        .heading__left(class=modefied.isCheckboxes || modefied.isCheckboxPosts ? 'heading__left__checkboxes' : false)
           .heading__left__inner
             if modefied.isSearch
               +search({
@@ -42,6 +42,15 @@ mixin heading-table(data = {})
                 label: 'скрывать удаленные',
                 type: 'checkbox',
                 value: 'скрывать удаленные',
+              })
+          if modefied.isCheckboxPosts
+            .heading__checkboxes
+              +input({
+                class: 'input-checkbox-with-label',
+                isLabel: true,
+                label: 'точное совпадение',
+                type: 'checkbox',
+                value: 'точное совпадение',
               })
       if modefied.buttons.length
         .heading__right

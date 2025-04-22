@@ -22,6 +22,7 @@ block content
         isRows: true,
         isCalendar: true,
         isDatePicker: true,
+        isCheckboxPosts: true,
         buttons: [
           {
             view: 'link',
@@ -46,5 +47,6 @@ block content
             include ../components/posts/table
           .mt-12
             include ../components/pagination
-          .no-posts К сожалению, по выбранным параметрам ничего не найдено. <br> Попробуйте изменить фильтры или сбросить поиск.
+          .no-posts К сожалению, по выбранным параметрам ничего не найдено. <br> Попробуйте изменить фильтры или сбросить поиск
+          .no-posts Укажите необходимые фильтры для поиска публикаций или воспользуйтесь поиском
         include ../components/posts/filter
