@@ -24,8 +24,9 @@ mixin heading-table(data = {})
                 isCalendar: true,
                 isDatePicker: modefied.isDatePicker,
                 isMonthPicker: modefied.isMonthPicker,
-                value: 'Все',
+                value: modefied.value,
                 view: 'button',
+                placeholder: modefied.placeholder,
               })
           if modefied.isCheckboxes
             .heading__checkboxes

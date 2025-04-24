@@ -576,6 +576,9 @@
       &:active {
         @apply text-blue-050;
       }
+      img {
+        @apply max-w-[22px] max-h-[22px];
+      }
       @apply transition-all duration-300;
     }
     .datetimepicker-trigger,

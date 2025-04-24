@@ -56,7 +56,7 @@
     @apply mt-2.5;
   }
   &__conversations {
-    @apply flex flex-col items-start -mx-4 h-[calc(100%-148px)] max-h-[calc(100%-148px)] overflow-y-auto;
+    @apply flex flex-col items-start -mx-4 overflow-y-auto;
   }
   &__conversation {
     &-pinned {
@@ -151,7 +151,7 @@
       }
       @apply w-auto;
     }
-    @apply flex justify-between items-center;
+    @apply flex justify-between items-center pb-3 border-b border-black-500;
   }
   &__title {
     @apply flex items-center gap-x-2;
@@ -200,7 +200,10 @@
     & > .button {
       @apply ml-1;
     }
-    @apply flex items-center gap-x-2 mt-2.5;
+    &.active {
+      @apply flex;
+    }
+    @apply hidden items-center gap-x-2 mt-2.5;
   }
   &__bottom {
     @apply right-0 bottom-0 left-0 absolute bg-white-000 pb-4;
@@ -270,7 +273,7 @@
       @apply -top-1.5 -right-1.5 z-10 absolute flex justify-center items-center bg-black-100 bg-opacity-50 opacity-0 border border-white-000 rounded-full w-4 h-4 transition-all duration-300;
     }
     &.loaded {
-      .messages__file__icon {
+      .chat__file__icon {
         &-close {
           @apply invisible opacity-0;
         }
@@ -278,15 +281,15 @@
           @apply visible opacity-100;
         }
       }
-      .messages__file__remove {
+      .chat__file__remove {
         @apply opacity-100;
       }
     }
     &-image {
-      .messages__file__image {
+      .chat__file__image {
         @apply rounded-lg w-12 h-12;
       }
-      .messages__file__icon {
+      .chat__file__icon {
         @apply bg-black-100 bg-opacity-50;
       }
       img {
@@ -294,10 +297,10 @@
       }
     }
     &-file {
-      .messages__file__image {
+      .chat__file__image {
         @apply rounded-full w-[30px] h-[30px];
       }
-      .messages__file__icon {
+      .chat__file__icon {
         @apply bg-blue-000;
       }
       @apply bg-opacity-10;
@@ -329,7 +332,7 @@
     .message__answered {
       @apply mt-0 rounded-tl-sm rounded-bl-sm;
     }
-    & ~ .messages__form {
+    & ~ .chat__form {
       @apply flex-wrap justify-end gap-y-3;
     }
     @apply flex justify-between items-center mb-3;
@@ -353,49 +356,72 @@
     @apply flex justify-center items-center bg-transparent w-[34px] h-[34px];
   }
   &__messages {
-    .chat {
-      .message {
-        &__authors {
-          .message__author {
-            &:last-child {
-              &:before {
-                background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTUiIHZpZXdCb3g9IjAgMCAxMiAxNSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik00LjI5OTggMEgxMS4yOTk4VjEySDExLjE0NzZDMTEuMTE4IDEyLjA5NiAxMS4wNTgzIDEyLjE4MjcgMTAuOTcxMSAxMi4yNDVDNy44MzMxNSAxNC40ODY3IDMuNDkzNzcgMTQuOTE0MiAwLjUwNjQ0NyAxNC45ODY1QzAuMDYxMTI1OCAxNC45OTczIC0wLjE2NDU3NyAxNC40NTY5IDAuMTM4NDUyIDE0LjEzMDRDMi4yNTQ5NiAxMS44NSAzLjU0MDg1IDkuNzQ4NTggNC4yOTk4IDcuNTIyNDlWMFoiIGZpbGw9IiNGNEY1RjYiLz4KPC9zdmc+Cg==);
-                @apply bottom-0 -left-1 absolute w-[11px] h-[15px] content-[''];
-              }
-              @apply rounded-tl-lg rounded-bl-2xl;
+    .message {
+      .dropdown-comment {
+        .dropdown__button {
+          .button {
+            svg {
+              @apply w-3 h-1.5;
             }
-            @apply relative;
+            &:hover {
+              @apply bg-black-500;
+            }
+            @apply p-0 w-6 h-5;
           }
-          @apply flex flex-col gap-y-[2px];
+        }
+        .dropdown__list {
+          @apply min-w-[144px] max-w-full translate-y-[calc(-100%-32px)];
+        }
+        @apply invisible top-0 right-0 -z-10 absolute opacity-0 w-auto transition-all duration-300;
+      }
+      &__authors {
+        .message__author {
+          &:last-child {
+            &:before {
+              background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTUiIHZpZXdCb3g9IjAgMCAxMiAxNSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik00LjI5OTggMEgxMS4yOTk4VjEySDExLjE0NzZDMTEuMTE4IDEyLjA5NiAxMS4wNTgzIDEyLjE4MjcgMTAuOTcxMSAxMi4yNDVDNy44MzMxNSAxNC40ODY3IDMuNDkzNzcgMTQuOTE0MiAwLjUwNjQ0NyAxNC45ODY1QzAuMDYxMTI1OCAxNC45OTczIC0wLjE2NDU3NyAxNC40NTY5IDAuMTM4NDUyIDE0LjEzMDRDMi4yNTQ5NiAxMS44NSAzLjU0MDg1IDkuNzQ4NTggNC4yOTk4IDcuNTIyNDlWMFoiIGZpbGw9IiNGNEY1RjYiLz4KPC9zdmc+Cg==);
+              @apply bottom-0 -left-1 absolute w-[11px] h-[15px] content-[''];
+            }
+            @apply rounded-tl-lg rounded-bl-2xl;
+          }
+          @apply pr-[34px];
+        }
+        @apply flex flex-col gap-y-[2px] w-full;
+      }
+      &:hover {
+        @apply bg-transparent;
+      }
+      &__avatar {
+        @apply bottom-0 translate-y-0;
+      }
+      &__author {
+        &__wrapper {
+          p {
+            @apply mt-1 mr-8 text-12-r-p leading-4;
+          }
+          @apply relative bg-black-600 px-2.5 py-2 rounded-2xl rounded-bl-lg;
         }
         &:hover {
-          @apply bg-transparent;
-        }
-        &__avatar {
-          @apply bottom-0 translate-y-0;
-        }
-        &__author {
-          p {
-            @apply mr-7 leading-4;
+          .dropdown-comment {
+            @apply visible z-50 opacity-100;
           }
-          @apply relative bg-black-600 mr-2 px-2.5 py-2 rounded-2xl rounded-bl-lg;
         }
-        &__changed {
-          @apply ml-1.5 text-10-r-p text-black-200;
-        }
-        &__time {
-          span {
-            @apply right-auto left-0 -translate-x-full;
-          }
-          @apply right-2.5 bottom-2 absolute;
-        }
-        &__answered {
-          @apply bg-purple-300 py-[2px];
-        }
-        @apply py-0 pl-4;
+        @apply relative items-start;
       }
-      @apply bottom-0 relative flex flex-col gap-y-[9px] mt-4 -ml-4 pt-0 overflow-y-auto;
+      &__changed {
+        @apply ml-1.5 text-10-r-p text-black-200;
+      }
+      &__time {
+        span {
+          @apply right-auto left-0 -translate-x-full;
+        }
+        @apply right-2.5 bottom-2 absolute;
+      }
+      &__answered {
+        @apply bg-purple-300 py-[2px];
+      }
+      @apply py-0 pl-0;
     }
+    @apply bottom-0 relative flex flex-col gap-y-[9px] mt-3 pt-0 overflow-y-auto;
   }
   @apply relative mt-3;
 }

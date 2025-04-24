@@ -504,7 +504,6 @@ export default function toggleDropdown() {
         top: `${dropdownTop + 4}px`,
       });
     } else {
-
       $list.css({
         position: 'fixed',
         top: `${dropdownTop + 4}px`,

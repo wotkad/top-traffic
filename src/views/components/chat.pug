@@ -509,7 +509,7 @@
         })
         .chat__avatar(style="background-color: #E5E4FC;")
           span МТС
-        .chat__name MTC_KION
+        button(type="button").chat__name MTC_KION
         .chat__icon
           svg
             use(xlink:href="#other-telegram-icon")
@@ -539,9 +539,9 @@
           view: 'button',
         })
       +button({
+        class: 'chat__trigger-search-close',
         icon: 'other-close-icon',
         isOnlyIcon: true,
         view: 'button',
       })
-    .chat__messages
-      include ./chat-messages
+    include ./chat-messages

@@ -34,7 +34,7 @@ mixin button(data = {})
         svg.calendar-icon
           use(xlink:href="#" + modefied.icon)
       if modefied.isDatePicker && !modefied.isSinglePicker
-        input.datepicker.datepicker-range(type="text" name="date" placeholder="Выберите дату" class=modefied.calendarClass readonly value=modefied.value)
+        input.datepicker.datepicker-range(type="text" name="date" placeholder=modefied.placeholder class=modefied.calendarClass readonly value=modefied.value)
       if modefied.isMonthPicker
         input.monthpicker(type="text" name="date" placeholder="Выберите период" class=modefied.calendarClass readonly value=modefied.value)
       if modefied.isDatePicker && modefied.isSinglePicker && !modefied.isStatusTrigger
