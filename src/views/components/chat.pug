@@ -498,7 +498,7 @@
                   use(xlink:href="#other-pinned-icon")
               .chat__state.chat__state-messages
                 span 9
-  .chat__container.active
+  .chat__container
     .chat__header
       .chat__title
         +button({
@@ -509,10 +509,10 @@
         })
         .chat__avatar(style="background-color: #E5E4FC;")
           span МТС
-        button(type="button").chat__name MTC_KION
-        .chat__icon
-          svg
-            use(xlink:href="#other-telegram-icon")
+        button(type="button").chat__name.chat__trigger-channel MTC_KION
+          .chat__icon
+            svg
+              use(xlink:href="#other-telegram-icon")
       .chat__controls
         +button({
           class: 'chat__trigger-search',
@@ -545,3 +545,33 @@
         view: 'button',
       })
     include ./chat-messages
+  .chat__channel.active
+    .chat__header
+      .chat__title
+        +button({
+          class: 'chat__trigger-channel-close',
+          icon: 'other-angle-left-lg-icon',
+          isOnlyIcon: true,
+          view: 'button',
+        })
+      .chat__channel__logo
+        .chat__avatar(style="background-color: #E5E4FC;")
+          span МТС
+        .chat__name MTC_KION
+          .chat__icon
+            svg
+              use(xlink:href="#other-telegram-icon")
+      .chat__controls
+        +button({
+          icon: 'other-more-icon',
+          isOnlyIcon: true,
+          view: 'button',
+        })
+    .selector__buttons
+      .selector__scroll
+        button.selector__button(data-id="members").active Участники
+        button.selector__button(data-id="media") Медиа
+    .selector__containers.selector__content
+      .selector__container(data-id="members")
+
+      .selector__container(data-id="media")

@@ -82,6 +82,7 @@ import "./components/toggle/toggle-confirm";
 import "./components/toggle/toggle-chat-categories";
 import "./components/toggle/toggle-pinned-state";
 import "./components/toggle/toggle-chat-search";
+import "./components/toggle/toggle-chat-channel";
 
 import "./components/scroll/scroll-to-top";
 import "./components/scroll/scroll-filter";

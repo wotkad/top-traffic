@@ -157,7 +157,7 @@
     @apply flex items-center gap-x-2;
   }
   &__name {
-    @apply text-12-m-p;
+    @apply flex items-center gap-x-1 text-12-m-p;
   }
   &__controls {
     .button {
@@ -422,6 +422,18 @@
       @apply py-0 pl-0;
     }
     @apply bottom-0 relative flex flex-col gap-y-[9px] mt-3 pt-0 overflow-y-auto;
+  }
+  &__channel {
+    &__logo {
+      @apply flex flex-col justify-center items-center gap-y-[5px];
+    }
+    &.active {
+      @apply block;
+    }
+    .chat__header {
+      @apply flex justify-between items-center border-none;
+    }
+    @apply hidden top-0 -left-4 absolute bg-white-000 px-4 rounded-[10px] w-[calc(100%+32px)] h-full overflow-hidden;
   }
   @apply relative mt-3;
 }
