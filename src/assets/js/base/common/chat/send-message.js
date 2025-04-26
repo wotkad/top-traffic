@@ -1,6 +1,6 @@
 import setChatInitials from "./../set-chat-initials";
 
-$(document).on("submit", ".chat__form", function (event) {
+$(document).on("submit", ".chat__form.default", function (event) {
   event.preventDefault();
   let form = $(this);
   let messageText = form.find("textarea[name='comment']").val().trim();

@@ -15,7 +15,7 @@ $(document).on("click", ".chat-message__edit", function () {
   let form = $('.chat__form');
   
   // Очищаем предыдущие состояния
-  form.removeClass('replied').addClass('edited');
+  form.addClass('edited').removeClass('default');
   $('.chat__submit').prop('disabled', false);
   $(".chat__reply, .chat__edit, .chat__bottom .chat__files").remove();
 

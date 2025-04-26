@@ -19,7 +19,7 @@ $(document).on("click", ".chat-message__reply", function () {
   }
 
   let form = $('.chat__form');
-  form.addClass('replied').removeClass('edited');
+  form.addClass('replied').removeClass('default');
   $('.chat__submit').prop('disabled', false);
 
   // Формируем контент блока ответа

@@ -149,7 +149,7 @@
       svg {
         @apply w-[15px] h-[15px] text-black-100;
       }
-      @apply w-auto;
+      @apply w-auto min-w-max;
     }
     @apply flex justify-between items-center pb-3 border-b border-black-500;
   }

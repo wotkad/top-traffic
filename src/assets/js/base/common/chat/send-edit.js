@@ -4,6 +4,8 @@ $(document).on("submit", ".chat__form.edited", function (event) {
   event.preventDefault();
   let form = $(this);
   let newMessageText = form.find("textarea[name='comment']").val().trim();
+  let textarea = $(this).find("textarea[name='comment']");
+
   
   // Находим конкретное сообщение для редактирования
   let parentToEdit = $(".chat-message__author[data-edit-id]");
@@ -43,9 +45,12 @@ $(document).on("submit", ".chat__form.edited", function (event) {
   }
   
   // Сброс состояния редактирования
-  parentToEdit.removeAttr('data-edit-id');
   $(".chat__edit").remove();
-  form.removeClass('edited');
-  form.find("textarea[name='comment']").val("");
+  $('.chat__submit').attr('disabled', true);
+
+  parentToEdit.removeAttr('data-edit-id');
+  $('.chat__submit').attr('disabled', true);
+  textarea.val("");
+  $(this).removeClass('replied').addClass('default');
   $('.chat__submit').prop('disabled', true);
 });
