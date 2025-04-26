@@ -362,6 +362,9 @@
     @apply flex justify-center items-center bg-transparent w-[34px] min-w-[34px] h-[34px] min-h-[34px];
   }
   &__messages {
+    & > *:first-child {
+      margin-top: auto;
+    }
     .chat-message {
       &.active {
         .chat-message__author {
@@ -425,6 +428,12 @@
       &__author {
         &__wrapper {
           p {
+            span.highlight {
+              &.active {
+                @apply bg-orange-100 text-black-000;
+              }
+              @apply bg-[#A7D5F9];
+            }
             @apply mt-1 mr-8 text-12-r-p leading-4;
           }
           @apply relative bg-black-600 px-2.5 py-2 rounded-2xl rounded-bl-lg;
@@ -444,9 +453,15 @@
           svg {
             @apply w-4 h-4 text-black-100;
           }
-          @apply flex items-center gap-x-1 mt-1 text-12-r-p text-black-200;
+          @apply mt-1 text-12-r-p text-black-200;
         }
         & ~ p {
+          span.highlight {
+            &.active {
+              @apply bg-orange-100 text-black-000;
+            }
+            @apply bg-[#A7D5F9];
+          }
           @apply mt-1.5;
         }
         @apply flex flex-col items-start bg-purple-300 mt-1.5 py-[2px] pl-2.5 border-blue-200 border-l-[3px] rounded-tl-sm rounded-bl-sm;
@@ -473,7 +488,7 @@
       }
       @apply py-0 pl-0;
     }
-    @apply bottom-0 relative flex flex-col gap-y-[9px] mt-3 pt-0 overflow-y-auto;
+    @apply flex flex-col gap-y-[9px] mt-3 overflow-y-auto;
   }
   &__answered {
     h3 {
@@ -483,7 +498,7 @@
       svg {
         @apply w-4 h-4 text-black-100;
       }
-      @apply flex items-center gap-x-1 mt-1 text-12-r-p text-black-200;
+      @apply mt-1 text-12-r-p text-black-200;
     }
     & ~ p {
       @apply mt-1.5;

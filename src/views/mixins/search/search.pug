@@ -14,3 +14,5 @@ mixin search(data = {})
         input(class=`search__input ${modefied.class == false ? '' : modefied.class}` type="search" autocomplete="on" placeholder="Поиск..." name="search")
         svg
           use(xlink:href="#other-search-icon")
+      if modefied.isCounter
+        .search__counter 1 из 2

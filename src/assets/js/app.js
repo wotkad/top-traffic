@@ -58,6 +58,7 @@ import "./base/common/chat/send-message";
 import "./base/common/chat/send-reply";
 import "./base/common/chat/open-edit";
 import "./base/common/chat/open-reply";
+import "./base/common/chat/search";
 
 import "./components/form/form-login";
 

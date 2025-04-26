@@ -76,6 +76,7 @@ module.exports = {
         },
         orange: {
           '000': '#EC8E71',
+          '100': '#FF9800',
         },
         peach: {
           '000': '#F1BD6C',

@@ -526,14 +526,18 @@
           view: 'button',
         })
     .chat__search
-      +search
+      +search({
+        isCounter: true,
+      })
       .chat__search__buttons
         +button({
+          class: 'next-search-el',
           icon: 'other-angle-up-lg-icon',
           isOnlyIcon: true,
           view: 'button',
         })
         +button({
+          class: 'prev-search-el',
           icon: 'other-angle-down-lg-icon',
           isOnlyIcon: true,
           view: 'button',
