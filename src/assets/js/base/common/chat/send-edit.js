@@ -1,67 +1,51 @@
 import getFormattedDate from "./get-formatted-date";
 
-// Обработчик отправки формы редактирования
 $(document).on("submit", ".chat__form.edited", function (event) {
   event.preventDefault();
-  event.stopPropagation();
-
-  let newMessageText = $(this).find("textarea[name='comment']").val().trim();
-  if (!newMessageText) return; // Если текст пустой, не обновляем
-
-  let editId = $(".message[data-edit-id]").attr("data-edit-id");
-  let messageElement = $(`.message[data-edit-id='${editId}']`);
-
-  let authorBlock = messageElement.find(".message__author");
-  let textBlock = authorBlock.children("p").last();
-  let hadTextInitially = textBlock.length > 0;
-
-  // Обновляем или создаём текстовый блок
-  if (hadTextInitially) {
-    textBlock.text(newMessageText);
-  } else {
-    authorBlock.append(`<p>${newMessageText}</p>`);
-  }
-
-  // === Проверка на появление текста впервые ===
-  if (!hadTextInitially && newMessageText.length > 0) {
-    let buttonsBlock = messageElement.find(".message__buttons");
-    // Проверим, есть ли уже кнопка "Копировать", чтобы не дублировать
-    if (buttonsBlock.length && buttonsBlock.find(".message__copy").length === 0) {
-      // Создаём кнопку "Копировать"
-      let copyButton = `
-        <button class="button message__button message__copy" type="button" aria-label="button">
-          <svg viewBox="0 0 18 18" width="18" height="18">
-            <use xlink:href="#other-copy-icon"></use>
-          </svg>
-        </button>
-      `;
-      // Вставляем кнопку сразу после "Ответить"
-      buttonsBlock.find(".message__reply").after(copyButton);
+  let form = $(this);
+  let newMessageText = form.find("textarea[name='comment']").val().trim();
+  
+  // Находим конкретное сообщение для редактирования
+  let parentToEdit = $(".chat-message__author[data-edit-id]");
+  if (!parentToEdit.length) return;
+  
+  let editId = parentToEdit.attr("data-edit-id");
+  let messageElement = parentToEdit.closest(".chat-message");
+  let authorWrapper = parentToEdit.find(".chat-message__author__wrapper");
+  
+  // Обновляем текст сообщения
+  let textBlock = authorWrapper.find("> p");
+  if (newMessageText) {
+    if (textBlock.length) {
+      textBlock.text(newMessageText);
+    } else {
+      authorWrapper.append(`<p>${newMessageText}</p>`);
     }
+    
+    // Добавляем или обновляем метку "изменено"
+    let changedSpan = authorWrapper.find(".chat-message__changed");
+    if (!changedSpan.length) {
+      authorWrapper.find("> p").append('<span class="chat-message__changed">изменено</span>');
+    }
+  } else if (textBlock.length) {
+    textBlock.remove();
+    authorWrapper.find(".chat-message__changed").remove();
   }
-
-  // Работаем с датой и пометкой "изменено"
-  let timeElement = messageElement.find(".message__time");
-  let oldText = timeElement.contents().filter(function () {
-    return this.nodeType === 3;
-  }).text().trim();
-
-  let timeSpan = timeElement.find("span");
-  let oldDate = timeSpan.text().trim();
+  
+  // Обновляем время редактирования только для текущего автора
+  let timeElement = parentToEdit.find(".chat-message__time");
   let newDate = getFormattedDate();
-
-  if (!oldText.includes("(изменено)")) {
-    timeElement.html(`${oldText} (изменено) <span>${oldDate} (${newDate})</span>`);
+  
+  if (timeElement.find("span").length) {
+    timeElement.find("span").text(`${newDate} (изменено)`);
   } else {
-    let updatedText = oldDate.replace(/\(\d{2}\.\d{2}\.\d{4} в \d{2}:\d{2}\)$/, `(${newDate})`);
-    timeSpan.text(updatedText);
+    timeElement.append(`<span>${newDate} (изменено)</span>`);
   }
-
-  // Сброс редактирования
-  $(this).closest(".message").removeAttr('data-edit-id');
+  
+  // Сброс состояния редактирования
+  parentToEdit.removeAttr('data-edit-id');
   $(".chat__edit").remove();
-  $(".chat__files").remove();
-  $(this).find("textarea[name='comment']").val("");
-  $(this).removeClass('edited');
+  form.removeClass('edited');
+  form.find("textarea[name='comment']").val("");
   $('.chat__submit').prop('disabled', true);
 });

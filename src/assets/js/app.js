@@ -11,6 +11,7 @@ import setAsideHeight from "./base/common/set-aside-height";
 
 window.addEventListener('load', function() {
   setAsideHeight();
+
   this.setTimeout(function() {
     setAsideHeight();
   }, 400);
@@ -32,6 +33,7 @@ import "./base/common/set-page-initials";
 import "./base/common/set-profile-initials";
 import "./base/common/set-profile-photo";
 import "./base/common/set-comment-initials";
+import "./base/common/set-chat-initials";
 import "./base/common/copy-accordion-link";
 import "./base/common/copy-users-link";
 import "./base/common/copy-popup-link";
@@ -49,8 +51,13 @@ import "./base/common/messages/open-reply";
 import "./base/common/only-numbers";
 import "./base/common/users";
 import "./base/common/add-user";
+
 import "./base/common/chat";
-import "./base/common/chat-messages";
+import "./base/common/chat/send-edit";
+import "./base/common/chat/send-message";
+import "./base/common/chat/send-reply";
+import "./base/common/chat/open-edit";
+import "./base/common/chat/open-reply";
 
 import "./components/form/form-login";
 

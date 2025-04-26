@@ -22,11 +22,13 @@ export default function setAsideHeight() {
       asideContainer.css('height', `calc(100dvh - ${asideOffsetTop}px - 24px)`);
     }
   });
-
-  // $('.chat__messages').css('max-height', `calc(${$('.chat__bottom').offset().top}px - ${$('.chat__messages').offset().top}px)`);
-
+  $('.chat__messages').each(function () {
+    let asideContainer = $(this);
+    let asideOffsetTop = asideContainer.offset().top;
+    asideContainer.css('max-height', `calc(100dvh - ${asideOffsetTop}px  - 24px - 66px)`);
+    asideContainer.css('height', `calc(100dvh - ${asideOffsetTop}px  - 24px - 66px)`);
+  });
 }
-setAsideHeight();
 
 function checkScrollEnd() {
   if (!isScrolling) {

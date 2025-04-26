@@ -8,9 +8,12 @@ function togglePopup() {
     let currentPopup = $('.popup[data-popup-name="' + popupName + '"]');
     let currentPopupBg = $('.popup__bg[data-popup-name="' + popupName + '"]');
     let currentMessage = $(this).closest('.message');
+    let currentChatMessage = $(this).closest('.chat-message');
+    let currentAuthor = $(this).closest('.chat-message__author');
     let currentUser = $(this).closest('.user');
 
     $('.message').removeClass('active');
+    $('.chat-message').removeClass('active');
     $('.user').removeClass('active');
 
     if (popupName == 'share-post') {
@@ -19,11 +22,13 @@ function togglePopup() {
     }
 
     if (currentPopup.hasClass('active')) {
-      closePopup(currentPopup, currentPopupBg, currentMessage, currentUser);
+      closePopup(currentPopup, currentPopupBg, currentMessage, currentChatMessage, currentUser, currentAuthor);
     } else {
       currentPopup.addClass('active');
       currentPopupBg.addClass('active');
+      currentChatMessage.addClass('active');
       currentMessage.addClass('active');
+      currentAuthor.addClass('active');
       currentUser.addClass('active');
       disablePageScroll();
     }
@@ -38,6 +43,8 @@ function togglePopup() {
     $('.popup.active').each(function() {
       let popup = $(this);
       let currentMessage = popup.closest('.message');
+      let currentChatMessage = popup.closest('.chat-message');
+      let currentAuthor = popup.closest('.chat-message__author');
       let currentUser = popup.closest('.user');
       let popupWrapper = popup.find('.popup__wrapper');
   
@@ -51,6 +58,8 @@ function togglePopup() {
         if (!popupWrapper.is(e.target) && !popupWrapper.has(e.target).length) {
           closePopup(popup, popup.prev());
           currentMessage.removeClass('active');
+          currentChatMessage.removeClass('active');
+          currentAuthor.removeClass('active');
           currentUser.removeClass('active');
         }
       }
@@ -59,12 +68,20 @@ function togglePopup() {
   
 }
 
-function closePopup(popup, popupBg, currentMessage, currentUser) {
+function closePopup(popup, popupBg, currentMessage, currentChatMessage, currentUser, currentAuthor) {
   popup.removeClass('active');
   popupBg.removeClass('active');
+
+  if (currentChatMessage && currentChatMessage.length) {
+    currentChatMessage.removeClass('active');
+  }
   
   if (currentMessage && currentMessage.length) {
     currentMessage.removeClass('active');
+  }
+
+  if (currentAuthor && currentAuthor.length) {
+    currentAuthor.removeClass('active');
   }
 
   if (currentUser && currentUser.length) {

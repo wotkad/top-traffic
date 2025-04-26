@@ -13,13 +13,13 @@ $(document).on("submit", ".chat__form.replied", function (event) {
   let repliedUser = repliedBlock.find("h3").text().replace(/^Ответить: /, "").trim();
 
   // Поиск оригинального сообщения, чтобы проверить текст и файлы
-  let originalMessage = $(".chat .message").filter(function () {
-    return $(this).find(".message__head h3").text().trim() === repliedUser;
+  let originalMessage = $(".chat .chat-message").filter(function () {
+    return $(this).find(".chat-message__head h3").text().trim() === repliedUser;
   }).last();
 
-  let repliedText = originalMessage.find(".message__author > p").text().trim();
+  let repliedText = originalMessage.find(".chat-message__author__wrapper > p").text().trim();
   let hasText = repliedText.length > 0;
-  let fileBlock = originalMessage.find(".message__author .chat__files .chat__file").first();
+  let fileBlock = originalMessage.find(".chat-message__author .chat__files .chat__file").first();
   let hasFiles = fileBlock.length > 0;
   let displayText = "";
 

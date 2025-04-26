@@ -1,37 +1,37 @@
 
 .chat__messages
   .chat__day Среда, 15 октября
-  .message
-    .message__comment
-      .message__avatar
+  .chat-message
+    .chat-message__comment
+      .chat-message__avatar
         span(style="background-color: #E5E4FC;")
-      .message__authors
-        .message__author
-          .message__author__wrapper
-            .message__head
+      .chat-message__authors
+        .chat-message__author
+          .chat-message__author__wrapper
+            .chat-message__head
               h3 Валерия Медеведева
-              .message__time 12:00
+              .chat-message__time 12:00
                 span 15.10.2024 в 16:25
             p Добрый день! Старт РК 16.10
           +dropdown({
             buttons: [
               {
-                class: 'message__reply',
+                class: 'chat-message__reply',
                 icon: 'other-reply-icon',
                 title: 'Ответить',
               },
               {
-                class: 'message__copy',
+                class: 'chat-message__copy',
                 icon: 'other-copy-icon',
                 title: 'Копировать',
               },
               {
-                class: 'message__edit',
+                class: 'chat-message__edit',
                 icon: 'other-edit2-icon',
                 title: 'Редактировать',
               },
               {
-                class: 'message__delete',
+                class: 'chat-message__delete',
                 dataPopupName: 'delete-comment',
                 icon: 'other-trash-icon',
                 title: 'Удалить',
@@ -41,59 +41,59 @@
             icon: 'other-angle-down-icon',
             isButtons: true,
           })
-      .popup(data-popup-name="delete-comment")
-        .popup__wrapper(data-scroll-lock-scrollable)
-          .popup__title Подтвердить действие
-          .popup__subtitle Удалить комментарий?
-          .popup__form
-            .popup__buttons
-              +button({
-                class: 'button-base',
-                dataPopupName: 'delete-comment',
-                title: 'Нет',
-                view: 'button',
-              })
-              +button({
-                class: 'button-confirm message__remove',
-                dataPopupName: 'delete-comment',
-                title: 'Да',
-                view: 'button',
-              })
+          .popup(data-popup-name="delete-comment")
+            .popup__wrapper(data-scroll-lock-scrollable)
+              .popup__title Подтвердить действие
+              .popup__subtitle Удалить комментарий?
+              .popup__form
+                .popup__buttons
+                  +button({
+                    class: 'button-base',
+                    dataPopupName: 'delete-comment',
+                    title: 'Нет',
+                    view: 'button',
+                  })
+                  +button({
+                    class: 'button-confirm chat-message__remove',
+                    dataPopupName: 'delete-comment',
+                    title: 'Да',
+                    view: 'button',
+                  })
   .chat__day Четверг, 16 октября
-  .message
-    .message__comment
-      .message__avatar
+  .chat-message
+    .chat-message__comment
+      .chat-message__avatar
         span(style="background-color: #FCEAE4;")
-      .message__authors
-        .message__author
-          .message__author__wrapper
-            .message__head
+      .chat-message__authors
+        .chat-message__author
+          .chat-message__author__wrapper
+            .chat-message__head
               h3 Максим Амбиндер
-              .message__time 12:00
+              .chat-message__time 12:00
                 span 15.10.2024 в 16:25
-            .message__answered
+            .chat-message__answered
               h3 Валерия Медведева
               p Добрый день! Старт РК 16.10
             p Добрый день! Спасибо, старт запланирован
           +dropdown({
             buttons: [
               {
-                class: 'message__reply',
+                class: 'chat-message__reply',
                 icon: 'other-reply-icon',
                 title: 'Ответить',
               },
               {
-                class: 'message__copy',
+                class: 'chat-message__copy',
                 icon: 'other-copy-icon',
                 title: 'Копировать',
               },
               {
-                class: 'message__edit',
+                class: 'chat-message__edit',
                 icon: 'other-edit2-icon',
                 title: 'Редактировать',
               },
               {
-                class: 'message__delete',
+                class: 'chat-message__delete',
                 dataPopupName: 'delete-comment',
                 icon: 'other-trash-icon',
                 title: 'Удалить',
@@ -103,55 +103,55 @@
             icon: 'other-angle-down-icon',
             isButtons: true,
           })
-      .popup(data-popup-name="delete-comment")
-        .popup__wrapper(data-scroll-lock-scrollable)
-          .popup__title Подтвердить действие
-          .popup__subtitle Удалить комментарий?
-          .popup__form
-            .popup__buttons
-              +button({
-                class: 'button-base',
-                dataPopupName: 'delete-comment',
-                title: 'Нет',
-                view: 'button',
-              })
-              +button({
-                class: 'button-confirm message__remove',
-                dataPopupName: 'delete-comment',
-                title: 'Да',
-                view: 'button',
-              })
-  .message
-    .message__comment
-      .message__avatar
+          .popup(data-popup-name="delete-comment")
+            .popup__wrapper(data-scroll-lock-scrollable)
+              .popup__title Подтвердить действие
+              .popup__subtitle Удалить комментарий?
+              .popup__form
+                .popup__buttons
+                  +button({
+                    class: 'button-base',
+                    dataPopupName: 'delete-comment',
+                    title: 'Нет',
+                    view: 'button',
+                  })
+                  +button({
+                    class: 'button-confirm chat-message__remove',
+                    dataPopupName: 'delete-comment',
+                    title: 'Да',
+                    view: 'button',
+                  })
+  .chat-message
+    .chat-message__comment
+      .chat-message__avatar
         span(style="background-color: #E5E4FC;")
-      .message__authors
-        .message__author
-          .message__author__wrapper
-            .message__head
+      .chat-message__authors
+        .chat-message__author
+          .chat-message__author__wrapper
+            .chat-message__head
               h3 Валерия Медеведева
-              .message__time 12:00
+              .chat-message__time 12:00
                 span 15.10.2024 в 16:25
             p Спасибо!
           +dropdown({
             buttons: [
               {
-                class: 'message__reply',
+                class: 'chat-message__reply',
                 icon: 'other-reply-icon',
                 title: 'Ответить',
               },
               {
-                class: 'message__copy',
+                class: 'chat-message__copy',
                 icon: 'other-copy-icon',
                 title: 'Копировать',
               },
               {
-                class: 'message__edit',
+                class: 'chat-message__edit',
                 icon: 'other-edit2-icon',
                 title: 'Редактировать',
               },
               {
-                class: 'message__delete',
+                class: 'chat-message__delete',
                 dataPopupName: 'delete-comment',
                 icon: 'other-trash-icon',
                 title: 'Удалить',
@@ -161,33 +161,51 @@
             icon: 'other-angle-down-icon',
             isButtons: true,
           })
-        .message__author
-          .message__author__wrapper
-            .message__head
+          .popup(data-popup-name="delete-comment")
+            .popup__wrapper(data-scroll-lock-scrollable)
+              .popup__title Подтвердить действие
+              .popup__subtitle Удалить комментарий?
+              .popup__form
+                .popup__buttons
+                  +button({
+                    class: 'button-base',
+                    dataPopupName: 'delete-comment',
+                    title: 'Нет',
+                    view: 'button',
+                  })
+                  +button({
+                    class: 'button-confirm chat-message__remove',
+                    dataPopupName: 'delete-comment',
+                    title: 'Да',
+                    view: 'button',
+                  })
+        .chat-message__author
+          .chat-message__author__wrapper
+            .chat-message__head
               h3 Валерия Медеведева
-              .message__time 12:00
+              .chat-message__time 12:00
                 span 15.10.2024 в 16:25
             p Спасибо!
-              span.message__changed изменено
+              span.chat-message__changed изменено
           +dropdown({
             buttons: [
               {
-                class: 'message__reply',
+                class: 'chat-message__reply',
                 icon: 'other-reply-icon',
                 title: 'Ответить',
               },
               {
-                class: 'message__copy',
+                class: 'chat-message__copy',
                 icon: 'other-copy-icon',
                 title: 'Копировать',
               },
               {
-                class: 'message__edit',
+                class: 'chat-message__edit',
                 icon: 'other-edit2-icon',
                 title: 'Редактировать',
               },
               {
-                class: 'message__delete',
+                class: 'chat-message__delete',
                 dataPopupName: 'delete-comment',
                 icon: 'other-trash-icon',
                 title: 'Удалить',
@@ -197,24 +215,24 @@
             icon: 'other-angle-down-icon',
             isButtons: true,
           })
-      .popup(data-popup-name="delete-comment")
-        .popup__wrapper(data-scroll-lock-scrollable)
-          .popup__title Подтвердить действие
-          .popup__subtitle Удалить комментарий?
-          .popup__form
-            .popup__buttons
-              +button({
-                class: 'button-base',
-                dataPopupName: 'delete-comment',
-                title: 'Нет',
-                view: 'button',
-              })
-              +button({
-                class: 'button-confirm message__remove',
-                dataPopupName: 'delete-comment',
-                title: 'Да',
-                view: 'button',
-              })
+          .popup(data-popup-name="delete-comment")
+            .popup__wrapper(data-scroll-lock-scrollable)
+              .popup__title Подтвердить действие
+              .popup__subtitle Удалить комментарий?
+              .popup__form
+                .popup__buttons
+                  +button({
+                    class: 'button-base',
+                    dataPopupName: 'delete-comment',
+                    title: 'Нет',
+                    view: 'button',
+                  })
+                  +button({
+                    class: 'button-confirm chat-message__remove',
+                    dataPopupName: 'delete-comment',
+                    title: 'Да',
+                    view: 'button',
+                  })
 .chat__bottom
   .chat__footer
     form(action="#").chat__form.default

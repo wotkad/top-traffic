@@ -1,21 +1,21 @@
 // Открытие формы ответа
-$(document).on("click", ".message__reply", function () {
-  let parent = $(this).closest(".message");
+$(document).on("click", ".chat-message__reply", function () {
+  let parent = $(this).closest(".chat-message");
   $(".chat__edit").remove();
   $(".chat__reply").remove();
   $('.chat__form').find("textarea[name='comment']").val("");
   $(".chat__bottom .chat__files").remove();
   
-  let repliedUser = parent.find(".message__head h3").text().trim();
-  let repliedText = parent.find(".message__author > p").text().trim();
+  let repliedUser = parent.find(".chat-message__head h3").text().trim();
+  let repliedText = parent.find(".chat-message__author__wrapper > p").text().trim();
   let hasText = repliedText.length > 0;
-  let hasFiles = parent.find(".message__author .chat__files .chat__file").length > 0;
+  let hasFiles = parent.find(".chat-message__author .chat__files .chat__file").length > 0;
 
   let displayedUser = `Ответить: ${repliedUser}`;
 
   // Если в сообщении только файлы и нет текста — берём название первого файла
   if (!hasText && hasFiles) {
-    repliedText = parent.find(".message__author .chat__files .chat__file__content p").first().text().trim();
+    repliedText = parent.find(".chat-message__author .chat__files .chat__file__content p").first().text().trim();
   }
 
   let form = $('.chat__form');
@@ -58,7 +58,7 @@ $(document).on("click", ".message__reply", function () {
             <use xlink:href="#other-reply-icon"></use>
           </svg>
         </div>
-        <div class="message__answered">
+        <div class="chat__answered">
           <h3>${displayedUser}</h3>
           ${repliedContent}
         </div>

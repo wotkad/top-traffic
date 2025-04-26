@@ -41,7 +41,7 @@ export default function createFileElement(file, progress) {
   
       <div class="chat__file__content">
         <a class="chat__file__link" href="${fileName}" download><p>${fileName}</p>
-          <button class="button message__button message__download" type="button" aria-label="button">
+          <button class="button chat-message__button chat-message__download" type="button" aria-label="button">
             <svg viewBox="0 0 18 18" width="18" height="18">
               <use xlink:href="#other-download-icon"></use>
             </svg>

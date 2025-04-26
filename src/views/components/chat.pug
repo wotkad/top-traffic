@@ -545,7 +545,7 @@
         view: 'button',
       })
     include ./chat-messages
-  .chat__channel.active
+  .chat__channel
     .chat__header
       .chat__title
         +button({
@@ -572,6 +572,46 @@
         button.selector__button(data-id="members").active Участники
         button.selector__button(data-id="media") Медиа
     .selector__containers.selector__content
-      .selector__container(data-id="members")
-
-      .selector__container(data-id="media")
+      .selector__container.active(data-id="members")
+        .chat__members
+          .chat__member
+            .chat__member__role Пользователь (Вы)
+            .chat__member__infos
+              .chat__member__info
+                span Валерия Медведева
+                img(src="/assets/images/avatar.png" alt="avatar")
+          .chat__member
+            .chat__member__role Администратор
+            .chat__member__infos
+              .chat__member__info
+                span Максим Амбиндер
+                img(src="/assets/images/avatar.png" alt="avatar")
+              .chat__member__info
+                span Елена Медведева
+                img(src="/assets/images/avatar.png" alt="avatar")
+              .chat__member__info
+                span Елена Михеева
+                img(src="/assets/images/avatar.png" alt="avatar")
+          .chat__member
+            .chat__member__role Бухгалтер
+            .chat__member__infos
+              .chat__member__info
+                span Иван Дорн
+                img(src="/assets/images/avatar.png" alt="avatar")
+                .chat__member__popup
+                  .chat__member__header
+                    img(src="/assets/images/avatar.png" alt="avatar")
+                    span Иван Дорн
+                  a(href="tel:+79167268282").chat__member__link
+                    svg.button-clear.filter-clear
+                      use(xlink:href="#other-phone-icon")
+                    span +7 (916) 726-82-82
+                  a(href="mailto:em@toptraffic.ru").chat__member__link
+                    svg.button-clear.filter-clear
+                      use(xlink:href="#other-mail-icon")
+                    span em@toptraffic.ru
+                  a(href="https://t.me/elmed").chat__member__link
+                    svg.button-clear.filter-clear
+                      use(xlink:href="#other-telegram-icon")
+                    span @elmed
+        .selector__container(data-id="media")
