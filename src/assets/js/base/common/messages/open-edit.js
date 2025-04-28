@@ -9,9 +9,9 @@ $(document).on("click", ".message__edit", function () {
 
   let messageId = generateId();
   let form = $('.messages__form');
+  form.addClass('edited').removeClass('replied default');
   let repliedText = parent.find(".message__author > p").text().trim();
 
-  form.removeClass('replied').addClass('edited');
   $('.messages__submit').prop('disabled', false);
   $(".messages__reply, .messages__edit, .messages__bottom .messages__files").remove();
 

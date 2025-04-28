@@ -1,3 +1,5 @@
+import setAsideHeight from "./../set-aside-height";
+
 // Открытие формы ответа
 $(document).on("click", ".chat-message__reply", function () {
   let parent = $(this).closest(".chat-message");
@@ -7,7 +9,10 @@ $(document).on("click", ".chat-message__reply", function () {
   $(".chat__bottom .chat__files").remove();
   
   let repliedUser = parent.find(".chat-message__head h3").text().trim();
-  let repliedText = parent.find(".chat-message__author__wrapper > p").text().trim();
+  let repliedText = parent.find(".chat-message__author__wrapper > p").contents()
+  .filter(function() { 
+    return this.nodeType === 3; // Только текстовые узлы
+  }).text().trim();
   let hasText = repliedText.length > 0;
   let hasFiles = parent.find(".chat-message__author .chat__files .chat__file").length > 0;
 
@@ -19,7 +24,7 @@ $(document).on("click", ".chat-message__reply", function () {
   }
 
   let form = $('.chat__form');
-  form.addClass('replied').removeClass('default');
+  form.addClass('replied').removeClass('edited default');
   $('.chat__submit').prop('disabled', false);
 
   // Формируем контент блока ответа
@@ -74,4 +79,7 @@ $(document).on("click", ".chat-message__reply", function () {
 
   $(".chat__footer .chat__form").before(replyTemplate);
   $(".chat__footer textarea[name='comment']").focus();
+  
+  setAsideHeight();
+  $(".chat__messages").scrollTop($(".chat__messages")[0].scrollHeight);
 });

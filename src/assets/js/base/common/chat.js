@@ -47,13 +47,6 @@ function chat() {
 
       checkSubmitButtonState();
     }
-
-    popup.removeClass('active');
-  });
-
-  // Закрытие попапа по кнопке "Нет" или клику вне попапа
-  $(document).on("click", ".popup[data-popup-name='delete-comment'] .button-base", function () {
-    $(this).closest(".popup").removeClass('active');
   });
 
   // Закрытие попапа при клике вне его
@@ -74,6 +67,8 @@ function chat() {
     form.removeClass('edited').removeClass('replied');
     $(this).closest(".chat-message").removeAttr('data-edit-id');
     form.find("textarea[name='comment']").val("");
+    setAsideHeight();
+    $(".chat__messages").scrollTop($(".chat__messages")[0].scrollHeight);
   });
 
   $(document).on("input", ".chat__upload input[type='file']", function (event) {
@@ -81,26 +76,27 @@ function chat() {
     if (!files.length) {
       return;
     }
-
+  
     let messagesFiles = $('.chat__bottom .chat__files');
     if ($('.chat__bottom .chat__files').length == 0) {
       $(".chat__bottom").prepend('<div class="chat__files"></div>');
       messagesFiles = $(".chat__bottom .chat__files");
     }
-
+  
     $(".chat__submit").prop("disabled", true);
     
     for (let file of files) {
       let fileElement = createFileElement(file, 88);
       simulateUpload(fileElement);
       messagesFiles.append(fileElement);
-
+  
       if (files.length) {
         $(".chat__upload textarea[name='comment']").removeAttr("required");
       }
-      messagesFiles.append(fileElement);
-      handleFileLimit(messagesFiles);
+      handleFileLimit(messagesFiles); // Перенесли вызов после добавления файла
     }
+    setAsideHeight();
+    messages.scrollTop(messages[0].scrollHeight);
     checkSubmitButtonState();
     $(".chat__footer textarea[name='comment']").focus();
   });
@@ -132,13 +128,15 @@ function chat() {
       container.find('.chat__file').removeClass('hide');
       $(this).text('Скрыть все');
     }
+    setAsideHeight();
   });
 
   function handleFileLimit(container) {
-    const files = container.find('.chat__file');
+    const files = container.find('.chat__file:not(.hide)');
     const showAllBtnClass = 'chat__show-all';
     let showAllBtn = container.find('.' + showAllBtnClass);
   
+    // Сохраняем текущее состояние кнопки
     const isExpanded = showAllBtn.length && showAllBtn.text() === 'Скрыть все';
   
     showAllBtn.remove();
@@ -148,14 +146,11 @@ function chat() {
         files.each(function(index) {
           $(this).toggleClass('hide', index >= 3);
         });
-      } else {
-        files.removeClass('hide');
       }
   
-      const newBtn = $(`<button type="button" class="${showAllBtnClass}">${isExpanded ? 'Скрыть все' : 'Показать все'}</button>`);
+      const btnText = isExpanded ? 'Скрыть все' : 'Показать все';
+      const newBtn = $(`<button type="button" class="${showAllBtnClass}">${btnText}</button>`);
       container.append(newBtn);
-    } else {
-      files.removeClass('hide');
     }
   }
 
@@ -166,7 +161,8 @@ function chat() {
     if ($(".chat__bottom .chat__files .chat__file").length === 0) {
       $(".chat__bottom .chat__files").remove();
     }
-
+    setAsideHeight();
+    messages.scrollTop(messages[0].scrollHeight);
     checkSubmitButtonState();
 
     if (fileContainer.closest(".chat__bottom").length) {
@@ -179,7 +175,10 @@ function chat() {
   });
 
   $(document).on("click", ".chat-message__copy", function () {
-    let text = $(this).closest(".chat-message").find(".chat-message__author > p").text().trim();
+    let text = $(this).closest(".chat-message").find(".chat-message__author__wrapper > p").contents()
+      .filter(function() { 
+        return this.nodeType === 3; // Только текстовые узлы
+      }).text().trim();
     if (text) {
       navigator.clipboard.writeText(text);
     }

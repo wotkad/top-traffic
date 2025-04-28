@@ -1,7 +1,7 @@
 import setCommentInitials from "./../set-comment-initials";
 
 // Отправка ответа
-$(document).on("submit", ".messages__form.replied", function (event) {
+$(document).on("submit", "form.messages__form.replied", function (event) {
   event.preventDefault();
   event.stopPropagation();
 
@@ -53,7 +53,6 @@ $(document).on("submit", ".messages__form.replied", function (event) {
         </div>`;
     }
   }
-
 
   let newMessage = `
     <div class="message">
@@ -112,10 +111,10 @@ $(document).on("submit", ".messages__form.replied", function (event) {
   }
 
   // Очищаем поле ввода и скрываем блок ответа
-  $(".messages__reply").remove();
-  $(".messages__files").remove();
+  $(".messages__bottom .messages__reply").remove();
+  $(".messages__bottom .messages__files").remove();
   $('.messages__submit').attr('disabled', true);
   textarea.val("");
-  $(this).removeClass('replied');
+  $(this).removeClass('replied').addClass('default');
   setCommentInitials();
 });

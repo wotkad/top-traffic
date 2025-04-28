@@ -1,7 +1,7 @@
 import getFormattedDate from "./get-formatted-date";
 
 // Обработчик отправки формы редактирования
-$(document).on("submit", ".messages__form.edited", function (event) {
+$(document).on("submit", "form.messages__form.edited", function (event) {
   event.preventDefault();
   event.stopPropagation();
 
@@ -59,9 +59,9 @@ $(document).on("submit", ".messages__form.edited", function (event) {
 
   // Сброс редактирования
   $(this).closest(".message").removeAttr('data-edit-id');
-  $(".messages__edit").remove();
-  $(".messages__files").remove();
+  $(".messages__bottom .messages__edit").remove();
+  $(".messages__bottom .messages__files").remove();
+  $(this).removeClass('edited').addClass('default');
   $(this).find("textarea[name='comment']").val("");
-  $(this).removeClass('edited');
   $('.messages__submit').prop('disabled', true);
 });

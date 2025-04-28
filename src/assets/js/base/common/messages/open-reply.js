@@ -19,7 +19,7 @@ $(document).on("click", ".message__reply", function () {
   }
 
   let form = $('.messages__form');
-  form.addClass('replied').removeClass('edited');
+  form.addClass('replied').removeClass('edited default');
   $('.messages__submit').prop('disabled', false);
 
   // Формируем контент блока ответа

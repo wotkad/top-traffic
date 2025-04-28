@@ -1,7 +1,15 @@
 import setChatInitials from "./../set-chat-initials";
+import setAsideHeight from "./../set-aside-height";
 
-$(document).on("submit", ".chat__form.default", function (event) {
+$(document).on("submit", "form.chat__form.default", function(event) {
   event.preventDefault();
+  event.stopPropagation();
+
+  // Проверяем, что это именно форма чата
+  if (!$(this).hasClass('chat__form') || $(this).hasClass('messages__form')) {
+    return;
+  }
+
   let form = $(this);
   let messageText = form.find("textarea[name='comment']").val().trim();
   let filesContainer = $(".chat__bottom .chat__files");
@@ -37,12 +45,14 @@ $(document).on("submit", ".chat__form.default", function (event) {
                       </svg>
                       <span>Ответить</span>
                     </button>
-                    ${messageText ? `<button class="button button-with-icon-full sm chat-message__copy" type="button" aria-label="button">
-                      <svg viewBox="0 0 18 18" width="18" height="18">
-                        <use xlink:href="#other-copy-icon"></use>
-                      </svg>
-                      <span>Копировать</span>
-                    </button>` : ''}
+                    ${messageText ? `
+                      <button class="button button-with-icon-full sm chat-message__copy" type="button" aria-label="button">
+                        <svg viewBox="0 0 18 18" width="18" height="18">
+                          <use xlink:href="#other-copy-icon"></use>
+                        </svg>
+                        <span>Копировать</span>
+                      </button>
+                    ` : ''}
                     <button class="button button-with-icon-full sm chat-message__edit" type="button" aria-label="button">
                       <svg viewBox="0 0 16 16" width="16" height="16">
                         <use xlink:href="#other-edit2-icon"></use>
@@ -82,14 +92,18 @@ $(document).on("submit", ".chat__form.default", function (event) {
 
     // Переносим файлы в новое сообщение
     if (filesContainer.length && filesContainer.find(".chat__file").length > 0) {
-      let filesWrapper = $('<div class="chat-message__files"></div>');
+      let filesWrapper = $('<div class="chat__files"></div>');
       
+      // Клонируем весь контейнер с файлами, включая кнопку
       filesContainer.find(".chat__file").each(function() {
-        let fileClone = $(this).clone();
-        // Удаляем кнопку удаления, так как файлы уже отправлены
-        fileClone.find(".chat__file__remove, .chat__file__icon-close").remove();
-        filesWrapper.append(fileClone);
+        filesWrapper.append($(this).clone());
       });
+
+      // Если есть кнопка "Показать все", клонируем и её
+      const showAllBtn = filesContainer.find('.chat__show-all');
+      if (showAllBtn.length) {
+        filesWrapper.append(showAllBtn.clone());
+      }
 
       // Вставляем файлы после текста сообщения
       newMessage.find(".chat-message__author__wrapper").append(filesWrapper);
@@ -98,15 +112,15 @@ $(document).on("submit", ".chat__form.default", function (event) {
     // Добавляем новое сообщение в чат
     $(".chat__messages").append(newMessage);
     
-    // Прокручиваем к новому сообщению
-    $(".chat__messages").scrollTop($(".chat__messages")[0].scrollHeight);
-    
     // Очищаем форму
     form.find("textarea[name='comment']").val("");
     $(".chat__bottom .chat__files").remove();
     $(".chat__submit").prop("disabled", true);
+    $(this).removeClass('edited replied').addClass('default');
     
     // Обновляем инициалы (если нужно)
     setChatInitials();
+    setAsideHeight();
+    $(".chat__messages").scrollTop($(".chat__messages")[0].scrollHeight);
   }
 });

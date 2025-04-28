@@ -147,7 +147,7 @@
     }
     &__content {
       span {
-        @apply mt-[2px] max-w-[200px] text-12-r-p text-black-200 text-ellipsis line-clamp-1;;
+        @apply max-w-[200px] text-12-r-p text-black-200 text-ellipsis line-clamp-1;;
       }
       @apply flex flex-col gap-x-[2px];
     }

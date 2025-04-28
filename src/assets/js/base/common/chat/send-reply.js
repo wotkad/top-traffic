@@ -1,6 +1,7 @@
 import setChatInitials from "./../set-chat-initials";
+import setAsideHeight from "./../set-aside-height";
 
-$(document).on("submit", ".chat__form.replied", function (event) {
+$(document).on("submit", "form.chat__form.replied", function (event) {
   event.preventDefault();
   event.stopPropagation();
 
@@ -10,17 +11,50 @@ $(document).on("submit", ".chat__form.replied", function (event) {
 
   let repliedBlock = $(".chat__reply");
   let repliedUser = repliedBlock.find("h3").text().replace(/^Ответить: /, "").trim();
-  let repliedText = repliedBlock.find("p").text().trim();
 
-  // Create the replied message section
-  let repliedTemplate = '';
-  if (repliedText) {
-    repliedTemplate = `
-      <div class="chat-message__answered">
-        <h3>${repliedUser}</h3>
-        <p>${repliedText}</p>
-      </div>
-    `;
+  // Поиск оригинального сообщения, чтобы проверить текст и файлы
+  let originalMessage = $(".chat .chat-message").filter(function () {
+    return $(this).find(".chat-message__head h3").text().trim() === repliedUser;
+  }).last();
+
+  let repliedText = originalMessage.find(".chat-message__author__wrapper > p").contents()
+  .filter(function() { 
+    return this.nodeType === 3; // Только текстовые узлы
+  }).text().trim();
+  let hasText = repliedText.length > 0;
+  let fileBlock = originalMessage.find(".chat-message__author .chat__files .chat__file").first();
+  let hasFiles = fileBlock.length > 0;
+  let displayText = "";
+
+  if (hasText) {
+    displayText = repliedText;
+  } else if (hasFiles) {
+    displayText = fileBlock.find(".chat__file__content p").text().trim();
+  }
+
+  let repliedTemplate = "";
+  if (displayText) {
+    if (hasText) {
+      // Если есть текст — выводим с иконкой
+      repliedTemplate = `
+        <div class="chat-message__answered">
+          <h3>${repliedUser}</h3>
+          <p>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14.2928 7.77545L8.16618 13.9021C7.41565 14.6527 6.39766 15.0744 5.33621 15.0744C4.27475 15.0744 3.25677 14.6527 2.50621 13.9021C1.75564 13.1516 1.33398 12.1336 1.33398 11.0721C1.33398 10.0107 1.75564 8.99272 2.50621 8.24212L8.63285 2.11546C9.13325 1.61509 9.81192 1.33398 10.5195 1.33398C11.2272 1.33398 11.9058 1.61509 12.4062 2.11546C12.9066 2.61584 13.1877 3.2945 13.1877 4.00213C13.1877 4.70977 12.9066 5.38842 12.4062 5.8888L6.27288 12.0155C6.02269 12.2657 5.68336 12.4062 5.32954 12.4062C4.97572 12.4062 4.6364 12.2657 4.38621 12.0155C4.13602 11.7653 3.99546 11.426 3.99546 11.0721C3.99546 10.7183 4.13602 10.379 4.38621 10.1288L10.0462 4.47546" 
+              stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            ${displayText}
+          </p>
+        </div>`;
+    } else {
+      // Если текста нет — выводим только название файла без иконки
+      repliedTemplate = `
+        <div class="chat-message__answered">
+          <h3>${repliedUser}</h3>
+          <p>${displayText}</p>
+        </div>`;
+    }
   }
 
   // Create new message HTML
@@ -103,14 +137,14 @@ $(document).on("submit", ".chat__form.replied", function (event) {
   $(".chat__messages").append(newMessage);
 
   // Clean up
-  $(".chat__reply").remove();
-  $(".chat__files").remove();
+  $(".chat__bottom .chat__reply").remove();
+  $(".chat__bottom .chat__files").remove();
   $('.chat__submit').attr('disabled', true);
   textarea.val("");
-  $(this).removeClass('replied');
-  
-  // Scroll to the new message
-  $(".chat__messages").scrollTop($(".chat__messages")[0].scrollHeight);
+  $(this).removeClass('replied').addClass('default');
   
   setChatInitials();
+  setAsideHeight();
+  $(".chat__messages").scrollTop($(".chat__messages")[0].scrollHeight);
+
 });

@@ -206,7 +206,10 @@
     @apply hidden items-center gap-x-2 mt-2.5;
   }
   &__bottom {
-    @apply right-0 bottom-0 left-0 absolute bg-white-000 pb-4;
+    .chat__files {
+      @apply px-7 pt-3.5 pb-2;
+    }
+    @apply right-0 bottom-0 left-0 z-10 absolute bg-white-000 pb-4;
   }
   &__day {
     @apply mt-1 mb-1.5 text-12-m-p text-black-200 text-center;
@@ -214,7 +217,7 @@
   &__footer {
     &__container {
       .chat__answered {
-        @apply bg-transparent;
+        @apply bg-transparent mt-0;
       }
       @apply flex items-center;
     }
@@ -248,14 +251,17 @@
     &:before {
       @apply top-0 -left-7 absolute bg-black-500 w-[calc(100%+28px+20px)] h-px content-[''];
     }
-    @apply relative flex flex-col items-start gap-3 mt-3.5 pt-4 pl-3;
+    @apply relative flex flex-wrap items-start gap-2 pt-4 pl-3;
   }
   &__file {
     &.hide {
       @apply hidden;
     }
+    &__duration {
+      @apply right-[2px] bottom-[2px] absolute bg-black-100 bg-opacity-50 opacity-0 px-1.5 py-[2px] rounded-md text-10-r-sm text-white-000 transition-all duration-300;
+    }
     &__image {
-      @apply relative flex justify-center items-center;
+      @apply flex justify-center items-center;
     }
     &__sublink {
       @apply absolute inset-0 w-full h-full;
@@ -290,21 +296,32 @@
       .chat__file__remove {
         @apply opacity-100;
       }
+      .chat__file__remove,
+      .chat__file__duration {
+        @apply opacity-100;
+      }
     }
     &-image {
+      .chat__file__content {
+        @apply hidden;
+      }
       .chat__file__image {
-        @apply rounded-lg w-12 h-12;
+        @apply rounded-lg w-12 min-w-12 h-12 min-h-12;
       }
       .chat__file__icon {
         @apply bg-black-100 bg-opacity-50;
       }
+      .chat__file__sublink {
+        @apply absolute inset-0 w-full h-full;
+      }
       img {
         @apply border border-black-000 border-opacity-10 rounded-lg w-full h-full object-cover;
       }
+      @apply bg-transparent p-0;
     }
     &-file {
       .chat__file__image {
-        @apply rounded-full w-[30px] h-[30px];
+        @apply rounded-full w-[30px] min-w-[30px] h-[30px] min-h-[30px];
       }
       .chat__file__icon {
         @apply bg-blue-000;
@@ -313,25 +330,29 @@
     }
     &__link {
       &:hover {
+        .chat-message__buttons {
+          @apply visible z-50 opacity-100;
+        }
         .chat-message__download {
           svg {
             @apply text-blue-000;
           }
+          @apply visible opacity-100;
         }
-        @apply text-blue-000;
+        @apply text-blue-000;;
       }
       p {
-        @apply max-w-[162px] text-12-r-p text-ellipsis line-clamp-1;
+        @apply mt-0 max-w-[100px] text-12-r-p text-ellipsis line-clamp-1;
       }
       @apply flex items-center transition-all duration-300;
     }
     &__content {
       span {
-        @apply mt-[2px] max-w-[200px] text-12-r-p text-black-200 text-ellipsis line-clamp-1;;
+        @apply max-w-[200px] text-12-r-p text-black-200 text-ellipsis line-clamp-1;;
       }
       @apply flex flex-col gap-x-[2px];
     }
-    @apply relative flex items-center gap-x-1.5 rounded-lg;
+    @apply relative flex items-center gap-x-1.5 bg-black-200 bg-opacity-10 px-3 py-[9px] rounded-lg;
   }
   &__reply,
   &__edit {
@@ -341,10 +362,13 @@
     & ~ .chat__form {
       @apply flex-wrap justify-end gap-y-3;
     }
-    @apply flex justify-between items-center mb-3;
+    &:before {
+      @apply top-0 -left-7 absolute bg-black-500 w-[calc(100%+28px+20px)] h-px content-[''];
+    }
+    @apply relative flex justify-between items-center mb-3 pt-2.5;
   }
   &__show-all {
-    @apply text-12-r-p text-black-200;
+    @apply w-full text-12-r-p text-black-200 text-left;
   }
   &__icon {
     svg {
@@ -361,11 +385,87 @@
     }
     @apply flex justify-center items-center bg-transparent w-[34px] min-w-[34px] h-[34px] min-h-[34px];
   }
+  .chat-message {
+    .chat__files {
+      &:before {
+        @apply hidden;
+      }
+      .messages__file__icon {
+        &-close {
+          @apply hidden;
+        }
+        &-file {
+          @apply visible opacity-100;
+        }
+      }
+      .chat__file__remove {
+        @apply hidden;
+      }
+      @apply inline-flex flex-col gap-y-2 mt-3 mb-1 p-0 rounded-[10px];
+    }
+    &__download {
+      &.button {
+        svg {
+          @apply w-[13px] h-[13px] text-black-200 transition-all duration-300;
+        }
+        &:hover {
+          svg {
+            @apply text-blue-000;
+          }
+          @apply bg-transparent;
+        }
+        @apply bg-transparent;
+      }
+      @apply invisible opacity-0 ml-1.5 transition-all duration-300;
+    }
+  }
+  &__answered {
+    h3 {
+      @apply flex items-center gap-x-1 text-12-sb-p text-blue-200;
+    }
+    p {
+      svg {
+        @apply w-4 h-4 text-black-100;
+      }
+      @apply  flex items-center gap-x-1 mt-1 text-12-r-p text-black-200;
+    }
+    & ~ p {
+      span.highlight {
+        &.active {
+          @apply bg-orange-100 text-black-000;
+        }
+        @apply bg-[#A7D5F9];
+      }
+      @apply mt-1.5;
+    }
+    @apply flex flex-col items-start bg-purple-300 mt-1.5 py-[2px] pl-2.5 border-blue-200 border-l-[3px] rounded-tl-sm rounded-bl-sm;
+  }
   &__messages {
     & > *:first-child {
       margin-top: auto;
     }
     .chat-message {
+      &__answered {
+        h3 {
+          @apply flex items-center gap-x-1 text-12-sb-p text-blue-200;
+        }
+        p {
+          svg {
+            @apply w-4 h-4 text-black-100;
+          }
+          @apply  flex items-center gap-x-1 mt-1 text-12-r-p text-black-200;
+        }
+        & ~ p {
+          span.highlight {
+            &.active {
+              @apply bg-orange-100 text-black-000;
+            }
+            @apply bg-[#A7D5F9];
+          }
+          @apply mt-1.5;
+        }
+        @apply flex flex-col items-start bg-purple-300 mt-1.5 py-[2px] pl-2.5 border-blue-200 border-l-[3px] rounded-tl-sm rounded-bl-sm;
+      }
       &.active {
         .chat-message__author {
           &:not(.active) {
@@ -379,6 +479,15 @@
             }
           }
         }
+      }
+      .chat__files {
+        &:before {
+          @apply hidden;
+        }
+        @apply mb-0 pl-0;
+      }
+      .chat__file {
+        @apply bg-transparent p-0;
       }
       &__head {
         h3 {
@@ -425,6 +534,9 @@
         }
         @apply bottom-0 left-0 absolute;
       }
+      &__files {
+        @apply flex flex-col gap-y-2 mt-2.5;
+      }
       &__author {
         &__wrapper {
           p {
@@ -436,7 +548,10 @@
             }
             @apply mt-1 mr-8 text-12-r-p leading-4;
           }
-          @apply relative bg-black-600 px-2.5 py-2 rounded-2xl rounded-bl-lg;
+          .chat__file__link p {
+            @apply mt-0 mr-0;
+          }
+          @apply relative flex flex-col bg-black-600 px-2.5 py-2 rounded-2xl rounded-bl-lg;
         }
         &:hover {
           .dropdown-comment {
@@ -445,29 +560,8 @@
         }
         @apply relative items-start;
       }
-      &__answered {
-        h3 {
-          @apply flex items-center gap-x-1 text-12-sb-p text-blue-200;
-        }
-        p {
-          svg {
-            @apply w-4 h-4 text-black-100;
-          }
-          @apply mt-1 text-12-r-p text-black-200;
-        }
-        & ~ p {
-          span.highlight {
-            &.active {
-              @apply bg-orange-100 text-black-000;
-            }
-            @apply bg-[#A7D5F9];
-          }
-          @apply mt-1.5;
-        }
-        @apply flex flex-col items-start bg-purple-300 mt-1.5 py-[2px] pl-2.5 border-blue-200 border-l-[3px] rounded-tl-sm rounded-bl-sm;
-      }
       &__changed {
-        @apply ml-1.5 text-10-r-p text-black-200;
+        @apply mr-1;
       }
       &__comment {
         .popup {
@@ -484,7 +578,7 @@
             @apply visible opacity-100;
           }
         }
-        @apply right-2.5 bottom-2 absolute font-normal text-10-r-sm text-black-200;
+        @apply right-2.5 bottom-2 z-10 absolute font-normal text-10-r-sm text-black-200;
       }
       @apply py-0 pl-0;
     }

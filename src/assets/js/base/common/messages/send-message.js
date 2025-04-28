@@ -1,7 +1,14 @@
 import setCommentInitials from "./../set-comment-initials";
 
-$(document).on("submit", $(".messages__form"), function (event) {
+$(document).on("submit", "form.messages__form.default", function(event) {
   event.preventDefault();
+  event.stopPropagation();
+
+  // Проверяем, что это именно форма messages
+  if (!$(this).hasClass('messages__form') || $(this).hasClass('chat__form')) {
+    return;
+  }
+  
   if ($("textarea[name='comment']").length > 0) {
     let messageText = $("textarea[name='comment']").val().trim();
     let filesContainer = $(".messages__bottom .messages__files");
@@ -82,6 +89,7 @@ $(document).on("submit", $(".messages__form"), function (event) {
     $(".messages").append(newMessage);
     $(".messages__upload textarea[name='comment']").val(""); // Очищаем поле ввода
     $(".messages__upload textarea[name='comment']").attr("required", true);
+    $(this).removeClass('edited replied').addClass('default');
     setCommentInitials();
     $(".messages__submit").prop("disabled", true);
   }
