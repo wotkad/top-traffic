@@ -285,7 +285,11 @@ export default function datePicker() {
       buttons.on('click', '.calendar-close-icon', function() {
         picker.hide();
         buttons.hide();
-        $this.val('Все');
+        if ($this.closest('.heading').hasClass('heading-posts')) {
+          $this.val('');
+        } else {
+          $this.val('Все');
+        }
         // $this.parent().removeAttr('data-value');
         // $this.css('width', $this.val().length * 7);
         picker.setStartDate(moment());

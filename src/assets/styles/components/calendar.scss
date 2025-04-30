@@ -1,10 +1,5 @@
 .monthpicker,
 .datepicker {
-  &[data-id] {
-    &::placeholder {
-      @apply text-black-100;
-    }
-  }
   @apply min-w-[90px];
 }
 

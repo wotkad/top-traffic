@@ -2,7 +2,7 @@ mixin heading-table(data = {})
   - const { defaults, mergeConfig } = require('/assets/js/_defaults/heading/_defaults-heading-table');
   - const modefied = mergeConfig(data, defaults);
 
-  .heading.heading-table(class=modefied.isRows ? 'heading-table-rows' : '' + modefied.class)
+  .heading.heading-table(class=modefied.isRows ? 'heading-table-rows ' + modefied.class : '' + modefied.class)
     if modefied.title
       .heading__title
         span= modefied.title
