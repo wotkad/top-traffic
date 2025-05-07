@@ -97,6 +97,9 @@ label {
     .profile__alert {
       @apply left-[calc(50%+(59px/2))];
     }
+    .widget {
+      @apply max-w-[224px];
+    }
   }
   &:before {
     @apply top-[60px] right-0 z-50 fixed bg-white-000 w-6 h-[calc(100%-60px)] content-[''];
