@@ -83,7 +83,8 @@ export default function toggleDropdown() {
     e.stopPropagation();
     const $dropdown = $(this).closest('.dropdown');
     const $list = $dropdown.find('.dropdown__list');
-    
+    $('.info-users__items').remove();
+
     if ($list.hasClass('active')) {
         $list.removeClass('active').css({ right: '', top: '' });
         $(this).removeClass('active');
@@ -439,18 +440,20 @@ export default function toggleDropdown() {
     e.stopPropagation();
   });
 
+  // Закрытие при клике вне блока
   $(document).on('click', function(e) {
-    // Проверяем, был ли клик вне блока .info-users__items и вне $sortBlock
-    if (!$(e.target).closest('.info-users__items').length && 
-        !$(e.target).closest('.dropdown__values').length) {
-        $('.info-users__items').remove();
-    }
+      if (!$(e.target).closest('.info-users__items').length && 
+          !$(e.target).closest('.dropdown__values').length) {
+          $('.info-users__items').remove();
+          $('.dropdown__list, .dropdown__sort, .dropdown__button').removeClass('active');
+      }
   });
 
   $(document).on('click', '.info-users__button', function(e) {
-    $(this).prev('.button').trigger('click');
-    $(this).parent().remove();
+    $('.info-users__items').remove();
+    $('.dropdown__list, .dropdown__sort, .dropdown__button').removeClass('active');
   });
+
 
   $('.dropdown-checkboxes-images .dropdown__list .input-checkbox-with-label input').on('change', function () {
     const $dropdown = $(this).closest('.dropdown');
@@ -538,7 +541,12 @@ export default function toggleDropdown() {
   });
 
   $('.dropdown-checkboxes-images .dropdown__values').on('click', function (e) {
-    e.stopPropagation();
+    if ($(this).hasClass('multiple') || $(this).hasClass('single')) {
+      $(this).parent().removeClass('active');
+      $(this).parent().siblings('.dropdown__list').removeClass('active');
+    } else {
+      e.stopPropagation();
+    }
   });
 
   $('.dropdown__values').on('click', '.dropdown__show-all', function (e) {
