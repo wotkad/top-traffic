@@ -51,6 +51,7 @@ import "./base/common/messages/open-reply";
 import "./base/common/only-numbers";
 import "./base/common/users";
 import "./base/common/add-user";
+import "./base/common/set-info-user-pos";
 
 import "./base/common/chat";
 import "./base/common/chat/send-edit";
