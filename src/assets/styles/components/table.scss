@@ -581,6 +581,13 @@
       }
       @apply transition-all duration-300;
     }
+    .info-users__body {
+      a {
+        &:hover {
+          @apply bg-black-600 text-black-100;
+        }
+      }
+    }
     .datetimepicker-trigger,
     .datepicker-trigger,
     .monthpicker-trigger {

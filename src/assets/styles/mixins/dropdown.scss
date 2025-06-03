@@ -119,7 +119,7 @@
     &.multiple {
       @apply w-full;
       }
-    @apply flex flex-wrap gap-[5px] max-h-[45px];
+    @apply flex flex-wrap items-center gap-[5px] max-h-[45px];
   }
   &__value,
   &__show-all {

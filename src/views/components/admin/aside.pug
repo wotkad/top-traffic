@@ -280,8 +280,22 @@ aside.content-aside
               tr.text-black-200
                 th Автор
                 td
-                  .flex.items-center(class="gap-x-1.5")
-                    img.rounded(class="w-6 h-6" src="/assets/images/avatar.png" alt="tg-channel")
+                  .flex.items-center.info-users.not-editable(class="gap-x-1.5")
+                    .info-users__popup
+                      .info-users__header
+                        .info-users__avatar
+                          img(src="/assets/images/avatar.png" alt="avatar")
+                        .info-users__content
+                          h3 Медведева Валерия
+                          .info-users__content__info
+                            .info-users__role.info-users__role-purple Сотрудник
+                            span .
+                            a(href="#") lera@toptraffic.ru
+                      .info-users__body
+                        a(href="#")
+                          img(src="/assets/images/user.svg" alt="user")
+                          span Перейти в профиль
+                    img.info-users__image.rounded(class="w-6 h-6" src="/assets/images/avatar.png" alt="tg-channel")
                     .text-12-r-p Андрей Миронов
               tr.text-black-200
                 th Дата создания

@@ -147,9 +147,24 @@ export default function toggleDropdown() {
       const selectedImg = $(this).siblings('img').prop('src');
       const selectedAlt = $(this).siblings('img').prop('alt');
       const titleStatus = $(this).closest('.dropdown__container').find('.dropdown__button').find('.dropdown__title');
+      titleStatus.addClass('info-users editable')
       titleStatus.html(
         selectedImg ? 
-        `<img class="dropdown__image" src=${selectedImg} alt=${selectedAlt}>` + selectedValue : 
+        `
+          <div class="info-users__popup">
+            <div class="info-users__header">
+              <div class="info-users__avatar"><img src="/assets/images/avatar.png" alt="avatar" class=""></div>
+              <div class="info-users__content">
+                <h3>Медведева Валерия</h3>
+                <div class="info-users__content__info">
+                  <div class="info-users__role info-users__role-purple">Сотрудник</div>
+                  <span>.</span><a href="#">lera@toptraffic.ru</a>
+                </div>
+              </div>
+            </div>
+            <div class="info-users__body"><a href="#"><img src="/assets/images/user.svg" alt="user" class=""><span>Перейти в профиль</span></a></div>
+          </div>
+          <img class="dropdown__image info-users__image" src=${selectedImg} alt=${selectedAlt}>` + selectedValue : 
         selectedValue
       );
       $(this).closest('.dropdown__list').removeClass('active');
