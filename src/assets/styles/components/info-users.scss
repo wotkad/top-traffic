@@ -1,6 +1,6 @@
 .info-users {
   &__popup {
-    @apply invisible top-[30px] right-0 -z-10 fixed bg-white-000 opacity-0 p-1 border border-black-500 rounded-md min-w-[252px] max-w-[252px] transition-[opacity,visibility,z-index] duration-300;
+    @apply invisible top-[30px] right-0 -z-10 fixed bg-white-000 opacity-0 p-1 border border-black-500 rounded-md min-w-[213px] max-w-max transition-[opacity,visibility,z-index] duration-300;
   }
   &__items {
     &.active {
