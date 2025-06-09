@@ -361,7 +361,15 @@
     p {
       @apply relative flex items-center;
     }
+    &.sorted {
+      .table__sortbutton {
+        @apply visible opacity-100;
+      }
+    }
     &.active {
+      .table__sortbutton {
+        @apply visible opacity-100;
+      }
       @apply text-blue-000;
     }
     @apply transition-all duration-300 cursor-pointer;

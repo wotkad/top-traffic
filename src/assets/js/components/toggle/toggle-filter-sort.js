@@ -3,6 +3,9 @@ function toggleFilterSort() {
   button.on('mouseover', function() {
     $(this).addClass('sorted');
   });
+  button.on('mouseleave', function() {
+    $(this).removeClass('sorted');
+  });
   button.on('click', function() {
     button.not(this).find('.table__sortbutton').removeClass('active');
     $(this).find('.table__sortbutton').addClass('active');
