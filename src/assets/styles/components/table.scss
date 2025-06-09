@@ -295,7 +295,10 @@
   }
   
   &__sortbutton {
-    @apply hidden -right-2.5 absolute;
+    &.active {
+      @apply visible opacity-100 pointer-events-auto;
+    }
+    @apply invisible -right-2.5 absolute opacity-0 transition-all duration-300 pointer-events-none;
   }
   &__selected {
     p {
@@ -355,13 +358,13 @@
     @apply inline;
   }
   &__sort {
-    &.sorted {
-      @apply text-blue-000;
-    }
     p {
       @apply relative flex items-center;
     }
-    @apply cursor-pointer;
+    &.active {
+      @apply text-blue-000;
+    }
+    @apply transition-all duration-300 cursor-pointer;
   }
   &__mediacontent {
     svg {

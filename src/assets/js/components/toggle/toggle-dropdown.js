@@ -106,6 +106,11 @@ export default function toggleDropdown() {
     $('.dropdown__list').removeClass('active').css({ right: '', top: '' });
     $('.dropdown__button').removeClass('active');
     $('.dropdown__sort').removeClass('active');
+    $('.info-users__items').remove();
+  });
+
+  $('.content-aside__container').on('scroll', function() {
+    $('.info-users__items').remove();
   });
 
   $(window).on('resize', function() {

@@ -1,0 +1,18 @@
+.upload-alert {
+  &__content {
+    h6 {
+      @apply text-14-sb-p;
+    }
+    p {
+      @apply max-w-[360px] text-12-m-md;
+    }
+    @apply flex flex-col items-start gap-y-1;
+  }
+  &__close {
+    @apply flex justify-center items-center w-5 h-5;
+  }
+  &.active {
+    @apply visible z-50 opacity-100;
+  }
+  @apply invisible right-10 bottom-10 -z-10 fixed flex items-start gap-x-2.5 bg-blue-075 opacity-0 p-3 border border-blue-200 rounded-lg min-w-[453px] transition-all duration-300;
+}

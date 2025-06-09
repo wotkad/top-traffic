@@ -106,6 +106,9 @@
       }
       @apply mt-1 text-12-r text-black-200 text-left leading-[14px];
     }
+    .chat__icon {
+      @apply w-[17px] min-w-[17px];
+    }
   }
   &__states {
     @apply right-4 bottom-[7px] absolute;

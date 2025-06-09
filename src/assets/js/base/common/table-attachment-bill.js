@@ -36,6 +36,15 @@ function tableAttachmentBill() {
       $label.find(".table__attachedbill__value").text(fileName);
     }
 
+    let timer = 0;
+
+    $('.upload-alert').addClass('active');
+
+    clearTimeout(timer);
+    setTimeout(function() {
+      $('.upload-alert').removeClass('active');
+    }, 8000);
+
     // Если файл не выбран или имя пустое — очищаем
     if ($label.find(".table__attachedbill__value").text() === "") {
       clearAttachment($label);
