@@ -55,32 +55,47 @@ tr
       value: 'дд.мм.гггг',
       view: 'button',
     })
-  td.only-text
-    .table__attachedlink
-      label.table__attachedlink__container.button(data-popup-name="add-link-table")
-        .table__icon
-          svg
-            use(xlink:href="#other-attachment-icon")
-        span.table__attachedlink__value Добавить
-      +dropdown({
-        buttons: [
-          {
-            class: 'table__attachedlink__edit',
-            dataPopupName: 'add-link-table',
-            icon: 'other-edit-icon',
-            title: 'Изменить',
-          },
-          {
-            class: 'table__attachedlink__remove',
-            dataPopupName: 'delete-attachedlink',
-            icon: 'other-trash-icon',
-            title: 'Удалить',
-          },
-        ],
-        class: 'table__attachedlink__dropdown',
-        isButtons: true,
-        title: '',
+  td.table__post
+    .table__post__wrapper
+      +input({
+        class: 'table__post__input',
+        isTextarea: true,
+        label: false,
+        name: 'post_link',
+        placeholder: 'Введите ссылку',
       })
+      +button({
+        class: 'button-icon',
+        icon: 'other-external-link',
+        isOnlyIcon: true,
+        view: 'button',
+      })
+  //- td.only-text
+  //-   .table__attachedlink
+  //-     label.table__attachedlink__container.button(data-popup-name="add-link-table")
+  //-       .table__icon
+  //-         svg
+  //-           use(xlink:href="#other-attachment-icon")
+  //-       span.table__attachedlink__value Добавить
+  //-     +dropdown({
+  //-       buttons: [
+  //-         {
+  //-           class: 'table__attachedlink__edit',
+  //-           dataPopupName: 'add-link-table',
+  //-           icon: 'other-edit-icon',
+  //-           title: 'Изменить',
+  //-         },
+  //-         {
+  //-           class: 'table__attachedlink__remove',
+  //-           dataPopupName: 'delete-attachedlink',
+  //-           icon: 'other-trash-icon',
+  //-           title: 'Удалить',
+  //-         },
+  //-       ],
+  //-       class: 'table__attachedlink__dropdown',
+  //-       isButtons: true,
+  //-       title: '',
+  //-     })
   td.only-text
     .table__attachedfile
       label.table__attachedfile__container
