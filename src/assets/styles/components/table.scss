@@ -136,28 +136,20 @@
     }
     .button {
       svg {
-        @apply w-4 h-4 text-black-200;
+        @apply w-4 h-4 text-black-200 transition-all duration-300;
       }
       &:hover {
+        svg {
+          @apply text-black-100;
+        }
         @apply bg-black-500;
       }
-      @apply top-0 right-0 z-[60] absolute bg-black-600 opacity-0 p-0 w-[30px] h-[30px] transition-colors;
+      @apply top-0 right-0 z-[60] absolute bg-black-600 opacity-0 p-0 w-[30px] h-[30px] transition-colors duration-300;
     }
     &__wrapper {
-      &.filled {
-        &:after {
-          @apply opacity-100;
-        }
-      }
-      &:after {
-        @apply top-0 right-0 z-50 absolute bg-white-000 opacity-0 pt-2 rounded-tr-md rounded-br-md w-[30px] h-[30px] content-['...'] transition-all duration-300;
-      }
       &:hover {
         .button {
           @apply opacity-100;
-        }
-        &:after {
-          @apply bg-black-600;
         }
         textarea {
           @apply bg-black-600 pl-2;
@@ -729,11 +721,6 @@
         .fixed-td,
         .fixed-th {
           @apply bg-purple-300;
-        }
-        .table__post__wrapper {
-          &:after {
-            @apply bg-purple-300;
-          }
         }
         @apply bg-purple-300;
       }
