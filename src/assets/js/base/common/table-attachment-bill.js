@@ -51,6 +51,10 @@ function tableAttachmentBill() {
     }
   });
 
+  $('.upload-alert__close').on('click', function() {
+    $('.upload-alert').removeClass('active');
+  });
+
   // При клике на иконку удаления (открывает попап)
   $(document).on("click", ".table__attachedbill__remove", function () {
     let $label = $(this).closest("label.table__attachedbill__container");

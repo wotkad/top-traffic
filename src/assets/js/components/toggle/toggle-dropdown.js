@@ -81,6 +81,9 @@ export default function toggleDropdown() {
   
   $(document).on('click', '.dropdown__button, .dropdown__sort', function (e) {
     e.stopPropagation();
+    if ($(e.target).closest('.info-users__body a').length || $(e.target).closest('.info-users__popup').length) {
+        return;
+    }
     const $dropdown = $(this).closest('.dropdown');
     const $list = $dropdown.find('.dropdown__list');
     $('.info-users__items').remove();
@@ -389,6 +392,11 @@ export default function toggleDropdown() {
   });
 
   $('.dropdown__values').on('click', function(e) {
+    // Проверяем, был ли клик по самому .dropdown__values или его непосредственному потомку
+    if ($(e.target).closest('.info-users__body a').length || $(e.target).closest('.info-users__popup').length) {
+        return;
+    }
+    e.stopPropagation();
     const $sortBlock = $(this).parent();
     const clickX = e.pageX;
     const clickY = e.pageY;
@@ -455,9 +463,6 @@ export default function toggleDropdown() {
     
     // Вставляем шаблон в body
     $sortBlock.append(template);
-    
-    // Предотвращаем всплытие события, чтобы не срабатывали другие обработчики
-    e.stopPropagation();
   });
 
   // Закрытие при клике вне блока

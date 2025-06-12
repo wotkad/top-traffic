@@ -9,7 +9,10 @@
     @apply flex flex-col items-start gap-y-1;
   }
   &__close {
-    @apply flex justify-center items-center w-5 h-5;
+    &:hover {
+      @apply bg-black-500;
+    }
+    @apply flex justify-center items-center -mt-1 -mr-1 rounded-sm w-5 h-5 transition-all duration-300;
   }
   &.active {
     @apply visible z-50 opacity-100;
