@@ -8,8 +8,8 @@ function toggleFilterSort() {
   });
   button.on('click', function() {
     button.not(this).find('.table__sortbutton').removeClass('active');
-    $(this).find('.table__sortbutton').addClass('active');
-    $(this).addClass('active');
+    $(this).find('.table__sortbutton').toggleClass('active');
+    $(this).toggleClass('active');
   });
 }
 toggleFilterSort();

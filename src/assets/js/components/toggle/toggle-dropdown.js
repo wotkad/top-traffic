@@ -391,78 +391,84 @@ export default function toggleDropdown() {
 
   });
 
-  $('.dropdown__values').on('click', function(e) {
+  $('.dropdown__values, .info-users__list').on('click', function(e) {
     // Проверяем, был ли клик по самому .dropdown__values или его непосредственному потомку
-    if ($(e.target).closest('.info-users__body a').length || $(e.target).closest('.info-users__popup').length) {
+    if ($(e.target).closest('.info-users__body a').length) {
         return;
     }
     e.stopPropagation();
-    const $sortBlock = $(this).parent();
-    const clickX = e.pageX;
-    const clickY = e.pageY;
 
-    $('.info-users__popup').css({ opacity: '0', visibility: 'hidden', zIndex: '-10' });
+    if (!$(this).hasClass('info-users__list')) {
+      $('.info-users__popup').css({ opacity: '0', visibility: 'hidden', zIndex: '-10' });
+    }
 
-    $('.info-users__items').remove();
+    if ($(this).hasClass('multiple')) {
+      const $sortBlock = $(this).parent();
+      const clickX = e.pageX;
+      const clickY = e.pageY;
 
-    // Шаблон для вставки
-    const template = `
-    <div class="info-users__items active" style="position: fixed; top: ${clickY}px; left: ${clickX}px; transform: translateX(-100%);">
-        <div class="info-users__inner">
-            <div class="info-users__item">
-                <img src="/assets/images/avatar.png" alt="avatar" class="">
-                <p>Ульяна Комиссарова1111111111</p>
-                <a href="#">@andrey123456789</a>
-            </div>
-            <div class="info-users__item">
-                <img src="/assets/images/avatar.png" alt="avatar" class="">
-                <p>Михаил Соколовский Алекс</p>
-                <a href="#">@andrey1234567890123</a>
-            </div>
-            <div class="info-users__item">
-                <img src="/assets/images/avatar.png" alt="avatar" class="">
-                <p>Екатерина Никифорова</p>
-                <a href="#">@andreym</a>
-            </div>
-            <div class="info-users__item">
-                <img src="/assets/images/avatar.png" alt="avatar" class="">
-                <p>Михаил Карпов</p>
-                <a href="#">@andreym</a>
-            </div>
-            <div class="info-users__item">
-                <img src="/assets/images/avatar.png" alt="avatar" class="">
-                <p>Мария Зорина</p>
-                <a href="#">@andreym</a>
-            </div>
-            <div class="info-users__item">
-                <img src="/assets/images/avatar.png" alt="avatar" class="">
-                <p>Мария Зорина</p>
-                <a href="#">@andreym</a>
-            </div>
-            <div class="info-users__item">
-                <img src="/assets/images/avatar.png" alt="avatar" class="">
-                <p>Мария Зорина</p>
-                <a href="#">@andreym</a>
-            </div>
-        </div>
-        <button class="info-users__button" type="button">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g clip-path="url(#clip0_2039_11660)">
-                    <path d="M8.40332 1.06738C8.66734 1.06738 8.88184 1.28188 8.88184 1.5459C8.88169 1.80979 8.66725 2.02344 8.40332 2.02344H3.15918C2.53167 2.02352 2.02453 2.51439 2.02441 3.13867V12.8203C2.02441 13.4479 2.53484 13.9755 3.15918 13.9756H12.8408C13.4652 13.9756 13.9756 13.448 13.9756 12.8203L13.9746 7.59668L13.9844 7.5C14.0289 7.282 14.222 7.11832 14.4531 7.11816C14.7173 7.11816 14.9316 7.33247 14.9316 7.59668V12.8203C14.9316 13.9722 13.9944 14.9316 12.8398 14.9316H3.15918C2.00471 14.9316 1.06738 13.9729 1.06738 12.8203V3.13965C1.06738 1.98515 2.00662 1.06747 3.15918 1.06738H8.40332Z" fill="#374151" stroke="#374151" stroke-width="0.15"></path>
-                    <path d="M13.0654 0.816406C13.6417 0.352146 14.5383 0.385531 15.0684 0.916016L15.1689 1.02539C15.3882 1.29167 15.5068 1.62327 15.5068 1.97266C15.5067 2.3217 15.3875 2.65278 15.1689 2.91895L15.0684 3.0293L10.3066 7.79102C10.2657 7.83197 10.2171 7.86508 10.1631 7.88672L10.1074 7.9043L8.09961 8.40625C8.06454 8.41521 8.02964 8.41895 7.99512 8.41895C7.911 8.41895 7.82828 8.39439 7.75781 8.34766L7.69141 8.29297C7.58501 8.18577 7.54178 8.03095 7.57812 7.88477L8.08008 5.87695C8.0988 5.80178 8.13779 5.73237 8.19238 5.67773L12.9551 0.916016L13.0654 0.816406ZM13.2061 2.77832C12.9892 2.56159 12.6546 2.53481 12.4082 2.69727L12.3086 2.77832L9.00977 6.07715C8.94883 6.13814 8.90094 6.21054 8.86914 6.29004L8.84277 6.37207C8.7267 6.837 9.14834 7.25784 9.61328 7.1416L9.69434 7.11523C9.77398 7.08341 9.84714 7.03567 9.9082 6.97461L13.2061 3.67676L13.2871 3.57715C13.4269 3.36575 13.4269 3.08932 13.2871 2.87793L13.2061 2.77832ZM14.4609 1.52344C14.252 1.31452 13.9038 1.28855 13.6602 1.44531L13.5625 1.52344C13.4536 1.63261 13.4534 1.80988 13.5625 1.91895L14.0654 2.4209L14.1094 2.45703C14.2179 2.52863 14.3654 2.51639 14.4609 2.4209L14.54 2.32422C14.6092 2.22103 14.6464 2.10009 14.6465 1.97266C14.6465 1.84503 14.6093 1.72344 14.54 1.62012L14.4609 1.52344Z" fill="#374151" stroke="#374151" stroke-width="0.15"></path>
-                </g>
-                <defs>
-                    <clipPath id="clip0_2039_11660">
-                        <rect width="16" height="16" fill="white"></rect>
-                    </clipPath>
-                </defs>
-            </svg>
-            <span>Изменить выбор</span>
-        </button>
-    </div>`;
-    
-    // Вставляем шаблон в body
-    $sortBlock.append(template);
+
+      $('.info-users__items').remove();
+
+      // Шаблон для вставки
+      const template = `
+      <div class="info-users__items active" style="position: fixed; top: ${clickY}px; left: ${clickX}px; transform: translateX(-100%);">
+          <div class="info-users__inner">
+              <div class="info-users__item">
+                  <img src="/assets/images/avatar.png" alt="avatar" class="">
+                  <p>Ульяна Комиссарова1111111111</p>
+                  <a href="#">@andrey123456789</a>
+              </div>
+              <div class="info-users__item">
+                  <img src="/assets/images/avatar.png" alt="avatar" class="">
+                  <p>Михаил Соколовский Алекс</p>
+                  <a href="#">@andrey1234567890123</a>
+              </div>
+              <div class="info-users__item">
+                  <img src="/assets/images/avatar.png" alt="avatar" class="">
+                  <p>Екатерина Никифорова</p>
+                  <a href="#">@andreym</a>
+              </div>
+              <div class="info-users__item">
+                  <img src="/assets/images/avatar.png" alt="avatar" class="">
+                  <p>Михаил Карпов</p>
+                  <a href="#">@andreym</a>
+              </div>
+              <div class="info-users__item">
+                  <img src="/assets/images/avatar.png" alt="avatar" class="">
+                  <p>Мария Зорина</p>
+                  <a href="#">@andreym</a>
+              </div>
+              <div class="info-users__item">
+                  <img src="/assets/images/avatar.png" alt="avatar" class="">
+                  <p>Мария Зорина</p>
+                  <a href="#">@andreym</a>
+              </div>
+              <div class="info-users__item">
+                  <img src="/assets/images/avatar.png" alt="avatar" class="">
+                  <p>Мария Зорина</p>
+                  <a href="#">@andreym</a>
+              </div>
+          </div>
+          <button class="info-users__button" type="button">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_2039_11660)">
+                      <path d="M8.40332 1.06738C8.66734 1.06738 8.88184 1.28188 8.88184 1.5459C8.88169 1.80979 8.66725 2.02344 8.40332 2.02344H3.15918C2.53167 2.02352 2.02453 2.51439 2.02441 3.13867V12.8203C2.02441 13.4479 2.53484 13.9755 3.15918 13.9756H12.8408C13.4652 13.9756 13.9756 13.448 13.9756 12.8203L13.9746 7.59668L13.9844 7.5C14.0289 7.282 14.222 7.11832 14.4531 7.11816C14.7173 7.11816 14.9316 7.33247 14.9316 7.59668V12.8203C14.9316 13.9722 13.9944 14.9316 12.8398 14.9316H3.15918C2.00471 14.9316 1.06738 13.9729 1.06738 12.8203V3.13965C1.06738 1.98515 2.00662 1.06747 3.15918 1.06738H8.40332Z" fill="#374151" stroke="#374151" stroke-width="0.15"></path>
+                      <path d="M13.0654 0.816406C13.6417 0.352146 14.5383 0.385531 15.0684 0.916016L15.1689 1.02539C15.3882 1.29167 15.5068 1.62327 15.5068 1.97266C15.5067 2.3217 15.3875 2.65278 15.1689 2.91895L15.0684 3.0293L10.3066 7.79102C10.2657 7.83197 10.2171 7.86508 10.1631 7.88672L10.1074 7.9043L8.09961 8.40625C8.06454 8.41521 8.02964 8.41895 7.99512 8.41895C7.911 8.41895 7.82828 8.39439 7.75781 8.34766L7.69141 8.29297C7.58501 8.18577 7.54178 8.03095 7.57812 7.88477L8.08008 5.87695C8.0988 5.80178 8.13779 5.73237 8.19238 5.67773L12.9551 0.916016L13.0654 0.816406ZM13.2061 2.77832C12.9892 2.56159 12.6546 2.53481 12.4082 2.69727L12.3086 2.77832L9.00977 6.07715C8.94883 6.13814 8.90094 6.21054 8.86914 6.29004L8.84277 6.37207C8.7267 6.837 9.14834 7.25784 9.61328 7.1416L9.69434 7.11523C9.77398 7.08341 9.84714 7.03567 9.9082 6.97461L13.2061 3.67676L13.2871 3.57715C13.4269 3.36575 13.4269 3.08932 13.2871 2.87793L13.2061 2.77832ZM14.4609 1.52344C14.252 1.31452 13.9038 1.28855 13.6602 1.44531L13.5625 1.52344C13.4536 1.63261 13.4534 1.80988 13.5625 1.91895L14.0654 2.4209L14.1094 2.45703C14.2179 2.52863 14.3654 2.51639 14.4609 2.4209L14.54 2.32422C14.6092 2.22103 14.6464 2.10009 14.6465 1.97266C14.6465 1.84503 14.6093 1.72344 14.54 1.62012L14.4609 1.52344Z" fill="#374151" stroke="#374151" stroke-width="0.15"></path>
+                  </g>
+                  <defs>
+                      <clipPath id="clip0_2039_11660">
+                          <rect width="16" height="16" fill="white"></rect>
+                      </clipPath>
+                  </defs>
+              </svg>
+              <span>Изменить выбор</span>
+          </button>
+      </div>`;
+      
+      // Вставляем шаблон в body
+      $sortBlock.append(template);
+    }
   });
 
   // Закрытие при клике вне блока
@@ -479,6 +485,9 @@ export default function toggleDropdown() {
     $('.dropdown__list, .dropdown__sort, .dropdown__button').removeClass('active');
   });
 
+  $(document).on('mouseleave', '.info-users__items', function() {
+    $('.info-users__items').removeClass('active').remove();
+  });
 
   $('.dropdown-checkboxes-images .dropdown__list .input-checkbox-with-label input').on('change', function () {
     const $dropdown = $(this).closest('.dropdown');

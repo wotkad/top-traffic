@@ -98,9 +98,11 @@
             }
           }
           &-checkboxes-images {
-            .dropdown__values.single,
             .dropdown__values.multiple {
               @apply -mt-[2px] w-[calc(100%+24px)] min-h-[38px] max-h-[38px];
+            }
+            .dropdown__values.single {
+              @apply -mt-[2px] min-h-[38px] max-h-[38px];
             }
           }
           @apply flex items-center w-full h-6;

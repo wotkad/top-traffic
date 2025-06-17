@@ -12,7 +12,7 @@
     &:hover {
       @apply bg-black-500;
     }
-    @apply flex justify-center items-center -mt-1 -mr-1 rounded-sm w-5 h-5 transition-all duration-300;
+    @apply flex justify-center items-center -mt-1 -mr-1 rounded-full w-5 h-5 transition-all duration-300;
   }
   &.active {
     @apply visible z-50 opacity-100;
