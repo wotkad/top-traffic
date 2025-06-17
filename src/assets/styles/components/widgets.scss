@@ -2,5 +2,9 @@
   &-no-controls {
     @apply mb-8 pt-0;
   }
-  @apply flex flex-wrap gap-4 pt-4 w-full;
+  @include screen(laptop-base) {
+    @apply grid-cols-[repeat(auto-fit,_minmax(189.25px,_189.25px))];
+  }
+  @apply gap-4 grid grid-cols-[repeat(2,_minmax(189.25px,_189.25px))] pt-4 w-full;
+
 }
