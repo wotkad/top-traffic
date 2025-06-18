@@ -85,7 +85,7 @@ export default function toggleDropdown() {
         return;
     }
     const $dropdown = $(this).closest('.dropdown');
-    const $list = $dropdown.find('.dropdown__list');
+    const $list = $dropdown.children().children('.dropdown__list');
     $('.info-users__items').remove();
 
     if ($list.hasClass('active')) {
@@ -96,13 +96,32 @@ export default function toggleDropdown() {
 
     updateDropdownPosition($dropdown);
 
-
-    $('.dropdown__list').not($list).removeClass('active').css({ right: '', top: '' });
+    if (!$list.closest('.dropdown-new-format').length) {
+      $('.dropdown__list').not($list).removeClass('active').css({ right: '', top: '' });
+    }
+    if ($(this).closest('.dropdown-new-format')) {
+      $('.dropdown__list').not($(this).closest('.dropdown-new-format').find('.dropdown__list')).removeClass('active');
+      $('.dropdown__button').not($(this).closest('.dropdown-new-format').find('.dropdown__button')).removeClass('active');
+    }
     $('.dropdown__button').not(this).removeClass('active');
     $('.dropdown__sort').removeClass('active');
 
     $(this).addClass('active');
     $list.addClass('active');
+  });
+
+  $('.dropdown__cancel').on('click', function() {
+    let $list = $(this).closest('.dropdown__list');
+    let $button = $(this).closest('.dropdown__button');
+    $list.removeClass('active');
+    $button.removeClass('active');
+  });
+
+  $('.dropdown__submit').on('click', function() {
+    let $list = $(this).closest('.dropdown__list');
+    let $button = $(this).closest('.dropdown__button');
+    $list.removeClass('active');
+    $button.removeClass('active');
   });
 
   $('.wrapper').on('scroll', function() {
@@ -227,7 +246,12 @@ export default function toggleDropdown() {
   });
 
   $(document).on('click', function (e) {
-    if (!$('.dropdown-multiselect .dropdown__list').is(e.target) && !$('.dropdown-multiselect .dropdown__list').has(e.target).length) {
+    if (
+      !$('.dropdown-multiselect .dropdown__list').is(e.target) && 
+      !$('.dropdown-multiselect .dropdown__list').has(e.target).length &&
+      !$('.dropdown-new-format .dropdown__list').is(e.target) && 
+      !$('.dropdown-new-format .dropdown__list').has(e.target).length
+    ) {
       $('.dropdown__list').removeClass('active');
     }
     $('.dropdown__button').removeClass('active');
@@ -272,11 +296,9 @@ export default function toggleDropdown() {
     const $allCheckboxes = $dropdown.find('.input-checkbox-with-label input').not($firstCheckbox);
     
     if ($(this).is($firstCheckbox)) {
-        // Если изменили чекбокс "Выбрать все"
         const allChecked = $firstCheckbox.prop('checked');
         $allCheckboxes.prop('checked', allChecked);
     } else {
-        // Если изменили обычный чекбокс
         const allCheckedExceptFirst = $allCheckboxes.length === $allCheckboxes.filter(':checked').length;
         $firstCheckbox.prop('checked', allCheckedExceptFirst);
     }
@@ -285,7 +307,6 @@ export default function toggleDropdown() {
   $('.dropdown-checkboxes .dropdown__list .input-checkbox-with-label input').on('change', function () {
     const $dropdown = $(this).closest('.dropdown');
   
-    // Логика обработки чекбоксов
     const $sortBlock = $dropdown.find('.dropdown__sort');
     const $buttonBlock = $dropdown.find('.dropdown__button');
     const $valuesContainer = $dropdown.find('.dropdown__values');
@@ -392,7 +413,6 @@ export default function toggleDropdown() {
   });
 
   $('.dropdown__values, .info-users__list').on('click', function(e) {
-    // Проверяем, был ли клик по самому .dropdown__values или его непосредственному потомку
     if ($(e.target).closest('.info-users__body a').length) {
         return;
     }
@@ -410,7 +430,6 @@ export default function toggleDropdown() {
 
       $('.info-users__items').remove();
 
-      // Шаблон для вставки
       const template = `
       <div class="info-users__items active" style="position: fixed; top: ${clickY}px; left: ${clickX}px; transform: translateX(-100%);">
           <div class="info-users__inner">
@@ -466,15 +485,14 @@ export default function toggleDropdown() {
           </button>
       </div>`;
       
-      // Вставляем шаблон в body
       $sortBlock.append(template);
     }
   });
 
-  // Закрытие при клике вне блока
   $(document).on('click', function(e) {
       if (!$(e.target).closest('.info-users__items').length && 
-          !$(e.target).closest('.dropdown__values').length) {
+          !$(e.target).closest('.dropdown__values').length &&
+          !$(e.target).closest('.dropdown-new-format').length) {
           $('.info-users__items').remove();
           $('.dropdown__list, .dropdown__sort, .dropdown__button').removeClass('active');
       }
@@ -585,7 +603,7 @@ export default function toggleDropdown() {
 
   $('.dropdown__values').on('click', '.dropdown__show-all', function (e) {
     e.stopPropagation();
-    // $(this).closest('.dropdown__sort').siblings('.dropdown__list').addClass('active');
+    // $(this).closest('.dropdown__sort').siblings('.dropdown__list').addClass('active'); // должно быть закомментировано
 
     const $sortBlock = $(this).closest('.dropdown__sort');
     const clickX = e.pageX;
@@ -595,7 +613,6 @@ export default function toggleDropdown() {
 
     $('.info-users__items').remove();
 
-    // Шаблон для вставки
     const template = `
     <div class="info-users__items active" style="position: fixed; top: ${clickY}px; left: ${clickX}px; transform: translateX(-100%);">
         <div class="info-users__inner">
@@ -651,7 +668,6 @@ export default function toggleDropdown() {
         </button>
     </div>`;
     
-    // Вставляем шаблон в body
     $sortBlock.append(template);
     
   });

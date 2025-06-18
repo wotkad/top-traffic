@@ -4,7 +4,7 @@ mixin dropdown(data = {})
   - const isSelected = modefied.isSelected ? ' selected' : '';
   - const isStatus = modefied.isStatus ? modefied.color + ' selected' : '';
 
-  .dropdown(class=modefied.class)
+  .dropdown(class= modefied.class)
     if modefied.label
       .dropdown__label !{modefied.label}
         if modefied.isRequired
@@ -145,6 +145,169 @@ mixin dropdown(data = {})
               icons: button.icons,
               isFileUpload: button.isFileUpload,
               dataIdFile: button.dataIdFile,
+            })
+
+        else if (modefied.isNewFormat)
+          .dropdown-new__title Выберите параметры
+          .dropdown-new__selects
+            .dropdown-new__select
+              input(type="text" placeholder="В топе")
+              +dropdown({
+                buttons: [
+                  {
+                    name: 'channels-radio',
+                    title: 'минуты',
+                  },
+                  {
+                    isChecked: true,
+                    name: 'channels-radio',
+                    title: 'часы',
+                  },
+                  {
+                    name: 'channels-radio',
+                    title: 'дни',
+                  },
+                  {
+                    name: 'channels-radio',
+                    title: 'недели',
+                  },
+                  {
+                    name: 'channels-radio',
+                    title: 'месяцы',
+                  },
+                  {
+                    name: 'channels-radio',
+                    title: 'до утра',
+                  },
+                  {
+                    name: 'channels-radio',
+                    title: 'без топа',
+                  },
+                ],
+                title: '',
+              })
+            .dropdown-new__separator /
+            .dropdown-new__select
+              input(type="text" placeholder="Без удаления")
+              +dropdown({
+                buttons: [
+                  {
+                    name: 'channels-radio',
+                    title: 'минуты',
+                  },
+                  {
+                    isChecked: true,
+                    name: 'channels-radio',
+                    title: 'часы',
+                  },
+                  {
+                    name: 'channels-radio',
+                    title: 'дни',
+                  },
+                  {
+                    name: 'channels-radio',
+                    title: 'недели',
+                  },
+                  {
+                    name: 'channels-radio',
+                    title: 'месяцы',
+                  },
+                  {
+                    name: 'channels-radio',
+                    title: 'до утра',
+                  },
+                  {
+                    name: 'channels-radio',
+                    title: 'без удаления',
+                  },
+                ],
+                title: '',
+              })
+          .dropdown-new__title Популярные
+          .dropdown-new__values
+            label.dropdown-new__value
+              input(type="radio" name="popular").dropdown-new__input
+              p 1/24
+            label.dropdown-new__value
+              input(type="radio" name="popular").dropdown-new__input
+              p 1/48
+            label.dropdown-new__value
+              input(type="radio" name="popular").dropdown-new__input
+              p 1/72
+            label.dropdown-new__value
+              input(type="radio" name="popular").dropdown-new__input
+              p 2/24
+            label.dropdown-new__value
+              input(type="radio" name="popular").dropdown-new__input
+              p 2/48
+            label.dropdown-new__value
+              input(type="radio" name="popular").dropdown-new__input
+              p 2/72
+            label.dropdown-new__value
+              input(type="radio" name="popular").dropdown-new__input
+              p 3/24
+            label.dropdown-new__value
+              input(type="radio" name="popular").dropdown-new__input
+              p 3/48
+            label.dropdown-new__value
+              input(type="radio" name="popular").dropdown-new__input
+              p 3/72
+            label.dropdown-new__value
+              input(type="radio" name="popular").dropdown-new__input
+              p 4/48
+            label.dropdown-new__value
+              input(type="radio" name="popular").dropdown-new__input
+              p 4/72
+            label.dropdown-new__value
+              input(type="radio" name="popular").dropdown-new__input
+              p 30 мин/1 мес
+            label.dropdown-new__value
+              input(type="radio" name="popular").dropdown-new__input
+              p 40 мин/1 мес
+            label.dropdown-new__value
+              input(type="radio" name="popular").dropdown-new__input
+              p 1/1 мес
+            label.dropdown-new__value
+              input(type="radio" name="popular").dropdown-new__input
+              p 2/1 мес
+            label.dropdown-new__value
+              input(type="radio" name="popular").dropdown-new__input
+              p Без топа/1 мес
+            label.dropdown-new__value
+              input(type="radio" name="popular").dropdown-new__input
+              p 30 мин/2 мес
+            label.dropdown-new__value
+              input(type="radio" name="popular").dropdown-new__input
+              p Без топа/1 нед
+            label.dropdown-new__value
+              input(type="radio" name="popular").dropdown-new__input
+              p 1/1 нед
+            label.dropdown-new__value
+              input(type="radio" name="popular").dropdown-new__input
+              p 2/1 нед
+            label.dropdown-new__value
+              input(type="radio" name="popular").dropdown-new__input
+              p 2/4 дн
+            label.dropdown-new__value
+              input(type="radio" name="popular").dropdown-new__input
+              p Без топа/24
+            label.dropdown-new__value
+              input(type="radio" name="popular").dropdown-new__input
+              p Без топа/48
+            label.dropdown-new__value
+              input(type="radio" name="popular").dropdown-new__input
+              p 30 мин/24
+          .dropdown-new__buttons
+            +button({
+              class: 'button-base lg dropdown__cancel',
+              title: 'Отмена',
+              view: 'button',
+            })
+            +button({
+              class: 'button-with-icon-blue lg dropdown__submit',
+              title: 'Сохранить',
+              type: 'submit',
+              view: 'button',
             })
 
         else
