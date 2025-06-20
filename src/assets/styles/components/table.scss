@@ -675,7 +675,7 @@
       &__button {
         .button-icon {
           svg {
-            @apply w-2 h-1;
+            @apply w-2.5 h-[5px];
           }
           @apply relative w-4 h-3;
         }

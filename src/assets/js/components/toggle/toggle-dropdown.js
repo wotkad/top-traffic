@@ -82,49 +82,200 @@ export default function toggleDropdown() {
   $(document).on('click', '.dropdown__button, .dropdown__sort', function (e) {
     e.stopPropagation();
     if ($(e.target).closest('.info-users__body a').length || $(e.target).closest('.info-users__popup').length) {
-        return;
+      return;
     }
-    const $dropdown = $(this).closest('.dropdown');
-    const $list = $dropdown.children().children('.dropdown__list');
-    $('.info-users__items').remove();
+
+    const $trigger = $(this);
+    const $dropdown = $trigger.closest('.dropdown');
+    const $list = $dropdown.find('> .dropdown__container > .dropdown__list');
+    const isNew = $dropdown.closest('.dropdown-new-format').length > 0;
+
+    // Закрытие всех, кроме контекста "нового формата"
+    if (!isNew) {
+      $('.dropdown__list').not($list).removeClass('active').css({ right: '', top: '' });
+      $('.dropdown__button, .dropdown__sort').not($trigger).removeClass('active');
+    } else {
+      const $ctx = $dropdown.closest('.dropdown-new-format');
+      $('.dropdown-new-format .dropdown__list').not($ctx.find('.dropdown__list')).removeClass('active');
+      $('.dropdown-new-format .dropdown__button').not($ctx.find('.dropdown__button')).removeClass('active');
+    }
 
     if ($list.hasClass('active')) {
-        $list.removeClass('active').css({ right: '', top: '' });
-        $(this).removeClass('active');
-        return;
+      $trigger.removeClass('active');
+      return $list.removeClass('active').css({ right: '', top: '' });
     }
 
     updateDropdownPosition($dropdown);
-
-    if (!$list.closest('.dropdown-new-format').length) {
-      $('.dropdown__list').not($list).removeClass('active').css({ right: '', top: '' });
-    }
-    if ($(this).closest('.dropdown-new-format')) {
-      $('.dropdown__list').not($(this).closest('.dropdown-new-format').find('.dropdown__list')).removeClass('active');
-      $('.dropdown__button').not($(this).closest('.dropdown-new-format').find('.dropdown__button')).removeClass('active');
-    }
-    $('.dropdown__button').not(this).removeClass('active');
-    $('.dropdown__sort').removeClass('active');
-
-    $(this).addClass('active');
+    $trigger.addClass('active');
     $list.addClass('active');
   });
 
-  $('.dropdown__cancel').on('click', function() {
-    let $list = $(this).closest('.dropdown__list');
-    let $button = $(this).closest('.dropdown__button');
-    $list.removeClass('active');
-    $button.removeClass('active');
+  $('.dropdown-new-format').each(function(index) {
+    const $wrap = $(this);
+    const dropdownId = 'dropdown-new-' + index; // уникальный ключ для каждого дропдауна
+    const $dropdown = $wrap.find('> .dropdown__container');
+    const $button = $dropdown.find('> .dropdown__button');
+    const $list = $dropdown.find('> .dropdown__list');
+    const $radios = $wrap.find('.dropdown-new__value input[type="radio"]');
+    const $firstInput = $wrap.find('.dropdown-new__select-first input[type="text"]');
+    const $secondInput = $wrap.find('.dropdown-new__select-second input[type="text"]');
+    const $btnSave = $wrap.find('.dropdown__submit');
+    const $btnCancel = $wrap.find('.dropdown__cancel');
+
+    function saveToStorage(first, second, radioText = null) {
+      localStorage.setItem(dropdownId, JSON.stringify({ first, second, radioText }));
+    }
+
+    const allowedValues = ['до утра', 'без удаления', 'без топа'];
+
+    $wrap.on('change', '.dropdown-new__select-first .dropdown__item input[type="radio"]', function () {
+      const text = $(this).siblings('p').text().trim();
+      if (allowedValues.includes(text)) {
+        $(this).closest('.dropdown__container').find('.dropdown__button').find('.dropdown__title').hide();
+        $firstInput.val(text);
+        $radios.prop('checked', false);
+      } else {
+        if ($firstInput.val().includes(text)) {
+          $firstInput.val('');
+        }
+        $(this).closest('.dropdown__container').find('.dropdown__button').find('.dropdown__title').show();
+      }
+    });
+
+    $wrap.on('change', '.dropdown-new__select-second .dropdown__item input[type="radio"]', function () {
+      const text = $(this).siblings('p').text().trim();
+      if (allowedValues.includes(text)) {
+        $(this).closest('.dropdown__container').find('.dropdown__button').find('.dropdown__title').hide();
+        $secondInput.val(text);
+        $radios.prop('checked', false);
+      } else {
+        if ($secondInput.val().includes(text)) {
+          $secondInput.val('');
+        }
+        $(this).closest('.dropdown__container').find('.dropdown__button').find('.dropdown__title').show();
+      }
+    });
+
+
+    function enableRadioToggle($radios) {
+      $radios.each(function () {
+        const $radio = $(this);
+        $radio.data('wasChecked', $radio.prop('checked'));
+      });
+
+      $radios.on('mousedown', function () {
+        const $this = $(this);
+        $this.data('wasChecked', $this.prop('checked'));
+      });
+
+      $radios.on('click', function () {
+        const $this = $(this);
+        if ($this.data('wasChecked')) {
+          $this.prop('checked', false).trigger('change');
+        }
+      });
+    }
+
+    enableRadioToggle($radios);
+
+    function loadFromStorage() {
+      const saved = localStorage.getItem(dropdownId);
+      if (!saved) return null;
+      try {
+        return JSON.parse(saved);
+      } catch (e) {
+        return null;
+      }
+    }
+
+    function applySavedValues() {
+      const data = loadFromStorage();
+      if (data && data.first && data.second) {
+        $firstInput.val(data.first);
+        $secondInput.val(data.second);
+
+        // Восстанавливаем radio, если был сохранён
+        if (data.radioText) {
+          $radios.each(function() {
+            const text = $(this).siblings('p').text().trim();
+            if (text === data.radioText) {
+              $(this).prop('checked', true);
+            } else {
+              $(this).prop('checked', false);
+            }
+          });
+        } else {
+          $radios.prop('checked', false);
+        }
+
+        $button.find('.dropdown__title').text(`${data.first}/${data.second}`);
+      }
+    }
+
+    function resetPopup() {
+      const data = loadFromStorage();
+      if (data) {
+        // возвращаем сохранённые значения
+        applySavedValues();
+      } else {
+        $radios.prop('checked', false);
+        $firstInput.val('');
+        $secondInput.val('');
+        $button.find('.dropdown__title').text('Все'); // или оставить как есть
+      }
+    }
+
+    function closeList() {
+      $list.removeClass('active').css({ right: '', top: '' });
+      $button.removeClass('active');
+    }
+
+    // 1) При выборе radio
+    $radios.on('change', function() {
+      console.log(this.checked);
+      if (this.checked) {
+        const [f = '', s = ''] = $(this).siblings('p').text().split('/');
+        $firstInput.val(f);
+        $secondInput.val(s);
+      }
+    });
+
+    // 2) Ввод вручную сбрасывает радио
+    $firstInput.add($secondInput).on('input', () => {
+      $radios.prop('checked', false);
+    });
+
+    // 3) Сохранение и запись в localStorage
+    $btnSave.on('click', function(e) {
+      e.preventDefault();
+      const f = $firstInput.val().trim();
+      const s = $secondInput.val().trim();
+
+      if (!f && !s) {
+        $button.find('.dropdown__title').text('Выберите параметры');
+        localStorage.removeItem(dropdownId);
+      } else {
+        const selectedRadio = $radios.filter(':checked').siblings('p').text().trim() || null;
+        $button.find('.dropdown__title').text(`${f}/${s}`);
+        saveToStorage(f, s, selectedRadio);
+      }
+
+      closeList();
+    });
+
+    // 4) Отмена — возвращает сохранённые
+    $btnCancel.on('click', function(e) {
+      e.preventDefault();
+      resetPopup();
+      closeList();
+    });
+
+    // 5) Применить сохранённые при инициализации
+    applySavedValues();
   });
 
-  $('.dropdown__submit').on('click', function() {
-    let $list = $(this).closest('.dropdown__list');
-    let $button = $(this).closest('.dropdown__button');
-    $list.removeClass('active');
-    $button.removeClass('active');
-  });
 
-  $('.wrapper').on('scroll', function() {
+  $('.wrapper, .content-scroll').on('scroll', function() {
     $('.dropdown__list').removeClass('active').css({ right: '', top: '' });
     $('.dropdown__button').removeClass('active');
     $('.dropdown__sort').removeClass('active');

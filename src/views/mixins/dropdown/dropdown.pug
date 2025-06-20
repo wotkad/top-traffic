@@ -150,7 +150,7 @@ mixin dropdown(data = {})
         else if (modefied.isNewFormat)
           .dropdown-new__title Выберите параметры
           .dropdown-new__selects
-            .dropdown-new__select
+            .dropdown-new__select.dropdown-new__select-first
               input(type="text" placeholder="В топе")
               +dropdown({
                 buttons: [
@@ -187,7 +187,7 @@ mixin dropdown(data = {})
                 title: '',
               })
             .dropdown-new__separator /
-            .dropdown-new__select
+            .dropdown-new__select.dropdown-new__select-second
               input(type="text" placeholder="Без удаления")
               +dropdown({
                 buttons: [
@@ -227,76 +227,76 @@ mixin dropdown(data = {})
           .dropdown-new__values
             label.dropdown-new__value
               input(type="radio" name="popular").dropdown-new__input
-              p 1/24
+              p(data-title="1 час/24 часа") 1/24
             label.dropdown-new__value
               input(type="radio" name="popular").dropdown-new__input
-              p 1/48
+              p(data-title="1 час/48 часов") 1/48
             label.dropdown-new__value
               input(type="radio" name="popular").dropdown-new__input
-              p 1/72
+              p(data-title="1 час/72 часа") 1/72
             label.dropdown-new__value
               input(type="radio" name="popular").dropdown-new__input
-              p 2/24
+              p(data-title="2 часа/24 часа") 2/24
             label.dropdown-new__value
               input(type="radio" name="popular").dropdown-new__input
-              p 2/48
+              p(data-title="2 часа/48 часов") 2/48
             label.dropdown-new__value
               input(type="radio" name="popular").dropdown-new__input
-              p 2/72
+              p(data-title="2 часа/72 часа") 2/72
             label.dropdown-new__value
               input(type="radio" name="popular").dropdown-new__input
-              p 3/24
+              p(data-title="3 часа/24 часа") 3/24
             label.dropdown-new__value
               input(type="radio" name="popular").dropdown-new__input
-              p 3/48
+              p(data-title="3 часа/48 часов") 3/48
             label.dropdown-new__value
               input(type="radio" name="popular").dropdown-new__input
-              p 3/72
+              p(data-title="3 часа/72 часа") 3/72
             label.dropdown-new__value
               input(type="radio" name="popular").dropdown-new__input
-              p 4/48
+              p(data-title="4 часа/48 часов") 4/48
             label.dropdown-new__value
               input(type="radio" name="popular").dropdown-new__input
-              p 4/72
+              p(data-title="4 часа/72 часа") 4/72
             label.dropdown-new__value
               input(type="radio" name="popular").dropdown-new__input
-              p 30 мин/1 мес
+              p(data-title="30 минут/1 месяц") 30 мин/1 мес
             label.dropdown-new__value
               input(type="radio" name="popular").dropdown-new__input
-              p 40 мин/1 мес
+              p(data-title="40 минут/1 месяц") 40 мин/1 мес
             label.dropdown-new__value
               input(type="radio" name="popular").dropdown-new__input
-              p 1/1 мес
+              p(data-title="1 час/1 месяц") 1/1 мес
             label.dropdown-new__value
               input(type="radio" name="popular").dropdown-new__input
-              p 2/1 мес
+              p(data-title="2 часа/1 месяц") 2/1 мес
             label.dropdown-new__value
               input(type="radio" name="popular").dropdown-new__input
-              p Без топа/1 мес
+              p(data-title="Без топа/1 месяц") Без топа/1 мес
             label.dropdown-new__value
               input(type="radio" name="popular").dropdown-new__input
-              p 30 мин/2 мес
+              p(data-title="30 минут/2 месяца") 30 мин/2 мес
             label.dropdown-new__value
               input(type="radio" name="popular").dropdown-new__input
-              p Без топа/1 нед
+              p(data-title="Без топа/1 неделя") Без топа/1 нед
             label.dropdown-new__value
               input(type="radio" name="popular").dropdown-new__input
-              p 1/1 нед
+              p(data-title="1 час/1 неделя") 1/1 нед
             label.dropdown-new__value
               input(type="radio" name="popular").dropdown-new__input
-              p 2/1 нед
+              p(data-title="2 часа/1 неделя") 2/1 нед
             label.dropdown-new__value
               input(type="radio" name="popular").dropdown-new__input
-              p 2/4 дн
+              p(data-title="2 часа/4 дня") 2/4 дн
             label.dropdown-new__value
               input(type="radio" name="popular").dropdown-new__input
-              p Без топа/24
+              p(data-title="Без топа/24 часа") Без топа/24
             label.dropdown-new__value
               input(type="radio" name="popular").dropdown-new__input
-              p Без топа/48
+              p(data-title="Без топа/48 часов") Без топа/48
             label.dropdown-new__value
               input(type="radio" name="popular").dropdown-new__input
-              p 30 мин/24
+              p(data-title="30/24 часа") 30 мин/24
           .dropdown-new__buttons
             +button({
               class: 'button-base lg dropdown__cancel',
@@ -316,7 +316,7 @@ mixin dropdown(data = {})
               if button.image
                 img.dropdown__image(src=button.image.src, alt=button.image.alt)
               input(type="radio" name=`radio-${button.name}` checked=button.isChecked class=button.isChecked ? 'filled' : '')
-              p= button.title
+              p(data-title=button.title)= button.title
 
     if modefied.isError
       .error__text
