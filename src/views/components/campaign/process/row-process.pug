@@ -1,5 +1,5 @@
 tr
-  td(colspan="17")
+  td(colspan="16")
     .flex.items-center(class="gap-x-1.5")
       img.rounded.object-cover(class="w-[30px] h-[30px]" src="/assets/images/avatar.png" alt="tg-channel")
       .flex.items-center
@@ -103,109 +103,95 @@ tr
   //-       title: '',
   //-     })
   td.only-text
-    .table__attachedfile
-      label.table__attachedfile__container
-        .table__icon
-          input(type="file")
-          svg
-            use(xlink:href="#other-file-icon")
-        span.table__attachedfile__value Прикрепить
-      +dropdown({
-        buttons: [
-          {
-            class: 'table__attachedfile__edit',
-            icon: 'other-link-icon',
-            title: 'Заменить',
-          },
-          {
-            class: 'table__attachedfile__remove',
-            dataPopupName: 'delete-attachedfile',
-            icon: 'other-trash-icon',
-            title: 'Удалить',
-          },
-        ],
-        class: 'table__attachedfile__dropdown',
-        isButtons: true,
-        title: '',
-      })
-  td.only-text
-    .table__attachedfile
-      label.table__attachedfile__container
-        .table__icon
-          input(type="file")
-          svg
-            use(xlink:href="#other-file-icon")
-        span.table__attachedfile__value Прикрепить
-      +dropdown({
-        buttons: [
-          {
-            class: 'table__attachedfile__edit',
-            icon: 'other-link-icon',
-            title: 'Заменить',
-          },
-          {
-            class: 'table__attachedfile__remove',
-            dataPopupName: 'delete-attachedfile',
-            icon: 'other-trash-icon',
-            title: 'Удалить',
-          },
-        ],
-        class: 'table__attachedfile__dropdown',
-        isButtons: true,
-        title: '',
-      })
-  td.only-text
-    .table__attachedfile
-      label.table__attachedfile__container
-        .table__icon
-          input(type="file")
-          svg
-            use(xlink:href="#other-file-icon")
-        span.table__attachedfile__value Прикрепить
-      +dropdown({
-        buttons: [
-          {
-            class: 'table__attachedfile__edit',
-            icon: 'other-link-icon',
-            title: 'Заменить',
-          },
-          {
-            class: 'table__attachedfile__remove',
-            dataPopupName: 'delete-attachedfile',
-            icon: 'other-trash-icon',
-            title: 'Удалить',
-          },
-        ],
-        class: 'table__attachedfile__dropdown',
-        isButtons: true,
-        title: '',
-      })
-  td.only-text
-    .table__attachedfile
-      label.table__attachedfile__container
-        .table__icon
-          input(type="file")
-          svg
-            use(xlink:href="#other-file-icon")
-        span.table__attachedfile__value Прикрепить
-      +dropdown({
-        buttons: [
-          {
-            class: 'table__attachedfile__edit',
-            icon: 'other-link-icon',
-            title: 'Заменить',
-          },
-          {
-            class: 'table__attachedfile__remove',
-            dataPopupName: 'delete-attachedfile',
-            icon: 'other-trash-icon',
-            title: 'Удалить',
-          },
-        ],
-        class: 'table__attachedfile__dropdown',
-        isButtons: true,
-        title: '',
-      })
+    .table__attachedfiles
+      .table__attachedfile
+        label.table__attachedfile__container
+          .table__icon
+            input(type="file")
+            svg
+              use(xlink:href="#other-file-icon")
+        +button({
+          class: 'table__attachedfile__remove',
+          dataPopupName: 'delete-attachedfile',
+          icon: 'other-close-icon',
+          isOnlyIcon: true,
+          view: 'button',
+        })
+      span.table__attachedfile__separator /
+      .table__attachedfile
+        label.table__attachedfile__container
+          .table__icon
+            input(type="file")
+            svg
+              use(xlink:href="#other-file-icon")
+        +dropdown({
+          buttons: [
+            {
+              class: 'table__attachedfile__edit',
+              icon: 'other-link-icon',
+              title: 'Заменить',
+            },
+            {
+              class: 'table__attachedfile__remove',
+              dataPopupName: 'delete-attachedfile',
+              icon: 'other-trash-icon',
+              title: 'Удалить',
+            },
+          ],
+          class: 'table__attachedfile__dropdown',
+          isButtons: true,
+          title: '',
+        })
+      span.table__attachedfile__separator /
+      .table__attachedfile
+        label.table__attachedfile__container
+          .table__icon
+            input(type="file")
+            svg
+              use(xlink:href="#other-file-icon")
+        +dropdown({
+          buttons: [
+            {
+              class: 'table__attachedfile__edit',
+              icon: 'other-link-icon',
+              title: 'Заменить',
+            },
+            {
+              class: 'table__attachedfile__remove',
+              dataPopupName: 'delete-attachedfile',
+              icon: 'other-trash-icon',
+              title: 'Удалить',
+            },
+          ],
+          class: 'table__attachedfile__dropdown',
+          isButtons: true,
+          title: '',
+        })
+      span.table__attachedfile__separator /
+      .table__attachedfile
+        label.table__attachedfile__container
+          .table__icon
+            input(type="file")
+            svg
+              use(xlink:href="#other-file-icon")
+        +dropdown({
+          buttons: [
+            {
+              class: 'table__attachedfile__edit',
+              icon: 'other-link-icon',
+              title: 'Заменить',
+            },
+            {
+              class: 'table__attachedfile__remove',
+              dataPopupName: 'delete-attachedfile',
+              icon: 'other-trash-icon',
+              title: 'Удалить',
+            },
+          ],
+          class: 'table__attachedfile__dropdown',
+          isButtons: true,
+          title: '',
+        })
   td.only-text.text-right 22 505
   td.only-text.text-right 22 505
   td.only-text.text-right 22 505

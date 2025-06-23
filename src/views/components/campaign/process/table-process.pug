@@ -56,29 +56,32 @@ table.table.table-fixed-cols.table-process
               svg
                 use(xlink:href="#other-sort-icon")
       th
-        .table__sort.flex.gap-x-2.items-center
-          p Скриншот (старт)
-            button(type="button").table__sortbutton
-              svg
-                use(xlink:href="#other-sort-icon")
-      th
-        .table__sort.flex.gap-x-2.items-center
-          p Скриншот (24 часа)
-            button(type="button").table__sortbutton
-              svg
-                use(xlink:href="#other-sort-icon")
-      th
-        .table__sort.flex.gap-x-2.items-center
-          p Скриншот (48 часов)
-            button(type="button").table__sortbutton
-              svg
-                use(xlink:href="#other-sort-icon")
-      th
-        .table__sort.flex.gap-x-2.items-center
-          p Скриншот (72 часа)
-            button(type="button").table__sortbutton
-              svg
-                use(xlink:href="#other-sort-icon")
+        .table__sorts
+          .table__sort.flex.gap-x-2.items-center
+            svg
+              use(xlink:href="#other-screenshot-icon")
+            p Старт
+              button(type="button").table__sortbutton
+                svg
+                  use(xlink:href="#other-sort-icon")
+          .table__sort__separator /
+          .table__sort.flex.gap-x-2.items-center
+            p 24 ч
+              button(type="button").table__sortbutton
+                svg
+                  use(xlink:href="#other-sort-icon")
+          .table__sort__separator /
+          .table__sort.flex.gap-x-2.items-center
+            p 48 ч
+              button(type="button").table__sortbutton
+                svg
+                  use(xlink:href="#other-sort-icon")
+          .table__sort__separator /
+          .table__sort.flex.gap-x-2.items-center
+            p 72 ч
+              button(type="button").table__sortbutton
+                svg
+                  use(xlink:href="#other-sort-icon")
       th
         .table__sort.flex.gap-x-2.items-center.justify-end
           p.text-right Показы

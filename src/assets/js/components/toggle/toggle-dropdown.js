@@ -130,12 +130,13 @@ export default function toggleDropdown() {
 
     $wrap.on('change', '.dropdown-new__select-first .dropdown__item input[type="radio"]', function () {
       const text = $(this).siblings('p').text().trim();
+      const capitalizedText = text.replace(/^[a-zа-яё]/, firstChar => firstChar.toUpperCase());
       if (allowedValues.includes(text)) {
         $(this).closest('.dropdown__container').find('.dropdown__button').find('.dropdown__title').hide();
-        $firstInput.val(text);
+        $firstInput.val(capitalizedText);
         $radios.prop('checked', false);
       } else {
-        if ($firstInput.val().includes(text)) {
+        if ($firstInput.val().includes(capitalizedText)) {
           $firstInput.val('');
         }
         $(this).closest('.dropdown__container').find('.dropdown__button').find('.dropdown__title').show();
@@ -144,18 +145,28 @@ export default function toggleDropdown() {
 
     $wrap.on('change', '.dropdown-new__select-second .dropdown__item input[type="radio"]', function () {
       const text = $(this).siblings('p').text().trim();
+      const capitalizedText = text.replace(/^[a-zа-яё]/, firstChar => firstChar.toUpperCase());
       if (allowedValues.includes(text)) {
         $(this).closest('.dropdown__container').find('.dropdown__button').find('.dropdown__title').hide();
-        $secondInput.val(text);
+        $secondInput.val(capitalizedText);
         $radios.prop('checked', false);
       } else {
-        if ($secondInput.val().includes(text)) {
+        if ($secondInput.val().includes(capitalizedText)) {
           $secondInput.val('');
         }
         $(this).closest('.dropdown__container').find('.dropdown__button').find('.dropdown__title').show();
       }
     });
 
+    function loadFromStorage() {
+      const saved = localStorage.getItem(dropdownId);
+      if (!saved) return null;
+      try {
+        return JSON.parse(saved);
+      } catch (e) {
+        return null;
+      }
+    }
 
     function enableRadioToggle($radios) {
       $radios.each(function () {
@@ -177,16 +188,6 @@ export default function toggleDropdown() {
     }
 
     enableRadioToggle($radios);
-
-    function loadFromStorage() {
-      const saved = localStorage.getItem(dropdownId);
-      if (!saved) return null;
-      try {
-        return JSON.parse(saved);
-      } catch (e) {
-        return null;
-      }
-    }
 
     function applySavedValues() {
       const data = loadFromStorage();
@@ -222,8 +223,24 @@ export default function toggleDropdown() {
         $firstInput.val('');
         $secondInput.val('');
         $button.find('.dropdown__title').text('Все'); // или оставить как есть
+
+        $firstInput.next().find('.dropdown__button').removeClass('changed');
+        $firstInput.next().find('.dropdown__button .dropdown__title').text('');
+        $firstInput.next().find('.dropdown__list').find('.dropdown__item input').removeClass('filled').removeAttr('checked').prop('checked', false);
+
+        $secondInput.next().find('.dropdown__button').removeClass('changed');
+        $secondInput.next().find('.dropdown__button .dropdown__title').text('');
+        $secondInput.next().find('.dropdown__list').find('.dropdown__item input').removeClass('filled').removeAttr('checked').prop('checked', false);
       }
     }
+
+    $(document).on('click', function (e) {
+      if (
+        !$('.dropdown-new-format').is(e.target) && !$('.dropdown-new-format').has(e.target).length
+      ) {
+        resetPopup();
+      }
+    });
 
     function closeList() {
       $list.removeClass('active').css({ right: '', top: '' });
@@ -232,7 +249,6 @@ export default function toggleDropdown() {
 
     // 1) При выборе radio
     $radios.on('change', function() {
-      console.log(this.checked);
       if (this.checked) {
         const [f = '', s = ''] = $(this).siblings('p').text().split('/');
         $firstInput.val(f);
@@ -275,7 +291,7 @@ export default function toggleDropdown() {
   });
 
 
-  $('.wrapper, .content-scroll').on('scroll', function() {
+  $('.wrapper').on('scroll', function() {
     $('.dropdown__list').removeClass('active').css({ right: '', top: '' });
     $('.dropdown__button').removeClass('active');
     $('.dropdown__sort').removeClass('active');
@@ -659,7 +675,7 @@ export default function toggleDropdown() {
     $('.dropdown__list, .dropdown__sort, .dropdown__button').removeClass('active');
   });
 
-  $(document).on('mouseleave', '.info-users__items', function() {
+  $(document).on('mouseleave', '.info-users__items, .info-users__popup', function() {
     $('.info-users__items').removeClass('active').remove();
   });
 

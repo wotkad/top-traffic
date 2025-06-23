@@ -1,7 +1,7 @@
 import generateId from "./generate-id";
 
 function clearAttachment($label) {
-  let $input = $label.find("input[type='file']");
+  let $input = $label.find(".table__attachedbill input[type='file']");
 
   if ($label.length) {
     // Очищаем input
@@ -19,7 +19,7 @@ function clearAttachment($label) {
 }
 
 function tableAttachmentBill() {
-  $(document).on("change", "input[type='file']", function () {
+  $(document).on("change", ".table__attachedbill input[type='file']", function () {
     let fileName = this.files[0]?.name || "";
     let $label = $(this).closest("label.table__attachedbill__container");
 
