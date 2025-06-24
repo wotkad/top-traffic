@@ -205,15 +205,21 @@
       .table__icon {
         @apply bg-blue-200;
       }
-      @apply border-blue-200;
+      &:hover {
+        @apply bg-blue-150;
+      }
+      @apply bg-blue-150 border-blue-200;
     }
     .button.table__attachedfile__remove {
       svg {
         @apply w-1.5 h-1.5 text-white-000;
       }
-      @apply invisible -top-2 -right-2 absolute flex justify-center items-center bg-black-200 bg-opacity-20 opacity-0 border border-white-000 rounded-full w-4 h-4;
+      @apply invisible -top-2 -right-2 z-[60] absolute flex justify-center items-center bg-black-100 bg-opacity-50 opacity-0 border border-white-000 rounded-full w-4 h-4;
     }
-    @apply p-[2px] border border-black-500 rounded-md w-[26px] h-[26px] transition-all duration-300;
+    &:hover {
+      @apply bg-white-100;
+    }
+    @apply bg-white-100 p-[2px] border border-black-500 rounded-md w-[26px] h-[26px] transition-all duration-300;
   }
   &.scrolled {
     .fixed-th-border,
@@ -249,6 +255,22 @@
     @apply absolute flex justify-between items-center;
   }
   &__attachedlink,
+  &__attachedbill {
+    &:hover,
+    &:active,
+    &:focus {
+      @apply bg-transparent;
+    }
+    & > .button {
+      &:hover,
+      &:focus,
+      &:active {
+        @apply bg-transparent;
+      }
+      @apply p-0 w-auto h-auto;
+    }
+  }
+  &__attachedlink,
   &__attachedbill,
   &__attachedfile {
     .dropdown__list {
@@ -275,14 +297,6 @@
     input {
       @apply absolute opacity-0 w-0 h-0;
     }
-    & > .button {
-      &:hover,
-      &:focus,
-      &:active {
-        @apply bg-transparent;
-      }
-      @apply p-0 w-auto h-auto;
-    }
     &__value {
       a {
         @apply block max-w-[120px] text-ellipsis line-clamp-1;
@@ -294,11 +308,6 @@
         @apply w-3.5 h-3.5;
       }
       @apply invisible opacity-0 transition-all duration-300;
-    }
-    &:hover,
-    &:active,
-    &:focus {
-      @apply bg-transparent;
     }
     @apply relative flex items-center gap-x-1 -my-1;
   }

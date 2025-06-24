@@ -108,6 +108,7 @@ export default function toggleDropdown() {
     updateDropdownPosition($dropdown);
     $trigger.addClass('active');
     $list.addClass('active');
+    $('.info-users__items').remove();
   });
 
   $('.dropdown-new-format').each(function(index) {
@@ -413,14 +414,14 @@ export default function toggleDropdown() {
   });
 
   $(document).on('click', function (e) {
-    if (
-      !$('.dropdown-multiselect .dropdown__list').is(e.target) && 
-      !$('.dropdown-multiselect .dropdown__list').has(e.target).length &&
-      !$('.dropdown-new-format .dropdown__list').is(e.target) && 
-      !$('.dropdown-new-format .dropdown__list').has(e.target).length
-    ) {
-      $('.dropdown__list').removeClass('active');
-    }
+    $('.dropdown__list').each(function() {
+        if (!$(this).is(e.target) && 
+            $(this).has(e.target).length === 0 &&
+            !$(this).closest('.dropdown__container').has(e.target).length) {
+            $(this).removeClass('active');
+        }
+    });
+    
     $('.dropdown__button').removeClass('active');
     $('.dropdown__sort').removeClass('active');
     if (
@@ -602,6 +603,7 @@ export default function toggleDropdown() {
     if ($(this).hasClass('multiple') || $(this).hasClass('dropdown__show-all')) {
         $('.info-users__items').remove();
 
+
         const template = `
         <div class="info-users__items active" style="position: fixed; top: ${clickY}px; left: ${clickX}px; transform: translateX(-100%);">
             <div class="info-users__inner">
@@ -777,6 +779,9 @@ export default function toggleDropdown() {
     e.stopPropagation();
     // $(this).closest('.dropdown__sort').siblings('.dropdown__list').addClass('active'); // должно быть закомментировано
 
+    $('.dropdown__list').removeClass('active');
+    $('.dropdown__button').removeClass('active');
+    
     const $sortBlock = $(this).closest('.dropdown__sort');
     const clickX = e.pageX;
     const clickY = e.pageY;

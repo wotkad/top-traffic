@@ -13,6 +13,7 @@ module.exports = {
       colors: {
         white: {
           '000': '#FFFFFF',
+          '100': '#F9FAFB',
         },
         black: {
           '000': '#000000',
@@ -33,6 +34,7 @@ module.exports = {
           '050': '#004BCF',
           '075': '#E8EFFC',
           '100': '#4673D2',
+          '150': '#DEE9FF',
           '200': '#5893FF',
           '250': '#CCDEFF',
           '300': '#C7D5F1',
