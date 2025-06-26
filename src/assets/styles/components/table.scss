@@ -369,7 +369,7 @@
     svg {
       @apply transition-all duration-300;
     }
-    @apply invisible -right-2.5 absolute opacity-0 transition-all duration-300 pointer-events-none;
+    @apply invisible -right-[13px] absolute opacity-0 transition-all duration-300 pointer-events-none;
   }
   &__selected {
     p {
@@ -435,19 +435,26 @@
     p {
       @apply relative flex items-center;
     }
+    svg {
+      @apply text-black-200;
+    }
     &.sorted {
       .table__sortbutton {
         @apply visible opacity-100;
       }
     }
+    &.reverse {
+      svg {
+        @apply -scale-y-100;
+      }
+    }
     &.active {
       .table__sortbutton {
         svg {
-          @apply text-blue-000;
+          @apply text-black-100;
         }
         @apply visible opacity-100;
       }
-      @apply text-blue-000;
     }
     @apply transition-all duration-300 cursor-pointer;
   }
