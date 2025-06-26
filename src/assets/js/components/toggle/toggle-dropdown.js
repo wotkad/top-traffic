@@ -98,6 +98,10 @@ export default function toggleDropdown() {
       const $ctx = $dropdown.closest('.dropdown-new-format');
       $('.dropdown-new-format .dropdown__list').not($ctx.find('.dropdown__list')).removeClass('active');
       $('.dropdown-new-format .dropdown__button').not($ctx.find('.dropdown__button')).removeClass('active');
+      if ($trigger.closest('.dropdown-base')) {
+        $trigger.closest('.dropdown-new__selects').find('.dropdown__button').removeClass('active');
+        $trigger.closest('.dropdown-new__selects').find('.dropdown__list').removeClass('active');
+      }
     }
 
     if ($list.hasClass('active')) {
@@ -415,11 +419,11 @@ export default function toggleDropdown() {
 
   $(document).on('click', function (e) {
     $('.dropdown__list').each(function() {
-        if (!$(this).is(e.target) && 
-            $(this).has(e.target).length === 0 &&
-            !$(this).closest('.dropdown__container').has(e.target).length) {
-            $(this).removeClass('active');
-        }
+      if (!$(this).is(e.target) && 
+        $(this).has(e.target).length === 0 &&
+        !$(this).closest('.dropdown__container').has(e.target).length) {
+        $(this).removeClass('active');
+      }
     });
     
     $('.dropdown__button').removeClass('active');
