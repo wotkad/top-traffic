@@ -1,0 +1,80 @@
+.popup__bg(data-popup-name="admin-edit-mode")
+.popup(data-popup-name="admin-edit-mode")
+  .popup__wrapper(data-scroll-lock-scrollable)
+    .popup__apply__bg
+    .popup__apply.popup__apply-confirm
+      h3 Подтвердить действие
+      p Сохранить изменения?
+      .popup__buttons
+        +button({
+          class: 'button-base popup-admin-edit-mode-cancel',
+          title: 'Нет',
+          view: 'button',
+        })
+        +button({
+          class: 'button-with-icon-blue lg popup-admin-edit-mode-save',
+          title: 'Да',
+          view: 'button',
+        })
+    .popup__apply.popup__apply-nosave
+      h3 Вы внесли изменения
+      p Выйти из режима редактирования <br>без сохранения?
+      .popup__buttons
+        +button({
+          class: 'button-base popup-admin-edit-mode-cancel',
+          title: 'Нет',
+          view: 'button',
+        })
+        +button({
+          class: 'button-with-icon-blue lg popup-admin-edit-mode-nosave',
+          title: 'Да',
+          view: 'button',
+        })
+    .popup__heading
+      .popup__icon
+        svg
+          use(xlink:href="#other-edit2-icon")
+      h2 Режим редактирования
+    form(action="#").popup__container
+      .popup__block
+        .popup__items
+          <label class="input input-with-label">
+            <span class="input__label">Наименование<sup>*</sup></span>
+            <div class="input__container">
+              <input class="input__el" value="ZeroDay | Кибербезопасность" type="text" required="" autocomplete="on" placeholder="Введите наименование" name="name">
+              <div class="error__text">
+                <svg viewBox="0 0 16 16" width="16" height="16">
+                  <use xlink:href="#other-error-icon"></use>
+                </svg>
+                <span>Обязательно к заполнению</span>
+              </div>
+            </div>
+          </label>
+          <label class="input input-with-label">
+            <span class="input__label">Тег в Telegram<sup>*</sup></span>
+            <div class="input__container">
+              <input class="input__el" value="@cybersec_academy" type="text" required="" autocomplete="on" placeholder="Введите тег" name="tag">
+              <div class="error__text">
+                <svg viewBox="0 0 16 16" width="16" height="16">
+                  <use xlink:href="#other-error-icon"></use>
+                </svg>
+                <span>Обязательно к заполнению</span>
+              </div>
+            </div>
+          </label>
+      .popup__save
+        svg
+          use(xlink:href="#other-check-icon")
+        span Изменения сохранены
+      .popup__buttons
+        +button({
+          class: 'button-base admin-edit-mode-cancel',
+          title: 'Отменить',
+          view: 'button',
+        })
+        +button({
+          class: 'button-with-icon-blue lg admin-edit-mode-save',
+          title: 'Сохранить',
+          type: 'submit',
+          view: 'button',
+        })

@@ -245,7 +245,7 @@
     @apply text-14-m-p;
   }
   .error__text {
-    @apply invisible flex items-center gap-x-1 opacity-0 w-0 h-0 text-[0] text-10-r-p text-red-100 transition-[opacity,visibility] duration-300;
+    @apply invisible flex items-center gap-x-1 opacity-0 w-0 h-0 text-[0] text-10-r-p text-red-100;
   }
   &.error {
     input {
@@ -258,7 +258,7 @@
   }
   &__el {
     & ~ .error__text {
-      @apply invisible flex items-center gap-x-1 opacity-0 w-0 h-0 text-[0] text-12-r-p text-red-100 transition-[opacity,visibility] duration-300;
+      @apply invisible flex items-center gap-x-1 opacity-0 w-0 h-0 text-[0] text-12-r-p text-red-100;
     }
     &.error {
       & ~ .error__text {

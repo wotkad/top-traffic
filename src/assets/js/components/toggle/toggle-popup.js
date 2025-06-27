@@ -51,6 +51,7 @@ function togglePopup() {
       let isExcludedPopup =
         popup.is('[data-popup-name="add-user"]') ||
         popup.is('[data-popup-name="edit-mode"]') ||
+        popup.is('[data-popup-name="admin-edit-mode"]') ||
         popup.is('[data-popup-name="confirm-changes"]') ||
         popup.is('[data-popup-name="add-channel"]');
   
