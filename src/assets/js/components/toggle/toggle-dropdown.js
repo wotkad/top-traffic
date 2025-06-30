@@ -88,22 +88,25 @@ export default function toggleDropdown() {
     const $trigger = $(this);
     const $dropdown = $trigger.closest('.dropdown');
     const $list = $dropdown.find('> .dropdown__container > .dropdown__list');
-    const isNew = $dropdown.closest('.dropdown-new-format').length > 0;
+    const isInsideNewFormat = $dropdown.closest('.dropdown-new-format').length > 0;
+    const isBaseDropdown = $dropdown.hasClass('dropdown-base');
 
-    // Закрытие всех, кроме контекста "нового формата"
-    if (!isNew) {
+    // 1. Закрытие других дропдаунов в зависимости от типа текущего
+    if (isInsideNewFormat && isBaseDropdown) {
+      // Случай 2: внутренний дропдаун (.dropdown-base внутри .dropdown-new-format)
+      $trigger.closest('.dropdown-new__selects').find('.dropdown__button').not(this).removeClass('active');
+      $trigger.closest('.dropdown-new__selects').find('.dropdown__list').not($list).removeClass('active');
+    } else if (isInsideNewFormat && !isBaseDropdown) {
+      // Случай 3: главный дропдаун (.dropdown-new-format)
+      $('.dropdown-new-format .dropdown__list').not($list).removeClass('active');
+      $('.dropdown-new-format .dropdown__button').not($trigger).removeClass('active');
+    } else {
+      // Случай 1: обычный дропдаун (вне .dropdown-new-format)
       $('.dropdown__list').not($list).removeClass('active').css({ right: '', top: '' });
       $('.dropdown__button, .dropdown__sort').not($trigger).removeClass('active');
-    } else {
-      const $ctx = $dropdown.closest('.dropdown-new-format');
-      $('.dropdown-new-format .dropdown__list').not($ctx.find('.dropdown__list')).removeClass('active');
-      $('.dropdown-new-format .dropdown__button').not($ctx.find('.dropdown__button')).removeClass('active');
-      if ($trigger.closest('.dropdown-base')) {
-        $trigger.closest('.dropdown-new__selects').find('.dropdown__button').removeClass('active');
-        $trigger.closest('.dropdown-new__selects').find('.dropdown__list').removeClass('active');
-      }
     }
 
+    // 2. Переключение состояния текущего дропдауна
     if ($list.hasClass('active')) {
       $trigger.removeClass('active');
       return $list.removeClass('active').css({ right: '', top: '' });
@@ -113,7 +116,7 @@ export default function toggleDropdown() {
     $trigger.addClass('active');
     $list.addClass('active');
     $('.info-users__items').remove();
-  });
+});
 
   $('.dropdown-new-format').each(function(index) {
     const $wrap = $(this);
