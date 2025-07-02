@@ -12,15 +12,9 @@ function toggleFilterSort() {
   });
   
   button.on('click', function() {
-    // Убираем активные классы у других кнопок
-    button.not(this).removeClass('active reverse').find('.table__sortbutton').removeClass('active');
-    
-    // Для текущей кнопки
     if (!$(this).hasClass('active')) {
-      // Первый клик - добавляем active
       $(this).addClass('active').find('.table__sortbutton').addClass('active');
     } else {
-      // Последующие клики - toggle reverse
       $(this).toggleClass('reverse');
     }
   });
