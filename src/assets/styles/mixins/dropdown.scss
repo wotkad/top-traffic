@@ -440,6 +440,9 @@
         input {
           @apply bg-transparent w-full max-w-20 text-ellipsis line-clamp-1;
         }
+        .dropdown {
+          @apply w-auto;
+        }
         @apply flex flex-1 justify-between gap-x-2 bg-black-700 px-3 py-[9px] border border-black-500 rounded-md max-w-[164px];
       }
       &__separator {
