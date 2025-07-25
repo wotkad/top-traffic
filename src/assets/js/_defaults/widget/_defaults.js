@@ -37,6 +37,7 @@ module.exports = {
       isHidden: false,
     },
     title: 'Заголовок',
+    titleClass: '',
     values: [
       {
         class: false,
@@ -67,6 +68,7 @@ module.exports = {
       subtitle: data.subtitle !== undefined ? data.subtitle : defaults.subtitle,
       tip: data.tip !== undefined ? data.tip.enabled : defaults.tip.enabled,
       title: data.title !== undefined ? data.title : defaults.title,
+      titleClass: data.titleClass !== undefined ? data.titleClass : defaults.titleClass,
       values: data.values !== undefined && data.values.length > 0 ? data.values : defaults.values,
     }
   },

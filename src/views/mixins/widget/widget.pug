@@ -9,7 +9,7 @@ mixin widget(data = {})
       .widget__head
         svg.widget__icon
           use(xlink:href="#" + modefied.icon)
-        .widget__title= modefied.title
+        .widget__title(class=modefied.titleClass)= modefied.title
         if modefied.tip
           .widget__tip(class=modefied.isHidden ? 'expanded' : false)
             svg
