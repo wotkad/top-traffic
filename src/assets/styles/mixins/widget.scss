@@ -56,9 +56,6 @@
       }
       @apply text-12-sb-p text-black-200;
     }
-    &-buttons {
-      @apply flex-1;
-    }
     @apply flex items-center gap-x-1 mt-1.5 text-14-sb-p;
   }
   &__subtitle {
