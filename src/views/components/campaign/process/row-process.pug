@@ -1,13 +1,25 @@
 tr
   td(colspan="16")
-    .flex.items-center(class="gap-x-1.5")
+    .flex.items-center.h-full(class="gap-x-1.5 -ml-[23px]")
       img.rounded.object-cover(class="w-[30px] h-[30px]" src="/assets/images/avatar.png" alt="tg-channel")
-      .flex.items-center
+      .flex.items-center.font-semibold(class="gap-x-1.5")
         h3
           a(href="#").table__channel ZeroDay | Кибербезопасность
-          span / Подписчики: 9 999 999
-tr
-  td.only-text Концепция
+        span /
+      img.rounded.object-cover(class="w-[24px] h-[24px]" src="/assets/images/user-image.png" alt="user-image")
+      .flex.items-center.font-semibold(class="gap-x-1.5")
+        a(href="#").table__channel Андрей Миронов
+        span /
+        svg
+          use(xlink:href="#widget-users-subscribed-icon")
+        span Подписчики: 9 999 999
+tr.concept
+  td.only-text
+    .relative.flex.items-center(class="gap-x-1.5 -ml-[27px]")
+      button.delete-concept(type="button")
+        svg
+          use(xlink:href="#other-trash-icon")
+      span Концепция
   td.only-text Медведева Валерия
   td
     +input({
@@ -170,3 +182,10 @@ tr
       name: 'comment',
       placeholder: 'Добавить комментарий...',
     })
+tr.create-new-concept
+  td(colspan="16").only-text
+    .relative.flex.items-center(class="gap-x-1.5 -ml-[27px]")
+      button.delete-concept(type="button")
+        svg
+          use(xlink:href="#other-trash-icon")
+      span.text-black-200 Добавить концепцию...

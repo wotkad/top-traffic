@@ -754,7 +754,22 @@
         .fixed-th {
           @apply bg-purple-300;
         }
+        .delete-concept {
+          @apply opacity-100;
+        }
         @apply bg-purple-300;
+      }
+      .delete-concept {
+        svg {
+          @apply w-4 h-4 text-black-200;
+        }
+        @apply opacity-0 transition-all duration-300;
+      }
+      &.create-new-concept {
+        .delete-concept {
+          @apply invisible;
+        }
+        @apply cursor-pointer;
       }
       @apply transition-all duration-300;
     }
