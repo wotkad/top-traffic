@@ -769,6 +769,14 @@
         .delete-concept {
           @apply invisible;
         }
+        span {
+          @apply transition-colors;
+        }
+        &:hover {
+          span {
+            @apply text-black-100;
+          }
+        }
         @apply cursor-pointer;
       }
       @apply transition-all duration-300;
