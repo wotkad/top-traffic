@@ -208,6 +208,77 @@ aside.content-aside
             .content-aside__subtitle Финансовая информация
             table.table
               tr.text-black-200
+                th Адаптация
+                td
+                  .adaptation
+                    .adaptation__value
+                      p ––
+                      span
+                    +button({
+                      class: 'button-icon',
+                      dataPopupName: 'check-adaptation',
+                      icon: 'other-edit-icon',
+                      isOnlyIcon: true,
+                      view: 'button',
+                    })
+              tr.text-black-200
+                th Тег
+                td
+              tr.text-black-200
+                th Кнопка
+                td
+                  +dropdown({
+                    buttons: [
+                      {
+                        isChecked: true,
+                        name: 'approval-client',
+                        title: '––',
+                      },
+                      {
+                        name: 'approval-client',
+                        title: 'Да',
+                      },
+                      {
+                        name: 'approval-client',
+                        title: 'Нет',
+                      },
+                    ],
+                    class: 'dropdown-radios',
+                    isRadios: true,
+                    isSearch: false,
+                    title: '––',
+                  })
+              tr.text-black-200
+                th РКН
+                td
+                  +dropdown({
+                    buttons: [
+                      {
+                        isChecked: true,
+                        name: 'approval-client',
+                        title: '––',
+                      },
+                      {
+                        name: 'approval-client',
+                        title: 'Да',
+                      },
+                      {
+                        name: 'approval-client',
+                        title: 'Нет',
+                      },
+                      {
+                        name: 'approval-client',
+                        title: '< 10 000 подписчиков',
+                      },
+                    ],
+                    class: 'dropdown-radios',
+                    isRadios: true,
+                    isSearch: false,
+                    title: '––',
+                  })
+            .content-aside__subtitle Условия размещения
+            table.table
+              tr.text-black-200
                 th Бюджет
                 td 5 000 000 ₽
               tr.text-black-200
@@ -223,19 +294,6 @@ aside.content-aside
                     autocomplete: 'off',
                     class: 'currency only-numbers',
                     name: 'revenue',
-                    placeholder: '0',
-                    type: 'text',
-                  })
-              tr.text-black-200
-                th Чистая маржа, <br> план
-                td 5 000 000 ₽
-              tr.text-black-200
-                th Чистая маржа, <br> прогноз
-                td
-                  +input({
-                    autocomplete: 'off',
-                    class: 'currency only-numbers',
-                    name: 'net-margin',
                     placeholder: '0',
                     type: 'text',
                   })

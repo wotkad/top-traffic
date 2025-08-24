@@ -1,0 +1,52 @@
+.popup__bg.active(data-popup-name="check-adaptation")
+.popup.active(data-popup-name="check-adaptation")
+  .popup__wrapper(data-scroll-lock-scrollable)
+    form(action="#")
+      .popup__labels
+        label.popup__label
+          input(type="radio" name="adaptation" value="required")
+          span Обязательно
+        label.popup__label
+          input(type="radio" name="adaptation" value="possible")
+          span Возможно
+        label.popup__label
+          input(type="radio" name="adaptation" value="none")
+          span Отсутствует
+        label.popup__label
+          input(type="radio" name="adaptation" value="depends")
+          span Зависит от поста
+      .popup__form
+        .popup__col
+          +input({
+            class: 'only-numbers',
+            isDisabled: true,
+            isLabel: true,
+            label: 'Доплата за адаптацию',
+            name: 'adaptation',
+            placeholder: 'Введите %',
+            type: 'text',
+            isTip: true,
+            tip: `
+              Ввод доплаты доступен для вариантов<br>
+              <ul>
+                <li>Обязательно</li>
+                <li>Возможно</li>
+                <li>Зависит от поста</li>
+              </ul>
+            `
+          })
+    .popup__buttons
+      +button({
+        class: 'button-base lg',
+        dataPopupName: 'check-adaptation',
+        title: 'Отмена',
+        view: 'button',
+      })
+      +button({
+        class: 'button-with-icon-blue lg',
+        dataPopupName: 'check-adaptation',
+        isDisabled: true,
+        title: 'Сохранить',
+        type: 'submit',
+        view: 'button',
+      })

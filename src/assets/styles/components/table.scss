@@ -815,4 +815,34 @@
   &.table-fixed-cols {
     @apply min-w-full;
   }
+  .adaptation {
+    &__value {
+      
+      p {
+        @apply text-12-r-p text-black-100;
+      }
+      span {
+        @apply max-w-10 text-10-m-p text-blue-000 text-ellipsis line-clamp-1;
+      }
+      @apply flex items-center gap-[2px];
+    }
+    &:hover {
+      .button {
+        @apply opacity-100;
+      }
+    }
+    .button {
+      svg {
+        @apply text-black-200 transition-all duration-300;
+      }
+      &:hover {
+        svg {
+          @apply text-black-100;
+        }
+        @apply bg-transparent;
+      }
+      @apply opacity-0 ml-auto p-0 w-3 h-3 transition-all duration-300;
+    }
+    @apply flex items-center;
+  }
 }

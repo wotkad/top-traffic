@@ -96,6 +96,7 @@ import "./components/toggle/toggle-pinned-state";
 import "./components/toggle/toggle-chat-search";
 import "./components/toggle/toggle-chat-channel";
 import "./components/toggle/toggle-table-concept";
+import "./components/toggle/toggle-adaptation";
 
 import "./components/scroll/scroll-to-top";
 import "./components/scroll/scroll-filter";
