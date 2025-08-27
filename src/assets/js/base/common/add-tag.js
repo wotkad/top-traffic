@@ -102,6 +102,8 @@ function addTag() {
     const isNoneSelected = selectedOption.val() === 'none';
     const $list = $('.tag__list');
     const $textarea = $('.popup__textarea');
+    const tagValue = $('.tag__value span');
+    const optionText = selectedOption.closest('.popup__label').find('span').text();
 
     if (isNoneSelected) {
         $list.empty();
@@ -112,6 +114,12 @@ function addTag() {
     if (!content) {
         closePopup();
         return;
+    }
+
+    if (selectedOption.val() === 'none') {
+        tagValue.text('––');
+    } else {
+        tagValue.text(optionText);
     }
 
     $saveBtn.prop('disabled', true);
