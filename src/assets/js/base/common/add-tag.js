@@ -94,9 +94,27 @@ function addTag() {
     }
     placeCursorAtEnd($textarea[0]);
   });
+
+  function toggleShowAllButton() {
+      let $list = $('.tag__list');
+      let $button = $('.tag__button');
+      
+      if ($list.find('.tag__item').length > 2) {
+          $button.removeClass('hidden');
+      } else {
+          $button.addClass('hidden');
+      }
+  }
+
+  // удаление тегов вручную
+  $(document).on('click', '.tag__item .button-close', function() {
+      $(this).closest('.tag__item').remove();
+      toggleShowAllButton();
+  });
   
   // сохранить
-  $saveBtn.on('click', function() {
+  $saveBtn.on('click', function(e) {
+    e.preventDefault();
 
     const selectedOption = $('input[name="tag"]:checked');
     const isNoneSelected = selectedOption.val() === 'none';
@@ -104,23 +122,27 @@ function addTag() {
     const $textarea = $('.popup__textarea');
     const tagValue = $('.tag__value span');
     const optionText = selectedOption.closest('.popup__label').find('span').text();
+    if (selectedOption.val() === 'none') {
+        tagValue.text('––');
+        $('.tag__container:nth-child(2)').addClass('tag__container-hidden');
+    } else {
+        tagValue.text(optionText);
+    }
+
 
     if (isNoneSelected) {
         $list.empty();
+        toggleShowAllButton();
         return;
     }
 
     let content = $textarea.text().trim();
     if (!content) {
-        closePopup();
         return;
     }
 
-    if (selectedOption.val() === 'none') {
-        tagValue.text('––');
-    } else {
-        tagValue.text(optionText);
-    }
+  
+    toggleShowAllButton();
 
     $saveBtn.prop('disabled', true);
 
@@ -133,6 +155,8 @@ function addTag() {
     let existingTags = $list.find('.tag__item').map(function() {
         return $(this).text().replace(/×/, '').trim();
     }).get();
+
+    $list.find('.tag__item').remove();
 
     tags.forEach(tag => {
         if (existingTags.length >= 15) return; // лимит 15

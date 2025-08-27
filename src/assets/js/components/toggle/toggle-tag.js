@@ -26,12 +26,6 @@ function toggleTag() {
         updateFormState();
     });
 
-    // Сохранение
-    $(document).on('click', '.popup__buttons button[type="submit"]', function(e) {
-        e.preventDefault();
-        saveTagSettings();
-    });
-
     function updateFormState() {
         const selectedOption = $('input[name="tag"]:checked');
         const isNoneSelected = selectedOption.val() === 'none';
@@ -58,46 +52,9 @@ function toggleTag() {
         saveButton.prop('disabled', !shouldEnable);
     }
 
-    function saveTagSettings() {
-        const selectedOption = $('input[name="tag"]:checked');
-        const isNoneSelected = selectedOption.val() === 'none';
-        const $list = $('.tag__list');
-        const $textarea = $('.popup__textarea');
-
-        if (isNoneSelected) {
-            $list.empty();
-            toggleShowAllButton();
-            return;
-        }
-
-        let content = $textarea.text().trim();
-        if (!content) {
-            return;
-        }
-
-        toggleShowAllButton();
-    }
-
-    function toggleShowAllButton() {
-        let $list = $('.tag__list');
-        let $button = $('.tag__button');
-        
-        if ($list.find('.tag__item').length > 2) {
-            $button.removeClass('hidden');
-        } else {
-            $button.addClass('hidden');
-        }
-    }
-
     // обработка "Показать все"
     $(document).on('click', '.tag__button', function() {
         $(this).remove();
-    });
-
-    // удаление тегов вручную
-    $(document).on('click', '.tag__item .button-close', function() {
-        $(this).closest('.tag__item').remove();
-        toggleShowAllButton();
     });
 
 }
