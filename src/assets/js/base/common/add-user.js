@@ -1,7 +1,9 @@
 function addUser() {
-  let $textarea = $('.popup__textarea');
-  let $placeholder = $('.popup__placeholder');
-  let $popupButton = $('.popup[data-popup-name="add-user"] .popup__buttons button');
+
+  let $popup = $('.popup[data-popup-name="add-user"]');
+  let $textarea = $popup.find('.popup__textarea');
+  let $placeholder = $popup.find('.popup__placeholder');
+  let $popupButton = $popup.find('.popup__buttons button'); // кнопка "Сохранить"
   let typingTimeout;
 
   function togglePopupButton() {
@@ -16,7 +18,7 @@ function addUser() {
     if ($('.popup__email').length > 0 || $textarea.text().length > 0) {
       $placeholder.hide();
     } else {
-      $placeholder.show();;
+      $placeholder.show();
     }
   });
 

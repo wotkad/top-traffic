@@ -53,6 +53,7 @@ import "./base/common/messages/open-reply";
 import "./base/common/only-numbers";
 import "./base/common/users";
 import "./base/common/add-user";
+import "./base/common/add-tag";
 import "./base/common/set-info-user-pos";
 
 import "./base/common/chat";
@@ -97,6 +98,7 @@ import "./components/toggle/toggle-chat-search";
 import "./components/toggle/toggle-chat-channel";
 import "./components/toggle/toggle-table-concept";
 import "./components/toggle/toggle-adaptation";
+import "./components/toggle/toggle-tag";
 
 import "./components/scroll/scroll-to-top";
 import "./components/scroll/scroll-filter";

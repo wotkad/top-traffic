@@ -116,6 +116,7 @@ module.exports = {
         '10-r': ['10px', { lineHeight: '14px', fontWeight: 400 }],
         '10-m-sm': ['10px', { lineHeight: '12px', fontWeight: 500 }],
         '10-r-sm': ['10px', { lineHeight: '12px', fontWeight: 400 }],
+        '10-sb-p': ['10px', { lineHeight: '120%', fontWeight: 600 }],
         '10-m-p': ['10px', { lineHeight: '120%', fontWeight: 500 }],
         '10-r-p': ['10px', { lineHeight: '120%', fontWeight: 400 }],
       },

@@ -224,6 +224,23 @@ aside.content-aside
               tr.text-black-200
                 th Тег
                 td
+                  .tag
+                    .tag__container
+                      .tag__value
+                        p Наличие
+                        span ––
+                      +button({
+                        class: 'button-icon',
+                        dataPopupName: 'add-tag',
+                        icon: 'other-edit-icon',
+                        isOnlyIcon: true,
+                        view: 'button',
+                      })
+                    .tag__container.tag__container-hidden
+                      .tag__value
+                        p Актуальные
+                        .tag__list
+                        .tag__button.hidden Показать всe
               tr.text-black-200
                 th Кнопка
                 td
