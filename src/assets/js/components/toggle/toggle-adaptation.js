@@ -64,8 +64,14 @@ function toggleAdaptation() {
         
         const isNoneSelected = selectedOption.val() === 'none';
         const hasText = textInput.val().trim() !== '';
-        
-        const shouldEnable = isNoneSelected || (selectedOption.length > 0 && hasText);
+
+        const shouldEnable = isNoneSelected || (selectedOption.length);
+        if (hasText) {
+            $('input[name="adaptation"]').css('background-color', '#FFFFFF');
+        } else {
+            $('input[name="adaptation"]').css('background-color', '#FBFBFB');
+        }
+
         saveButton.prop('disabled', !shouldEnable);
     }
 

@@ -4,10 +4,6 @@ function addTag() {
   let $placeholder = $popup.find('.popup__placeholder');
   let $saveBtn = $popup.find('.popup__buttons button[type="submit"]'); // кнопка "Сохранить"
 
-  function toggleSaveBtn() {
-    $saveBtn.prop('disabled', $textarea.find('.popup__tag').length === 0);
-  }
-
   function placeCursorAtEnd(el) {
     let range = document.createRange();
     let sel = window.getSelection();
@@ -41,15 +37,15 @@ function addTag() {
 
       let content = textNodes.last()[0].nodeValue.trim();
       if (content === '') return;
-
+      $saveBtn.prop('disabled', false);
       addTagToList(content);
+      
       textNodes.remove();
 
       if ($textarea.find('br').length === 0) {
         $textarea.append('<br>');
       }
 
-      toggleSaveBtn();
       placeCursorAtEnd($textarea[0]);
     }
 
@@ -81,14 +77,12 @@ function addTag() {
     `;
     $textarea.append(tagHtml);
 
-    toggleSaveBtn();
     placeCursorAtEnd($textarea[0]);
   }
 
   // удаление по крестику
   $textarea.on('click', '.popup__tag .button-close', function() {
     $(this).closest('.popup__tag').remove();
-    toggleSaveBtn();
     if ($textarea.find('.popup__tag').length === 0) {
       $placeholder.show();
     }
@@ -140,9 +134,9 @@ function addTag() {
     if (!content) {
         return;
     }
-
   
     toggleShowAllButton();
+
 
     $saveBtn.prop('disabled', true);
 

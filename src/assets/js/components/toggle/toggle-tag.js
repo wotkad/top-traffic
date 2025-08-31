@@ -1,5 +1,7 @@
 function toggleTag() {
     let lastChecked = null;
+    let $popup = $('.popup[data-popup-name="add-tag"]');
+    let $saveBtn = $popup.find('.popup__buttons button[type="submit"]'); // кнопка "Сохранить"
 
     // При открытии попапа
     $(document).on('click', '[data-popup-name="add-tag"]', function() {
@@ -19,6 +21,7 @@ function toggleTag() {
         } else {
             lastChecked = this;
         }
+        $saveBtn.prop('disabled', false);
     });
 
     // Обработка изменения radio
@@ -30,26 +33,12 @@ function toggleTag() {
         const selectedOption = $('input[name="tag"]:checked');
         const isNoneSelected = selectedOption.val() === 'none';
         const $textarea = $('.popup__textarea');
-        
         $textarea
             .toggleClass('disabled', isNoneSelected)
             .attr('contenteditable', isNoneSelected ? 'false' : 'true');
-
         if (isNoneSelected) {
             $textarea.text(''); // чистим временные теги
         }
-
-        validateAndUpdateSaveButton();
-    }
-
-    function validateAndUpdateSaveButton() {
-        const selectedOption = $('input[name="tag"]:checked');
-        const saveButton = $('.popup__buttons button[type="submit"]');
-        const isNoneSelected = selectedOption.val() === 'none';
-        const hasText = $('.popup__textarea').text().trim() !== '';
-
-        const shouldEnable = isNoneSelected || hasText;
-        saveButton.prop('disabled', !shouldEnable);
     }
 
     // обработка "Показать все"

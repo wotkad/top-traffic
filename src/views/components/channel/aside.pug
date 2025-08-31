@@ -378,6 +378,94 @@ aside.content-aside
                     isPriority: true,
                     title: '—',
                   })
+            .content-aside__subtitle Финансовая информация
+            table.table
+              tr.text-black-200
+                th Адаптация
+                td
+                  .adaptation
+                    .adaptation__value
+                      p ––
+                      span
+                    +button({
+                      class: 'button-icon',
+                      dataPopupName: 'check-adaptation',
+                      icon: 'other-edit-icon',
+                      isOnlyIcon: true,
+                      view: 'button',
+                    })
+              tr.text-black-200
+                th Тег
+                td
+                  .tag
+                    .tag__container
+                      .tag__value
+                        p Наличие
+                        span ––
+                      +button({
+                        class: 'button-icon',
+                        dataPopupName: 'add-tag',
+                        icon: 'other-edit-icon',
+                        isOnlyIcon: true,
+                        view: 'button',
+                      })
+                    .tag__container.tag__container-hidden
+                      .tag__value
+                        p Актуальные
+                        .tag__list
+                        .tag__button.hidden Показать всe
+              tr.text-black-200
+                th Кнопка
+                td
+                  +dropdown({
+                    buttons: [
+                      {
+                        isChecked: true,
+                        name: 'approval-client',
+                        title: '––',
+                      },
+                      {
+                        name: 'approval-client',
+                        title: 'Да',
+                      },
+                      {
+                        name: 'approval-client',
+                        title: 'Нет',
+                      },
+                    ],
+                    class: 'dropdown-radios dropdown-button',
+                    isRadios: true,
+                    isSearch: false,
+                    title: '––',
+                  })
+              tr.text-black-200
+                th РКН
+                td
+                  +dropdown({
+                    buttons: [
+                      {
+                        isChecked: true,
+                        name: 'approval-client',
+                        title: '––',
+                      },
+                      {
+                        name: 'approval-client',
+                        title: 'Да',
+                      },
+                      {
+                        name: 'approval-client',
+                        title: 'Нет',
+                      },
+                      {
+                        name: 'approval-client',
+                        title: '< 10 000 подписчиков',
+                      },
+                    ],
+                    class: 'dropdown-radios dropdown-rkn',
+                    isRadios: true,
+                    isSearch: false,
+                    title: '––',
+                  })
             .content-aside__subtitle Поле для комментария
             +input({
               class: 'content-aside__textarea',
