@@ -23,10 +23,44 @@ function addTag() {
     }
   });
 
-  // === добавление тега по Enter
+  // === ограничение длины при вводе + автоподстановка #
+  $textarea.on('beforeinput', function(event) {
+    // Разрешаем удаление
+    if (event.inputType === 'deleteContentBackward' || event.inputType === 'deleteContentForward') {
+      return;
+    }
+
+    // Получаем последний текстовый узел
+    let textNodes = $textarea.contents().filter(function() {
+      return this.nodeType === 3; // текстовые узлы
+    });
+
+    let lastText = textNodes.length > 0 ? textNodes.last()[0].nodeValue : "";
+
+    // === если первый ввод не "#"
+    if (lastText.length === 0 && event.data && event.data !== '#') {
+      event.preventDefault();
+      $textarea.append('#' + event.data);
+      placeCursorAtEnd($textarea[0]);
+      return;
+    }
+
+    // === если просто начали печатать без "#"
+    if (lastText.length === 0 && event.data === '#') {
+      // разрешаем, но лимитируем длину
+      return;
+    }
+
+    // ограничение длины (без учёта #)
+    let cleanText = lastText.replace(/^#/, '');
+    if (cleanText.length >= 19) {
+      event.preventDefault();
+    }
+  });
+
+  // === добавление тега по Enter или Space
   $textarea.on('keydown', function(event) {
-    // Enter = добавить
-    if (event.key === 'Enter') {
+    if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault();
 
       let textNodes = $textarea.contents().filter(function() {
@@ -37,9 +71,21 @@ function addTag() {
 
       let content = textNodes.last()[0].nodeValue.trim();
       if (content === '') return;
+
+      // === всегда добавляем #
+      if (content[0] !== '#') {
+        content = '#' + content.replace(/^#+/, '');
+      }
+
+      // === ограничение по длине без учёта #
+      let clean = content.replace(/^#/, '');
+      if (clean.length > 19) {
+        content = '#' + clean.substring(0, 19);
+      }
+
       $saveBtn.prop('disabled', false);
       addTagToList(content);
-      
+
       textNodes.remove();
 
       if ($textarea.find('br').length === 0) {
@@ -48,26 +94,33 @@ function addTag() {
 
       placeCursorAtEnd($textarea[0]);
     }
-
   });
 
-  function addTagToList(text) {
-    let tagsCount = $textarea.find('.popup__tag').length;
-    if (tagsCount >= 15) return;
 
-    if (text.length > 30) {
-      text = text.substring(0, 30);
+  function checkItemsCount() {
+    let tagsCount = $textarea.find('.popup__tag').length;
+    if (tagsCount >= 15) {
+      $popup.find('.popup__error').addClass('active');
+    } else {
+      $popup.find('.popup__error').removeClass('active');
+    }
+  }
+
+  function addTagToList(text) {
+    checkItemsCount()
+    if (text.length > 19) {
+      text = text.substring(0, 19);
     }
 
     let existing = $textarea.find('.popup__tag span').map(function() {
       return $(this).text();
     }).get();
 
-    if (existing.includes('#' + text)) return;
+    if (existing.includes(text)) return;
 
     let tagHtml = `
       <div class="popup__tag">
-        <span contenteditable="false">#${text}</span>
+        <span contenteditable="false">${text}</span>
         <button class="button button-close" type="button" aria-label="close">
           <svg viewBox="0 0 9 9" width="9" height="9">
             <use xlink:href="#other-close-icon"></use>
@@ -86,6 +139,7 @@ function addTag() {
     if ($textarea.find('.popup__tag').length === 0) {
       $placeholder.show();
     }
+    checkItemsCount();
     placeCursorAtEnd($textarea[0]);
   });
 
@@ -93,7 +147,7 @@ function addTag() {
       let $list = $('.tag__list');
       let $button = $('.tag__button');
       
-      if ($list.find('.tag__item').length > 2) {
+      if ($list.find('.tag__item').length > 3) {
           $button.removeClass('hidden');
       } else {
           $button.addClass('hidden');
@@ -104,6 +158,7 @@ function addTag() {
   $(document).on('click', '.tag__item .button-close', function() {
       $(this).closest('.tag__item').remove();
       toggleShowAllButton();
+      checkItemsCount();
   });
   
   // сохранить
@@ -111,32 +166,20 @@ function addTag() {
     e.preventDefault();
 
     const selectedOption = $('input[name="tag"]:checked');
-    const isNoneSelected = selectedOption.val() === 'none';
     const $list = $('.tag__list');
     const $textarea = $('.popup__textarea');
     const tagValue = $('.tag__value span');
     const optionText = selectedOption.closest('.popup__label').find('span').text();
     if (selectedOption.val() === 'none') {
-        tagValue.text('––');
         $('.tag__container:nth-child(2)').addClass('tag__container-hidden');
-    } else {
-        tagValue.text(optionText);
     }
 
-
-    if (isNoneSelected) {
-        $list.empty();
-        toggleShowAllButton();
-        return;
-    }
+    $list.empty().removeClass('active');
 
     let content = $textarea.text().trim();
     if (!content) {
         return;
     }
-  
-    toggleShowAllButton();
-
 
     $saveBtn.prop('disabled', true);
 
@@ -144,7 +187,7 @@ function addTag() {
 
     $('.tag__container').removeClass('tag__container-hidden');
 
-    let tags = content.split(/\s+/).map(tag => tag.replace(/^#/, '').trim()).filter(t => t.length > 0);
+    let tags = content.split(/\s+/).map(tag => tag.trim()).filter(t => t.length > 0);
 
     let existingTags = $list.find('.tag__item').map(function() {
         return $(this).text().replace(/×/, '').trim();
@@ -155,18 +198,21 @@ function addTag() {
     tags.forEach(tag => {
         if (existingTags.length >= 15) return; // лимит 15
         if (tag.length > 30) tag = tag.substring(0, 30);
-        if (!existingTags.includes('#' + tag)) {
+        if (!existingTags.includes(tag)) {
             let tagHtml = `
                 <div class="tag__item">
-                    #${tag}
+                    ${tag}
                 </div>
             `;
             $list.prepend(tagHtml);
-            existingTags.push('#' + tag);
+            existingTags.push(tag);
         }
     });
 
     $textarea.empty();
+
+    toggleShowAllButton();
+    tagValue.text(optionText);
 
     $('.popup').removeClass('active');
     $('.popup__bg').removeClass('active');

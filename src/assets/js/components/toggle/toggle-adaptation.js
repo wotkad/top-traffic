@@ -40,7 +40,8 @@ function toggleAdaptation() {
 
     // Отмена
     $(document).on('click', '.popup__buttons button[type="button"]', function() {
-        closePopup();
+        $('input[name="adaptation"][type="text"]').val('').prop('disabled', true);
+        $('input[name="adaptation"][type="radio"]').prop('checked', false);
     });
 
     function updateFormState() {
@@ -59,14 +60,12 @@ function toggleAdaptation() {
 
     function validateAndUpdateSaveButton() {
         const selectedOption = $('input[name="adaptation"]:checked');
-        const textInput = $('input[name="adaptation"][type="text"]');
         const saveButton = $('.popup__buttons button[type="submit"]');
         
         const isNoneSelected = selectedOption.val() === 'none';
-        const hasText = textInput.val().trim() !== '';
 
         const shouldEnable = isNoneSelected || (selectedOption.length);
-        if (hasText) {
+        if (!isNoneSelected) {
             $('input[name="adaptation"]').css('background-color', '#FFFFFF');
         } else {
             $('input[name="adaptation"]').css('background-color', '#FBFBFB');
@@ -84,7 +83,6 @@ function toggleAdaptation() {
         if (!selectedOption.length) {
             adaptationValue.text('––');
             adaptationSpan.text('');
-            closePopup();
             return;
         }
         
@@ -92,7 +90,7 @@ function toggleAdaptation() {
         const paymentText = textInput.val().trim();
         
         if (selectedOption.val() === 'none') {
-            adaptationValue.text('––');
+            adaptationValue.text(optionText);
             adaptationSpan.text('');
         } else if (paymentText) {
             adaptationValue.text(optionText);
@@ -102,12 +100,8 @@ function toggleAdaptation() {
             adaptationSpan.text('');
         }
         
-        closePopup();
     }
 
-    function closePopup() {
-        $('.popup').removeClass('active');
-    }
 
     $(document).ready(function() {
         updateFormState();

@@ -17,6 +17,10 @@
     .popup__content
       .popup__textarea(contenteditable="false").disabled
       .popup__placeholder Введите тег
+    .popup__error
+      svg
+        use(xlink:href="#other-error-icon")
+      span Не более 15 тегов
     .popup__buttons
       +button({
         class: 'button-base lg',

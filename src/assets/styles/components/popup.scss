@@ -158,7 +158,7 @@
     .popup__label {
       input {
         &:checked + span  {
-          @apply bg-blue-000 text-white-000;
+          @apply bg-blue-000 border-blue-000 text-white-000;
         }
         @apply invisible absolute opacity-0;
       }
@@ -215,6 +215,15 @@
     }
     form {
       @apply mb-4;
+    }
+    .popup__error {
+      span {
+        @apply text-12-r-p text-red-100;
+      }
+      &.active {
+        @apply flex;
+      }
+      @apply hidden justify-end items-center gap-1 mt-[5px];
     }
     .popup__list {
       @apply flex flex-wrap gap-2;

@@ -853,9 +853,19 @@
       @apply flex items-center;
     }
     &__item {
-      @apply bg-purple-300 px-1.5 py-[2px] rounded-[3px] max-w-[158px] text-12-m text-blue-000 text-ellipsis line-clamp-1;
+      &:nth-child(1),
+      &:nth-child(2),
+      &:nth-child(3) {
+        @apply block;
+      }
+      @apply hidden bg-purple-300 px-1.5 py-[2px] rounded-[3px] max-w-[158px] text-12-m text-blue-000 text-ellipsis line-clamp-1;
     }
     &__list {
+      &.active {
+        .tag__item {
+          @apply block;
+        }
+      }
       @apply flex flex-wrap gap-1 mt-[2px];
     }
     &__value {

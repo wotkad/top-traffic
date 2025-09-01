@@ -53,6 +53,8 @@ function togglePopup() {
         popup.is('[data-popup-name="edit-mode"]') ||
         popup.is('[data-popup-name="admin-edit-mode"]') ||
         popup.is('[data-popup-name="confirm-changes"]') ||
+        popup.is('[data-popup-name="check-adaptation"]') ||
+        popup.is('[data-popup-name="add-tag"]') ||
         popup.is('[data-popup-name="add-channel"]');
   
       if (!isExcludedPopup) {

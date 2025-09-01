@@ -12,6 +12,18 @@ function toggleTag() {
         }
     });
 
+    // Отмена
+    $(document).on('click', '.popup__buttons button[type="button"]', function() {
+        $('input[name="tag"][type="radio"]').prop('checked', false);
+        $('.popup__textarea').css('background-color', '#FBFBFB').empty();
+        $saveBtn.prop('disabled', true);
+        lastChecked = '';
+    });
+
+    $saveBtn.on('click', function() {
+        lastChecked = '';
+    });
+
     // Снятие выбора при повторном клике
     $(document).on('click', 'input[name="tag"][type="radio"]', function() {
         if (lastChecked === this) {
@@ -38,12 +50,17 @@ function toggleTag() {
             .attr('contenteditable', isNoneSelected ? 'false' : 'true');
         if (isNoneSelected) {
             $textarea.text(''); // чистим временные теги
+            $('.popup__textarea').css('background-color', '#FBFBFB');
+        } else {
+            $('.popup__textarea').css('background-color', '#FFFFFF');
         }
     }
 
     // обработка "Показать все"
+    let $list = $('.tag__list');
     $(document).on('click', '.tag__button', function() {
-        $(this).remove();
+        $(this).addClass('hidden');
+        $list.addClass('active');
     });
 
 }
