@@ -1,6 +1,11 @@
 mixin advertising-campaigns-row(data)
-  tr
-    td.only-text Test_MTC_September
+  tr.advertising-group
+    td.only-text(style="padding-left: 8px !important;")
+      .advertising-group__toggle
+        label
+          input(type="checkbox" name="advertising-group")
+          span
+        p Test_MTC_September
     td.only-text МТС
     td(style="min-width: 200px;")
       .flex.items-center(class="gap-x-1.5")

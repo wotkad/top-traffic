@@ -54,6 +54,13 @@ mixin heading-table(data = {})
                 value: 'точное совпадение',
               })
       if modefied.buttons.length
+        if modefied.isPosts
+          .heading__posts
+            .heading__posts__title Показывать посты
+            label
+              input(type="checkbox" name="show-posts")
+              p
+                span
         .heading__right
           each button in modefied.buttons
             +button({

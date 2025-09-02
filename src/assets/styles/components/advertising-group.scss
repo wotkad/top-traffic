@@ -1,0 +1,31 @@
+.advertising-group {
+  &__toggle {
+    label {
+      input {
+        &:checked ~ span {
+          &:before,
+          &:after {
+            @apply bg-white-000 rotate-0 translate-x-0;
+          }
+          @apply bg-blue-000;
+        }
+        @apply invisible opacity-0 w-0 h-0;
+      }
+      span {
+        &:before,
+        &:after {
+          @apply absolute bg-black-100 rounded-sm w-[7px] h-[1.5px] content-[''];
+        }
+        &:before {
+          @apply rotate-45 -translate-x-[2px];
+        }
+        &:after {
+          @apply -rotate-45 translate-x-[2px];
+        }
+        @apply relative flex justify-center items-center rounded w-4 h-4;
+      }
+      @apply flex justify-center items-center w-4 h-4 cursor-pointer;
+    }
+    @apply flex items-center gap-x-2;
+  }
+}

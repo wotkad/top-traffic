@@ -216,16 +216,16 @@ block content
             .content.content-not-collapsed
               .selector__buttons
                 .selector__scroll
-                  button.selector__button(data-id="channel-statistics").active Статистика канала
+                  button.selector__button(data-id="channel-statistics") Статистика канала
                   button.selector__button(data-id="publication-statistics") Статистика публикаций
                   button.selector__button(data-id="administration-history") История администрирования
                     span 4
-                  button.selector__button(data-id="advertising-campaigns") Рекламные кампании
+                  button.selector__button(data-id="advertising-campaigns").active Рекламные кампании
                     span 20
                   button.selector__button(data-id="transactions-for-payment") Сделки на оплату
                     span 20
               .selector__containers.selector__content
-                .selector__container(data-id="channel-statistics").active
+                .selector__container(data-id="channel-statistics")
                   +heading-table({
                     isSearch: true,
                     searchClass: 'min-w-[243px] max-w-[243px]',
@@ -285,9 +285,10 @@ block content
                       .content-scroll
                         include ../components/channel/administration-history/table
                     include ../components/channel/administration-history/filter
-                .selector__container(data-id="advertising-campaigns")
+                .selector__container(data-id="advertising-campaigns").active
                   +heading-table({
                     isSearch: true,
+                    isPosts: true,
                     isRows: true,
                     searchClass: 'min-w-[243px] max-w-[243px]',
                     buttons: [

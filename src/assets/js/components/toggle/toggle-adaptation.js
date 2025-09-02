@@ -62,16 +62,17 @@ function toggleAdaptation() {
         const selectedOption = $('input[name="adaptation"]:checked');
         const saveButton = $('.popup__buttons button[type="submit"]');
         
+        
         const isNoneSelected = selectedOption.val() === 'none';
 
-        const shouldEnable = isNoneSelected || (selectedOption.length);
-        if (!isNoneSelected) {
-            $('input[name="adaptation"]').css('background-color', '#FFFFFF');
-        } else {
+        const shouldEnable = isNoneSelected || (selectedOption.length == 0);
+        if (shouldEnable) {
             $('input[name="adaptation"]').css('background-color', '#FBFBFB');
+        } else {
+            $('input[name="adaptation"]').css('background-color', '#FFFFFF');
         }
 
-        saveButton.prop('disabled', !shouldEnable);
+        saveButton.prop('disabled', !selectedOption.length);
     }
 
     function saveAdaptationSettings() {

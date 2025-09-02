@@ -331,7 +331,7 @@
       @apply pr-0 max-w-full text-12-m line-clamp-none;
     }
     .dropdown__list {
-      @apply max-h-[200px];
+      @apply min-w-[176px] max-h-[200px];
     }
     .dropdown__inner {
       &:before {

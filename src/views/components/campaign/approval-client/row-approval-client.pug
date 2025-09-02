@@ -160,48 +160,56 @@ mixin row-approval-client(data)
         isRadios: true,
         isSearch: true,
       })
-    td.only-text
+    td
       +dropdown({
         buttons: [
           {
+            color: 'status-transparent',
             isChecked: true,
-            name: 'approval-client',
+            name: 'approval-curator',
             title: '––',
           },
           {
-            name: 'approval-client',
+            color: 'status-green',
+            name: 'approval-curator',
             title: 'Согласовано',
           },
           {
-            name: 'approval-client',
+            color: 'status-red',
+            name: 'approval-curator',
             title: 'Не согласовано',
           },
         ],
-        class: 'dropdown-radios',
-        isRadios: true,
-        isSearch: false,
+        class: 'dropdown-status',
+        color: 'status-transparent',
+        isButtons: true,
+        isStatus: true,
         title: '––',
       })
-    td.only-text
+    td
       +dropdown({
         buttons: [
           {
+            color: 'status-transparent',
             isChecked: true,
             name: 'approval-curator',
             title: '––',
           },
           {
+            color: 'status-green',
             name: 'approval-curator',
             title: 'Согласовано',
           },
           {
+            color: 'status-red',
             name: 'approval-curator',
             title: 'Не согласовано',
           },
         ],
-        class: 'dropdown-radios',
-        isRadios: true,
-        isSearch: false,
+        class: 'dropdown-status',
+        color: 'status-transparent',
+        isButtons: true,
+        isStatus: true,
         title: '––',
       })
     td

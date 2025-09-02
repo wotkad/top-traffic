@@ -18,6 +18,8 @@ function toggleTag() {
         $('.popup__textarea').css('background-color', '#FBFBFB').empty();
         $saveBtn.prop('disabled', true);
         lastChecked = '';
+        $popup.find('.popup__error').removeClass('active');
+        $('.popup__textarea').css('background-color', '#FBFBFB');
     });
 
     $saveBtn.on('click', function() {
@@ -48,7 +50,7 @@ function toggleTag() {
         $textarea
             .toggleClass('disabled', isNoneSelected)
             .attr('contenteditable', isNoneSelected ? 'false' : 'true');
-        if (isNoneSelected) {
+        if (isNoneSelected || selectedOption.length == 0) {
             $textarea.text(''); // чистим временные теги
             $('.popup__textarea').css('background-color', '#FBFBFB');
         } else {

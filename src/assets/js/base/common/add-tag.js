@@ -53,7 +53,7 @@ function addTag() {
 
     // ограничение длины (без учёта #)
     let cleanText = lastText.replace(/^#/, '');
-    if (cleanText.length >= 19) {
+    if (cleanText.length >= 30) {
       event.preventDefault();
     }
   });
@@ -75,12 +75,6 @@ function addTag() {
       // === всегда добавляем #
       if (content[0] !== '#') {
         content = '#' + content.replace(/^#+/, '');
-      }
-
-      // === ограничение по длине без учёта #
-      let clean = content.replace(/^#/, '');
-      if (clean.length > 19) {
-        content = '#' + clean.substring(0, 19);
       }
 
       $saveBtn.prop('disabled', false);
@@ -108,9 +102,6 @@ function addTag() {
 
   function addTagToList(text) {
     checkItemsCount()
-    if (text.length > 19) {
-      text = text.substring(0, 19);
-    }
 
     let existing = $textarea.find('.popup__tag span').map(function() {
       return $(this).text();
@@ -147,11 +138,12 @@ function addTag() {
       let $list = $('.tag__list');
       let $button = $('.tag__button');
       
-      if ($list.find('.tag__item').length > 3) {
-          $button.removeClass('hidden');
+      if ($list.height() == 68) {
+        $button.removeClass('hidden');
       } else {
-          $button.addClass('hidden');
+        $button.addClass('hidden');
       }
+      console.log($list.height());
   }
 
   // удаление тегов вручную
@@ -164,7 +156,7 @@ function addTag() {
   // сохранить
   $saveBtn.on('click', function(e) {
     e.preventDefault();
-
+    $('.popup__textarea').css('background-color', '#FBFBFB');
     const selectedOption = $('input[name="tag"]:checked');
     const $list = $('.tag__list');
     const $textarea = $('.popup__textarea');
@@ -175,17 +167,12 @@ function addTag() {
     }
 
     $list.empty().removeClass('active');
-
     let content = $textarea.text().trim();
-    if (!content) {
-        return;
-    }
 
     $saveBtn.prop('disabled', true);
+    tagValue.text(optionText);
 
     $('input[name="tag"][type="radio"]').prop('checked', false);
-
-    $('.tag__container').removeClass('tag__container-hidden');
 
     let tags = content.split(/\s+/).map(tag => tag.trim()).filter(t => t.length > 0);
 
@@ -204,15 +191,23 @@ function addTag() {
                     ${tag}
                 </div>
             `;
-            $list.prepend(tagHtml);
+            $list.append(tagHtml);
             existingTags.push(tag);
         }
     });
 
     $textarea.empty();
 
-    toggleShowAllButton();
-    tagValue.text(optionText);
+    checkItemsCount();
+    setTimeout(toggleShowAllButton, 0);
+
+
+    if ($list.find('.tag__item').length > 0) {
+      $('.tag__container').removeClass('tag__container-hidden');
+    } else {
+      $('.tag__container:nth-child(2)').addClass('tag__container-hidden');
+    }
+
 
     $('.popup').removeClass('active');
     $('.popup__bg').removeClass('active');

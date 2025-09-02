@@ -26,6 +26,7 @@ module.exports = {
           '500': '#E3E5EB',
           '550': '#F1F1F2',
           '600': '#F4F5F6',
+          '650': '#FCFCFD',
           '700': '#FBFBFB',
         },
         blue: {
