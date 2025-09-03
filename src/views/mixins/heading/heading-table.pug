@@ -57,8 +57,7 @@ mixin heading-table(data = {})
         if modefied.isPosts
           .heading__posts
             .heading__posts__title Показывать посты
-            label
-              input(type="checkbox" name="show-posts")
+            button(type="button").heading__toggle
               p
                 span
         .heading__right

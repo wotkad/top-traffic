@@ -37,9 +37,9 @@
       &__title {
         @apply text-12-m-p;
       }
-      label {
-        input {
-          &:checked + p {
+    .heading__toggle {
+        &.active {
+          p {
             span {
               &:before {
                 background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iOCIgdmlld0JveD0iMCAwIDEwIDgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik05IDFMMy41IDYuNUwxIDQiIHN0cm9rZT0iIzAwNUNGRiIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4K);
@@ -49,7 +49,6 @@
             }
             @apply bg-purple-300;
           }
-          @apply invisible opacity-0 w-0 h-0;
         }
         p {
           span {
