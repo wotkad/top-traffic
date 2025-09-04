@@ -4,7 +4,7 @@ export default function setAsideHeight() {
   $('.content-aside__container, .chat__conversations').each(function () {
     let asideContainer = $(this);
     let asideOffsetTop = asideContainer.offset().top;
-
+    
     let windowHeight = $(window).height();
     let scrollTop = $(window).scrollTop();
     let inner = asideContainer.closest('.inner');

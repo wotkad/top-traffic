@@ -1,3 +1,5 @@
+import { applyDefaultTablePadding, applyFixedColsPadding } from '../../base/common/set-td-padding';
+
 function toggleAdvertisingGroup() {
   const $toggleAll = $(".heading__toggle");
   const $groups = $(".advertising-group");
@@ -13,6 +15,9 @@ function toggleAdvertisingGroup() {
     } else {
       $toggleAll.removeClass("active");
     }
+
+    applyFixedColsPadding();
+    applyDefaultTablePadding();
   });
 
   // Клик по общей кнопке
@@ -36,6 +41,9 @@ function toggleAdvertisingGroup() {
         }, 800); // в течение 800 мс второй клик закроет все
       }
     }
+
+    applyFixedColsPadding();
+    applyDefaultTablePadding();
   });
 }
 toggleAdvertisingGroup();

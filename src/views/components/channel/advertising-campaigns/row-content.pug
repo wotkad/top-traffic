@@ -1,0 +1,68 @@
+td.advertising-group__table(colspan="7")
+  table.table.table-default.table-blue
+    thead
+      tr
+        th
+          .table__sort.grid(class="grid-cols-[31px_1fr]")
+            p #
+            p Концепция
+              button(type="button").table__sortbutton
+                svg
+                  use(xlink:href="#other-sort-icon")
+        th
+          .table__sort.flex.gap-x-2.items-center
+            p Менеджер
+              button(type="button").table__sortbutton
+                svg
+                  use(xlink:href="#other-sort-icon")
+        th
+          .table__sort.flex.gap-x-2.items-center
+            p Формат
+              button(type="button").table__sortbutton
+                svg
+                  use(xlink:href="#other-sort-icon")
+        th
+          .table__sort.flex.gap-x-2.items-center.justify-end
+            p Себестоимость
+              button(type="button").table__sortbutton
+                svg
+                  use(xlink:href="#other-sort-icon")
+        th
+          .table__sort.flex.gap-x-2.items-center
+            p Скидка
+              button(type="button").table__sortbutton
+                svg
+                  use(xlink:href="#other-sort-icon")
+        th
+          .table__sort.flex.gap-x-2.items-center
+            p Стоимость
+              button(type="button").table__sortbutton
+                svg
+                  use(xlink:href="#other-sort-icon")
+    tbody(class="relative")
+      tr
+        td.only-text
+          .grid(class="grid-cols-[31px_1fr]")
+            p 01
+            p Концепт_MTC_September
+        td
+          .flex.items-center(class="gap-x-1.5")
+            img.rounded.object-cover(class="w-[30px] h-[30px]" src="/assets/images/avatar.png" alt="tg-channel")
+            span Андрей Миронов
+        td.only-text Без удаления/24
+        td.only-text.text-right 20 500 ₽
+        td.only-text.text-right 5%
+        td.only-text.text-right 20 500 ₽
+      tr
+        td.only-text
+          .grid(class="grid-cols-[31px_1fr]")
+            p 02
+            p Концепт_September
+        td
+          .flex.items-center(class="gap-x-1.5")
+            img.rounded.object-cover(class="w-[30px] h-[30px]" src="/assets/images/avatar.png" alt="tg-channel")
+            span Андрей Миронов
+        td.only-text 12/24
+        td.only-text.text-right 20 500 ₽
+        td.only-text.text-right 5%
+        td.only-text.text-right 20 500 ₽

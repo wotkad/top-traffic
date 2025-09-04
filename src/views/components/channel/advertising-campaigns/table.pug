@@ -27,6 +27,12 @@ table.table.table-default
                 use(xlink:href="#other-sort-icon")
       th
         .table__sort.flex.gap-x-2.items-center.justify-end
+          p Кол-во постов
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center.justify-end
           p Ставка
             button(type="button").table__sortbutton
               svg
@@ -42,42 +48,67 @@ table.table.table-default
       color: 'status-green',
       status: 'В работу',
     })
+    include ./row-content
     +advertising-campaigns-row({
       color: 'status-blue',
       status: 'В работе',
     })
+    include ./row-content
     +advertising-campaigns-row({
       color: 'status-red',
       status: 'Пауза',
     })
+    include ./row-content
     +advertising-campaigns-row({
       color: 'status-gray',
       status: 'Завершено',
     })
+    include ./row-content
     +advertising-campaigns-row({
       color: 'status-purple',
       status: 'Согласование',
     })
+    include ./row-content
     +advertising-campaigns-row({
       color: 'status-red',
       status: 'Пауза',
     })
+    include ./row-content
     +advertising-campaigns-row({
       color: 'status-gray',
       status: 'Завершено',
     })
+    include ./row-content
     +advertising-campaigns-row({
       color: 'status-purple',
       status: 'Согласование',
     })
+    include ./row-content
     +advertising-campaigns-row({
       color: 'status-purple',
       status: 'Согласование',
     })
+    include ./row-content
     +advertising-campaigns-row({
       color: 'status-blue',
       status: 'В работе',
     })
+    include ./row-content
+    +advertising-campaigns-row({
+      color: 'status-red',
+      status: 'Пауза',
+    })
+    include ./row-content
+    +advertising-campaigns-row({
+      color: 'status-gray',
+      status: 'Завершено',
+    })
+    include ./row-content
+    +advertising-campaigns-row({
+      color: 'status-purple',
+      status: 'Согласование',
+    })
+    include ./row-content
     +advertising-campaigns-row({
       color: 'status-red',
       status: 'Пауза',
@@ -86,34 +117,27 @@ table.table.table-default
       color: 'status-gray',
       status: 'Завершено',
     })
+    include ./row-content
     +advertising-campaigns-row({
       color: 'status-purple',
       status: 'Согласование',
     })
+    include ./row-content
+    +advertising-campaigns-row({
+      color: 'status-purple',
+      status: 'Согласование',
+    })
+    include ./row-content
     +advertising-campaigns-row({
       color: 'status-red',
       status: 'Пауза',
     })
+    include ./row-content
     +advertising-campaigns-row({
       color: 'status-gray',
       status: 'Завершено',
     })
-    +advertising-campaigns-row({
-      color: 'status-purple',
-      status: 'Согласование',
-    })
-    +advertising-campaigns-row({
-      color: 'status-purple',
-      status: 'Согласование',
-    })
-    +advertising-campaigns-row({
-      color: 'status-red',
-      status: 'Пауза',
-    })
-    +advertising-campaigns-row({
-      color: 'status-gray',
-      status: 'Завершено',
-    })
+    include ./row-content
     +advertising-campaigns-row({
       color: 'status-purple',
       status: 'Согласование',

@@ -113,6 +113,16 @@
   thead {
     @apply bg-black-700;
   }
+  &-blue {
+    thead {
+      th {
+        &:first-child {
+          @apply border-b border-b-black-500 border-l border-l-purple-300;
+        }
+      }
+      @apply bg-purple-300;
+    }
+  }
   .input-with-label .input__el.table__comment {
     &:focus,
     &:active,
@@ -758,6 +768,12 @@
           @apply opacity-100;
         }
         @apply bg-purple-300;
+      }
+      &:hover .advertising-group__table {
+        @apply bg-white-000;
+      }
+      td.advertising-group__table {
+        @apply pt-0 pb-2 pl-10;
       }
       .delete-concept {
         svg {

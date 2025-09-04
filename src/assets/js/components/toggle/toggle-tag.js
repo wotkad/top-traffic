@@ -2,6 +2,7 @@ function toggleTag() {
     let lastChecked = null;
     let $popup = $('.popup[data-popup-name="add-tag"]');
     let $saveBtn = $popup.find('.popup__buttons button[type="submit"]'); // кнопка "Сохранить"
+    let $placeholder = $popup.find('.popup__placeholder');
 
     // При открытии попапа
     $(document).on('click', '[data-popup-name="add-tag"]', function() {
@@ -52,6 +53,7 @@ function toggleTag() {
             .attr('contenteditable', isNoneSelected ? 'false' : 'true');
         if (isNoneSelected || selectedOption.length == 0) {
             $textarea.text(''); // чистим временные теги
+            $placeholder.show();
             $('.popup__textarea').css('background-color', '#FBFBFB');
         } else {
             $('.popup__textarea').css('background-color', '#FFFFFF');

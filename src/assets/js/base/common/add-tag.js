@@ -93,16 +93,20 @@ function addTag() {
 
   function checkItemsCount() {
     let tagsCount = $textarea.find('.popup__tag').length;
-    if (tagsCount >= 15) {
+    if (tagsCount == 15) {
       $popup.find('.popup__error').addClass('active');
+      $textarea
+        .addClass('disabled')
+        .attr('contenteditable', 'false');
     } else {
       $popup.find('.popup__error').removeClass('active');
+      $textarea
+        .removeClass('disabled')
+        .attr('contenteditable', 'true');
     }
   }
 
   function addTagToList(text) {
-    checkItemsCount()
-
     let existing = $textarea.find('.popup__tag span').map(function() {
       return $(this).text();
     }).get();
@@ -121,16 +125,17 @@ function addTag() {
     `;
     $textarea.append(tagHtml);
 
+    checkItemsCount(); // Проверяем количество ПОСЛЕ добавления
     placeCursorAtEnd($textarea[0]);
   }
 
-  // удаление по крестику
+  // удаление по крестику - ИСПРАВЛЕННЫЙ КОД
   $textarea.on('click', '.popup__tag .button-close', function() {
     $(this).closest('.popup__tag').remove();
     if ($textarea.find('.popup__tag').length === 0) {
       $placeholder.show();
     }
-    checkItemsCount();
+    checkItemsCount(); // Проверяем количество ПОСЛЕ удаления
     placeCursorAtEnd($textarea[0]);
   });
 
@@ -138,12 +143,11 @@ function addTag() {
       let $list = $('.tag__list');
       let $button = $('.tag__button');
       
-      if ($list.height() == 68) {
+      if ($list.height() == 68 && $list.find('.tag__item').length > 4) {
         $button.removeClass('hidden');
       } else {
         $button.addClass('hidden');
       }
-      console.log($list.height());
   }
 
   // удаление тегов вручную
@@ -165,7 +169,6 @@ function addTag() {
     if (selectedOption.val() === 'none') {
         $('.tag__container:nth-child(2)').addClass('tag__container-hidden');
     }
-
     $list.empty().removeClass('active');
     let content = $textarea.text().trim();
 
@@ -183,7 +186,7 @@ function addTag() {
     $list.find('.tag__item').remove();
 
     tags.forEach(tag => {
-        if (existingTags.length >= 15) return; // лимит 15
+        if (existingTags.length == 15) return;
         if (tag.length > 30) tag = tag.substring(0, 30);
         if (!existingTags.includes(tag)) {
             let tagHtml = `
@@ -216,9 +219,7 @@ function addTag() {
       .toggleClass('disabled', true)
       .attr('contenteditable', 'false');
         
-    if (tags.length === 0) {
-      $placeholder.show();
-    }
+    $placeholder.show();
   });
 }
 

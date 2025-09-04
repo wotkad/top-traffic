@@ -1,713 +1,713 @@
 aside.content-aside
-    .selectors
-      .selector__buttons
-        .selector__scroll
-          button.selector__button(data-id="information").active Информация
-          button.selector__button(data-id="posts") Лента
-          button.selector__button(data-id="chat") Чат
-      .selector__containers.selector__content
-        .selector__container(data-id="information").active
-          .content-aside__container
-            .content-aside__subtitle Общая информация
-            table.table
-              tr.text-black-200
-                th Категория
-                td Интернет технологии
-              tr.text-black-200
-                th Гео
-                td Россия
-              tr.text-black-200
-                th Язык канала
-                td Русский
-              tr.text-black-200
-                th Пользователь
-                td
-                  .flex.items-center.info-users.not-editable(class="gap-x-1.5")
-                    .info-users__popup
-                      .info-users__header
-                        .info-users__avatar
-                          img(src="/assets/images/avatar.png" alt="avatar")
-                        .info-users__content
-                          h3 Медведева Валерия
-                          .info-users__content__info
-                            .info-users__role.info-users__role-purple Сотрудник
-                            span .
-                            a(href="#") lera@toptraffic.ru
-                      .info-users__body
-                        a(href="#")
-                          img(src="/assets/images/user.svg" alt="user")
-                          span Перейти в профиль
-                    img.info-users__image.rounded(class="w-6 h-6" src="/assets/images/avatar.png" alt="tg-channel")
-                    .text-12-r-p Андрей Миронов
-              tr.text-black-200
-                th Администратор
-                td
-                  .flex.items-center.info-users.not-editable(class="gap-x-1.5")
-                    .info-users__popup
-                      .info-users__header
-                        .info-users__avatar
-                          img(src="/assets/images/avatar.png" alt="avatar")
-                        .info-users__content
-                          h3 Михаил Карпов
-                          .info-users__content__info
-                            .info-users__role.info-users__role-yellow Администратор
-                            span .
-                            a(href="#") @username
-                      .info-users__body
-                        a(href="#")
-                          img(src="/assets/images/user.svg" alt="user")
-                          span Перейти в профиль
-                        a(href="#")
-                          img(src="/assets/images/tg.svg" alt="tg")
-                          span Перейти в Telegram
-                      .info-users__footer
-                        p Ответственный
-                        .info-users__list
-                          .dropdown__value.info-users.not-editable
-                            img.info-users__image(src="/assets/images/avatar.png" alt="avatar")
-                            .info-users__popup
-                              .info-users__header
-                                .info-users__avatar
-                                  img(src="/assets/images/avatar.png" alt="avatar")
-                                .info-users__content
-                                  h3 Михаил Карпов
-                                  .info-users__content__info
-                                    .info-users__role.info-users__role-yellow Администратор
-                                    span .
-                                    a(href="#") @username
-                              .info-users__body
-                                a(href="#")
-                                  img(src="/assets/images/user.svg" alt="user")
-                                  span Перейти в профиль
-                            .dropdown__title Александра М.
-                    img.info-users__image.rounded(class="w-6 h-6" src="/assets/images/avatar.png" alt="tg-channel")
-                    .text-12-r-p Андрей Миронов
-              tr.text-black-200
-                th Администратор
-                td
-                  .flex.items-center.info-users.not-editable(class="gap-x-1.5")
-                    .info-users__popup
-                      .info-users__header
-                        .info-users__avatar
-                          img(src="/assets/images/avatar.png" alt="avatar")
-                        .info-users__content
-                          h3 Михаил Карпов
-                          .info-users__content__info
-                            .info-users__role.info-users__role-yellow Администратор
-                            span .
-                            a(href="#") @username
-                      .info-users__body
-                        a(href="#")
-                          img(src="/assets/images/user.svg" alt="user")
-                          span Перейти в профиль
-                        a(href="#")
-                          img(src="/assets/images/tg.svg" alt="tg")
-                          span Перейти в Telegram
-                      .info-users__footer
-                        p Ответственный
-                        .info-users__list.multiple
-                          .dropdown__value(style="z-index: 4;").info-users.not-editable
-                            img.info-users__image(src="/assets/images/avatar.png" alt="avatar")
-                            .info-users__popup
-                              .info-users__header
-                                .info-users__avatar
-                                  img(src="/assets/images/avatar.png" alt="avatar")
-                                .info-users__content
-                                  h3 Михаил Карпов
-                                  .info-users__content__info
-                                    .info-users__role.info-users__role-yellow Администратор
-                                    span .
-                                    a(href="#") @username
-                              .info-users__body
-                                a(href="#")
-                                  img(src="/assets/images/user.svg" alt="user")
-                                  span Перейти в профиль
-                          .dropdown__value(style="z-index: 3;").info-users.not-editable
-                            img.info-users__image(src="/assets/images/avatar.png" alt="avatar")
-                            .info-users__popup
-                              .info-users__header
-                                .info-users__avatar
-                                  img(src="/assets/images/avatar.png" alt="avatar")
-                                .info-users__content
-                                  h3 Михаил Карпов
-                                  .info-users__content__info
-                                    .info-users__role.info-users__role-yellow Администратор
-                                    span .
-                                    a(href="#") @username
-                              .info-users__body
-                                a(href="#")
-                                  img(src="/assets/images/user.svg" alt="user")
-                                  span Перейти в профиль
-                          .dropdown__value(style="z-index: 2;").info-users.not-editable
-                            img.info-users__image(src="/assets/images/avatar.png" alt="avatar")
-                            .info-users__popup
-                              .info-users__header
-                                .info-users__avatar
-                                  img(src="/assets/images/avatar.png" alt="avatar")
-                                .info-users__content
-                                  h3 Михаил Карпов
-                                  .info-users__content__info
-                                    .info-users__role.info-users__role-yellow Администратор
-                                    span .
-                                    a(href="#") @username
-                              .info-users__body
-                                a(href="#")
-                                  img(src="/assets/images/user.svg" alt="user")
-                                  span Перейти в профиль
-                          .dropdown__value(style="z-index: 1;").info-users.not-editable
-                            img.info-users__image(src="/assets/images/avatar.png" alt="avatar")
-                            .info-users__popup
-                              .info-users__header
-                                .info-users__avatar
-                                  img(src="/assets/images/avatar.png" alt="avatar")
-                                .info-users__content
-                                  h3 Михаил Карпов
-                                  .info-users__content__info
-                                    .info-users__role.info-users__role-yellow Администратор
-                                    span .
-                                    a(href="#") @username
-                              .info-users__body
-                                a(href="#")
-                                  img(src="/assets/images/user.svg" alt="user")
-                                  span Перейти в профиль
-                          .dropdown__show-all +1
-                    img.info-users__image.rounded(class="w-6 h-6" src="/assets/images/avatar.png" alt="tg-channel")
-                    .text-12-r-p Андрей Миронов
-              tr.text-black-200
-                th Организация
-                td
-                  .flex.items-center.info-users.not-editable(class="gap-x-1.5")
-                    .info-users__popup
-                      .info-users__header
-                        .info-users__avatar
-                          span М
-                        .info-users__content
-                          h3 ООО “Медиаагентство”
-                          .info-users__content__info
-                            .info-users__role.info-users__role-pink Организация
-                            span .
-                            a(href="#") id72838923
-                      .info-users__body
-                        a(href="#")
-                          img(src="/assets/images/megaplan.svg" alt="megaplan")
-                          span Перейти в Мегаплан
-                    img.info-users__image.rounded(class="w-6 h-6" src="/assets/images/avatar.png" alt="tg-channel")
-                    .text-12-r-p ООО "МедиаКар"
-            .content-aside__subtitle Внутренняя информация
-            table.table
-              tr.text-black-200
-                th Менеджер
-                td
-                  +dropdown({
-                    checkboxes: [
-                      {
-                        class: '',
-                        image: {
-                          alt: 'image',
-                          enabled: true,
-                          src: '/assets/images/user-image.png',
-                        },
-                        name: 'manager',
-                        title: 'ООО “ИП”',
+  .selectors
+    .selector__buttons
+      .selector__scroll
+        button.selector__button(data-id="information").active Информация
+        button.selector__button(data-id="posts") Лента
+        button.selector__button(data-id="chat") Чат
+    .selector__containers.selector__content
+      .selector__container(data-id="information").active
+        .content-aside__container
+          .content-aside__subtitle Общая информация
+          table.table
+            tr.text-black-200
+              th Категория
+              td Интернет технологии
+            tr.text-black-200
+              th Гео
+              td Россия
+            tr.text-black-200
+              th Язык канала
+              td Русский
+            tr.text-black-200
+              th Пользователь
+              td
+                .flex.items-center.info-users.not-editable(class="gap-x-1.5")
+                  .info-users__popup
+                    .info-users__header
+                      .info-users__avatar
+                        img(src="/assets/images/avatar.png" alt="avatar")
+                      .info-users__content
+                        h3 Медведева Валерия
+                        .info-users__content__info
+                          .info-users__role.info-users__role-purple Сотрудник
+                          span .
+                          a(href="#") lera@toptraffic.ru
+                    .info-users__body
+                      a(href="#")
+                        img(src="/assets/images/user.svg" alt="user")
+                        span Перейти в профиль
+                  img.info-users__image.rounded(class="w-6 h-6" src="/assets/images/avatar.png" alt="tg-channel")
+                  .text-12-r-p Андрей Миронов
+            tr.text-black-200
+              th Администратор
+              td
+                .flex.items-center.info-users.not-editable(class="gap-x-1.5")
+                  .info-users__popup
+                    .info-users__header
+                      .info-users__avatar
+                        img(src="/assets/images/avatar.png" alt="avatar")
+                      .info-users__content
+                        h3 Михаил Карпов
+                        .info-users__content__info
+                          .info-users__role.info-users__role-yellow Администратор
+                          span .
+                          a(href="#") @username
+                    .info-users__body
+                      a(href="#")
+                        img(src="/assets/images/user.svg" alt="user")
+                        span Перейти в профиль
+                      a(href="#")
+                        img(src="/assets/images/tg.svg" alt="tg")
+                        span Перейти в Telegram
+                    .info-users__footer
+                      p Ответственный
+                      .info-users__list
+                        .dropdown__value.info-users.not-editable
+                          img.info-users__image(src="/assets/images/avatar.png" alt="avatar")
+                          .info-users__popup
+                            .info-users__header
+                              .info-users__avatar
+                                img(src="/assets/images/avatar.png" alt="avatar")
+                              .info-users__content
+                                h3 Михаил Карпов
+                                .info-users__content__info
+                                  .info-users__role.info-users__role-yellow Администратор
+                                  span .
+                                  a(href="#") @username
+                            .info-users__body
+                              a(href="#")
+                                img(src="/assets/images/user.svg" alt="user")
+                                span Перейти в профиль
+                          .dropdown__title Александра М.
+                  img.info-users__image.rounded(class="w-6 h-6" src="/assets/images/avatar.png" alt="tg-channel")
+                  .text-12-r-p Андрей Миронов
+            tr.text-black-200
+              th Администратор
+              td
+                .flex.items-center.info-users.not-editable(class="gap-x-1.5")
+                  .info-users__popup
+                    .info-users__header
+                      .info-users__avatar
+                        img(src="/assets/images/avatar.png" alt="avatar")
+                      .info-users__content
+                        h3 Михаил Карпов
+                        .info-users__content__info
+                          .info-users__role.info-users__role-yellow Администратор
+                          span .
+                          a(href="#") @username
+                    .info-users__body
+                      a(href="#")
+                        img(src="/assets/images/user.svg" alt="user")
+                        span Перейти в профиль
+                      a(href="#")
+                        img(src="/assets/images/tg.svg" alt="tg")
+                        span Перейти в Telegram
+                    .info-users__footer
+                      p Ответственный
+                      .info-users__list.multiple
+                        .dropdown__value(style="z-index: 4;").info-users.not-editable
+                          img.info-users__image(src="/assets/images/avatar.png" alt="avatar")
+                          .info-users__popup
+                            .info-users__header
+                              .info-users__avatar
+                                img(src="/assets/images/avatar.png" alt="avatar")
+                              .info-users__content
+                                h3 Михаил Карпов
+                                .info-users__content__info
+                                  .info-users__role.info-users__role-yellow Администратор
+                                  span .
+                                  a(href="#") @username
+                            .info-users__body
+                              a(href="#")
+                                img(src="/assets/images/user.svg" alt="user")
+                                span Перейти в профиль
+                        .dropdown__value(style="z-index: 3;").info-users.not-editable
+                          img.info-users__image(src="/assets/images/avatar.png" alt="avatar")
+                          .info-users__popup
+                            .info-users__header
+                              .info-users__avatar
+                                img(src="/assets/images/avatar.png" alt="avatar")
+                              .info-users__content
+                                h3 Михаил Карпов
+                                .info-users__content__info
+                                  .info-users__role.info-users__role-yellow Администратор
+                                  span .
+                                  a(href="#") @username
+                            .info-users__body
+                              a(href="#")
+                                img(src="/assets/images/user.svg" alt="user")
+                                span Перейти в профиль
+                        .dropdown__value(style="z-index: 2;").info-users.not-editable
+                          img.info-users__image(src="/assets/images/avatar.png" alt="avatar")
+                          .info-users__popup
+                            .info-users__header
+                              .info-users__avatar
+                                img(src="/assets/images/avatar.png" alt="avatar")
+                              .info-users__content
+                                h3 Михаил Карпов
+                                .info-users__content__info
+                                  .info-users__role.info-users__role-yellow Администратор
+                                  span .
+                                  a(href="#") @username
+                            .info-users__body
+                              a(href="#")
+                                img(src="/assets/images/user.svg" alt="user")
+                                span Перейти в профиль
+                        .dropdown__value(style="z-index: 1;").info-users.not-editable
+                          img.info-users__image(src="/assets/images/avatar.png" alt="avatar")
+                          .info-users__popup
+                            .info-users__header
+                              .info-users__avatar
+                                img(src="/assets/images/avatar.png" alt="avatar")
+                              .info-users__content
+                                h3 Михаил Карпов
+                                .info-users__content__info
+                                  .info-users__role.info-users__role-yellow Администратор
+                                  span .
+                                  a(href="#") @username
+                            .info-users__body
+                              a(href="#")
+                                img(src="/assets/images/user.svg" alt="user")
+                                span Перейти в профиль
+                        .dropdown__show-all +1
+                  img.info-users__image.rounded(class="w-6 h-6" src="/assets/images/avatar.png" alt="tg-channel")
+                  .text-12-r-p Андрей Миронов
+            tr.text-black-200
+              th Организация
+              td
+                .flex.items-center.info-users.not-editable(class="gap-x-1.5")
+                  .info-users__popup
+                    .info-users__header
+                      .info-users__avatar
+                        span М
+                      .info-users__content
+                        h3 ООО “Медиаагентство”
+                        .info-users__content__info
+                          .info-users__role.info-users__role-pink Организация
+                          span .
+                          a(href="#") id72838923
+                    .info-users__body
+                      a(href="#")
+                        img(src="/assets/images/megaplan.svg" alt="megaplan")
+                        span Перейти в Мегаплан
+                  img.info-users__image.rounded(class="w-6 h-6" src="/assets/images/avatar.png" alt="tg-channel")
+                  .text-12-r-p ООО "МедиаКар"
+          .content-aside__subtitle Внутренняя информация
+          table.table
+            tr.text-black-200
+              th Менеджер
+              td
+                +dropdown({
+                  checkboxes: [
+                    {
+                      class: '',
+                      image: {
+                        alt: 'image',
+                        enabled: true,
+                        src: '/assets/images/user-image.png',
                       },
-                      {
-                        class: '',
-                        image: {
-                          alt: 'image',
-                          enabled: true,
-                          src: '/assets/images/avatar.png',
-                        },
-                        name: 'manager',
-                        title: 'ООО “ИП”',
+                      name: 'manager',
+                      title: 'ООО “ИП”',
+                    },
+                    {
+                      class: '',
+                      image: {
+                        alt: 'image',
+                        enabled: true,
+                        src: '/assets/images/avatar.png',
                       },
-                      {
-                        class: '',
-                        image: {
-                          alt: 'image',
-                          enabled: true,
-                          src: '/assets/images/avatar.png',
-                        },
-                        name: 'manager',
-                        title: 'ООО “ИП”',
+                      name: 'manager',
+                      title: 'ООО “ИП”',
+                    },
+                    {
+                      class: '',
+                      image: {
+                        alt: 'image',
+                        enabled: true,
+                        src: '/assets/images/avatar.png',
                       },
-                      {
-                        class: '',
-                        image: {
-                          alt: 'image',
-                          enabled: true,
-                          src: '/assets/images/avatar.png',
-                        },
-                        name: 'manager',
-                        title: 'ООО “ИП”',
+                      name: 'manager',
+                      title: 'ООО “ИП”',
+                    },
+                    {
+                      class: '',
+                      image: {
+                        alt: 'image',
+                        enabled: true,
+                        src: '/assets/images/avatar.png',
                       },
-                      {
-                        class: '',
-                        image: {
-                          alt: 'image',
-                          enabled: true,
-                          src: '/assets/images/avatar.png',
-                        },
-                        name: 'manager',
-                        title: 'ООО “ИП”',
+                      name: 'manager',
+                      title: 'ООО “ИП”',
+                    },
+                    {
+                      class: '',
+                      image: {
+                        alt: 'image',
+                        enabled: true,
+                        src: '/assets/images/avatar.png',
                       },
-                      {
-                        class: '',
-                        image: {
-                          alt: 'image',
-                          enabled: true,
-                          src: '/assets/images/avatar.png',
-                        },
-                        name: 'manager',
-                        title: 'ООО “ИП”',
+                      name: 'manager',
+                      title: 'ООО “ИП”',
+                    },
+                    {
+                      class: '',
+                      image: {
+                        alt: 'image',
+                        enabled: true,
+                        src: '/assets/images/avatar.png',
                       },
-                      {
-                        class: '',
-                        image: {
-                          alt: 'image',
-                          enabled: true,
-                          src: '/assets/images/avatar.png',
-                        },
-                        name: 'manager',
-                        title: 'ООО “ИП”',
+                      name: 'manager',
+                      title: 'ООО “ИП”',
+                    },
+                    {
+                      class: '',
+                      image: {
+                        alt: 'image',
+                        enabled: true,
+                        src: '/assets/images/avatar.png',
                       },
-                      {
-                        class: '',
-                        image: {
-                          alt: 'image',
-                          enabled: true,
-                          src: '/assets/images/avatar.png',
-                        },
-                        name: 'manager',
-                        title: 'ООО “ИП”',
+                      name: 'manager',
+                      title: 'ООО “ИП”',
+                    },
+                    {
+                      class: '',
+                      image: {
+                        alt: 'image',
+                        enabled: true,
+                        src: '/assets/images/avatar.png',
                       },
-                      {
-                        class: '',
-                        image: {
-                          alt: 'image',
-                          enabled: true,
-                          src: '/assets/images/avatar.png',
-                        },
-                        name: 'manager',
-                        title: 'ООО “ИП”',
+                      name: 'manager',
+                      title: 'ООО “ИП”',
+                    },
+                    {
+                      class: '',
+                      image: {
+                        alt: 'image',
+                        enabled: true,
+                        src: '/assets/images/avatar.png',
                       },
-                      {
-                        class: '',
-                        image: {
-                          alt: 'image',
-                          enabled: true,
-                          src: '/assets/images/avatar.png',
-                        },
-                        name: 'manager',
-                        title: 'ООО “ИП”',
+                      name: 'manager',
+                      title: 'ООО “ИП”',
+                    },
+                    {
+                      class: '',
+                      image: {
+                        alt: 'image',
+                        enabled: true,
+                        src: '/assets/images/avatar.png',
                       },
-                      {
-                        class: '',
-                        image: {
-                          alt: 'image',
-                          enabled: true,
-                          src: '/assets/images/avatar.png',
-                        },
-                        name: 'manager',
-                        title: 'ООО “ИП”',
+                      name: 'manager',
+                      title: 'ООО “ИП”',
+                    },
+                    {
+                      class: '',
+                      image: {
+                        alt: 'image',
+                        enabled: true,
+                        src: '/assets/images/avatar.png',
                       },
-                      {
-                        class: '',
-                        image: {
-                          alt: 'image',
-                          enabled: true,
-                          src: '/assets/images/avatar.png',
-                        },
-                        name: 'manager',
-                        title: 'ООО “ИП”',
+                      name: 'manager',
+                      title: 'ООО “ИП”',
+                    },
+                    {
+                      class: '',
+                      image: {
+                        alt: 'image',
+                        enabled: true,
+                        src: '/assets/images/avatar.png',
                       },
-                      {
-                        class: '',
-                        image: {
-                          alt: 'image',
-                          enabled: true,
-                          src: '/assets/images/avatar.png',
-                        },
-                        name: 'manager',
-                        title: 'ООО “ИП”',
+                      name: 'manager',
+                      title: 'ООО “ИП”',
+                    },
+                    {
+                      class: '',
+                      image: {
+                        alt: 'image',
+                        enabled: true,
+                        src: '/assets/images/avatar.png',
                       },
-                    ],
-                    class: 'dropdown-checkboxes-images',
-                    isCheckboxes: true,
-                    title: '—',
+                      name: 'manager',
+                      title: 'ООО “ИП”',
+                    },
+                  ],
+                  class: 'dropdown-checkboxes-images',
+                  isCheckboxes: true,
+                  title: '—',
+                })
+            tr.text-black-200
+              th Приоритет
+              td
+                +dropdown({
+                  buttons: [
+                    {
+                      color: 'priority-transparent',
+                      isChecked: true,
+                      name: 'priority',
+                      title: '—',
+                    },
+                    {
+                      color: 'priority-red',
+                      name: 'priority',
+                      title: 'Очень высокий',
+                    },
+                    {
+                      color: 'priority-pink',
+                      name: 'priority',
+                      title: 'Высокий',
+                    },
+                    {
+                      color: 'priority-orange',
+                      name: 'priority',
+                      title: 'Средний',
+                    },
+                    {
+                      color: 'priority-peach',
+                      name: 'priority',
+                      title: 'Низкий',
+                    },
+                    {
+                      color: 'priority-yellow',
+                      name: 'priority',
+                      title: 'Очень низкий',
+                    },
+                  ],
+                  class: 'dropdown-priority',
+                  color: 'priority-transparent',
+                  isButtons: true,
+                  isPriority: true,
+                  title: '—',
+                })
+          .content-aside__subtitle Условия размещения
+          table.table
+            tr.text-black-200
+              th Адаптация
+              td
+                .adaptation
+                  .adaptation__value
+                    p ––
+                    span
+                  +button({
+                    class: 'button-icon',
+                    dataPopupName: 'check-adaptation',
+                    icon: 'other-edit-icon',
+                    isOnlyIcon: true,
+                    view: 'button',
                   })
-              tr.text-black-200
-                th Приоритет
-                td
-                  +dropdown({
-                    buttons: [
-                      {
-                        color: 'priority-transparent',
-                        isChecked: true,
-                        name: 'priority',
-                        title: '—',
-                      },
-                      {
-                        color: 'priority-red',
-                        name: 'priority',
-                        title: 'Очень высокий',
-                      },
-                      {
-                        color: 'priority-pink',
-                        name: 'priority',
-                        title: 'Высокий',
-                      },
-                      {
-                        color: 'priority-orange',
-                        name: 'priority',
-                        title: 'Средний',
-                      },
-                      {
-                        color: 'priority-peach',
-                        name: 'priority',
-                        title: 'Низкий',
-                      },
-                      {
-                        color: 'priority-yellow',
-                        name: 'priority',
-                        title: 'Очень низкий',
-                      },
-                    ],
-                    class: 'dropdown-priority',
-                    color: 'priority-transparent',
-                    isButtons: true,
-                    isPriority: true,
-                    title: '—',
-                  })
-            .content-aside__subtitle Условия размещения
-            table.table
-              tr.text-black-200
-                th Адаптация
-                td
-                  .adaptation
-                    .adaptation__value
-                      p ––
-                      span
+            tr.text-black-200
+              th Тег
+              td
+                .tag
+                  .tag__container
+                    .tag__value
+                      p Наличие
+                      span ––
                     +button({
                       class: 'button-icon',
-                      dataPopupName: 'check-adaptation',
+                      dataPopupName: 'add-tag',
                       icon: 'other-edit-icon',
                       isOnlyIcon: true,
                       view: 'button',
                     })
-              tr.text-black-200
-                th Тег
-                td
-                  .tag
-                    .tag__container
-                      .tag__value
-                        p Наличие
-                        span ––
-                      +button({
-                        class: 'button-icon',
-                        dataPopupName: 'add-tag',
-                        icon: 'other-edit-icon',
-                        isOnlyIcon: true,
-                        view: 'button',
-                      })
-                    .tag__container.tag__container-hidden
-                      .tag__value
-                        p Актуальные
-                        .tag__list
-                        .tag__button.hidden Показать всe
-              tr.text-black-200
-                th Кнопка
-                td
-                  +dropdown({
-                    buttons: [
-                      {
-                        isChecked: true,
-                        name: 'approval-client',
-                        title: '––',
-                      },
-                      {
-                        name: 'approval-client',
-                        title: 'Да',
-                      },
-                      {
-                        name: 'approval-client',
-                        title: 'Нет',
-                      },
-                    ],
-                    class: 'dropdown-radios dropdown-button',
-                    isRadios: true,
-                    isSearch: false,
-                    title: '––',
-                  })
-              tr.text-black-200
-                th РКН
-                td
-                  +dropdown({
-                    buttons: [
-                      {
-                        isChecked: true,
-                        name: 'approval-client',
-                        title: '––',
-                      },
-                      {
-                        name: 'approval-client',
-                        title: 'Да',
-                      },
-                      {
-                        name: 'approval-client',
-                        title: 'Нет',
-                      },
-                      {
-                        name: 'approval-client',
-                        title: '< 10 000 подписчиков',
-                      },
-                    ],
-                    class: 'dropdown-radios dropdown-rkn',
-                    isRadios: true,
-                    isSearch: false,
-                    title: '––',
-                  })
-            .content-aside__subtitle Поле для комментария
-            +input({
-              class: 'content-aside__textarea',
-              isTextarea: true,
-              label: '',
-              name: 'comment',
-              placeholder: 'Добавить комментарий...',
+                  .tag__container.tag__container-hidden
+                    .tag__value
+                      p Актуальные
+                      .tag__list
+                      .tag__button.hidden Показать всe
+            tr.text-black-200
+              th Кнопка
+              td
+                +dropdown({
+                  buttons: [
+                    {
+                      isChecked: true,
+                      name: 'approval-client',
+                      title: '––',
+                    },
+                    {
+                      name: 'approval-client',
+                      title: 'Да',
+                    },
+                    {
+                      name: 'approval-client',
+                      title: 'Нет',
+                    },
+                  ],
+                  class: 'dropdown-radios dropdown-button',
+                  isRadios: true,
+                  isSearch: false,
+                  title: '––',
+                })
+            tr.text-black-200
+              th РКН
+              td
+                +dropdown({
+                  buttons: [
+                    {
+                      isChecked: true,
+                      name: 'approval-client',
+                      title: '––',
+                    },
+                    {
+                      name: 'approval-client',
+                      title: 'Да',
+                    },
+                    {
+                      name: 'approval-client',
+                      title: 'Нет',
+                    },
+                    {
+                      name: 'approval-client',
+                      title: '< 10 000 подписчиков',
+                    },
+                  ],
+                  class: 'dropdown-radios dropdown-rkn',
+                  isRadios: true,
+                  isSearch: false,
+                  title: '––',
+                })
+          .content-aside__subtitle Поле для комментария
+          +input({
+            class: 'content-aside__textarea',
+            isTextarea: true,
+            label: '',
+            name: 'comment',
+            placeholder: 'Добавить комментарий...',
+          })
+          .content-aside__subtitle Дополнительные материалы
+            +dropdown({
+              buttons: [
+                {
+                  dataPopupName: 'add-link-links',
+                  icon: 'other-attachment-icon',
+                  title: 'Ссылка',
+                },
+                {
+                  dataIdFile: 'add-upload-files',
+                  icon: 'other-new-file-icon',
+                  isFileUpload: true,
+                  title: 'Файл',
+                },
+              ],
+              class: 'dropdown-singleselect',
+              icon: 'other-add-file-icon',
+              isButtons: true,
+              isSingleSelect: true,
+              subtitle: 'Добавить',
             })
-            .content-aside__subtitle Дополнительные материалы
-              +dropdown({
-                buttons: [
-                  {
-                    dataPopupName: 'add-link-links',
-                    icon: 'other-attachment-icon',
-                    title: 'Ссылка',
-                  },
-                  {
-                    dataIdFile: 'add-upload-files',
-                    icon: 'other-new-file-icon',
-                    isFileUpload: true,
-                    title: 'Файл',
-                  },
-                ],
-                class: 'dropdown-singleselect',
-                icon: 'other-add-file-icon',
-                isButtons: true,
-                isSingleSelect: true,
-                subtitle: 'Добавить',
-              })
-            .accordions
-              .accordion
-                .accordion__button(data-id="links")
-                  p Ссылки
-                    span.accordion__count 2
-                  +button({
-                    class: 'button-icon sm',
-                    icon: 'other-angle-down-icon',
-                    isOnlyIcon: true,
-                    view: 'button',
-                  })
-                .accordion__container(data-id="links")
-                  .accordion__item
-                    .accordion__left
-                      .accordion__left__container
-                        .accordion__icon.accordion__icon-sm
-                          svg
-                            use(xlink:href="#other-attachment-icon")
-                        a(href="https://app.asana.com/" target="_blank") https://app.asana.com/
-                        time 24 янв. 15:10
-                    .accordion__right
-                      +button({
-                        class: 'button-icon accordion__action accordion__copy',
-                        icon: 'other-copy-icon',
-                        isOnlyIcon: true,
-                        view: 'button',
-                      })
-                      +button({
-                        class: 'button-icon accordion__action',
-                        dataPopupName: 'delete-link',
-                        icon: 'other-trash-icon',
-                        isOnlyIcon: true,
-                        view: 'button',
-                      })
-                  .accordion__item
-                    .accordion__left
-                      .accordion__left__container
-                        .accordion__icon.accordion__icon-sm
-                          svg
-                            use(xlink:href="#other-attachment-icon")
-                        a(href="https://app.asana.com/" target="_blank") https://app.asana.com/
-                        time 24 янв. 15:10
-                    .accordion__right
-                      +button({
-                        class: 'button-icon accordion__action accordion__copy',
-                        icon: 'other-copy-icon',
-                        isOnlyIcon: true,
-                        view: 'button',
-                      })
-                      +button({
-                        class: 'button-icon accordion__action',
-                        dataPopupName: 'delete-link',
-                        icon: 'other-trash-icon',
-                        isOnlyIcon: true,
-                        view: 'button',
-                      })
-              .accordion
-                .accordion__button(data-id="files")
-                  p Файлы
-                    span.accordion__count 2
-                  +button({
-                    class: 'button-icon sm',
-                    icon: 'other-angle-down-icon',
-                    isOnlyIcon: true,
-                    view: 'button',
-                  })
-                .accordion__container(data-id="files")
-                  .accordion__item
-                    .accordion__left
-                      .accordion__left__container
-                        .accordion__icon.accordion__icon-sm
-                          svg
-                            use(xlink:href="#other-file-icon")
-                        a(href="#" download) Креативы.zip
-                        time 54 KB • 24 янв. 15:10
-                    .accordion__right
-                      +button({
-                        class: 'button-icon accordion__action',
-                        href: '#',
-                        icon: 'other-download-icon',
-                        isDownload: true,
-                        isOnlyIcon: true,
-                        view: 'link',
-                      })
-                      +button({
-                        class: 'button-icon accordion__action',
-                        dataPopupName: 'delete-file',
-                        icon: 'other-trash-icon',
-                        isOnlyIcon: true,
-                        view: 'button',
-                      })
-                  .accordion__item
-                    .accordion__left
-                      .accordion__left__container
-                        .accordion__icon.accordion__icon-sm
-                          svg
-                            use(xlink:href="#other-file-icon")
-                        a(href="#" download) Креативы new.zip
-                        time 54 KB • 24 янв. 15:10
-                    .accordion__right
-                      +button({
-                        class: 'button-icon accordion__action',
-                        href: '#',
-                        icon: 'other-download-icon',
-                        isDownload: true,
-                        isOnlyIcon: true,
-                        view: 'link',
-                      })
-                      +button({
-                        class: 'button-icon accordion__action',
-                        dataPopupName: 'delete-file',
-                        icon: 'other-trash-icon',
-                        isOnlyIcon: true,
-                        view: 'button',
-                      })
-        .selector__container(data-id="posts")
-          .content-aside-feed
-            .content-aside-feed__heading
-              .content-aside-feed__title
-                img(src="/assets/images/avatar.png" alt="avatar")
-                h3 ZeroDay | Кибербезопасность
-              +button({
-                class: 'button-icon content-aside-feed__filter__trigger',
-                icon: 'other-controls-icon',
-                isOnlyIcon: true,
-                view: 'button',
-              })
-            .content-aside-feed__filter
-              h3 Фильтр
-              +input({
-                class: 'input-checkbox-with-label content-aside-feed__filter__checkbox',
-                isLabel: true,
-                label: 'скрывать удаленные',
-                type: 'checkbox',
-                value: 'скрывать удаленные',
-              })
-            .content-aside__container
-              .content-aside-feed__posts
-                .content-aside-feed__post.content-aside-feed__post-deleted
-                  .content-aside-feed__header
-                    .content-aside-feed__date 28 Ноября, 15:30
-                    .content-aside-feed__status
-                      span Пост удален
+          .accordions
+            .accordion
+              .accordion__button(data-id="links")
+                p Ссылки
+                  span.accordion__count 2
+                +button({
+                  class: 'button-icon sm',
+                  icon: 'other-angle-down-icon',
+                  isOnlyIcon: true,
+                  view: 'button',
+                })
+              .accordion__container(data-id="links")
+                .accordion__item
+                  .accordion__left
+                    .accordion__left__container
+                      .accordion__icon.accordion__icon-sm
+                        svg
+                          use(xlink:href="#other-attachment-icon")
+                      a(href="https://app.asana.com/" target="_blank") https://app.asana.com/
+                      time 24 янв. 15:10
+                  .accordion__right
+                    +button({
+                      class: 'button-icon accordion__action accordion__copy',
+                      icon: 'other-copy-icon',
+                      isOnlyIcon: true,
+                      view: 'button',
+                    })
+                    +button({
+                      class: 'button-icon accordion__action',
+                      dataPopupName: 'delete-link',
+                      icon: 'other-trash-icon',
+                      isOnlyIcon: true,
+                      view: 'button',
+                    })
+                .accordion__item
+                  .accordion__left
+                    .accordion__left__container
+                      .accordion__icon.accordion__icon-sm
+                        svg
+                          use(xlink:href="#other-attachment-icon")
+                      a(href="https://app.asana.com/" target="_blank") https://app.asana.com/
+                      time 24 янв. 15:10
+                  .accordion__right
+                    +button({
+                      class: 'button-icon accordion__action accordion__copy',
+                      icon: 'other-copy-icon',
+                      isOnlyIcon: true,
+                      view: 'button',
+                    })
+                    +button({
+                      class: 'button-icon accordion__action',
+                      dataPopupName: 'delete-link',
+                      icon: 'other-trash-icon',
+                      isOnlyIcon: true,
+                      view: 'button',
+                    })
+            .accordion
+              .accordion__button(data-id="files")
+                p Файлы
+                  span.accordion__count 2
+                +button({
+                  class: 'button-icon sm',
+                  icon: 'other-angle-down-icon',
+                  isOnlyIcon: true,
+                  view: 'button',
+                })
+              .accordion__container(data-id="files")
+                .accordion__item
+                  .accordion__left
+                    .accordion__left__container
+                      .accordion__icon.accordion__icon-sm
+                        svg
+                          use(xlink:href="#other-file-icon")
+                      a(href="#" download) Креативы.zip
+                      time 54 KB • 24 янв. 15:10
+                  .accordion__right
+                    +button({
+                      class: 'button-icon accordion__action',
+                      href: '#',
+                      icon: 'other-download-icon',
+                      isDownload: true,
+                      isOnlyIcon: true,
+                      view: 'link',
+                    })
+                    +button({
+                      class: 'button-icon accordion__action',
+                      dataPopupName: 'delete-file',
+                      icon: 'other-trash-icon',
+                      isOnlyIcon: true,
+                      view: 'button',
+                    })
+                .accordion__item
+                  .accordion__left
+                    .accordion__left__container
+                      .accordion__icon.accordion__icon-sm
+                        svg
+                          use(xlink:href="#other-file-icon")
+                      a(href="#" download) Креативы new.zip
+                      time 54 KB • 24 янв. 15:10
+                  .accordion__right
+                    +button({
+                      class: 'button-icon accordion__action',
+                      href: '#',
+                      icon: 'other-download-icon',
+                      isDownload: true,
+                      isOnlyIcon: true,
+                      view: 'link',
+                    })
+                    +button({
+                      class: 'button-icon accordion__action',
+                      dataPopupName: 'delete-file',
+                      icon: 'other-trash-icon',
+                      isOnlyIcon: true,
+                      view: 'button',
+                    })
+      .selector__container(data-id="posts")
+        .content-aside-feed
+          .content-aside-feed__heading
+            .content-aside-feed__title
+              img(src="/assets/images/avatar.png" alt="avatar")
+              h3 ZeroDay | Кибербезопасность
+            +button({
+              class: 'button-icon content-aside-feed__filter__trigger',
+              icon: 'other-controls-icon',
+              isOnlyIcon: true,
+              view: 'button',
+            })
+          .content-aside-feed__filter
+            h3 Фильтр
+            +input({
+              class: 'input-checkbox-with-label content-aside-feed__filter__checkbox',
+              isLabel: true,
+              label: 'скрывать удаленные',
+              type: 'checkbox',
+              value: 'скрывать удаленные',
+            })
+          .content-aside__container
+            .content-aside-feed__posts
+              .content-aside-feed__post.content-aside-feed__post-deleted
+                .content-aside-feed__header
+                  .content-aside-feed__date 28 Ноября, 15:30
+                  .content-aside-feed__status
+                    span Пост удален
+                    svg
+                      use(xlink:href="#other-info-icon")
+                .content-aside-feed__image
+                  img(src="/assets/images/aside-feed.svg" alt="aside-feed")
+                .content-aside-feed__description
+                  p Стиральная машина для людей. Производитель душевых леек из Японии Science Co. собрал протоип машины, в которой можно постирать человека. Изобретение назвали Mirai Ningen Sentakuki.
+                  p Ванна наполняется водой автоматически, как только в нее садится человек. Стирка и сушка занимает 15 минут.
+                .content-aside-feed__footer
+                  .content-aside-feed__stats
+                    .content-aside-feed__stat
                       svg
-                        use(xlink:href="#other-info-icon")
-                  .content-aside-feed__image
-                    img(src="/assets/images/aside-feed.svg" alt="aside-feed")
-                  .content-aside-feed__description
-                    p Стиральная машина для людей. Производитель душевых леек из Японии Science Co. собрал протоип машины, в которой можно постирать человека. Изобретение назвали Mirai Ningen Sentakuki.
-                    p Ванна наполняется водой автоматически, как только в нее садится человек. Стирка и сушка занимает 15 минут.
-                  .content-aside-feed__footer
-                    .content-aside-feed__stats
-                      .content-aside-feed__stat
-                        svg
-                          use(xlink:href="#other-eye-icon")
-                        span 50,1k
-                      .content-aside-feed__stat
-                        svg
-                          use(xlink:href="#other-thumbs-up-icon")
-                        span 500
-                      .content-aside-feed__stat
-                        svg
-                          use(xlink:href="#other-comment-icon")
-                        span 500
-                    .content-aside-feed__links
-                      +button({
-                        class: 'button-icon',
-                        icon: 'other-telegram-icon',
-                        isOnlyIcon: true,
-                        view: 'button',
-                      })
-                      +button({
-                        class: 'button-icon',
-                        dataPopupName: 'share-post',
-                        icon: 'other-share-icon',
-                        isOnlyIcon: true,
-                        view: 'button',
-                      })
-                .content-aside-feed__post
-                  .content-aside-feed__header
-                    .content-aside-feed__date 28 Ноября, 15:30
-                  .content-aside-feed__image
-                    img(src="/assets/images/aside-feed.svg" alt="aside-feed")
-                  .content-aside-feed__description
-                    p <strong>🥤 БЕЛУЮ Колу выпустили в России.</strong> Новинку от Черноголовки со вкусом мороженого уже можно найти на полках.
-                    p Что ты такое
-                  .content-aside-feed__footer
-                    .content-aside-feed__stats
-                      .content-aside-feed__stat
-                        svg
-                          use(xlink:href="#other-eye-icon")
-                        span 50,1k
-                      .content-aside-feed__stat
-                        svg
-                          use(xlink:href="#other-thumbs-up-icon")
-                        span 500
-                      .content-aside-feed__stat
-                        svg
-                          use(xlink:href="#other-comment-icon")
-                        span 500
-                    .content-aside-feed__links
-                      +button({
-                        class: 'button-icon',
-                        icon: 'other-telegram-icon',
-                        isOnlyIcon: true,
-                        view: 'button',
-                      })
-                      +button({
-                        class: 'button-icon',
-                        dataPopupName: 'share-post',
-                        icon: 'other-share-icon',
-                        isOnlyIcon: true,
-                        view: 'button',
-                      })
-        .selector__container(data-id="chat")
-          .my-6.text-14-sb-p.text-black-400 В разработке
+                        use(xlink:href="#other-eye-icon")
+                      span 50,1k
+                    .content-aside-feed__stat
+                      svg
+                        use(xlink:href="#other-thumbs-up-icon")
+                      span 500
+                    .content-aside-feed__stat
+                      svg
+                        use(xlink:href="#other-comment-icon")
+                      span 500
+                  .content-aside-feed__links
+                    +button({
+                      class: 'button-icon',
+                      icon: 'other-telegram-icon',
+                      isOnlyIcon: true,
+                      view: 'button',
+                    })
+                    +button({
+                      class: 'button-icon',
+                      dataPopupName: 'share-post',
+                      icon: 'other-share-icon',
+                      isOnlyIcon: true,
+                      view: 'button',
+                    })
+              .content-aside-feed__post
+                .content-aside-feed__header
+                  .content-aside-feed__date 28 Ноября, 15:30
+                .content-aside-feed__image
+                  img(src="/assets/images/aside-feed.svg" alt="aside-feed")
+                .content-aside-feed__description
+                  p <strong>🥤 БЕЛУЮ Колу выпустили в России.</strong> Новинку от Черноголовки со вкусом мороженого уже можно найти на полках.
+                  p Что ты такое
+                .content-aside-feed__footer
+                  .content-aside-feed__stats
+                    .content-aside-feed__stat
+                      svg
+                        use(xlink:href="#other-eye-icon")
+                      span 50,1k
+                    .content-aside-feed__stat
+                      svg
+                        use(xlink:href="#other-thumbs-up-icon")
+                      span 500
+                    .content-aside-feed__stat
+                      svg
+                        use(xlink:href="#other-comment-icon")
+                      span 500
+                  .content-aside-feed__links
+                    +button({
+                      class: 'button-icon',
+                      icon: 'other-telegram-icon',
+                      isOnlyIcon: true,
+                      view: 'button',
+                    })
+                    +button({
+                      class: 'button-icon',
+                      dataPopupName: 'share-post',
+                      icon: 'other-share-icon',
+                      isOnlyIcon: true,
+                      view: 'button',
+                    })
+      .selector__container(data-id="chat")
+        .my-6.text-14-sb-p.text-black-400 В разработке
