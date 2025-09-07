@@ -816,6 +816,7 @@
           }
           @apply bg-transparent px-1.5 py-1 border-none h-[30px] transition-all duration-300;
         }
+        @apply w-auto;
       }
     }
   }
