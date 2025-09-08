@@ -2,7 +2,7 @@ function addTag() {
   let $popup = $('.popup[data-popup-name="add-tag"]');
   let $textarea = $popup.find('.popup__textarea');
   let $placeholder = $popup.find('.popup__placeholder');
-  let $saveBtn = $popup.find('.popup__buttons button[type="submit"]'); // кнопка "Сохранить"
+  let $saveBtn = $popup.find('.popup__buttons button[type="submit"]');
 
   function placeCursorAtEnd(el) {
     let range = document.createRange();
@@ -14,7 +14,6 @@ function addTag() {
     el.focus();
   }
 
-  // === placeholder
   $textarea.on('focus blur input', function() {
     if ($textarea.find('.popup__tag').length > 0 || $textarea.text().trim().length > 0) {
       $placeholder.hide();
@@ -23,21 +22,17 @@ function addTag() {
     }
   });
 
-  // === ограничение длины при вводе + автоподстановка #
   $textarea.on('beforeinput', function(event) {
-    // Разрешаем удаление
     if (event.inputType === 'deleteContentBackward' || event.inputType === 'deleteContentForward') {
       return;
     }
 
-    // Получаем последний текстовый узел
     let textNodes = $textarea.contents().filter(function() {
-      return this.nodeType === 3; // текстовые узлы
+      return this.nodeType === 3;
     });
 
     let lastText = textNodes.length > 0 ? textNodes.last()[0].nodeValue : "";
 
-    // === если первый ввод не "#"
     if (lastText.length === 0 && event.data && event.data !== '#') {
       event.preventDefault();
       $textarea.append('#' + event.data);
@@ -45,20 +40,16 @@ function addTag() {
       return;
     }
 
-    // === если просто начали печатать без "#"
     if (lastText.length === 0 && event.data === '#') {
-      // разрешаем, но лимитируем длину
       return;
     }
 
-    // ограничение длины (без учёта #)
     let cleanText = lastText.replace(/^#/, '');
     if (cleanText.length >= 30) {
       event.preventDefault();
     }
   });
 
-  // === добавление тега по Enter или Space
   $textarea.on('keydown', function(event) {
     if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault();
@@ -125,17 +116,16 @@ function addTag() {
     `;
     $textarea.append(tagHtml);
 
-    checkItemsCount(); // Проверяем количество ПОСЛЕ добавления
+    checkItemsCount();
     placeCursorAtEnd($textarea[0]);
   }
 
-  // удаление по крестику - ИСПРАВЛЕННЫЙ КОД
   $textarea.on('click', '.popup__tag .button-close', function() {
     $(this).closest('.popup__tag').remove();
     if ($textarea.find('.popup__tag').length === 0) {
       $placeholder.show();
     }
-    checkItemsCount(); // Проверяем количество ПОСЛЕ удаления
+    checkItemsCount();
     placeCursorAtEnd($textarea[0]);
   });
 
@@ -150,14 +140,12 @@ function addTag() {
       }
   }
 
-  // удаление тегов вручную
   $(document).on('click', '.tag__item .button-close', function() {
       $(this).closest('.tag__item').remove();
       toggleShowAllButton();
       checkItemsCount();
   });
   
-  // сохранить
   $saveBtn.on('click', function(e) {
     e.preventDefault();
     $('.popup__textarea').css('background-color', '#FBFBFB');

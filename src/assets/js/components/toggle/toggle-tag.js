@@ -33,10 +33,11 @@ function toggleTag() {
             $(this).prop('checked', false);
             lastChecked = null;
             updateFormState();
+            $saveBtn.prop('disabled', true);
         } else {
             lastChecked = this;
+            $saveBtn.prop('disabled', false);
         }
-        $saveBtn.prop('disabled', false);
     });
 
     // Обработка изменения radio

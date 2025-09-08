@@ -29,21 +29,14 @@ function toggleAdvertisingGroup() {
       $groups.addClass("active").find(".advertising-group__toggle input").prop("checked", true);
       $(this).addClass("active");
     } else {
-      // Нужно дважды нажать, чтобы закрыть все
-      if ($(this).data("closing")) {
-        $groups.removeClass("active").find(".advertising-group__toggle input").prop("checked", false);
-        $(this).removeClass("active").removeData("closing");
-      } else {
-        // Первый клик — ставим флаг
-        $(this).data("closing", true);
-        setTimeout(() => {
-          $(this).removeData("closing");
-        }, 800); // в течение 800 мс второй клик закроет все
-      }
+      // Закрыть все
+      $groups.removeClass("active").find(".advertising-group__toggle input").prop("checked", false);
+      $(this).removeClass("active");
     }
 
     applyFixedColsPadding();
     applyDefaultTablePadding();
   });
 }
+
 toggleAdvertisingGroup();
