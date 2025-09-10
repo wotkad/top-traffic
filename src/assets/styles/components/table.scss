@@ -769,9 +769,6 @@
         }
         @apply bg-purple-300;
       }
-      &:hover .advertising-group__table {
-        @apply bg-white-000;
-      }
       td.advertising-group__table {
         @apply pt-0 pb-2 pl-10;
       }
@@ -812,7 +809,6 @@
             .button {
               @apply opacity-100;
             }
-            // @apply bg-black-600;
           }
           @apply bg-transparent px-1.5 py-1 border-none h-[30px] transition-all duration-300;
         }

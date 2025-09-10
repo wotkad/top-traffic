@@ -65,9 +65,6 @@
     }
     tbody {
       tr {
-        &:nth-child(2n) {
-          @apply bg-black-700;
-        }
         &:after {
           @apply top-[23px] -left-[25px] absolute bg-black-500 w-[25px] h-px content-[''];
         }
@@ -76,10 +73,27 @@
     }
   }
   &.active {
-    .advertising-group__toggle {
-      label {
-        span {
-          @apply min-w-4;
+    &:nth-child(4n+1) {
+      & + tr {
+        &:hover {
+          @apply bg-black-700;
+        }
+        & > td:first-child:before {
+          @apply bg-black-700;
+        }
+        @apply bg-black-700;
+      }
+      &:hover {
+        @apply bg-black-700;
+      }
+      @apply bg-black-700;
+    }
+    .advertising-group {
+      &__toggle {
+        label {
+          span {
+            @apply min-w-4;
+          }
         }
       }
     }
