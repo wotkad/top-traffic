@@ -73,7 +73,7 @@
     }
   }
   &.active {
-    &:nth-child(4n+1) {
+    &:nth-child(4n + 3) {
       & + tr {
         &:hover {
           @apply bg-black-700;
