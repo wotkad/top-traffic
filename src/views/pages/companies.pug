@@ -1,0 +1,50 @@
+extends ../layouts/master
+
+block title
+  title Топ Трафик | Рекламные компании
+
+block basicSeo
+  meta(content="Рекламные компании" name="description")
+  meta(content="Рекламные компании" name="keywords")
+  meta(content="Рекламные компании" property="og:title")
+  meta(content="Рекламные компании" name="twitter:title")
+
+block content
+  main.page
+    include ../components/sidebar
+    include ../components/header
+    .wrapper
+      +heading-table({
+        title: 'Рекламные кампании',
+        count: '50',
+        isCalendar: true,
+        searchClass: 'min-w-[243px] max-w-[243px]',
+        isMonthPicker: true,
+        isDatePicker: false,
+        isSearch: true,
+        isRows: true,
+        buttons: [
+          {
+            view: 'link',
+            class: 'button-with-icon',
+            icon: 'other-download-icon',
+            title: 'Скачать',
+            isDownload: true,
+          },
+          {
+            view: 'button',
+            class: 'button-with-icon filter__toggle',
+            icon: 'other-controls-icon',
+            title: 'Фильтр',
+            isClose: true,
+            dataFilterName: 'companies',
+          },
+        ],
+      })
+      .inner.in-container
+        .content.content-collapsed
+          .content-scroll
+            include ../components/companies/table
+          .mt-12
+            include ../components/pagination
+        include ../components/companies/filter

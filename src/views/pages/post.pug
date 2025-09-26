@@ -1,0 +1,61 @@
+extends ../layouts/master
+
+block title
+  title Топ Трафик | Публикация
+
+block basicSeo
+  meta(content="Публикация" name="description")
+  meta(content="Публикация" name="keywords")
+  meta(content="Публикация" property="og:title")
+  meta(content="Публикация" name="twitter:title")
+
+block content
+  main.page.page-post
+    .post__bg
+      img(src="/assets/images/post-bg.png" alt="post-bg")
+    include ../components/header-post
+    .post
+      .post__wrapper
+        .content-aside-feed__post.content-aside-feed__post-deleted
+          .popup__avatar
+            img(src="/assets/images/avatar.png" alt="avatar")
+          .popup__title ZeroDay | Кибербезопасность
+          .popup__date 28 ноября 2024, 15:35
+          .content-aside-feed__image
+            img(src="/assets/images/aside-feed.svg" alt="aside-feed")
+          .content-aside-feed__description
+            p Стиральная машина для людей. Производитель душевых леек из Японии Science Co. собрал протоип машины, в которой можно постирать человека. Изобретение назвали Mirai Ningen Sentakuki.
+            p Ванна наполняется водой автоматически, как только в нее садится человек. Стирка и сушка занимает 15 минут.
+          .content-aside-feed__footer
+            .content-aside-feed__stats
+              .content-aside-feed__stat
+                svg
+                  use(xlink:href="#other-eye-icon")
+                span 50,1k
+              .content-aside-feed__stat
+                svg
+                  use(xlink:href="#other-thumbs-up-icon")
+                span 500
+              .content-aside-feed__stat
+                svg
+                  use(xlink:href="#other-comment-icon")
+                span 500
+            .content-aside-feed__links
+              +button({
+                class: 'button-icon',
+                icon: 'other-telegram-icon',
+                isOnlyIcon: true,
+                view: 'button',
+              })
+              +button({
+                class: 'button-icon',
+                dataPopupName: 'share-post',
+                icon: 'other-share-icon',
+                isOnlyIcon: true,
+                view: 'button',
+              })
+          .content-aside-feed__header
+            .content-aside-feed__status
+              span Пост удален
+              svg
+                use(xlink:href="#other-info-icon")
