@@ -308,6 +308,12 @@ mixin dropdown(data = {})
               view: 'button',
             })
 
+        else if (modefied.isFilterFormat)
+          each button, index in modefied.buttons
+            label.dropdown__item
+              input(type="radio" name=`radio-${button.name}` checked=button.isChecked class=button.isChecked ? 'filled' : '')
+              p(data-title=button.dataTitle)= button.title
+
         else
           each button, index in modefied.buttons
             label.dropdown__item

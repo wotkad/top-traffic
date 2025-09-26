@@ -1,3 +1,4 @@
+import "jquery-ui/themes/base/all.css";
 import "./assets/styles/app.scss";
 
 if (module.hot) {

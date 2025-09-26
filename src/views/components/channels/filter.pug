@@ -126,63 +126,203 @@ aside.filter(data-filter-name="channels")
         isResults: true,
       })
       h3.filter__subtitle Формат (GS)
-      +dropdown({
-        checkboxes: [
-          {
-            class: 'check-all',
-            title: 'Все',
-          },
-          {
-            title: 'Банки',
-          },
-          {
-            title: 'Банки',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Банки',
-          },
-          {
-            title: 'Банки',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-        ],
-        class: 'dropdown-checkboxes',
-        isAll: true,
-        isCheckboxes: true,
-        isResults: true,
-      })
+        button(type="button").filter__clean
+          svg.expanded
+            use(xlink:href="#other-close-icon")
+      h4.filter__subsubtitle В топе
+      .filter__format
+        .filter__slider
+          .filter__slider__header
+            span От
+            .filter__slider__values
+              input#top-range-min(type="number" placeholder="0" max="100")
+              +dropdown({
+                buttons: [
+                  {
+                    dataTitle: 'мин',
+                    isChecked: true,
+                    name: 'channels-radio-1',
+                    title: 'минуты',
+                  },
+                  {
+                    dataTitle: 'час',
+                    name: 'channels-radio-1',
+                    title: 'часы',
+                  },
+                  {
+                    dataTitle: 'дни',
+                    name: 'channels-radio-1',
+                    title: 'дни',
+                  },
+                  {
+                    dataTitle: 'нед',
+                    name: 'channels-radio-1',
+                    title: 'недели',
+                  },
+                  {
+                    dataTitle: 'мес',
+                    name: 'channels-radio-1',
+                    title: 'месяцы',
+                  },
+                ],
+                class: 'dropdown-filter-format',
+                isFilterFormat: true,
+                title: 'мин',
+              })
+          #slider-top-range-min
+        .filter__slider
+          .filter__slider__header
+            span До
+            .filter__slider__values
+              input#top-range-max(type="number" placeholder="0" max="100")
+              +dropdown({
+                buttons: [
+                  {
+                    dataTitle: 'мин',
+                    isChecked: true,
+                    name: 'channels-radio-2',
+                    title: 'минуты',
+                  },
+                  {
+                    dataTitle: 'час',
+                    name: 'channels-radio-2',
+                    title: 'часы',
+                  },
+                  {
+                    dataTitle: 'дни',
+                    name: 'channels-radio-2',
+                    title: 'дни',
+                  },
+                  {
+                    dataTitle: 'нед',
+                    name: 'channels-radio-2',
+                    title: 'недели',
+                  },
+                  {
+                    dataTitle: 'мес',
+                    name: 'channels-radio-2',
+                    title: 'месяцы',
+                  },
+                ],
+                class: 'dropdown-filter-format',
+                isFilterFormat: true,
+                title: 'мин',
+              })
+          #slider-top-range-max
+        .filter__formats
+          +input({
+            class: 'input-checkbox-with-label',
+            isLabel: true,
+            label: 'До утра',
+            name: 'format-top',
+            type: 'radio',
+            value: 'До утра',
+          })
+          +input({
+            class: 'input-checkbox-with-label',
+            isLabel: true,
+            label: 'Без топ',
+            name: 'format-top',
+            type: 'radio',
+            value: 'Без топ',
+          })
+      h4.filter__subsubtitle Без удаления
+      .filter__format
+        .filter__slider
+          .filter__slider__header
+            span От
+            .filter__slider__values
+              input#remove-range-min(type="number" placeholder="0" max="100")
+              +dropdown({
+                buttons: [
+                  {
+                    dataTitle: 'мин',
+                    isChecked: true,
+                    name: 'channels-radio-3',
+                    title: 'минуты',
+                  },
+                  {
+                    dataTitle: 'час',
+                    name: 'channels-radio-3',
+                    title: 'часы',
+                  },
+                  {
+                    dataTitle: 'дни',
+                    name: 'channels-radio-3',
+                    title: 'дни',
+                  },
+                  {
+                    dataTitle: 'нед',
+                    name: 'channels-radio-3',
+                    title: 'недели',
+                  },
+                  {
+                    dataTitle: 'мес',
+                    name: 'channels-radio-3',
+                    title: 'месяцы',
+                  },
+                ],
+                class: 'dropdown-filter-format',
+                isFilterFormat: true,
+                title: 'мин',
+              })
+          #slider-remove-range-min
+        .filter__slider
+          .filter__slider__header
+            span До
+            .filter__slider__values
+              input#remove-range-max(type="number" placeholder="0" max="100")
+              +dropdown({
+                buttons: [
+                  {
+                    dataTitle: 'мин',
+                    isChecked: true,
+                    name: 'channels-radio-4',
+                    title: 'минуты',
+                  },
+                  {
+                    dataTitle: 'час',
+                    name: 'channels-radio-4',
+                    title: 'часы',
+                  },
+                  {
+                    dataTitle: 'дни',
+                    name: 'channels-radio-4',
+                    title: 'дни',
+                  },
+                  {
+                    dataTitle: 'нед',
+                    name: 'channels-radio-4',
+                    title: 'недели',
+                  },
+                  {
+                    dataTitle: 'мес',
+                    name: 'channels-radio-4',
+                    title: 'месяцы',
+                  },
+                ],
+                class: 'dropdown-filter-format',
+                isFilterFormat: true,
+                title: 'мин',
+              })
+          #slider-remove-range-max
+        .filter__formats
+          +input({
+            class: 'input-checkbox-with-label',
+            isLabel: true,
+            label: 'До утра',
+            name: 'format-remove',
+            type: 'radio',
+            value: 'До утра',
+          })
+          +input({
+            class: 'input-checkbox-with-label',
+            isLabel: true,
+            label: 'Без удаления',
+            name: 'format-remove',
+            type: 'radio',
+            value: 'Без удаления',
+          })
       h3.filter__subtitle Категория
       +dropdown({
         checkboxes: [

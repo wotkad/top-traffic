@@ -29,10 +29,68 @@
     @apply relative px-6 pt-5 pb-10 overflow-y-auto;
   }
   &__subtitle {
-    @apply mt-4 mb-2 text-12-sb-p text-black-200;
+    @apply flex items-center gap-x-2 mt-4 mb-2 text-12-sb-p text-black-200;
+  }
+  &__subsubtitle {
+    @apply mt-2.5 mb-2 text-12-sb-p text-black-100;
   }
   &__title {
     @apply flex justify-between items-center text-12-sb;
+  }
+  &__slider {
+    &__values {
+      .dropdown {
+        &__title {
+          @apply leading-[14px];
+        }
+        &__inner {
+          @apply pr-5;
+        }
+        .button {
+          &:hover {
+            @apply bg-transparent;
+          }
+          @apply top-0 bg-transparent;
+        }
+        @apply pt-[2px] pr-[3px] pb-1 pl-[7px] border border-black-500 rounded-[5px] w-auto min-w-[54px];
+      }
+      input {
+        @apply px-[7px] py-px border border-black-500 rounded-[5px] w-6 min-w-6 text-12-m-md text-center;
+      }
+      @apply flex items-center gap-x-1;
+    }
+    &__header {
+      span {
+        @apply text-12-sb text-black-200;
+      }
+      @apply flex justify-between items-center;
+    }
+    .ui-widget-content,
+    .ui-widget-header {
+      @apply bg-blue-400 border-none h-1.5;
+    }
+    .ui-slider-horizontal .ui-slider-handle {
+      @apply -top-[3.5px] bg-white-000 -ml-[6.5px] border-[3px] border-blue-400 rounded-full w-[13px] h-[13px];
+    }
+    .ui-widget.ui-widget-content {
+      @apply bg-black-500 border-none;
+    }
+    @apply flex flex-col gap-y-[7px];
+  }
+  &__clean {
+    svg {
+      @apply text-black-200 transition-all duration-300;
+    }
+    &:hover,
+    &:active {
+      svg {
+        @apply text-black-100;
+      }
+    }
+    &.active {
+      @apply block;
+    }
+    @apply hidden cursor-pointer;
   }
   &__clear {
     &:hover {
@@ -45,6 +103,12 @@
   }
   &__checkboxes {
     @apply flex flex-col items-start gap-y-1.5 mt-5;
+  }
+  &__formats {
+    @apply flex items-start gap-x-3.5;
+  }
+  &__format {
+    @apply flex flex-col gap-[15px] mb-4;
   }
   &__button {
     @apply mt-[37px] relative left-1/2 -translate-x-1/2;
@@ -75,12 +139,12 @@
   }
   &.visible-top {
     &:before {
-      @apply z-10 opacity-100 visible;
+      @apply visible z-10 opacity-100;
     }
   }
   &.visible-bottom {
     &:after {
-      @apply z-10 opacity-100 visible;
+      @apply visible z-10 opacity-100;
     }
   }
   &-sm {

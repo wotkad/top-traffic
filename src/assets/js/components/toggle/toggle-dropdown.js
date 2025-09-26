@@ -239,6 +239,7 @@ export default function toggleDropdown() {
         $secondInput.next().find('.dropdown__button').removeClass('changed');
         $secondInput.next().find('.dropdown__button .dropdown__title').text('');
         $secondInput.next().find('.dropdown__list').find('.dropdown__item input').removeClass('filled').removeAttr('checked').prop('checked', false);
+
       }
     }
 
@@ -919,7 +920,7 @@ export default function toggleDropdown() {
     if ($valuesContainer.children('.dropdown__value').length === 0) {
       $sortBlock.hide().removeClass('active');
       $buttonBlock.show().removeClass('active');
-      $button.removeClass('sorted');
+      // $button.removeClass('sorted'); // Удалить или закомментировать эту строку
     }
 
     if ($dropdown.closest('.filter__container').length) {

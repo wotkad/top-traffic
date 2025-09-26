@@ -2,7 +2,7 @@ mixin input(data = {})
   - const { defaults, mergeConfig } = require('/assets/js/_defaults/input/_defaults');
   - const modefied = mergeConfig(data, defaults);
 
-  if modefied.isLabel && modefied.type !== 'checkbox' && !modefied.isTextarea && modefied.type !== 'password'
+  if modefied.isLabel && modefied.type !== 'checkbox' && !modefied.isTextarea && modefied.type !== 'password' && modefied.name !== 'format-remove' && modefied.name !== 'format-top'
     label.input.input-with-label
       .input__label= modefied.label
         if modefied.isRequired
@@ -90,6 +90,8 @@ mixin input(data = {})
       label(class="input-checkbox " + modefied.class)
         input(type="radio" name=modefied.name checked=modefied.isChecked value=modefied.value class=modefied.class)
         span
+        if modefied.isLabel
+          p= modefied.label
 
   else if !modefied.isLabel
     label.input
