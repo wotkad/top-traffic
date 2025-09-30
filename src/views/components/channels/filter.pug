@@ -125,7 +125,7 @@ aside.filter(data-filter-name="channels")
         isCheckboxes: true,
         isResults: true,
       })
-      h3.filter__subtitle Формат (GS)
+      h3.filter__subtitle Формат
         button(type="button").filter__clean
           svg.expanded
             use(xlink:href="#other-close-icon")
@@ -135,7 +135,7 @@ aside.filter(data-filter-name="channels")
           .filter__slider__header
             span От
             .filter__slider__values
-              input#top-range-min(type="number" placeholder="0" max="100")
+              input#top-range-min(type="text" placeholder="0")
               +dropdown({
                 buttons: [
                   {
@@ -150,7 +150,7 @@ aside.filter(data-filter-name="channels")
                     title: 'часы',
                   },
                   {
-                    dataTitle: 'дни',
+                    dataTitle: 'дн',
                     name: 'channels-radio-1',
                     title: 'дни',
                   },
@@ -174,7 +174,7 @@ aside.filter(data-filter-name="channels")
           .filter__slider__header
             span До
             .filter__slider__values
-              input#top-range-max(type="number" placeholder="0" max="100")
+              input#top-range-max(type="text" placeholder="0")
               +dropdown({
                 buttons: [
                   {
@@ -221,10 +221,10 @@ aside.filter(data-filter-name="channels")
           +input({
             class: 'input-checkbox-with-label',
             isLabel: true,
-            label: 'Без топ',
+            label: 'Без топа',
             name: 'format-top',
             type: 'radio',
-            value: 'Без топ',
+            value: 'Без топа',
           })
       h4.filter__subsubtitle Без удаления
       .filter__format
@@ -232,7 +232,7 @@ aside.filter(data-filter-name="channels")
           .filter__slider__header
             span От
             .filter__slider__values
-              input#remove-range-min(type="number" placeholder="0" max="100")
+              input#remove-range-min(type="text" placeholder="0")
               +dropdown({
                 buttons: [
                   {
@@ -271,7 +271,7 @@ aside.filter(data-filter-name="channels")
           .filter__slider__header
             span До
             .filter__slider__values
-              input#remove-range-max(type="number" placeholder="0" max="100")
+              input#remove-range-max(type="text" placeholder="0")
               +dropdown({
                 buttons: [
                   {

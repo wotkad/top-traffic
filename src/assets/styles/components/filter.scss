@@ -75,6 +75,15 @@
     .ui-widget.ui-widget-content {
       @apply bg-black-500 border-none;
     }
+    .ui-slider {
+      &:before {
+        @apply -left-1.5 absolute bg-blue-400 rounded-[3px] w-3 h-full content-[''];
+      }
+      &:after {
+        @apply -right-1.5 absolute bg-gray-200 rounded-[3px] w-3 h-full content-[''];
+      }
+      @apply relative ml-1.5 max-w-[calc(100%-12px)];
+    }
     @apply flex flex-col gap-y-[7px];
   }
   &__clean {
