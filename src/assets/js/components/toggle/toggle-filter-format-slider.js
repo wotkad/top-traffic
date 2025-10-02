@@ -1,6 +1,30 @@
 import "jquery-ui/ui/widgets/slider";
 
 function toggleFilterFormatSlider() {
+  // Вспомогательная функция: получить числовое значение (∞ = 100)
+  function getSliderValue($input) {
+    const val = $input.val();
+    if (val === '∞') return 100;
+    const num = parseInt(val);
+    return isNaN(num) ? 0 : num;
+  }
+
+  // Проверка активности группы (слайдеры или radio)
+  function isGroupActive(inputMin, inputMax, radiosSelector) {
+    const minVal = getSliderValue($(inputMin));
+    const maxVal = getSliderValue($(inputMax));
+    const hasRadio = $(radiosSelector + ":checked").length > 0;
+    return minVal !== 0 || maxVal !== 0 || $(inputMin).val() === '∞' || $(inputMax).val() === '∞' || hasRadio;
+  }
+
+  // Проверка активности всех фильтров (для filter__clean)
+  function isAnyFilterActive() {
+    return (
+      isGroupActive("#top-range-min", "#top-range-max", 'input[name="format-top"]') ||
+      isGroupActive("#remove-range-min", "#remove-range-max", 'input[name="format-remove"]')
+    );
+  }
+
   // Универсальная функция инициализации слайдеров и радиокнопок
   function initFilterSlider(minSelector, maxSelector, inputMin, inputMax, radiosSelector, defaults) {
     const $filter = $(minSelector).closest('.filter');
@@ -18,19 +42,25 @@ function toggleFilterFormatSlider() {
       value: minDefault,
       slide: function(event, ui) {
         if (ui.value === 0) {
-          $(inputMin).val('');
-          $('.filter__clean').removeClass('active');
+          // только если оба = 0 очищаем
+          if (getSliderValue($(inputMax)) === 0) {
+            $(inputMin).val('');
+          } else {
+            $(inputMin).val(0);
+            if ($(inputMin).val() == 0) {
+              $(inputMin).val('');
+            }
+          }
+        } else if (ui.value === 100) {
+          $(inputMin).val('∞');
         } else {
           $(inputMin).val(ui.value);
-        }
-
-        if (ui.value >= 100) {
-          $(inputMin).val('∞');
         }
 
         autoResizeInput($(inputMin));
         autoResizeInput($(inputMax));
         resetRadios(radiosSelector);
+        updateFilterCleanVisibility();
         checkSliderValues();
       }
     });
@@ -43,51 +73,56 @@ function toggleFilterFormatSlider() {
       value: maxDefault,
       slide: function(event, ui) {
         if (ui.value === 0) {
-          $(inputMax).val('');
-          $('.filter__clean').removeClass('active');
+          // только если оба = 0 очищаем
+          if (getSliderValue($(inputMin)) === 0) {
+            $(inputMax).val('');
+          } else {
+            $(inputMax).val(0);
+            if ($(inputMax).val() == 0) {
+              $(inputMax).val('');
+            }
+          }
+        } else if (ui.value === 100) {
+          $(inputMax).val('∞');
         } else {
           $(inputMax).val(ui.value);
         }
-
-        if (ui.value >= 100) {
-          $(inputMax).val('∞');
-        }
-
         autoResizeInput($(inputMin));
         autoResizeInput($(inputMax));
         resetRadios(radiosSelector);
+        updateFilterCleanVisibility();
         checkSliderValues();
       }
     });
 
     // Изменение значений в input вручную
     $(inputMin + "," + inputMax).on("input", function() {
-      let minVal = parseInt($(inputMin).val()) || 0;
-      let maxVal = parseInt($(inputMax).val()) || 0;
+      let minVal = getSliderValue($(inputMin));
+      let maxVal = getSliderValue($(inputMax));
 
       $(minSelector).slider("value", minVal);
       $(maxSelector).slider("value", maxVal);
 
-      if (minVal === 0) {
+      // Очищаем только если оба значения в группе равны 0
+      if (minVal === 0 && maxVal === 0) {
         $(inputMin).val('');
-        $('.filter__clean').removeClass('active');
-      }
-
-      if (maxVal === 0) {
         $(inputMax).val('');
-        $('.filter__clean').removeClass('active');
+      } else {
+        if (minVal === 0) $(inputMin).val('');
+        if (maxVal === 0) $(inputMax).val('');
+        if (minVal >= 100) $(inputMin).val('∞');
+        if (maxVal >= 100) $(inputMax).val('∞');
       }
-
-      if (minVal >= 100) $(inputMin).val('∞');
-      if (maxVal >= 100) $(inputMax).val('∞');
 
       resetRadios(radiosSelector);
+      updateFilterCleanVisibility();
       checkSliderValues();
     });
 
     // Клик по радио сбрасывает слайдеры
     $(radiosSelector).on("change", function() {
       resetSliders(minSelector, maxSelector, inputMin, inputMax, minDefault, maxDefault);
+      updateFilterCleanVisibility();
       checkSliderValues();
     });
 
@@ -113,6 +148,18 @@ function toggleFilterFormatSlider() {
     $(radiosSelector).prop("checked", false);
   }
 
+  // Обновление видимости filter__clean с учетом обеих групп (исправлено: всегда проверяем обе группы)
+  function updateFilterCleanVisibility() {
+    // Проверяем активность обеих групп (слайдеры или radio)
+    const topActive = isGroupActive("#top-range-min", "#top-range-max", 'input[name="format-top"]');
+    const removeActive = isGroupActive("#remove-range-min", "#remove-range-max", 'input[name="format-remove"]');
+    if (topActive || removeActive) {
+      $('.filter__clean').addClass('active').show();
+    } else {
+      $('.filter__clean').removeClass('active').hide();
+    }
+  }
+
   // Сохраняем состояние до клика
   $(document).on('pointerdown mousedown', '.filter__formats input[type="radio"], .filter__formats input[type="checkbox"], .filter__formats label', function (e) {
     const $input = $(e.currentTarget).is('label')
@@ -122,7 +169,7 @@ function toggleFilterFormatSlider() {
     $input.data('wasChecked', !!$input.prop('checked'));
   });
 
-  // Обработка click
+  // Обработка click (исправлено: после изменения radio всегда обновляем видимость filter__clean)
   $(document).on('click', '.filter__formats input[type="radio"], .filter__formats input[type="checkbox"], .filter__formats label', function (e) {
     const $input = $(e.currentTarget).is('label')
       ? $(e.currentTarget).find('input[type="radio"], input[type="checkbox"]')
@@ -151,6 +198,7 @@ function toggleFilterFormatSlider() {
       $cleanButton.removeClass('active');
     }
 
+    updateFilterCleanVisibility(); // <-- всегда обновляем после любого клика по radio/checkbox
     $input.removeData('wasChecked');
   });
 
