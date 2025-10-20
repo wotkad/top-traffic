@@ -107,6 +107,11 @@ label.button {
   }
   &-with-icon-full {
     &.disabled {
+      svg {
+        path {
+          @apply fill-black-200 stroke-black-200;
+        }
+      }
       @apply text-black-200 cursor-not-allowed select-none;
     }
     &:active {

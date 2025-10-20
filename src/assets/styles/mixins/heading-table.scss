@@ -33,7 +33,8 @@
     .heading__left__checkboxes {
       @apply flex flex-col items-start gap-y-3;
     }
-    .heading__posts {
+    .heading__posts,
+    .heading__bills {
       &__title {
         @apply text-12-m-p;
       }

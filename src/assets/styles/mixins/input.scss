@@ -200,6 +200,18 @@
       }
       @apply h-[18px] min-h-[18px];
     }
+    &.base {
+      span {
+        &:before {
+          @apply w-[16px] min-w-[16px] h-[16px] min-h-[16px];
+        }
+        &:after {
+          @apply scale-125;
+        }
+        @apply w-[16px] min-w-[16px] h-[16px] min-h-[16px];
+      }
+      @apply h-[16px] min-h-[16px];
+    }
     &.md {
       span {
         &:before {

@@ -34,16 +34,18 @@ function tableAttachmentBill() {
 
       // Обновляем текст с именем файла
       $label.find(".table__attachedbill__value").text(fileName);
+
+      if (!$(this).closest('.table__attachedbill').hasClass('table__attachedbill-bill')) {
+        let timer = 0;
+
+        $('.upload-alert').addClass('active');
+
+        clearTimeout(timer);
+        setTimeout(function() {
+          $('.upload-alert').removeClass('active');
+        }, 8000);
+      }
     }
-
-    let timer = 0;
-
-    $('.upload-alert').addClass('active');
-
-    clearTimeout(timer);
-    setTimeout(function() {
-      $('.upload-alert').removeClass('active');
-    }, 8000);
 
     // Если файл не выбран или имя пустое — очищаем
     if ($label.find(".table__attachedbill__value").text() === "") {
