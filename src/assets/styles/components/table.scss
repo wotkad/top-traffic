@@ -1,4 +1,12 @@
 .table {
+  &-outer {
+    tr {
+      td {
+        @apply bg-white-000;
+      }
+    }
+    @apply pl-[25px] w-full max-w-[778px] overflow-x-auto;
+  }
   &.table-approval,
   &.table-coordination {
     .dropdown-radios {
@@ -35,8 +43,8 @@
     th .table__checkbox-accept {
       @apply pointer-events-none;
     }
-    th:nth-child(1),
-    td:nth-child(1) {
+    & > thead > tr > th:nth-child(1),
+    & > tbody > tr > td:nth-child(1) {
       &.fixed-th,
       &.fixed-td {
         padding-right: 0 !important;
@@ -46,13 +54,14 @@
       }
       @apply px-3 py-0 border-black-500 border-r;
     }
-    tr {
-      &:hover {
-        z-index: 1000 !important;
+    &.scrolled {
+      & > thead > tr > th:nth-child(1),
+      & > tbody > tr > td:nth-child(1) {
+        @apply border-r-0;
       }
     }
-    th:nth-child(2),
-    td:nth-child(2) {
+    & > thead > tr > th:nth-child(2),
+    & > tbody > tr > td:nth-child(2) {
       @apply pl-3;
     }
     td .dropdown {
@@ -314,7 +323,7 @@
     &-prev-checkbox {
       @apply left-[76px];
     }
-    @apply top-auto left-0 z-10 sticky bg-white-000 transition-all duration-300;
+    @apply top-auto left-0 z-10 sticky bg-white-000 transition-colors duration-300;
   }
   .fixed-subrow {
     @apply absolute flex justify-between items-center;
@@ -837,7 +846,7 @@
         svg {
           @apply w-4 h-4 text-black-200;
         }
-        @apply opacity-0 transition-all duration-300;
+        @apply opacity-0 transition-colors duration-300;
       }
       &.create-new-concept {
         .delete-concept {

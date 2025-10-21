@@ -34,6 +34,9 @@
     .dropdown__inner {
       @apply hidden;
     }
+    .dropdown__list {
+      @apply mt-1;
+    }
     .dropdown__button {
       @apply h-4;
     }

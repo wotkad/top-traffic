@@ -23,6 +23,14 @@
   }
 }
 .bills-group {
+  &.layered {
+    & > td {
+      &:after {
+        height: 47px;
+      }
+    }
+    @apply z-[1000];
+  }
   &__toggle {
     p {
       @apply mr-1;
@@ -59,20 +67,31 @@
     @apply z-20 relative flex items-center gap-x-[2px];
   }
   & + tr {
+    z-index: 10;
+    &:hover {
+      background: transparent !important;
+    }
     & > td {
       padding-right: 0 !important;
       &:first-child {
         &:before {
           @apply -top-px left-0 absolute bg-white-000 w-10 h-[2px] content-[''];
         }
-        &:after {
-          @apply -top-4 left-[15.5px] absolute bg-black-500 w-px h-[calc(100%-16px)] content-[''];
-        }
       }
     }
     @apply hidden relative;
   }
   &__table {
+    padding-left: 57px !important;
+    table {
+      min-width: min-content !important;
+      &:before {
+        @apply -top-px left-10 absolute bg-black-500 w-px h-[calc(100%+1px)] content-[''];
+      }
+      &:after {
+        @apply -top-[15px] left-[57px] absolute bg-black-500 w-px h-[calc(100%-16px)] content-[''];
+      }
+    }
     th:nth-child(1),
     td:nth-child(1) {
       .table__sortbutton {
@@ -82,10 +101,6 @@
     }
     td:nth-child(1) {
       @apply border-black-500 border-l;
-    }
-    th:nth-child(2),
-    td:nth-child(2) {
-      @apply pl-0;
     }
     .content-scroll {
       @apply pb-2;
@@ -128,10 +143,16 @@
       &:hover {
         @apply bg-transparent;
       }
-      @apply table-row;
+      @apply table-row pb-2.5;
     }
     & > td {
-      @apply border-purple-300;
+      background-color: transparent !important;
+      &:first-child {
+        &:before {
+          @apply z-0 absolute inset-0 bg-white-000 h-[46px] content-[''];
+        }
+      }
+      @apply border-b-0;
     }
     &:hover {
       @apply bg-transparent;

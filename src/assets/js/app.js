@@ -100,6 +100,7 @@ import "./components/toggle/toggle-table-concept";
 import "./components/toggle/toggle-adaptation";
 import "./components/toggle/toggle-tag";
 import "./components/toggle/toggle-advertising-group";
+import "./components/toggle/toggle-bills-group";
 import "./components/toggle/toggle-filter-format-slider";
 
 import "./components/scroll/scroll-to-top";

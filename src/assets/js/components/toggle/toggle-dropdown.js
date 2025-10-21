@@ -677,6 +677,7 @@ export default function toggleDropdown() {
           !$(e.target).closest('.dropdown-new-format').length) {
           $('.info-users__items').remove();
           $('.dropdown__list, .dropdown__sort, .dropdown__button').removeClass('active');
+          $('.bills-group').removeClass('layered');
       }
   });
 
