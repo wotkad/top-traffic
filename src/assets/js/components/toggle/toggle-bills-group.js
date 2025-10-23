@@ -27,7 +27,6 @@ function toggleBillsGroup() {
         position: "fixed",
         top: rowBottom + "px",
         left: $('.content-scroll').left + "px",
-        width: $row.outerWidth() + "px",
         zIndex: 100
       });
 
@@ -43,7 +42,6 @@ function toggleBillsGroup() {
         position: "",
         top: "",
         left: "",
-        width: "",
         zIndex: ""
       });
       $row.css("height", "");
@@ -82,7 +80,6 @@ function toggleBillsGroup() {
           position: "fixed",
           top: rowBottom + "px",
           left: $('.content-scroll').left + "px",
-          width: $row.outerWidth() + "px",
           zIndex: 100
         });
         $row.css("height", $row.outerHeight() + subrowHeight + "px");
@@ -93,7 +90,7 @@ function toggleBillsGroup() {
       $groups.removeClass("active").find(".bills-group__toggle input").prop("checked", false);
       $(this).removeClass("active");
       fixedRows.forEach(({ $row, subrow }) => {
-        subrow.css({ position: "", top: "", left: "", width: "", zIndex: "" });
+        subrow.css({ position: "", top: "", left: "", zIndex: "" });
         $row.css("height", "");
       });
       fixedRows.clear();

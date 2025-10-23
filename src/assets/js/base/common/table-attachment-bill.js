@@ -64,7 +64,7 @@ function tableAttachmentBill() {
 
     if (fileId) {
       // Присваиваем id кнопке подтверждения в попапе
-      $(".table__attachedbill__delete").attr("data-file-id", fileId);
+      $(".table__attachedbill__delete").attr("data-file-id", fileId).removeAttr('disabled');
     }
   });
 

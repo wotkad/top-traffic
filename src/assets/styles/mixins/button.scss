@@ -112,6 +112,10 @@ label.button {
           @apply fill-black-200 stroke-black-200;
         }
       }
+      &:hover,
+      &:active {
+        @apply bg-transparent text-black-200;
+      }
       @apply text-black-200 cursor-not-allowed select-none;
     }
     &:active {
