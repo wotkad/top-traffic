@@ -1,11 +1,16 @@
 import { applyDefaultTablePadding, applyFixedColsPadding } from '../../base/common/set-td-padding';
 
 function toggleBillsGroup() {
-  const $toggleAll = $(".heading__toggle");
-  const $groups = $(".bills-group");
+  const $toggleMain = $(".heading__toggle-main");
+  const $toggleSecondary = $(".heading__toggle-secondary");
+
   const fixedRows = new Map(); // для отслеживания открытых групп
 
   $('.heading__dropdown-base .dropdown__button').on('click', function() {
+    $(this).closest('.bills-group.active').toggleClass('layered')
+  });
+
+  $('.popup .bills-group .dropdown__button').on('click', function() {
     $(this).closest('.bills-group.active').toggleClass('layered')
   });
 
@@ -22,7 +27,8 @@ function toggleBillsGroup() {
       const rowBottom = rowOffset.top + $row.outerHeight();
       const subrowHeight = subrow.outerHeight();
 
-      // Фиксируем подстроку
+      $row.css("height", "");
+
       subrow.css({
         position: "fixed",
         top: rowBottom + "px",
@@ -30,45 +36,30 @@ function toggleBillsGroup() {
         zIndex: 100
       });
 
-      // Увеличиваем высоту основной строки
       $row.css("height", $row.outerHeight() + subrowHeight + "px");
       subrow.css("height", subrowHeight + "px");
 
-      // Сохраняем в список фиксированных строк
       fixedRows.set($row[0], { $row, subrow });
     } else {
-      // Сбрасываем всё
-      subrow.css({
-        position: "",
-        top: "",
-        left: "",
-        zIndex: ""
-      });
+      subrow.css({ position: "", top: "", left: "", zIndex: "" });
       $row.css("height", "");
-
-      // Удаляем из списка фиксированных строк
       fixedRows.delete($row[0]);
     }
-
-    // Проверяем состояние всех групп
-    if ($groups.length && $groups.find(".bills-group__toggle input:checked").length === $groups.length) {
-      $toggleAll.addClass("active");
-    } else {
-      $toggleAll.removeClass("active");
-    }
+    updatePos();
 
     applyFixedColsPadding();
     applyDefaultTablePadding();
   });
 
-  // Клик по общей кнопке
-  $toggleAll.on("click", function () {
+  // 🟢 Клик по главной кнопке — управляет только таблицей вне попапа
+  $toggleMain.on("click", function () {
+    const $groups = $(".bills-group").not(".popup .bills-group"); // исключаем попап
     const allChecked = $groups.find(".bills-group__toggle input:checked").length === $groups.length;
 
     if (!allChecked) {
-      // Открыть все
       $groups.addClass("active").find(".bills-group__toggle input").prop("checked", true);
       $(this).addClass("active");
+
       $groups.each(function () {
         const $row = $(this);
         const subrow = $row.next(".bills-row").find(".bills-group__table");
@@ -76,41 +67,169 @@ function toggleBillsGroup() {
         const rowBottom = rowOffset.top + $row.outerHeight();
         const subrowHeight = subrow.outerHeight();
 
+        $row.css("height", "");
+
         subrow.css({
           position: "fixed",
           top: rowBottom + "px",
           left: $('.content-scroll').left + "px",
-          zIndex: 100
+          zIndex: 100,
+          height: subrowHeight + "px",
         });
         $row.css("height", $row.outerHeight() + subrowHeight + "px");
         fixedRows.set($row[0], { $row, subrow });
       });
     } else {
-      // Закрыть все
       $groups.removeClass("active").find(".bills-group__toggle input").prop("checked", false);
       $(this).removeClass("active");
+
       fixedRows.forEach(({ $row, subrow }) => {
+        if ($row.closest('.popup').length) return; // не трогаем попап
         subrow.css({ position: "", top: "", left: "", zIndex: "" });
         $row.css("height", "");
       });
       fixedRows.clear();
     }
+    updatePos();
 
     applyFixedColsPadding();
     applyDefaultTablePadding();
   });
 
+  // 🟣 Клик по второстепенной кнопке — управляет только таблицей в попапе
+  $toggleSecondary.on("click", function () {
+    const $popup = $('.popup[data-popup-name="generate-bill"]');
+    const $groups = $popup.find(".bills-group");
+    const allChecked = $groups.find(".bills-group__toggle input:checked").length === $groups.length;
+
+    if (!allChecked) {
+      // открыть все
+      $groups.addClass("active").find(".bills-group__toggle input").prop("checked", true);
+      $(this).addClass("active");
+
+      $groups.each(function () {
+        const $row = $(this);
+        const subrow = $row.next(".bills-row").find(".bills-group__table");
+        const rowOffset = $row.offset();
+        const subrowHeight = subrow.outerHeight();
+
+        $row.css("height", ""); // сброс старой высоты
+
+        const rowBottom = rowOffset.top + $row.outerHeight();
+
+        subrow.css({
+          position: "fixed",
+          top: rowBottom + "px",
+          left: $('.content-scroll').left + "px",
+          zIndex: 100,
+          height: subrowHeight + "px",
+        });
+        $row.css("height", $row.outerHeight() + subrowHeight + "px");
+
+        fixedRows.set($row[0], { $row, subrow });
+      });
+
+    } else {
+      // скрыть все
+      $groups.removeClass("active").find(".bills-group__toggle input").prop("checked", false);
+      $(this).removeClass("active");
+
+      $groups.each(function () {
+        const $row = $(this);
+        const subrow = $row.next(".bills-row").find(".bills-group__table");
+
+        subrow.css({ position: "", top: "", left: "", zIndex: "", height: "" });
+        $row.css("height", "");
+        fixedRows.delete($row[0]);
+      });
+    }
+
+    updatePos();
+
+    applyFixedColsPadding();
+    applyDefaultTablePadding();
+  });
+
+
   // 🔄 Обновление позиции при скролле
-  $('.wrapper').on("scroll", function () {
+  $('.wrapper, .popup[data-popup-name="generate-bill"]').on("scroll", function () {
+    updatePos();
+  });
+
+  function updatePos() {
     if (!fixedRows.size) return;
 
     fixedRows.forEach(({ $row, subrow }) => {
       if (!$row.hasClass("active")) return;
       const rowOffset = $row.offset();
       const rowBottom = rowOffset.top + 47;
-
       subrow.css("top", rowBottom + "px");
     });
+  }
+
+  // 🧩 Управление состоянием кнопок "Создать счёт"
+  let inputs = $('.bills-group').find('.checkbox input');
+
+  inputs.on('change', function() {
+    const $group = $(this).closest('.bills-group');
+    const $groupButton = $group.find('.heading__dropdown-base .bill-generate');
+    const $globalButton = $('.bills-action .bill-generate');
+
+    if ($group.find('.checkbox input:checked').length > 0) {
+      $groupButton.removeClass('disabled');
+    } else {
+      $groupButton.addClass('disabled');
+    }
+
+    if ($('.bills-group .checkbox input:checked').length > 0) {
+      $globalButton.removeClass('disabled');
+    } else {
+      $globalButton.addClass('disabled');
+    }
+  });
+
+  $('.popup[data-popup-name="generate-bill"] .popup-cancel').on('click', function() {
+    $(this).closest('.popup').find('.popup__apply').removeClass('active');
+    $(this).closest('.popup').find('.popup__apply__bg').removeClass('active');
+    $('.popup[data-popup-name="generate-bill"]').removeClass('active');
+    $('.popup__bg[data-popup-name="generate-bill"]').removeClass('active');
+    $(".bills-group .checkbox").find("input").prop("checked", false);
+    $('.bill-generate').addClass('disabled');
+    $(".bills-group").removeClass('active');
+    $('.bills-group, .bills-group__table').css({ position: "", top: "", left: "", zIndex: "", height: "" });
+    $('.heading__toggle-main').removeClass('active');
+    $('.heading__toggle-secondary').removeClass('active');
+  });
+
+  $('.popup[data-popup-name="generate-bill"] .popup-cancel-bottom').on('click', function() {
+    $(this).closest('.popup').find('.popup__apply').removeClass('active');
+    $(this).closest('.popup').find('.popup__apply__bg').removeClass('active');
+    $('.popup[data-popup-name="generate-bill"]').removeClass('active');
+    $('.popup__bg[data-popup-name="generate-bill"]').removeClass('active');
+    $(".bills-group").find("input").prop("checked", false);
+    $('.bill-generate').addClass('disabled');
+    $(".bills-group").removeClass('active');
+    $('.bills-group, .bills-group__table').css({ position: "", top: "", left: "", zIndex: "", height: "" });
+    $('.heading__toggle-main').removeClass('active');
+    $('.heading__toggle-secondary').removeClass('active');
+  });
+
+  $('.popup[data-popup-name="generate-bill"] .popup-save-bottom').on('click', function() {
+    $(this).closest('.popup').find('.popup__apply__bg').addClass('active');
+    $(this).closest('.popup').find('.popup__apply-bottom').addClass('active');
+  });
+
+  $('.popup[data-popup-name="generate-bill"] .popup-save').on('click', function() {
+    $(this).closest('.popup').find('.popup__apply').removeClass('active');
+    $(this).closest('.popup').find('.popup__apply__bg').removeClass('active');
+    $('.popup[data-popup-name="generate-bill"]').removeClass('active');
+    $('.popup__bg[data-popup-name="generate-bill"]').removeClass('active');
+    $(".bills-group .checkbox").find("input").prop("checked", false);
+    $('.bill-generate').addClass('disabled');
+    $(".bills-group").removeClass('active');
+    $('.bills-group, .bills-group__table').css({ position: "", top: "", left: "", zIndex: "", height: "" });
+    $('.heading__toggle-main').removeClass('active');
+    $('.heading__toggle-secondary').removeClass('active');
   });
 
 }

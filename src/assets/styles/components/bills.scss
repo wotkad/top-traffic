@@ -115,6 +115,7 @@
     }
   }
   &.active {
+    background-color: transparent !important;
     &:nth-child(4n + 3) {
       & + tr {
         &:hover {

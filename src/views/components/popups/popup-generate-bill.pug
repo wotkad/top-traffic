@@ -1,0 +1,46 @@
+.popup__bg(data-popup-name="generate-bill")
+.popup(data-popup-name="generate-bill")
+  .popup__wrapper(data-scroll-lock-scrollable)
+    .popup__apply__bg
+    .popup__apply.popup__apply-bottom
+      h3 Подтвердить действие
+      p Сгенерировать счета?
+      .popup__buttons
+        +button({
+          class: 'button-base popup-cancel',
+          title: 'Отменить',
+          view: 'button',
+        })
+        +button({
+          class: 'button-with-icon-blue lg popup-save',
+          title: 'Сгенерировать',
+          view: 'button',
+        })
+    .popup__title Подтверждение генерации счётов
+    .popup__subtitle Проверьте данные и подтвердите создание
+    <div class="heading heading-table">
+      <div class="heading__buttons">
+        <div class="heading__posts">
+          <div class="heading__posts__title">Показывать каналы</div>
+          <button class="heading__toggle heading__toggle-secondary" type="button">
+            <p><span></span></p>
+          </button>
+        </div>
+      </div>
+    </div>
+    .inner.in-container
+      .content.content-collapsed
+        .content-scroll
+          include ../campaign/bills/table-bills-popup
+    .popup__buttons.popup__buttons-selected
+      +button({
+        class: 'button-base popup-cancel-bottom',
+        title: 'Отмена',
+        view: 'button',
+      })
+      +button({
+        class: 'button-with-icon-blue lg popup-save-bottom',
+        title: 'Сгенерировать',
+        type: 'submit',
+        view: 'button',
+      })

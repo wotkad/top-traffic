@@ -70,7 +70,7 @@
     & > tbody > tr > td:nth-child(2) {
       @apply pl-3;
     }
-    td .dropdown {
+    & > tbody > tr > td .dropdown:nth-child(5) {
       .dropdown__button .button-icon {
         &:hover {
           @apply bg-transparent;

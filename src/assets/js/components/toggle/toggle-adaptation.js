@@ -60,7 +60,7 @@ function toggleAdaptation() {
 
     function validateAndUpdateSaveButton() {
         const selectedOption = $('input[name="adaptation"]:checked');
-        const saveButton = $('.popup__buttons button[type="submit"]');
+        const saveButton = $('[data-popup-name="check-adaptation"] .popup__buttons button[type="submit"]');
         
         
         const isNoneSelected = selectedOption.val() === 'none';

@@ -217,8 +217,8 @@ function toggleTableSelected() {
     } else {
       $('.table__selected').removeClass('active');
       $('.table-selected').hide();
-      $('.popup-save-bottom').attr('disabled', true);
-      $('.popup-save').attr('disabled', true);
+      $('.popup[data-popup-name="add-channel"] .popup-save-bottom').attr('disabled', true);
+      $('.popup[data-popup-name="add-channel"] .popup-save').attr('disabled', true);
     }
 
     if (count == 0) {
@@ -230,22 +230,22 @@ function toggleTableSelected() {
     }
   }
   
-  $('.popup-cancel').on('click', function() {
+  $('.popup[data-popup-name="add-channel"] .popup-cancel').on('click', function() {
     $(this).closest('.popup__apply').removeClass('active');
     $(this).closest('.popup').find('.popup__apply__bg').removeClass('active');
   });
 
-  $('.popup-cancel-bottom').on('click', function() {
+  $('.popup[data-popup-name="add-channel"] .popup-cancel-bottom').on('click', function() {
     $(this).closest('.popup').find('.popup__apply__bg').addClass('active');
     $(this).closest('.popup').find('.popup__apply-cancel').addClass('active');
   });
 
-  $('.popup-save-top').on('click', function() {
+  $('.popup[data-popup-name="add-channel"] .popup-save-top').on('click', function() {
     $(this).closest('.popup').find('.popup__apply__bg').addClass('active');
     $(this).closest('.popup').find('.popup__apply-top').addClass('active');
   });
 
-  $('.popup-save-bottom').on('click', function() {
+  $('.popup[data-popup-name="add-channel"] .popup-save-bottom').on('click', function() {
     $(this).closest('.popup').find('.popup__apply__bg').addClass('active');
     $(this).closest('.popup').find('.popup__apply-bottom').addClass('active');
   });
@@ -267,7 +267,7 @@ function toggleTableSelected() {
     updateSelectedCount();
   });
 
-  $('.popup-save').on('click', function() {
+  $('.popup[data-popup-name="add-channel"] .popup-save').on('click', function() {
     let count = $('.table-selected tbody tr').length;
     checkboxes.each(function() {
       $(this).removeClass('changed');

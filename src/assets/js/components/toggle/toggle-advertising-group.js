@@ -1,7 +1,7 @@
 import { applyDefaultTablePadding, applyFixedColsPadding } from '../../base/common/set-td-padding';
 
 function toggleAdvertisingGroup() {
-  const $toggleAll = $(".heading__toggle");
+  const $toggleAll = $(".selector__container[data-id='advertising-campaigns'] .heading__toggle");
   const $groups = $(".advertising-group");
 
   // Клик по отдельной галочке

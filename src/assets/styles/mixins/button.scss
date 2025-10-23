@@ -116,7 +116,7 @@ label.button {
       &:active {
         @apply bg-transparent text-black-200;
       }
-      @apply text-black-200 cursor-not-allowed select-none;
+      @apply text-black-200 cursor-not-allowed pointer-events-none select-none;
     }
     &:active {
       @apply bg-purple-300 text-blue-200;
