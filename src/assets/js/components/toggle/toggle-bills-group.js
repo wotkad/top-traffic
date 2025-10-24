@@ -6,12 +6,16 @@ function toggleBillsGroup() {
 
   const fixedRows = new Map(); // для отслеживания открытых групп
 
-  $('.heading__dropdown-base .dropdown__button').on('click', function() {
-    $(this).closest('.bills-group.active').toggleClass('layered')
+  $('.selector__container[data-id="campaign-bills"] .heading__dropdown-base .dropdown__button').on('click', function() {
+    $(this).closest('.bills-group').toggleClass('layered')
   });
 
-  $('.popup .bills-group .dropdown__button').on('click', function() {
-    $(this).closest('.bills-group.active').toggleClass('layered')
+  $('.popup[data-popup-name="generate-bill"] .bills-group .dropdown__button').on('click', function() {
+    $(this).closest('.bills-group').toggleClass('layered')
+  });
+
+  $('.popup[data-popup-name="create-bill"] .bills-group .dropdown__button').on('click', function() {
+    $(this).closest('.bills-group').toggleClass('layered')
   });
 
   // Клик по отдельной галочке
@@ -152,7 +156,7 @@ function toggleBillsGroup() {
 
 
   // 🔄 Обновление позиции при скролле
-  $('.wrapper, .popup[data-popup-name="generate-bill"]').on("scroll", function () {
+  $('.wrapper, .popup[data-popup-name="generate-bill"], .popup[data-popup-name="create-bill"]').on("scroll", function () {
     updatePos();
   });
 
@@ -175,16 +179,30 @@ function toggleBillsGroup() {
     const $groupButton = $group.find('.heading__dropdown-base .bill-generate');
     const $globalButton = $('.bills-action .bill-generate');
 
+    const $groupButtonRestore = $group.find('.heading__dropdown-base .bill-restore');
+    const $globalButtonRestore = $('.bills-action .bill-restore');
+
+    const $groupButtonCancel = $group.find('.heading__dropdown-base .bill-cancel');
+    const $globalButtonCancel = $('.bills-action .bill-cancel');
+
     if ($group.find('.checkbox input:checked').length > 0) {
       $groupButton.removeClass('disabled');
+      $groupButtonRestore.removeClass('disabled');
+      $groupButtonCancel.removeClass('disabled');
     } else {
       $groupButton.addClass('disabled');
+      $groupButtonRestore.addClass('disabled');
+      $groupButtonCancel.addClass('disabled');
     }
 
     if ($('.bills-group .checkbox input:checked').length > 0) {
       $globalButton.removeClass('disabled');
+      $globalButtonRestore.removeClass('disabled');
+      $globalButtonCancel.removeClass('disabled');
     } else {
       $globalButton.addClass('disabled');
+      $globalButtonRestore.addClass('disabled');
+      $globalButtonCancel.addClass('disabled');
     }
   });
 
@@ -193,8 +211,10 @@ function toggleBillsGroup() {
     $(this).closest('.popup').find('.popup__apply__bg').removeClass('active');
     $('.popup[data-popup-name="generate-bill"]').removeClass('active');
     $('.popup__bg[data-popup-name="generate-bill"]').removeClass('active');
-    $(".bills-group .checkbox").find("input").prop("checked", false);
+    $(".bills-group .checkbox input[type='checkbox'], .bills-group__toggle input[type='checkbox']").prop("checked", false);
     $('.bill-generate').addClass('disabled');
+    $('.bill-restore').addClass('disabled');
+    $('.bill-cancel').addClass('disabled');
     $(".bills-group").removeClass('active');
     $('.bills-group, .bills-group__table').css({ position: "", top: "", left: "", zIndex: "", height: "" });
     $('.heading__toggle-main').removeClass('active');
@@ -206,7 +226,7 @@ function toggleBillsGroup() {
     $(this).closest('.popup').find('.popup__apply__bg').removeClass('active');
     $('.popup[data-popup-name="generate-bill"]').removeClass('active');
     $('.popup__bg[data-popup-name="generate-bill"]').removeClass('active');
-    $(".bills-group").find("input").prop("checked", false);
+    $(".bills-group .checkbox input[type='checkbox'], .bills-group__toggle input[type='checkbox']").prop("checked", false);
     $('.bill-generate').addClass('disabled');
     $(".bills-group").removeClass('active');
     $('.bills-group, .bills-group__table').css({ position: "", top: "", left: "", zIndex: "", height: "" });
@@ -224,7 +244,52 @@ function toggleBillsGroup() {
     $(this).closest('.popup').find('.popup__apply__bg').removeClass('active');
     $('.popup[data-popup-name="generate-bill"]').removeClass('active');
     $('.popup__bg[data-popup-name="generate-bill"]').removeClass('active');
-    $(".bills-group .checkbox").find("input").prop("checked", false);
+    $(".bills-group .checkbox input[type='checkbox'], .bills-group__toggle input[type='checkbox']").prop("checked", false);
+    $('.bill-generate').addClass('disabled');
+    $(".bills-group").removeClass('active');
+    $('.bills-group, .bills-group__table').css({ position: "", top: "", left: "", zIndex: "", height: "" });
+    $('.heading__toggle-main').removeClass('active');
+    $('.heading__toggle-secondary').removeClass('active');
+  });
+
+
+  $('.popup[data-popup-name="create-bill"] .popup-cancel').on('click', function() {
+    $(this).closest('.popup').find('.popup__apply').removeClass('active');
+    $(this).closest('.popup').find('.popup__apply__bg').removeClass('active');
+    $('.popup[data-popup-name="create-bill"]').removeClass('active');
+    $('.popup__bg[data-popup-name="create-bill"]').removeClass('active');
+    $(".bills-group .checkbox input[type='checkbox'], .bills-group__toggle input[type='checkbox']").prop("checked", false);
+    $('.bill-generate').addClass('disabled');
+    $(".bills-group").removeClass('active');
+    $('.bills-group, .bills-group__table').css({ position: "", top: "", left: "", zIndex: "", height: "" });
+    $('.heading__toggle-main').removeClass('active');
+    $('.heading__toggle-secondary').removeClass('active');
+  });
+
+  $('.popup[data-popup-name="create-bill"] .popup-cancel-bottom').on('click', function() {
+    $(this).closest('.popup').find('.popup__apply').removeClass('active');
+    $(this).closest('.popup').find('.popup__apply__bg').removeClass('active');
+    $('.popup[data-popup-name="create-bill"]').removeClass('active');
+    $('.popup__bg[data-popup-name="create-bill"]').removeClass('active');
+    $(".bills-group .checkbox input[type='checkbox'], .bills-group__toggle input[type='checkbox']").prop("checked", false);
+    $('.bill-generate').addClass('disabled');
+    $(".bills-group").removeClass('active');
+    $('.bills-group, .bills-group__table').css({ position: "", top: "", left: "", zIndex: "", height: "" });
+    $('.heading__toggle-main').removeClass('active');
+    $('.heading__toggle-secondary').removeClass('active');
+  });
+
+  $('.popup[data-popup-name="create-bill"] .popup-save-bottom').on('click', function() {
+    $(this).closest('.popup').find('.popup__apply__bg').addClass('active');
+    $(this).closest('.popup').find('.popup__apply-bottom').addClass('active');
+  });
+
+  $('.popup[data-popup-name="create-bill"] .popup-save').on('click', function() {
+    $(this).closest('.popup').find('.popup__apply').removeClass('active');
+    $(this).closest('.popup').find('.popup__apply__bg').removeClass('active');
+    $('.popup[data-popup-name="create-bill"]').removeClass('active');
+    $('.popup__bg[data-popup-name="create-bill"]').removeClass('active');
+    $(".bills-group .checkbox input[type='checkbox'], .bills-group__toggle input[type='checkbox']").prop("checked", false);
     $('.bill-generate').addClass('disabled');
     $(".bills-group").removeClass('active');
     $('.bills-group, .bills-group__table').css({ position: "", top: "", left: "", zIndex: "", height: "" });

@@ -1,0 +1,69 @@
+tr.bills-row
+  td.bills-group__table(colspan="5")
+    .table-outer
+      table.table.table-default.table-blue
+        thead
+          tr
+            th(class="max-w-[132px]")
+              .grid.items-center(class="grid-cols-[28px_118px]")
+                .flex.items-center.border-r.border-black-500(class="h-[46px]")
+                  +input({
+                    class: 'base',
+                    type: 'checkbox',
+                  })
+                .table__sort.flex.gap-x-2.items-center(class="pl-2.5")
+                  p Пост
+                    button(type="button").table__sortbutton
+                      svg
+                        use(xlink:href="#other-sort-icon")
+            th
+              .table__sort.flex.gap-x-2.items-center
+                p Токен
+                  button(type="button").table__sortbutton
+                    svg
+                      use(xlink:href="#other-sort-icon")
+            th
+              .table__sort.flex.gap-x-2.items-center
+                p Дата старта
+                  button(type="button").table__sortbutton
+                    svg
+                      use(xlink:href="#other-sort-icon")
+            th
+              .table__sort.flex.gap-x-2.items-center
+                p Тип размещения
+                  button(type="button").table__sortbutton
+                    svg
+                      use(xlink:href="#other-sort-icon")
+            th
+              .table__sort.flex.gap-x-2.items-center
+                p Бюджет
+                  button(type="button").table__sortbutton
+                    svg
+                      use(xlink:href="#other-sort-icon")
+        tbody(class="relative")
+          tr
+            td(style="padding-top: 0 !important; padding-bottom: 0 !important;" class="max-w-[132px]")
+              .grid.items-center(class="grid-cols-[28px_118px]")
+                .flex.items-center.border-r.border-black-500(class="h-[46px]")
+                  +input({
+                    class: 'base',
+                    type: 'checkbox',
+                  })
+                p(class="pl-2.5") Пост 1
+            td.only-text new-31561920041337
+            td.only-text 01.10.2025
+            td.only-text Инф. Стандартный без марк.
+            td.only-text 100 000 ₽
+          tr
+            td(style="padding-top: 0 !important; padding-bottom: 0 !important;" class="max-w-[132px]")
+              .grid.items-center(class="grid-cols-[28px_118px]")
+                .flex.items-center.border-r.border-black-500(class="h-[46px]")
+                  +input({
+                    class: 'base',
+                    type: 'checkbox',
+                  })
+                p(class="pl-2.5") Пост 1
+            td.only-text new-31561920041337
+            td.only-text 01.10.2025
+            td.only-text Инф. Стандартный без марк.
+            td.only-text 100 000 ₽

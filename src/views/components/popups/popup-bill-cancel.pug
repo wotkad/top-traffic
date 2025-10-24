@@ -1,0 +1,19 @@
+.popup__bg(data-popup-name="bill-cancel")
+.popup(data-popup-name="bill-cancel")
+  .popup__wrapper(data-scroll-lock-scrollable)
+    .popup__title Подтвердить действие
+    .popup__subtitle Отменить счет?
+    .popup__form
+      .popup__buttons
+        +button({
+          class: 'button-base',
+          dataPopupName: 'bill-cancel',
+          title: 'Нет',
+          view: 'button',
+        })
+        +button({
+          class: 'button-confirm button-with-icon-blue',
+          dataPopupName: 'bill-cancel',
+          title: 'Да, отменить',
+          view: 'button',
+        })

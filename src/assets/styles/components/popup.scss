@@ -148,7 +148,23 @@
       }
     }
     .popup__wrapper {
-      @apply max-w-[1065px];
+      @apply max-w-[1065px] overflow-hidden;
+    }
+  }
+  &[data-popup-name="create-bill"] {
+    .popup__subtitle {
+      @apply mt-2 text-14-m-md text-black-200;
+    }
+    .heading {
+      @apply top-16 right-8 absolute mt-0;
+    }
+    .bills-group__table {
+      .table-outer {
+        @apply pl-[23px] max-w-[951px];
+      }
+    }
+    .popup__wrapper {
+      @apply max-w-[1065px] overflow-hidden;
     }
   }
   &[data-popup-name="check-adaptation"],
@@ -512,6 +528,8 @@
   &[data-popup-name="delete-all-files"],
   &[data-popup-name="delete-all-channels"],
   &[data-popup-name="delete-post"],
+  &[data-popup-name="bill-cancel"],
+  &[data-popup-name="bill-restore"],
   &[data-popup-name="delete-rk"] {
     .popup__wrapper {
       .popup__title {
@@ -530,6 +548,40 @@
         @apply mt-4;
       }
       @apply p-[14px] max-w-[258px];
+    }
+  }
+  &[data-popup-name="bill-cancel"] {
+    .popup__wrapper {
+      .popup__buttons {
+        .button {
+          justify-content: center;
+        }
+        .button-base {
+          flex: unset;
+          min-width: 63px;
+        }
+        .button-with-icon-blue {
+          flex: 1;
+        }
+      }
+      @apply max-w-[217px];
+    }
+  }
+  &[data-popup-name="bill-restore"] {
+    .popup__wrapper {
+      .popup__buttons {
+        .button {
+          justify-content: center;
+        }
+        .button-base {
+          flex: unset;
+          min-width: 86px;
+        }
+        .button-with-icon-blue {
+          flex: 1;
+        }
+      }
+      @apply max-w-[243px];
     }
   }
   &[data-popup-name="share-post"] {

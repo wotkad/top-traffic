@@ -56,6 +56,7 @@ function togglePopup() {
         popup.is('[data-popup-name="check-adaptation"]') ||
         popup.is('[data-popup-name="add-tag"]') ||
         popup.is('[data-popup-name="generate-bill"]') ||
+        popup.is('[data-popup-name="create-bill"]') ||
         popup.is('[data-popup-name="add-channel"]');
   
       if (!isExcludedPopup) {

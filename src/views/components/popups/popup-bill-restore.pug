@@ -1,0 +1,19 @@
+.popup__bg(data-popup-name="bill-restore")
+.popup(data-popup-name="bill-restore")
+  .popup__wrapper(data-scroll-lock-scrollable)
+    .popup__title Подтвердить действие
+    .popup__subtitle Восстановить по шаблону?
+    .popup__form
+      .popup__buttons
+        +button({
+          class: 'button-base',
+          dataPopupName: 'bill-restore',
+          title: 'Отмена',
+          view: 'button',
+        })
+        +button({
+          class: 'button-confirm button-with-icon-blue',
+          dataPopupName: 'bill-restore',
+          title: 'Восстановить',
+          view: 'button',
+        })

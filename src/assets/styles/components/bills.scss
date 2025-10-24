@@ -159,4 +159,20 @@
       @apply bg-transparent;
     }
   }
+  &-inner {
+    &.active > td:first-child:before {
+      display: none;
+    }
+    & + tr {
+      .bills-group__table {
+        padding-left: 49px !important;
+      }
+      .bills-group__table table:before {
+        display: none;
+      }
+      .bills-group__table table:after {
+        left: 48px;
+      }
+    }
+  }
 }

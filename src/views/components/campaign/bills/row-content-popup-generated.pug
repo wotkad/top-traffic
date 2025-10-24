@@ -53,9 +53,13 @@ tr.bills-row
             td.only-text.text-right Инф. Стандартный без марк.
           tr
             td
-              .flex.items-center(class="gap-x-1.5")
-                img.rounded.object-cover(class="w-[30px] h-[30px]" src="/assets/images/avatar.png" alt="tg-channel")
-                span Андрей Миронов
+              .flex.items-center.w-full(class="gap-x-3 h-[33px]")
+                .flex.items-center(class="gap-x-1.5")
+                  img.rounded.object-cover(class="w-[30px] h-[30px]" src="/assets/images/avatar.png" alt="tg-channel")
+                  .flex.flex-col.items-start
+                    h3
+                      a(href="#").table__channel ZeroDay | Кибербезопасность
+                    a(href="https://t.me/andreym" target="_blank").table__link @cybersec_academy
             td
               .flex.items-center(class="gap-x-1.5")
                 img.rounded.object-cover(class="w-[30px] h-[30px]" src="/assets/images/avatar.png" alt="tg-channel")

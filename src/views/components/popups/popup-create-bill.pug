@@ -1,0 +1,52 @@
+.popup__bg(data-popup-name="create-bill")
+.popup(data-popup-name="create-bill")
+  .popup__wrapper(data-scroll-lock-scrollable)
+    .popup__apply__bg
+    .popup__apply.popup__apply-bottom
+      h3 Подтвердить действие
+      p Создать счет?
+      .popup__buttons
+        +button({
+          class: 'button-base popup-cancel',
+          title: 'Отменить',
+          view: 'button',
+        })
+        +button({
+          class: 'button-with-icon-blue lg popup-save',
+          title: 'Сгенерировать',
+          view: 'button',
+        })
+    .popup__title Создание счета
+    .popup__subtitle Найдено доступных размещений: 3
+    <div class="heading heading-table heading-table-rows">
+      <div class="heading__buttons">
+        <div class="heading__right">
+          <button class="button button-with-icon filter__toggle" type="button" aria-label="button" data-filter-name="campaign-bills-popup">
+            <svg viewBox="0 0 20 20" width="20" height="20">
+              <use xlink:href="#other-controls-icon"></use>
+            </svg>
+            <span>Фильтр</span>
+            <svg class="button-clear filter-clear" viewBox="0 0 9 9" width="9" height="9">
+              <use xlink:href="#other-close-icon"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    .inner.in-container
+      .content.content-collapsed
+        .content-scroll
+          include ../campaign/bills/table-bills-popup-bill
+      include ../campaign/bills/filter-bills-popup-bill
+    .popup__buttons.popup__buttons-selected
+      +button({
+        class: 'button-base popup-cancel-bottom',
+        title: 'Отмена',
+        view: 'button',
+      })
+      +button({
+        class: 'button-with-icon-blue lg popup-save-bottom',
+        title: 'Создать счет',
+        type: 'submit',
+        view: 'button',
+      })
