@@ -1,0 +1,51 @@
+extends ../layouts/master
+
+block title
+  title Топ Трафик | Справочник каналов
+
+block basicSeo
+  meta(content="Справочник каналов" name="description")
+  meta(content="Справочник каналов" name="keywords")
+  meta(content="Справочник каналов" property="og:title")
+  meta(content="Справочник каналов" name="twitter:title")
+
+block content
+  main.page
+    include ../components/sidebar
+    include ../components/header
+    .wrapper
+      +heading-table({
+        title: 'Каналы',
+        count: '50',
+        buttons: [
+          {
+            view: 'button',
+            class: 'button-with-icon-blue',
+            icon: 'other-plus-icon',
+            title: 'Добавить канал',
+            dataPopupName: 'add-channel',
+          },
+          {
+            view: 'link',
+            class: 'button-with-icon',
+            icon: 'other-download-icon',
+            title: 'Скачать',
+            isDownload: true,
+          },
+          {
+            view: 'button',
+            class: 'button-with-icon filter__toggle',
+            icon: 'other-controls-icon',
+            title: 'Фильтр',
+            isClose: true,
+            dataFilterName: 'channels',
+          },
+        ],
+      })
+      .inner.in-container
+        .content.content-collapsed
+          .content-scroll
+            include ../components/channels/table
+          .mt-12
+            include ../components/pagination
+        include ../components/channels/filter
