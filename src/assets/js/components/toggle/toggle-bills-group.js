@@ -7,14 +7,17 @@ function toggleBillsGroup() {
   const fixedRows = new Map(); // для отслеживания открытых групп
 
   $('.selector__container[data-id="campaign-bills"] .heading__dropdown-base .dropdown__button').on('click', function() {
+    $('.selector__container[data-id="campaign-bills"] .heading__dropdown-base .dropdown__button').closest('.bills-group').removeClass('layered')
     $(this).closest('.bills-group').toggleClass('layered')
   });
 
   $('.popup[data-popup-name="generate-bill"] .bills-group .dropdown__button').on('click', function() {
+    $('.popup[data-popup-name="generate-bill"] .bills-group .dropdown__button').closest('.bills-group').removeClass('layered')
     $(this).closest('.bills-group').toggleClass('layered')
   });
 
   $('.popup[data-popup-name="create-bill"] .bills-group .dropdown__button').on('click', function() {
+    $('.popup[data-popup-name="create-bill"] .bills-group .dropdown__button').closest('.bills-group').removeClass('layered')
     $(this).closest('.bills-group').toggleClass('layered')
   });
 
@@ -53,6 +56,7 @@ function toggleBillsGroup() {
 
     applyFixedColsPadding();
     applyDefaultTablePadding();
+
   });
 
   // 🟢 Клик по главной кнопке — управляет только таблицей вне попапа

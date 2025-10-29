@@ -48,12 +48,12 @@
     }
     &__bg {
       &.active {
-        @apply visible z-40 opacity-100;
+        @apply visible z-[999] opacity-100;
       }
       @apply invisible -z-[1] fixed inset-0 bg-black-100 bg-opacity-25 opacity-0 transition-all duration-300 cursor-pointer;
     }
     &.active {
-      @apply visible z-50 opacity-100;
+      @apply visible z-[1000] opacity-100;
     }
     &-top {
       @apply top-[72px] right-5;
@@ -158,9 +158,28 @@
     .heading {
       @apply top-16 right-8 absolute mt-0;
     }
+    .bills-group-inner {
+      .bills-group__table {
+        .table-outer {
+          @apply pl-[31px];
+        }
+      }
+    }
     .bills-group__table {
       .table-outer {
-        @apply pl-[23px] max-w-[951px];
+        @apply pl-[23px];
+      }
+    }
+    .popup__buttons-selected {
+      @apply mt-3;
+    }
+    .bills-group__table {
+      width: 100%;
+      table {
+        width: 100% !important;
+        &:after {
+          @apply h-[calc(100%-7.5px)];
+        }
       }
     }
     .popup__wrapper {

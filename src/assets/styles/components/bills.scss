@@ -22,6 +22,25 @@
     }
   }
 }
+.bills-row {
+  .table tbody tr td, 
+  .table tbody tr th {
+    @apply transition-all duration-300;
+  }
+  &:hover {
+    .table tbody tr .fixed-td, 
+    .table tbody tr .fixed-th {
+      @apply bg-white-000;
+    }
+  }
+
+  .table tbody tr:hover .fixed-td, 
+  .table tbody tr:hover .fixed-th,
+  .table tbody tr:hover td, 
+  .table tbody tr:hover th  {
+    @apply bg-purple-300;
+  }
+}
 .bills-group {
   &.layered {
     & > td {
@@ -89,7 +108,7 @@
         @apply -top-px left-10 absolute bg-black-500 w-px h-[calc(100%+1px)] content-[''];
       }
       &:after {
-        @apply -top-[15px] left-[57px] absolute bg-black-500 w-px h-[calc(100%-16px)] content-[''];
+        @apply -top-[15.5px] left-[57px] absolute bg-black-500 w-px h-[calc(100%+8px)] content-[''];
       }
     }
     th:nth-child(1),
@@ -99,8 +118,9 @@
       }
       @apply pl-3;
     }
-    td:nth-child(1) {
-      @apply border-black-500 border-l;
+    td:nth-child(1),
+    th:nth-child(1) {
+      @apply border-black-500 border-r border-l;
     }
     .content-scroll {
       @apply pb-2;
@@ -164,14 +184,8 @@
       display: none;
     }
     & + tr {
-      .bills-group__table {
-        padding-left: 49px !important;
-      }
       .bills-group__table table:before {
         display: none;
-      }
-      .bills-group__table table:after {
-        left: 48px;
       }
     }
   }

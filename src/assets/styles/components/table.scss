@@ -4,8 +4,22 @@
       td {
         @apply bg-white-000;
       }
+      td,
+      th {
+        &:nth-child(2) {
+          @apply pl-3;
+        }
+      }
     }
-    @apply pl-[25px] w-full max-w-[778px] overflow-x-auto;
+    .table.scrolled  {
+      .fixed-th-border,
+      .fixed-td-border {
+        &:after {
+          @apply opacity-100;
+        }
+      }
+    }
+    @apply w-full overflow-x-auto;
   }
   &.table-approval,
   &.table-coordination {
@@ -31,7 +45,7 @@
         &:before {
           content: attr(data-status-tip);
         }
-        @apply invisible top-[9px] right-0 z-10 absolute flex justify-center items-center bg-black-700 opacity-0 px-2 py-1 border border-black-500 rounded-md text-10-r text-black-100 not-italic transition-all -translate-y-[calc(100%-2px)] translate-x-[calc(100%-2px)] duration-300;
+        @apply invisible top-0 right-0 z-10 absolute flex justify-center items-center bg-black-700 opacity-0 px-2 py-1 border border-black-500 rounded-md text-10-r text-black-100 not-italic transition-all -translate-y-[calc(100%-2px)] translate-x-[calc(100%-2px)] duration-300;
       }
       &:hover {
         i {
@@ -42,6 +56,9 @@
     }
     th .table__checkbox-accept {
       @apply pointer-events-none;
+    }
+    tbody {
+      @apply z-[49] relative;
     }
     & > thead > tr > th:nth-child(1),
     & > tbody > tr > td:nth-child(1) {
@@ -57,13 +74,15 @@
       }
       @apply px-3 py-0 border-black-500 border-r;
     }
+    & > tbody > tr > td.fixed-td:nth-child(1) {
+      @apply bg-white-000;
+    }
     &.scrolled {
       & > thead > tr > th:nth-child(1),
       & > tbody > tr > td:nth-child(1) {
-        @apply border-r-0;
-      }
-      & > tbody > tr > td:nth-child(1) {
-        @apply bg-white-000;
+        &:after {
+          @apply opacity-100;
+        }
       }
     }
     & > thead > tr > th:nth-child(2),
@@ -187,7 +206,7 @@
     thead {
       th {
         &:first-child {
-          @apply border-b border-b-black-500 border-l border-l-purple-300;
+          @apply bg-purple-300 border-b border-b-black-500 border-l border-l-purple-300;
         }
       }
       @apply bg-purple-300;
@@ -300,14 +319,6 @@
       @apply bg-white-100;
     }
     @apply bg-white-100 p-[2px] border border-black-500 rounded-md w-[26px] h-[26px] transition-all duration-300;
-  }
-  &.scrolled {
-    .fixed-th-border,
-    .fixed-td-border {
-      &:after {
-        @apply opacity-100;
-      }
-    }
   }
   .fixed-th {
     &-border {

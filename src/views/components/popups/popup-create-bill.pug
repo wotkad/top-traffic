@@ -35,6 +35,22 @@
     </div>
     .inner.in-container
       .content.content-collapsed
+        <div class="table__selected active">
+          <p>Выбрано каналов:<span>1</span>
+                <button class="button table__clear" type="button" aria-label="close">
+                  <svg viewBox="0 0 9 9" width="9" height="9">
+                    <use xlink:href="#other-close-icon"></use>
+                  </svg>
+                </button>
+          </p>
+          <div class="table__right">
+                <button class="button table__toggle" type="button" aria-label="toggle">
+                  <svg viewBox="0 0 10 6" width="10" height="6">
+                    <use xlink:href="#other-angle-down-icon"></use>
+                  </svg>
+                </button>
+          </div>
+        </div>
         .content-scroll
           include ../campaign/bills/table-bills-popup-bill
       include ../campaign/bills/filter-bills-popup-bill
