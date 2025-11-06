@@ -39,6 +39,7 @@ function setTdPaddingUniversal(tableClass, sliceStart, sliceEndOffset) {
       });
     });
     $('.table-outer').css('max-width', $('.table-outer').closest('.content-scroll').outerWidth() - 57 + 'px');
+    $('.table-outer').css('min-width', $('.table-outer').closest('.content-scroll').outerWidth() - 57 + 'px');
     $('.popup .table-outer').css('max-width', $('.popup .table-outer').closest('.content-scroll').outerWidth());
     $('.popup .bills-row .bills-group__table').css('max-width', $('.popup .table-outer').closest('.content-scroll').outerWidth());
   });

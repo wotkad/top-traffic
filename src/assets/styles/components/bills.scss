@@ -50,6 +50,13 @@
     }
     @apply z-[1000];
   }
+  &:not(.layered) {
+    &:hover {
+      td.fixed-td:nth-child(1) {
+        @apply bg-purple-300;
+      }
+    }
+  }
   &__toggle {
     p {
       @apply mr-1;
@@ -103,7 +110,6 @@
   &__table {
     padding-left: 57px !important;
     table {
-      min-width: min-content !important;
       &:before {
         @apply -top-px left-10 absolute bg-black-500 w-px h-[calc(100%+1px)] content-[''];
       }

@@ -6,19 +6,42 @@ function toggleBillsGroup() {
 
   const fixedRows = new Map(); // для отслеживания открытых групп
 
-  $('.selector__container[data-id="campaign-bills"] .heading__dropdown-base .dropdown__button').on('click', function() {
-    $('.selector__container[data-id="campaign-bills"] .heading__dropdown-base .dropdown__button').closest('.bills-group').removeClass('layered')
-    $(this).closest('.bills-group').toggleClass('layered')
+  let lastDropdownClick = 0;
+
+  $('.selector__container[data-id="campaign-bills"] .heading__dropdown-base .dropdown__button').on('click', function(e) {
+    lastDropdownClick = Date.now();
+    const $groups = $('.selector__container[data-id="campaign-bills"] .heading__dropdown-base .dropdown__button').closest('.bills-group');
+    const $current = $(this).closest('.bills-group');
+    if ($current.hasClass('layered')) {
+      $current.removeClass('layered');
+    } else {
+      $groups.removeClass('layered');
+      $current.addClass('layered');
+    }
   });
 
-  $('.popup[data-popup-name="generate-bill"] .bills-group .dropdown__button').on('click', function() {
-    $('.popup[data-popup-name="generate-bill"] .bills-group .dropdown__button').closest('.bills-group').removeClass('layered')
-    $(this).closest('.bills-group').toggleClass('layered')
+  $('.popup[data-popup-name="generate-bill"] .bills-group .dropdown__button').on('click', function(e) {
+    lastDropdownClick = Date.now();
+    const $groups = $('.popup[data-popup-name="generate-bill"] .bills-group .dropdown__button').closest('.bills-group');
+    const $current = $(this).closest('.bills-group');
+    if ($current.hasClass('layered')) {
+      $current.removeClass('layered');
+    } else {
+      $groups.removeClass('layered');
+      $current.addClass('layered');
+    }
   });
 
-  $('.popup[data-popup-name="create-bill"] .bills-group .dropdown__button').on('click', function() {
-    $('.popup[data-popup-name="create-bill"] .bills-group .dropdown__button').closest('.bills-group').removeClass('layered')
-    $(this).closest('.bills-group').toggleClass('layered')
+  $('.popup[data-popup-name="create-bill"] .bills-group .dropdown__button').on('click', function(e) {
+    lastDropdownClick = Date.now();
+    const $groups = $('.popup[data-popup-name="create-bill"] .bills-group .dropdown__button').closest('.bills-group');
+    const $current = $(this).closest('.bills-group');
+    if ($current.hasClass('layered')) {
+      $current.removeClass('layered');
+    } else {
+      $groups.removeClass('layered');
+      $current.addClass('layered');
+    }
   });
 
   // Клик по отдельной галочке

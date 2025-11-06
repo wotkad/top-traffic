@@ -671,14 +671,21 @@ export default function toggleDropdown() {
     }
   });
 
+  let lastDropdownClick = 0;
+
   $(document).on('click', function(e) {
-      if (!$(e.target).closest('.info-users__items').length && 
-          !$(e.target).closest('.dropdown__values').length &&
-          !$(e.target).closest('.dropdown-new-format').length) {
-          $('.info-users__items').remove();
-          $('.dropdown__list, .dropdown__sort, .dropdown__button').removeClass('active');
-          $('.bills-group').removeClass('layered');
-      }
+    // Если прошло менее 100 мс с момента клика по dropdown-кнопке — не трогаем
+    if (Date.now() - lastDropdownClick < 100) return;
+
+    if (
+      !$(e.target).closest('.info-users__items').length &&
+      !$(e.target).closest('.dropdown__values').length &&
+      !$(e.target).closest('.dropdown-new-format').length
+    ) {
+      $('.info-users__items').remove();
+      $('.dropdown__list, .dropdown__sort, .dropdown__button').removeClass('active');
+      $('.bills-group').removeClass('layered');
+    }
   });
 
   $(document).on('click', '.info-users__button', function(e) {
