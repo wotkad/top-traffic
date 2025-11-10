@@ -103,6 +103,10 @@ module.exports = {
           '425': '#F5B052',
           '450': '#FFF7DA',
         },
+        brown: {
+          '300': '#FAEEE7',
+          '400': '#C45000',
+        }
       },
       fontSize: {
         '30-m-p': ['30px', { lineHeight: '120%', fontWeight: 500 }],

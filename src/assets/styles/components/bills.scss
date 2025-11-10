@@ -17,8 +17,11 @@
         &.disabled {
           @apply pointer-events-none;
         }
+        i {
+          @apply text-purple-425 not-italic;
+        }
       }
-      @apply max-w-full;
+      @apply max-w-full max-h-full;
     }
   }
 }
@@ -58,8 +61,8 @@
     }
   }
   &__toggle {
-    p {
-      @apply mr-1;
+    svg {
+      @apply ml-1;
     }
     label {
       input {
@@ -139,6 +142,7 @@
         @apply relative;
       }
     }
+    @apply w-full;
   }
   &.active {
     background-color: transparent !important;

@@ -102,6 +102,30 @@
         }
         @apply p-0 pl-[4.5px] w-auto;
       }
+      .dropdown__list {
+        hr {
+          @apply ml-2 w-auto max-w-[calc(100%-16px)];
+        }
+        .button {
+          i {
+            @apply text-purple-425 not-italic;
+          }
+          input {
+            @apply invisible opacity-0 w-0 h-0;
+          }
+          &.disabled {
+            svg {
+              @apply opacity-50;
+            }
+            &:hover,
+            &:active {
+              @apply bg-transparent text-black-200;
+            }
+            @apply text-black-200 cursor-not-allowed pointer-events-none select-none;
+          }
+        }
+        @apply max-h-max;
+      }
       @apply ml-0 min-w-max;
     }
   }

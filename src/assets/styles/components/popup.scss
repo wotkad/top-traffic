@@ -133,6 +133,17 @@
     .heading {
       @apply top-16 right-8 absolute mt-0;
     }
+    .bills-group {
+      .dropdown {
+        &__title {
+          @apply max-w-min;
+        }
+        &__inner {
+          @apply gap-1.5;
+        }
+        @apply w-auto;
+      }
+    }
     .bills-group__table {
       padding-left: 20px !important;
       .table-outer {
@@ -548,6 +559,7 @@
   &[data-popup-name="delete-all-channels"],
   &[data-popup-name="delete-post"],
   &[data-popup-name="bill-cancel"],
+  &[data-popup-name="bill-annul"],
   &[data-popup-name="bill-restore"],
   &[data-popup-name="delete-rk"] {
     .popup__wrapper {
@@ -569,7 +581,8 @@
       @apply p-[14px] max-w-[258px];
     }
   }
-  &[data-popup-name="bill-cancel"] {
+  &[data-popup-name="bill-cancel"],
+  &[data-popup-name="bill-annul"] {
     .popup__wrapper {
       .popup__buttons {
         .button {
@@ -583,7 +596,7 @@
           flex: 1;
         }
       }
-      @apply max-w-[217px];
+      @apply max-w-[265px];
     }
   }
   &[data-popup-name="bill-restore"] {

@@ -20,6 +20,14 @@ function toggleBillsGroup() {
     }
   });
 
+  $('.popup[data-popup-name="generate-bill"] .bills-group .status').on('mouseenter', function(e) {
+    $(this).closest('.bills-group').addClass('layered');
+  });
+
+  $('.popup[data-popup-name="generate-bill"] .bills-group .status').on('mouseleave', function(e) {
+    $(this).closest('.bills-group').removeClass('layered');
+  });
+
   $('.popup[data-popup-name="generate-bill"] .bills-group .dropdown__button').on('click', function(e) {
     lastDropdownClick = Date.now();
     const $groups = $('.popup[data-popup-name="generate-bill"] .bills-group .dropdown__button').closest('.bills-group');
@@ -212,24 +220,31 @@ function toggleBillsGroup() {
     const $groupButtonCancel = $group.find('.heading__dropdown-base .bill-cancel');
     const $globalButtonCancel = $('.bills-action .bill-cancel');
 
+    const $groupButtonAnnul = $group.find('.heading__dropdown-base .bill-annul');
+    const $globalButtonAnnul = $('.bills-action .bill-annul');
+
     if ($group.find('.checkbox input:checked').length > 0) {
       $groupButton.removeClass('disabled');
       $groupButtonRestore.removeClass('disabled');
       $groupButtonCancel.removeClass('disabled');
+      $groupButtonAnnul.removeClass('disabled');
     } else {
       $groupButton.addClass('disabled');
       $groupButtonRestore.addClass('disabled');
       $groupButtonCancel.addClass('disabled');
+      $groupButtonAnnul.addClass('disabled');
     }
 
     if ($('.bills-group .checkbox input:checked').length > 0) {
       $globalButton.removeClass('disabled');
       $globalButtonRestore.removeClass('disabled');
       $globalButtonCancel.removeClass('disabled');
+      $globalButtonAnnul.removeClass('disabled');
     } else {
       $globalButton.addClass('disabled');
       $globalButtonRestore.addClass('disabled');
       $globalButtonCancel.addClass('disabled');
+      $globalButtonAnnul.addClass('disabled');
     }
   });
 
@@ -242,6 +257,7 @@ function toggleBillsGroup() {
     $('.bill-generate').addClass('disabled');
     $('.bill-restore').addClass('disabled');
     $('.bill-cancel').addClass('disabled');
+    $('.bill-annul').addClass('disabled');
     $(".bills-group").removeClass('active');
     $('.bills-group, .bills-group__table').css({ position: "", top: "", left: "", zIndex: "", height: "" });
     $('.heading__toggle-main').removeClass('active');

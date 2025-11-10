@@ -305,6 +305,7 @@ export default function toggleDropdown() {
     $('.dropdown__button').removeClass('active');
     $('.dropdown__sort').removeClass('active');
     $('.info-users__items').remove();
+    $('.bills-group').removeClass('layered');
   });
 
   $('.content-aside__container').on('scroll', function() {
