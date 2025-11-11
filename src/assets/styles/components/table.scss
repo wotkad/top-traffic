@@ -1,4 +1,10 @@
 .table {
+  &-borders {
+    .border-line {
+      @apply bg-black-500 w-[25px] h-px;
+    }
+    @apply fixed w-[25px] h-full;
+  }
   &-outer {
     tr {
       td {
@@ -14,6 +20,9 @@
     .table.scrolled  {
       .fixed-th-border,
       .fixed-td-border {
+        &:before {
+          @apply opacity-100;
+        }
         &:after {
           @apply opacity-100;
         }
@@ -22,7 +31,7 @@
     table {
       @apply w-full;
     }
-    @apply w-full overflow-x-auto;
+    @apply ml-[25px] w-full overflow-x-auto;
   }
   &.table-approval,
   &.table-coordination {
@@ -40,6 +49,30 @@
     }
   }
   &.table-bills {
+    tbody td {
+      .dropdown-status {
+        .dropdown__inner {
+          &:before {
+            @apply hidden;
+          }
+          @apply pr-[22px] pl-2;
+        }
+        .dropdown__button {
+          .button {
+            @apply right-1 absolute opacity-100 w-4 min-w-4 h-3 min-h-3 text-brown-400;
+          }
+          @apply p-0 h-[22px];
+        }
+        .dropdown__list {
+          .button {
+            input {
+              @apply h-0 w-0 invisible opacity-0
+            }
+          }
+        }
+        @apply ml-0;
+      }
+    }
     .status {
       @apply mt-0;
     }
@@ -60,11 +93,11 @@
     th .table__checkbox-accept {
       @apply pointer-events-none;
     }
-    tbody {
-      @apply z-[49] relative;
-    }
+    // tbody {
+    //   @apply z-[49] relative;
+    // }
     & > thead > tr > th:nth-child(1),
-    & > tbody > tr > td:nth-child(1) {
+    & > tbody > tr.bills-group > td:nth-child(1) {
       &.fixed-th,
       &.fixed-td {
         padding-right: 0 !important;
@@ -77,8 +110,11 @@
       }
       @apply px-3 py-0 border-black-500 border-r;
     }
-    & > tbody > tr > td.fixed-td:nth-child(1) {
+    & > tbody > tr.bills-group > td.fixed-td:nth-child(1) {
       @apply bg-white-000;
+    }
+    & > tbody > tr.bills-group:hover > td.fixed-td:nth-child(1) {
+      @apply bg-purple-300;
     }
     &.scrolled {
       & > thead > tr > th:nth-child(1),
@@ -86,13 +122,14 @@
         &:after {
           @apply opacity-100;
         }
+        @apply border-r-0;
       }
     }
     & > thead > tr > th:nth-child(2),
     & > tbody > tr > td:nth-child(2) {
       @apply pl-3;
     }
-    & > tbody > tr > td .dropdown:nth-child(5) {
+    & > tbody > tr > td .dropdown:nth-child(4) {
       .dropdown__button .button-icon {
         &:hover {
           @apply bg-transparent;
@@ -101,6 +138,9 @@
           @apply w-[3px] h-[15px];
         }
         @apply p-0 pl-[4.5px] w-auto;
+      }
+      .dropdown__container {
+        @apply items-end;
       }
       .dropdown__list {
         hr {
@@ -360,6 +400,9 @@
   }
   .fixed-td {
     &-border {
+      &:before {
+        @apply top-0 -left-[0.5px] absolute bg-black-500 opacity-0 w-px h-full content-[''];
+      }
       &:after {
         @apply top-0 right-0 absolute bg-black-500 opacity-0 w-px h-full content-[''];
       }
@@ -862,6 +905,9 @@
     }
     &.only-text {
       @apply pt-[16px] pb-3.5;
+    }
+    &.only-text-fixed {
+      @apply py-3;
     }
     &.only-text-sm {
       @apply py-[2px];

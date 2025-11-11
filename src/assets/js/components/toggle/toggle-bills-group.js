@@ -1,3 +1,4 @@
+import positionTableBorders from '../../base/common/set-table-borders';
 import { applyDefaultTablePadding, applyFixedColsPadding } from '../../base/common/set-td-padding';
 
 function toggleBillsGroup() {
@@ -20,12 +21,28 @@ function toggleBillsGroup() {
     }
   });
 
-  $('.popup[data-popup-name="generate-bill"] .bills-group .status').on('mouseenter', function(e) {
+  $('.table-bills .bills-group .status').on('mouseenter', function(e) {
     $(this).closest('.bills-group').addClass('layered');
   });
 
-  $('.popup[data-popup-name="generate-bill"] .bills-group .status').on('mouseleave', function(e) {
+  $('.table-bills .bills-group .status').on('mouseleave', function(e) {
     $(this).closest('.bills-group').removeClass('layered');
+  });
+
+  $('.table-bills .bills-group .dropdown-status').on('mouseenter', function(e) {
+    $(this).closest('.bills-group').addClass('layered');
+  });
+
+  $('.table-bills .bills-group .dropdown .dropdown__list').on('mouseleave', function(e) {
+    $(this).closest('.bills-group').removeClass('layered');
+    $(this).removeClass('active');
+    $(this).prev().removeClass('active');
+  });
+
+  $('.table-bills .bills-group .dropdown').closest('tr').on('mouseleave', function(e) {
+    $(this).removeClass('layered');
+    $(this).find('.dropdown .dropdown__list').removeClass('active');
+    $(this).find('.dropdown .dropdown__button').removeClass('active');
   });
 
   $('.popup[data-popup-name="generate-bill"] .bills-group .dropdown__button').on('click', function(e) {
@@ -88,6 +105,8 @@ function toggleBillsGroup() {
     applyFixedColsPadding();
     applyDefaultTablePadding();
 
+    positionTableBorders();
+
   });
 
   // 🟢 Клик по главной кнопке — управляет только таблицей вне попапа
@@ -133,6 +152,9 @@ function toggleBillsGroup() {
 
     applyFixedColsPadding();
     applyDefaultTablePadding();
+
+    positionTableBorders();
+
   });
 
   // 🟣 Клик по второстепенной кнопке — управляет только таблицей в попапе
@@ -190,7 +212,6 @@ function toggleBillsGroup() {
   });
 
 
-  // 🔄 Обновление позиции при скролле
   $('.wrapper, .popup[data-popup-name="generate-bill"], .popup[data-popup-name="create-bill"]').on("scroll", function () {
     updatePos();
   });

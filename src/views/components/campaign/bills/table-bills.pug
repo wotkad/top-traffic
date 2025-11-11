@@ -7,12 +7,28 @@ table.table.table-fixed-cols.table-bills
             class: 'base',
             type: 'checkbox',
           })
-          .table__sort.flex.gap-x-2.items-center(class="h-[46px] min-w-[181px]").ml-3.pl-8.border-l.border-black-500
-            p Счет
+          .table__sort.flex.gap-x-2.items-center(class="h-[46px] min-w-[260px]").ml-3.pl-8.border-l.border-black-500
+            p Наименование
           .table__sort.flex.gap-x-2.items-center(class="h-[46px] min-w-[123px]").pl-4.pr-4
-            p Счет на оплату
-          .table__sort.flex.gap-x-2.items-center(class="h-[46px] min-w-[113px]").pl-4.pr-2
-            p Статус
+            p Статус счёта
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Договор
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Счёт
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Статус сделки
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
       th
         .table__sort.flex.gap-x-2.items-center
           p Период

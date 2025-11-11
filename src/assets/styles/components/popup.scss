@@ -151,7 +151,7 @@
       }
       table {
         &:after {
-          @apply left-5;
+          @apply left-5 h-[calc(100%-9.5px)];
         }
         &:before {
           @apply hidden;
@@ -176,6 +176,12 @@
         }
       }
     }
+    .table-borders {
+      .border-line {
+        @apply w-[48px];
+      }
+      @apply w-[48px];
+    }
     .bills-group__table {
       .table-outer {
         @apply pl-[23px];
@@ -189,7 +195,7 @@
       table {
         width: 100% !important;
         &:after {
-          @apply h-[calc(100%-7.5px)];
+          @apply h-[calc(100%-8.5px)];
         }
       }
     }

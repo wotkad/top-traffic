@@ -5,6 +5,7 @@ import setAsidePosition from "../../base/common/set-aside-position";
 
 import setFilterHeight from "../../base/common/set-filter-height";
 import setAsideHeight from "../../base/common/set-aside-height";
+import setSubrowPosition from '../../base/common/set-subrow-position';
 
 function toggleSelector() {
   let button = $('.selector__button');
@@ -28,6 +29,7 @@ function toggleSelector() {
     setAsidePosition();
     setFilterHeight();
     setAsideHeight();
+    setSubrowPosition();
   });
 }
 
