@@ -35,6 +35,12 @@ tr.bills-row
                   button(type="button").table__sortbutton
                     svg
                       use(xlink:href="#other-sort-icon")
+            th
+              .table__sort.flex.gap-x-2.items-center
+                p Бюджет
+                  button(type="button").table__sortbutton
+                    svg
+                      use(xlink:href="#other-sort-icon")
         tbody(class="relative")
           tr
             td
@@ -46,12 +52,16 @@ tr.bills-row
                       a(href="#").table__channel ZeroDay | Кибербезопасность
                     a(href="https://t.me/andreym" target="_blank").table__link @cybersec_academy
             td
-              .flex.items-center(class="gap-x-1.5")
+              .flex.items-center(class="gap-x-1.5" style="min-width: 138px;")
                 img.rounded.object-cover(class="w-[30px] h-[30px]" src="/assets/images/avatar.png" alt="tg-channel")
-                span Андрей Миронов
+                .flex.flex-col.items-start.line-clamp-1
+                  h3
+                    a(href="#").table__channel Андрей Миронов
+                  a(href="https://t.me/andreym" target="_blank").table__link @andreym
             td.only-text.text-right 1
             td.only-text 01.10.2025
-            td.only-text.text-right Инф. Стандартный без марк.
+            td.only-text Инф. Стандартный без марк.
+            td.only-text 210 520 ₽
           tr
             td
               .flex.items-center.w-full(class="gap-x-3 h-[33px]")
@@ -62,9 +72,13 @@ tr.bills-row
                       a(href="#").table__channel ZeroDay | Кибербезопасность
                     a(href="https://t.me/andreym" target="_blank").table__link @cybersec_academy
             td
-              .flex.items-center(class="gap-x-1.5")
+              .flex.items-center(class="gap-x-1.5" style="min-width: 138px;")
                 img.rounded.object-cover(class="w-[30px] h-[30px]" src="/assets/images/avatar.png" alt="tg-channel")
-                span Андрей Миронов
+                .flex.flex-col.items-start.line-clamp-1
+                  h3
+                    a(href="#").table__channel Андрей Миронов
+                  a(href="https://t.me/andreym" target="_blank").table__link @andreym
             td.only-text.text-right 1
             td.only-text 01.10.2025
-            td.only-text.text-right Инф. Стандартный без марк.
+            td.only-text Инф. Стандартный без марк.
+            td.only-text 210 520 ₽

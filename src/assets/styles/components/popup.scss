@@ -128,7 +128,7 @@
   }
   &[data-popup-name="generate-bill"] {
     .popup__subtitle {
-      @apply mt-2 text-14-m-md;
+      @apply mt-2 text-14-m-md; 
     }
     .heading {
       @apply top-16 right-8 absolute mt-0;
@@ -151,7 +151,7 @@
       }
       table {
         &:after {
-          @apply left-5 h-[calc(100%-9.5px)];
+          @apply left-5 h-[calc(100%-16.5px)];
         }
         &:before {
           @apply hidden;
@@ -159,6 +159,9 @@
       }
     }
     .popup__wrapper {
+      .popup__apply p {
+        @apply leading-3;
+      }
       @apply max-w-[1065px] overflow-hidden;
     }
   }
@@ -169,24 +172,6 @@
     .heading {
       @apply top-16 right-8 absolute mt-0;
     }
-    .bills-group-inner {
-      .bills-group__table {
-        .table-outer {
-          @apply pl-[31px];
-        }
-      }
-    }
-    .table-borders {
-      .border-line {
-        @apply w-[48px];
-      }
-      @apply w-[48px];
-    }
-    .bills-group__table {
-      .table-outer {
-        @apply pl-[23px];
-      }
-    }
     .popup__buttons-selected {
       @apply mt-3;
     }
@@ -195,11 +180,14 @@
       table {
         width: 100% !important;
         &:after {
-          @apply h-[calc(100%-8.5px)];
+          @apply h-[calc(100%-16.5px)];
         }
       }
     }
     .popup__wrapper {
+      .popup__apply p {
+        @apply leading-3;
+      }
       @apply max-w-[1065px] overflow-hidden;
     }
   }
@@ -590,16 +578,12 @@
   &[data-popup-name="bill-cancel"],
   &[data-popup-name="bill-annul"] {
     .popup__wrapper {
+      .popup__subtitle {
+        @apply leading-3;
+      }
       .popup__buttons {
         .button {
           justify-content: center;
-        }
-        .button-base {
-          flex: unset;
-          min-width: 63px;
-        }
-        .button-with-icon-blue {
-          flex: 1;
         }
       }
       @apply max-w-[265px];

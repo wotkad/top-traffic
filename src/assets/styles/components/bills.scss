@@ -28,7 +28,7 @@
 .bills-row {
   .table tbody tr td, 
   .table tbody tr th {
-    @apply transition-all duration-300;
+    @apply border-r-0 transition-all duration-300;
   }
   &:hover {
     .table tbody tr .fixed-td, 
@@ -45,6 +45,15 @@
   }
 }
 .bills-group {
+  .dropdown-status {
+    .dropdown__list {
+      a {
+        &:hover {
+          @apply text-black-100;
+        }
+      }
+    }
+  }
   &.layered {
     & > td {
       &:after {
@@ -93,7 +102,7 @@
       }
       @apply flex justify-center items-center mr-1 w-4 h-4 cursor-pointer;
     }
-    @apply z-20 relative flex items-center gap-x-[2px];
+    @apply z-20 relative flex items-center gap-x-1;
   }
   & + tr {
     z-index: 10;
@@ -117,7 +126,7 @@
         @apply -top-px left-10 absolute bg-black-500 w-px h-[calc(100%+1px)] content-[''];
       }
       &:after {
-        @apply -top-[15.5px] left-[57px] absolute bg-black-500 w-px h-[calc(100%-16.5px)] content-[''];
+        @apply -top-[15.5px] left-[57px] absolute bg-black-500 w-px h-[calc(100%-24.5px)] content-[''];
       }
     }
     th:nth-child(1),

@@ -40,8 +40,11 @@ function setTdPaddingUniversal(tableClass, sliceStart, sliceEndOffset) {
     });
     $('.table-outer').css('max-width', $('.table-outer').closest('.content-scroll').outerWidth() - 82 + 'px');
     $('.table-outer').css('min-width', $('.table-outer').closest('.content-scroll').outerWidth() - 82 + 'px');
-    $('.popup .table-outer').css('max-width', $('.popup .table-outer').closest('.content-scroll').outerWidth() - 25 + 'px');
-    $('.popup .bills-row .bills-group__table').css('max-width', $('.popup .table-outer').closest('.content-scroll').outerWidth() - 25 + 'px');
+    $('.popup .table-outer').css('max-width', $('.popup .table-outer').closest('.content-scroll').outerWidth() - 45 + 'px');
+    $('.popup .table-outer').css('min-width', $('.popup .table-outer').closest('.content-scroll').outerWidth() - 45 + 'px');
+    $('.popup[data-popup-name="create-bill"] .table-outer').css('max-width', $('.popup .table-outer').closest('.content-scroll').outerWidth() - 82 + 'px');
+    $('.popup[data-popup-name="create-bill"] .table-outer').css('min-width', $('.popup .table-outer').closest('.content-scroll').outerWidth() - 82 + 'px');
+    // $('.popup .bills-row .bills-group__table').css('max-width', $('.popup .table-outer').closest('.content-scroll').outerWidth() - 25 + 'px');
   });
 }
 
