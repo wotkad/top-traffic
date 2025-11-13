@@ -1,9 +1,9 @@
 .table {
   &-borders {
     .border-line {
-      @apply bg-black-500 w-[25px] h-px;
+      @apply bg-black-500 w-[25px] h-px block absolute left-0 top-0 -translate-y-1/2 mt-[46px];
     }
-    @apply fixed w-[25px] h-full;
+    @apply left-[57px] z-[1000] absolute w-[25px] h-full;
   }
   &.scrolled  {
     .fixed-th-border,

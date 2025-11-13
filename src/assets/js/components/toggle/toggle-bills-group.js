@@ -85,13 +85,13 @@ function toggleBillsGroup() {
       $row.css("height", "");
 
       subrow.css({
-        position: "fixed",
-        top: rowBottom + "px",
-        left: $('.content-scroll').left + "px",
+        position: "sticky",
+        top: 0,
+        left: 0,
         zIndex: 100
       });
 
-      $row.css("height", $row.outerHeight() + subrowHeight + "px");
+      // $row.css("height", $row.outerHeight() + subrowHeight + "px");
       subrow.css("height", subrowHeight + "px");
 
       fixedRows.set($row[0], { $row, subrow });
@@ -128,13 +128,13 @@ function toggleBillsGroup() {
         $row.css("height", "");
 
         subrow.css({
-          position: "fixed",
-          top: rowBottom + "px",
-          left: $('.content-scroll').left + "px",
+          position: "sticky",
+          top: 0,
+          left: 0,
           zIndex: 100,
           height: subrowHeight + "px",
         });
-        $row.css("height", $row.outerHeight() + subrowHeight + "px");
+        // $row.css("height", $row.outerHeight() + subrowHeight + "px");
         fixedRows.set($row[0], { $row, subrow });
       });
     } else {
@@ -180,12 +180,12 @@ function toggleBillsGroup() {
 
         subrow.css({
           position: "fixed",
-          top: rowBottom + "px",
-          left: $('.content-scroll').left + "px",
+          top: 0,
+          left: 0,
           zIndex: 100,
           height: subrowHeight + "px",
         });
-        $row.css("height", $row.outerHeight() + subrowHeight + "px");
+        // $row.css("height", $row.outerHeight() + subrowHeight + "px");
 
         fixedRows.set($row[0], { $row, subrow });
       });
@@ -212,7 +212,7 @@ function toggleBillsGroup() {
   });
 
 
-  $('.wrapper, .popup[data-popup-name="generate-bill"], .popup[data-popup-name="create-bill"]').on("scroll", function () {
+  $(window, '.wrapper, .popup[data-popup-name="generate-bill"], .popup[data-popup-name="create-bill"]').on("scroll resize", function () {
     updatePos();
   });
 
@@ -223,7 +223,7 @@ function toggleBillsGroup() {
       if (!$row.hasClass("active")) return;
       const rowOffset = $row.offset();
       const rowBottom = rowOffset.top + 47;
-      subrow.css("top", rowBottom + "px");
+      subrow.css("top", 0);
     });
   }
 
