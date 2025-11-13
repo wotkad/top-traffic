@@ -44,6 +44,11 @@
           @apply opacity-100;
         }
       }
+      .fixed-th-border {
+        &:before {
+          @apply top-0 -left-[0.5px] absolute bg-black-500 w-px h-full content-[''];
+        }
+      }
     }
     table {
       @apply w-full;
