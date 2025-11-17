@@ -144,14 +144,24 @@
         @apply w-auto;
       }
     }
+    .popup__apply {
+      p {
+        @apply mt-1;
+      }
+      @apply pb-2.5;
+    }
     .bills-group__table {
       padding-left: 20px !important;
       .table-outer {
+        .table-borders {
+          @apply left-5;
+        }
         @apply max-w-[980px];
       }
       table {
         &:after {
-          @apply left-5 h-[calc(100%-16.5px)];
+          height: var(--after-height);
+          @apply left-5;
         }
         &:before {
           @apply hidden;
@@ -175,12 +185,18 @@
     .popup__buttons-selected {
       @apply mt-3;
     }
+    .popup__apply {
+      p {
+        @apply mt-1;
+      }
+      @apply pb-2.5;
+    }
     .bills-group__table {
       width: 100%;
       table {
         width: 100% !important;
         &:after {
-          @apply h-[calc(100%-16.5px)];
+          height: var(--after-height);
         }
       }
     }
@@ -579,14 +595,14 @@
   &[data-popup-name="bill-annul"] {
     .popup__wrapper {
       .popup__subtitle {
-        @apply leading-3;
+        @apply mt-1 leading-3;
       }
       .popup__buttons {
         .button {
           justify-content: center;
         }
       }
-      @apply max-w-[265px];
+      @apply pb-2.5 max-w-[265px];
     }
   }
   &[data-popup-name="bill-restore"] {

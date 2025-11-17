@@ -179,7 +179,7 @@ function toggleBillsGroup() {
         const rowBottom = rowOffset.top + $row.outerHeight();
 
         subrow.css({
-          position: "fixed",
+          position: "sticky",
           top: 0,
           left: 0,
           zIndex: 100,

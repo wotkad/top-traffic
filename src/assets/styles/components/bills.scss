@@ -28,7 +28,7 @@
 .bills-row {
   .table tbody tr td, 
   .table tbody tr th {
-    @apply border-r-0 transition-all duration-300;
+    @apply border-r-0 h-[46px] max-h-[46px] transition-all duration-300;
   }
   &:hover {
     .table tbody tr .fixed-td, 
@@ -43,6 +43,10 @@
   .table tbody tr:hover th  {
     @apply bg-purple-300;
   }
+  & > td {
+    @apply border-b-0;
+  }
+  @apply border-black-500 border-b;
 }
 .bills-group {
   .dropdown-status {
@@ -126,7 +130,8 @@
         @apply -top-px left-10 absolute bg-black-500 w-px h-[calc(100%+1px)] content-[''];
       }
       &:after {
-        @apply -top-[15.5px] left-[57px] absolute bg-black-500 w-px h-[calc(100%-24.5px)] content-[''];
+        height: var(--after-height);
+        @apply -top-[15.5px] left-[57px] absolute bg-black-500 w-px content-[''];
       }
     }
     th:nth-child(1),

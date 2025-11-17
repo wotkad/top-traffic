@@ -5,18 +5,20 @@
     }
     @apply left-[57px] z-[1000] absolute w-[25px] h-full;
   }
-  &.scrolled  {
-    .fixed-th-border,
-    .fixed-td-border {
-      &:before {
-        @apply opacity-100;
-      }
-      &:after {
-        @apply opacity-100;
+  &-outer {
+    .table {
+      &.scrolled  {
+        .fixed-th-border,
+        .fixed-td-border {
+          &:before {
+            @apply opacity-100;
+          }
+          &:after {
+            @apply opacity-100;
+          }
+        }
       }
     }
-  }
-  &-outer {
     tr {
       td {
         @apply bg-white-000;
