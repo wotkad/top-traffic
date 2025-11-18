@@ -51,7 +51,7 @@
       @apply left-auto relative bg-transparent bg-no-repeat mr-1 rounded-none w-4 h-4 content-[''] transition-all duration-300;
     }
     span {
-      @apply max-w-[55px] text-ellipsis line-clamp-1;
+      @apply max-w-[48px] text-ellipsis line-clamp-1;
     }
     &:hover {
       &:before {

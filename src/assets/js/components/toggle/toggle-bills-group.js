@@ -209,6 +209,8 @@ function toggleBillsGroup() {
 
     applyFixedColsPadding();
     applyDefaultTablePadding();
+    positionTableBorders();
+
   });
 
 

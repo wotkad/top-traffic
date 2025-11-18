@@ -1,14 +1,14 @@
 .popup__bg(data-popup-name="bill-annul")
 .popup(data-popup-name="bill-annul")
   .popup__wrapper(data-scroll-lock-scrollable)
-    .popup__title Подтвердить действие
+    .popup__title Подтвердите действие
     .popup__subtitle Аннулировать счет? <br> Загруженный файл счета будет удален
     .popup__form
       .popup__buttons
         +button({
           class: 'button-base',
           dataPopupName: 'bill-annul',
-          title: 'Нет',
+          title: 'Отмена',
           view: 'button',
         })
         +button({

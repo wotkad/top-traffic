@@ -28,8 +28,14 @@ export default function positionTableBorders() {
     // === проверка горизонтального скролла у .table-outer ===
     const hasHScroll = $outer[0].scrollWidth > $outer[0].clientWidth;
 
-    // === добавляем нужное значение ===
-    totalHeight += hasHScroll ? 35 : 40;
+    // === проверяем, есть ли родитель .popup с data-popup-name="create-bill" ===
+    const hasCreateBillParent = $outer.closest('.popup[data-popup-name="create-bill"]').length > 0;
+
+    // === добавляем нужное значение только если есть нужный родитель ===
+    totalHeight += 35;
+    if (hasCreateBillParent) {
+      totalHeight += hasHScroll ? 0 : 5;
+    }
 
     // === сохраняем в data-height ===
     $table.data('height', totalHeight);
@@ -39,9 +45,7 @@ export default function positionTableBorders() {
   });
 }
 
-// --- начальный вызов
 setTimeout(positionTableBorders, 400);
-
 
 
 $(function () {

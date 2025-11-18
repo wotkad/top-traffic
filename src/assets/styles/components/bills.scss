@@ -216,3 +216,25 @@
     }
   }
 }
+
+// .table-outer {
+//     scrollbar-width: none;
+//     -ms-overflow-style: none;
+//     scrollbar-color: #a8a8a8 #F7F7F9;
+// }
+// .table-outer::-webkit-scrollbar {
+//     opacity: 0;
+//     transition: opacity .3s;
+// }
+// .table-outer.scrolling {
+//     scrollbar-width: thin;
+//     -ms-overflow-style: auto;
+// }
+// .table-outer.scrolling::-webkit-scrollbar {
+//     opacity: 1;
+//     width: 8px;
+// }
+// .table-outer::-webkit-scrollbar-track {
+//     background: #F7F7F9;
+//     border-radius: 4px;
+// }

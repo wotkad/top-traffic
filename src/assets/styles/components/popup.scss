@@ -594,8 +594,11 @@
   &[data-popup-name="bill-cancel"],
   &[data-popup-name="bill-annul"] {
     .popup__wrapper {
+      .popup__title {
+        @apply leading-4;
+      }
       .popup__subtitle {
-        @apply mt-1 leading-3;
+        @apply mt-1 leading-[14px];
       }
       .popup__buttons {
         .button {
