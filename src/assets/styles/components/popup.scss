@@ -591,6 +591,7 @@
       @apply p-[14px] max-w-[258px];
     }
   }
+  &[data-popup-name="bill-restore"],
   &[data-popup-name="bill-cancel"],
   &[data-popup-name="bill-annul"] {
     .popup__wrapper {

@@ -26,7 +26,9 @@ function toggleBillsGroup() {
   });
 
   $('.table-bills .bills-group .status').on('mouseleave', function(e) {
-    $(this).closest('.bills-group').removeClass('layered');
+    if (!$(this).closest('.bills-group').find('.heading__dropdown-base .dropdown__list').hasClass('active')) {
+      $(this).closest('.bills-group').removeClass('layered');
+    }
   });
 
   $('.table-bills .bills-group .dropdown-status').on('mouseenter', function(e) {
