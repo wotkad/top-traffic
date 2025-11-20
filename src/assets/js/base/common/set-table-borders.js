@@ -57,11 +57,20 @@ $(function () {
     const $normalTds = $('td.bills-group__table')
       .not('.popup td.bills-group__table'); // исключаем popup
 
-    if (w > 1536) {
+    if (w >= 1900) {
       $normalTds.attr('colspan', 7);
-    } else {
+    } else if (w >= 1800) {
+      $normalTds.attr('colspan', 6);
+    } else if (w >= 1700) {
+      $normalTds.attr('colspan', 5);
+    } else if (w >= 1600) {
+      $normalTds.attr('colspan', 4);
+    } else if (w >= 1470) {
       $normalTds.attr('colspan', 3);
+    } else if (w >= 1400) {
+      $normalTds.attr('colspan', 2);
     }
+
 
     // === POPUP: generate-bill ===
     $('.popup[data-popup-name="generate-bill"] td.bills-group__table')
