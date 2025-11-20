@@ -76,6 +76,11 @@
     & > thead {
       @apply -z-[1] relative;
     }
+    .bills-group.active {
+      &:hover > td.fixed-td:nth-child(1) > div {
+        @apply bg-white-000;
+      }
+    }
     tbody td {
       .dropdown-status {
         .dropdown__inner {
@@ -120,9 +125,6 @@
     th .table__checkbox-accept {
       @apply pointer-events-none;
     }
-    // tbody {
-    //   @apply z-[49] relative;
-    // }
     & > thead > tr > th:nth-child(1),
     & > tbody > tr.bills-group > td:nth-child(1) {
       &.fixed-th,
@@ -140,7 +142,10 @@
     & > tbody > tr.bills-group > td.fixed-td:nth-child(1) {
       @apply bg-white-000;
     }
-    & > tbody > tr.bills-group:hover > td.fixed-td:nth-child(1) {
+    & > tbody > tr.bills-group > td.fixed-td:nth-child(1) > div {
+      @apply transition-all duration-300
+    }
+    & > tbody > tr.bills-group:hover > td.fixed-td:nth-child(1) > div {
       @apply bg-purple-300;
     }
     &.scrolled {
