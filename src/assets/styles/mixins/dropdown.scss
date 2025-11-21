@@ -487,3 +487,111 @@
   }
   @apply relative flex flex-col items-start gap-y-2 w-full;
 }
+
+.toggle-shuffle {
+  @apply w-8 h-8;
+}
+
+.shuffle {
+  &__title {
+    @apply flex justify-between items-center pb-2 border-black-500 border-b text-14-sb;
+  }
+  &__clear {
+    &:hover {
+      @apply text-blue-600;
+    }
+    &:active {
+      @apply text-blue-500;
+    }
+    @apply text-12-sb text-black-200 transition-all duration-300;
+  }
+  .shuffle__list-primary {
+    .shuffle__title {
+      @apply gap-[3px] mb-2 pr-2.5 pb-1.5 pl-1.5;
+    }
+    .button {
+      span {
+        @apply leading-[15px];
+      }
+      @apply px-1.5 pt-1 pb-[3px] rounded h-auto;
+    }
+    @apply px-1.5 pt-3 pb-1.5 max-w-full max-h-full;
+  }
+  .shuffle__list-secondary {
+    .shuffle__title {
+      @apply mb-3;
+    }
+    .dropdown__container {
+      @apply items-start;
+    }
+    .dropdown {
+      &__list {
+        .shuffle__title {
+          @apply justify-start gap-[3px] mb-2 pr-2.5 pb-1.5 pl-1.5;
+        }
+        .button {
+          span {
+            @apply leading-[15px];
+          }
+          @apply px-1.5 pt-1 pb-[3px] rounded h-auto;
+        }
+        max-width: 188px !important;
+        @apply px-1.5 pt-3 pb-1.5 w-full max-h-full;
+      }
+      @apply inline-flex right-auto -left-2 w-auto;
+    }
+    .dropdown__button {
+      .button {
+        @apply static bg-transparent border-none h-7;
+      }
+      @apply pr-0 w-auto;
+    }
+    @apply p-4 pb-2.5 w-full max-w-[436px] max-h-full;
+  }
+  &__sorting {
+    @apply flex flex-col gap-y-2 mb-2.5;
+  }
+  &__item {
+    .dropdown {
+      &__title {
+        @apply max-w-full;
+      }
+      &__list {
+        padding: 6px 4px !important;
+      }
+      &__button {
+        .button {
+          @apply justify-start min-w-[22px];
+        }
+        width: 100% !important;
+        @apply px-2 border border-black-500 rounded-md;
+      }
+      @apply static;
+    }
+    @apply items-center gap-x-2 grid grid-cols-[9px_162px_181px_30px];
+  }
+  &__remove {
+    min-width: 30px !important;
+    @apply bg-transparent border-none h-[30px];
+  }
+}
+
+.ui-sortable-helper {
+  & > svg {
+    path {
+      @apply fill-black-100;
+    }
+  }
+  .dropdown {
+    &__button {
+      @apply border-black-100;
+    }
+  }
+  .shuffle__remove {
+    svg {
+      path {
+        @apply fill-black-100;
+      }
+    }
+  }
+}

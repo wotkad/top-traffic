@@ -16,7 +16,21 @@
     }
     .heading__left,
     .heading__right {
-      @apply flex items-center gap-x-3;
+      @apply flex items-center gap-x-1.5;
+    }
+    .heading__right {
+      .button-with-icon {
+        &.filter__toggle {
+          @apply min-w-max;
+        }
+        & > svg:first-child {
+          @apply min-w-5;
+        }
+        & > svg.button-clear {
+          @apply min-w-[9px];
+        }
+        @apply flex justify-center items-center px-[5px] min-w-8;
+      }
     }
     .heading__title {
       sup {

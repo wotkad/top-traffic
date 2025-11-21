@@ -22,7 +22,9 @@ function toggleBillsGroup() {
   });
 
   $('.table-bills .bills-group .status').on('mouseenter', function(e) {
-    $(this).closest('.bills-group').addClass('layered');
+    if (!$('.toggle-shuffle').hasClass('active')) {
+      $(this).closest('.bills-group').addClass('layered');
+    }
   });
 
   $('.table-bills .bills-group .status').on('mouseleave', function(e) {

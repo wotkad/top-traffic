@@ -56,6 +56,7 @@ import "./base/common/add-user";
 import "./base/common/add-tag";
 import "./base/common/set-info-user-pos";
 import "./base/common/set-table-borders";
+import "./base/common/shuffle";
 
 import "./base/common/chat";
 import "./base/common/chat/send-edit";

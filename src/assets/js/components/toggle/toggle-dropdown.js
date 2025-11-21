@@ -91,19 +91,17 @@ export default function toggleDropdown() {
     const isInsideNewFormat = $dropdown.closest('.dropdown-new-format').length > 0;
     const isBaseDropdown = $dropdown.hasClass('dropdown-base');
 
-    // 1. Закрытие других дропдаунов в зависимости от типа текущего
     if (isInsideNewFormat && isBaseDropdown) {
-      // Случай 2: внутренний дропдаун (.dropdown-base внутри .dropdown-new-format)
       $trigger.closest('.dropdown-new__selects').find('.dropdown__button').not(this).removeClass('active');
       $trigger.closest('.dropdown-new__selects').find('.dropdown__list').not($list).removeClass('active');
     } else if (isInsideNewFormat && !isBaseDropdown) {
-      // Случай 3: главный дропдаун (.dropdown-new-format)
       $('.dropdown-new-format .dropdown__list').not($list).removeClass('active');
       $('.dropdown-new-format .dropdown__button').not($trigger).removeClass('active');
     } else {
-      // Случай 1: обычный дропдаун (вне .dropdown-new-format)
-      $('.dropdown__list').not($list).removeClass('active').css({ right: '', top: '' });
-      $('.dropdown__button, .dropdown__sort').not($trigger).removeClass('active');
+      if (!$(this).closest('.shuffle').length) {
+          $('.dropdown__list').not($list).removeClass('active').css({ right: '', top: '' });
+          $('.dropdown__button, .dropdown__sort').not($trigger).removeClass('active');
+      }
     }
 
     // 2. Переключение состояния текущего дропдауна
@@ -453,10 +451,12 @@ export default function toggleDropdown() {
   });
 
   $('.dropdown__list').on('click', function (e) {
+    if ($(e.target).closest('.dropdown__button').length) return;
     if (
       $(this).closest('.dropdown-checkboxes').length ||
       $(this).closest('.dropdown-checkboxes-images').length ||
-      $(this).closest('.dropdown-radios').length
+      $(this).closest('.dropdown-radios').length ||
+      $(this).closest('.shuffle').length
     ) {
       e.stopPropagation();
     }
