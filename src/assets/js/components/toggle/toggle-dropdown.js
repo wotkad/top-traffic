@@ -114,7 +114,28 @@ export default function toggleDropdown() {
     $trigger.addClass('active');
     $list.addClass('active');
     $('.info-users__items').remove();
-});
+  });
+
+  $('.toggle-shuffle').on('click', function(e) {
+    $('.shuffle__sorting .dropdown__list').removeClass('active').css({ right: '', top: '' });
+    $('.shuffle__sorting .dropdown__button').removeClass('active');
+    $('.new-shuffle .dropdown__list').removeClass('active').css({ right: '', top: '' });
+    $('.new-shuffle .dropdown__button').removeClass('active');
+  });
+
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.shuffle__sorting .dropdown__list')) {
+      $('.shuffle__sorting .dropdown__list').removeClass('active').css({ right: '', top: '' });
+      $('.shuffle__sorting .dropdown__button').removeClass('active');
+    }
+  }, true);
+
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.new-shuffle .dropdown__list')) {
+      $('.new-shuffle .dropdown__list').removeClass('active').css({ right: '', top: '' });
+      $('.new-shuffle .dropdown__button').removeClass('active');
+    }
+  }, true);
 
   $('.dropdown-new-format').each(function(index) {
     const $wrap = $(this);
