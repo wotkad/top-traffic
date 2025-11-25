@@ -521,6 +521,16 @@
     .shuffle__title {
       @apply mb-3;
     }
+    .new-shuffle {
+      .dropdown__button {
+        .button {
+          &:hover {
+            @apply bg-black-600;
+          }
+          @apply pr-2.5;
+        }
+      }
+    }
     .dropdown__container {
       @apply items-start;
     }
@@ -544,7 +554,7 @@
       .button {
         @apply static bg-transparent border-none h-7;
       }
-      @apply pr-0 w-auto;
+      @apply bg-white-000 pr-0 w-auto;
     }
     @apply p-4 pb-2.5 w-full max-w-[436px] max-h-full;
   }
@@ -552,6 +562,17 @@
     @apply flex flex-col gap-y-2 mb-2.5;
   }
   &__item {
+    & > svg {
+      path {
+        @apply transition-all duration-300;
+      }
+      &:hover {
+        path {
+          @apply fill-black-100;
+        }
+      }
+      @apply cursor-grab;
+    }
     .dropdown {
       &__title {
         @apply max-w-full;
@@ -581,6 +602,7 @@
     path {
       @apply fill-black-100;
     }
+    @apply cursor-grabbing;
   }
   .dropdown {
     &__button {
@@ -594,4 +616,8 @@
       }
     }
   }
+}
+
+.sortable-placeholder {
+  z-index: -1;
 }
