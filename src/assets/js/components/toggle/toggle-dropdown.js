@@ -473,6 +473,12 @@ export default function toggleDropdown() {
 
   $('.dropdown__list').on('click', function (e) {
     if ($(e.target).closest('.dropdown__button').length) return;
+
+    // ❗ НЕ блокируем всплытие, если это shuffle__list-primary
+    if ($(e.target).closest('.shuffle__list-primary').length) {
+      return;
+    }
+
     if (
       $(this).closest('.dropdown-checkboxes').length ||
       $(this).closest('.dropdown-checkboxes-images').length ||
@@ -986,3 +992,50 @@ export default function toggleDropdown() {
 }
 
 toggleDropdown();
+
+
+$(document).on("click", ".toggle-shuffle", function (e) {
+  e.stopPropagation();
+
+  const $dropdown = $(this).closest('.shuffle');
+  const $primary = $dropdown.find(".shuffle__list-primary");
+  const $secondary = $dropdown.find(".shuffle__list-secondary");
+
+  const hasActive = $primary.find("button.active").length > 0;
+
+  if (hasActive) {
+    // В первом есть active → скрываем первый, показываем второй
+    $primary.removeClass("is-visible");
+    $secondary.addClass("is-visible");
+
+  } else {
+    // В первом нет active → показываем первый, скрываем второй
+    $primary.addClass("is-visible");
+    $secondary.removeClass("is-visible");
+  }
+});
+
+
+// Клик по элементу первого списка
+$(document).on("click", ".shuffle__list-primary button", function (e) {
+  e.stopImmediatePropagation();
+  $('.shuffle__list-primary button').removeClass('active');
+  const $item = $(this);
+  const $dropdown = $item.closest(".shuffle");
+  const $primary = $dropdown.find(".shuffle__list-primary");
+  const $secondary = $dropdown.find(".shuffle__list-secondary");
+
+  // Активируем выбранный элемент
+  $primary.find("button.active").removeClass("active");
+  $item.addClass("active");
+
+  // Переключаем списки
+  $primary.removeClass("is-visible");
+  $secondary.addClass("is-visible");
+});
+
+$('.shuffle__clear').on('click', function() {
+  $('.shuffle__list-primary button').removeClass('active');
+  $(".shuffle__list-primary").addClass("is-visible");
+  $(".shuffle__list-secondary").removeClass("is-visible");
+});

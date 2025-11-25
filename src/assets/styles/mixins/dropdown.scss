@@ -621,3 +621,13 @@
 .sortable-placeholder {
   z-index: -1;
 }
+
+.shuffle__list-primary:not(.is-visible),
+.shuffle__list-secondary:not(.is-visible) {
+  display: none !important;
+}
+
+.shuffle__list-primary.is-visible,
+.shuffle__list-secondary.is-visible {
+  display: block !important;
+}
