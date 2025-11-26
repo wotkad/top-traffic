@@ -489,6 +489,11 @@
 }
 
 .toggle-shuffle {
+  &.active {
+    button {
+      @apply bg-purple-300 border-blue-200 text-blue-200;
+    }
+  }
   @apply w-8 h-8;
 }
 
@@ -593,6 +598,18 @@
   }
   &__remove {
     min-width: 30px !important;
+    svg {
+      path {
+        @apply transition-all duration-300;
+      }
+    }
+    &:hover {
+      svg {
+        path {
+          @apply fill-black-100;
+        }
+      }
+    }
     @apply bg-transparent border-none h-[30px];
   }
 }
