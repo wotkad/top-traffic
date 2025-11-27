@@ -142,9 +142,7 @@ export default function toggleDropdown() {
             .removeClass('active')
             .css({ right: '', top: '' });
     }
-}, true);
-
-
+  }, true);
 
   $('.dropdown-new-format').each(function(index) {
     const $wrap = $(this);
@@ -1021,9 +1019,9 @@ $(document).on("click", ".toggle-shuffle", function (e) {
     // В первом нет active → показываем первый, скрываем второй
     $primary.addClass("is-visible");
     $secondary.removeClass("is-visible");
+    $('.shuffle-clear').hide();
   }
 });
-
 
 // Клик по элементу первого списка
 $(document).on("click", ".shuffle__list-primary button", function (e) {
@@ -1041,6 +1039,7 @@ $(document).on("click", ".shuffle__list-primary button", function (e) {
   // Переключаем списки
   $primary.removeClass("is-visible");
   $secondary.addClass("is-visible");
+  $('.shuffle-clear').show();
 });
 
 $('.shuffle__clear').on('click', function() {
@@ -1048,4 +1047,14 @@ $('.shuffle__clear').on('click', function() {
   $('.toggle-shuffle').removeClass('active');
   $(".shuffle__list-primary").removeClass("is-visible active");
   $(".shuffle__list-secondary").removeClass("is-visible active");
+  $('.shuffle-clear').hide();
+});
+
+$('.shuffle-clear').on('click', function(e) {
+  e.stopPropagation();
+  $('.shuffle__list-primary button').removeClass('active');
+  $('.toggle-shuffle').removeClass('active');
+  $(".shuffle__list-primary").removeClass("is-visible active");
+  $(".shuffle__list-secondary").removeClass("is-visible active");
+  $('.shuffle-clear').hide();
 });
