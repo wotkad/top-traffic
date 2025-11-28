@@ -1019,7 +1019,8 @@ $(document).on("click", ".toggle-shuffle", function (e) {
     // В первом нет active → показываем первый, скрываем второй
     $primary.addClass("is-visible");
     $secondary.removeClass("is-visible");
-    $('.shuffle-clear').hide();
+    $('.shuffle-clear').hide()
+    $('.toggle-shuffle').removeClass('sorted');
   }
 });
 
@@ -1039,7 +1040,8 @@ $(document).on("click", ".shuffle__list-primary button", function (e) {
   // Переключаем списки
   $primary.removeClass("is-visible");
   $secondary.addClass("is-visible");
-  $('.shuffle-clear').show();
+  $('.shuffle-clear').show()
+  $('.toggle-shuffle').addClass('sorted');
 });
 
 $('.shuffle__clear').on('click', function() {
@@ -1048,10 +1050,12 @@ $('.shuffle__clear').on('click', function() {
   $(".shuffle__list-primary").removeClass("is-visible active");
   $(".shuffle__list-secondary").removeClass("is-visible active");
   $('.shuffle-clear').hide();
+  $('.toggle-shuffle').removeClass('sorted');
 });
 
 $('.shuffle-clear').on('click', function(e) {
   e.stopPropagation();
+  $('.toggle-shuffle').removeClass('sorted');
   $('.shuffle__list-primary button').removeClass('active');
   $('.toggle-shuffle').removeClass('active');
   $(".shuffle__list-primary").removeClass("is-visible active");
