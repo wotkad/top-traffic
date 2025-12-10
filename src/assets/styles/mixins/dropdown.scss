@@ -485,6 +485,11 @@
       }
     }
   }
+  &-stoplist {
+    .dropdown__list {
+      @apply bg-black-700 px-1 py-2 max-w-[111px];
+    }
+  }
   @apply relative flex flex-col items-start gap-y-2 w-full;
 }
 

@@ -5,7 +5,7 @@ table.table.table-fixed-cols.table-selected
 table.table.table-fixed-cols.table-select
   thead
     tr
-      th(style="padding-left: 12px; min-width: 288px; max-width: 288px;").fixed-th.fixed-th-border
+      th(style="padding-left: 12px; min-width: 333px; max-width: 333px;").fixed-th.fixed-th-border
         .flex.items-center(class="gap-x-3")
           +input({
             class: 'md table__checkbox',
@@ -235,8 +235,184 @@ table.table.table-fixed-cols.table-select
               svg
                 use(xlink:href="#other-sort-icon")
   tbody
-    include row-popup
-    include row-popup
+    tr
+      td(style="padding-left: 12px; min-width: 333px; max-width: 333px; padding-top: 6.5px; padding-bottom: 6.5px;").fixed-td.fixed-td-border
+        .flex.items-center.w-full(class="gap-x-3 h-[33px]")
+          +input({
+            class: 'md table__checkbox',
+            type: 'checkbox',
+          })
+          .flex.items-center(class="gap-x-1.5")
+            img.rounded.object-cover(class="w-[30px] h-[30px]" src="/assets/images/avatar.png" alt="tg-channel")
+            .flex.flex-col.items-start
+              h3
+                a(href="#").table__channel ZeroDay | Кибербезопасность
+                span.status(class="status-green status-channels")
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="7" cy="7" r="7" fill="#57CB74"/>
+                    <path d="M4.5 6.77778L6.12981 8.80599C6.20987 8.90562 6.36156 8.90562 6.44162 8.80599L9.5 5" stroke="white" stroke-width="1.2" stroke-linecap="round"/>
+                  </svg>
+                  span Приоритет
+              a(href="https://t.me/cybersec_academy" target="_blank").table__link @cybersec_academy
+      td.only-text
+        +dropdown({
+          buttons: [
+            {
+              name: 'add-channel-radio',
+              title: 'Все',
+            },
+            {
+              isChecked: true,
+              name: 'add-channel-radio',
+              title: '1/24',
+            },
+            {
+              name: 'add-channel-radio',
+              title: '1/48',
+            },
+            {
+              name: 'add-channel-radio',
+              title: '1/72',
+            },
+            {
+              name: 'add-channel-radio',
+              title: 'Нативный',
+            },
+          ],
+          title: '1/24',
+        })
+      td.only-text 1/24
+      td.only-text Интернет технологии
+      td.only-text Андрей Миронов
+      td.only-text.text-right 999 999
+      td.only-text.text-right 152 564
+      td.only-text.text-right 999 999
+      td.only-text.text-right 999 999
+      td.only-text.text-right 0,16
+      td.only-text.text-right 152 564
+      td.only-text.text-right 152 564
+      td.only-text.text-right 152 564
+      td.only-text.text-right 16
+      td.only-text.text-right 25,5%
+      td.only-text.text-right 25,5%
+      td.only-text.text-right 25,5%
+      td.only-text.text-right 25,5%
+      td.only-text
+        a(href="https://t.me/futuread" target="_blank") https://t.me/futuread
+      td.only-text да
+      td.only-text возможно
+      td.only-text да
+      td.only-text возможно
+      td.only-text да
+      td.only-text возможно
+      td.only-text да
+      td.only-text.audience
+        .flex.justify-center(class="gap-x-5")
+          span.table__category.male 0,25%
+          span.table__category.female 0,54%
+      td.only-text.adult
+        .flex.justify-center(class="gap-x-5")
+          span.table__category.posts 0,25%
+          span.table__category.words 0,54%
+      td.only-text.policy
+        .flex.justify-center(class="gap-x-5")
+          span.table__category.posts 0,25%
+          span.table__category.words 0,54%
+      td.only-text.horror
+        .flex.justify-center(class="gap-x-5")
+          span.table__category.posts 0,25%
+          span.table__category.words 0,54%
+      td.only-text.text-right 152 564
+      td.only-text 24.01.2025
+    tr
+      td(style="padding-left: 12px; min-width: 333px; max-width: 333px; padding-top: 6.5px; padding-bottom: 6.5px;").fixed-td.fixed-td-border
+        .flex.items-center.w-full(class="gap-x-3 h-[33px]")
+          +input({
+            class: 'md table__checkbox',
+            type: 'checkbox',
+          })
+          .flex.items-center(class="gap-x-1.5")
+            img.rounded.object-cover(class="w-[30px] h-[30px]" src="/assets/images/avatar.png" alt="tg-channel")
+            .flex.flex-col.items-start
+              h3
+                a(href="#").table__channel ZeroDay | Кибербезопасность
+                span.status(class="status-red status-channels")
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="7" cy="7" r="7" fill="#E26E5D"/>
+                    <path d="M8.85449 4.5332C9.02371 4.364 9.29759 4.36398 9.4668 4.5332C9.63582 4.70244 9.63592 4.97634 9.4668 5.14551L7.6123 6.99902L9.4668 8.85352C9.63602 9.02274 9.63602 9.29758 9.4668 9.4668C9.29758 9.63602 9.02274 9.63602 8.85352 9.4668L6.99902 7.6123L5.14551 9.4668C4.97634 9.6359 4.70243 9.6358 4.5332 9.4668C4.36398 9.29758 4.36398 9.02274 4.5332 8.85352L6.38672 6.99902L4.5332 5.14551C4.36398 4.97628 4.36398 4.70243 4.5332 4.5332C4.70243 4.36398 4.97628 4.36398 5.14551 4.5332L6.99902 6.38672L8.85449 4.5332Z" fill="white" stroke="white" stroke-width="0.2"/>
+                  </svg>
+                  span Стоп-лист
+              a(href="https://t.me/cybersec_academy" target="_blank").table__link @cybersec_academy
+      td.only-text
+        +dropdown({
+          buttons: [
+            {
+              name: 'add-channel-radio',
+              title: 'Все',
+            },
+            {
+              isChecked: true,
+              name: 'add-channel-radio',
+              title: '1/24',
+            },
+            {
+              name: 'add-channel-radio',
+              title: '1/48',
+            },
+            {
+              name: 'add-channel-radio',
+              title: '1/72',
+            },
+            {
+              name: 'add-channel-radio',
+              title: 'Нативный',
+            },
+          ],
+          title: '1/24',
+        })
+      td.only-text 1/24
+      td.only-text Интернет технологии
+      td.only-text Андрей Миронов
+      td.only-text.text-right 999 999
+      td.only-text.text-right 152 564
+      td.only-text.text-right 999 999
+      td.only-text.text-right 999 999
+      td.only-text.text-right 0,16
+      td.only-text.text-right 152 564
+      td.only-text.text-right 152 564
+      td.only-text.text-right 152 564
+      td.only-text.text-right 16
+      td.only-text.text-right 25,5%
+      td.only-text.text-right 25,5%
+      td.only-text.text-right 25,5%
+      td.only-text.text-right 25,5%
+      td.only-text
+        a(href="https://t.me/futuread" target="_blank") https://t.me/futuread
+      td.only-text да
+      td.only-text возможно
+      td.only-text да
+      td.only-text возможно
+      td.only-text да
+      td.only-text возможно
+      td.only-text да
+      td.only-text.audience
+        .flex.justify-center(class="gap-x-5")
+          span.table__category.male 0,25%
+          span.table__category.female 0,54%
+      td.only-text.adult
+        .flex.justify-center(class="gap-x-5")
+          span.table__category.posts 0,25%
+          span.table__category.words 0,54%
+      td.only-text.policy
+        .flex.justify-center(class="gap-x-5")
+          span.table__category.posts 0,25%
+          span.table__category.words 0,54%
+      td.only-text.horror
+        .flex.justify-center(class="gap-x-5")
+          span.table__category.posts 0,25%
+          span.table__category.words 0,54%
+      td.only-text.text-right 152 564
+      td.only-text 24.01.2025
     include row-popup
     include row-popup
     include row-popup

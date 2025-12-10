@@ -5,6 +5,73 @@
     }
     @apply left-[57px] z-[1000] absolute w-[25px] h-full;
   }
+  &-reason {
+    & > p {
+      .table__sortbutton {
+        @apply -right-6;
+      }
+    }
+    @apply relative;
+  }
+  &-channel {
+    &.scrolled  {
+      .fixed-th-border,
+      .fixed-td-border {
+        &:before {
+          @apply opacity-100;
+        }
+        &:after {
+          @apply opacity-100;
+        }
+      }
+    }
+    tr {
+      &:hover {
+        .stoplist-controls {
+          @apply visible opacity-100;
+        }
+      }
+    }
+    .stoplist-controls {
+      @apply invisible right-0 sticky flex items-center gap-x-1 opacity-0 transition duration-300;
+    }
+    .stoplist-edit,
+    .stoplist-delete {
+      &:hover {
+        @apply bg-[#BBBFC4] bg-opacity-100;
+      }
+      svg {
+        @apply w-4 min-w-4 h-4 min-h-4;
+      }
+      @apply flex justify-center items-center bg-[#D5D6D7] bg-opacity-70 rounded-[9px] w-[30px] h-[30px] transition-all duration-300 cursor-pointer;
+    }
+    .reason {
+      p {
+        &:hover {
+          & ~ i {
+            @apply visible z-10 opacity-100;
+          }
+        }
+        @apply max-w-[95px] text-ellipsis line-clamp-1;
+      }
+      i {
+        @apply invisible -top-[17px] -right-[3px] -z-10 absolute bg-black-700 opacity-0 px-1.5 py-1.5 border border-black-500 rounded-md text-10-r not-italic transition-all translate-x-full duration-300;
+      }
+      @apply relative;
+    }
+    .status {
+      &:before {
+        @apply hidden;
+      }
+      &-lists {
+        svg {
+          @apply left-1.5 absolute;
+        }
+        @apply pl-6;
+      }
+      @apply pl-2;
+    }
+  }
   &-outer {
     .table {
       &.scrolled  {
@@ -209,6 +276,7 @@
   &.table-approval,
   &.table-process,
   &.table-bills,
+  &.table-channel,
   &.table-coordination {
     td {
       .input {
@@ -570,7 +638,7 @@
     svg {
       @apply transition-all duration-300;
     }
-    @apply invisible -right-[13px] absolute opacity-0 transition-all duration-300 pointer-events-none;
+    @apply invisible -right-[14px] absolute opacity-0 transition-all duration-300 pointer-events-none;
   }
   &__selected {
     p {
@@ -644,7 +712,7 @@
         @apply visible opacity-100;
       }
     }
-    &.reverse {
+    &.reverse .table__sortbutton {
       svg {
         @apply -scale-y-100;
       }
@@ -790,6 +858,19 @@
     p {
       @apply text-12-sb whitespace-nowrap;
     }
+    .table__head-tip {
+      svg {
+        &:hover {
+          & ~ p {
+            @apply visible z-10 opacity-100;
+          }
+        }
+      }
+      p {
+        @apply invisible -top-[17px] -right-[3px] -z-10 absolute bg-black-700 opacity-0 px-1.5 py-1.5 border border-black-500 rounded-md text-10-r transition-all translate-x-full duration-300;
+      }
+      @apply left-14 absolute;
+    }
     span {
       @apply text-10-r;
     }
@@ -860,6 +941,7 @@
       a {
         @apply block max-w-[181px] text-ellipsis line-clamp-1;
       }
+      @apply flex items-center;
     }
     &:nth-child(1),
     &:nth-child(2) {

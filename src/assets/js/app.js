@@ -57,6 +57,7 @@ import "./base/common/add-tag";
 import "./base/common/set-info-user-pos";
 import "./base/common/set-table-borders";
 import "./base/common/shuffle";
+import "./base/common/set-stoplist-position";
 
 import "./base/common/chat";
 import "./base/common/chat/send-edit";
@@ -109,6 +110,7 @@ import "./components/scroll/scroll-to-top";
 import "./components/scroll/scroll-filter";
 import "./components/scroll/scroll-content-aside";
 import "./components/scroll/scroll-table";
+import "./components/scroll/scroll-selectors";
 
 import "./components/datepicker";
 import "./components/monthpicker";

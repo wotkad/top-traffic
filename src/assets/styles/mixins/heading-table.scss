@@ -31,6 +31,9 @@
         }
         @apply flex justify-center items-center px-[5px] min-w-8;
       }
+      .button-with-icon-blue {
+        @apply whitespace-nowrap;
+      }
     }
     .heading__title {
       sup {

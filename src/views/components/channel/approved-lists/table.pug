@@ -1,0 +1,72 @@
+table.table.table-fixed-cols.table-channel
+  thead
+    tr
+      th(style="min-width: 288px; max-width: 288px;").fixed-th.fixed-th-border
+        .table__sort.flex.gap-x-2.items-center
+          p Канал
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Бренд
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Список
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Рекламный канал
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Дата начала
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Дата окончания
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center.table-reason
+          p Причина
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+          .table__head-tip
+            <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4.5 0.140625C2.09619 0.140625 0.140625 2.09619 0.140625 4.5C0.140625 6.90381 2.09619 8.85938 4.5 8.85938C6.90381 8.85938 8.85938 6.90381 8.85938 4.5C8.85938 2.09619 6.90381 0.140625 4.5 0.140625ZM4.5 8.01562C2.56146 8.01562 0.984375 6.43854 0.984375 4.5C0.984375 2.56146 2.56146 0.984375 4.5 0.984375C6.43854 0.984375 8.01562 2.56146 8.01562 4.5C8.01562 6.43854 6.43854 8.01562 4.5 8.01562Z" fill="currentColor"/>
+              <path d="M4.5 3.12207C4.26695 3.12207 4.07812 3.31104 4.07812 3.54395V6.65829C4.07812 6.89121 4.26695 7.08017 4.5 7.08017C4.73305 7.08017 4.92188 6.8912 4.92188 6.65829V3.54395C4.92188 3.31103 4.73305 3.12207 4.5 3.12207Z" fill="currentColor"/>
+              <path d="M4.5 1.91992C4.26695 1.91992 4.07812 2.10889 4.07812 2.3418V2.34317C4.07812 2.57608 4.26695 2.7645 4.5 2.7645C4.73305 2.7645 4.92188 2.57471 4.92188 2.3418C4.92188 2.10889 4.73305 1.91992 4.5 1.91992Z" fill="currentColor"/>
+            </svg>
+            p Доступно для Стоп-листа
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Комментарии
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Автор
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+      th
+        .table__sort.flex.gap-x-2.items-center
+          p Дата создания
+            button(type="button").table__sortbutton
+              svg
+                use(xlink:href="#other-sort-icon")
+  tbody
+    include ./row

@@ -1,0 +1,139 @@
+aside.filter.filter-sm(data-filter-name="approved-lists")
+  .filter__container
+    .filter__title
+      h2 Фильтр
+      button(type="button" data-filter-name="approved-lists").filter__clear Сбросить
+    form(action="#")
+      h3.filter__subtitle Сделка
+      +dropdown({
+        checkboxes: [
+          {
+            class: 'check-all',
+            title: 'Все',
+          },
+          {
+            title: 'Банки',
+          },
+          {
+            title: 'Банки',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Банки',
+          },
+          {
+            title: 'Банки',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+        ],
+        class: 'dropdown-checkboxes',
+        isAll: true,
+        isCheckboxes: true,
+        isResults: true,
+      })
+      h3.filter__subtitle Клиент
+      +dropdown({
+        checkboxes: [
+          {
+            class: 'check-all',
+            title: 'Все',
+          },
+          {
+            title: 'Банки',
+          },
+          {
+            title: 'Банки',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Банки',
+          },
+          {
+            title: 'Банки',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+          {
+            title: 'Автомобили',
+          },
+        ],
+        class: 'dropdown-checkboxes',
+        isAll: true,
+        isCheckboxes: true,
+        isResults: true,
+      })
+      h3.filter__subtitle Период
+      +button({
+        calendarClass: 'opensleft',
+        class: 'button-with-icon',
+        icon: 'other-calendar-icon',
+        isCalendar: true,
+        isDatePicker: false,
+        isMonthPicker: true,
+        value: 'Все',
+        view: 'button',
+      })
+      +button({
+        class: 'button-base filter__button',
+        title: 'Применить',
+        type: 'submit',
+        view: 'button',
+      })

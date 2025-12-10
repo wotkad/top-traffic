@@ -1,5 +1,5 @@
-export default function setSubrowPosition() {
-  $('tr.subrow .fixed-subrow .button').each(function() {
+export default function setStoplistPosition() {
+  $('tr .stoplist-controls').each(function() {
     let contentWidth = $(this).closest('.content').outerWidth()
     $(this).css({
       'position': 'absolute',
@@ -7,10 +7,10 @@ export default function setSubrowPosition() {
     });
   });
 }
-setTimeout(setSubrowPosition, 400);
+setTimeout(setStoplistPosition, 400);
 
 $(window).on('resize load', function() {
   requestAnimationFrame(() => {
-    setTimeout(setSubrowPosition, 400);
+    setTimeout(setStoplistPosition, 400);
   });
 });

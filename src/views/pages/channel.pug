@@ -220,10 +220,19 @@ block content
                   button.selector__button(data-id="publication-statistics") Статистика публикаций
                   button.selector__button(data-id="administration-history") История администрирования
                     span 4
-                  button.selector__button(data-id="advertising-campaigns").active Рекламные кампании
+                  button.selector__button(data-id="advertising-campaigns") Рекламные кампании
                     span 20
-                  button.selector__button(data-id="transactions-for-payment") Сделки на оплату
+                  button.selector__button(data-id="transactions-for-payment").active Сделки на оплату
                     span 20
+                  button.selector__button(data-id="approved-lists") Одобренные списки
+                    span 5
+                .selector__controls 
+                  .selector__prev
+                    svg
+                      use(xlink:href="#other-angle-left-icon")
+                  .selector__next
+                    svg
+                      use(xlink:href="#other-angle-right-icon")
               .selector__containers.selector__content
                 .selector__container(data-id="channel-statistics")
                   +heading-table({
@@ -285,7 +294,7 @@ block content
                       .content-scroll
                         include ../components/channel/administration-history/table
                     include ../components/channel/administration-history/filter
-                .selector__container(data-id="advertising-campaigns").active
+                .selector__container(data-id="advertising-campaigns")
                   +heading-table({
                     isSearch: true,
                     isPosts: true,
@@ -332,4 +341,281 @@ block content
                       .mt-12
                         include ../components/pagination
                     include ../components/channel/transactions-for-payment/filter
+                .selector__container(data-id="approved-lists").active
+                  <div class="heading heading-table heading-table-rows">
+                    <div class="heading__buttons">
+                      <div class="heading__left">
+                        <div class="heading__left__inner">
+                          <form class="search min-w-[243px] max-w-[243px]" action="#">
+                            <label class="search__label">
+                              <input class="search__input " required="" type="search" autocomplete="on" placeholder="Поиск..." name="search">
+                              <svg viewBox="0 0 18 18" width="18" height="18">
+                                <use xlink:href="#other-search-icon"></use>
+                              </svg>
+                            </label>
+                          </form>
+                        </div>
+                      </div>
+                      <div class="heading__right">
+                        <div class="dropdown dropdown-with-icon header__dropdown shuffle">
+                          <div class="dropdown__container">
+                            <div class="dropdown__button toggle-shuffle">
+                              <button class="button button-with-icon" type="button" aria-label="button">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M11.0537 2.31445C11.2074 2.31571 11.3594 2.34857 11.501 2.41016C11.6427 2.47178 11.7718 2.56106 11.8799 2.67383L13.7861 4.65918H13.7871L13.7881 4.66113C13.8398 4.71517 13.8814 4.77918 13.9092 4.84961C13.9369 4.92008 13.9508 4.99617 13.9502 5.07227C13.9495 5.14817 13.9341 5.22314 13.9053 5.29297C13.8765 5.36284 13.8347 5.42637 13.7822 5.47949C13.7296 5.53267 13.6669 5.57514 13.5986 5.60352C13.5305 5.63182 13.4572 5.64612 13.3838 5.64551C13.3103 5.64487 13.2376 5.62908 13.1699 5.59961C13.1021 5.5701 13.041 5.5267 12.9893 5.47266L11.6934 4.12402L11.6074 4.03516V13.3721C11.6074 13.5257 11.5478 13.673 11.4424 13.7812C11.337 13.8895 11.1943 13.9501 11.0459 13.9502C10.8975 13.9502 10.7548 13.8894 10.6494 13.7812C10.544 13.673 10.4844 13.5258 10.4844 13.3721V4.03125L10.3984 4.12012L9.0918 5.47266C8.98692 5.58141 8.84471 5.6428 8.69629 5.64355C8.54783 5.64428 8.40472 5.58431 8.29883 5.47656C8.19299 5.36879 8.13254 5.22201 8.13184 5.06836C8.13115 4.91466 8.18999 4.76701 8.29492 4.6582L10.2119 2.67188L10.2109 2.6709L10.2217 2.66016L10.2227 2.66113C10.3324 2.5502 10.462 2.46265 10.6045 2.40332C10.7471 2.34399 10.8999 2.31322 11.0537 2.31445ZM4.96289 2.0498C5.11126 2.0498 5.25398 2.11063 5.35938 2.21875C5.46479 2.32703 5.52436 2.47425 5.52441 2.62793V11.9648L5.61035 11.876L6.90625 10.5273C6.95802 10.4734 7.01919 10.4298 7.08691 10.4004C7.15474 10.371 7.22822 10.356 7.30176 10.3555C7.37521 10.355 7.44847 10.369 7.5166 10.3975C7.58471 10.4259 7.64674 10.4683 7.69922 10.5215C7.7517 10.5747 7.7935 10.6381 7.82227 10.708C7.85105 10.778 7.86669 10.8536 7.86719 10.9297C7.86766 11.0057 7.85302 11.081 7.8252 11.1514C7.79734 11.2218 7.75595 11.2859 7.7041 11.3398L5.79688 13.3262C5.6882 13.44 5.55805 13.5303 5.41504 13.5918C5.27224 13.6532 5.11864 13.6849 4.96387 13.6846H4.96289C4.80824 13.6852 4.65458 13.6538 4.51172 13.5928C4.40447 13.5469 4.30395 13.4852 4.21484 13.4092L4.12988 13.3281L2.21289 11.3418C2.10796 11.233 2.04912 11.0853 2.0498 10.9316C2.05051 10.778 2.11094 10.6312 2.2168 10.5234C2.32269 10.4157 2.4658 10.3557 2.61426 10.3564C2.76266 10.3572 2.9049 10.4186 3.00977 10.5273L4.31543 11.8809L4.40137 11.9697V2.62793C4.40143 2.47426 4.46101 2.32702 4.56641 2.21875C4.67176 2.11054 4.8145 2.04988 4.96289 2.0498Z" fill="currentColor" stroke="white" stroke-width="0.1"/>
+                                </svg>
+                                <svg class="button-clear shuffle-clear" viewBox="0 0 9 9" width="9" height="9">
+                                  <use xlink:href="#other-close-icon"></use>
+                                </svg>
+                              </button>
+                            </div>
+                            <div class="dropdown__list shuffle__list-primary">
+                              .shuffle__container
+                                .shuffle__title
+                                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M11.0537 2.31445C11.2074 2.31571 11.3594 2.34857 11.501 2.41016C11.6427 2.47178 11.7718 2.56106 11.8799 2.67383L13.7861 4.65918H13.7871L13.7881 4.66113C13.8398 4.71517 13.8814 4.77918 13.9092 4.84961C13.9369 4.92008 13.9508 4.99617 13.9502 5.07227C13.9495 5.14817 13.9341 5.22314 13.9053 5.29297C13.8765 5.36284 13.8347 5.42637 13.7822 5.47949C13.7296 5.53267 13.6669 5.57514 13.5986 5.60352C13.5305 5.63182 13.4572 5.64612 13.3838 5.64551C13.3103 5.64487 13.2376 5.62908 13.1699 5.59961C13.1021 5.5701 13.041 5.5267 12.9893 5.47266L11.6934 4.12402L11.6074 4.03516V13.3721C11.6074 13.5257 11.5478 13.673 11.4424 13.7812C11.337 13.8895 11.1943 13.9501 11.0459 13.9502C10.8975 13.9502 10.7548 13.8894 10.6494 13.7812C10.544 13.673 10.4844 13.5258 10.4844 13.3721V4.03125L10.3984 4.12012L9.0918 5.47266C8.98692 5.58141 8.84471 5.6428 8.69629 5.64355C8.54783 5.64428 8.40472 5.58431 8.29883 5.47656C8.19299 5.36879 8.13254 5.22201 8.13184 5.06836C8.13115 4.91466 8.18999 4.76701 8.29492 4.6582L10.2119 2.67188L10.2109 2.6709L10.2217 2.66016L10.2227 2.66113C10.3324 2.5502 10.462 2.46265 10.6045 2.40332C10.7471 2.34399 10.8999 2.31322 11.0537 2.31445ZM4.96289 2.0498C5.11126 2.0498 5.25398 2.11063 5.35938 2.21875C5.46479 2.32703 5.52436 2.47425 5.52441 2.62793V11.9648L5.61035 11.876L6.90625 10.5273C6.95802 10.4734 7.01919 10.4298 7.08691 10.4004C7.15474 10.371 7.22822 10.356 7.30176 10.3555C7.37521 10.355 7.44847 10.369 7.5166 10.3975C7.58471 10.4259 7.64674 10.4683 7.69922 10.5215C7.7517 10.5747 7.7935 10.6381 7.82227 10.708C7.85105 10.778 7.86669 10.8536 7.86719 10.9297C7.86766 11.0057 7.85302 11.081 7.8252 11.1514C7.79734 11.2218 7.75595 11.2859 7.7041 11.3398L5.79688 13.3262C5.6882 13.44 5.55805 13.5303 5.41504 13.5918C5.27224 13.6532 5.11864 13.6849 4.96387 13.6846H4.96289C4.80824 13.6852 4.65458 13.6538 4.51172 13.5928C4.40447 13.5469 4.30395 13.4852 4.21484 13.4092L4.12988 13.3281L2.21289 11.3418C2.10796 11.233 2.04912 11.0853 2.0498 10.9316C2.05051 10.778 2.11094 10.6312 2.2168 10.5234C2.32269 10.4157 2.4658 10.3557 2.61426 10.3564C2.76266 10.3572 2.9049 10.4186 3.00977 10.5273L4.31543 11.8809L4.40137 11.9697V2.62793C4.40143 2.47426 4.46101 2.32702 4.56641 2.21875C4.67176 2.11054 4.8145 2.04988 4.96289 2.0498Z" fill="#374151" stroke="white" stroke-width="0.1"/>
+                                  </svg>
+                                  h2 Сортировать по
+                                <button class="button button-with-icon-full sm" type="button" aria-label="button">
+                                  <span>Клиенту</span>
+                                </button>
+                                <button class="button button-with-icon-full sm" type="button" aria-label="button">
+                                  <span>Бренду</span>
+                                </button>
+                                <button class="button button-with-icon-full sm" type="button" aria-label="button">
+                                  <span>Одобренным спискам</span>
+                                </button>
+                                <button class="button button-with-icon-full sm" type="button" aria-label="button">
+                                  <span>Дате начала</span>
+                                </button>
+                                <button class="button button-with-icon-full sm" type="button" aria-label="button">
+                                  <span>Дате окончания</span>
+                                </button>
+                                <button class="button button-with-icon-full sm" type="button" aria-label="button">
+                                  <span>Автору</span>
+                                </button>
+                                <button class="button button-with-icon-full sm" type="button" aria-label="button">
+                                  <span>Дате создания</span>
+                                </button>
+                            </div>
+                            <div class="dropdown__list shuffle__list-secondary">
+                              .shuffle__container
+                                .shuffle__title
+                                  h2 Сортировка
+                                  button(type="button" data-shuffle-name="shuffle").shuffle__clear Сбросить
+                                .shuffle__sorting 
+                                  .shuffle__item 
+                                    <svg width="9" height="15" viewBox="0 0 9 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M1.25 2.5C1.94036 2.5 2.5 1.94036 2.5 1.25C2.5 0.559644 1.94036 0 1.25 0C0.559644 0 0 0.559644 0 1.25C0 1.94036 0.559644 2.5 1.25 2.5Z" fill="#959BA4"/>
+                                      <path d="M7.75 2.5C8.44036 2.5 9 1.94036 9 1.25C9 0.559644 8.44036 0 7.75 0C7.05964 0 6.5 0.559644 6.5 1.25C6.5 1.94036 7.05964 2.5 7.75 2.5Z" fill="#959BA4"/>
+                                      <path d="M1.25 8.5C1.94036 8.5 2.5 7.94036 2.5 7.25C2.5 6.55964 1.94036 6 1.25 6C0.559644 6 0 6.55964 0 7.25C0 7.94036 0.559644 8.5 1.25 8.5Z" fill="#959BA4"/>
+                                      <path d="M7.75 8.5C8.44036 8.5 9 7.94036 9 7.25C9 6.55964 8.44036 6 7.75 6C7.05964 6 6.5 6.55964 6.5 7.25C6.5 7.94036 7.05964 8.5 7.75 8.5Z" fill="#959BA4"/>
+                                      <path d="M1.25 14.5C1.94036 14.5 2.5 13.9404 2.5 13.25C2.5 12.5596 1.94036 12 1.25 12C0.559644 12 0 12.5596 0 13.25C0 13.9404 0.559644 14.5 1.25 14.5Z" fill="#959BA4"/>
+                                      <path d="M7.75 14.5C8.44036 14.5 9 13.9404 9 13.25C9 12.5596 8.44036 12 7.75 12C7.05964 12 6.5 12.5596 6.5 13.25C6.5 13.9404 7.05964 14.5 7.75 14.5Z" fill="#959BA4"/>
+                                    </svg>
+                                    <div class="dropdown dropdown-base">
+                                      <div class="dropdown__container">
+                                        <div class="dropdown__button">
+                                          <div class="dropdown__inner">
+                                            <div class="dropdown__title">Одобренные списки</div>
+                                          </div>
+                                          <button class="button button-icon sm" type="button" aria-label="button">
+                                            <svg viewBox="0 0 10 6" width="10" height="6">
+                                              <use xlink:href="#other-angle-down-icon"></use>
+                                            </svg>
+                                          </button>
+                                        </div>
+                                        <div class="dropdown__list">
+                                          <label class="dropdown__item">
+                                            <input type="radio" name="radio-radio">
+                                            <p data-title="Одобренные списки">Одобренные списки</p>
+                                          </label>
+                                          <label class="dropdown__item">
+                                            <input type="radio" name="radio-radio">
+                                            <p data-title="Клиенты">Клиенты</p>
+                                          </label>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="dropdown dropdown-base">
+                                      <div class="dropdown__container">
+                                        <div class="dropdown__button">
+                                          <div class="dropdown__inner">
+                                            <div class="dropdown__title">Сначала приоритетные</div>
+                                          </div>
+                                          <button class="button button-icon sm" type="button" aria-label="button">
+                                            <svg viewBox="0 0 10 6" width="10" height="6">
+                                              <use xlink:href="#other-angle-down-icon"></use>
+                                            </svg>
+                                          </button>
+                                        </div>
+                                        <div class="dropdown__list">
+                                          <label class="dropdown__item">
+                                            <input type="radio" name="radio-radio">
+                                            <p data-title="Сначала приоритетные">Сначала приоритетные</p>
+                                          </label>
+                                          <label class="dropdown__item">
+                                            <input type="radio" name="radio-radio">
+                                            <p data-title="От А до Я">От А до Я</p>
+                                          </label>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <button class="button button-with-icon shuffle__remove" type="button" aria-label="button">
+                                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_3559_15853)">
+                                          <path d="M8.6665 0H7.33317C6.80274 0 6.29403 0.210714 5.91896 0.585786C5.54388 0.960859 5.33317 1.46957 5.33317 2V2.66667H1.33317C1.15636 2.66667 0.98679 2.7369 0.861766 2.86193C0.736742 2.98695 0.666504 3.15652 0.666504 3.33333C0.666504 3.51014 0.736742 3.67971 0.861766 3.80474C0.98679 3.92976 1.15636 4 1.33317 4H1.99984V13.3333C1.99984 14.0406 2.28079 14.7189 2.78089 15.219C3.28098 15.719 3.95926 16 4.6665 16H11.3332C12.0404 16 12.7187 15.719 13.2188 15.219C13.7189 14.7189 13.9998 14.0406 13.9998 13.3333V4H14.6665C14.8433 4 15.0129 3.92976 15.1379 3.80474C15.2629 3.67971 15.3332 3.51014 15.3332 3.33333C15.3332 3.15652 15.2629 2.98695 15.1379 2.86193C15.0129 2.7369 14.8433 2.66667 14.6665 2.66667H10.6665V2C10.6665 1.46957 10.4558 0.960859 10.0807 0.585786C9.70565 0.210714 9.19694 0 8.6665 0ZM6.6665 2C6.6665 1.82319 6.73674 1.65362 6.86177 1.5286C6.98679 1.40357 7.15636 1.33333 7.33317 1.33333H8.6665C8.84332 1.33333 9.01288 1.40357 9.13791 1.5286C9.26293 1.65362 9.33317 1.82319 9.33317 2V2.66667H6.6665V2ZM12.6665 13.3333C12.6665 13.687 12.526 14.0261 12.276 14.2761C12.0259 14.5262 11.6868 14.6667 11.3332 14.6667H4.6665C4.31288 14.6667 3.97374 14.5262 3.72369 14.2761C3.47365 14.0261 3.33317 13.687 3.33317 13.3333V4H12.6665V13.3333Z" fill="#959BA4"/>
+                                          <path d="M8.00016 6C7.82335 6 7.65378 6.07024 7.52876 6.19526C7.40373 6.32029 7.3335 6.48986 7.3335 6.66667V12C7.3335 12.1768 7.40373 12.3464 7.52876 12.4714C7.65378 12.5964 7.82335 12.6667 8.00016 12.6667C8.17697 12.6667 8.34654 12.5964 8.47157 12.4714C8.59659 12.3464 8.66683 12.1768 8.66683 12V6.66667C8.66683 6.48986 8.59659 6.32029 8.47157 6.19526C8.34654 6.07024 8.17697 6 8.00016 6Z" fill="#959BA4"/>
+                                          <path d="M10 12C10 12.1768 10.0702 12.3464 10.1953 12.4714C10.3203 12.5964 10.4899 12.6667 10.6667 12.6667C10.8435 12.6667 11.013 12.5964 11.1381 12.4714C11.2631 12.3464 11.3333 12.1768 11.3333 12V6.66667C11.3333 6.48986 11.2631 6.32029 11.1381 6.19526C11.013 6.07024 10.8435 6 10.6667 6C10.4899 6 10.3203 6.07024 10.1953 6.19526C10.0702 6.32029 10 6.48986 10 6.66667V12Z" fill="#959BA4"/>
+                                          <path d="M5.33317 6C5.15636 6 4.98679 6.07024 4.86177 6.19526C4.73674 6.32029 4.6665 6.48986 4.6665 6.66667V12C4.6665 12.1768 4.73674 12.3464 4.86177 12.4714C4.98679 12.5964 5.15636 12.6667 5.33317 12.6667C5.50998 12.6667 5.67955 12.5964 5.80457 12.4714C5.9296 12.3464 5.99984 12.1768 5.99984 12V6.66667C5.99984 6.48986 5.9296 6.32029 5.80457 6.19526C5.67955 6.07024 5.50998 6 5.33317 6Z" fill="#959BA4"/>
+                                        </g>
+                                        <defs>
+                                          <clipPath id="clip0_3559_15853">
+                                            <rect width="16" height="16" fill="white"/>
+                                          </clipPath>
+                                        </defs>
+                                      </svg>
+                                    </button>
+                                  .shuffle__item 
+                                    <svg width="9" height="15" viewBox="0 0 9 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M1.25 2.5C1.94036 2.5 2.5 1.94036 2.5 1.25C2.5 0.559644 1.94036 0 1.25 0C0.559644 0 0 0.559644 0 1.25C0 1.94036 0.559644 2.5 1.25 2.5Z" fill="#959BA4"/>
+                                      <path d="M7.75 2.5C8.44036 2.5 9 1.94036 9 1.25C9 0.559644 8.44036 0 7.75 0C7.05964 0 6.5 0.559644 6.5 1.25C6.5 1.94036 7.05964 2.5 7.75 2.5Z" fill="#959BA4"/>
+                                      <path d="M1.25 8.5C1.94036 8.5 2.5 7.94036 2.5 7.25C2.5 6.55964 1.94036 6 1.25 6C0.559644 6 0 6.55964 0 7.25C0 7.94036 0.559644 8.5 1.25 8.5Z" fill="#959BA4"/>
+                                      <path d="M7.75 8.5C8.44036 8.5 9 7.94036 9 7.25C9 6.55964 8.44036 6 7.75 6C7.05964 6 6.5 6.55964 6.5 7.25C6.5 7.94036 7.05964 8.5 7.75 8.5Z" fill="#959BA4"/>
+                                      <path d="M1.25 14.5C1.94036 14.5 2.5 13.9404 2.5 13.25C2.5 12.5596 1.94036 12 1.25 12C0.559644 12 0 12.5596 0 13.25C0 13.9404 0.559644 14.5 1.25 14.5Z" fill="#959BA4"/>
+                                      <path d="M7.75 14.5C8.44036 14.5 9 13.9404 9 13.25C9 12.5596 8.44036 12 7.75 12C7.05964 12 6.5 12.5596 6.5 13.25C6.5 13.9404 7.05964 14.5 7.75 14.5Z" fill="#959BA4"/>
+                                    </svg>
+                                    <div class="dropdown dropdown-base">
+                                      <div class="dropdown__container">
+                                        <div class="dropdown__button">
+                                          <div class="dropdown__inner">
+                                            <div class="dropdown__title">Клиенты</div>
+                                          </div>
+                                          <button class="button button-icon sm" type="button" aria-label="button">
+                                            <svg viewBox="0 0 10 6" width="10" height="6">
+                                              <use xlink:href="#other-angle-down-icon"></use>
+                                            </svg>
+                                          </button>
+                                        </div>
+                                        <div class="dropdown__list">
+                                          <label class="dropdown__item">
+                                            <input type="radio" name="radio-radio">
+                                            <p data-title="Одобренные списки">Одобренные списки</p>
+                                          </label>
+                                          <label class="dropdown__item">
+                                            <input type="radio" name="radio-radio">
+                                            <p data-title="Клиенты">Клиенты</p>
+                                          </label>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="dropdown dropdown-base">
+                                      <div class="dropdown__container">
+                                        <div class="dropdown__button">
+                                          <div class="dropdown__inner">
+                                            <div class="dropdown__title">От А до Я</div>
+                                          </div>
+                                          <button class="button button-icon sm" type="button" aria-label="button">
+                                            <svg viewBox="0 0 10 6" width="10" height="6">
+                                              <use xlink:href="#other-angle-down-icon"></use>
+                                            </svg>
+                                          </button>
+                                        </div>
+                                        <div class="dropdown__list">
+                                          <label class="dropdown__item">
+                                            <input type="radio" name="radio-radio">
+                                            <p data-title="Сначала приоритетные">Сначала приоритетные</p>
+                                          </label>
+                                          <label class="dropdown__item">
+                                            <input type="radio" name="radio-radio">
+                                            <p data-title="От А до Я">От А до Я</p>
+                                          </label>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <button class="button button-with-icon shuffle__remove" type="button" aria-label="button">
+                                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_3559_15853)">
+                                          <path d="M8.6665 0H7.33317C6.80274 0 6.29403 0.210714 5.91896 0.585786C5.54388 0.960859 5.33317 1.46957 5.33317 2V2.66667H1.33317C1.15636 2.66667 0.98679 2.7369 0.861766 2.86193C0.736742 2.98695 0.666504 3.15652 0.666504 3.33333C0.666504 3.51014 0.736742 3.67971 0.861766 3.80474C0.98679 3.92976 1.15636 4 1.33317 4H1.99984V13.3333C1.99984 14.0406 2.28079 14.7189 2.78089 15.219C3.28098 15.719 3.95926 16 4.6665 16H11.3332C12.0404 16 12.7187 15.719 13.2188 15.219C13.7189 14.7189 13.9998 14.0406 13.9998 13.3333V4H14.6665C14.8433 4 15.0129 3.92976 15.1379 3.80474C15.2629 3.67971 15.3332 3.51014 15.3332 3.33333C15.3332 3.15652 15.2629 2.98695 15.1379 2.86193C15.0129 2.7369 14.8433 2.66667 14.6665 2.66667H10.6665V2C10.6665 1.46957 10.4558 0.960859 10.0807 0.585786C9.70565 0.210714 9.19694 0 8.6665 0ZM6.6665 2C6.6665 1.82319 6.73674 1.65362 6.86177 1.5286C6.98679 1.40357 7.15636 1.33333 7.33317 1.33333H8.6665C8.84332 1.33333 9.01288 1.40357 9.13791 1.5286C9.26293 1.65362 9.33317 1.82319 9.33317 2V2.66667H6.6665V2ZM12.6665 13.3333C12.6665 13.687 12.526 14.0261 12.276 14.2761C12.0259 14.5262 11.6868 14.6667 11.3332 14.6667H4.6665C4.31288 14.6667 3.97374 14.5262 3.72369 14.2761C3.47365 14.0261 3.33317 13.687 3.33317 13.3333V4H12.6665V13.3333Z" fill="#959BA4"/>
+                                          <path d="M8.00016 6C7.82335 6 7.65378 6.07024 7.52876 6.19526C7.40373 6.32029 7.3335 6.48986 7.3335 6.66667V12C7.3335 12.1768 7.40373 12.3464 7.52876 12.4714C7.65378 12.5964 7.82335 12.6667 8.00016 12.6667C8.17697 12.6667 8.34654 12.5964 8.47157 12.4714C8.59659 12.3464 8.66683 12.1768 8.66683 12V6.66667C8.66683 6.48986 8.59659 6.32029 8.47157 6.19526C8.34654 6.07024 8.17697 6 8.00016 6Z" fill="#959BA4"/>
+                                          <path d="M10 12C10 12.1768 10.0702 12.3464 10.1953 12.4714C10.3203 12.5964 10.4899 12.6667 10.6667 12.6667C10.8435 12.6667 11.013 12.5964 11.1381 12.4714C11.2631 12.3464 11.3333 12.1768 11.3333 12V6.66667C11.3333 6.48986 11.2631 6.32029 11.1381 6.19526C11.013 6.07024 10.8435 6 10.6667 6C10.4899 6 10.3203 6.07024 10.1953 6.19526C10.0702 6.32029 10 6.48986 10 6.66667V12Z" fill="#959BA4"/>
+                                          <path d="M5.33317 6C5.15636 6 4.98679 6.07024 4.86177 6.19526C4.73674 6.32029 4.6665 6.48986 4.6665 6.66667V12C4.6665 12.1768 4.73674 12.3464 4.86177 12.4714C4.98679 12.5964 5.15636 12.6667 5.33317 12.6667C5.50998 12.6667 5.67955 12.5964 5.80457 12.4714C5.9296 12.3464 5.99984 12.1768 5.99984 12V6.66667C5.99984 6.48986 5.9296 6.32029 5.80457 6.19526C5.67955 6.07024 5.50998 6 5.33317 6Z" fill="#959BA4"/>
+                                        </g>
+                                        <defs>
+                                          <clipPath id="clip0_3559_15853">
+                                            <rect width="16" height="16" fill="white"/>
+                                          </clipPath>
+                                        </defs>
+                                      </svg>
+                                    </button>
+                                <div class="dropdown dropdown-with-icon new-shuffle">
+                                  <div class="dropdown__container">
+                                    <div class="dropdown__button">
+                                      <button class="button button-with-icon" type="button" aria-label="button">
+                                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                          <path d="M4.75 0.75L4.75 8.75" stroke="#374151" stroke-width="1.5" stroke-linecap="round"/>
+                                          <path d="M8.75 4.75L0.75 4.75" stroke="#374151" stroke-width="1.5" stroke-linecap="round"/>
+                                        </svg>
+                                        <span>Добавить сортировку</span>
+                                        <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="0.75" y1="-0.75" x2="6.32106" y2="-0.75" transform="matrix(0.707114 0.7071 -0.707114 0.7071 0 0.75)" stroke="#374151" stroke-width="1.5" stroke-linecap="round"/><line x1="0.75" y1="-0.75" x2="6.32106" y2="-0.75" transform="matrix(0.707114 -0.7071 0.707114 0.7071 5 5.75)" stroke="#374151" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                      </button>
+                                    </div>
+                                    <div class="dropdown__list">
+                                      .shuffle__container
+                                        .shuffle__title
+                                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M11.0537 2.31445C11.2074 2.31571 11.3594 2.34857 11.501 2.41016C11.6427 2.47178 11.7718 2.56106 11.8799 2.67383L13.7861 4.65918H13.7871L13.7881 4.66113C13.8398 4.71517 13.8814 4.77918 13.9092 4.84961C13.9369 4.92008 13.9508 4.99617 13.9502 5.07227C13.9495 5.14817 13.9341 5.22314 13.9053 5.29297C13.8765 5.36284 13.8347 5.42637 13.7822 5.47949C13.7296 5.53267 13.6669 5.57514 13.5986 5.60352C13.5305 5.63182 13.4572 5.64612 13.3838 5.64551C13.3103 5.64487 13.2376 5.62908 13.1699 5.59961C13.1021 5.5701 13.041 5.5267 12.9893 5.47266L11.6934 4.12402L11.6074 4.03516V13.3721C11.6074 13.5257 11.5478 13.673 11.4424 13.7812C11.337 13.8895 11.1943 13.9501 11.0459 13.9502C10.8975 13.9502 10.7548 13.8894 10.6494 13.7812C10.544 13.673 10.4844 13.5258 10.4844 13.3721V4.03125L10.3984 4.12012L9.0918 5.47266C8.98692 5.58141 8.84471 5.6428 8.69629 5.64355C8.54783 5.64428 8.40472 5.58431 8.29883 5.47656C8.19299 5.36879 8.13254 5.22201 8.13184 5.06836C8.13115 4.91466 8.18999 4.76701 8.29492 4.6582L10.2119 2.67188L10.2109 2.6709L10.2217 2.66016L10.2227 2.66113C10.3324 2.5502 10.462 2.46265 10.6045 2.40332C10.7471 2.34399 10.8999 2.31322 11.0537 2.31445ZM4.96289 2.0498C5.11126 2.0498 5.25398 2.11063 5.35938 2.21875C5.46479 2.32703 5.52436 2.47425 5.52441 2.62793V11.9648L5.61035 11.876L6.90625 10.5273C6.95802 10.4734 7.01919 10.4298 7.08691 10.4004C7.15474 10.371 7.22822 10.356 7.30176 10.3555C7.37521 10.355 7.44847 10.369 7.5166 10.3975C7.58471 10.4259 7.64674 10.4683 7.69922 10.5215C7.7517 10.5747 7.7935 10.6381 7.82227 10.708C7.85105 10.778 7.86669 10.8536 7.86719 10.9297C7.86766 11.0057 7.85302 11.081 7.8252 11.1514C7.79734 11.2218 7.75595 11.2859 7.7041 11.3398L5.79688 13.3262C5.6882 13.44 5.55805 13.5303 5.41504 13.5918C5.27224 13.6532 5.11864 13.6849 4.96387 13.6846H4.96289C4.80824 13.6852 4.65458 13.6538 4.51172 13.5928C4.40447 13.5469 4.30395 13.4852 4.21484 13.4092L4.12988 13.3281L2.21289 11.3418C2.10796 11.233 2.04912 11.0853 2.0498 10.9316C2.05051 10.778 2.11094 10.6312 2.2168 10.5234C2.32269 10.4157 2.4658 10.3557 2.61426 10.3564C2.76266 10.3572 2.9049 10.4186 3.00977 10.5273L4.31543 11.8809L4.40137 11.9697V2.62793C4.40143 2.47426 4.46101 2.32702 4.56641 2.21875C4.67176 2.11054 4.8145 2.04988 4.96289 2.0498Z" fill="#374151" stroke="white" stroke-width="0.1"/>
+                                          </svg>
+                                          h2 Сортировать по
+                                        <button class="button button-with-icon-full sm" type="button" aria-label="button">
+                                          <span>Клиенту</span>
+                                        </button>
+                                        <button class="button button-with-icon-full sm" type="button" aria-label="button">
+                                          <span>Бренду</span>
+                                        </button>
+                                        <button class="button button-with-icon-full sm" type="button" aria-label="button">
+                                          <span>Одобренным спискам</span>
+                                        </button>
+                                        <button class="button button-with-icon-full sm" type="button" aria-label="button">
+                                          <span>Дате начала</span>
+                                        </button>
+                                        <button class="button button-with-icon-full sm" type="button" aria-label="button">
+                                          <span>Дате окончания</span>
+                                        </button>
+                                        <button class="button button-with-icon-full sm" type="button" aria-label="button">
+                                          <span>Автору</span>
+                                        </button>
+                                        <button class="button button-with-icon-full sm" type="button" aria-label="button">
+                                          <span>Дате создания</span>
+                                        </button>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                        <button class="button button-with-icon filter__toggle" type="button" aria-label="button" data-filter-name="approved-lists">
+                          <svg viewBox="0 0 20 20" width="20" height="20">
+                            <use xlink:href="#other-controls-icon"></use>
+                          </svg>
+                          <svg class="button-clear filter-clear" viewBox="0 0 9 9" width="9" height="9">
+                            <use xlink:href="#other-close-icon"></use>
+                          </svg>
+                        </button>
+                        <button class="button button-with-icon-blue" type="button" aria-label="button" data-popup-name="add-approved-lists">
+                          <svg viewBox="0 0 18 18" width="18" height="18">
+                            <use xlink:href="#other-plus-icon"></use>
+                          </svg>
+                          <span>Добавить запись</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  .in-container.mt-4
+                    .content.content-collapsed
+                      .content-scroll
+                        include ../components/channel/approved-lists/table
+                      .mt-12
+                        include ../components/pagination
+                    include ../components/channel/approved-lists/filter
         include ../components/channel/aside

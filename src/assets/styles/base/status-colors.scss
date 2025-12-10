@@ -197,3 +197,16 @@
     }
   }
 }
+
+.status {
+  &-channels {
+    &:before {
+      @apply hidden;
+    }
+    svg {
+      @apply left-1 absolute w-2.5 h-2.5;
+    }
+    margin-top: 0 !important;
+    @apply py-[2.5px] pr-1 pl-4 text-10-r leading-[11px];
+  }
+}

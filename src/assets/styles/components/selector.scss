@@ -9,10 +9,35 @@
     &::-webkit-scrollbar {
       @apply hidden;
     }
-    @apply flex gap-x-6 -mb-px overflow-x-auto;
+    @apply flex gap-x-6 -mb-px overflow-x-auto whitespace-nowrap;
   }
   &__buttons {
-    @apply flex justify-between items-center gap-x-4 border-b border-black-500;
+    &:before,
+    &:after {
+      @apply z-10 absolute w-4 h-[calc(100%_-_2px)];
+    }
+    &:before {
+      @apply hidden left-0 bg-gradient-to-r from-white-000 to-transparent content-[''];
+    }
+    &:after {
+      @apply hidden right-16 bg-gradient-to-l from-white-000 to-transparent content-[''];
+    }
+    &.scrollable {
+      &:after {
+        @apply block;
+      }
+    }
+    &.scrolled {
+      &:before {
+        @apply block;
+      }
+      &-full {
+        &:after {
+          @apply hidden;
+        }
+      }
+    }
+    @apply relative flex justify-between items-center gap-x-2 border-black-500 border-b;
   }
   &__button {
     &:hover {
@@ -30,6 +55,7 @@
     &:before {
       @apply bottom-0 left-0 absolute bg-black-100 opacity-0 rounded-full w-full h-[2px] content-[''] transition-all duration-300;
     }
+    flex: 0 0 auto;
     @apply relative flex items-center gap-x-1.5 px-[2px] py-2 text-12-m-p text-black-200 whitespace-nowrap transition-all duration-300 cursor-pointer;
   }
   &__container {
@@ -66,5 +92,18 @@
       @apply text-12-m-p text-black-200 transition-all duration-300;
     }
     @apply relative flex items-center gap-x-2 cursor-pointer;
+  }
+  &__controls {
+    @apply flex items-center;
+  }
+  &__prev,
+  &__next {
+    &.active {
+      &:hover {
+        @apply bg-black-600 text-black-100;
+      }
+      @apply text-black-100 cursor-pointer;
+    }
+    @apply flex justify-center items-center rounded-lg w-7 h-7 text-black-200 transition-colors duration-300 cursor-not-allowed;
   }
 }

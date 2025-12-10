@@ -4,6 +4,15 @@ aside.filter.filter-popup(data-filter-name="add-channel")
       h2 Фильтр
       button(type="button" data-filter-name="add-channel").filter__clear Сбросить
     form(action="#")
+      h3.filter__subtitle Поиск по ключевым словам
+      +search
+      +input({
+        class: 'input-checkbox-with-label',
+        isLabel: true,
+        label: 'также искать в описании',
+        type: 'checkbox',
+        value: 'также искать в описании',
+      })
       h3.filter__subtitle Канал
       +dropdown({
         checkboxes: [
@@ -125,64 +134,6 @@ aside.filter.filter-popup(data-filter-name="add-channel")
         isCheckboxes: true,
         isResults: true,
       })
-      h3.filter__subtitle Формат (GS)
-      +dropdown({
-        checkboxes: [
-          {
-            class: 'check-all',
-            title: 'Все',
-          },
-          {
-            title: 'Банки',
-          },
-          {
-            title: 'Банки',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Банки',
-          },
-          {
-            title: 'Банки',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-        ],
-        class: 'dropdown-checkboxes',
-        isAll: true,
-        isCheckboxes: true,
-        isResults: true,
-      })
       h3.filter__subtitle Категория
       +dropdown({
         checkboxes: [
@@ -241,7 +192,7 @@ aside.filter.filter-popup(data-filter-name="add-channel")
         isCheckboxes: true,
         isResults: true,
       })
-      h3.filter__subtitle Страна канала
+      h3.filter__subtitle Одобренные списки
       +dropdown({
         checkboxes: [
           {
@@ -249,55 +200,18 @@ aside.filter.filter-popup(data-filter-name="add-channel")
             title: 'Все',
           },
           {
-            title: 'Банки',
+            title: 'Приоритет',
           },
           {
-            title: 'Банки',
+            title: 'Стоп-лист',
           },
           {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Банки',
-          },
-          {
-            title: 'Банки',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
+            title: 'Без метки',
           },
         ],
-        class: 'dropdown-checkboxes',
+        class: 'dropdown-checkboxes dropdown-stoplist',
         isAll: true,
         isCheckboxes: true,
-        isResults: true,
       })
       h3.filter__subtitle Язык канала
       +dropdown({
@@ -473,324 +387,27 @@ aside.filter.filter-popup(data-filter-name="add-channel")
         isCheckboxes: true,
         isResults: true,
       })
-      h3.filter__subtitle Подписчики
+      h3.filter__subtitle ERR (%)
       +input({
         max: '100',
         min: '0',
       })
-      h3.filter__subtitle Охват
+      h3.filter__subtitle ER (%)
       +input({
         max: '100',
         min: '0',
       })
-      h3.filter__subtitle Расходы (GS)
+      h3.filter__subtitle Мужская аудитория (%)
       +input({
         max: '100',
         min: '0',
       })
-      h3.filter__subtitle Расходы, факт (GS)
+      h3.filter__subtitle Женская аудитория (%)
       +input({
         max: '100',
         min: '0',
       })
-      h3.filter__subtitle CPV
-      +input({
-        max: '100',
-        min: '0',
-      })
-      h3.filter__subtitle Охват (24ч)
-      +input({
-        max: '100',
-        min: '0',
-      })
-      h3.filter__subtitle Охват (48ч)
-      +input({
-        max: '100',
-        min: '0',
-      })
-      h3.filter__subtitle Охват (72ч)
-      +input({
-        max: '100',
-        min: '0',
-      })
-      h3.filter__subtitle ИЦ
-      +input({
-        max: '100',
-        min: '0',
-      })
-      h3.filter__subtitle ER, %
-      +input({
-        max: '100',
-        min: '0',
-      })
-      h3.filter__subtitle ERR, %
-      +input({
-        max: '100',
-        min: '0',
-      })
-      h3.filter__subtitle ERR (24ч), %
-      +input({
-        max: '100',
-        min: '0',
-      })
-      h3.filter__subtitle ERR (72ч), %
-      +input({
-        max: '100',
-        min: '0',
-      })
-      h3.filter__subtitle Контакт (GS)
-      +dropdown({
-        checkboxes: [
-          {
-            class: 'check-all',
-            title: 'Все',
-          },
-          {
-            title: 'Банки',
-          },
-          {
-            title: 'Банки',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Банки',
-          },
-          {
-            title: 'Банки',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-        ],
-        class: 'dropdown-checkboxes',
-        isAll: true,
-        isCheckboxes: true,
-        isResults: true,
-      })
-      h3.filter__subtitle Адаптация (GS)
-      +dropdown({
-        checkboxes: [
-          {
-            class: 'check-all',
-            title: 'Все',
-          },
-          {
-            title: 'Банки',
-          },
-          {
-            title: 'Банки',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Банки',
-          },
-          {
-            title: 'Банки',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-        ],
-        class: 'dropdown-checkboxes',
-        isAll: true,
-        isCheckboxes: true,
-        isResults: true,
-      })
-      h3.filter__subtitle Кнопка (GS)
-      +dropdown({
-        checkboxes: [
-          {
-            class: 'check-all',
-            title: 'Все',
-          },
-          {
-            title: 'Банки',
-          },
-          {
-            title: 'Банки',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Банки',
-          },
-          {
-            title: 'Банки',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-        ],
-        class: 'dropdown-checkboxes',
-        isAll: true,
-        isCheckboxes: true,
-        isResults: true,
-      })
-      h3.filter__subtitle Тег (GS)
-      +dropdown({
-        checkboxes: [
-          {
-            class: 'check-all',
-            title: 'Все',
-          },
-          {
-            title: 'Банки',
-          },
-          {
-            title: 'Банки',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Банки',
-          },
-          {
-            title: 'Банки',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-          {
-            title: 'Автомобили',
-          },
-        ],
-        class: 'dropdown-checkboxes',
-        isAll: true,
-        isCheckboxes: true,
-        isResults: true,
-      })
-      h3.filter__subtitle Мужская аудитория, %
-      +input({
-        max: '100',
-        min: '0',
-      })
-      h3.filter__subtitle Женская аудитория, %
-      +input({
-        max: '100',
-        min: '0',
-      })
-      h3.filter__subtitle 18+ (посты), %
-      +input({
-        max: '100',
-        min: '0',
-      })
-      h3.filter__subtitle 18+ (слова), %
-      +input({
-        max: '100',
-        min: '0',
-      })
-      h3.filter__subtitle Политика (посты), %
+      h3.filter__subtitle Подписчиков
       +input({
         max: '100',
         min: '0',
@@ -800,26 +417,15 @@ aside.filter.filter-popup(data-filter-name="add-channel")
         max: '100',
         min: '0',
       })
-      h3.filter__subtitle Жесть (посты), %
+      h3.filter__subtitle Средний охват поста
       +input({
         max: '100',
         min: '0',
       })
-      h3.filter__subtitle Жесть (слова), %
+      h3.filter__subtitle Средний охват поста (24 часа)
       +input({
         max: '100',
         min: '0',
-      })
-      h3.filter__subtitle Дата обновления
-      +button({
-        calendarClass: 'opensleft',
-        class: 'button-with-icon',
-        icon: 'other-calendar-icon',
-        isCalendar: true,
-        isDatePicker: true,
-        isMonthPicker: false,
-        value: 'Все',
-        view: 'button',
       })
       .filter__checkboxes
         +input({
