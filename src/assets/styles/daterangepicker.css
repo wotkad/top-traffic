@@ -250,7 +250,7 @@
 }
 
 .daterangepicker select.monthselect {
-  @apply w-[56%] mr-[2%];
+  @apply mr-[2%] w-[56%];
 }
 
 .daterangepicker select.yearselect {
@@ -268,7 +268,7 @@
   align-items: center;
 
   text-align: center;
-  @apply text-12-m gap-x-1 ml-2;
+  @apply gap-x-1 ml-2 text-12-m;
 }
 
 .daterangepicker .calendar-time select.disabled {

@@ -41,7 +41,7 @@
   .table tbody tr:hover .fixed-th,
   .table tbody tr:hover td, 
   .table tbody tr:hover th  {
-    @apply bg-purple-300;
+    @apply bg-purple-500;
   }
   & > td {
     @apply border-b-0;
@@ -69,7 +69,7 @@
   &:not(.layered) {
     &:hover {
       td.fixed-td {
-        @apply bg-purple-300;
+        @apply bg-purple-500;
       }
     }
   }

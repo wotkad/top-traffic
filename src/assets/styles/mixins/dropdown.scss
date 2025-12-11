@@ -56,6 +56,9 @@
     @apply flex items-center gap-x-[2px];
   }
   &__title {
+    span {
+      @apply flex items-center gap-x-1;
+    }
     @apply flex items-center gap-x-[2px] max-w-[132px] text-12-r text-ellipsis line-clamp-1 whitespace-nowrap;
   }
   &__subtitle {

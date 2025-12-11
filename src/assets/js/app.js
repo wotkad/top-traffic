@@ -105,6 +105,7 @@ import "./components/toggle/toggle-tag";
 import "./components/toggle/toggle-advertising-group";
 import "./components/toggle/toggle-bills-group";
 import "./components/toggle/toggle-filter-format-slider";
+import "./components/toggle/toggle-reasons";
 
 import "./components/scroll/scroll-to-top";
 import "./components/scroll/scroll-filter";

@@ -28,6 +28,12 @@
   }
   @apply bg-yellow-000;
 }
+.priority-green {
+  .dropdown__title {
+    @apply font-medium;
+  }
+  @apply bg-green-450;
+}
 .priority-transparent {
   .dropdown__title {
     @apply font-medium;

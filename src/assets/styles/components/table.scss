@@ -213,7 +213,7 @@
       @apply transition-all duration-300
     }
     & > tbody > tr.bills-group:hover > td.fixed-td:nth-child(1) > div {
-      @apply bg-purple-300;
+      @apply bg-purple-500;
     }
     &.scrolled {
       & > thead > tr > th:nth-child(1),
@@ -373,10 +373,10 @@
     thead {
       th {
         &:first-child {
-          @apply bg-purple-300 border-b border-b-black-500;
+          @apply bg-purple-500 border-b border-b-black-500;
         }
       }
-      @apply bg-purple-300;
+      @apply bg-purple-500;
     }
   }
   .input-with-label .input__el.table__comment {
@@ -1038,12 +1038,12 @@
       &:hover {
         .fixed-td,
         .fixed-th {
-          @apply bg-purple-300;
+          @apply bg-purple-500;
         }
         .delete-concept {
           @apply opacity-100;
         }
-        @apply bg-purple-300;
+        @apply bg-purple-500;
       }
       td.advertising-group__table {
         @apply pt-0 pb-2 pl-10;

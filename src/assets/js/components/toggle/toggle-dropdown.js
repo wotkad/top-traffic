@@ -347,13 +347,22 @@ export default function toggleDropdown() {
   $(document).on('change', '.dropdown__item input[type="radio"]', function () {
     $(this).closest('.dropdown__container').find('.dropdown__button').addClass('changed');
     if ($(this).closest('.dropdown').hasClass('dropdown-status') || $(this).closest('.dropdown').hasClass('dropdown-priority')) {
-      const selectedValue = $(this).siblings('p').text();
+      let selectedValue;
+      if ($(this).closest('.popup[data-popup-name="add-approved-lists"]')) {
+        selectedValue = $(this).siblings('p').html();
+      } else {
+        selectedValue = $(this).siblings('p').text();
+      }
       const selectedColor = $(this).data('color') || '';
       const innerStatus = $(this).closest('.dropdown-status .dropdown__container').find('.dropdown__inner');
       const buttonStatus = $(this).closest('.dropdown-status .dropdown__container').find('.dropdown__button');
       const titleStatus = $(this).closest('.dropdown__container').find('.dropdown__button').find('.dropdown__title');
       const buttonPriority = $(this).closest('.dropdown-priority .dropdown__container').find('.dropdown__inner');
-      titleStatus.text(selectedValue);
+      if ($(this).closest('.popup[data-popup-name="add-approved-lists"]')) {
+        titleStatus.html(selectedValue);
+      } else {
+        titleStatus.text(selectedValue);
+      }
       if (selectedColor) {
         innerStatus.attr('class', `dropdown__inner ${selectedColor} selected`);
         buttonStatus.attr('class', `dropdown__button ${selectedColor} selected`);

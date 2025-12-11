@@ -72,7 +72,7 @@ export default function datePicker() {
       locale: locale,
       autoUpdateInput: false,
       opens: 'left',
-      parentEl: '.wrapper',
+      parentEl: 'main.page',
       linkedCalendars: false,
     });
     
@@ -81,7 +81,7 @@ export default function datePicker() {
       locale: locale,
       autoUpdateInput: false,
       opens: 'right',
-      parentEl: '.wrapper',
+      parentEl: 'main.page',
       linkedCalendars: false,
     });
 
@@ -92,7 +92,7 @@ export default function datePicker() {
       singleDatePicker: true,
       startDate: moment(),
       opens: 'left',
-      parentEl: '.wrapper',
+      parentEl: 'main.page',
       minDate: startDate,
       maxDate: endDate,
     });
@@ -104,7 +104,7 @@ export default function datePicker() {
       singleDatePicker: true,
       startDate: moment(),
       opens: 'right',
-      parentEl: '.wrapper',
+      parentEl: 'main.page',
       minDate: startDate,
       maxDate: endDate,
     });
@@ -117,7 +117,7 @@ export default function datePicker() {
       singleDatePicker: true,
       startDate: moment(),
       opens: 'left',
-      parentEl: '.wrapper',
+      parentEl: 'main.page',
     });
 
     $(".datetimepicker-single.opensright").daterangepicker({
@@ -128,7 +128,7 @@ export default function datePicker() {
       singleDatePicker: true,
       startDate: moment(),
       opens: 'right',
-      parentEl: '.wrapper',
+      parentEl: 'main.page',
     });
 
     $(".filter .datepicker-range.opensleft").daterangepicker({
@@ -136,7 +136,7 @@ export default function datePicker() {
       locale: locale,
       autoUpdateInput: false,
       opens: 'left',
-      parentEl: '.wrapper',
+      parentEl: 'main.page',
       linkedCalendars: false,
     });
 
@@ -145,7 +145,7 @@ export default function datePicker() {
       locale: locale,
       autoUpdateInput: false,
       opens: 'right',
-      parentEl: '.wrapper',
+      parentEl: 'main.page',
       linkedCalendars: false,
     });
 
@@ -351,6 +351,12 @@ export default function datePicker() {
                 $this.val('Все');
                 $this.parent().removeAttr('data-value');
                 $this.css('width', $this.val().length * 7);
+            }
+
+            if ($this.closest('.popup[data-popup-name="add-approved-lists"]').length) {
+                $this.attr('placeholder', 'дд.мм.гггг');
+                $this.val('');
+                $('.popup[data-popup-name="add-approved-lists"], .popup__bg[data-popup-name="add-approved-lists"]').addClass('active')
             }
             picker.setStartDate(moment());
             picker.setEndDate(moment());

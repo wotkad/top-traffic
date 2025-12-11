@@ -558,6 +558,7 @@
     }
   }
   &[data-popup-name="delete-admin-post"],
+  &[data-popup-name="delete-stoplist-item"],
   &[data-popup-name="delete-attachedbill"],
   &[data-popup-name="delete-attachedlink"],
   &[data-popup-name="delete-attachedfile"],
@@ -589,6 +590,22 @@
         @apply mt-4;
       }
       @apply p-[14px] max-w-[258px];
+    }
+  }
+  &[data-popup-name="delete-stoplist-item"] {
+    .popup__wrapper {
+      .popup__subtitle {
+        @apply mt-1 leading-[14px];
+      }
+      .popup__buttons {
+        .button {
+          @apply justify-center;
+        }
+        .button-base {
+          @apply max-w-[86px];
+        }
+      }
+      @apply p-[14px] pb-2.5;
     }
   }
   &[data-popup-name="bill-restore"],
@@ -773,6 +790,115 @@
         @apply -top-5 -right-5;
       }
       @apply px-4 pt-3.5 pb-4 max-w-[400px];
+    }
+  }
+  &[data-popup-name="add-approved-lists"],
+  &[data-popup-name="add-approved-lists"] {
+    .popup__wrapper {
+      .popup__title {
+        @apply text-14-sb-p;
+      }
+      .popup__form {
+        .dropdown__label,
+        .input__label {
+          @apply text-12-sb-p text-black-200;
+        }
+        .textarea {
+          textarea {
+            @apply min-h-[84px];
+          }
+          @apply col-span-2;
+        }
+        .input__el {
+          @apply py-[9px] h-8;
+        }
+        .reasons {
+          &__tip {
+            .input__label {
+              @apply flex items-center gap-x-[2px];
+            }
+            svg {
+              &:hover {
+                & ~ i {
+                  @apply visible opacity-100;
+                }
+              }
+            }
+            i {
+              @apply invisible top-0 right-0 z-10 absolute flex justify-center items-center bg-black-700 opacity-0 px-2 py-1 border border-black-500 rounded-md text-10-r text-black-100 not-italic whitespace-nowrap transition-all -translate-y-[calc(100%-2px)] translate-x-[calc(100%-2px)] duration-300;
+            }
+            @apply relative;
+          }
+          &__items {
+            .checkbox {
+              .input-checkbox {
+                @apply bg-black-700 px-[9px] py-2 border border-black-500 rounded-md;
+              }
+            }
+            &.disabled {
+              .checkbox {
+                .input-checkbox {
+                  p {
+                    @apply text-black-200;
+                  }
+                  @apply pointer-events-none;
+                }
+              }
+              @apply cursor-not-allowed;
+            }
+            @apply flex flex-wrap gap-1.5;
+          }
+          @apply col-span-2;
+        }
+        &-two-cols {
+          .datepicker-trigger {
+            @apply pr-3 w-full;
+          }
+          .dropdown-radios {
+            .dropdown__button {
+              .button {
+                @apply right-2;
+              }
+              @apply px-3 py-[7px] border border-black-500 rounded-md;
+            }
+          }
+          .dropdown-priority {
+            .dropdown__button {
+              .dropdown__inner {
+                @apply px-1.5;
+              }
+              .button {
+                @apply right-[9px];
+              }
+              .dropdown__title {
+                @apply gap-x-1;
+              }
+              @apply px-2;
+            }
+            .dropdown__item p span {
+              @apply gap-x-1 px-1.5;
+            }
+            .priority-green {
+              .dropdown__title {
+                @apply text-green-425;
+              }
+              @apply text-green-425;
+            }
+            .priority-red {
+              .dropdown__title {
+                @apply text-red-425;
+              }
+              @apply bg-red-450 text-red-425;
+            }
+          }
+          @apply gap-4 grid-cols-2;
+        }
+        @apply grid mt-4;
+      }
+      .popup__buttons {
+        @apply mt-6;
+      }
+      @apply px-4 pt-5 pb-4 w-full max-w-[418px];
     }
   }
   @apply invisible -z-[1] fixed inset-0 flex justify-center items-start opacity-0 py-20 overflow-x-hidden overflow-y-auto transition-all duration-300;
