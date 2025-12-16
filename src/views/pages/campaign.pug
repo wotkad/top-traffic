@@ -684,41 +684,41 @@ block content
           //-             .content-scroll
           //-               include ../components/campaign/survey/table-survey
           //-           include ../components/campaign/survey/filter-survey
-          //- .selectors
-          //-   .content.content-not-collapsed
-          //-     .selector__buttons
-          //-       .selector__scroll
-          //-         button.selector__button(data-id="campaign-channels").active Каналы
-          //-           span 6
-          //-     .selector__containers
-          //-       .selector__container(data-id="campaign-channels").active
-          //-         +heading-table({
-          //-           isSearch: true,
-          //-           isRows: true,
-          //-           searchClass: 'min-w-[243px] max-w-[243px]',
-          //-           buttons: [
-          //-             {
-          //-               view: 'button',
-          //-               class: 'button-with-icon-blue',
-          //-               icon: 'other-plus-icon',
-          //-               title: 'Добавить канал',
-          //-               dataPopupName: 'add-channel',
-          //-             },
-          //-             {
-          //-               view: 'button',
-          //-               class: 'button-with-icon filter__toggle',
-          //-               icon: 'other-controls-icon',
-          //-               title: 'Фильтр',
-          //-               isClose: true,
-          //-               dataFilterName: 'campaign-coordination',
-          //-             },
-          //-           ],
-          //-         })
-          //-         .in-container.mt-4
-          //-           .content.content-collapsed
-          //-             .content-scroll
-          //-               include ../components/campaign/coordination/table-coordination
-          //-           include ../components/campaign/coordination/filter-coordination
+          .selectors
+            .content.content-not-collapsed
+              .selector__buttons
+                .selector__scroll
+                  button.selector__button(data-id="campaign-channels").active Каналы
+                    span 6
+              .selector__containers
+                .selector__container(data-id="campaign-channels").active
+                  +heading-table({
+                    isSearch: true,
+                    isRows: true,
+                    searchClass: 'min-w-[243px] max-w-[243px]',
+                    buttons: [
+                      {
+                        view: 'button',
+                        class: 'button-with-icon-blue',
+                        icon: 'other-plus-icon',
+                        title: 'Добавить канал',
+                        dataPopupName: 'add-channel',
+                      },
+                      {
+                        view: 'button',
+                        class: 'button-with-icon filter__toggle',
+                        icon: 'other-controls-icon',
+                        title: 'Фильтр',
+                        isClose: true,
+                        dataFilterName: 'campaign-coordination',
+                      },
+                    ],
+                  })
+                  .in-container.mt-4
+                    .content.content-collapsed
+                      .content-scroll
+                        include ../components/campaign/coordination/table-coordination
+                    include ../components/campaign/coordination/filter-coordination
           //- .selectors
           //-   .content.content-not-collapsed
           //-     .selector__buttons

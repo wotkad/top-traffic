@@ -7,6 +7,38 @@ $(function() {
     const $prev = $buttons.find('.selector__prev');
     const $next = $buttons.find('.selector__next');
 
+    $scroll.on('click', '.selector__button', function () {
+      const el = $scroll[0];
+      const btn = this;
+
+      const scrollLeft = el.scrollLeft;
+      const scrollRight = scrollLeft + el.clientWidth;
+
+      const btnLeft = btn.offsetLeft;
+      const btnRight = btnLeft + btn.offsetWidth;
+
+      const offset = 8;
+      let targetScroll = null;
+
+      // кнопка справа выходит за область видимости
+      if (btnRight > scrollRight) {
+        targetScroll = btnRight - el.clientWidth + offset;
+      }
+
+      // кнопка слева выходит за область видимости
+      if (btnLeft < scrollLeft) {
+        targetScroll = btnLeft - offset;
+      }
+
+      if (targetScroll !== null) {
+        $scroll.stop().animate(
+          { scrollLeft: targetScroll },
+          300,
+          checkScrollable
+        );
+      }
+    });
+
     function checkScrollable() {
       const el = $scroll[0];
       if (!el) return;

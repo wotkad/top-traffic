@@ -58,6 +58,7 @@ import "./base/common/set-info-user-pos";
 import "./base/common/set-table-borders";
 import "./base/common/shuffle";
 import "./base/common/set-stoplist-position";
+import "./base/common/set-table-head-tip-position";
 
 import "./base/common/chat";
 import "./base/common/chat/send-edit";

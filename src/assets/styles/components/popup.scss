@@ -605,7 +605,7 @@
           @apply max-w-[86px];
         }
       }
-      @apply p-[14px] pb-2.5;
+      @apply p-[14px] pb-2.5 max-w-[243px];
     }
   }
   &[data-popup-name="bill-restore"],
@@ -799,6 +799,9 @@
         @apply text-14-sb-p;
       }
       .popup__form {
+        textarea.filled {
+          @apply bg-white-000;
+        }
         .dropdown__label,
         .input__label {
           @apply text-12-sb-p text-black-200;
@@ -862,6 +865,9 @@
               @apply px-3 py-[7px] border border-black-500 rounded-md;
             }
           }
+          .dropdown__list {
+            @apply px-[3px] py-[5px];
+          }
           .dropdown-priority {
             .dropdown__button {
               .dropdown__inner {
@@ -873,10 +879,13 @@
               .dropdown__title {
                 @apply gap-x-1;
               }
-              @apply px-2;
+              @apply bg-white-000 px-2;
+            }
+            .dropdown__item p {
+              @apply py-[2px] h-[26px];
             }
             .dropdown__item p span {
-              @apply gap-x-1 px-1.5;
+              @apply gap-x-1 px-1.5 py-[2px];
             }
             .priority-green {
               .dropdown__title {

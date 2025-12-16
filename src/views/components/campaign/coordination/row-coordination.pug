@@ -28,28 +28,31 @@ mixin row-coordination(data)
       .grid.items-center(class="gap-x-1.5 grid-cols-[30px_1fr]")
         img.rounded.object-cover(class="w-[30px] h-[30px]" src="/assets/images/avatar.png" alt="tg-channel")
         span Илья Сорокин
-    td.only-text.text-right 999 999
-    td.only-text.text-right 2 500 500
-    td.only-text.text-right 200 500 ₽
-    td.only-text.text-right 25,5%
-    td.text-right
-      .flex.items-center.justify-end
-        +input({
-          autocomplete: 'off',
-          class: 'currency only-numbers',
-          name: 'revenue',
-          placeholder: '0',
-          type: 'text',
-        })
-    td.text-right
-      .flex.items-center.justify-end
-        +input({
-          autocomplete: 'off',
-          class: 'percent only-numbers',
-          name: 'revenue',
-          placeholder: '0',
-          type: 'text',
-        })
+    td.only-text.text-right.table-input-new.table-input-new-with-oldprice
+      .table-input-new__row
+        .table-input-new__values
+          input.table-input-new__value(type="text" value="2 500 500")
+        p.table-input-new__oldvalue 8 272 382
+    td.only-text.text-right.table-input-new.table-input-new-with-oldprice
+      .table-input-new__row
+        .table-input-new__values
+          input.table-input-new__value(type="text" value="2 500 500")
+        p.table-input-new__oldvalue 8 272 382
+    td.only-text.text-right.table-input-new
+      .table-input-new__row
+        .table-input-new__values
+          input.table-input-new__value.table-input-new__value-sm(type="text" value="25,5")
+          span %
+    td.only-text.text-right.table-input-new
+      .table-input-new__row
+        .table-input-new__values
+          input.table-input-new__value.table-input-new__value-sm(type="text" value="25,5")
+          span %
+    td.only-text.text-right.table-input-new
+      .table-input-new__row
+        .table-input-new__values
+          input.table-input-new__value(type="text" value="20 500")
+          span ₽
     td.only-text
       +button({
         class: 'button-with-icon only-input start-day',

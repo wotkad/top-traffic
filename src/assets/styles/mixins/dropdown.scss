@@ -361,6 +361,27 @@
         @apply pl-5;
       }
     }
+    &-select {
+      &-blue {
+        .dropdown__inner {
+          &:hover {
+            @apply bg-[#D6E3F8] text-[#4F85E9];
+          }
+          @apply bg-purple-300 px-2 py-[3px] rounded-xl text-blue-200 transition-all duration-300;
+        }
+        .dropdown__button {
+          .button {
+            color: #5893FF !important;
+          }
+        }
+        .dropdown__title {
+          @apply max-w-[57px] overflow-hidden text-ellipsis line-clamp-1;
+        }
+        .dropdown__list {
+          @apply min-w-[148px];
+        }
+      }
+    }
   }
   &-priority {
     .dropdown__button {

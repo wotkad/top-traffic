@@ -136,6 +136,7 @@ module.exports = {
         '10-sb-p': ['10px', { lineHeight: '120%', fontWeight: 600 }],
         '10-m-p': ['10px', { lineHeight: '120%', fontWeight: 500 }],
         '10-r-p': ['10px', { lineHeight: '120%', fontWeight: 400 }],
+        '8-r-p': ['8px', { lineHeight: '120%', fontWeight: 400 }],
       },
       fontFamily: {
         'sans': ['Inter', 'sans-serif'],

@@ -334,6 +334,19 @@ export default function datePicker() {
 
         $(buttons).find('.drp-selected').html(result).append('<span class="button button-icon calendar-close-icon" type="button" aria-label="button"><svg viewBox="0 0 9 9" width="9" height="9"><use xlink:href="#other-close-icon"></use></svg></span>');
 
+        $(document).on('click', picker.container.find('.prev, .next'), function() {
+          if ($this.closest('.popup[data-popup-name="add-approved-lists"]').length) {
+            $('.popup[data-popup-name="add-approved-lists"], .popup__bg[data-popup-name="add-approved-lists"]').addClass('active')
+          }
+          if ($this.closest('.popup[data-popup-name="edit-approved-lists"]').length) {
+            $('.popup[data-popup-name="edit-approved-lists"], .popup__bg[data-popup-name="edit-approved-lists"]').addClass('active')
+          }
+          let right = $(window).width() - ($this.offset().left + $this.parent().width() - 24);
+          picker.container.css('top', $this.offset().top + 16);
+          picker.container.css('right', right);
+          picker.container.css('left', 'auto');
+        });
+
         buttons.on('click', '.calendar-close-icon', function() {
             picker.hide();
             buttons.hide();
@@ -357,6 +370,11 @@ export default function datePicker() {
                 $this.attr('placeholder', 'дд.мм.гггг');
                 $this.val('');
                 $('.popup[data-popup-name="add-approved-lists"], .popup__bg[data-popup-name="add-approved-lists"]').addClass('active')
+            }
+            if ($this.closest('.popup[data-popup-name="edit-approved-lists"]').length) {
+                $this.attr('placeholder', 'дд.мм.гггг');
+                $this.val('');
+                $('.popup[data-popup-name="edit-approved-lists"], .popup__bg[data-popup-name="edit-approved-lists"]').addClass('active')
             }
             picker.setStartDate(moment());
             picker.setEndDate(moment());
