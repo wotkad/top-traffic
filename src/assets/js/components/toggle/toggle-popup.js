@@ -60,7 +60,10 @@ function togglePopup() {
         popup.is('[data-popup-name="add-channel"]');
   
       if (!isExcludedPopup) {
-        if (!popupWrapper.is(e.target) && !popupWrapper.has(e.target).length) {
+        if (
+          !popupWrapper.is(e.target) && !popupWrapper.has(e.target).length &&
+          !$('.daterangepicker').is(e.target) && !$('.daterangepicker').has(e.target).length
+        ) {
           closePopup(popup, popup.prev());
           currentMessage.removeClass('active');
           currentChatMessage.removeClass('active');

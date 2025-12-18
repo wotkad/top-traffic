@@ -855,6 +855,10 @@
         }
         &-two-cols {
           .datepicker-trigger {
+            @apply bg-black-700;
+            &[data-value] {
+              @apply bg-white-000;
+            }
             @apply pr-3 w-full;
           }
           .dropdown-radios {
@@ -871,7 +875,7 @@
           .dropdown-priority {
             .dropdown__button {
               .dropdown__inner {
-                @apply px-1.5;
+                @apply px-1.5 py-[3px];
               }
               .button {
                 @apply right-[9px];

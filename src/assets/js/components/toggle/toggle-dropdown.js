@@ -348,7 +348,7 @@ export default function toggleDropdown() {
     $(this).closest('.dropdown__container').find('.dropdown__button').addClass('changed');
     if ($(this).closest('.dropdown').hasClass('dropdown-status') || $(this).closest('.dropdown').hasClass('dropdown-priority')) {
       let selectedValue;
-      if ($(this).closest('.popup[data-popup-name="add-approved-lists"]')) {
+      if ($(this).closest('.popup[data-popup-name="add-approved-lists"]') || $(this).closest('.popup[data-popup-name="edit-approved-lists"]')) {
         selectedValue = $(this).siblings('p').html();
       } else {
         selectedValue = $(this).siblings('p').text();
@@ -358,7 +358,7 @@ export default function toggleDropdown() {
       const buttonStatus = $(this).closest('.dropdown-status .dropdown__container').find('.dropdown__button');
       const titleStatus = $(this).closest('.dropdown__container').find('.dropdown__button').find('.dropdown__title');
       const buttonPriority = $(this).closest('.dropdown-priority .dropdown__container').find('.dropdown__inner');
-      if ($(this).closest('.popup[data-popup-name="add-approved-lists"]')) {
+      if ($(this).closest('.popup[data-popup-name="add-approved-lists"]') || $(this).closest('.popup[data-popup-name="edit-approved-lists"]')) {
         titleStatus.html(selectedValue);
       } else {
         titleStatus.text(selectedValue);
