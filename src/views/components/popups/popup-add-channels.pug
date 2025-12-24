@@ -1,0 +1,25 @@
+.popup__bg(data-popup-name="add-channels")
+.popup(data-popup-name="add-channels")
+  .popup__wrapper(data-scroll-lock-scrollable)
+    .popup__title Добавление каналов
+    .popup__subtitle Введите username или вставьте ссылку - канал/каналы будут добавлены в справочник и станут доступны для подбора
+    .popup__content
+      .popup__textarea(contenteditable="true")
+      .popup__placeholder Введите username или ссылку
+    .popup__counter Будет обработано каналов: 
+      span 0
+    .popup__buttons
+      +button({
+        class: 'button-base lg',
+        dataPopupName: 'add-channels',
+        title: 'Отмена',
+        view: 'button',
+      })
+      +button({
+        class: 'button-with-icon-blue lg',
+        dataPopupName: 'add-channels',
+        isDisabled: true,
+        title: 'Добавить',
+        type: 'submit',
+        view: 'button',
+      })

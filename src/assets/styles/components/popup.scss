@@ -914,5 +914,64 @@
       @apply px-4 pt-5 pb-4 w-full max-w-[418px];
     }
   }
+  &[data-popup-name="add-channels"] {
+    .popup__wrapper {
+      input {
+        &[disabled] {
+          @apply bg-black-700;
+        }
+        @apply bg-white-000 h-8;
+      }
+      @apply relative p-4 max-w-[418px];
+    }
+    .popup__content {
+      @apply relative mt-3;
+    }
+    form {
+      @apply mb-4;
+    }
+    .popup__buttons {
+      .button {
+        &.button-with-icon-blue {
+          @apply border-blue-000;
+        }
+        &[disabled] {
+          @apply bg-black-700 border border-black-500 text-black-200;
+        }
+        @apply border;
+      }
+      @apply mt-4;
+    }
+    .popup__title {
+      @apply text-14-sb-p leading-[110%];
+    }
+    .popup__subtitle {
+      @apply mt-[5px] text-12-m-p text-black-200;
+    }
+    .popup__counter {
+      @apply mt-[5px] pl-2 text-12-r-p text-black-200;
+    }
+    .popup__textarea {
+      .popup__tag {
+        span {
+          @apply text-12-r;
+        }
+        button {
+          svg {
+            @apply w-[7px] h-[7px];
+          }
+          @apply w-4 h-4;
+        }
+        @apply inline-flex items-center gap-x-1 bg-black-200 bg-opacity-10 py-[1px] pr-[2px] pl-1.5 border border-black-500 rounded-[2px];
+      }
+      &.disabled {
+        @apply bg-black-700 cursor-not-allowed;
+      }
+      @apply flex flex-wrap items-start gap-1.5 bg-black-700 px-2 py-1 pt-[5px] border border-black-500 rounded-[5px] outline-none min-h-8 text-12-r break-words leading-5 whitespace-pre-wrap;
+    }
+    .popup__placeholder {
+      @apply top-2 left-2 absolute text-12-r text-black-200 pointer-events-none select-none;
+    }
+  }
   @apply invisible -z-[1] fixed inset-0 flex justify-center items-start opacity-0 py-20 overflow-x-hidden overflow-y-auto transition-all duration-300;
 }
