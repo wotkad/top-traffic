@@ -148,11 +148,11 @@ function addTag() {
   
   $saveBtn.on('click', function(e) {
     e.preventDefault();
-    $('.popup__textarea').css('background-color', '#FBFBFB');
+    $('.popup[data-popup-name="add-tag"] .popup__textarea').css('background-color', '#FBFBFB');
     const selectedOption = $('input[name="tag"]:checked');
-    const $list = $('.tag__list');
-    const $textarea = $('.popup__textarea');
-    const tagValue = $('.tag__value span');
+    const $list = $('.popup[data-popup-name="add-tag"] .tag__list');
+    const $textarea = $('.popup[data-popup-name="add-tag"] .popup__textarea');
+    const tagValue = $('.popup[data-popup-name="add-tag"] .tag__value span');
     const optionText = selectedOption.closest('.popup__label').find('span').text();
     if (selectedOption.val() === 'none') {
         $('.tag__container:nth-child(2)').addClass('tag__container-hidden');

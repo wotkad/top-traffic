@@ -16,11 +16,11 @@ function toggleTag() {
     // Отмена
     $(document).on('click', '.popup__buttons button[type="button"]', function() {
         $('input[name="tag"][type="radio"]').prop('checked', false);
-        $('.popup__textarea').css('background-color', '#FBFBFB').empty();
+        $('.popup[data-popup-name="add-tag"] .popup__textarea').css('background-color', '#FBFBFB').empty();
         $saveBtn.prop('disabled', true);
         lastChecked = '';
         $popup.find('.popup__error').removeClass('active');
-        $('.popup__textarea').css('background-color', '#FBFBFB');
+        $('.popup[data-popup-name="add-tag"] .popup__textarea').css('background-color', '#FBFBFB');
     });
 
     $saveBtn.on('click', function() {
@@ -48,16 +48,16 @@ function toggleTag() {
     function updateFormState() {
         const selectedOption = $('input[name="tag"]:checked');
         const isNoneSelected = selectedOption.val() === 'none';
-        const $textarea = $('.popup__textarea');
+        const $textarea = $('.popup[data-popup-name="add-tag"] .popup__textarea');
         $textarea
             .toggleClass('disabled', isNoneSelected)
             .attr('contenteditable', isNoneSelected ? 'false' : 'true');
         if (isNoneSelected || selectedOption.length == 0) {
             $textarea.text(''); // чистим временные теги
             $placeholder.show();
-            $('.popup__textarea').css('background-color', '#FBFBFB');
+            $('.popup[data-popup-name="add-tag"] .popup__textarea').css('background-color', '#FBFBFB');
         } else {
-            $('.popup__textarea').css('background-color', '#FFFFFF');
+            $('.popup[data-popup-name="add-tag"] .popup__textarea').css('background-color', '#FFFFFF');
         }
     }
 

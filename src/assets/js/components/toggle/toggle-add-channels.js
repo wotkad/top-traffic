@@ -2,8 +2,8 @@ function toggleAddChannels() {
   const $popup = $('.popup[data-popup-name="add-channels"]');
   const $textarea = $popup.find('.popup__textarea');
   const $placeholder = $popup.find('.popup__placeholder');
-  const $counter = $popup.find('.popup__counter span');
-  const $submit = $popup.find('button[type="submit"]');
+  const $counter = $popup.find('.popup__counter span, .popup__subtitle-buffering span');
+  const $buffer = $popup.find('.popup-buffer');
 
   function updateUI() {
     const tagsCount = $textarea.find('.popup__tag').length;
@@ -11,7 +11,9 @@ function toggleAddChannels() {
 
     $placeholder.toggle(!hasText && tagsCount === 0);
     $counter.text(tagsCount);
-    $submit.prop('disabled', tagsCount === 0);
+    $buffer.prop('disabled', tagsCount === 0);
+
+    $counter.text(tagsCount);
   }
 
   function setCaretToEnd(el) {
@@ -81,13 +83,44 @@ function toggleAddChannels() {
     updateUI();
   });
 
-  // Submit → очистка textarea
   $(document).on(
     'click',
-    '.popup[data-popup-name="add-channels"] button',
+    '.popup[data-popup-name="add-channels"] .popup-buffer',
+    function () {
+      const $popup = $(this).closest('.popup[data-popup-name="add-channels"]');
+      
+      $textarea.attr('contenteditable', 'false');
+      
+      $popup.find('.popup__counter, .popup__buttons-default, .popup__subtitle-default').hide();
+      $popup.find('.popup__subtitle-buffering').show();
+      $popup.find('.popup__icon').show();
+      $popup.find('.popup__textarea').addClass('disabled');
+      setTimeout(function() {
+        $popup.find('.popup__buttons-buffer').addClass('active');
+        $popup.find('.popup__subtitle-buffering').hide();
+        $popup.find('.popup__icon').hide();
+        $popup.find('.popup__content').hide();
+        $popup.find('.popup__status').show();
+        $popup.find('.popup__table').show();
+      }, 2000);
+    }
+  );
+
+  $(document).on(
+    'click',
+    '.popup[data-popup-name="add-channels"] .popup-done, .popup[data-popup-name="add-channels"] .popup-hide-buffer',
     function () {
       $textarea.empty();
       updateUI();
+      setTimeout(function() {
+        $popup.find('.popup__buttons-buffer').removeClass('active');
+        $popup.find('.popup__content').show();
+        $popup.find('.popup__status').hide();
+        $popup.find('.popup__counter, .popup__buttons-default, .popup__subtitle-default').show();
+        $popup.find('.popup__textarea').removeClass('disabled');
+        $textarea.attr('contenteditable', 'true');
+        $popup.find('.popup__table').hide();
+      }, 300);
     }
   );
 
