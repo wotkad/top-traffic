@@ -83,6 +83,7 @@ import "./components/toggle/toggle-filter-sort";
 import "./components/toggle/toggle-filter-aside-feed";
 import "./components/toggle/toggle-channels";
 import "./components/toggle/toggle-add-channels";
+import "./components/toggle/toggle-add-channels-campaign";
 import "./components/toggle/toggle-popup";
 import "./components/toggle/toggle-selector";
 import "./components/toggle/toggle-accordion";

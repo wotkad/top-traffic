@@ -10,6 +10,7 @@
     &[data-popup-name="confirm-changes"] {
       @apply z-[201];
     }
+    &[data-popup-name="add-channels-campaign"],
     &[data-popup-name="add-channels"] {
       &.active {
         @apply z-[1000];
@@ -919,6 +920,7 @@
       @apply px-4 pt-5 pb-4 w-full max-w-[418px];
     }
   }
+  &[data-popup-name="add-channels-campaign"],
   &[data-popup-name="add-channels"] {
     .popup__wrapper {
       input {
@@ -968,6 +970,9 @@
             }
             &.dublicate {
               @apply bg-black-500;
+            }
+            &.base {
+              @apply bg-purple-300 text-blue-200;
             }
             @apply flex justify-center items-center rounded-full min-w-[23px] min-h-[18px] text-[10px] leading-[100%];
           }
@@ -1031,10 +1036,10 @@
     }
     @keyframes spin {
       0% {
-        transform: rotate(0deg); /* Start at 0 degrees */
+        transform: rotate(0deg);
       }
       100% {
-        transform: rotate(360deg); /* End at 360 degrees */
+        transform: rotate(360deg);
       }
     }
     .popup__subtitle {
@@ -1076,6 +1081,32 @@
     &.active {
       @apply z-[2000];
     }
+    @apply pt-[120px];
+  }
+  &[data-popup-name="add-channels-campaign"] {
+    .popup__table {
+      &__body {
+        table {
+          tr {
+            th {
+              &:last-child {
+                @apply w-[154px];
+              }
+            }
+          }
+          tbody {
+            tr {
+              td {
+                &:last-child {
+                  @apply w-[156px];
+                }
+                @apply pr-4;
+              }
+            }
+          }
+        }
+      }
+    }  
   }
   @apply invisible -z-[1] fixed inset-0 flex justify-center items-start opacity-0 py-20 overflow-x-hidden overflow-y-auto transition-all duration-300;
 }
