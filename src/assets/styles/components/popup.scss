@@ -996,6 +996,9 @@
             }
             @apply border-black-500 border-b;
           }
+          thead {
+            @apply bg-black-700;
+          }
           thead,
           tbody tr {
             display: table;
