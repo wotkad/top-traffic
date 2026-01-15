@@ -1009,10 +1009,10 @@
             tr {
               td {
                 &:first-child {
-                  @apply pl-3 w-8 max-w-8;
+                  @apply pl-3 w-8 max-w-8 select-none;
                 }
                 &:last-child {
-                  @apply w-[117px];
+                  @apply w-[117px] select-none;
                 }
                 @apply pr-6;
               }
