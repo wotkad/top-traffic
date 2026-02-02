@@ -1,16 +1,16 @@
 
 mixin companies-row(data)
   tr
-    td.only-text
+    td.only-text(style="max-width:180px;")
       .flex.items-center(class="gap-x-2.5")
         svg
           use(xlink:href="#" + data.icon)
         p People & Screens
-    td.only-text
+    td.only-text(style="max-width:160px;")
       a(href="#") Test_MTC_September
-    td.only-text Илья Минаев
-    td.only-text Илья Минаев
-    td
+    td.only-text(style="max-width:150px;") Илья Минаев
+    td.only-text(style="max-width:112px;") Илья Минаев
+    td(style="min-width:449px;")
       .table__channels
         .table__channels__items
           a(href="#")
@@ -36,7 +36,7 @@ mixin companies-row(data)
           icon: 'other-angle-down-icon',
           isOnlyIcon: true,
         })
-    td.only-text 20 500 ₽
+    td.only-text.text-right(style="max-width:120px;") 20 500 ₽
     td
       span.status(class="" + data.color)= data.status
     td

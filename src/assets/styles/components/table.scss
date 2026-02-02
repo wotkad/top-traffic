@@ -848,11 +848,10 @@
     &.active {
       @apply h-auto;
     }
-    @apply relative flex justify-between min-w-[416px] max-w-[416px] h-[30px] overflow-hidden;
+    @apply relative flex justify-between min-w-[170px] max-w-[416px] h-[30px] overflow-hidden;
   }
   th {
-    &:nth-child(1),
-    &:nth-child(2) {
+    &:nth-child(1) {
       @apply pl-[30px];
     }
     p {
@@ -877,13 +876,32 @@
     .table__category {
       @apply bg-transparent text-black-200;
     }
-    @apply pr-8 border-black-500 border-b h-11 text-left;
+    @apply pr-8 pl-2 border-black-500 border-r border-b h-11 text-left;
   }
   &__category {
     &:before {
       @apply left-0 absolute rounded-full w-2 h-2 content-[''];
     }
     @apply inline-flex relative items-center pl-3;
+  }
+  th {
+    .resizable {
+      &:before {
+        cursor: col-resize;
+        @apply top-0 right-0 z-10 absolute bg-black-100 opacity-0 w-[3px] h-[44px] content-[''] transition-all duration-300;
+      }
+      &:after {
+        @apply top-0 right-[1px] absolute bg-black-100 opacity-0 w-[1px] h-[calc(100%-1px)] content-[''] transition-all duration-300;
+      }
+      &:hover {
+        &:before,
+        &:after {
+          @apply opacity-100;
+        }
+      }
+      @apply top-0 right-[-2px] z-10 absolute w-[3px] h-full;
+    }
+    @apply relative;
   }
   td,
   th {
@@ -943,8 +961,7 @@
       }
       @apply flex items-center;
     }
-    &:nth-child(1),
-    &:nth-child(2) {
+    &:nth-child(1) {
       @apply pl-[30px];
     }
     a {
@@ -1020,7 +1037,7 @@
       @apply inline-flex w-full;
     }
     &.only-text {
-      @apply pt-[16px] pb-3.5;
+      @apply pt-[16px] pb-3.5 max-w-max overflow-hidden text-ellipsis;
     }
     &.only-text-fixed {
       @apply py-3;
@@ -1031,7 +1048,7 @@
     .status {
       @apply mt-1;
     }
-    @apply py-2 pr-8 border-black-500 border-b h-[47px] text-12-r-p align-top whitespace-nowrap;
+    @apply py-2 pr-8 pl-2 border-black-500 border-r border-b h-[47px] text-12-r-p align-top whitespace-nowrap;
   }
   tbody {
     tr {

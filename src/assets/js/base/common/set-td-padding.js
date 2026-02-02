@@ -3,7 +3,7 @@ function setTdPaddingUniversal(tableClass, sliceStart, sliceEndOffset) {
     $(`table.${tableClass}`).each(function () {
       let table = $(this);
       let tds = table.find('td, th');
-      tds.css('padding-right', 32);
+      tds.css('padding-right', 24);
 
       let container = table.closest('.content-scroll, .table-outer');
       let containerWidth = container.width();
@@ -18,7 +18,7 @@ function setTdPaddingUniversal(tableClass, sliceStart, sliceEndOffset) {
         if (numOfTds > 2) {
           minPadding = (widthDifference !== 0)
             ? Number($(tds[2]).css('padding-right').slice(0, -2))
-            : 32;
+            : 24;
 
           let adjustableTdsCount = numOfTds - sliceEndOffset;
           extraPadding = widthDifference / (adjustableTdsCount - sliceStart);
