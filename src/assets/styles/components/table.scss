@@ -1266,3 +1266,22 @@
     @apply bottom-0 -left-px absolute w-3.5 h-3.5;
   }
 }
+
+.filter .channel {
+  &__avatar {
+    @apply relative ml-1;
+  }
+  &__img {
+    img {
+      @apply ml-0 rounded-full max-w-4 max-h-4 object-cover;
+    }
+    @apply flex justify-center items-center rounded-full w-5 h-5;
+  }
+  &__src {
+    svg,
+    img {
+      @apply rounded-full w-2.5 h-2.5 object-contain;
+    }
+    @apply bottom-0 -left-px absolute w-2.5 h-2.5;
+  }
+}
