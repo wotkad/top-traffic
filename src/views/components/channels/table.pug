@@ -226,13 +226,700 @@ table.table.table-fixed-cols
               svg
                 use(xlink:href="#other-sort-icon")
   tbody
-    include row
-    include row
-    include row
-    include row
-    include row
-    include row
-    include row
+    tr
+      td(style="min-width: 288px; max-width: 288px;").fixed-td.fixed-td-border
+        .flex.items-center(class="gap-x-1.5")
+          .channel__avatar
+            .channel__src
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="7" cy="7" r="7" fill="#0077FF"/>
+                <path d="M7.40191 10C4.32696 10 2.57308 8.12312 2.5 5H4.04029C4.09088 7.29229 5.22639 8.26326 6.12583 8.46346V5H7.57623V6.97698C8.46443 6.89189 9.39748 5.99099 9.71228 5H11.1627C10.9209 6.22122 9.90906 7.12212 9.18951 7.49249C9.90906 7.79279 11.0615 8.57858 11.5 10H9.90344C9.56053 9.04905 8.70615 8.31331 7.57623 8.21321V10H7.40191Z" fill="white"/>
+              </svg>
+            .channel__img(style="border: 1.5px solid #0077FF;")
+              img(src="/assets/images/avatar.png" alt="tg-channel")
+          .flex.flex-col.items-start
+            h3
+              a(href="#").table__channel ZeroDay | Кибербезопасность
+            a(href="https://t.me/cybersec_academy" target="_blank").table__link @cybersec_academy
+      td.only-text
+        +dropdown({
+          buttons: [
+            {
+              name: 'channels-radio',
+              title: 'Все',
+            },
+            {
+              isChecked: true,
+              name: 'channels-radio',
+              title: '1/24',
+            },
+            {
+              name: 'channels-radio',
+              title: '1/48',
+            },
+            {
+              name: 'channels-radio',
+              title: '1/72',
+            },
+            {
+              name: 'channels-radio',
+              title: 'Нативный',
+            },
+          ],
+          title: '1/24',
+        })
+      td.only-text 1/24
+      td.only-text Интернет технологии
+      td.only-text Андрей Миронов
+      td.only-text.text-right 999 999
+      td.only-text.text-right 152 564
+      td.only-text.text-right 999 999
+      td.only-text.text-right 999 999
+      td.only-text.text-right 0,16
+      td.only-text.text-right 152 564
+      td.only-text.text-right 152 564
+      td.only-text.text-right 152 564
+      td.only-text.text-right 16
+      td.only-text.text-right 25,5%
+      td.only-text.text-right 25,5%
+      td.only-text.text-right 25,5%
+      td.only-text.text-right 25,5%
+      td.only-text
+        a(href="https://t.me/futuread" target="_blank") https://t.me/futuread
+      td.only-text да
+      td.only-text возможно
+      td.only-text да
+      td.only-text возможно
+      td.only-text да
+      td.only-text возможно
+      td.only-text да
+      td.only-text.audience
+        .flex.justify-center(class="gap-x-5")
+          span.table__category.male 0,25%
+          span.table__category.female 0,54%
+      td.only-text.adult
+        .flex.justify-center(class="gap-x-5")
+          span.table__category.posts 0,25%
+          span.table__category.words 0,54%
+      td.only-text.policy
+        .flex.justify-center(class="gap-x-5")
+          span.table__category.posts 0,25%
+          span.table__category.words 0,54%
+      td.only-text.horror
+        .flex.justify-center(class="gap-x-5")
+          span.table__category.posts 0,25%
+          span.table__category.words 0,54%
+      td.only-text.text-right 152 564
+      td.only-text 24.01.2025
+    tr
+      td(style="min-width: 288px; max-width: 288px;").fixed-td.fixed-td-border
+        .flex.items-center(class="gap-x-1.5")
+          .channel__avatar
+            .channel__src
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="7" cy="7" r="7" fill="black"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 6.01283C10.5 6.0809 10.4709 6.14443 10.4172 6.18754C10.3657 6.23064 10.2986 6.23745 10.2315 6.23518C9.81523 6.22384 9.16402 6.07863 8.85744 5.78141V8.62658C8.85744 9.93799 7.81013 10.9998 6.51667 10.9998H6.27498C5.73343 10.9998 5.21873 10.8002 4.80249 10.4576C5.1225 10.6186 5.47384 10.7139 5.83861 10.7139H6.08029C7.37376 10.7139 8.42106 9.65211 8.42106 8.3407V5.49553C8.72764 5.79048 9.37885 5.93796 9.79509 5.9493C9.86222 5.9493 9.92936 5.94477 9.98083 5.90166C10.0323 5.85855 10.0636 5.79502 10.0636 5.72695C10.0636 5.40477 10.0636 4.86932 10.0636 4.58798C10.1487 4.61294 10.2359 4.63336 10.3232 4.65378C10.4262 4.67646 10.5 4.76722 10.5 4.87386C10.5 5.1552 10.5 5.69292 10.5 6.01283ZM6.11833 7.01794C6.07581 7.06105 6.01987 7.08374 5.95945 7.08374C5.34181 7.08374 4.84053 7.59197 4.84053 8.21818C4.84053 8.71052 5.15159 9.12573 5.58573 9.28228C5.39552 9.07808 5.27691 8.80582 5.27691 8.50406C5.27691 7.87785 5.77818 7.36962 6.39582 7.36962C6.45625 7.36962 6.51219 7.34693 6.55471 7.30382C6.59723 7.26071 6.61961 7.20399 6.61961 7.14273V6.46207C6.61961 6.40308 6.59499 6.34409 6.55471 6.30098C6.51443 6.25787 6.45625 6.23518 6.39582 6.23518H6.27498C6.24365 6.23518 6.21456 6.24426 6.18323 6.24426V6.85685C6.18323 6.91811 6.15861 6.97484 6.11833 7.01794ZM9.17745 4.13874C8.99171 3.96858 8.83506 3.74396 8.72317 3.43766C8.6896 3.34917 8.6068 3.28564 8.51281 3.28564H8.34721C8.5419 3.719 8.83058 3.97311 9.17745 4.13647V4.13874Z" fill="#FE2C55"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M4.62115 10.3058C4.6771 10.3625 4.74423 10.4079 4.80465 10.4578C4.57863 10.3443 4.36604 10.2037 4.18478 10.0199C3.74616 9.5752 3.5 8.97168 3.5 8.34093V8.32278C3.5 7.01137 4.5473 5.94954 5.84077 5.94954H5.96161C6.02203 5.94954 6.07798 5.97449 6.1205 6.01533C6.16302 6.05844 6.1854 6.11517 6.1854 6.17642V6.24449C4.93669 6.29441 3.93638 7.32901 3.93638 8.60866V8.62681C3.93638 9.25529 4.18254 9.85881 4.62115 10.3058ZM10.0613 4.58821C10.0613 4.48158 9.98747 4.38855 9.88453 4.36813C9.63389 4.31141 9.39444 4.24334 9.17514 4.13898C9.42353 4.36586 9.72788 4.49519 10.0591 4.58821H10.0613ZM6.39575 9.641C6.69338 9.641 6.97759 9.52075 7.18794 9.30974C7.3983 9.09874 7.51467 8.80832 7.51467 8.50656V3.51503C7.51467 3.39025 7.61537 3.28815 7.73845 3.28815H8.34714C8.327 3.24277 8.30462 3.20193 8.28672 3.15201C8.25315 3.06353 8.17035 3 8.07636 3H7.30207C7.17899 3 7.07829 3.1021 7.07829 3.22689V8.21841C7.07829 8.52017 6.95968 8.80832 6.75157 9.02159C6.54345 9.23487 6.25701 9.35285 5.95937 9.35285C5.82734 9.35285 5.70202 9.32562 5.58566 9.28252C5.7893 9.50033 6.07574 9.63873 6.39575 9.63873V9.641Z" fill="#25F4EE"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.08256 10.7141C7.37603 10.7141 8.42333 9.65228 8.42333 8.34087V5.4957C8.72991 5.79066 9.38112 5.93813 9.79736 5.94948C9.86449 5.94948 9.93163 5.94494 9.9831 5.90183C10.0346 5.85872 10.0659 5.79519 10.0659 5.72713C10.0659 5.40495 10.0659 4.86949 10.0659 4.58815C9.7347 4.49513 9.43035 4.3658 9.18195 4.13891C8.83733 3.97555 8.54641 3.71917 8.35172 3.28809H7.74303C7.61995 3.28809 7.51925 3.39019 7.51925 3.51497V8.5065C7.51925 8.80826 7.40064 9.09641 7.19252 9.30968C6.98441 9.52295 6.69796 9.64094 6.40033 9.64094C6.08032 9.64094 5.79388 9.50253 5.59024 9.28472C5.15834 9.12817 4.84504 8.71297 4.84504 8.22062C4.84504 7.59441 5.34632 7.08618 5.96396 7.08618C6.02438 7.08618 6.08032 7.06349 6.12284 7.02039C6.16536 6.97728 6.18774 6.92055 6.18774 6.85929V6.2467C4.93903 6.29661 3.93872 7.33122 3.93872 8.61087V8.62902C3.93872 9.2575 4.18488 9.86102 4.6235 10.308C4.67944 10.3647 4.74658 10.4101 4.807 10.46C5.12701 10.6211 5.47835 10.7164 5.84311 10.7164H6.0848L6.08256 10.7141Z" fill="white"/>
+              </svg>
+            .channel__img(style="border: 1.5px solid #FE2C55;")
+              img(src="/assets/images/avatar.png" alt="tg-channel")
+          .flex.flex-col.items-start
+            h3
+              a(href="#").table__channel ZeroDay | Кибербезопасность
+            a(href="https://t.me/cybersec_academy" target="_blank").table__link @cybersec_academy
+      td.only-text
+        +dropdown({
+          buttons: [
+            {
+              name: 'channels-radio',
+              title: 'Все',
+            },
+            {
+              isChecked: true,
+              name: 'channels-radio',
+              title: '1/24',
+            },
+            {
+              name: 'channels-radio',
+              title: '1/48',
+            },
+            {
+              name: 'channels-radio',
+              title: '1/72',
+            },
+            {
+              name: 'channels-radio',
+              title: 'Нативный',
+            },
+          ],
+          title: '1/24',
+        })
+      td.only-text 1/24
+      td.only-text Интернет технологии
+      td.only-text Андрей Миронов
+      td.only-text.text-right 999 999
+      td.only-text.text-right 152 564
+      td.only-text.text-right 999 999
+      td.only-text.text-right 999 999
+      td.only-text.text-right 0,16
+      td.only-text.text-right 152 564
+      td.only-text.text-right 152 564
+      td.only-text.text-right 152 564
+      td.only-text.text-right 16
+      td.only-text.text-right 25,5%
+      td.only-text.text-right 25,5%
+      td.only-text.text-right 25,5%
+      td.only-text.text-right 25,5%
+      td.only-text
+        a(href="https://t.me/futuread" target="_blank") https://t.me/futuread
+      td.only-text да
+      td.only-text возможно
+      td.only-text да
+      td.only-text возможно
+      td.only-text да
+      td.only-text возможно
+      td.only-text да
+      td.only-text.audience
+        .flex.justify-center(class="gap-x-5")
+          span.table__category.male 0,25%
+          span.table__category.female 0,54%
+      td.only-text.adult
+        .flex.justify-center(class="gap-x-5")
+          span.table__category.posts 0,25%
+          span.table__category.words 0,54%
+      td.only-text.policy
+        .flex.justify-center(class="gap-x-5")
+          span.table__category.posts 0,25%
+          span.table__category.words 0,54%
+      td.only-text.horror
+        .flex.justify-center(class="gap-x-5")
+          span.table__category.posts 0,25%
+          span.table__category.words 0,54%
+      td.only-text.text-right 152 564
+      td.only-text 24.01.2025
+    tr
+      td(style="min-width: 288px; max-width: 288px;").fixed-td.fixed-td-border
+        .flex.items-center(class="gap-x-1.5")
+          .channel__avatar
+            .channel__src
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="7" cy="7" r="6.5" fill="white" stroke="#F44336"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M10.6234 4.80248C10.4086 4.42038 10.1755 4.35009 9.70081 4.32337C9.22665 4.2912 8.03432 4.27783 7.00136 4.27783C5.96642 4.27783 4.77359 4.2912 4.29992 4.32287C3.82626 4.35009 3.59264 4.41988 3.37585 4.80248C3.15461 5.18408 3.04077 5.84138 3.04077 6.99857V7.00253C3.04077 8.15477 3.15461 8.81701 3.37585 9.19466C3.59264 9.57676 3.82576 9.64605 4.29943 9.67823C4.77359 9.70594 5.96642 9.72228 7.00136 9.72228C8.03432 9.72228 9.22665 9.70594 9.70131 9.67872C10.176 9.64655 10.4091 9.57726 10.6239 9.19516C10.8471 8.81751 10.96 8.15527 10.96 7.00302V6.99906C10.96 5.84138 10.8471 5.18408 10.6234 4.80248Z" fill="#F44336"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.0105 8.48483V5.51514L8.48525 6.99999L6.0105 8.48483Z" fill="#FAFAFA"/>
+              </svg>
+            .channel__img(style="border: 1.5px solid #F44336;")
+              img(src="/assets/images/avatar.png" alt="tg-channel")
+          .flex.flex-col.items-start
+            h3
+              a(href="#").table__channel ZeroDay | Кибербезопасность
+            a(href="https://t.me/cybersec_academy" target="_blank").table__link @cybersec_academy
+      td.only-text
+        +dropdown({
+          buttons: [
+            {
+              name: 'channels-radio',
+              title: 'Все',
+            },
+            {
+              isChecked: true,
+              name: 'channels-radio',
+              title: '1/24',
+            },
+            {
+              name: 'channels-radio',
+              title: '1/48',
+            },
+            {
+              name: 'channels-radio',
+              title: '1/72',
+            },
+            {
+              name: 'channels-radio',
+              title: 'Нативный',
+            },
+          ],
+          title: '1/24',
+        })
+      td.only-text 1/24
+      td.only-text Интернет технологии
+      td.only-text Андрей Миронов
+      td.only-text.text-right 999 999
+      td.only-text.text-right 152 564
+      td.only-text.text-right 999 999
+      td.only-text.text-right 999 999
+      td.only-text.text-right 0,16
+      td.only-text.text-right 152 564
+      td.only-text.text-right 152 564
+      td.only-text.text-right 152 564
+      td.only-text.text-right 16
+      td.only-text.text-right 25,5%
+      td.only-text.text-right 25,5%
+      td.only-text.text-right 25,5%
+      td.only-text.text-right 25,5%
+      td.only-text
+        a(href="https://t.me/futuread" target="_blank") https://t.me/futuread
+      td.only-text да
+      td.only-text возможно
+      td.only-text да
+      td.only-text возможно
+      td.only-text да
+      td.only-text возможно
+      td.only-text да
+      td.only-text.audience
+        .flex.justify-center(class="gap-x-5")
+          span.table__category.male 0,25%
+          span.table__category.female 0,54%
+      td.only-text.adult
+        .flex.justify-center(class="gap-x-5")
+          span.table__category.posts 0,25%
+          span.table__category.words 0,54%
+      td.only-text.policy
+        .flex.justify-center(class="gap-x-5")
+          span.table__category.posts 0,25%
+          span.table__category.words 0,54%
+      td.only-text.horror
+        .flex.justify-center(class="gap-x-5")
+          span.table__category.posts 0,25%
+          span.table__category.words 0,54%
+      td.only-text.text-right 152 564
+      td.only-text 24.01.2025
+    tr
+      td(style="min-width: 288px; max-width: 288px;").fixed-td.fixed-td-border
+        .flex.items-center(class="gap-x-1.5")
+          .channel__avatar
+            .channel__src
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="7" cy="7" r="7" fill="#E3E5EB"/>
+                <g clip-path="url(#clip0_3958_17059)">
+                <path d="M7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0C3.13401 0 0 3.13401 0 7C0 10.866 3.13401 14 7 14Z" fill="#00A3E3"/>
+                <path d="M2.60691 7.34218C3.42521 6.89144 4.33865 6.51525 5.19212 6.13713C6.66043 5.51781 8.13457 4.90922 9.62359 4.34263C9.91327 4.24608 10.4338 4.1517 10.4849 4.58103C10.4569 5.18875 10.342 5.79291 10.2631 6.39707C10.063 7.72567 9.83155 9.04972 9.60597 10.3739C9.52821 10.815 8.97568 11.0434 8.62212 10.7611C7.77244 10.1871 6.91622 9.61882 6.07739 9.03152C5.80264 8.75233 6.05744 8.35135 6.30279 8.15197C7.00261 7.46229 7.74479 6.87633 8.40804 6.15102C8.58695 5.719 8.05833 6.08312 7.88397 6.19471C6.92591 6.85493 5.99129 7.55545 4.98119 8.13569C4.46523 8.41972 3.86387 8.17699 3.34815 8.01844C2.88574 7.82705 2.20814 7.63414 2.60685 7.34224L2.60691 7.34218Z" fill="white"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_3958_17059">
+                <rect width="14" height="14" fill="white"/>
+                </clipPath>
+                </defs>
+              </svg>
+            .channel__img(style="border: 1.5px solid #00A3E3;")
+              img(src="/assets/images/avatar.png" alt="tg-channel")
+          .flex.flex-col.items-start
+            h3
+              a(href="#").table__channel ZeroDay | Кибербезопасность
+            a(href="https://t.me/cybersec_academy" target="_blank").table__link @cybersec_academy
+      td.only-text
+        +dropdown({
+          buttons: [
+            {
+              name: 'channels-radio',
+              title: 'Все',
+            },
+            {
+              isChecked: true,
+              name: 'channels-radio',
+              title: '1/24',
+            },
+            {
+              name: 'channels-radio',
+              title: '1/48',
+            },
+            {
+              name: 'channels-radio',
+              title: '1/72',
+            },
+            {
+              name: 'channels-radio',
+              title: 'Нативный',
+            },
+          ],
+          title: '1/24',
+        })
+      td.only-text 1/24
+      td.only-text Интернет технологии
+      td.only-text Андрей Миронов
+      td.only-text.text-right 999 999
+      td.only-text.text-right 152 564
+      td.only-text.text-right 999 999
+      td.only-text.text-right 999 999
+      td.only-text.text-right 0,16
+      td.only-text.text-right 152 564
+      td.only-text.text-right 152 564
+      td.only-text.text-right 152 564
+      td.only-text.text-right 16
+      td.only-text.text-right 25,5%
+      td.only-text.text-right 25,5%
+      td.only-text.text-right 25,5%
+      td.only-text.text-right 25,5%
+      td.only-text
+        a(href="https://t.me/futuread" target="_blank") https://t.me/futuread
+      td.only-text да
+      td.only-text возможно
+      td.only-text да
+      td.only-text возможно
+      td.only-text да
+      td.only-text возможно
+      td.only-text да
+      td.only-text.audience
+        .flex.justify-center(class="gap-x-5")
+          span.table__category.male 0,25%
+          span.table__category.female 0,54%
+      td.only-text.adult
+        .flex.justify-center(class="gap-x-5")
+          span.table__category.posts 0,25%
+          span.table__category.words 0,54%
+      td.only-text.policy
+        .flex.justify-center(class="gap-x-5")
+          span.table__category.posts 0,25%
+          span.table__category.words 0,54%
+      td.only-text.horror
+        .flex.justify-center(class="gap-x-5")
+          span.table__category.posts 0,25%
+          span.table__category.words 0,54%
+      td.only-text.text-right 152 564
+      td.only-text 24.01.2025
+    tr
+      td(style="min-width: 288px; max-width: 288px;").fixed-td.fixed-td-border
+        .flex.items-center(class="gap-x-1.5")
+          .channel__avatar
+            .channel__img
+              <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="15" cy="15" r="15" fill="#E3E5EB"/>
+                <g clip-path="url(#clip0_3958_17064)">
+                <path d="M15 30C23.2843 30 30 23.2843 30 15C30 6.71573 23.2843 0 15 0C6.71573 0 0 6.71573 0 15C0 23.2843 6.71573 30 15 30Z" fill="#00A3E3"/>
+                <path d="M5.5863 15.734C7.3398 14.7681 9.29717 13.9619 11.126 13.1517C14.2724 11.8246 17.4313 10.5205 20.622 9.30633C21.2428 9.09945 22.3583 8.8972 22.4677 9.8172C22.4077 11.1195 22.1614 12.4141 21.9924 13.7087C21.5635 16.5557 21.0677 19.393 20.5843 22.2306C20.4177 23.1757 19.2337 23.6651 18.476 23.0602C16.6553 21.8302 14.8205 20.6124 13.023 19.3539C12.4343 18.7557 12.9803 17.8965 13.506 17.4692C15.0057 15.9913 16.596 14.7357 18.0173 13.1814C18.4007 12.2557 17.2679 13.0359 16.8943 13.2751C14.8413 14.6898 12.8385 16.191 10.674 17.4343C9.56842 18.043 8.2798 17.5228 7.17467 17.1831C6.1838 16.7729 4.7318 16.3596 5.58617 15.7341L5.5863 15.734Z" fill="white"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_3958_17064">
+                <rect width="30" height="30" fill="white"/>
+                </clipPath>
+                </defs>
+              </svg>
+          .flex.flex-col.items-start
+            h3
+              a(href="#").table__channel ZeroDay | Кибербезопасность
+            a(href="https://t.me/cybersec_academy" target="_blank").table__link @cybersec_academy
+      td.only-text
+        +dropdown({
+          buttons: [
+            {
+              name: 'channels-radio',
+              title: 'Все',
+            },
+            {
+              isChecked: true,
+              name: 'channels-radio',
+              title: '1/24',
+            },
+            {
+              name: 'channels-radio',
+              title: '1/48',
+            },
+            {
+              name: 'channels-radio',
+              title: '1/72',
+            },
+            {
+              name: 'channels-radio',
+              title: 'Нативный',
+            },
+          ],
+          title: '1/24',
+        })
+      td.only-text 1/24
+      td.only-text Интернет технологии
+      td.only-text Андрей Миронов
+      td.only-text.text-right 999 999
+      td.only-text.text-right 152 564
+      td.only-text.text-right 999 999
+      td.only-text.text-right 999 999
+      td.only-text.text-right 0,16
+      td.only-text.text-right 152 564
+      td.only-text.text-right 152 564
+      td.only-text.text-right 152 564
+      td.only-text.text-right 16
+      td.only-text.text-right 25,5%
+      td.only-text.text-right 25,5%
+      td.only-text.text-right 25,5%
+      td.only-text.text-right 25,5%
+      td.only-text
+        a(href="https://t.me/futuread" target="_blank") https://t.me/futuread
+      td.only-text да
+      td.only-text возможно
+      td.only-text да
+      td.only-text возможно
+      td.only-text да
+      td.only-text возможно
+      td.only-text да
+      td.only-text.audience
+        .flex.justify-center(class="gap-x-5")
+          span.table__category.male 0,25%
+          span.table__category.female 0,54%
+      td.only-text.adult
+        .flex.justify-center(class="gap-x-5")
+          span.table__category.posts 0,25%
+          span.table__category.words 0,54%
+      td.only-text.policy
+        .flex.justify-center(class="gap-x-5")
+          span.table__category.posts 0,25%
+          span.table__category.words 0,54%
+      td.only-text.horror
+        .flex.justify-center(class="gap-x-5")
+          span.table__category.posts 0,25%
+          span.table__category.words 0,54%
+      td.only-text.text-right 152 564
+      td.only-text 24.01.2025
+    tr
+      td(style="min-width: 288px; max-width: 288px;").fixed-td.fixed-td-border
+        .flex.items-center(class="gap-x-1.5")
+          .channel__avatar
+            .channel__img
+              <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="15" cy="15" r="15" fill="#0077FF"/>
+                <path d="M15.8931 21C9.0599 21 5.1624 16.4955 5 9H8.42286C8.53529 14.5015 11.0587 16.8318 13.0574 17.3123V9H16.2805V13.7447C18.2543 13.5405 20.3277 11.3784 21.0273 9H24.2503C23.7132 11.9309 21.4646 14.0931 19.8656 14.982C21.4646 15.7027 24.0256 17.5886 25 21H21.4521C20.6901 18.7177 18.7914 16.952 16.2805 16.7117V21H15.8931Z" fill="white"/>
+              </svg>
+          .flex.flex-col.items-start
+            h3
+              a(href="#").table__channel ZeroDay | Кибербезопасность
+            a(href="https://t.me/cybersec_academy" target="_blank").table__link @cybersec_academy
+      td.only-text
+        +dropdown({
+          buttons: [
+            {
+              name: 'channels-radio',
+              title: 'Все',
+            },
+            {
+              isChecked: true,
+              name: 'channels-radio',
+              title: '1/24',
+            },
+            {
+              name: 'channels-radio',
+              title: '1/48',
+            },
+            {
+              name: 'channels-radio',
+              title: '1/72',
+            },
+            {
+              name: 'channels-radio',
+              title: 'Нативный',
+            },
+          ],
+          title: '1/24',
+        })
+      td.only-text 1/24
+      td.only-text Интернет технологии
+      td.only-text Андрей Миронов
+      td.only-text.text-right 999 999
+      td.only-text.text-right 152 564
+      td.only-text.text-right 999 999
+      td.only-text.text-right 999 999
+      td.only-text.text-right 0,16
+      td.only-text.text-right 152 564
+      td.only-text.text-right 152 564
+      td.only-text.text-right 152 564
+      td.only-text.text-right 16
+      td.only-text.text-right 25,5%
+      td.only-text.text-right 25,5%
+      td.only-text.text-right 25,5%
+      td.only-text.text-right 25,5%
+      td.only-text
+        a(href="https://t.me/futuread" target="_blank") https://t.me/futuread
+      td.only-text да
+      td.only-text возможно
+      td.only-text да
+      td.only-text возможно
+      td.only-text да
+      td.only-text возможно
+      td.only-text да
+      td.only-text.audience
+        .flex.justify-center(class="gap-x-5")
+          span.table__category.male 0,25%
+          span.table__category.female 0,54%
+      td.only-text.adult
+        .flex.justify-center(class="gap-x-5")
+          span.table__category.posts 0,25%
+          span.table__category.words 0,54%
+      td.only-text.policy
+        .flex.justify-center(class="gap-x-5")
+          span.table__category.posts 0,25%
+          span.table__category.words 0,54%
+      td.only-text.horror
+        .flex.justify-center(class="gap-x-5")
+          span.table__category.posts 0,25%
+          span.table__category.words 0,54%
+      td.only-text.text-right 152 564
+      td.only-text 24.01.2025
+    tr
+      td(style="min-width: 288px; max-width: 288px;").fixed-td.fixed-td-border
+        .flex.items-center(class="gap-x-1.5")
+          .channel__avatar
+            .channel__img
+              <svg width="30" height="30" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="7" cy="7" r="7" fill="black"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 6.01283C10.5 6.0809 10.4709 6.14443 10.4172 6.18754C10.3657 6.23064 10.2986 6.23745 10.2315 6.23518C9.81523 6.22384 9.16402 6.07863 8.85744 5.78141V8.62658C8.85744 9.93799 7.81013 10.9998 6.51667 10.9998H6.27498C5.73343 10.9998 5.21873 10.8002 4.80249 10.4576C5.1225 10.6186 5.47384 10.7139 5.83861 10.7139H6.08029C7.37376 10.7139 8.42106 9.65211 8.42106 8.3407V5.49553C8.72764 5.79048 9.37885 5.93796 9.79509 5.9493C9.86222 5.9493 9.92936 5.94477 9.98083 5.90166C10.0323 5.85855 10.0636 5.79502 10.0636 5.72695C10.0636 5.40477 10.0636 4.86932 10.0636 4.58798C10.1487 4.61294 10.2359 4.63336 10.3232 4.65378C10.4262 4.67646 10.5 4.76722 10.5 4.87386C10.5 5.1552 10.5 5.69292 10.5 6.01283ZM6.11833 7.01794C6.07581 7.06105 6.01987 7.08374 5.95945 7.08374C5.34181 7.08374 4.84053 7.59197 4.84053 8.21818C4.84053 8.71052 5.15159 9.12573 5.58573 9.28228C5.39552 9.07808 5.27691 8.80582 5.27691 8.50406C5.27691 7.87785 5.77818 7.36962 6.39582 7.36962C6.45625 7.36962 6.51219 7.34693 6.55471 7.30382C6.59723 7.26071 6.61961 7.20399 6.61961 7.14273V6.46207C6.61961 6.40308 6.59499 6.34409 6.55471 6.30098C6.51443 6.25787 6.45625 6.23518 6.39582 6.23518H6.27498C6.24365 6.23518 6.21456 6.24426 6.18323 6.24426V6.85685C6.18323 6.91811 6.15861 6.97484 6.11833 7.01794ZM9.17745 4.13874C8.99171 3.96858 8.83506 3.74396 8.72317 3.43766C8.6896 3.34917 8.6068 3.28564 8.51281 3.28564H8.34721C8.5419 3.719 8.83058 3.97311 9.17745 4.13647V4.13874Z" fill="#FE2C55"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M4.62115 10.3058C4.6771 10.3625 4.74423 10.4079 4.80465 10.4578C4.57863 10.3443 4.36604 10.2037 4.18478 10.0199C3.74616 9.5752 3.5 8.97168 3.5 8.34093V8.32278C3.5 7.01137 4.5473 5.94954 5.84077 5.94954H5.96161C6.02203 5.94954 6.07798 5.97449 6.1205 6.01533C6.16302 6.05844 6.1854 6.11517 6.1854 6.17642V6.24449C4.93669 6.29441 3.93638 7.32901 3.93638 8.60866V8.62681C3.93638 9.25529 4.18254 9.85881 4.62115 10.3058ZM10.0613 4.58821C10.0613 4.48158 9.98747 4.38855 9.88453 4.36813C9.63389 4.31141 9.39444 4.24334 9.17514 4.13898C9.42353 4.36586 9.72788 4.49519 10.0591 4.58821H10.0613ZM6.39575 9.641C6.69338 9.641 6.97759 9.52075 7.18794 9.30974C7.3983 9.09874 7.51467 8.80832 7.51467 8.50656V3.51503C7.51467 3.39025 7.61537 3.28815 7.73845 3.28815H8.34714C8.327 3.24277 8.30462 3.20193 8.28672 3.15201C8.25315 3.06353 8.17035 3 8.07636 3H7.30207C7.17899 3 7.07829 3.1021 7.07829 3.22689V8.21841C7.07829 8.52017 6.95968 8.80832 6.75157 9.02159C6.54345 9.23487 6.25701 9.35285 5.95937 9.35285C5.82734 9.35285 5.70202 9.32562 5.58566 9.28252C5.7893 9.50033 6.07574 9.63873 6.39575 9.63873V9.641Z" fill="#25F4EE"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.08256 10.7141C7.37603 10.7141 8.42333 9.65228 8.42333 8.34087V5.4957C8.72991 5.79066 9.38112 5.93813 9.79736 5.94948C9.86449 5.94948 9.93163 5.94494 9.9831 5.90183C10.0346 5.85872 10.0659 5.79519 10.0659 5.72713C10.0659 5.40495 10.0659 4.86949 10.0659 4.58815C9.7347 4.49513 9.43035 4.3658 9.18195 4.13891C8.83733 3.97555 8.54641 3.71917 8.35172 3.28809H7.74303C7.61995 3.28809 7.51925 3.39019 7.51925 3.51497V8.5065C7.51925 8.80826 7.40064 9.09641 7.19252 9.30968C6.98441 9.52295 6.69796 9.64094 6.40033 9.64094C6.08032 9.64094 5.79388 9.50253 5.59024 9.28472C5.15834 9.12817 4.84504 8.71297 4.84504 8.22062C4.84504 7.59441 5.34632 7.08618 5.96396 7.08618C6.02438 7.08618 6.08032 7.06349 6.12284 7.02039C6.16536 6.97728 6.18774 6.92055 6.18774 6.85929V6.2467C4.93903 6.29661 3.93872 7.33122 3.93872 8.61087V8.62902C3.93872 9.2575 4.18488 9.86102 4.6235 10.308C4.67944 10.3647 4.74658 10.4101 4.807 10.46C5.12701 10.6211 5.47835 10.7164 5.84311 10.7164H6.0848L6.08256 10.7141Z" fill="white"/>
+              </svg>
+          .flex.flex-col.items-start
+            h3
+              a(href="#").table__channel ZeroDay | Кибербезопасность
+            a(href="https://t.me/cybersec_academy" target="_blank").table__link @cybersec_academy
+      td.only-text
+        +dropdown({
+          buttons: [
+            {
+              name: 'channels-radio',
+              title: 'Все',
+            },
+            {
+              isChecked: true,
+              name: 'channels-radio',
+              title: '1/24',
+            },
+            {
+              name: 'channels-radio',
+              title: '1/48',
+            },
+            {
+              name: 'channels-radio',
+              title: '1/72',
+            },
+            {
+              name: 'channels-radio',
+              title: 'Нативный',
+            },
+          ],
+          title: '1/24',
+        })
+      td.only-text 1/24
+      td.only-text Интернет технологии
+      td.only-text Андрей Миронов
+      td.only-text.text-right 999 999
+      td.only-text.text-right 152 564
+      td.only-text.text-right 999 999
+      td.only-text.text-right 999 999
+      td.only-text.text-right 0,16
+      td.only-text.text-right 152 564
+      td.only-text.text-right 152 564
+      td.only-text.text-right 152 564
+      td.only-text.text-right 16
+      td.only-text.text-right 25,5%
+      td.only-text.text-right 25,5%
+      td.only-text.text-right 25,5%
+      td.only-text.text-right 25,5%
+      td.only-text
+        a(href="https://t.me/futuread" target="_blank") https://t.me/futuread
+      td.only-text да
+      td.only-text возможно
+      td.only-text да
+      td.only-text возможно
+      td.only-text да
+      td.only-text возможно
+      td.only-text да
+      td.only-text.audience
+        .flex.justify-center(class="gap-x-5")
+          span.table__category.male 0,25%
+          span.table__category.female 0,54%
+      td.only-text.adult
+        .flex.justify-center(class="gap-x-5")
+          span.table__category.posts 0,25%
+          span.table__category.words 0,54%
+      td.only-text.policy
+        .flex.justify-center(class="gap-x-5")
+          span.table__category.posts 0,25%
+          span.table__category.words 0,54%
+      td.only-text.horror
+        .flex.justify-center(class="gap-x-5")
+          span.table__category.posts 0,25%
+          span.table__category.words 0,54%
+      td.only-text.text-right 152 564
+      td.only-text 24.01.2025
+    tr
+      td(style="min-width: 288px; max-width: 288px;").fixed-td.fixed-td-border
+        .flex.items-center(class="gap-x-1.5")
+          .channel__avatar
+            .channel__img
+              <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="15" cy="15" r="14.5" fill="white" stroke="#F44336"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M22.7646 10.2907C22.3043 9.47196 21.8047 9.32135 20.7876 9.26408C19.7716 9.19514 17.2166 9.1665 15.0031 9.1665C12.7854 9.1665 10.2293 9.19514 9.21429 9.26302C8.19929 9.32135 7.69869 9.4709 7.23414 10.2907C6.76005 11.1085 6.51611 12.517 6.51611 14.9967V15.0051C6.51611 17.4742 6.76005 18.8933 7.23414 19.7026C7.69869 20.5214 8.19823 20.6698 9.21323 20.7388C10.2293 20.7982 12.7854 20.8332 15.0031 20.8332C17.2166 20.8332 19.7716 20.7982 20.7887 20.7398C21.8058 20.6709 22.3054 20.5224 22.7657 19.7036C23.244 18.8944 23.4858 17.4753 23.4858 15.0062V14.9977C23.4858 12.517 23.244 11.1085 22.7646 10.2907Z" fill="#F44336"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12.8801 18.1815V11.8179L18.1832 14.9997L12.8801 18.1815Z" fill="#FAFAFA"/>
+              </svg>
+          .flex.flex-col.items-start
+            h3
+              a(href="#").table__channel ZeroDay | Кибербезопасность
+            a(href="https://t.me/cybersec_academy" target="_blank").table__link @cybersec_academy
+      td.only-text
+        +dropdown({
+          buttons: [
+            {
+              name: 'channels-radio',
+              title: 'Все',
+            },
+            {
+              isChecked: true,
+              name: 'channels-radio',
+              title: '1/24',
+            },
+            {
+              name: 'channels-radio',
+              title: '1/48',
+            },
+            {
+              name: 'channels-radio',
+              title: '1/72',
+            },
+            {
+              name: 'channels-radio',
+              title: 'Нативный',
+            },
+          ],
+          title: '1/24',
+        })
+      td.only-text 1/24
+      td.only-text Интернет технологии
+      td.only-text Андрей Миронов
+      td.only-text.text-right 999 999
+      td.only-text.text-right 152 564
+      td.only-text.text-right 999 999
+      td.only-text.text-right 999 999
+      td.only-text.text-right 0,16
+      td.only-text.text-right 152 564
+      td.only-text.text-right 152 564
+      td.only-text.text-right 152 564
+      td.only-text.text-right 16
+      td.only-text.text-right 25,5%
+      td.only-text.text-right 25,5%
+      td.only-text.text-right 25,5%
+      td.only-text.text-right 25,5%
+      td.only-text
+        a(href="https://t.me/futuread" target="_blank") https://t.me/futuread
+      td.only-text да
+      td.only-text возможно
+      td.only-text да
+      td.only-text возможно
+      td.only-text да
+      td.only-text возможно
+      td.only-text да
+      td.only-text.audience
+        .flex.justify-center(class="gap-x-5")
+          span.table__category.male 0,25%
+          span.table__category.female 0,54%
+      td.only-text.adult
+        .flex.justify-center(class="gap-x-5")
+          span.table__category.posts 0,25%
+          span.table__category.words 0,54%
+      td.only-text.policy
+        .flex.justify-center(class="gap-x-5")
+          span.table__category.posts 0,25%
+          span.table__category.words 0,54%
+      td.only-text.horror
+        .flex.justify-center(class="gap-x-5")
+          span.table__category.posts 0,25%
+          span.table__category.words 0,54%
+      td.only-text.text-right 152 564
+      td.only-text 24.01.2025
     include row
     include row
     include row

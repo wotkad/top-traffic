@@ -4,18 +4,20 @@ function resizeTable() {
   let startWidth = 0;
   let colIndex = 0;
 
-  let $th;
+  let $col;
   let $table;
 
   $(document).on('mousedown', '.resizable', function (e) {
     e.preventDefault();
 
-    $th = $(this).closest('th');
+    const $th = $(this).closest('th');
     $table = $th.closest('table');
     colIndex = $th.index();
 
+    $col = $table.find('col').eq(colIndex);
+
     startX = e.pageX;
-    startWidth = $th.outerWidth();
+    startWidth = $col.width() || $th.outerWidth();
 
     isResizing = true;
     $('body').addClass('no-select');
@@ -25,15 +27,10 @@ function resizeTable() {
     if (!isResizing) return;
 
     const diff = e.pageX - startX;
-    const newWidth = Math.max(60, startWidth + diff); // min width
+    const newWidth = Math.max(60, startWidth + diff);
 
-    // th
-    $th.css('width', newWidth);
-
-    // все td с тем же индексом
-    $table.find('tbody tr').each(function () {
-      $(this).children('td').eq(colIndex).css('min-width', newWidth);
-    });
+    // меняем только col
+    $col.css('width', newWidth);
   });
 
   $(document).on('mouseup', function () {
@@ -43,4 +40,5 @@ function resizeTable() {
     $('body').removeClass('no-select');
   });
 }
+
 resizeTable();

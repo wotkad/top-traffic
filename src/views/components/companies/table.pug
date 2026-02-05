@@ -1,4 +1,13 @@
 table.table.table-fixed-cols
+  colgroup
+    col(style="width:180px")
+    col(style="width:160px")
+    col(style="width:150px")
+    col(style="width:112px")
+    col(style="width:449px")
+    col(style="width:120px")
+    col(style="width:145px")
+    col
   thead
     tr
       th
@@ -51,7 +60,6 @@ table.table.table-fixed-cols
               svg
                 use(xlink:href="#other-sort-icon")
       th
-        .resizable
         .table__sort.flex.gap-x-2.items-center
           p Статус РК
             button(type="button").table__sortbutton
