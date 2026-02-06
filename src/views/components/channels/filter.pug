@@ -226,6 +226,58 @@ aside.filter(data-filter-name="channels")
           </div>
         </div>
       </div>
+      h3.filter__subtitle Платформа
+      +dropdown({
+        checkboxes: [
+          {
+            class: 'check-all',
+            title: 'Все',
+          },
+          {
+            class: '',
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/telegram.svg',
+            },
+            name: 'telegram',
+            title: 'Telegram',
+          },
+          {
+            class: '',
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/tiktok.svg',
+            },
+            name: 'tiktok',
+            title: 'TikTok',
+          },
+          {
+            class: '',
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/vk.svg',
+            },
+            name: 'vk',
+            title: 'VK',
+          },
+          {
+            class: '',
+            image: {
+              alt: 'image',
+              enabled: true,
+              src: '/assets/images/youtube.svg',
+            },
+            name: 'youtube',
+            title: 'Youtube',
+          },
+        ],
+        class: 'dropdown-checkboxes-images dropdown-checkboxes-images-social',
+        isCheckboxes: true,
+        title: '—',
+      })
       h3.filter__subtitle Формат
         button(type="button").filter__clean
           svg.expanded
