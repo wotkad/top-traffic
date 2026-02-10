@@ -59,7 +59,7 @@ function toggleAddChannels() {
       });
 
       setTimeout(function () {
-        $popup.find('.popup__buttons-buffer').show();
+        $popup.find('.popup__buttons-buffer').css('display', 'flex');
         $popup.find('.popup__buttons-buffer').addClass('active');
         $popup.find('.popup__subtitle-buffering').hide();
         $popup.find('.popup__icon').hide();

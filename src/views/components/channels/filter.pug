@@ -232,6 +232,7 @@ aside.filter(data-filter-name="channels")
           {
             class: 'check-all',
             title: 'Все',
+            isChecked: true,
           },
           {
             class: '',
@@ -276,7 +277,8 @@ aside.filter(data-filter-name="channels")
         ],
         class: 'dropdown-checkboxes-images dropdown-checkboxes-images-social',
         isCheckboxes: true,
-        title: '—',
+        isAll: true,
+        title: 'Все',
       })
       h3.filter__subtitle Формат
         button(type="button").filter__clean
