@@ -179,6 +179,136 @@ mixin row-coordination(data)
         isRadios: true,
         isSearch: true,
       })
+
+    td.text-right.table-input-two-rows
+      .table-input-two-rows__row
+        .button(data-popup-name="check-adaptation")
+          span Обязательно, 5%
+          button(type="button" aria-label="button")
+            <svg viewBox="0 0 10 6" width="10" height="6"><use xlink:href="#other-angle-down-icon"></use></svg>
+        p.table-input-two-rows__tip.button(data-popup-name="confirm-table-adaptation") Значение: Зависит от поста, 10%
+
+    td.text-right.table-input-two-rows
+      .table-input-two-rows__row
+        +dropdown({
+          buttons: [
+            {
+              isChecked: true,
+              name: 'approval-client',
+              title: '––',
+            },
+            {
+              name: 'approval-client',
+              title: 'Да',
+            },
+            {
+              name: 'approval-client',
+              title: 'Нет',
+            },
+          ],
+          class: 'dropdown-radios dropdown-button',
+          isRadios: true,
+          isSearch: false,
+          title: '––',
+        })
+        p.table-input-two-rows__tip.button(data-popup-name="confirm-table-adaptation") Значение: Нет
+          button(type="button")
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_4106_14108)">
+              <path d="M8.43933 9.28578H1.55666C1.34443 9.28588 1.13596 9.22662 0.952502 9.11405C0.769041 9.00148 0.617141 8.83962 0.512275 8.64496C0.407409 8.4503 0.353326 8.22979 0.355534 8.0059C0.357742 7.782 0.416162 7.56273 0.524844 7.37041L3.87187 1.39135C3.98775 1.18507 4.15254 1.01418 4.35001 0.895479C4.54749 0.776777 4.77086 0.714355 4.99814 0.714355C5.22542 0.714355 5.44879 0.776777 5.64626 0.895479C5.84374 1.01418 6.00853 1.18507 6.12441 1.39135L9.4726 7.37286C9.5835 7.56795 9.64179 7.79129 9.64118 8.01877C9.64079 8.35484 9.51402 8.67701 9.28869 8.91456C9.06335 9.15211 8.75788 9.28562 8.43933 9.28578Z" fill="#FFC658"/>
+              <path d="M5 6.7998C5.3003 6.7998 5.54395 7.04345 5.54395 7.34375C5.54395 7.64405 5.3003 7.8877 5 7.8877C4.6997 7.8877 4.45605 7.64405 4.45605 7.34375C4.45605 7.04345 4.6997 6.7998 5 6.7998Z" fill="#374151" stroke="#374151" stroke-width="0.15"/>
+              <path d="M5 2.7373C5.10277 2.7373 5.20174 2.77792 5.27441 2.85059C5.34708 2.92326 5.3877 3.02223 5.3877 3.125V5.9375C5.3877 6.04027 5.34708 6.13924 5.27441 6.21191C5.20174 6.28458 5.10277 6.3252 5 6.3252C4.89723 6.3252 4.79826 6.28458 4.72559 6.21191C4.65292 6.13924 4.6123 6.04027 4.6123 5.9375V3.125C4.6123 3.02223 4.65292 2.92326 4.72559 2.85059C4.79826 2.77792 4.89723 2.7373 5 2.7373Z" fill="#374151" stroke="#374151" stroke-width="0.15"/>
+              </g>
+              <defs>
+              <clipPath id="clip0_4106_14108">
+              <rect width="10" height="10" fill="white"/>
+              </clipPath>
+              </defs>
+            </svg>
+            span Значение отличается от данных канала
+
+    td.text-right.table-input-two-rows
+      .table-input-two-rows__row
+        .button(data-popup-name="add-tag")
+          span Зависит от поста
+            button(type="button" aria-label="button")
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_4106_14094)">
+                <circle cx="7" cy="7" r="6.25" fill="#E3E5EB" stroke="#E3E5EB" stroke-width="1.5"/>
+                <path d="M7.1123 10.5L8.30549 3.22727H9.44185L8.24867 10.5H7.1123ZM3.85591 8.69602L4.04412 7.55966H9.72594L9.53773 8.69602H3.85591ZM4.55549 10.5L5.74867 3.22727H6.88503L5.69185 10.5H4.55549ZM4.2714 6.16761L4.46316 5.03125H10.145L9.95321 6.16761H4.2714Z" fill="#959BA4"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_4106_14094">
+                <rect width="14" height="14" fill="white"/>
+                </clipPath>
+                </defs>
+              </svg>
+              .hash-list 
+                p #промо
+                p #реклама
+          button(type="button" aria-label="button")
+            <svg viewBox="0 0 10 6" width="10" height="6"><use xlink:href="#other-angle-down-icon"></use></svg>
+
+        p.table-input-two-rows__tip.button(data-popup-name="confirm-table-adaptation") Значение: Обязательно
+          button(type="button")
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_4106_14097)">
+              <circle cx="5" cy="5" r="4.25" fill="#E3E5EB" stroke="#E3E5EB" stroke-width="1.5"/>
+              <path d="M5.07861 7.5L5.91384 2.40909H6.7093L5.87407 7.5H5.07861ZM2.79914 6.23722L2.93089 5.44176H6.90816L6.77641 6.23722H2.79914ZM3.28884 7.5L4.12407 2.40909H4.91952L4.0843 7.5H3.28884ZM3.08998 4.46733L3.22421 3.67188H7.20148L7.06725 4.46733H3.08998Z" fill="#959BA4"/>
+              </g>
+              <defs>
+              <clipPath id="clip0_4106_14097">
+              <rect width="10" height="10" fill="white"/>
+              </clipPath>
+              </defs>
+            </svg>
+            .hash-list 
+              p #промо
+              p #реклама
+
+    td.text-right.table-input-two-rows
+      .table-input-two-rows__row
+        +dropdown({
+          buttons: [
+            {
+              isChecked: true,
+              name: 'approval-client',
+              title: '––',
+            },
+            {
+              name: 'approval-client',
+              title: 'Да',
+            },
+            {
+              name: 'approval-client',
+              title: 'Нет',
+            },
+            {
+              name: 'approval-client',
+              title: '< 10 000 подписчиков',
+            },
+          ],
+          class: 'dropdown-radios dropdown-rkn',
+          isRadios: true,
+          isSearch: false,
+          title: '––',
+        })
+        p.table-input-two-rows__tip.button(data-popup-name="confirm-table-adaptation") Значение: Нет
+          button(type="button")
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_4106_14104)">
+              <path d="M8.43933 9.28578H1.55666C1.34443 9.28588 1.13596 9.22662 0.952502 9.11405C0.769041 9.00148 0.617141 8.83962 0.512275 8.64496C0.407409 8.4503 0.353326 8.22979 0.355534 8.0059C0.357742 7.782 0.416162 7.56273 0.524844 7.37041L3.87187 1.39135C3.98775 1.18507 4.15254 1.01418 4.35001 0.895479C4.54749 0.776777 4.77086 0.714355 4.99814 0.714355C5.22542 0.714355 5.44879 0.776777 5.64626 0.895479C5.84374 1.01418 6.00853 1.18507 6.12441 1.39135L9.4726 7.37286C9.5835 7.56795 9.64179 7.79129 9.64118 8.01877C9.64079 8.35484 9.51402 8.67701 9.28869 8.91456C9.06335 9.15211 8.75788 9.28562 8.43933 9.28578Z" fill="#FFC658"/>
+              <path d="M5 6.7998C5.3003 6.7998 5.54395 7.04345 5.54395 7.34375C5.54395 7.64405 5.3003 7.8877 5 7.8877C4.6997 7.8877 4.45605 7.64405 4.45605 7.34375C4.45605 7.04345 4.6997 6.7998 5 6.7998Z" fill="#374151" stroke="#374151" stroke-width="0.15"/>
+              <path d="M5 2.7373C5.10277 2.7373 5.20174 2.77792 5.27441 2.85059C5.34708 2.92326 5.3877 3.02223 5.3877 3.125V5.9375C5.3877 6.04027 5.34708 6.13924 5.27441 6.21191C5.20174 6.28458 5.10277 6.3252 5 6.3252C4.89723 6.3252 4.79826 6.28458 4.72559 6.21191C4.65292 6.13924 4.6123 6.04027 4.6123 5.9375V3.125C4.6123 3.02223 4.65292 2.92326 4.72559 2.85059C4.79826 2.77792 4.89723 2.7373 5 2.7373Z" fill="#374151" stroke="#374151" stroke-width="0.15"/>
+              </g>
+              <defs>
+              <clipPath id="clip0_4106_14104">
+              <rect width="10" height="10" fill="white"/>
+              </clipPath>
+              </defs>
+            </svg>
+          span Значение отличается от данных канала
+
     td
       +input({
         class: 'table__comment',

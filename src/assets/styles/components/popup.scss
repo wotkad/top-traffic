@@ -578,7 +578,8 @@
   &[data-popup-name="bill-cancel"],
   &[data-popup-name="bill-annul"],
   &[data-popup-name="bill-restore"],
-  &[data-popup-name="delete-rk"] {
+  &[data-popup-name="delete-rk"],
+  &[data-popup-name="confirm-table-adaptation"] {
     .popup__wrapper {
       .popup__title {
         @apply text-14-sb-md;
@@ -596,6 +597,20 @@
         @apply mt-4;
       }
       @apply p-[14px] max-w-[258px];
+    }
+  }
+  &[data-popup-name="confirm-table-adaptation"] {
+    .popup__wrapper {
+      .popup__buttons {
+        .button {
+          @apply flex-auto px-5 max-w-[86px];
+        }
+        .button-with-icon-blue {
+          @apply flex-1 justify-center max-w-full;
+        }
+        @apply mt-4;
+      }
+      @apply max-w-[247px];
     }
   }
   &[data-popup-name="delete-stoplist-item"] {

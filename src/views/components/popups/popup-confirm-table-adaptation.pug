@@ -1,0 +1,21 @@
+.popup__bg(data-popup-name="confirm-table-adaptation")
+.popup(data-popup-name="confirm-table-adaptation")
+  .popup__wrapper(data-scroll-lock-scrollable)
+    .popup__title Подтвердите действие
+    .popup__subtitle Восстановить значение канала?
+    form(action="#")
+      .popup__form
+        .popup__buttons
+          +button({
+            class: 'button-base',
+            dataPopupName: 'confirm-table-adaptation',
+            title: 'Отмена',
+            view: 'button',
+          })
+          +button({
+            class: 'button-with-icon-blue lg',
+            dataPopupName: 'confirm-table-adaptation',
+            title: 'Восстановить',
+            type: 'submit',
+            view: 'button',
+          })

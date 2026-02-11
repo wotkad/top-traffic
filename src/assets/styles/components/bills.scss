@@ -26,9 +26,13 @@
   }
 }
 .bills-row {
+  .table tbody tr td:first-child, 
+  .table tbody tr th:first-child {
+    @apply border-r-0;
+  }
   .table tbody tr td, 
   .table tbody tr th {
-    @apply border-r-0 h-[46px] max-h-[46px] transition-all duration-300;
+    @apply h-[46px] max-h-[46px] transition-all duration-300;
   }
   &:hover {
     .table tbody tr .fixed-td, 
