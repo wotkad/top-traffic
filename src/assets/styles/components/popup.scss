@@ -601,6 +601,12 @@
   }
   &[data-popup-name="confirm-table-adaptation"] {
     .popup__wrapper {
+      .popup__title {
+        @apply leading-[110%];
+      }
+      .popup__subtitle {
+        @apply mt-1 leading-[120%];
+      }
       .popup__buttons {
         .button {
           @apply flex-auto px-5 max-w-[86px];
@@ -610,7 +616,7 @@
         }
         @apply mt-4;
       }
-      @apply max-w-[247px];
+      @apply pb-2.5 max-w-[247px];
     }
   }
   &[data-popup-name="delete-stoplist-item"] {

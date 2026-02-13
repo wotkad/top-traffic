@@ -186,7 +186,7 @@ mixin row-coordination(data)
           span Обязательно, 5%
           button(type="button" aria-label="button")
             <svg viewBox="0 0 10 6" width="10" height="6"><use xlink:href="#other-angle-down-icon"></use></svg>
-        p.table-input-two-rows__tip.button(data-popup-name="confirm-table-adaptation") Значение: Зависит от поста, 10%
+        .table-input-two-rows__tip.button(data-popup-name="confirm-table-adaptation") Значение: Зависит от поста, 10%
 
     td.text-right.table-input-two-rows
       .table-input-two-rows__row
@@ -211,7 +211,8 @@ mixin row-coordination(data)
           isSearch: false,
           title: '––',
         })
-        p.table-input-two-rows__tip.button(data-popup-name="confirm-table-adaptation") Значение: Нет
+        .table-input-two-rows__tip
+          .button(data-popup-name="confirm-table-adaptation").call-confirm-table-adaptation Значение: Нет
           button(type="button")
             <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g clip-path="url(#clip0_4106_14108)">
@@ -244,13 +245,13 @@ mixin row-coordination(data)
                 </defs>
               </svg>
               .hash-list 
-                p #промо
-                p #реклама
+                p #промо, #реклама
           button(type="button" aria-label="button")
             <svg viewBox="0 0 10 6" width="10" height="6"><use xlink:href="#other-angle-down-icon"></use></svg>
 
-        p.table-input-two-rows__tip.button(data-popup-name="confirm-table-adaptation") Значение: Обязательно
-          button(type="button")
+        .table-input-two-rows__tip
+          .button(data-popup-name="confirm-table-adaptation") Значение: Обязательно
+          button.button(type="button" data-popup-name="confirm-table-adaptation")
             <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g clip-path="url(#clip0_4106_14097)">
               <circle cx="5" cy="5" r="4.25" fill="#E3E5EB" stroke="#E3E5EB" stroke-width="1.5"/>
@@ -263,8 +264,7 @@ mixin row-coordination(data)
               </defs>
             </svg>
             .hash-list 
-              p #промо
-              p #реклама
+              p #промо, #реклама
 
     td.text-right.table-input-two-rows
       .table-input-two-rows__row
@@ -293,7 +293,8 @@ mixin row-coordination(data)
           isSearch: false,
           title: '––',
         })
-        p.table-input-two-rows__tip.button(data-popup-name="confirm-table-adaptation") Значение: Нет
+        .table-input-two-rows__tip
+          .button(data-popup-name="confirm-table-adaptation").call-confirm-table-adaptation Значение: Нет
           button(type="button")
             <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g clip-path="url(#clip0_4106_14104)">
@@ -307,7 +308,7 @@ mixin row-coordination(data)
               </clipPath>
               </defs>
             </svg>
-          span Значение отличается от данных канала
+            span Значение отличается от данных канала
 
     td
       +input({

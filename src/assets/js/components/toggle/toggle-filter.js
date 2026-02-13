@@ -47,24 +47,33 @@ function toggleFilter() {
   const toggleClearButton = function ($filter) {
     const filterName = $filter.data('filter-name');
     const $filterToggle = $('.filter__toggle[data-filter-name="' + filterName + '"]');
-  
+
     const $checkedInputs = $filter.find('input[type="checkbox"]:checked, input[type="radio"]:checked');
     const $checkedCheckAll = $filter.find('input.check-all:checked');
-  
-    const hasDate = ($filter.find('input[name="date"]').val() > 0 || $filter.find('input[name="date"]').val() !== 'Все') 
-      && $filter.find('input[name="date"]').val() !== undefined;
-  
+
+    // --- ДАТА ---
+    const dateVal = $filter.find('input[name="date"]').val();
+    const hasDate = dateVal && dateVal !== '' && dateVal !== 'Все';
+
+    // --- ЧИСЛА ---
     const hasNumber = $filter.find('input[type="number"]').filter(function () {
       return $(this).val() !== '';
     }).length > 0;
-  
-    const onlyCheckAllSelected = $checkedInputs.length > 0 && $checkedInputs.length === $checkedCheckAll.length;
-  
-    if (hasDate || hasNumber || (!onlyCheckAllSelected && $checkedInputs.length > 0)) {
-      $filterToggle.addClass('sorted');
-    } else {
-      $filterToggle.removeClass('sorted');
-    }
+
+    // --- ТОЛЬКО check-all выбран ---
+    const onlyCheckAllSelected =
+      $checkedInputs.length > 0 &&
+      $checkedInputs.length === $checkedCheckAll.length;
+
+    // --- Финальная проверка ---
+    const hasFilters =
+      hasDate ||
+      hasNumber ||
+      (!onlyCheckAllSelected && $checkedInputs.length > 0);
+
+    console.log($checkedInputs.length);
+
+    $filterToggle.toggleClass('sorted', hasFilters);
   };
   
 
@@ -138,7 +147,7 @@ function toggleFilter() {
   
       // Очищаем поле или ставим плейсхолдер "Все"
       $datepicker.val('Все').attr('placeholder', 'Все');
-  });
+    });
   });
 }
 

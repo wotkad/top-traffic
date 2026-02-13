@@ -5,6 +5,9 @@ aside.filter(data-filter-name="channels")
       button(type="button" data-filter-name="channels").filter__clear Сбросить
     form(action="#")
       h3.filter__subtitle Канал
+        button(type="button").clear-this-sorting.not-sorted
+          svg(width="6" height="6" viewBox="0 0 9 9")
+            use(xlink:href="#other-close-icon")
       <div class="dropdown dropdown-checkboxes">
         <div class="dropdown__container">
           <div class="dropdown__sort">
@@ -227,6 +230,9 @@ aside.filter(data-filter-name="channels")
         </div>
       </div>
       h3.filter__subtitle Платформа
+        button(type="button").clear-this-sorting
+          svg(width="6" height="6" viewBox="0 0 9 9")
+            use(xlink:href="#other-close-icon")
       +dropdown({
         checkboxes: [
           {
@@ -294,7 +300,6 @@ aside.filter(data-filter-name="channels")
                 buttons: [
                   {
                     dataTitle: 'мин',
-                    isChecked: true,
                     name: 'channels-radio-1',
                     title: 'минуты',
                   },
@@ -333,7 +338,6 @@ aside.filter(data-filter-name="channels")
                 buttons: [
                   {
                     dataTitle: 'мин',
-                    isChecked: true,
                     name: 'channels-radio-2',
                     title: 'минуты',
                   },
@@ -391,7 +395,6 @@ aside.filter(data-filter-name="channels")
                 buttons: [
                   {
                     dataTitle: 'мин',
-                    isChecked: true,
                     name: 'channels-radio-3',
                     title: 'минуты',
                   },
@@ -430,7 +433,6 @@ aside.filter(data-filter-name="channels")
                 buttons: [
                   {
                     dataTitle: 'мин',
-                    isChecked: true,
                     name: 'channels-radio-4',
                     title: 'минуты',
                   },
@@ -1296,7 +1298,6 @@ aside.filter(data-filter-name="channels")
           isLabel: true,
           label: 'Верифицированный',
           type: 'checkbox',
-          value: 'Верифицированный',
         })
         +input({
           class: 'input-checkbox-with-label',
@@ -1304,7 +1305,6 @@ aside.filter(data-filter-name="channels")
           isLabel: true,
           label: 'Без красной метки',
           type: 'checkbox',
-          value: 'Без красной метки',
         })
         +input({
           class: 'input-checkbox-with-label',
@@ -1312,7 +1312,6 @@ aside.filter(data-filter-name="channels")
           isLabel: true,
           label: 'Без метки SCAM/FAKE',
           type: 'checkbox',
-          value: 'Без метки SCAM/FAKE',
         })
         +input({
           class: 'input-checkbox-with-label',
@@ -1320,7 +1319,6 @@ aside.filter(data-filter-name="channels")
           isLabel: true,
           label: 'Скрывать мертвые',
           type: 'checkbox',
-          value: 'Скрывать мертвые',
         })
         +input({
           class: 'input-checkbox-with-label',
@@ -1328,7 +1326,6 @@ aside.filter(data-filter-name="channels")
           isLabel: true,
           label: 'Есть в нашей базе',
           type: 'checkbox',
-          value: 'Есть в нашей базе',
         })
       +button({
         class: 'button-base filter__button',

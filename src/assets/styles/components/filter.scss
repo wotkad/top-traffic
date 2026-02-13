@@ -29,7 +29,20 @@
     @apply relative px-6 pt-5 pb-10 overflow-y-auto;
   }
   &__subtitle {
-    @apply flex items-center gap-x-2 mt-4 mb-2 text-12-sb-p text-black-200;
+    .clear-this-sorting {
+      svg {
+        @apply text-black-200 transition-all duration-300;
+      }
+      &:hover {
+        svg {
+          @apply text-black-100;
+        }
+      }
+      &.not-sorted {
+        @apply hidden;
+      }
+    }
+    @apply relative flex items-center gap-x-2 mt-4 mb-2 text-12-sb-p text-black-200;
   }
   &__subsubtitle {
     @apply mt-2.5 mb-2 text-12-sb-p text-black-100;
