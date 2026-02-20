@@ -112,6 +112,8 @@ import "./components/toggle/toggle-advertising-group";
 import "./components/toggle/toggle-bills-group";
 import "./components/toggle/toggle-filter-format-slider";
 import "./components/toggle/toggle-reasons";
+import "./components/toggle/toggle-automatic-list-number";
+import "./components/toggle/toggle-automatic-list-link";
 
 import "./components/scroll/scroll-to-top";
 import "./components/scroll/scroll-filter";

@@ -579,7 +579,8 @@
   &[data-popup-name="bill-annul"],
   &[data-popup-name="bill-restore"],
   &[data-popup-name="delete-rk"],
-  &[data-popup-name="confirm-table-adaptation"] {
+  &[data-popup-name="confirm-table-adaptation"],
+  &[data-popup-name="change-link"] {
     .popup__wrapper {
       .popup__title {
         @apply text-14-sb-md;
@@ -1192,6 +1193,24 @@
         }
       }
     }  
+  }
+  &[data-popup-name="change-link"] {
+    .popup__wrapper {
+      .popup__title {
+        @apply leading-[110%];
+      }
+      .popup__subtitle {
+        @apply mt-1 leading-[120%];
+      }
+      .popup__buttons {
+        .button,
+        .button-with-icon-blue {
+          @apply flex-1 justify-center;
+        }
+        @apply mt-4;
+      }
+      @apply px-3.5 pb-2.5 max-w-[290px];
+    }
   }
   @apply invisible -z-[1] fixed inset-0 flex justify-center items-start opacity-0 py-20 overflow-x-hidden overflow-y-auto transition-all duration-300;
 }

@@ -1,4 +1,4 @@
-$(document).ready(function() {
+function setInputPostWidth() {
   // Функция для управления отображением textarea
   function manageTextareaDisplay(textarea) {
     if (textarea.hasClass('active')) {
@@ -49,4 +49,5 @@ $(document).ready(function() {
       $(this).removeClass('active');
       manageTextareaDisplay($(this));
     });
-});
+  }
+setInputPostWidth();

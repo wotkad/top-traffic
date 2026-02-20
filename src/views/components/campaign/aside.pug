@@ -6,6 +6,67 @@ aside.content-aside
           button.selector__button(data-id="chat").active Чат
       .selector__containers.selector__content
         .selector__container(data-id="information")
+          .kp-popup 
+            .kp-popup__title
+              span.companies__kp.companies-sm КП
+              span Test_MTC_September
+            a(href="#" target="_blank").kp-popup__link https://megaplan.ru/campaigns/kp43963 
+            .kp-popup__container
+              .content-aside__subtitle Общая информация
+              table.table
+                tr.text-black-200
+                  th Клиент
+                  td ООО «Медиана Би Эйч»
+                tr.text-black-200
+                  th Период
+                  td 01.01.2024 - 28.01.2024
+                tr.text-black-200
+                  th Бренд
+                  td НСПК
+                tr.text-black-200
+                  th Бренд детали
+                  td Каток "Северное сияние"
+                tr.text-black-200
+                  th Рекламный канал
+                  td Telegram
+                tr.text-black-200
+                  th Аккаунт - менеджер
+                  td 
+                    .grid.items-center(class="gap-x-1.5 grid-cols-[18px_1fr]")
+                      img.rounded-full.object-cover(class="w-[18px] h-[18px]" src="/assets/images/avatar.png" alt="tg-channel")
+                      span Андрей Миронов
+                tr.text-black-200
+                  th Дата запроса
+                  td 01.01.2024
+              .content-aside__subtitle Финансовая информация
+              table.table
+                tr.text-black-200
+                  th Бюджет до НДС
+                  td 0 ₽
+                tr.text-black-200
+                  th Наценка
+                  td 40%
+                tr.text-black-200
+                  th СК1 (%)
+                  td 0 ₽
+                tr.text-black-200
+                  th СК1
+                  td 0 ₽
+                tr.text-black-200
+                  th СК2 (%)
+                  td 40%
+                tr.text-black-200
+                  th СК2
+                  td 0 ₽
+                tr.text-black-200
+                  th Суммарная скидка
+                  td 800 ₽ (5%)
+                tr.text-black-200
+                  th Себес. со скидкой
+                  td 60 ₽
+                tr.text-black-200
+                  th Итоговая стоимость
+                  td 1 500 ₽
           .content-aside__container
             .content-aside__subtitle Общая информация
             table.table
@@ -162,6 +223,10 @@ aside.content-aside
                     isCheckboxes: true,
                     title: '—',
                   })
+              tr.text-black-200
+                th КП
+                td
+                  a(href="#" target="_blank").kp-trigger https://megaplan.ru/campaigns/kp43963  
               tr.text-black-200
                 th Приоритет
                 td

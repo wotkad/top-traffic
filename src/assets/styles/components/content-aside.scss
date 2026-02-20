@@ -49,6 +49,9 @@
         @apply pr-4 border-r w-[129px] min-w-[129px] max-w-[129px] text-12-sb-p;
       }
       td {
+        .kp-trigger {
+          @apply block overflow-hidden text-ellipsis;
+        }
         .dropdown {
           &__button {
             .button {

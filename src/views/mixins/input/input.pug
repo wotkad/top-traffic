@@ -83,7 +83,12 @@ mixin input(data = {})
         required= modefied.isRequired
         name=modefied.name
         placeholder=modefied.placeholder
-      )
+      )=modefied.value ? modefied.value : ''
+      if modefied.class.includes('error')
+        .error__text
+          svg
+            use(xlink:href="#other-error-icon")
+          span Обязательно к заполнению
 
   else if modefied.type == 'radio'
     .checkbox

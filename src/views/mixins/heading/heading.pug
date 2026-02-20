@@ -13,7 +13,12 @@ mixin heading(data = {})
               span
         .heading__content
           .heading__top
-            h1.heading__title= modefied.title
+            if modefied.isRk
+              h1.heading__title
+                span.companies__kp_rk.companies-big КП+РК
+                span= modefied.title
+            else
+              h1.heading__title= modefied.title
 
             if modefied.isChannel
               +dropdown({

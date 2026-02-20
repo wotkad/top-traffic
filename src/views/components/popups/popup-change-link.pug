@@ -1,0 +1,19 @@
+.popup__bg(data-popup-name="change-link")
+.popup(data-popup-name="change-link")
+  .popup__wrapper(data-scroll-lock-scrollable)
+    .popup__title Подтвердите действие
+    .popup__subtitle После изменения ссылки будут обновлены скриншоты и показатели поста
+    .popup__form
+      .popup__buttons
+        +button({
+          class: 'button-base',
+          dataPopupName: 'change-link',
+          title: 'Отмена',
+          view: 'button',
+        })
+        +button({
+          class: 'button-with-icon-blue lg',
+          dataPopupName: 'change-link',
+          title: 'Обновить',
+          view: 'button',
+        })
