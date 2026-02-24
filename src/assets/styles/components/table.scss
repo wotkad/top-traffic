@@ -703,6 +703,9 @@
     @apply inline;
   }
   &__sort {
+    &:after {
+      @apply -right-px absolute bg-black-500 w-px h-full content-[''];
+    }
     &__separator {
       @apply text-12-sb-p;
     }
@@ -1269,7 +1272,7 @@
             p {
               @apply text-10-r-p;
             }
-            @apply invisible right-0 bottom-3 z-10 absolute bg-white-000 opacity-0 p-1.5 px-2 border border-black-500 rounded-md w-max max-w-[250px] transition-all translate-x-full duration-300;
+            @apply invisible right-0 bottom-[5px] z-10 absolute bg-white-000 opacity-0 p-1.5 px-2 border border-black-500 rounded-md w-max max-w-[250px] transition-all translate-x-full duration-300;
           }
           &:hover {
             .hash-list {
@@ -1308,7 +1311,7 @@
           p {
             @apply text-10-r-p;
           }
-          @apply invisible right-0 bottom-3 z-10 absolute bg-white-000 opacity-0 p-1.5 px-2 border border-black-500 rounded-md w-max max-w-[250px] transition-all translate-x-full duration-300;
+          @apply invisible right-0 bottom-[5px] z-10 absolute bg-white-000 opacity-0 p-1.5 px-2 border border-black-500 rounded-md w-max max-w-[250px] transition-all translate-x-full duration-300;
         }
         &:hover {
           .hash-list {
@@ -1323,7 +1326,7 @@
         @apply relative;
       }
       span {
-        @apply right-0 bottom-3 z-10 absolute bg-white-000 opacity-0 px-1.5 py-1.5 border border-black-500 rounded-md w-max max-w-[139px] text-10-r-p text-left leading-[110%] whitespace-normal transition-all translate-x-full duration-300 pointer-events-none;
+        @apply right-0 bottom-[5px] z-10 absolute bg-white-000 opacity-0 px-1.5 py-1.5 border border-black-500 rounded-md w-max max-w-[139px] text-10-r-p text-left leading-[110%] whitespace-normal transition-all translate-x-full duration-300 pointer-events-none;
       }
       @apply flex gap-x-[2px] text-8-r-p text-black-200 transition-all duration-300 cursor-pointer;
     }
@@ -1577,5 +1580,11 @@
   }
   thead {
     @apply relative z-50
+  }
+}
+
+.additional-border {
+  &:after {
+    @apply -right-px absolute bg-black-500 w-px h-full content-[''];
   }
 }
