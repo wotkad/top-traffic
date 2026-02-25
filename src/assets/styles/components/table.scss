@@ -455,6 +455,9 @@
     @apply flex justify-end items-center gap-x-1;
   }
   &__attachedfile {
+    .automatic-error {
+      @apply -right-[5px] -bottom-1 absolute;
+    }
     a {
       @apply z-50 absolute inset-0 w-full h-full;
     }
