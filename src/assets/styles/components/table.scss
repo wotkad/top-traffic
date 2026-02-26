@@ -458,6 +458,19 @@
     .automatic-error {
       @apply -right-[5px] -bottom-1 absolute;
     }
+    .dropdown {
+      width: auto !important;
+      &__button {
+        button {
+          @apply bg-black-600 border border-black-500;
+        }
+        @apply pr-0;
+      }
+      &__list {
+        @apply max-w-full -translate-y-[2px];
+      }
+      @apply -top-2 -right-[13px] absolute;
+    }
     a {
       @apply z-50 absolute inset-0 w-full h-full;
     }
@@ -471,11 +484,6 @@
       @apply w-5 h-5 transition-all duration-300;
     }
     &.filled {
-      &:hover {
-        .table__attachedfile__remove {
-          @apply visible opacity-100;
-        }
-      }
       .table__icon {
         @apply bg-blue-200;
       }
@@ -483,12 +491,6 @@
         @apply bg-blue-150;
       }
       @apply bg-blue-150 border-blue-200;
-    }
-    .button.table__attachedfile__remove {
-      svg {
-        @apply w-1.5 h-1.5 text-white-000;
-      }
-      @apply invisible -top-2 -right-2 z-[60] absolute flex justify-center items-center bg-black-100 bg-opacity-50 opacity-0 border border-white-000 rounded-full w-4 h-4;
     }
     &:hover {
       @apply bg-white-100;

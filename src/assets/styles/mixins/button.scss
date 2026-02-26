@@ -108,15 +108,37 @@ label.button {
   &-with-icon-full {
     &.disabled:not([class^="bill-"]) {
       svg {
-        path {
-          @apply fill-black-200 stroke-black-200;
-        }
+        @apply opacity-50;
+      }
+      .automatic-not-found__content {
+        @apply flex flex-col items-start;
       }
       &:hover,
       &:active {
         @apply bg-transparent text-black-200;
       }
       @apply text-black-200 cursor-not-allowed pointer-events-none select-none;
+    }
+    &.automatic-not-found {
+      .automatic-error {
+        width: 16px;
+        height: 16px;
+        .table-input-new__automatic-error {
+          width: 9px;
+          height: 9px;
+          min-width: 9px;
+          min-height: 9px;
+          max-height: 9px;
+          max-width: 9px;
+          right: -6px;
+          bottom: -5px;
+          opacity: 1;
+        }
+        @apply static;
+      }
+      .automatic-error__tip {
+        @apply font-medium text-8-r-p text-red-100;
+      }
     }
     &:active {
       @apply bg-purple-300 text-blue-200;
