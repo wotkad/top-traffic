@@ -139,9 +139,14 @@ function initTableProxyScroll() {
   const $wrapper = $('.wrapper');
   const $contentScroll = $('.content-scroll');
 
+
   function updateProxy() {
 
+    if (!$wrapper) return false;
+
     const $table = $('.table:visible').first();
+
+    if (!$table) return false;
 
     if (!$table.length) {
       $proxy.hide();
@@ -167,6 +172,8 @@ function initTableProxyScroll() {
       left: wrapperOffset.left + 28,
       width: wrapperWidth - 52
     });
+
+    console.log(wrapperOffset.left);
 
     const tableWidth = $table[0].scrollWidth;
     $proxyInner.width(tableWidth);
