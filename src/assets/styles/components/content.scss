@@ -12,7 +12,15 @@
     @apply bg-black-300 border border-black-300 rounded-md;
   }
   &-scroll {
-    @apply pb-4 overflow-x-auto overflow-y-hidden;
+    &::-webkit-scrollbar {
+      @apply w-0 h-0;
+    }
+    @apply overflow-x-auto overflow-y-hidden;
+  }
+  &-visible {
+    &::-webkit-scrollbar {
+      @apply w-full h-[7px];
+    }
   }
   .selector {
     &__content {

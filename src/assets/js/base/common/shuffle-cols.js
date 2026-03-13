@@ -1,8 +1,24 @@
+import setResizableElHeight from "./set-resizable-el-height";
+
 function updateZIndex() {
   const $ths = $('table thead tr th');
-  const maxZ = $ths.length; // максимальный z-index
+  const maxZ = $ths.length;
   $ths.each(function (i) {
     $(this).css('z-index', maxZ - i);
+  });
+}
+
+function updateResizable($table) {
+  const $ths = $table.find('thead tr th');
+
+  // удаляем у всех
+  $ths.find('.resizable').remove();
+
+  // добавляем всем кроме последнего
+  $ths.not(':last').each(function () {
+    if (!$(this).find('.resizable').length) {
+      $(this).prepend('<div class="resizable"></div>');
+    }
   });
 }
 
@@ -57,8 +73,15 @@ function shuffleCols() {
         $(this).data('start-index', index);
       });
 
-      // обновляем z-index
       updateZIndex();
+
+      setTimeout(function(){
+        updateResizable($table);
+        setResizableElHeight();
+
+        $table.find('thead tr th:last .resizable').remove();
+
+      }, 0);
     }
   });
 

@@ -1,4 +1,4 @@
-function resizeTable() {
+export default function resizeTable() {
   let isResizing = false;
   let startX = 0;
   let startWidth = 0;

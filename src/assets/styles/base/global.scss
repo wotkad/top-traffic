@@ -73,6 +73,14 @@ label {
   @apply hidden right-5 bottom-5 fixed;
 }
 
+.table-scroll-proxy {
+  @apply hidden h-4 bottom-0 fixed overflow-x-auto overflow-y-hidden z-[999]
+}
+
+.table-scroll-proxy__inner {
+  @apply h-px
+}
+
 .wrapper {
   &.active {
     .content-sm .content-not-collapsed {

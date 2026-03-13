@@ -1,4 +1,4 @@
-function setResizableElHeight() {
+export default function setResizableElHeight() {
   const resizables = document.querySelectorAll('.resizable');
 
   resizables.forEach(resizable => {

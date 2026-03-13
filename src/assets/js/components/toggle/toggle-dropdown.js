@@ -1071,3 +1071,8 @@ $('.shuffle-clear').on('click', function(e) {
   $(".shuffle__list-secondary").removeClass("is-visible active");
   $('.shuffle-clear').hide();
 });
+
+$('.table__attachedfile .dropdown__list').on('mouseleave', function() {
+  $(this).find('.dropdown__button').removeClass('active');
+  $(this).removeClass('active');
+});

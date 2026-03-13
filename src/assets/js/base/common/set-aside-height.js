@@ -119,15 +119,92 @@ $(document).on('mousedown', function (e) {
   }
 });
 
-function setFixedTableHeight() {
-  $('.fixed-height-table').each(function () {
-    const rect = this.getBoundingClientRect();
-    const availableHeight = window.innerHeight - rect.top - 20;
+// function setFixedTableHeight() {
+//   $('.fixed-height-table').each(function () {
+//     const rect = this.getBoundingClientRect();
+//     const availableHeight = window.innerHeight - rect.top - 20;
 
-    $(this).css('max-height', availableHeight + 'px');
-  });
+//     $(this).css('max-height', availableHeight + 'px');
+//   });
+// }
+
+// $(window).on('load resize', function () {
+//   setFixedTableHeight();
+// });
+
+function initTableProxyScroll() {
+
+  const $proxy = $('.table-scroll-proxy');
+  const $proxyInner = $('.table-scroll-proxy__inner');
+  const $wrapper = $('.wrapper');
+  const $contentScroll = $('.content-scroll');
+
+  function updateProxy() {
+
+    const $table = $('.table:visible').first();
+
+    if (!$table.length) {
+      $proxy.hide();
+      $contentScroll.removeClass('content-visible');
+      return;
+    }
+
+    const rect = $table[0].getBoundingClientRect();
+
+    const tableTopVisible = rect.top < window.innerHeight;
+    const tableBottomVisible = rect.bottom > 0 && rect.bottom <= window.innerHeight;
+
+    if (!tableTopVisible) {
+      $proxy.hide();
+      $contentScroll.removeClass('content-visible');
+      return;
+    }
+
+    const wrapperOffset = $wrapper.offset();
+    const wrapperWidth = $wrapper.outerWidth();
+
+    $proxy.css({
+      left: wrapperOffset.left + 28,
+      width: wrapperWidth - 52
+    });
+
+    const tableWidth = $table[0].scrollWidth;
+    $proxyInner.width(tableWidth);
+
+    const $scrollContainer = $table.parent();
+
+    if (tableBottomVisible) {
+      $proxy.hide();
+    } else {
+      $proxy.show();
+    }
+
+    $proxy.off('scroll').on('scroll', function () {
+      $scrollContainer.scrollLeft($(this).scrollLeft());
+    });
+
+    $scrollContainer.off('scroll.proxy').on('scroll.proxy', function () {
+      $proxy.scrollLeft($(this).scrollLeft());
+    });
+
+    /* -------- Проверка visibility content-scroll -------- */
+
+    const contentBottom = $contentScroll.offset().top + $contentScroll.outerHeight();
+    const wrapperScrollTop = $wrapper.scrollTop();
+    const wrapperBottom = wrapperScrollTop + $wrapper.innerHeight();
+
+    if (contentBottom <= wrapperBottom) {
+      $contentScroll.addClass('content-visible');
+    } else {
+      $contentScroll.removeClass('content-visible');
+    }
+
+  }
+
+  $wrapper.on('scroll', updateProxy);
+  $(window).on('resize', updateProxy);
+
+  updateProxy();
 }
 
-$(window).on('load resize', function () {
-  setFixedTableHeight();
-});
+initTableProxyScroll();

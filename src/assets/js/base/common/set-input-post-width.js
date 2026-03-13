@@ -1,3 +1,10 @@
+const { disablePageScroll } = require("scroll-lock");
+
+function showChangePopup() {
+  $('.popup[data-popup-name="change-link"]').addClass('active');
+  $('.popup__bg[data-popup-name="change-link"]').addClass('active');
+}
+
 function setInputPostWidth() {
   // Функция для управления отображением textarea
   function manageTextareaDisplay(textarea) {
@@ -30,24 +37,59 @@ function setInputPostWidth() {
   // Обработчики событий для всех textarea внутри .table__post__input
   $('.table__post__input textarea')
     .on('focus', function() {
-      $(this).addClass('active');
-      $(this).parent().siblings('button').hide();
-      manageTextareaDisplay($(this));
+      const $textarea = $(this);
+
+      $textarea.addClass('active');
+      $textarea.data('oldValue', $textarea.val());
+
+      $textarea.parent().siblings('button').hide();
+      manageTextareaDisplay($textarea);
     })
+
     .on('input', function() {
-      if ($(this).hasClass('active')) {
-        manageTextareaDisplay($(this));
+      const $textarea = $(this);
+
+      if ($textarea.hasClass('active')) {
+        manageTextareaDisplay($textarea);
       }
-      if ($(this).hasClass('filled')) {
-        $(this).closest('.table__post__wrapper').addClass('filled');
+
+      if ($textarea.hasClass('filled')) {
+        $textarea.closest('.table__post__wrapper').addClass('filled');
       } else {
-        $(this).closest('.table__post__wrapper').removeClass('filled');
+        $textarea.closest('.table__post__wrapper').removeClass('filled');
       }
     })
+
+    // ENTER = подтверждение
+    .on('keydown', function(e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+
+        const $textarea = $(this);
+        const oldValue = $textarea.data('oldValue');
+        const newValue = $textarea.val();
+
+        if (oldValue.trim() !== newValue.trim()) {
+          showChangePopup();
+        }
+
+        $textarea.blur();
+      }
+    })
+
     .on('blur', function() {
-      $(this).parent().siblings('button').show();
-      $(this).removeClass('active');
-      manageTextareaDisplay($(this));
+      const $textarea = $(this);
+
+      $textarea.parent().siblings('button').show();
+      $textarea.removeClass('active');
+      manageTextareaDisplay($textarea);
+
+      const oldValue = $textarea.data('oldValue');
+      const newValue = $textarea.val();
+
+      if (oldValue.trim() !== newValue.trim()) {
+        showChangePopup();
+      }
     });
-  }
+}
 setInputPostWidth();
