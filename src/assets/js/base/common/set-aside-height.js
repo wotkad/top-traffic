@@ -119,18 +119,18 @@ $(document).on('mousedown', function (e) {
   }
 });
 
-// function setFixedTableHeight() {
-//   $('.fixed-height-table').each(function () {
-//     const rect = this.getBoundingClientRect();
-//     const availableHeight = window.innerHeight - rect.top - 20;
+function setFixedTableHeight() {
+  $('.fixed-height-table').each(function () {
+    const rect = this.getBoundingClientRect();
+    const availableHeight = window.innerHeight - rect.top - 20;
 
-//     $(this).css('max-height', availableHeight + 'px');
-//   });
-// }
+    $(this).css('max-height', availableHeight + 'px');
+  });
+}
 
-// $(window).on('load resize', function () {
-//   setFixedTableHeight();
-// });
+$(window).on('load resize', function () {
+  setFixedTableHeight();
+});
 
 function initTableProxyScroll() {
 

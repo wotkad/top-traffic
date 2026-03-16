@@ -1605,10 +1605,10 @@
   }
 }
 
-// .fixed-height-table {
-//   scrollbar-width: thin;
-//   @apply overflow-y-auto;
-// }
+.fixed-height-table {
+  scrollbar-width: thin;
+  @apply overflow-y-auto;
+}
 
 .table {
   th {
