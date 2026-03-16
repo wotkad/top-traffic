@@ -139,14 +139,13 @@ function initTableProxyScroll() {
   const $wrapper = $('.wrapper');
   const $contentScroll = $('.content-scroll');
 
-
   function updateProxy() {
 
-    if (!$wrapper) return false;
+    if (!$wrapper.length) return false;
 
     const $table = $('.table:visible').first();
 
-    if (!$table) return false;
+    if (!$table.length) return false;
 
     if (!$table.length) {
       $proxy.hide();
