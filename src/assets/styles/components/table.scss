@@ -1461,6 +1461,12 @@
     img {
       @apply rounded-full max-w-[30px] max-h-[30px] object-cover;
     }
+    &-max {
+      img {
+        @apply p-[0.5px] max-w-[31px] max-h-[31px];
+      }
+      background: linear-gradient(219.05deg, #9933DD 16.07%, #5533EE 40.33%, #44CCFF 87.42%);
+    }
     @apply flex justify-center items-center rounded-full w-[34px] h-[34px];
   }
   &__src {

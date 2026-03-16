@@ -963,7 +963,7 @@
       @apply mt-4;
     }
     .popup__labels {
-      @apply flex gap-x-1.5
+      @apply flex flex-wrap gap-1.5;
     }
     .popup__label {
       input {
