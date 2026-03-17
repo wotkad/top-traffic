@@ -1459,11 +1459,14 @@
   }
   &__img {
     img {
-      @apply rounded-full max-w-[30px] max-h-[30px] object-cover;
+      @apply z-10 relative rounded-full max-w-[30px] max-h-[30px] object-cover;
     }
     &-max {
+      &:before {
+        @apply absolute bg-white-000 rounded-full w-[17px] h-[17px] content-[''];
+      }
       img {
-        @apply p-[0.5px] max-w-[31px] max-h-[31px];
+        @apply border-[0.5px] border-white-000 border-solid max-w-[31px] max-h-[31px];
       }
       background: linear-gradient(219.05deg, #9933DD 16.07%, #5533EE 40.33%, #44CCFF 87.42%);
     }
@@ -1472,7 +1475,7 @@
   &__src {
     svg,
     img {
-      @apply rounded-full w-3.5 h-3.5 object-contain;
+      @apply z-20 relative rounded-full w-3.5 h-3.5 object-contain;
     }
     @apply bottom-0 -left-px absolute w-3.5 h-3.5;
   }
@@ -1485,6 +1488,11 @@
   &__img {
     img {
       @apply ml-0 rounded-full max-w-4 max-h-4 object-cover;
+    }
+    &-max {
+      img {
+        @apply max-w-[17px] max-h-[17px];
+      }
     }
     @apply flex justify-center items-center rounded-full w-5 h-5;
   }
