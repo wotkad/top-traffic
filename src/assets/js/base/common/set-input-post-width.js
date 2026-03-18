@@ -1,5 +1,3 @@
-const { disablePageScroll } = require("scroll-lock");
-
 function showChangePopup() {
   $('.popup[data-popup-name="change-link"]').addClass('active');
   $('.popup__bg[data-popup-name="change-link"]').addClass('active');

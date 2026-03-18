@@ -420,14 +420,26 @@
     &__wrapper {
       &:hover {
         .button {
-          @apply opacity-100;
+          @apply -right-[9px] opacity-100;
         }
-        .table__post__input.error {
-          & ~ .button {
-            @apply hidden;
+        .table__post__input {
+          &.error {
+            & ~ .button {
+              @apply hidden;
+            }
+            textarea {
+              @apply min-w-[142px] max-w-full;
+            }
+          }
+          textarea {
+            &:focus {
+              @apply max-w-[175px];
+            }
+            @apply min-w-[108px] max-w-[108px];
           }
         }
         textarea {
+          
           @apply bg-black-600 pl-2;
         }
       }
@@ -1100,7 +1112,7 @@
     .status {
       @apply mt-1;
     }
-    @apply py-2 pr-8 pl-2 border-black-500 border-r border-b h-[47px] text-12-r-p align-top whitespace-nowrap;
+    @apply py-1.5 pr-8 pl-2 border-black-500 border-r border-b h-[47px] text-12-r-p align-top align-middle whitespace-nowrap;
   }
   tbody {
     tr {
@@ -1284,7 +1296,6 @@
     }
   }
   &-input-two-rows {
-    padding-top: 16px !important;
     padding-bottom: 5px !important;
     &__row {
       .call-confirm-table-adaptation {
@@ -1647,7 +1658,8 @@
     span {
       &:before,
       &:after {
-        @apply w-4 h-4;
+        width: 16px !important;
+        height: 16px !important;
       }
       @apply w-4 h-4;
     }

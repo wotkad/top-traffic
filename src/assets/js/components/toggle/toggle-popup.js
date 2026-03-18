@@ -58,6 +58,7 @@ function togglePopup() {
         popup.is('[data-popup-name="generate-bill"]') ||
         popup.is('[data-popup-name="create-bill"]') ||
         popup.is('[data-popup-name="add-channels"]') ||
+        popup.is('[data-popup-name="change-link"]') ||
         popup.is('[data-popup-name="add-channel"]');
   
       if (!isExcludedPopup) {
