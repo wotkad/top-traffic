@@ -19,11 +19,11 @@ tr.concept
       button.delete-concept(type="button")
         svg
           use(xlink:href="#other-trash-icon")
-      span Концепция
-  td.only-text Медведева Валерия
+      span.could-copy Концепция
+  td.could-copy.only-text Медведева Валерия
   td
     +input({
-      class: 'table__comment sm',
+      class: 'table__comment could-copy sm',
       name: 'token',
       placeholder: 'Добавить токен...',
       value: 'TeST134',
@@ -47,7 +47,7 @@ tr.concept
       isStatus: true,
       title: 'Размещено',
     })
-  td.only-text Стандартный
+  td.could-copy.only-text Стандартный
   td.only-text
     +dropdown({
       class: 'dropdown-new-format',
@@ -95,7 +95,7 @@ tr.concept
           </svg>
       .table__post__wrapper
         +input({
-          class: 'table__post__input',
+          class: 'table__post__input could-copy',
           isTextarea: true,
           label: false,
           name: 'post_link',
@@ -176,7 +176,7 @@ tr.concept
           </svg>
       .table__post__wrapper
         +input({
-          class: 'table__post__input error',
+          class: 'table__post__input could-copy error',
           isTextarea: true,
           label: false,
           name: 'post_link',
@@ -519,7 +519,7 @@ tr.concept
               </defs>
             </svg>
         .table-input-new__input
-          input.table-input-new__value.table-input-new__value-sm(placeholder="Показы" type="text" value="22 505")
+          input.could-copy.table-input-new__value.table-input-new__value-sm(placeholder="Показы" type="text" value="22 505")
           .table-input-new__list
             button(type="button") 
               <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -589,7 +589,7 @@ tr.concept
               </defs>
             </svg>
         .table-input-new__input
-          input.table-input-new__value.table-input-new__value-sm(placeholder="Реакции" type="text" value="22 505")
+          input.could-copy.table-input-new__value.table-input-new__value-sm(placeholder="Реакции" type="text" value="22 505")
           .table-input-new__list
             button(type="button") 
               <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -659,7 +659,7 @@ tr.concept
               </defs>
             </svg>
         .table-input-new__input
-          input.table-input-new__value.table-input-new__value-sm(placeholder="Комментарии" type="text" value="22 505")
+          input.could-copy.table-input-new__value.table-input-new__value-sm(placeholder="Комментарии" type="text" value="22 505")
           .table-input-new__list
             button(type="button") 
               <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -729,7 +729,7 @@ tr.concept
               </defs>
             </svg>
         .table-input-new__input
-          input.table-input-new__value.table-input-new__value-sm(placeholder="Репосты" type="text" value="22 505")
+          input.could-copy.table-input-new__value.table-input-new__value-sm(placeholder="Репосты" type="text" value="22 505")
           .table-input-new__list
             button(type="button") 
               <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -779,7 +779,7 @@ tr.concept
                 p Значение: не найдено
   td
     +input({
-      class: 'table__comment',
+      class: 'table__comment could-copy',
       name: 'comment',
       placeholder: 'Добавить комментарий...',
     })

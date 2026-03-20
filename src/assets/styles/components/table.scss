@@ -13,7 +13,6 @@
         @apply -right-6;
       }
     }
-    @apply relative;
   }
   &-channel {
     &.scrolled  {
@@ -535,7 +534,7 @@
   .fixed-th {
     &-border {
       &:after {
-        @apply top-0 -right-px absolute bg-black-500 opacity-0 w-px h-full content-[''];
+        @apply top-0 -right-px absolute bg-black-500 w-px h-full content-[''];
       }
       @apply border-r-0;
     }
@@ -546,11 +545,12 @@
   }
   .fixed-td {
     &-border {
+      overflow: visible !important;
       &:before {
         @apply top-0 -left-[0.5px] absolute bg-black-500 opacity-0 w-px h-full content-[''];
       }
       &:after {
-        @apply top-0 -right-px absolute bg-black-500 opacity-0 w-px h-full content-[''];
+        @apply top-0 -right-px absolute bg-black-500 w-px h-full content-[''];
       }
       @apply border-r-0;
     }
@@ -811,6 +811,9 @@
         @apply transition-all duration-300;
       }
     }
+    td {
+      @apply align-baseline;
+    }
     @apply cursor-pointer;
   }
   &-remove-row {
@@ -941,7 +944,7 @@
       p {
         @apply invisible -z-10 fixed bg-black-700 opacity-0 px-1.5 py-1.5 border border-black-500 rounded-md text-10-r transition-[opacity,visibility,z-index] duration-300;
       }
-      @apply left-14 absolute;
+      @apply left-16 absolute;
     }
     span {
       @apply text-10-r;
@@ -1028,6 +1031,9 @@
     }
   }
   td {
+    &.cell-selected {
+      box-shadow: inset 0 0 0 1px #000;
+    }
     h3 {
       a {
         @apply block max-w-[181px] text-ellipsis line-clamp-1;
@@ -1117,9 +1123,6 @@
     }
     &.only-text-sm {
       @apply py-[2px];
-    }
-    .status {
-      @apply mt-1;
     }
     @apply py-1.5 pr-8 pl-2 border-black-500 border-r border-b h-[47px] text-12-r-p align-top align-middle whitespace-nowrap;
   }

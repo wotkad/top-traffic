@@ -62,6 +62,7 @@ import "./base/common/set-table-head-tip-position";
 import "./base/common/set-resizable-el-height";
 import "./base/common/resize-table";
 import "./base/common/shuffle-cols";
+import "./base/common/table-actions";
 
 import "./base/common/chat";
 import "./base/common/chat/send-edit";

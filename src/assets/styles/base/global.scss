@@ -48,7 +48,7 @@ select {
 
 html,
 body {
-  @apply overflow-x-hidden font-sans text-black-100;
+  @apply overflow-x-hidden font-sans text-black-100 select-none;
 }
 
 label {
