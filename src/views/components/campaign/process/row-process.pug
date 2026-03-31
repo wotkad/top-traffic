@@ -14,21 +14,21 @@ tr
           use(xlink:href="#widget-users-subscribed-icon")
         span Подписчики: 9 999 999
 tr.concept
-  td.only-text
+  td.only-text.could-selected
     .relative.flex.items-center(class="gap-x-1.5 -ml-[27px]")
       button.delete-concept(type="button")
         svg
           use(xlink:href="#other-trash-icon")
       span.could-copy Концепция
-  td.could-copy.only-text Медведева Валерия
-  td
+  td.could-copy.only-text.could-selected Медведева Валерия
+  td.could-selected
     +input({
       class: 'table__comment could-copy sm',
       name: 'token',
       placeholder: 'Добавить токен...',
       value: 'TeST134',
     })
-  td
+  td.could-selected
     +dropdown({
       buttons: [
         {
@@ -47,8 +47,8 @@ tr.concept
       isStatus: true,
       title: 'Размещено',
     })
-  td.could-copy.only-text Стандартный
-  td.only-text
+  td.could-copy.only-text.could-selected Стандартный
+  td.only-text.could-selected
     +dropdown({
       class: 'dropdown-new-format',
       isNewFormat: true,
@@ -73,7 +73,7 @@ tr.concept
       value: 'дд.мм.гггг',
       view: 'button',
     })
-  td.table__post(style="padding-left: 8px;").table-input-automatic
+  td.table__post(style="padding-left: 8px;").table-input-automatic.could-selected
     .flex.items-center.gap-x-1
       button(type="button").automatic-error
         .automatic-icon
@@ -95,7 +95,8 @@ tr.concept
           </svg>
       .table__post__wrapper
         +input({
-          class: 'table__post__input could-copy',
+          class: 'table__post__input',
+          textareaClass: 'could-copy',
           isTextarea: true,
           label: false,
           name: 'post_link',
@@ -154,7 +155,7 @@ tr.concept
             .table-input-new__button
               h4 Установить автоматику
               p Значение: не найдено
-  td.table__post(style="padding-left: 8px;").table-input-automatic
+  td.table__post(style="padding-left: 8px;").table-input-automatic.could-selected
     .flex.items-center.gap-x-1
       button(type="button").automatic-error
         .automatic-icon
@@ -176,8 +177,9 @@ tr.concept
           </svg>
       .table__post__wrapper
         +input({
-          class: 'table__post__input could-copy error',
+          class: 'table__post__input error',
           isTextarea: true,
+          textareaClass: 'could-copy',
           label: false,
           name: 'post_link',
           placeholder: 'Ссылка...',
@@ -497,7 +499,7 @@ tr.concept
             </div>
           </div>
         </div>
-  td.only-text.text-right.table-input-new.table-input-automatic
+  td.only-text.text-right.table-input-new.table-input-automatic.could-selected
     .table-input-new__row
       .table-input-new__values
         button(type="button").automatic-error
@@ -567,7 +569,7 @@ tr.concept
               .table-input-new__button
                 h4 Установить автоматику
                 p Значение: не найдено
-  td.only-text.text-right.table-input-new.table-input-automatic
+  td.only-text.text-right.table-input-new.table-input-automatic.could-selected
     .table-input-new__row
       .table-input-new__values
         button(type="button").automatic-error
@@ -637,7 +639,7 @@ tr.concept
               .table-input-new__button
                 h4 Установить автоматику
                 p Значение: не найдено
-  td.only-text.text-right.table-input-new.table-input-automatic
+  td.only-text.text-right.table-input-new.table-input-automatic.could-selected
     .table-input-new__row
       .table-input-new__values
         button(type="button").automatic-error
@@ -707,7 +709,7 @@ tr.concept
               .table-input-new__button
                 h4 Установить автоматику
                 p Значение: не найдено
-  td.only-text.text-right.table-input-new.table-input-automatic
+  td.only-text.text-right.table-input-new.table-input-automatic.could-selected
     .table-input-new__row
       .table-input-new__values
         button(type="button").automatic-error
@@ -777,7 +779,7 @@ tr.concept
               .table-input-new__button
                 h4 Установить автоматику
                 p Значение: не найдено
-  td
+  td.could-selected
     +input({
       class: 'table__comment could-copy',
       name: 'comment',

@@ -83,6 +83,7 @@ mixin input(data = {})
         required= modefied.isRequired
         name=modefied.name
         placeholder=modefied.placeholder
+        class=modefied.textareaClass
       )=modefied.value ? modefied.value : ''
       if modefied.class.includes('error')
         .error__text

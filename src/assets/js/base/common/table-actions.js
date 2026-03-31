@@ -1,9 +1,11 @@
 $(document).ready(function () {
-    let editingCell = null;
-    let enterEditMode = false;
+  let editingCell = null;
+  let enterEditMode = false;
   let $currentTable = null;
   let $startCell = null;
   let isDragging = false;
+  let skipBlurReset = false;
+  let prevSelectedCell = null;
 
     // ===== PASTE (CTRL + V) =====
     $(document).on('paste', function (e) {
@@ -23,7 +25,27 @@ $(document).ready(function () {
       // Если вставляется один элемент — заменяем содержимое выделенной ячейки
       if (data.length === 1 && data[0].length === 1) {
         let $target = $cells.last();
-        setCellValue($target, data[0][0]);
+
+        // Проверяем, есть ли input/textarea внутри ячейки
+        let $input = $target.find('input, textarea');
+        if ($target.hasClass('could-copy') && $target.is('input, textarea')) {
+          $input = $target;
+        }
+
+        if ($input.length) {
+          $input.val(data[0][0]);
+
+          // Если сейчас редактируем эту ячейку — ставим курсор в конец
+          if (editingCell && editingCell[0] === $target[0]) {
+            let el = $input[0];
+            setTimeout(function() {
+              if (el && el.setSelectionRange) {
+                let len = $input.val().length;
+                el.setSelectionRange(len, len);
+              }
+            }, 0);
+          }
+        }
       } else {
         // Вставка блока
         // Определяем верхний левый угол выделения
@@ -39,12 +61,31 @@ $(document).ready(function () {
           let rowIdx = startRow + i;
           let $row = $rows.eq(rowIdx);
           if (!$row.length) break;
-          let $cellsInRow = $row.children('td');
+          let $cellsInRow = $row.children('td.could-selected');
           for (let j = 0; j < data[i].length; j++) {
             let colIdx = startCol + j;
             let $cell = $cellsInRow.eq(colIdx);
-            if (!$cell.length) continue;
-            setCellValue($cell, data[i][j]);
+
+            // Проверяем наличие input/textarea
+            let $input = $cell.find('input, textarea');
+            if ($cell.hasClass('could-copy') && $cell.is('input, textarea')) {
+              $input = $cell;
+            }
+
+            if ($input.length) {
+              $input.val(data[i][j]);
+              
+              // Если редактируем текущую ячейку — курсор в конец
+              if (editingCell && editingCell[0] === $cell[0]) {
+                let el = $input[0];
+                setTimeout(function() {
+                  if (el && el.setSelectionRange) {
+                    let len = $input.val().length;
+                    el.setSelectionRange(len, len);
+                  }
+                }, 0);
+              }
+            }
           }
         }
       }
@@ -52,7 +93,7 @@ $(document).ready(function () {
     });
 
   // ===== КЛИК / SHIFT =====
-  $(document).on('click', 'td', function (e) {
+  $(document).on('click', 'td.could-selected', function (e) {
     const $cell = $(this);
     const $table = $cell.closest('table');
 
@@ -72,7 +113,7 @@ $(document).ready(function () {
   });
 
   // ===== DRAG SELECTION =====
-  $(document).on('mousedown', 'td', function (e) {
+  $(document).on('mousedown', 'td.could-selected', function (e) {
     if (e.shiftKey) return;
 
     const $cell = $(this);
@@ -90,7 +131,7 @@ $(document).ready(function () {
     $cell.addClass('cell-selected');
   });
 
-  $(document).on('mouseover', 'td', function () {
+  $(document).on('mouseover', 'td.could-selected', function () {
     if (!isDragging || !$startCell) return;
 
     const $cell = $(this);
@@ -112,61 +153,325 @@ $(document).ready(function () {
 
     let $active = $cells.last();
     let $row = $active.closest('tr');
-    let cellIndex = $active.parent().children('td').index($active);
+    let cellIndex = $active.parent().children('td.could-selected').index($active);
     let $target;
 
     switch (e.key) {
       case 'ArrowRight':
-        $target = $active.nextAll('td').first();
+        $target = $active.nextAll('td.could-selected').first();
+        e.preventDefault();
         break;
       case 'ArrowLeft':
-        $target = $active.prevAll('td').first();
+        $target = $active.prevAll('td.could-selected').first();
+        e.preventDefault();
         break;
-      case 'ArrowDown':
-        $target = $row.next().children('td').eq(cellIndex);
+      case 'ArrowDown': {
+        const $rows = $currentTable.find('tr').filter(function () {
+          return $(this).closest('table')[0] === $currentTable[0];
+        });
+        let rowIdx = $rows.index($row);
+        const currentCellsCount = $row.children('td.could-selected').length;
+
+        let found = false;
+        for (let i = rowIdx + 1; i < $rows.length; i++) {
+          const $nextRow = $rows.eq(i);
+          const nextCells = $nextRow.children('td.could-selected');
+
+          if (nextCells.length === currentCellsCount) {
+            $target = nextCells.eq(cellIndex);
+            found = true;
+            break;
+          }
+        }
+        // если не нашли подходящую строку — остаёмся на текущей
+        if (!found) $target = $active;
+        e.preventDefault();
         break;
-      case 'ArrowUp':
-        $target = $row.prev().children('td').eq(cellIndex);
+      }
+
+      case 'ArrowUp': {
+        const $rows = $currentTable.find('tr').filter(function () {
+          return $(this).closest('table')[0] === $currentTable[0];
+        });
+        let rowIdx = $rows.index($row);
+        const currentCellsCount = $row.children('td.could-selected').length;
+
+        let found = false;
+        for (let i = rowIdx - 1; i >= 0; i--) {
+          const $prevRow = $rows.eq(i);
+          const prevCells = $prevRow.children('td.could-selected');
+
+          if (prevCells.length === currentCellsCount) {
+            $target = prevCells.eq(cellIndex);
+            found = true;
+            break;
+          }
+        }
+        // если не нашли подходящую строку — остаёмся на текущей
+        if (!found) $target = $active;
+        e.preventDefault();
         break;
-        case 'Enter':
-          // Если редактируем — повторный Enter сохраняет и снимает фокус
-          if (editingCell) {
-            let $input = editingCell.find('.could-copy').filter('input,textarea');
-            if (editingCell.hasClass('could-copy')) {
-              $input = editingCell.filter('input,textarea');
-            }
-            if ($input.length) {
-              $input.blur();
-              editingCell = null;
-              enterEditMode = false;
-              e.preventDefault();
-              return;
-            }
+      }
+      case 'Enter':
+        // если редактируем — выходим
+        if (editingCell) {
+          let $input = editingCell.find('.could-copy').filter('input,textarea');
+          if (editingCell.hasClass('could-copy')) {
+            $input = editingCell.filter('input,textarea');
           }
 
-          // Если выделена одна или несколько ячеек — вход в редактирование первой
-          let $editCell = $cells.first();
-          let $input = $editCell.find('.could-copy').filter('input,textarea');
-          if ($editCell.hasClass('could-copy')) {
-            $input = $editCell.filter('input,textarea');
+          if ($input.length) {
+            skipBlurReset = true; // ← ВАЖНО
+            $input.blur();
+            $('.table-input-new__list.active').removeClass('active');
+          }
+
+          // ❗ НЕ трогаем selection
+          // просто оставляем текущую ячейку выделенной
+
+          editingCell = null;
+          enterEditMode = false;
+          e.preventDefault();
+          return;
+        }
+
+        // вход в редактирование
+        let $editCell = $cells.first();
+
+        let $input = $editCell.find('.could-copy').filter('input,textarea');
+        if ($editCell.hasClass('could-copy')) {
+          $input = $editCell.filter('input,textarea');
+        }
+
+        if ($editCell.find('.dropdown')) {
+          selectCell($editCell);
+        }
+
+        if ($input.length) {
+          // ❗ НЕ сбрасываем selection
+          // просто гарантируем что ячейка выделена
+          selectCell($editCell);
+
+          $input.focus();
+
+          setTimeout(function() {
+            let el = $input[0];
+            if (el && el.setSelectionRange) {
+              let len = $input.val().length;
+              el.setSelectionRange(len, len);
+            }
+          }, 0);
+
+          editingCell = $editCell;
+          enterEditMode = true;
+          e.preventDefault();
+        }
+
+        return;
+      case 'Escape':
+        // Снять фокус с input/textarea и выйти из режима редактирования
+        if (editingCell) {
+          let $input = editingCell.find('.could-copy').filter('input,textarea');
+          if (editingCell.hasClass('could-copy')) {
+            $input = editingCell.filter('input,textarea');
           }
           if ($input.length) {
-            $input.focus();
-            editingCell = $editCell;
-            enterEditMode = true;
+            $input.blur();
+            editingCell = null;
+            enterEditMode = false;
             e.preventDefault();
+            return;
           }
-          return;
+        }
+          // Также снимаем выделение с ячеек
+          resetSelection();
+          break;
       default:
         return;
     }
 
-    if ($target && $target.length) {
-      resetSelection();
-      $target.addClass('cell-selected');
-      $startCell = $target;
-      e.preventDefault();
+      if ($target && $target.length) {
+        // 🔥 ВАЖНО: сначала выходим из редактирования
+        exitEditMode();
+
+        selectCell($target);
+        scrollToCellIfNeeded($target);
+      }
+  });
+
+  function selectCell($cell) {
+    if (!$cell || !$cell.length) return;
+
+    // 🔴 закрываем dropdown у предыдущей ячейки
+    if (prevSelectedCell && prevSelectedCell.length) {
+      const $prevBtn = prevSelectedCell.find('.dropdown__button');
+      const $prevList = prevSelectedCell.find('.dropdown__list');
+
+      if ($prevBtn.length) {
+        $prevBtn.removeClass('active');
+        $prevList.removeClass('active');
+      }
     }
+
+    // снимаем выделение
+    resetSelection();
+
+    // ставим новое
+    $cell.addClass('cell-selected');
+    $startCell = $cell;
+
+    // 🟢 открываем dropdown у новой
+    const $dropdownBtn = $cell.find('.dropdown__button');
+
+    if ($dropdownBtn.length) {
+      setTimeout(() => {
+        $dropdownBtn.first().trigger('click');
+      }, 0);
+    }
+
+    // сохраняем текущую как предыдущую
+    prevSelectedCell = $cell;
+  }
+
+  function scrollToCellIfNeeded($cell) {
+    if (!$cell || !$cell.length) return;
+
+    const container = $cell.closest('.content-scroll'); // ❗ родитель со скроллом
+    if (!container.length) return;
+
+    const containerEl = container[0];
+    const cellEl = $cell[0];
+
+    const containerRect = containerEl.getBoundingClientRect();
+    const cellRect = cellEl.getBoundingClientRect();
+
+    // 🔽 Проверка вертикали
+    if (cellRect.bottom > containerRect.bottom) {
+      containerEl.scrollTop += (cellRect.bottom - containerRect.bottom);
+    } else if (cellRect.top < containerRect.top) {
+      containerEl.scrollTop -= (containerRect.top - cellRect.top);
+    }
+
+    // 🔽 Проверка горизонтали
+    if (cellRect.right > containerRect.right) {
+      containerEl.scrollLeft += (cellRect.right - containerRect.right+1);
+    } else if (cellRect.left < containerRect.left) {
+      containerEl.scrollLeft -= (containerRect.left - cellRect.left+1);
+    }
+  }
+
+  function exitEditMode() {
+    if (!editingCell) return;
+
+    let $input = editingCell.find('.could-copy').filter('input,textarea');
+    if (editingCell.hasClass('could-copy')) {
+      $input = editingCell.filter('input,textarea');
+    }
+
+    if ($input.length) {
+      skipBlurReset = true;
+      $input.blur();
+    }
+
+    $('.table-input-new__list.active').removeClass('active');
+
+    editingCell = null;
+    enterEditMode = false;
+  }
+
+  // Снять фокус с input/textarea и убрать active с .table-input-new__list по клику вне таблицы
+  $(document).on('mousedown', function(e) {
+    const $target = $(e.target);
+
+    // если клик внутри текущей редактируемой ячейки — не трогаем
+    if (editingCell && $target.closest(editingCell).length) {
+      return;
+    }
+
+    // если клик внутри любой таблицы — не сбрасываем фокус
+    if ($target.closest('table').length) {
+      return;
+    }
+
+    // клик вне таблицы — полный сброс
+    resetSelection();
+    $('.table-input-new__list.active').removeClass('active');
+
+    if (editingCell) {
+      let $input = editingCell.find('.could-copy').filter('input,textarea');
+      if (editingCell.hasClass('could-copy')) {
+        $input = editingCell.filter('input,textarea');
+      }
+
+      if ($input.length) {
+        $input.blur();
+      }
+
+      editingCell = null;
+      enterEditMode = false;
+    }
+  });
+
+  $(document).on('dblclick', 'td.could-selected', function () {
+    const $cell = $(this);
+
+    let $input = $cell.find('.could-copy').filter('input,textarea');
+    if ($cell.hasClass('could-copy')) {
+      $input = $cell.filter('input,textarea');
+    }
+
+    if ($cell.find('.dropdown')) {
+      selectCell($cell);
+    }
+
+    if (!$input.length) return;
+
+    $input.focus();
+
+    setTimeout(() => {
+      let el = $input[0];
+      if (el && el.setSelectionRange) {
+        let len = $input.val().length;
+        el.setSelectionRange(len, len);
+      }
+    }, 0);
+
+    editingCell = $cell;
+    enterEditMode = true;
+  });
+
+  // При потере фокуса input/textarea — закрываем список только если фокус ушёл вне td
+  $(document).on('blur', 'input,textarea', function(e) {
+    setTimeout(() => {
+
+      // если это blur из Enter — пропускаем
+      if (skipBlurReset) {
+        skipBlurReset = false;
+        return;
+      }
+
+      const related = e.relatedTarget;
+
+      // если фокус ушёл внутрь той же ячейки — ничего не делаем
+      if (related && $(related).closest('td.could-selected').length) {
+        return;
+      }
+
+      // если фокус вообще ушёл в никуда (body) — тоже НЕ трогаем
+      // это как раз твой случай с textarea + Enter
+      if (!related) {
+        return;
+      }
+
+      // только реальный уход вне таблицы
+      if (!$(related).closest('table').length) {
+        $('.table-input-new__list.active').removeClass('active');
+        resetSelection();
+        editingCell = null;
+        enterEditMode = false;
+      }
+
+    }, 0);
   });
 
   // ===== COPY (CTRL + C) =====
@@ -196,8 +501,8 @@ $(document).ready(function () {
     const startRow = $rows.index($start.closest('tr'));
     const endRow = $rows.index($end.closest('tr'));
 
-    const startCol = $start.parent().children('td').index($start);
-    const endCol = $end.parent().children('td').index($end);
+    const startCol = $start.parent().children('td.could-selected').index($start);
+    const endCol = $end.parent().children('td.could-selected').index($end);
 
     const rowMin = Math.min(startRow, endRow);
     const rowMax = Math.max(startRow, endRow);
@@ -208,7 +513,7 @@ $(document).ready(function () {
     $rows.each(function (rowIndex) {
       if (rowIndex < rowMin || rowIndex > rowMax) return;
 
-      const $cells = $(this).children('td');
+      const $cells = $(this).children('td.could-selected');
 
       $cells.each(function (colIndex) {
         if (colIndex >= colMin && colIndex <= colMax) {
@@ -285,7 +590,7 @@ $(document).ready(function () {
   }
 
   function getColIndex($cell) {
-    return $cell.parent().children('td').index($cell);
+    return $cell.parent().children('td.could-selected').index($cell);
   }
 
   function copyToClipboard(text) {
@@ -317,6 +622,16 @@ $(document).ready(function () {
     if ($copyEl.length) {
       if ($copyEl.is('input, textarea')) {
         $copyEl.val(value);
+        // Если сейчас в режиме редактирования этой ячейки — ставим курсор в конец
+        if (editingCell && editingCell[0] === $cell[0]) {
+          let el = $copyEl[0];
+          setTimeout(function() {
+            if (el && el.setSelectionRange) {
+              let len = $copyEl.val().length;
+              el.setSelectionRange(len, len);
+            }
+          }, 0);
+        }
       } else {
         $copyEl.text(value);
       }
