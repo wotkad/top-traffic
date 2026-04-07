@@ -18,34 +18,41 @@ $(document).ready(function () {
       let pastedData = clipboardData.getData('text');
       if (!pastedData) return;
 
+      $('.cell-pasted').removeClass('cell-pasted');
+
       // Разбиваем на строки и столбцы
       let rows = pastedData.split(/\r?\n/).filter(r => r.length > 0);
       let data = rows.map(row => row.split('\t'));
 
       // Если вставляется один элемент — заменяем содержимое выделенной ячейки
+      // Если вставляется один элемент
       if (data.length === 1 && data[0].length === 1) {
-        let $target = $cells.last();
+        const value = data[0][0];
 
-        // Проверяем, есть ли input/textarea внутри ячейки
-        let $input = $target.find('input, textarea');
-        if ($target.hasClass('could-copy') && $target.is('input, textarea')) {
-          $input = $target;
-        }
+        $cells.each(function () {
+          let $cell = $(this);
 
-        if ($input.length) {
-          $input.val(data[0][0]);
-
-          // Если сейчас редактируем эту ячейку — ставим курсор в конец
-          if (editingCell && editingCell[0] === $target[0]) {
-            let el = $input[0];
-            setTimeout(function() {
-              if (el && el.setSelectionRange) {
-                let len = $input.val().length;
-                el.setSelectionRange(len, len);
-              }
-            }, 0);
+          let $input = $cell.find('input, textarea');
+          if ($cell.hasClass('could-copy') && $cell.is('input, textarea')) {
+            $input = $cell;
           }
-        }
+
+          if ($input.length) {
+            $input.val(value);
+            $cell.addClass('cell-pasted');
+
+            // курсор если редактируем
+            if (editingCell && editingCell[0] === $cell[0]) {
+              let el = $input[0];
+              setTimeout(function () {
+                if (el && el.setSelectionRange) {
+                  let len = $input.val().length;
+                  el.setSelectionRange(len, len);
+                }
+              }, 0);
+            }
+          }
+        });
       } else {
         // Вставка блока
         // Определяем верхний левый угол выделения
@@ -73,7 +80,20 @@ $(document).ready(function () {
             }
 
             if ($input.length) {
-              $input.val(data[i][j]);
+              const value = data[i][j];
+
+              $input.val(value);
+              $cell.addClass('cell-pasted');
+
+              if (editingCell && editingCell[0] === $cell[0]) {
+                let el = $input[0];
+                setTimeout(function () {
+                  if (el && el.setSelectionRange) {
+                    let len = $input.val().length;
+                    el.setSelectionRange(len, len);
+                  }
+                }, 0);
+              }
               
               // Если редактируем текущую ячейку — курсор в конец
               if (editingCell && editingCell[0] === $cell[0]) {
@@ -89,6 +109,7 @@ $(document).ready(function () {
           }
         }
       }
+      $('.cell-selected').not('.cell-pasted').removeClass('cell-selected');
       e.preventDefault();
     });
 
@@ -158,14 +179,17 @@ $(document).ready(function () {
 
     switch (e.key) {
       case 'ArrowRight':
+        $('.cell-pasted').removeClass('cell-pasted');
         $target = $active.nextAll('td.could-selected').first();
         e.preventDefault();
         break;
       case 'ArrowLeft':
+        $('.cell-pasted').removeClass('cell-pasted');
         $target = $active.prevAll('td.could-selected').first();
         e.preventDefault();
         break;
       case 'ArrowDown': {
+        $('.cell-pasted').removeClass('cell-pasted');
         const $rows = $currentTable.find('tr').filter(function () {
           return $(this).closest('table')[0] === $currentTable[0];
         });
@@ -190,6 +214,7 @@ $(document).ready(function () {
       }
 
       case 'ArrowUp': {
+        $('.cell-pasted').removeClass('cell-pasted');
         const $rows = $currentTable.find('tr').filter(function () {
           return $(this).closest('table')[0] === $currentTable[0];
         });
@@ -212,8 +237,32 @@ $(document).ready(function () {
         e.preventDefault();
         break;
       }
-      case 'Enter':
-        // если редактируем — выходим
+      case 'Enter': {
+        $('.cell-pasted').removeClass('cell-pasted');
+        let $active = $cells.first();
+
+        // если есть dropdown
+        const $dropdownBtn = $active.find('.dropdown__button');
+        const $dropdownList = $active.find('.dropdown__list');
+
+        if ($dropdownBtn.length) {
+          const isOpen = $dropdownBtn.hasClass('active');
+
+          if (isOpen) {
+            // 🔴 закрыть
+            $dropdownBtn.removeClass('active');
+            $dropdownList.removeClass('active');
+          } else {
+            // 🟢 открыть
+            $dropdownBtn.first().trigger('click');
+          }
+
+          e.preventDefault();
+          return;
+        }
+
+        // ===== старое поведение для input =====
+
         if (editingCell) {
           let $input = editingCell.find('.could-copy').filter('input,textarea');
           if (editingCell.hasClass('could-copy')) {
@@ -221,13 +270,10 @@ $(document).ready(function () {
           }
 
           if ($input.length) {
-            skipBlurReset = true; // ← ВАЖНО
+            skipBlurReset = true;
             $input.blur();
             $('.table-input-new__list.active').removeClass('active');
           }
-
-          // ❗ НЕ трогаем selection
-          // просто оставляем текущую ячейку выделенной
 
           editingCell = null;
           enterEditMode = false;
@@ -235,7 +281,6 @@ $(document).ready(function () {
           return;
         }
 
-        // вход в редактирование
         let $editCell = $cells.first();
 
         let $input = $editCell.find('.could-copy').filter('input,textarea');
@@ -243,13 +288,7 @@ $(document).ready(function () {
           $input = $editCell.filter('input,textarea');
         }
 
-        if ($editCell.find('.dropdown')) {
-          selectCell($editCell);
-        }
-
         if ($input.length) {
-          // ❗ НЕ сбрасываем selection
-          // просто гарантируем что ячейка выделена
           selectCell($editCell);
 
           $input.focus();
@@ -268,7 +307,19 @@ $(document).ready(function () {
         }
 
         return;
-      case 'Escape':
+      }
+      case 'Escape': {
+        $('.cell-pasted').removeClass('cell-pasted');
+        const $active = $cells.last();
+        const $dropdownBtn = $active.find('.dropdown__button');
+        const $dropdownList = $active.find('.dropdown__list');
+
+        if ($dropdownBtn.length && $dropdownBtn.hasClass('active')) {
+          $dropdownBtn.removeClass('active');
+          $dropdownList.removeClass('active');
+          e.preventDefault();
+          return;
+        }
         // Снять фокус с input/textarea и выйти из режима редактирования
         if (editingCell) {
           let $input = editingCell.find('.could-copy').filter('input,textarea');
@@ -286,6 +337,7 @@ $(document).ready(function () {
           // Также снимаем выделение с ячеек
           resetSelection();
           break;
+      }
       default:
         return;
     }
@@ -319,15 +371,6 @@ $(document).ready(function () {
     // ставим новое
     $cell.addClass('cell-selected');
     $startCell = $cell;
-
-    // 🟢 открываем dropdown у новой
-    const $dropdownBtn = $cell.find('.dropdown__button');
-
-    if ($dropdownBtn.length) {
-      setTimeout(() => {
-        $dropdownBtn.first().trigger('click');
-      }, 0);
-    }
 
     // сохраняем текущую как предыдущую
     prevSelectedCell = $cell;
@@ -410,34 +453,6 @@ $(document).ready(function () {
       editingCell = null;
       enterEditMode = false;
     }
-  });
-
-  $(document).on('dblclick', 'td.could-selected', function () {
-    const $cell = $(this);
-
-    let $input = $cell.find('.could-copy').filter('input,textarea');
-    if ($cell.hasClass('could-copy')) {
-      $input = $cell.filter('input,textarea');
-    }
-
-    if ($cell.find('.dropdown')) {
-      selectCell($cell);
-    }
-
-    if (!$input.length) return;
-
-    $input.focus();
-
-    setTimeout(() => {
-      let el = $input[0];
-      if (el && el.setSelectionRange) {
-        let len = $input.val().length;
-        el.setSelectionRange(len, len);
-      }
-    }, 0);
-
-    editingCell = $cell;
-    enterEditMode = true;
   });
 
   // При потере фокуса input/textarea — закрываем список только если фокус ушёл вне td
@@ -613,30 +628,4 @@ $(document).ready(function () {
     document.body.removeChild(textarea);
   }
 
-  // ====== ВСПОМОГАТЕЛЬНАЯ: Установка значения ячейки ======
-  function setCellValue($cell, value) {
-    let $copyEl = $cell.find('.could-copy').first();
-    if ($cell.hasClass('could-copy')) {
-      $copyEl = $cell;
-    }
-    if ($copyEl.length) {
-      if ($copyEl.is('input, textarea')) {
-        $copyEl.val(value);
-        // Если сейчас в режиме редактирования этой ячейки — ставим курсор в конец
-        if (editingCell && editingCell[0] === $cell[0]) {
-          let el = $copyEl[0];
-          setTimeout(function() {
-            if (el && el.setSelectionRange) {
-              let len = $copyEl.val().length;
-              el.setSelectionRange(len, len);
-            }
-          }, 0);
-        }
-      } else {
-        $copyEl.text(value);
-      }
-    } else {
-      $cell.text(value);
-    }
-  }
 });

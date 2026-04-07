@@ -1031,6 +1031,13 @@
     }
   }
   td {
+    &.cell-pasted {
+      overflow: visible !important;
+      &:before {
+        @apply absolute -inset-px border border-black-000 content-[''];
+      }
+      @apply relative;
+    }
     &.cell-selected {
       overflow: visible !important;
       &:before {
