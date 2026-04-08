@@ -206,9 +206,9 @@
 .daterangepicker td.in-range {
   border-color: transparent;
   border-radius: 0;
-  background-color: #ebf4f8;
-
-  color: #000;
+  background-color: #E6EFFE;
+  
+  color: #005CFF;
 }
 
 .daterangepicker td.start-date {
@@ -289,10 +289,7 @@
 }
 
 .daterangepicker .drp-selected {
-  display: inline-block;
-  padding-right: 8px;
-
-  font-size: 12px;
+  display: none;
 }
 
 .daterangepicker .drp-buttons .btn {
