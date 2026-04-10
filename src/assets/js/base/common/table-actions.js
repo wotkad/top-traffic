@@ -115,6 +115,7 @@ $(document).ready(function () {
 
   // ===== КЛИК / SHIFT =====
   $(document).on('click', 'td.could-selected', function (e) {
+    $('td.could-selected').removeClass('cell-pasted');
     const $cell = $(this);
     const $table = $cell.closest('table');
 
