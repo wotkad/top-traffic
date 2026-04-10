@@ -99,10 +99,6 @@ function monthPicker() {
     $('.daterangepicker').hide();
   });
 
-  $(window).on('resize keydown keyup keypress', function() {
-    $('.daterangepicker').hide();
-  });
-
   $('.monthpicker').each(function() {
     let $this = $(this);
     let monthpicker;

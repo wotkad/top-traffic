@@ -4,18 +4,18 @@ import moment from "moment";
 export default function datePicker() {
   let locale = {
     "format": "DD.MM.YYYY",
-    "applyLabel": "Выбрать",
+    "applyLabel": "Сохранить",
     "cancelLabel": "Отмена",
     "fromLabel": "с",
     "toLabel": "по",
     "daysOfWeek": [
-      "Вс.",
-      "Пн.",
-      "Вт.",
-      "Ср.",
-      "Чт.",
-      "Пт.",
-      "Сб."
+      "Вс",
+      "Пн",
+      "Вт",
+      "Ср",
+      "Чт",
+      "Пт",
+      "Сб"
     ],
     "monthNames": [
       "Январь",
@@ -41,13 +41,13 @@ export default function datePicker() {
     "fromLabel": "с",
     "toLabel": "по",
     "daysOfWeek": [
-      "Вс.",
-      "Пн.",
-      "Вт.",
-      "Ср.",
-      "Чт.",
-      "Пт.",
-      "Сб."
+      "Вс",
+      "Пн",
+      "Вт",
+      "Ср",
+      "Чт",
+      "Пт",
+      "Сб"
     ],
     "monthNames": [
       "Январь",
@@ -68,7 +68,6 @@ export default function datePicker() {
 
   function initCalendars(startDate = 0, endDate = 0) {
     $(".datepicker-range.opensleft").daterangepicker({
-      autoApply: true,
       locale: locale,
       autoUpdateInput: false,
       opens: 'left',
@@ -77,7 +76,6 @@ export default function datePicker() {
     });
     
     $(".datepicker-range.opensright").daterangepicker({
-      autoApply: true,
       locale: locale,
       autoUpdateInput: false,
       opens: 'right',
@@ -86,7 +84,6 @@ export default function datePicker() {
     });
 
     $(".datepicker-single.opensleft").daterangepicker({
-      autoApply: true,
       locale: locale,
       autoUpdateInput: false,
       singleDatePicker: true,
@@ -98,7 +95,6 @@ export default function datePicker() {
     });
 
     $(".datepicker-single.opensright").daterangepicker({
-      autoApply: true,
       locale: locale,
       autoUpdateInput: false,
       singleDatePicker: true,
@@ -132,7 +128,6 @@ export default function datePicker() {
     });
 
     $(".filter .datepicker-range.opensleft").daterangepicker({
-      autoApply: true,
       locale: locale,
       autoUpdateInput: false,
       opens: 'left',
@@ -141,7 +136,6 @@ export default function datePicker() {
     });
 
     $(".filter .datepicker-range.opensright").daterangepicker({
-      autoApply: true,
       locale: locale,
       autoUpdateInput: false,
       opens: 'right',
@@ -157,7 +151,7 @@ export default function datePicker() {
           picker.container.hide();
         } else {
           $(this).addClass('active');
-          picker.container.css('top', $this.offset().top + 16);
+          picker.container.css('top', $this.offset().top + 14.5);
           picker.container.css('left', $this.offset().left);
         }
       });
@@ -173,7 +167,7 @@ export default function datePicker() {
           $(this).addClass('active');
           let right = $(window).width() - ($this.offset().left + $this.outerWidth());
           picker.container.show();
-          picker.container.css('top', $this.offset().top + 16);
+          picker.container.css('top', $this.offset().top + 14.5);
           picker.container.css('right', right);
           picker.container.css('left', 'auto');
         }
@@ -188,7 +182,7 @@ export default function datePicker() {
           picker.container.hide();
         } else {
           $(this).addClass('active');
-          picker.container.css('top', $this.offset().top + 16);
+          picker.container.css('top', $this.offset().top + 14.5);
           picker.container.css('left', $this.offset().left);
         }
       });
@@ -203,7 +197,7 @@ export default function datePicker() {
         } else {
           $(this).addClass('active');
           let right = $(window).width() - ($this.offset().left + $this.parent().width() - 24);
-          picker.container.css('top', $this.offset().top + 16);
+          picker.container.css('top', $this.offset().top + 14.5);
           picker.container.css('right', right);
           picker.container.css('left', 'auto');
         }
@@ -219,7 +213,7 @@ export default function datePicker() {
         } else {
           $(this).addClass('active');
           picker.container.addClass('datetimepicker');
-          picker.container.css('top', $this.offset().top + 16);
+          picker.container.css('top', $this.offset().top + 14.5);
           picker.container.css('left', $this.offset().left);
         }
       });
@@ -235,7 +229,7 @@ export default function datePicker() {
           $(this).addClass('active');
           let right = $(window).width() - ($this.offset().left + $this.outerWidth());
           picker.container.addClass('datetimepicker');
-          picker.container.css('top', $this.offset().top + 16);
+          picker.container.css('top', $this.offset().top + 14.5);
           picker.container.css('right', right);
           picker.container.css('left', 'auto');
         }
@@ -245,11 +239,6 @@ export default function datePicker() {
   initCalendars();
 
   $('.wrapper, .filter__container').on('scroll', function() {
-    $('.daterangepicker').hide();
-    $('.datepicker').removeClass('active');
-  });
-
-  $(window).on('resize keydown keyup keypress', function() {
     $('.daterangepicker').hide();
     $('.datepicker').removeClass('active');
   });
@@ -330,7 +319,7 @@ export default function datePicker() {
 
         $(document).on('click', picker.container.find('.prev, .next'), function() {
           let right = $(window).width() - ($this.offset().left + $this.parent().width() + 6);
-          picker.container.css('top', $this.offset().top + 16);
+          picker.container.css('top', $this.offset().top + 14.5);
           picker.container.css('right', right);
           picker.container.css('left', 'auto');
         });
@@ -485,6 +474,32 @@ export default function datePicker() {
       });
 
     });
+  });
+
+  $(document).on('input blur', 'input.datepicker', function () {
+    let val = $(this).val();
+
+    // Убираем всё кроме цифр
+    val = val.replace(/\D/g, '');
+
+    // Формируем дату
+    let day = val.substring(0, 2);
+    let month = val.substring(2, 4);
+    let year = val.substring(4, 8);
+
+    let formatted = '';
+
+    if (day) {
+      formatted += day;
+    }
+    if (month) {
+      formatted += '.' + month;
+    }
+    if (year) {
+      formatted += '.' + year;
+    }
+
+    $(this).val(formatted);
   });
   
 }
