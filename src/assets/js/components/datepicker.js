@@ -2,40 +2,9 @@ import daterangepicker from 'bootstrap-daterangepicker';
 import moment from "moment";
 
 export default function datePicker() {
-  let locale = {
-    "format": "DD.MM.YYYY",
-    "applyLabel": "Сохранить",
-    "cancelLabel": "Отмена",
-    "fromLabel": "с",
-    "toLabel": "по",
-    "daysOfWeek": [
-      "Вс",
-      "Пн",
-      "Вт",
-      "Ср",
-      "Чт",
-      "Пт",
-      "Сб"
-    ],
-    "monthNames": [
-      "Январь",
-      "Февраль",
-      "Март",
-      "Апрель",
-      "Май",
-      "Июнь",
-      "Июль",
-      "Август",
-      "Сентябрь",
-      "Октябрь",
-      "Ноябрь",
-      "Декабрь"
-    ],
-    "firstDay": 1
-  };
 
-  let localeTime = {
-    "format": "DD.MM.YYYY HH:mm",
+  let localeTimeRange = {
+    "format": "DD.MM.YYYY HH:mm - DD.MM.YYYY HH:mm",
     "applyLabel": "Выбрать",
     "cancelLabel": "Отмена",
     "fromLabel": "с",
@@ -66,145 +35,28 @@ export default function datePicker() {
     "firstDay": 1
   };
 
-  function initCalendars(startDate = 0, endDate = 0) {
-    $(".datepicker-range.opensleft").daterangepicker({
-      locale: locale,
-      autoUpdateInput: false,
-      opens: 'left',
-      parentEl: 'main.page',
-      linkedCalendars: false,
-    });
-    
-    $(".datepicker-range.opensright").daterangepicker({
-      locale: locale,
-      autoUpdateInput: false,
-      opens: 'right',
-      parentEl: 'main.page',
-      linkedCalendars: false,
-    });
-
-    $(".datepicker-single.opensleft").daterangepicker({
-      locale: locale,
-      autoUpdateInput: false,
-      singleDatePicker: true,
-      startDate: moment(),
-      opens: 'left',
-      parentEl: 'main.page',
-      minDate: startDate,
-      maxDate: endDate,
-    });
-
-    $(".datepicker-single.opensright").daterangepicker({
-      locale: locale,
-      autoUpdateInput: false,
-      singleDatePicker: true,
-      startDate: moment(),
-      opens: 'right',
-      parentEl: 'main.page',
-      minDate: startDate,
-      maxDate: endDate,
-    });
-
-    $(".datetimepicker-single.opensleft").daterangepicker({
-      locale: localeTime,
+  function initCalendars() {
+    $(".datetimepicker-range.opensleft").daterangepicker({
+      locale: localeTimeRange,
       autoUpdateInput: false,
       timePicker: true,
       timePicker24Hour: true,
-      singleDatePicker: true,
       startDate: moment(),
       opens: 'left',
       parentEl: 'main.page',
     });
 
-    $(".datetimepicker-single.opensright").daterangepicker({
-      locale: localeTime,
+    $(".datetimepicker-range.opensright").daterangepicker({
+      locale: localeTimeRange,
       autoUpdateInput: false,
       timePicker: true,
       timePicker24Hour: true,
-      singleDatePicker: true,
       startDate: moment(),
       opens: 'right',
       parentEl: 'main.page',
     });
 
-    $(".filter .datepicker-range.opensleft").daterangepicker({
-      locale: locale,
-      autoUpdateInput: false,
-      opens: 'left',
-      parentEl: 'main.page',
-      linkedCalendars: false,
-    });
-
-    $(".filter .datepicker-range.opensright").daterangepicker({
-      locale: locale,
-      autoUpdateInput: false,
-      opens: 'right',
-      parentEl: 'main.page',
-      linkedCalendars: false,
-    });
-
-    $('.datepicker-range.opensright').each(function() {
-      let $this = $(this);
-      $this.on('show.daterangepicker', function(ev, picker) {
-        if ($(this).hasClass('active')) {
-          $(this).removeClass('active');
-          picker.container.hide();
-        } else {
-          $(this).addClass('active');
-          picker.container.css('top', $this.offset().top + 14.5);
-          picker.container.css('left', $this.offset().left);
-        }
-      });
-    });
-
-    $('.datepicker-range.opensleft').each(function() {
-      let $this = $(this);
-      $this.on('show.daterangepicker', function(ev, picker) {
-        if ($(this).hasClass('active')) {
-          $(this).removeClass('active');
-          picker.container.hide();
-        } else {
-          $(this).addClass('active');
-          let right = $(window).width() - ($this.offset().left + $this.outerWidth());
-          picker.container.show();
-          picker.container.css('top', $this.offset().top + 14.5);
-          picker.container.css('right', right);
-          picker.container.css('left', 'auto');
-        }
-      });
-    });
-
-    $('.datepicker-single.opensright').each(function() {
-      let $this = $(this);
-      $this.on('show.daterangepicker', function(ev, picker) {
-        if ($(this).hasClass('active')) {
-          $(this).removeClass('active');
-          picker.container.hide();
-        } else {
-          $(this).addClass('active');
-          picker.container.css('top', $this.offset().top + 14.5);
-          picker.container.css('left', $this.offset().left);
-        }
-      });
-    });
-
-    $('.datepicker-single.opensleft').each(function() {
-      let $this = $(this);
-      $this.on('show.daterangepicker', function(ev, picker) {
-        if ($(this).hasClass('active')) {
-          $(this).removeClass('active');
-          picker.container.hide();
-        } else {
-          $(this).addClass('active');
-          let right = $(window).width() - ($this.offset().left + $this.parent().width() - 24);
-          picker.container.css('top', $this.offset().top + 14.5);
-          picker.container.css('right', right);
-          picker.container.css('left', 'auto');
-        }
-      });
-    });
-
-    $('.datetimepicker-single.opensright').each(function() {
+    $('.datetimepicker-range.opensright').each(function() {
       let $this = $(this);
       $this.on('show.daterangepicker', function(ev, picker) {
         if ($(this).hasClass('active')) {
@@ -214,12 +66,11 @@ export default function datePicker() {
           $(this).addClass('active');
           picker.container.addClass('datetimepicker');
           picker.container.css('top', $this.offset().top + 14.5);
-          picker.container.css('left', $this.offset().left);
         }
       });
     });
 
-    $('.datetimepicker-single.opensleft').each(function() {
+    $('.datetimepicker-range.opensleft').each(function() {
       let $this = $(this);
       $this.on('show.daterangepicker', function(ev, picker) {
         if ($(this).hasClass('active')) {
@@ -227,281 +78,193 @@ export default function datePicker() {
           picker.container.hide();
         } else {
           $(this).addClass('active');
-          let right = $(window).width() - ($this.offset().left + $this.outerWidth());
           picker.container.addClass('datetimepicker');
           picker.container.css('top', $this.offset().top + 14.5);
-          picker.container.css('right', right);
-          picker.container.css('left', 'auto');
         }
       });
     });
   }
   initCalendars();
 
+  $('.datetimepicker-range').each(function() {
+    let $this = $(this);
+    let $id = Math.random().toString(36).substr(2, 9);
+    $this.css('width', $(this).val().length * 6.5);
+
+    $this.on('show.daterangepicker', function(ev, picker) {
+
+      setTimeout(() => {
+        const $container = picker.container;
+        
+        // Удаляем стандартные селекты
+        $container.find('.hourselect, .minuteselect, .ampmselect').hide();
+
+        // Если уже добавляли — не дублируем
+        if ($container.find('.custom-time').length) return;
+
+        // Создаём кастомные инпуты
+        const startTime = picker.startDate.format('HH:mm');
+        const endTime = picker.endDate.format('HH:mm');
+
+        const html = `
+          <div class="custom-time">
+            <div class="custom-time__start">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 1.875C5.51667 1.875 1.875 5.51667 1.875 10C1.875 14.4833 5.51667 18.125 10 18.125C14.4833 18.125 18.125 14.4833 18.125 10C18.125 5.51667 14.4833 1.875 10 1.875ZM10 16.875C6.20833 16.875 3.125 13.7917 3.125 10C3.125 6.20833 6.20833 3.125 10 3.125C13.7917 3.125 16.875 6.20833 16.875 10C16.875 13.7917 13.7917 16.875 10 16.875Z" fill="#959BA4"/>
+              <path d="M10.625 9.66699V6.66699C10.625 6.32533 10.3417 6.04199 10 6.04199C9.65833 6.04199 9.375 6.32533 9.375 6.66699V10.0003C9.375 10.2087 9.475 10.4003 9.65 10.517L12.15 12.1837C12.2583 12.2587 12.375 12.292 12.5 12.292C12.7 12.292 12.9 12.192 13.0167 12.017C13.2083 11.7337 13.1333 11.342 12.8417 11.1503L10.6167 9.66699H10.625Z" fill="#959BA4"/>
+              </svg>
+              <input type="text" class="time-start" value="${startTime}" placeholder="чч:мм">
+            </div>
+            <div class="custom-time__end">
+              <input type="text" class="time-end" value="${endTime}" placeholder="чч:мм">
+              <button class="custom-time__clear">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="16.0005" height="16.0005" rx="8.00024" fill="#E3E5EB"/>
+                <rect width="4.86957" height="4.86957" transform="translate(5.56445 5.56543)" fill="#E3E5EB"/>
+                <path d="M5.56445 5.56543L10.434 10.4349" stroke="#959BA4" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M5.56445 10.4346L10.434 5.56511" stroke="#959BA4" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </button>
+            </div>
+            <button class="custom-time__toggle">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 4.375C13.1066 4.375 15.625 6.8934 15.625 10C15.625 10.3452 15.3451 10.625 15 10.625H10C9.65483 10.625 9.375 10.3452 9.375 10V5C9.375 4.65483 9.65483 4.375 10 4.375Z" fill="#959BA4"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M18.125 10C18.125 5.51269 14.4874 1.875 10 1.875C5.51269 1.875 1.875 5.51269 1.875 10C1.875 14.4874 5.51269 18.125 10 18.125C14.4874 18.125 18.125 14.4874 18.125 10ZM10 3.125C13.797 3.125 16.875 6.20304 16.875 10C16.875 13.797 13.797 16.875 10 16.875C6.20304 16.875 3.125 13.797 3.125 10C3.125 6.20304 6.20304 3.125 10 3.125Z" fill="#959BA4"/>
+              </svg>
+              <span>Интервал</span>
+            </button>
+          </div>
+        `;
+
+        $container.find('.drp-buttons').before(html);
+
+        // ===== СИНХРОНИЗАЦИЯ =====
+
+        $container.on('input', '.time-start', function() {
+          const val = $(this).val();
+          const [h, m] = val.split(':');
+
+          if (h !== undefined && m !== undefined) {
+            picker.startDate.set({
+              hour: +h || 0,
+              minute: +m || 0
+            });
+          }
+        });
+
+        $container.on('input', '.time-end', function() {
+          const val = $(this).val();
+          const [h, m] = val.split(':');
+
+          if (h !== undefined && m !== undefined) {
+            picker.endDate.set({
+              hour: +h || 0,
+              minute: +m || 0
+            });
+          }
+        });
+
+      }, 0);
+      
+      $this.attr('data-id', $id);
+      picker.container.attr('data-id', $id);
+
+      $(document).on('click', picker.container.find('.prev, .next'), function() {
+        picker.container.css('top', $this.offset().top + 14.5);
+      });
+
+      $this.off('apply.daterangepicker').on('apply.daterangepicker', function(ev, picker) {
+
+        const onlyStartSelected =
+          !picker.endDate ||
+          picker.startDate.isSame(picker.endDate, 'minute');
+
+        if (onlyStartSelected) {
+          picker.endDate = picker.startDate.clone();
+        }
+
+        const isSameDay = picker.startDate.isSame(picker.endDate, 'day');
+        const isCustomTimeActive = picker.container.find('.custom-time').hasClass('active');
+
+        let result;
+
+        if (isSameDay && isCustomTimeActive) {
+          result =
+            picker.startDate.format('DD.MM.YYYY HH:mm') +
+            ' - ' +
+            picker.endDate.format('HH:mm');
+
+          picker.container.find('.custom-time__clear').addClass('active');
+
+        } else {
+          if (picker.startDate.isSame(picker.endDate, 'day')) {
+            result = picker.startDate.format('DD.MM.YYYY HH:mm');
+          } else {
+            result =
+              picker.startDate.format('DD.MM.YYYY HH:mm') +
+              ' - ' +
+              picker.endDate.format('DD.MM.YYYY HH:mm');
+          }
+
+          picker.container.find('.custom-time__clear').removeClass('active');
+        }
+
+        $this.removeClass('active');
+        $this.val(result);
+        $this.parent().attr('data-value', result);
+        $this.css('width', $this.val().length * 6.5);
+        if (isSameDay) {
+          $this.css('width', $this.val().length * 7);
+        }
+        $this.parent().find('.calendar-clear').addClass('active');
+      });
+
+    });
+  });
+
+  $(document).on('click', '.calendar-clear', function () {
+    const $btn = $(this);
+    const $wrapper = $btn.parent();
+    const $input = $wrapper.find('.datetimepicker-range');
+
+    const picker = $input.data('daterangepicker');
+
+    if (!picker) return;
+
+    // сброс дат
+    picker.setStartDate(moment());
+    picker.setEndDate(moment());
+
+    // очистка input
+    $input.val('');
+    $input.parent().attr('data-value', '');
+    $input.css('width', 0);
+
+    // убираем классы
+    $btn.removeClass('active');
+    $input.removeClass('active');
+
+    // если нужно — скрываем календарь
+    picker.hide();
+  });
+
   $('.wrapper, .filter__container').on('scroll', function() {
     $('.daterangepicker').hide();
     $('.datepicker').removeClass('active');
   });
 
-  $('.datepicker-range').each(function() {
-    let $this = $(this);
-    let buttons;
-    let $id = Math.random().toString(36).substr(2, 9);
-
-    if (!$this.closest('.filter__container')) {
-      $this.css('width', $(this).val().length * 7);
-    }
-
-    $this.on('show.daterangepicker', function(ev, picker) {
-      buttons = picker.container.find('.drp-buttons').clone();
-      $this.attr('data-id', $id);
-      picker.container.attr('data-id', $id);
-
-      picker.container.find('.drp-buttons').remove();
-      picker.container.prepend(buttons);
-
-      let result;
-
-      if (picker.startDate.isSame(picker.endDate, 'day')) {
-        result = picker.startDate.format('DD.MM.YYYY');
-      } else {
-        result = picker.startDate.format('DD.MM.YYYY') + ' - ' + picker.endDate.format('DD.MM.YYYY');
-      }
-
-      // Обработчик клика по кнопке закрытия
-      buttons.on('click', '.calendar-close-icon', function() {
-        picker.hide();
-        buttons.hide();
-        if ($this.closest('.heading').hasClass('heading-posts')) {
-          $this.val('');
-        } else {
-          $this.val('Все');
-        }
-        picker.setStartDate(moment());
-        picker.setEndDate(moment());
-      });
-
-      $this.off('apply.daterangepicker').on('apply.daterangepicker', function(ev, picker) {
-        buttons.css('display', 'flex');
-        $this.removeClass('active');
-        if (picker.startDate.isSame(picker.endDate, 'day')) {
-          result = picker.startDate.format('DD.MM.YYYY');
-        } else {
-          result = picker.startDate.format('DD.MM.YYYY') + ' - ' + picker.endDate.format('DD.MM.YYYY');
-        }
-        $this.val(result);
-        $this.parent().attr('data-value', result);
-        if (!$this.closest('.filter__container')) {
-          $this.css('width', $this.val().length * 7);
-        }
-      });
-    });
+  $(document).on('click', '.custom-time__toggle', function () {
+    const $container = $(this).closest('.daterangepicker');
+    $('.custom-time__clear').addClass('active');
+    $container.find('.custom-time').toggleClass('active');
   });
 
-  $('.datepicker-single').each(function() {
-    let $this = $(this);
-    let buttons;
-
-    $this.css('width', $(this).val().length * 7);
-
-    let $id = Math.random().toString(36).substr(2, 9);
-
-    $this.on('show.daterangepicker', function(ev, picker) {
-
-        $this.attr('data-id', $id);
-        picker.container.attr('data-id', $id);
-
-        buttons = picker.container.find('.drp-buttons').clone();
-        picker.container.find('.drp-buttons').remove();
-        picker.container.prepend(buttons);
-
-        let result = picker.startDate.format('DD.MM.YYYY');
-
-        $(document).on('click', picker.container.find('.prev, .next'), function() {
-          let right = $(window).width() - ($this.offset().left + $this.parent().width() + 6);
-          picker.container.css('top', $this.offset().top + 14.5);
-          picker.container.css('right', right);
-          picker.container.css('left', 'auto');
-        });
-
-        buttons.on('click', '.calendar-close-icon', function() {
-            picker.hide();
-            buttons.hide();
-            if ($this.closest('.table').length) {
-                $this.val('дд.мм.гггг');
-                if ($this.closest('.status__calendar').hasClass('selected')) {
-                    buttons.hide();
-                    $this.closest('.status__calendar').removeClass('selected');
-                    $this.closest('td').removeClass('only-text');
-                    $this.val('');
-                    $this.parent().removeAttr('data-value');
-                    $this.css('width', $this.val().length * 7);
-                }
-            } else {
-                $this.val('Все');
-                $this.parent().removeAttr('data-value');
-                $this.css('width', $this.val().length * 7);
-            }
-
-            if ($this.closest('.popup[data-popup-name="add-approved-lists"]').length) {
-                $this.attr('placeholder', 'дд.мм.гггг');
-                $this.val('');
-            }
-            if ($this.closest('.popup[data-popup-name="edit-approved-lists"]').length) {
-                $this.attr('placeholder', 'дд.мм.гггг');
-                $this.val('');
-            }
-            picker.setStartDate(moment());
-            picker.setEndDate(moment());
-            
-            let $row = $this.closest('tr'); // Получаем строку, в которой находятся оба календаря
-
-            if ($this.closest('.datepicker-trigger').hasClass('start-day')) {
-
-                // Найдём календарь конца в той же строке и установим minDate
-                let $endPicker = $row.find('.datepicker-trigger.end-day .datepicker-single');
-                if ($endPicker.length && $endPicker.data('daterangepicker')) {
-                    $endPicker.data('daterangepicker').minDate = false;
-                    $endPicker.data('daterangepicker').updateView();
-                }
-            }
-
-            if ($this.closest('.datepicker-trigger').hasClass('end-day')) {
-
-                // Найдём календарь начала в той же строке и установим maxDate
-                let $startPicker = $row.find('.datepicker-trigger.start-day .datepicker-single');
-                if ($startPicker.length && $startPicker.data('daterangepicker')) {
-                    $startPicker.data('daterangepicker').maxDate = false;
-                    $startPicker.data('daterangepicker').updateView();
-                }
-            }
-
-        });
-
-        $this.off('apply.daterangepicker').on('apply.daterangepicker', function(ev, picker) {
-            $this.removeClass('active');
-            buttons.css('display', 'flex');
-            $this.closest('.status__calendar').addClass('selected');
-            $this.closest('td').addClass('only-text');
-
-            result = picker.startDate.format('DD.MM.YYYY');
-            $this.val(result);
-            $this.parent().attr('data-value', result);
-            $this.css('width', $this.val().length * 7);
-
-            let $row = $this.closest('tr'); // Получаем строку, в которой находятся оба календаря
-
-            if ($this.closest('.datepicker-trigger').hasClass('start-day')) {
-                let startDate = picker.startDate.clone(); // Устанавливаем startDate
-
-                // Найдём календарь конца в той же строке и установим minDate
-                let $endPicker = $row.find('.datepicker-trigger.end-day .datepicker-single');
-                if ($endPicker.length && $endPicker.data('daterangepicker')) {
-                    $endPicker.data('daterangepicker').minDate = startDate;
-                    $endPicker.data('daterangepicker').updateView();
-                }
-            }
-
-            if ($this.closest('.datepicker-trigger').hasClass('end-day')) {
-                let endDate = picker.startDate.clone(); // Устанавливаем endDate
-
-                // Найдём календарь начала в той же строке и установим maxDate
-                let $startPicker = $row.find('.datepicker-trigger.start-day .datepicker-single');
-                if ($startPicker.length && $startPicker.data('daterangepicker')) {
-                    $startPicker.data('daterangepicker').maxDate = endDate;
-                    $startPicker.data('daterangepicker').updateView();
-                }
-            }
-        });
-    });  
+  $(document).on('click', '.custom-time__clear', function () {
+    const $container = $(this).closest('.daterangepicker');
+    $('.custom-time__clear').removeClass('active');
+    $container.find('.custom-time').removeClass('active');
   });
 
-  $('.datetimepicker-single').each(function() {
-    let $this = $(this);
-    let buttons;
-    let apply;
-    let $id = Math.random().toString(36).substr(2, 9);
-    $this.css('width', $(this).val().length * 7);
-
-    $this.on('show.daterangepicker', function(ev, picker) {
-      buttons = picker.container.find('.drp-buttons').clone(true);
-      apply = picker.container.find('.applyBtn').clone(true);
-      picker.container.find('.drp-buttons').remove();
-      picker.container.prepend(buttons);
-      $this.attr('data-id', $id);
-      picker.container.attr('data-id', $id);
-
-      let result = picker.startDate.format('DD.MM.YYYY HH:mm');
-
-      buttons.on('click', '.calendar-close-icon', function() {
-          picker.hide();
-          $this.val('Все');
-          $this.parent().removeAttr('data-value');
-          $this.css('width', $this.val().length * 7);
-          picker.setStartDate(moment());
-          picker.setEndDate(moment());
-      });
-
-      $this.off('apply.daterangepicker').on('apply.daterangepicker', function(ev, picker) {
-          $this.removeClass('active');
-          result = picker.startDate.format('DD.MM.YYYY HH:mm');
-          $this.val(result);
-          $this.parent().attr('data-value', result);
-          $this.css('width', $this.val().length * 7);
-      });
-
-      let observer = new MutationObserver(function(mutationsList) {
-        mutationsList.forEach(function(mutation) {
-            if (mutation.type === "childList" || mutation.type === "characterData") {
-              picker.container.find('.applyBtn').remove();
-              picker.container.find(buttons).append(apply)
-            }
-        });
-      });
-
-      $(document).on('input', '.daterangepicker .hourselect', function() {
-        let picker = $('.datetimepicker-single').data('daterangepicker');
-        
-        picker.container.find('.applyBtn').remove();
-        picker.container.find(buttons).append(apply);
-      });
-      
-      $(document).on('input', '.daterangepicker .minuteselect', function() {
-          let picker = $('.datetimepicker-single').data('daterangepicker');
-      
-          picker.container.find('.applyBtn').remove();
-          picker.container.find(buttons).append(apply);
-      });
-
-    });
-  });
-
-  $(document).on('input blur', 'input.datepicker', function () {
-    let val = $(this).val();
-
-    // Убираем всё кроме цифр
-    val = val.replace(/\D/g, '');
-
-    // Формируем дату
-    let day = val.substring(0, 2);
-    let month = val.substring(2, 4);
-    let year = val.substring(4, 8);
-
-    let formatted = '';
-
-    if (day) {
-      formatted += day;
-    }
-    if (month) {
-      formatted += '.' + month;
-    }
-    if (year) {
-      formatted += '.' + year;
-    }
-
-    $(this).val(formatted);
-  });
-  
 }
 datePicker();
 

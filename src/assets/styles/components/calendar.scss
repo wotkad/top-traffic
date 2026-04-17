@@ -25,7 +25,11 @@
 }
 
 .daterangepicker .drp-calendar.left {
-  @apply p-2 pb-[62px];
+  @apply p-2 pb-[92px];
+}
+
+.daterangepicker.monthrangepicker .drp-calendar.left {
+  @apply p-2;
 }
 
 .daterangepicker .drp-calendar.right {
@@ -55,12 +59,8 @@
   @apply max-w-full;
 }
 
-.daterangepicker .drp-buttons .btn {
-  @apply hidden;
-}
-
 .daterangepicker.show-calendar .drp-buttons {
-  @apply hidden p-2 pb-0 border-none;
+  @apply p-0 pb-0 border-none;
 }
 
 .daterangepicker .drp-calendar.left .calendar-table {
@@ -104,7 +104,7 @@
 }
 
 .daterangepicker .calendar-table td.monthPanel {
-  @apply px-[11px] h-[22px] text-left;
+  @apply px-[11px] h-[22px] text-center;
 }
 
 .daterangepicker .calendar-table td.monthPanel span {
@@ -193,14 +193,14 @@
 
 .daterangepicker .calendar-table td.start-date.active {
   &:before {
-    @apply content-[''] absolute w-1/2 left-0 h-[22px] bg-purple-300;
+    @apply content-[''] absolute w-1/2 left-0 h-[22px];
   }
   @apply bg-transparent rounded-l-[3px];
 }
 
 .daterangepicker .calendar-table td.end-date.active {
   &:before {
-    @apply content-[''] absolute w-1/2 right-0 h-[22px] bg-purple-300;
+    @apply content-[''] absolute w-1/2 left-0 h-[22px] bg-purple-300;
   }
   @apply bg-transparent rounded-r-[3px];
 }
@@ -224,11 +224,14 @@
 
 .daterangepicker .calendar-table td.active.start-date:not(.end-date) {
   &:before {
-    @apply right-0 left-auto;
+    @apply right-0 left-auto bg-purple-300;
+  }
+  span {
+    @apply text-white-000;
   }
   &:last-child {
     &:before {
-      @apply rounded-r-[3px];
+      @apply bg-purple-300 rounded-r-[3px];
     }
   }
 }
@@ -245,7 +248,7 @@
 
 .daterangepicker td.available:hover {
   span {
-    @apply bg-black-600;
+    @apply bg-purple-300;
   }
   @apply bg-transparent;
 }
@@ -304,11 +307,15 @@
 }
 
 .daterangepicker .calendar-table td.off.ends.in-range.available:not(.end-date) {
-  @apply bg-black-600;
+  @apply bg-purple-300;
+}
+
+.daterangepicker .calendar-table td.off.ends.in-range.available.start-date:not(.end-date) {
+  @apply bg-transparent;
 }
 
 .daterangepicker td.weekend.in-range span {
-  @apply text-black-100;
+  @apply text-blue-000;
 }
 
 .daterangepicker td.weekend.start-date:hover span {
@@ -323,9 +330,113 @@
   @apply flex justify-between items-center p-0;
 }
 
-.datetimepicker.daterangepicker.show-calendar .drp-buttons .applyBtn {
+.daterangepicker .cancelBtn {
+  @apply hidden;
+}
+
+.daterangepicker.show-calendar .drp-buttons .applyBtn {
   &:hover {
     @apply bg-blue-000 border-blue-000 text-white-000;
   }
   @apply block right-4 bottom-3.5 left-4 absolute bg-black-700 m-0 p-0 border border-black-500 rounded-md w-[calc(100%-32px)] h-[34px] font-medium text-black-200 transition-all duration-300;
+}
+
+.daterangepicker .calendar-time {
+  @apply hidden;
+}
+
+.custom-time {
+  &__start,
+  &__end {
+    input {
+      @apply bg-black-600 px-1.5 py-2 rounded-[5px] max-w-[51px] h-[26px] text-12-m-p text-center;
+    }
+    @apply justify-between items-center gap-x-1.5;
+  }
+  &__start {
+    @apply flex;
+  }
+  &__end {
+    @apply hidden;
+  }
+  &__clear {
+    &:hover {
+      svg {
+        path {
+          @apply stroke-black-100;
+        }
+      }
+    }
+    svg {
+      path {
+        @apply transition-all duration-300;
+      }
+    }
+    &.active {
+      @apply block;
+    }
+    @apply hidden -top-2 -right-2 absolute;
+  }
+  &__toggle {
+    span {
+      @apply text-12-m-p text-black-200;
+    }
+    &.active {
+      svg {
+        path {
+          @apply fill-black-100;
+        }
+      }
+      span {
+        @apply text-black-100;
+      }
+      @apply cursor-pointer;
+    }
+    @apply flex items-center gap-x-[2px] cursor-not-allowed;
+  }
+  &.active {
+    .custom-time {
+      &__start,
+      &__end {
+        input {
+          @apply w-full max-w-[87px] text-right;
+        }
+        @apply relative;
+      }
+      &__start {
+        &:before {
+          @apply left-[31px] absolute text-12-m-p text-black-200 content-['С'];
+        }
+      }
+      &__end {
+        &:before {
+          @apply left-1.5 absolute text-12-m-p text-black-200 content-['До'];
+        }
+        @apply flex;
+      }
+      &__toggle {
+        @apply hidden;
+      }
+    }
+  }
+  @apply bottom-[62px] left-3.5 absolute flex justify-between items-center w-[calc(100%-28px)];
+}
+
+.calendar-clear {
+  &:hover {
+    svg {
+      path {
+        @apply stroke-black-100;
+      }
+    }
+  }
+  svg {
+    path {
+      @apply transition-all duration-300;
+    }
+  }
+  &.active {
+    @apply block;
+  }
+  @apply hidden absolute -top-2 -right-2
 }

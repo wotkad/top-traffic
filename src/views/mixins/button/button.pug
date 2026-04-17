@@ -34,19 +34,20 @@ mixin button(data = {})
       if modefied.icon && modefied.iconPos == 'before'
         svg.calendar-icon
           use(xlink:href="#" + modefied.icon)
-      if modefied.isDatePicker && !modefied.isSinglePicker
-        input.datepicker.datepicker-range(type="text" name="date" placeholder=modefied.placeholder class=modefied.calendarClass value=modefied.value)
-      if modefied.isMonthPicker
-        input.monthpicker(type="text" name="date" placeholder="дд.мм.гггг чч:мм - дд.мм.гггг чч:мм" class=modefied.calendarClass readonly value=modefied.value)
-      if modefied.isDatePicker && modefied.isSinglePicker && !modefied.isStatusTrigger
-        input.datepicker.datepicker-single(type="text" name="date" placeholder="дд.мм.гггг" class=modefied.calendarClass value=modefied.value)
-      if modefied.isDateTimePicker && modefied.isSinglePicker && !modefied.isStatusTrigger
-        input.datepicker.datetimepicker-single(type="text" name="date" placeholder="дд.мм.гггг" class=modefied.calendarClass value=modefied.value)
-      if modefied.isDatePicker && modefied.isSinglePicker && modefied.isStatusTrigger
+      if modefied.class.includes('calendar-month')
+        input.monthpicker(type="text" name="date" placeholder="месяц" class=modefied.calendarClass readonly value=modefied.value)
+      if modefied.class.includes('calendar-range')
+        input.datepicker.datetimepicker-range.datepicker-range(type="text" name="date" placeholder="дд.мм.гггг" class=modefied.calendarClass value=modefied.value)
+        span.calendar-clear
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="16.0005" height="16.0005" rx="8.00024" fill="#E3E5EB"/>
+            <rect width="4.86957" height="4.86957" transform="translate(5.56445 5.56543)" fill="#E3E5EB"/>
+            <path d="M5.56445 5.56543L10.434 10.4349" stroke="#959BA4" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M5.56445 10.4346L10.434 5.56511" stroke="#959BA4" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+      if modefied.class.includes('calendar-status')
         span.status(class="status-green status__trigger") Активный
         input.datepicker.datepicker-single(type="text" name="date" placeholder="дд.мм.гггг" class=modefied.calendarClass value=modefied.value)
-      if modefied.isCalendar
-        <div class="button button-icon sm calendar-close-icon" type="button" aria-label="button"><svg viewBox="0 0 10 6" width="10" height="6"><use xlink:href="#other-angle-down-icon"></use></svg></div>
 
   if modefied.view == 'link'
     a(

@@ -14,6 +14,28 @@ block content
     include ../components/sidebar
     include ../components/header
     .wrapper
+      .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
+        h2.text-2xl.font-bold.pb-4.border-b.w-full Календарь
+        .flex.items-center.gap-x-4
+          +button({
+            class: 'button-with-icon calendar-month',
+            icon: 'other-calendar-icon',
+            isCalendar: true,
+            isDatePicker: false,
+            isMonthPicker: true,
+            value: 'Все',
+            view: 'button',
+          })
+          +button({
+            class: 'button-with-icon calendar-range',
+            icon: 'other-calendar-icon',
+            isCalendar: true,
+            isDatePicker: true,
+            isRangePicker: true,
+            isSingleicker: false,
+            isDateTimePicker: true,
+            view: 'button',
+          })
       .mt-6.flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
         h2.text-2xl.font-bold.pb-4.border-b.w-full Кнопки
         +button({
@@ -374,48 +396,6 @@ block content
         +search({
           class: 'transparent',
         })
-      .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
-        h2.text-2xl.font-bold.pb-4.border-b.w-full Календарь
-        .flex.items-center.gap-x-4
-          +button({
-            class: 'button-with-icon',
-            icon: 'other-calendar-icon',
-            isCalendar: true,
-            isDatePicker: false,
-            isMonthPicker: true,
-            value: 'Все',
-            view: 'button',
-          })
-          +button({
-            class: 'button-with-icon',
-            icon: 'other-calendar-icon',
-            isCalendar: true,
-            isDatePicker: true,
-            isMonthPicker: false,
-            value: 'Все',
-            view: 'button',
-          })
-          +button({
-            class: 'button-with-icon',
-            icon: 'other-calendar-icon',
-            isCalendar: true,
-            isDatePicker: true,
-            isMonthPicker: false,
-            isSinglePicker: true,
-            value: 'Все',
-            view: 'button',
-          })
-          +button({
-            class: 'button-with-icon',
-            icon: 'other-calendar-icon',
-            isCalendar: true,
-            isDatePicker: false,
-            isDateTimePicker: true,
-            isMonthPicker: false,
-            isSinglePicker: true,
-            value: 'Все',
-            view: 'button',
-          })
       .flex.flex-col.gap-y-4.items-start.p-4.border.rounded-md.mb-4
         h2.text-2xl.font-bold.pb-4.border-b.w-full Поля ввода значений
         form(action="#").w-full

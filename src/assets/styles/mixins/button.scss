@@ -15,7 +15,7 @@ label.button {
     &:after {
       @apply invisible content-[attr(data-value)_'_'] whitespace-pre-wrap;
     }
-    @apply inline-grid relative items-center grid-cols-[18px_1fr] pr-7 align-top;
+    @apply inline-grid relative items-center grid-cols-[18px_1fr] align-top;
   }
   &.only-input {
     svg {

@@ -1031,6 +1031,15 @@
     }
   }
   td {
+    .calendar-clear svg {
+      rect {
+        @apply hidden;
+      }
+      @apply block;
+    }
+    .calendar-clear {
+      @apply -top-px -right-1;
+    }
     &.cell-pasted {
       overflow: visible !important;
       &:before {

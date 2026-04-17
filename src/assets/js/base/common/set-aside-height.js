@@ -172,8 +172,6 @@ function initTableProxyScroll() {
       width: wrapperWidth - 52
     });
 
-    console.log(wrapperOffset.left);
-
     const tableWidth = $table[0].scrollWidth;
     $proxyInner.width(tableWidth);
 

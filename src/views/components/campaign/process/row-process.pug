@@ -55,12 +55,13 @@ tr.concept
     })
   td.only-text
     +button({
-      class: 'button-with-icon only-input start-day',
+      class: 'button-with-icon calendar-range only-input start-day',
+      icon: 'other-calendar-icon',
       isCalendar: true,
       isDatePicker: true,
-      isMonthPicker: false,
-      isSinglePicker: true,
-      value: 'дд.мм.гггг',
+      isRangePicker: true,
+      isSingleicker: false,
+      isDateTimePicker: true,
       view: 'button',
     })
   td.only-text
