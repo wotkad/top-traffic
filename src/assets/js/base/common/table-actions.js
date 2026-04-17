@@ -24,8 +24,6 @@ $(document).ready(function () {
       let rows = pastedData.split(/\r?\n/).filter(r => r.length > 0);
       let data = rows.map(row => row.split('\t'));
 
-      // Если вставляется один элемент — заменяем содержимое выделенной ячейки
-      // Если вставляется один элемент
       if (data.length === 1 && data[0].length === 1) {
         const value = data[0][0];
 
@@ -39,6 +37,7 @@ $(document).ready(function () {
 
           if ($input.length) {
             $input.val(value);
+            updateInputWidth($input);
             $cell.addClass('cell-pasted');
 
             // курсор если редактируем
@@ -84,6 +83,7 @@ $(document).ready(function () {
 
               $input.val(value);
               $cell.addClass('cell-pasted');
+              updateInputWidth($input);
 
               if (editingCell && editingCell[0] === $cell[0]) {
                 let el = $input[0];
@@ -165,6 +165,16 @@ $(document).ready(function () {
   $(document).on('mouseup', function () {
     isDragging = false;
   });
+
+  function updateInputWidth($input) {
+    if (!$input || !$input.length) return;
+
+    const val = $input.val() || '';
+    const minWidth = 20; // чтобы не схлопывался
+    const width = Math.max(minWidth, val.length * 6.5);
+
+    $input.css('width', width + 'px');
+  }
 
   // ===== СТРЕЛКИ =====
   $(document).on('keydown', function (e) {
@@ -257,6 +267,18 @@ $(document).ready(function () {
             // 🟢 открыть
             $dropdownBtn.first().trigger('click');
           }
+
+          e.preventDefault();
+          return;
+        }
+
+        // ===== DATEPICKER (просто фокус) =====
+        const $dateInput = $active.find('.datepicker');
+
+        if ($dateInput.length) {
+          selectCell($active); // чтобы поведение было как у остальных
+
+          $dateInput.focus();
 
           e.preventDefault();
           return;

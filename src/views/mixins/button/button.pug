@@ -37,7 +37,7 @@ mixin button(data = {})
       if modefied.class.includes('calendar-month')
         input.monthpicker(type="text" name="date" placeholder="месяц" class=modefied.calendarClass readonly value=modefied.value)
       if modefied.class.includes('calendar-range')
-        input.datepicker.datetimepicker-range.datepicker-range(type="text" name="date" placeholder="дд.мм.гггг" class=modefied.calendarClass value=modefied.value)
+        input.datepicker.datetimepicker-range.datepicker-range.could-copy(type="text" name="date" placeholder="дд.мм.гггг" class=modefied.calendarClass value=modefied.value)
         span.calendar-clear
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect width="16.0005" height="16.0005" rx="8.00024" fill="#E3E5EB"/>
