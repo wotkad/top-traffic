@@ -173,7 +173,9 @@ $(document).ready(function () {
     const minWidth = 20; // чтобы не схлопывался
     const width = Math.max(minWidth, val.length * 6.5);
 
-    $input.css('width', width + 'px');
+    if ($input.hasClass('datepicker')) {
+      $input.css('width', width + 'px');
+    }
   }
 
   // ===== СТРЕЛКИ =====
@@ -440,6 +442,7 @@ $(document).ready(function () {
     }
 
     $('.table-input-new__list.active').removeClass('active');
+    $('.cell-pasted').removeClass('cell-pasted');
 
     editingCell = null;
     enterEditMode = false;
@@ -527,6 +530,7 @@ $(document).ready(function () {
 
   function resetSelection() {
     $('.cell-selected').removeClass('cell-selected');
+    $('.cell-pasted').removeClass('cell-pasted');
   }
 
   function selectRange($start, $end) {

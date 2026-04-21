@@ -299,7 +299,7 @@
 // }
 
 .monthrangepicker .calendar-table td span {
-  @apply text-12-r-md leading-[22px];
+  @apply text-12-m-md leading-[22px];
 }
 
 .daterangepicker .calendar-table td.off.ends.active.end-date.in-range.available span {
@@ -335,10 +335,13 @@
 }
 
 .daterangepicker.show-calendar .drp-buttons .applyBtn {
-  &:hover {
-    @apply bg-blue-000 border-blue-000 text-white-000;
+  &.active {
+    &:hover {
+      @apply bg-blue-025 border-blue-025 text-white-000;
+    }
+    @apply bg-blue-000 border-blue-000 text-white-000 cursor-pointer pointer-events-auto;
   }
-  @apply block right-4 bottom-3.5 left-4 absolute bg-black-700 m-0 p-0 border border-black-500 rounded-md w-[calc(100%-32px)] h-[34px] font-medium text-black-200 transition-all duration-300;
+  @apply block right-4 bottom-3.5 left-4 absolute bg-black-700 m-0 p-0 border border-black-500 rounded-md w-[calc(100%-32px)] h-[34px] font-medium text-black-200 transition-all duration-300 cursor-not-allowed pointer-events-none;
 }
 
 .daterangepicker .calendar-time {
@@ -381,7 +384,7 @@
     span {
       @apply text-12-m-p text-black-200;
     }
-    &.active {
+    &:hover {
       svg {
         path {
           @apply fill-black-100;
@@ -390,9 +393,11 @@
       span {
         @apply text-black-100;
       }
-      @apply cursor-pointer;
     }
-    @apply flex items-center gap-x-[2px] cursor-not-allowed;
+    &.active {
+      @apply cursor-pointer pointer-events-auto;
+    }
+    @apply flex items-center gap-x-[2px] cursor-not-allowed pointer-events-none;
   }
   &.active {
     .custom-time {
@@ -434,9 +439,13 @@
     path {
       @apply transition-all duration-300;
     }
+    rect {
+      @apply hidden;
+    }
+    @apply w-6 h-6;
   }
   &.active {
     @apply block;
   }
-  @apply hidden absolute -top-2 -right-2
+  @apply hidden right-0 absolute;
 }

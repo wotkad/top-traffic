@@ -103,8 +103,8 @@ export default function datePicker() {
         if ($container.find('.custom-time').length) return;
 
         // Создаём кастомные инпуты
-        const startTime = picker.startDate.format('HH:mm');
-        const endTime = picker.endDate.format('HH:mm');
+        const startTime = "09:00";
+        const endTime = "23:59";
 
         const html = `
           <div class="custom-time">
@@ -157,11 +157,18 @@ export default function datePicker() {
           const [h, m] = val.split(':');
 
           if (h !== undefined && m !== undefined) {
+
+            if (!picker.endDate) {
+              picker.endDate = picker.startDate.clone();
+            }
+
             picker.endDate.set({
               hour: +h || 0,
               minute: +m || 0
             });
           }
+
+          validateEndTime($container); // 👈 вот так
         });
 
       }, 0);
@@ -174,6 +181,34 @@ export default function datePicker() {
       });
 
       $this.off('apply.daterangepicker').on('apply.daterangepicker', function(ev, picker) {
+
+        const $container = picker.container;
+
+        // 👉 берём значения из инпутов
+        const startVal = $container.find('.time-start').val();
+        const endVal = $container.find('.time-end').val();
+
+        if (startVal) {
+          const [h, m] = startVal.split(':');
+          picker.startDate.set({
+            hour: +h || 0,
+            minute: +m || 0,
+            second: 0
+          });
+        }
+
+        if (!picker.endDate) {
+          picker.endDate = picker.startDate.clone();
+        }
+
+        if (endVal) {
+          const [h, m] = endVal.split(':');
+          picker.endDate.set({
+            hour: +h || 0,
+            minute: +m || 0,
+            second: 0
+          });
+        }
 
         const onlyStartSelected =
           !picker.endDate ||
@@ -212,9 +247,12 @@ export default function datePicker() {
         $this.removeClass('active');
         $this.val(result);
         $this.parent().attr('data-value', result);
-        $this.css('width', $this.val().length * 6.5);
+        $this.css('width', $this.val().length * 6.6);
         if (isSameDay) {
-          $this.css('width', $this.val().length * 7);
+          $this.css('width', $this.val().length * 7.3);
+        }
+        if (isSameDay && $('.custom-time').hasClass('active')) {
+          $this.css('width', $this.val().length * 6.8);
         }
         $this.parent().find('.calendar-clear').addClass('active');
       });
@@ -222,7 +260,24 @@ export default function datePicker() {
     });
   });
 
-  $(document).on('click', '.calendar-clear', function () {
+  function validateEndTime($container) {
+    const $apply = $container.find('.applyBtn');
+    const isRange = $container.find('.custom-time').hasClass('active');
+    const val = $container.find('.time-end').val();
+
+    const isValid = /^([01]\d|2[0-3]):([0-5]\d)$/.test(val);
+
+    if (isRange && !isValid) {
+      $apply.removeClass('active');
+    } else {
+      $apply.addClass('active');
+    }
+  }
+
+  $(document).on('click', '.calendar-clear', function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+
     const $btn = $(this);
     const $wrapper = $btn.parent();
     const $input = $wrapper.find('.datetimepicker-range');
@@ -244,8 +299,12 @@ export default function datePicker() {
     $btn.removeClass('active');
     $input.removeClass('active');
 
-    // если нужно — скрываем календарь
     picker.hide();
+    $('.custom-time').removeClass('active');
+    $(".time-start").val('09:00');
+    $(".time-end").val('23:59');
+    
+    $('.applyBtn').removeClass('active');
   });
 
   $('.wrapper, .filter__container').on('scroll', function() {
@@ -257,6 +316,19 @@ export default function datePicker() {
     const $container = $(this).closest('.daterangepicker');
     $('.custom-time__clear').addClass('active');
     $container.find('.custom-time').toggleClass('active');
+
+    // 👇 добавь это
+    const picker = $('.datetimepicker-range[data-id="' + $container.attr('data-id') + '"]').data('daterangepicker');
+    if (picker) {
+      const val = $container.find('.time-end').val();
+      const isValid = /^([01]\d|2[0-3]):([0-5]\d)$/.test(val);
+
+      if ($container.find('.custom-time').hasClass('active') && !isValid) {
+        $container.find('.applyBtn').removeClass('active');
+      } else {
+        $container.find('.applyBtn').addClass('active');
+      }
+    }
   });
 
   $(document).on('click', '.custom-time__clear', function () {

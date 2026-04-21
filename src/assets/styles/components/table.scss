@@ -1038,7 +1038,7 @@
       @apply block;
     }
     .calendar-clear {
-      @apply -top-px -right-1;
+      @apply -top-1 -right-1;
     }
     &.cell-pasted {
       overflow: visible !important;
