@@ -104,7 +104,7 @@
 }
 
 .daterangepicker .calendar-table td.monthPanel {
-  @apply px-[11px] h-[22px] text-center;
+  @apply px-[6.5px] h-[22px] text-center;
 }
 
 .daterangepicker .calendar-table td.monthPanel span {
@@ -267,6 +267,15 @@
   }
   &:last-child {
     @apply rounded-r-[3px];
+  }
+}
+
+.daterangepicker tr td {
+  &:first-child {
+    padding-left: 0 !important;
+  }
+  &:last-child {
+    padding-right: 0 !important;
   }
 }
 
