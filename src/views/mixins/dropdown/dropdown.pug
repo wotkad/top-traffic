@@ -24,7 +24,7 @@ mixin dropdown(data = {})
           .dropdown__inner(class=isStatus)
             if modefied.image
               img.dropdown__image(src=modefied.src, alt=modefied.alt)
-            if modefied.isAll
+            if modefied.isAll && !modefied.title
               .dropdown__title.dropdown__title-all Все
             else if modefied.isAny
               .dropdown__title.dropdown__title-all Любое

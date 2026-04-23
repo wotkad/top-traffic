@@ -115,6 +115,8 @@ import "./components/toggle/toggle-filter-format-slider";
 import "./components/toggle/toggle-reasons";
 import "./components/toggle/toggle-automatic-list-number";
 import "./components/toggle/toggle-automatic-list-link";
+import "./components/toggle/toggle-admin-popup-tip";
+import "./components/toggle/toggle-admin-popup-dropdowns";
 
 import "./components/scroll/scroll-to-top";
 import "./components/scroll/scroll-filter";
