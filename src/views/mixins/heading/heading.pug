@@ -144,6 +144,7 @@ mixin heading(data = {})
           if modefied.isChannel || modefied.isAdmin
             .heading__bottom
               a(href="https://t.me/" + modefied.tg target="_blank").heading__channel= modefied.tg
+                img(src="/assets/images/max.svg", alt="max" width="12px" height="12px")
               if modefied.isChannel
                 .heading__icons
                   svg

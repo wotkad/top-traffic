@@ -1032,13 +1032,10 @@
   }
   td {
     .calendar-clear svg {
-      rect {
-        @apply hidden;
-      }
-      @apply block;
+      @apply block w-[7px] h-[7px];
     }
     .calendar-clear {
-      @apply -top-1 -right-1;
+      @apply top-auto right-1;
     }
     &.cell-pasted {
       overflow: visible !important;

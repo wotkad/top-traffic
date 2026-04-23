@@ -81,7 +81,7 @@
     &:hover {
       @apply text-blue-200;
     }
-    @apply text-12-m-md transition-all duration-300;
+    @apply flex items-center gap-x-1 text-12-m-md transition-all duration-300;
   }
   &__lastupdate {
     svg {

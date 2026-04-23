@@ -358,6 +358,11 @@
 }
 
 .custom-time {
+  &__svg {
+    &:nth-child(2) {
+      @apply left-0 absolute opacity-0;
+    }
+  }
   &__start,
   &__end {
     input {
@@ -402,11 +407,16 @@
       span {
         @apply text-black-100;
       }
+      .custom-time__svg {
+        &:nth-child(2) {
+          @apply opacity-100;
+        }
+      }
     }
     &.active {
       @apply cursor-pointer pointer-events-auto;
     }
-    @apply flex items-center gap-x-[2px] cursor-not-allowed pointer-events-none;
+    @apply relative flex items-center gap-x-[2px] cursor-not-allowed pointer-events-none;
   }
   &.active {
     .custom-time {

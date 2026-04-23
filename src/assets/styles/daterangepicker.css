@@ -203,19 +203,31 @@
   color: #999;
 }
 
-.daterangepicker .calendar-table td.end-date.active.today span {
-  background-color: #F4F5F6;
-  color: #374151;
+.daterangepicker .calendar-table td.end-date.active.today span,
+.daterangepicker .calendar-table td.start-date.active.today span {
+  background-color: #005CFF;
+  color: #fff;
 }
 
+.daterangepicker .calendar-table td.start-date.active.today:hover span,
 .daterangepicker .calendar-table td.end-date.active.today:hover span {
-  background-color: #E6EFFE;
-  color: #374151;
+  background-color: #005CFF;
+  color: #fff;
 }
 
 .daterangepicker .calendar-table td.end-date.active.today.in-range span {
   background-color: #005CFF;
   color: #fff;
+}
+
+.daterangepicker .calendar-table td.today:not(.in-range) span {
+  background-color: #F4F5F6;
+  color: #374151;
+}
+
+.daterangepicker .calendar-table td.today:not(.in-range):hover span {
+  background-color: #E6EFFE;
+  color: #374151;
 }
 
 .daterangepicker td.in-range {

@@ -127,9 +127,13 @@ export default function datePicker() {
               </button>
             </div>
             <button class="custom-time__toggle">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg class="custom-time__svg" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M10 4.375C13.1066 4.375 15.625 6.8934 15.625 10C15.625 10.3452 15.3451 10.625 15 10.625H10C9.65483 10.625 9.375 10.3452 9.375 10V5C9.375 4.65483 9.65483 4.375 10 4.375Z" fill="#959BA4"/>
               <path fill-rule="evenodd" clip-rule="evenodd" d="M18.125 10C18.125 5.51269 14.4874 1.875 10 1.875C5.51269 1.875 1.875 5.51269 1.875 10C1.875 14.4874 5.51269 18.125 10 18.125C14.4874 18.125 18.125 14.4874 18.125 10ZM10 3.125C13.797 3.125 16.875 6.20304 16.875 10C16.875 13.797 13.797 16.875 10 16.875C6.20304 16.875 3.125 13.797 3.125 10C3.125 6.20304 6.20304 3.125 10 3.125Z" fill="#959BA4"/>
+              </svg>
+              <svg class="custom-time__svg" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 4.375C13.1066 4.375 15.625 6.8934 15.625 10C15.625 13.1066 13.1066 15.625 10 15.625C9.65483 15.625 9.375 15.3451 9.375 15V5C9.375 4.65483 9.65483 4.375 10 4.375Z" fill="#374151"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M18.125 10C18.125 5.51269 14.4874 1.875 10 1.875C5.51269 1.875 1.875 5.51269 1.875 10C1.875 14.4874 5.51269 18.125 10 18.125C14.4874 18.125 18.125 14.4874 18.125 10ZM10 3.125C13.797 3.125 16.875 6.20304 16.875 10C16.875 13.797 13.797 16.875 10 16.875C6.20304 16.875 3.125 13.797 3.125 10C3.125 6.20304 6.20304 3.125 10 3.125Z" fill="#374151"/>
               </svg>
               <span>Интервал</span>
             </button>
@@ -328,6 +332,14 @@ export default function datePicker() {
       } else {
         $container.find('.applyBtn').addClass('active');
       }
+    }
+  });
+
+  $(document).on('click', function (e) {
+    const $target = $(e.target);
+
+    if (!$target.closest('.daterangepicker').length) {
+      $('.custom-time').removeClass('active');
     }
   });
 
