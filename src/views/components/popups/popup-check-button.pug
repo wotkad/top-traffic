@@ -1,38 +1,34 @@
-.popup__bg(data-popup-name="check-adaptation")
-.popup(data-popup-name="check-adaptation")
+.popup__bg(data-popup-name="check-button")
+.popup(data-popup-name="check-button")
   .popup__wrapper(data-scroll-lock-scrollable)
-    .input__label Наличие адаптации
+    .input__label Интеграция кнопки
     form(action="#")
       .popup__labels
         label.popup__label
-          input(type="radio" name="adaptation" value="required")
-          span Обязательно
+          input(type="radio" name="check-button" value="required")
+          span Доступна
         label.popup__label
-          input(type="radio" name="adaptation" value="possible")
-          span Возможно
-        label.popup__label
-          input(type="radio" name="adaptation" value="none")
-          span Отсутствует
-        label.popup__label
-          input(type="radio" name="adaptation" value="depends")
+          input(type="radio" name="check-button" value="depends")
           span Зависит от поста
+        label.popup__label
+          input(type="radio" name="check-button" value="none")
+          span Недоступна
       .popup__form
         .popup__col
           +input({
             class: 'only-numbers',
             isDisabled: true,
             isLabel: true,
-            label: 'Доплата за адаптацию',
+            label: 'Доплата за интеграцию',
             smallLabel: '% от себестоимости',
-            name: 'adaptation',
+            name: 'check-button',
             placeholder: '0',
             type: 'text',
             isTip: true,
             tip: `
               Ввод доплаты доступен для вариантов<br>
               <ul>
-                <li>Обязательно</li>
-                <li>Возможно</li>
+                <li>Доступна</li>
                 <li>Зависит от поста</li>
               </ul>
             `
@@ -40,13 +36,13 @@
     .popup__buttons
       +button({
         class: 'button-base lg',
-        dataPopupName: 'check-adaptation',
+        dataPopupName: 'check-button',
         title: 'Отмена',
         view: 'button',
       })
       +button({
         class: 'button-with-icon-blue lg',
-        dataPopupName: 'check-adaptation',
+        dataPopupName: 'check-button',
         isDisabled: true,
         title: 'Сохранить',
         type: 'submit',

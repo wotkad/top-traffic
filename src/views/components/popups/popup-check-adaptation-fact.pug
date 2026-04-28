@@ -1,0 +1,61 @@
+.popup__bg(data-popup-name="check-adaptation-fact")
+.popup(data-popup-name="check-adaptation-fact")
+  .popup__wrapper(data-scroll-lock-scrollable)
+    .input__label Фактическое наличие адаптации
+    form(action="#")
+      .popup__labels
+        label.popup__label
+          input(type="radio" name="adaptation-fact" value="present")
+          span Присутствует
+        label.popup__label
+          input(type="radio" name="adaptation-fact" value="none")
+          span Отсутствует
+      .popup__form
+        .popup__col
+          <div class="input input-with-label">
+            <div class="input__label">Доплата за адаптацию
+              <div class="button">
+                <svg viewBox="0 0 17 16" width="17" height="16"><use xlink:href="#other-info-icon"></use></svg>
+                <span>Ввод доплаты доступен для вариантов<br>
+                  <ul>
+                    <li>Обязательно</li>
+                    <li>Возможно</li>
+                    <li>Зависит от поста</li>
+                  </ul>
+                </span>
+              </div>
+            </div>
+            <div class="input__containers">
+              <div class="input__col">
+                <div class="input-small-label">% от себестоимости</div>
+                <div class="input__container">
+                  <input class="input__el only-numbers" disabled="" type="text" autocomplete="on" placeholder="0" name="check-button-fact">
+                </div>
+              </div>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11.3486 8.43164C11.4166 8.45137 11.4794 8.48645 11.5342 8.5332L14.3203 10.5371V10.5381C14.3902 10.5888 14.4471 10.6569 14.4863 10.7363C14.5256 10.8159 14.5469 10.9044 14.5469 10.9941C14.5469 11.0839 14.5256 11.1724 14.4863 11.252C14.4471 11.3314 14.3902 11.3995 14.3203 11.4502V11.4512L11.5342 13.4541L11.5352 13.4551C11.452 13.5178 11.3523 13.55 11.25 13.5488V13.5498C11.1391 13.5489 11.0312 13.5096 10.9434 13.4385C10.8557 13.3674 10.7919 13.2682 10.7607 13.1562C10.7296 13.0443 10.7321 12.9246 10.7686 12.8145C10.8051 12.7042 10.8737 12.6081 10.9648 12.542H10.9658L12.3496 11.5449H1.96387C1.82648 11.5448 1.69559 11.4862 1.59961 11.3828C1.50363 11.2792 1.4502 11.1391 1.4502 10.9941C1.4502 10.8491 1.50363 10.7091 1.59961 10.6055C1.69559 10.502 1.82648 10.4435 1.96387 10.4434H12.3496L10.9658 9.44629V9.44531C10.9045 9.40901 10.8503 9.36074 10.8076 9.30176C10.7639 9.24129 10.7321 9.17156 10.7148 9.09766C10.6976 9.02373 10.6951 8.94619 10.707 8.87109C10.7189 8.79629 10.7452 8.72477 10.7842 8.66113C10.8234 8.59727 10.8753 8.54266 10.9355 8.50098C10.9958 8.4593 11.0635 8.43086 11.1348 8.41895C11.206 8.40704 11.2791 8.4115 11.3486 8.43164ZM4.84082 2.4668C4.96586 2.50083 5.0734 2.58399 5.14355 2.69824C5.21368 2.81247 5.24197 2.9503 5.22266 3.08496C5.20333 3.21958 5.13755 3.34214 5.03809 3.42871L5.03516 3.43262L5.03418 3.43164L3.65137 4.42871H14.0361C14.1736 4.42883 14.3044 4.48826 14.4004 4.5918C14.4964 4.6954 14.5498 4.83547 14.5498 4.98047C14.5497 5.12534 14.4963 5.26464 14.4004 5.36816C14.3044 5.47179 14.1737 5.53113 14.0361 5.53125H3.65137L5.03418 6.52832H5.03516C5.12615 6.5944 5.1949 6.68975 5.23145 6.7998C5.268 6.91007 5.27047 7.03049 5.23926 7.14258C5.20805 7.25461 5.14437 7.35377 5.05664 7.4248C4.96876 7.49592 4.86085 7.53423 4.75 7.53516C4.64782 7.53628 4.54887 7.50297 4.46582 7.44043V7.44141L1.67969 5.43652C1.6092 5.38633 1.55162 5.31854 1.51172 5.23926C1.47176 5.1597 1.45064 5.07057 1.4502 4.98047V4.97949C1.45069 4.88954 1.47184 4.80111 1.51172 4.72168C1.55166 4.64216 1.609 4.57373 1.67969 4.52344L4.46582 2.51855L4.46973 2.51562C4.58296 2.45019 4.71571 2.4328 4.84082 2.4668Z" fill="#959BA4" stroke="#959BA4" stroke-width="0.1"/>
+              </svg>
+              <div class="input__col">
+                <div class="input-small-label">Сумма доплаты</div>
+                <div class="input__container">
+                  <input class="input__el only-numbers" disabled="" type="text" autocomplete="on" placeholder="0" name="check-button-fact">
+                </div>
+              </div>
+            </div>
+          </div>
+          span.popup__tipsmall Значения пересчитываются автоматически от себестоимости размещения
+    .popup__buttons
+      +button({
+        class: 'button-base lg',
+        dataPopupName: 'check-adaptation-fact',
+        title: 'Отмена',
+        view: 'button',
+      })
+      +button({
+        class: 'button-with-icon-blue lg',
+        dataPopupName: 'check-adaptation-fact',
+        isDisabled: true,
+        title: 'Сохранить',
+        type: 'submit',
+        view: 'button',
+      })

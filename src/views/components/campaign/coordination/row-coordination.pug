@@ -182,7 +182,7 @@ mixin row-coordination(data)
 
     td.text-right.table-input-two-rows
       .table-input-two-rows__row
-        .button(data-popup-name="check-adaptation")
+        .button(data-popup-name="check-adaptation-channels")
           span Обязательно, 5%
           button(type="button" aria-label="button")
             <svg viewBox="0 0 10 6" width="10" height="6"><use xlink:href="#other-angle-down-icon"></use></svg>
@@ -190,27 +190,15 @@ mixin row-coordination(data)
 
     td.text-right.table-input-two-rows
       .table-input-two-rows__row
-        +dropdown({
-          buttons: [
-            {
-              isChecked: true,
-              name: 'approval-client',
-              title: '––',
-            },
-            {
-              name: 'approval-client',
-              title: 'Да',
-            },
-            {
-              name: 'approval-client',
-              title: 'Нет',
-            },
-          ],
-          class: 'dropdown-radios dropdown-button',
-          isRadios: true,
-          isSearch: false,
-          title: '––',
-        })
+        .button(data-popup-name="check-button-channels")
+          span Возможно, 15%
+          .table-input-two-rows__row-mp 
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8.33464 2.5L3.7513 7.08333L1.66797 5" stroke="#005CFF" stroke-width="1.6666" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            span МП
+          button(type="button" aria-label="button")
+            <svg viewBox="0 0 10 6" width="10" height="6"><use xlink:href="#other-angle-down-icon"></use></svg>
         .table-input-two-rows__tip
           .button(data-popup-name="confirm-table-adaptation").call-confirm-table-adaptation Значение: Нет
           button(type="button")

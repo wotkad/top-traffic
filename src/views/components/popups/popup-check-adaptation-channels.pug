@@ -1,20 +1,20 @@
-.popup__bg(data-popup-name="check-adaptation")
-.popup(data-popup-name="check-adaptation")
+.popup__bg(data-popup-name="check-adaptation-channels")
+.popup(data-popup-name="check-adaptation-channels")
   .popup__wrapper(data-scroll-lock-scrollable)
     .input__label Наличие адаптации
     form(action="#")
       .popup__labels
         label.popup__label
-          input(type="radio" name="adaptation" value="required")
+          input(type="radio" name="adaptation-channels" value="required")
           span Обязательно
         label.popup__label
-          input(type="radio" name="adaptation" value="possible")
+          input(type="radio" name="adaptation-channels" value="possible")
           span Возможно
         label.popup__label
-          input(type="radio" name="adaptation" value="none")
+          input(type="radio" name="adaptation-channels" value="none")
           span Отсутствует
         label.popup__label
-          input(type="radio" name="adaptation" value="depends")
+          input(type="radio" name="adaptation-channels" value="depends")
           span Зависит от поста
       .popup__form
         .popup__col
@@ -24,7 +24,7 @@
             isLabel: true,
             label: 'Доплата за адаптацию',
             smallLabel: '% от себестоимости',
-            name: 'adaptation',
+            name: 'adaptation-channels',
             placeholder: '0',
             type: 'text',
             isTip: true,
@@ -37,16 +37,19 @@
               </ul>
             `
           })
+          label.mp
+            input(type="checkbox" name="mp")
+            span Включить в цену МП
     .popup__buttons
       +button({
         class: 'button-base lg',
-        dataPopupName: 'check-adaptation',
+        dataPopupName: 'check-adaptation-channels',
         title: 'Отмена',
         view: 'button',
       })
       +button({
         class: 'button-with-icon-blue lg',
-        dataPopupName: 'check-adaptation',
+        dataPopupName: 'check-adaptation-channels',
         isDisabled: true,
         title: 'Сохранить',
         type: 'submit',

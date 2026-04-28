@@ -278,42 +278,70 @@ export default function datePicker() {
     }
   }
 
-  $(document).on('click', '.calendar-clear', function (e) {
-    e.preventDefault();
-    e.stopPropagation();
-
-    const $btn = $(this);
-    const $wrapper = $btn.parent();
-    const $input = $wrapper.find('.datetimepicker-range');
-
+  function resetCalendarByInput($input) {
     const picker = $input.data('daterangepicker');
-
     if (!picker) return;
 
-    // сброс дат
+    const $wrapper = $input.parent();
+    const $btn = $wrapper.find('.calendar-clear');
+
     picker.setStartDate(moment());
     picker.setEndDate(moment());
 
-    // очистка input
+    picker._userSelected = false;
+
     $input.val('');
-    $input.parent().attr('data-value', '');
+    $wrapper.attr('data-value', '');
     $input.css('width', 0);
 
-    // убираем классы
     $btn.removeClass('active');
     $input.removeClass('active');
 
     picker.hide();
     $('.custom-time').removeClass('active');
+    $('.custom-time__toggle').removeClass('active');
+    $('.custom-time__clear').removeClass('active');
     $(".time-start").val('09:00');
     $(".time-end").val('23:59');
-    
+
     $('.applyBtn').removeClass('active');
+  }
+
+  $(document).on('click', '.calendar-clear', function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const $input = $(this).parent().find('.datetimepicker-range');
+    resetCalendarByInput($input);
   });
 
   $('.wrapper, .filter__container').on('scroll', function() {
     $('.daterangepicker').hide();
     $('.datepicker').removeClass('active');
+  });
+
+  $(document).on('mousedown', function (e) {
+    const $target = $(e.target);
+
+    if (
+      $target.closest('.daterangepicker').length ||
+      $target.closest('.datetimepicker-range').length
+    ) return;
+
+    $('.datetimepicker-range').each(function () {
+      const $input = $(this);
+      const picker = $input.data('daterangepicker');
+
+      if (picker && picker.isShowing) {
+        resetCalendarByInput($input);
+      }
+    });
+  });
+
+  $(document).on('click', '.custom-time__clear', function () {
+    const $container = $(this).closest('.daterangepicker');
+
+    $container.find('.custom-time').removeClass('active');
   });
 
   $(document).on('click', '.custom-time__toggle', function () {
@@ -333,20 +361,6 @@ export default function datePicker() {
         $container.find('.applyBtn').addClass('active');
       }
     }
-  });
-
-  $(document).on('click', function (e) {
-    const $target = $(e.target);
-
-    if (!$target.closest('.daterangepicker').length) {
-      $('.custom-time').removeClass('active');
-    }
-  });
-
-  $(document).on('click', '.custom-time__clear', function () {
-    const $container = $(this).closest('.daterangepicker');
-    $('.custom-time__clear').removeClass('active');
-    $container.find('.custom-time').removeClass('active');
   });
 
 }

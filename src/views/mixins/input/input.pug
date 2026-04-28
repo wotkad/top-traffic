@@ -12,6 +12,7 @@ mixin input(data = {})
             svg
               use(xlink:href="#other-info-icon")
             span !{modefied.tip}
+      .input-small-label= modefied.smallLabel
       .input__container
         input.input__el(value=modefied.value class=modefied.class disabled=modefied.isDisabled type=modefied.type required=modefied.isRequired autocomplete=modefied.autocomplete placeholder=modefied.placeholder name=modefied.name)
         if modefied.class == 'error'

@@ -1,112 +1,128 @@
-function toggleAdaptation() {
-    let lastChecked = null; // Храним последнюю выбранную радиокнопку
+function togglePopupGroup({ popupName, inputName }) {
+    let lastChecked = null;
 
-    // Обработка открытия popup
-    $(document).on('click', '[data-popup-name="check-adaptation"]', function() {
-        const selectedValue = $('input[name="adaptation"]:checked').val();
+    const $popup = $(`[data-popup-name="${popupName}"]`);
+
+    // Открытие popup
+    $(document).on('click', `[data-popup-name="${popupName}"]`, function () {
+        const selectedValue = $(`input[name="${inputName}"]:checked`).val();
+
         if (selectedValue) {
-            $(`input[name="adaptation"][value="${selectedValue}"]`).prop('checked', true);
-            lastChecked = $(`input[name="adaptation"][value="${selectedValue}"]`)[0];
+            const $el = $(`input[name="${inputName}"][value="${selectedValue}"]`);
+            $el.prop('checked', true);
+            lastChecked = $el[0];
         }
+
         updateFormState();
     });
 
-    // Обработка клика по radio
-    $(document).on('click', 'input[name="adaptation"][type="radio"]', function(e) {
+    // radio click
+    $(document).on('click', `input[name="${inputName}"][type="radio"]`, function () {
         if (lastChecked === this) {
-            $(this).prop('checked', false); // Снимаем выбор
+            $(this).prop('checked', false);
             lastChecked = null;
-            updateFormState(); // обновляем форму
+            updateFormState();
         } else {
             lastChecked = this;
         }
     });
 
-    // Обработка изменения radio
-    $(document).on('change', 'input[name="adaptation"][type="radio"]', function() {
-        updateFormState();
-    });
+    // change
+    $(document).on('change', `input[name="${inputName}"][type="radio"]`, updateFormState);
 
-    // Обработка ввода текста
-    $(document).on('input', 'input[name="adaptation"][type="text"]', function() {
-        validateAndUpdateSaveButton();
-    });
+    // text input
+    $(document).on('input', `input[name="${inputName}"][type="text"]`, validateAndUpdateSaveButton);
 
-    // Сохранение
-    $(document).on('click', '.popup__buttons button[type="submit"]', function(e) {
+    // submit
+    $(document).on('click', `[data-popup-name="${popupName}"] .popup__buttons button[type="submit"]`, function (e) {
         e.preventDefault();
-        saveAdaptationSettings();
+        save();
     });
 
-    // Отмена
-    $(document).on('click', '.popup__buttons button[type="button"]', function() {
-        $('input[name="adaptation"][type="text"]').val('').prop('disabled', true);
-        $('input[name="adaptation"][type="radio"]').prop('checked', false);
+    // cancel
+    $(document).on('click', `[data-popup-name="${popupName}"] .popup__buttons button[type="button"]`, function () {
+        $(`input[name="${inputName}"][type="text"]`).val('').prop('disabled', true);
+        $(`input[name="${inputName}"][type="radio"]`).prop('checked', false);
     });
 
     function updateFormState() {
-        const selectedOption = $('input[name="adaptation"]:checked');
+        const selectedOption = $(`input[name="${inputName}"]:checked`);
+        const textInput = $(`input[name="${inputName}"][type="text"]`);
         const isNoneSelected = selectedOption.val() === 'none';
-        const textInput = $('input[name="adaptation"][type="text"]');
-        
+
         textInput.prop('disabled', !selectedOption.length || isNoneSelected);
-        
+
         if (isNoneSelected) {
             textInput.val('');
+            $popup.find('.input__container input').removeClass('filled');
         }
-        
+
         validateAndUpdateSaveButton();
     }
 
     function validateAndUpdateSaveButton() {
-        const selectedOption = $('input[name="adaptation"]:checked');
-        const saveButton = $('[data-popup-name="check-adaptation"] .popup__buttons button[type="submit"]');
-        
-        
-        const isNoneSelected = selectedOption.val() === 'none';
-
-        const shouldEnable = isNoneSelected || (selectedOption.length == 0);
-        if (shouldEnable) {
-            $('input[name="adaptation"]').css('background-color', '#FBFBFB');
-        } else {
-            $('input[name="adaptation"]').css('background-color', '#FFFFFF');
-        }
+        const selectedOption = $(`input[name="${inputName}"]:checked`);
+        const saveButton = $popup.find('.popup__buttons button[type="submit"]');
 
         saveButton.prop('disabled', !selectedOption.length);
     }
 
-    function saveAdaptationSettings() {
-        const selectedOption = $('input[name="adaptation"]:checked');
-        const textInput = $('input[name="adaptation"][type="text"]');
-        const adaptationValue = $('.adaptation__value p');
-        const adaptationSpan = $('.adaptation__value span');
-        
+    function save() {
+        const selectedOption = $(`input[name="${inputName}"]:checked`);
+        const textInput = $(`input[name="${inputName}"][type="text"]`);
+
+        const valueBlock = $(`.${popupName}__value p`);
+        const spanBlock = $(`.${popupName}__value span`);
+
         if (!selectedOption.length) {
-            adaptationValue.text('––');
-            adaptationSpan.text('');
+            valueBlock.text('––');
+            spanBlock.text('');
             return;
         }
-        
+
         const optionText = selectedOption.closest('.popup__label').find('span').text();
-        const paymentText = textInput.val().trim();
-        
+        const inputValue = textInput.val().trim();
+
+        valueBlock.text(optionText);
+
         if (selectedOption.val() === 'none') {
-            adaptationValue.text(optionText);
-            adaptationSpan.text('');
-        } else if (paymentText) {
-            adaptationValue.text(optionText);
-            adaptationSpan.text(` (${paymentText}%)`);
+            spanBlock.text('');
+        } else if (inputValue) {
+            spanBlock.text(` (${inputValue}%)`);
         } else {
-            adaptationValue.text(optionText);
-            adaptationSpan.text('');
+            spanBlock.text('');
         }
-        
     }
 
-
-    $(document).ready(function() {
-        updateFormState();
-    });
+    $(document).ready(updateFormState);
 }
 
-toggleAdaptation();
+togglePopupGroup({
+    popupName: 'check-adaptation',
+    inputName: 'adaptation'
+});
+
+togglePopupGroup({
+    popupName: 'check-adaptation-fact',
+    inputName: 'adaptation-fact'
+});
+
+togglePopupGroup({
+    popupName: 'check-adaptation-channels',
+    inputName: 'adaptation-channels'
+});
+
+togglePopupGroup({
+    popupName: 'check-button',
+    inputName: 'check-button'
+});
+
+togglePopupGroup({
+    popupName: 'check-button-fact',
+    inputName: 'check-button-fact'
+});
+
+togglePopupGroup({
+    popupName: 'check-button-channels',
+    inputName: 'check-button-channels'
+});

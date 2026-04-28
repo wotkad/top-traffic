@@ -107,11 +107,6 @@ function addTag() {
     let tagHtml = `
       <div class="popup__tag">
         <span contenteditable="false">${text}</span>
-        <button class="button button-close" type="button" aria-label="close">
-          <svg viewBox="0 0 9 9" width="9" height="9">
-            <use xlink:href="#other-close-icon"></use>
-          </svg>
-        </button>
       </div>
     `;
     $textarea.append(tagHtml);
@@ -150,62 +145,92 @@ function addTag() {
     e.preventDefault();
     $('.popup[data-popup-name="add-tag"] .popup__textarea').css('background-color', '#FBFBFB');
     const selectedOption = $('input[name="tag"]:checked');
-    const $list = $('.popup[data-popup-name="add-tag"] .tag__list');
+    const $list = $('.tag__list');
     const $textarea = $('.popup[data-popup-name="add-tag"] .popup__textarea');
-    const tagValue = $('.popup[data-popup-name="add-tag"] .tag__value span');
+    const tagValue = $('.tag__value span');
     const optionText = selectedOption.closest('.popup__label').find('span').text();
+    
     if (selectedOption.val() === 'none') {
         $('.tag__container:nth-child(2)').addClass('tag__container-hidden');
     }
+    
     $list.empty().removeClass('active');
-    let content = $textarea.text().trim();
-
+    
+    // Исправление: собираем теги из элементов .popup__tag
+    let tags = [];
+    $textarea.find('.popup__tag span').each(function() {
+        let tagText = $(this).text().trim();
+        if (tagText) {
+            tags.push(tagText);
+        }
+    });
+    
+    // Также проверяем текстовые узлы на случай, если есть обычный текст
+    let textNodes = $textarea.contents().filter(function() {
+        return this.nodeType === 3 && this.nodeValue && this.nodeValue.trim() !== '';
+    });
+    
+    textNodes.each(function() {
+        let text = $(this).text().trim();
+        if (text) {
+            // Разбиваем текст по пробелам на возможные теги
+            let textTags = text.split(/\s+/).filter(t => t.trim());
+            tags.push(...textTags);
+        }
+    });
+    
+    // Очищаем от дубликатов
+    tags = [...new Set(tags)];
+    
     $saveBtn.prop('disabled', true);
     tagValue.text(optionText);
-
+    
     $('input[name="tag"][type="radio"]').prop('checked', false);
-
-    let tags = content.split(/\s+/).map(tag => tag.trim()).filter(t => t.length > 0);
-
+    
     let existingTags = $list.find('.tag__item').map(function() {
         return $(this).text().replace(/×/, '').trim();
     }).get();
-
+    
     $list.find('.tag__item').remove();
-
+    
     tags.forEach(tag => {
         if (existingTags.length == 15) return;
-        if (tag.length > 30) tag = tag.substring(0, 30);
-        if (!existingTags.includes(tag)) {
+        // Убираем # в начале для отображения в списке
+        let displayTag = tag.replace(/^#/, '');
+        if (displayTag.length > 30) displayTag = displayTag.substring(0, 30);
+        if (!existingTags.includes(displayTag)) {
             let tagHtml = `
                 <div class="tag__item">
-                    ${tag}
+                    ${displayTag}
+                    <button class="button button-close" type="button" aria-label="close">
+                        <svg viewBox="0 0 9 9" width="9" height="9">
+                            <use xlink:href="#other-close-icon"></use>
+                        </svg>
+                    </button>
                 </div>
             `;
             $list.append(tagHtml);
-            existingTags.push(tag);
+            existingTags.push(displayTag);
         }
     });
-
+    
     $textarea.empty();
-
+    
     checkItemsCount();
     setTimeout(toggleShowAllButton, 0);
-
-
+    
     if ($list.find('.tag__item').length > 0) {
-      $('.tag__container').removeClass('tag__container-hidden');
+        $('.tag__container').removeClass('tag__container-hidden');
     } else {
-      $('.tag__container:nth-child(2)').addClass('tag__container-hidden');
+        $('.tag__container:nth-child(2)').addClass('tag__container-hidden');
     }
-
-
+    
     $('.popup').removeClass('active');
     $('.popup__bg').removeClass('active');
-
+    
     $textarea
-      .toggleClass('disabled', true)
-      .attr('contenteditable', 'false');
+        .toggleClass('disabled', true)
+        .attr('contenteditable', 'false');
         
     $placeholder.show();
   });

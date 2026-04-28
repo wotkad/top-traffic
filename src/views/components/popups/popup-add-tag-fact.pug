@@ -1,18 +1,15 @@
-.popup__bg(data-popup-name="add-tag")
-.popup(data-popup-name="add-tag")
+.popup__bg(data-popup-name="add-tag-fact")
+.popup(data-popup-name="add-tag-fact")
   .popup__wrapper(data-scroll-lock-scrollable)
-    .input__label Наличие тега
+    .input__label Фактическое наличие тега
     form(action="#")
       .popup__labels
         label.popup__label
-          input(type="radio" name="tag" value="required")
-          span Обязательно
+          input(type="radio" name="add-tag-fact" value="added")
+          span Добавлен
         label.popup__label
-          input(type="radio" name="tag" value="none")
-          span Отсутствует
-        label.popup__label
-          input(type="radio" name="tag" value="depends")
-          span Зависит от поста
+          input(type="radio" name="add-tag-fact" value="none")
+          span Не добавлен
     <div class="input__label">Тег
       <div class="button">
         <svg viewBox="0 0 17 16" width="17" height="16"><use xlink:href="#other-info-icon"></use></svg>
@@ -34,13 +31,13 @@
     .popup__buttons
       +button({
         class: 'button-base lg',
-        dataPopupName: 'add-tag',
+        dataPopupName: 'add-tag-fact',
         title: 'Отмена',
         view: 'button',
       })
       +button({
         class: 'button-with-icon-blue lg',
-        dataPopupName: 'add-tag',
+        dataPopupName: 'add-tag-fact',
         isDisabled: true,
         title: 'Сохранить',
         type: 'submit',
