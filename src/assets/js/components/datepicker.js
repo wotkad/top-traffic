@@ -96,13 +96,10 @@ export default function datePicker() {
       setTimeout(() => {
         const $container = picker.container;
         
-        // Удаляем стандартные селекты
         $container.find('.hourselect, .minuteselect, .ampmselect').hide();
 
-        // Если уже добавляли — не дублируем
         if ($container.find('.custom-time').length) return;
 
-        // Создаём кастомные инпуты
         const startTime = "09:00";
         const endTime = "23:59";
 
@@ -142,8 +139,6 @@ export default function datePicker() {
 
         $container.find('.drp-buttons').before(html);
 
-        // ===== СИНХРОНИЗАЦИЯ =====
-
         $container.on('input', '.time-start', function() {
           const val = $(this).val();
           const [h, m] = val.split(':');
@@ -172,7 +167,7 @@ export default function datePicker() {
             });
           }
 
-          validateEndTime($container); // 👈 вот так
+          validateEndTime($container);
         });
 
       }, 0);
@@ -188,7 +183,6 @@ export default function datePicker() {
 
         const $container = picker.container;
 
-        // 👉 берём значения из инпутов
         const startVal = $container.find('.time-start').val();
         const endVal = $container.find('.time-end').val();
 
@@ -344,12 +338,25 @@ export default function datePicker() {
     $container.find('.custom-time').removeClass('active');
   });
 
+  function ensureEndTime($container) {
+    const $end = $container.find('.time-end');
+
+    if (!$end.val().trim()) {
+      $end.val('23:59');
+    }
+  }
+
   $(document).on('click', '.custom-time__toggle', function () {
     const $container = $(this).closest('.daterangepicker');
     $('.custom-time__clear').addClass('active');
-    $container.find('.custom-time').toggleClass('active');
 
-    // 👇 добавь это
+    const $customTime = $container.find('.custom-time');
+    $customTime.toggleClass('active');
+
+    if ($customTime.hasClass('active')) {
+      ensureEndTime($container);
+    }
+
     const picker = $('.datetimepicker-range[data-id="' + $container.attr('data-id') + '"]').data('daterangepicker');
     if (picker) {
       const val = $container.find('.time-end').val();

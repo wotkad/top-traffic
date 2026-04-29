@@ -148,7 +148,7 @@
       .input__label,
       .dropdown__label {
         sup {
-          @apply -top-1 text-12-r;
+          @apply -top-1 absolute text-12-r;
         }
         @apply text-12-sb-p text-black-200;
       }
@@ -266,9 +266,6 @@
         &__title {
           @apply mt-4 text-14-sb-p;
         }
-        .input-with-label {
-          @apply gap-y-[12.5px];
-        }
         @apply mt-2.5 p-3 pb-3.5 border border-black-500 rounded-[10px];
       }
       .dropdown__value {
@@ -370,6 +367,12 @@
   }
   &[data-popup-name="check-adaptation-channels"],
   &[data-popup-name="check-button-channels"] {
+    .input-with-label {
+      @apply gap-y-1.5;
+    }
+    .input-small-label {
+      @apply mt-[2px];
+    }
     .popup__col {
       .mp {
         span {

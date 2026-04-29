@@ -89,6 +89,6 @@ toggleTagGroup({
 toggleTagGroup({
     popupName: 'add-tag-fact',
     inputName: 'add-tag-fact',
-    listClass: 'tag-fact__list',
-    buttonClass: 'tag-fact__button'
+    listClass: 'tag__list',
+    buttonClass: 'tag__button'
 });
