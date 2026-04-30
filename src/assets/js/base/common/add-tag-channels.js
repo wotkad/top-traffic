@@ -1,5 +1,5 @@
 function addTag() {
-  let $popup = $('.popup[data-popup-name="add-tag"]');
+  let $popup = $('.popup[data-popup-name="add-tag-channels"]');
   let $textarea = $popup.find('.popup__textarea');
   let $placeholder = $popup.find('.popup__placeholder');
   let $saveBtn = $popup.find('.popup__buttons button[type="submit"]');
@@ -81,7 +81,6 @@ function addTag() {
     }
   });
 
-
   function checkItemsCount() {
     let tagsCount = $textarea.find('.popup__tag').length;
     if (tagsCount == 15) {
@@ -123,111 +122,29 @@ function addTag() {
     checkItemsCount();
     placeCursorAtEnd($textarea[0]);
   });
-
-  function toggleShowAllButton() {
-      let $list = $('.tag__list');
-      let $button = $('.tag__button');
-      
-      if ($list.height() == 68 && $list.find('.tag__item').length > 4) {
-        $button.removeClass('hidden');
-      } else {
-        $button.addClass('hidden');
-      }
-  }
-
-  $(document).on('click', '.tag__item .button-close', function() {
-      $(this).closest('.tag__item').remove();
-      toggleShowAllButton();
-      checkItemsCount();
-  });
   
   $saveBtn.on('click', function(e) {
     e.preventDefault();
-    $('.popup[data-popup-name="add-tag"] .popup__textarea').css('background-color', '#FBFBFB');
-    const selectedOption = $('input[name="tag"]:checked');
-    const $list = $('.tag__list');
-    const $textarea = $('.popup[data-popup-name="add-tag"] .popup__textarea');
-    const tagValue = $('.tag__value span');
-    const optionText = selectedOption.closest('.popup__label').find('span').text();
-    
-    if (selectedOption.val() === 'none') {
-        $('.tag__container:nth-child(2)').addClass('tag__container-hidden');
-    }
-    
-    $list.empty().removeClass('active');
-    
-    // Исправление: собираем теги из элементов .popup__tag
+    $('.popup[data-popup-name="add-tag-channels"] .popup__textarea').css('background-color', '#FBFBFB');
+
     let tags = [];
+
     $textarea.find('.popup__tag span').each(function() {
-        let tagText = $(this).text().trim();
-        if (tagText) {
-            tags.push(tagText);
-        }
+      let tagText = $(this).text().trim();
+      if (tagText) tags.push(tagText);
     });
-    
-    // Также проверяем текстовые узлы на случай, если есть обычный текст
-    let textNodes = $textarea.contents().filter(function() {
-        return this.nodeType === 3 && this.nodeValue && this.nodeValue.trim() !== '';
-    });
-    
-    textNodes.each(function() {
-        let text = $(this).text().trim();
-        if (text) {
-            // Разбиваем текст по пробелам на возможные теги
-            let textTags = text.split(/\s+/).filter(t => t.trim());
-            tags.push(...textTags);
-        }
-    });
-    
-    // Очищаем от дубликатов
+
     tags = [...new Set(tags)];
-    
-    tagValue.text(optionText);
-    
-    $('input[name="tag"][type="radio"]').prop('checked', false);
-    
-    let existingTags = $list.find('.tag__item').map(function() {
-        return $(this).text().replace(/×/, '').trim();
-    }).get();
-    
-    $list.find('.tag__item').remove();
-    
-    tags.forEach(tag => {
-        if (existingTags.length == 15) return;
-        // Убираем # в начале для отображения в списке
-        let displayTag = tag.replace(/^#/, '');
-        if (displayTag.length > 30) displayTag = displayTag.substring(0, 30);
-        if (!existingTags.includes(displayTag)) {
-            let tagHtml = `
-                <div class="tag__item">
-                    ${displayTag}
-                    <button class="button button-close" type="button" aria-label="close">
-                        <svg viewBox="0 0 9 9" width="9" height="9">
-                            <use xlink:href="#other-close-icon"></use>
-                        </svg>
-                    </button>
-                </div>
-            `;
-            $list.append(tagHtml);
-            existingTags.push(displayTag);
-        }
-    });
-    
-    
+
+    $('input[name="add-tag-channels"][type="radio"]').prop('checked', false);
+
+    console.log('Сохранённые теги:', tags);
+
     $textarea.empty();
     $placeholder.show();
     $saveBtn.prop('disabled', true);
-    
-    checkItemsCount();
-    setTimeout(toggleShowAllButton, 0);
-    
-    if ($list.find('.tag__item').length > 0) {
-        $('.tag__container').removeClass('tag__container-hidden');
-    } else {
-        $('.tag__container:nth-child(2)').addClass('tag__container-hidden');
-    }
-    
-    $('.popup').removeClass('active');
+
+    $popup.removeClass('active');
     $('.popup__bg').removeClass('active');
     
     $textarea

@@ -71,11 +71,14 @@ function toggleTagGroup({ popupName, inputName, listClass, buttonClass }) {
     }
 
     // "показать все"
-    const $list = $(`.${listClass}`);
-
+    if (listClass) {
+        const $list = $(`.${listClass}`);
+    }
     $(document).on('click', `.${buttonClass}`, function () {
         $(this).addClass('hidden');
-        $list.addClass('active');
+        if (listClass) {
+            $list.addClass('active');
+        }
     });
 }
 
@@ -89,6 +92,13 @@ toggleTagGroup({
 toggleTagGroup({
     popupName: 'add-tag-fact',
     inputName: 'add-tag-fact',
-    listClass: 'tag__list',
+    listClass: '',
+    buttonClass: 'tag__button'
+});
+
+toggleTagGroup({
+    popupName: 'add-tag-channels',
+    inputName: 'add-tag-channels',
+    listClass: '',
     buttonClass: 'tag__button'
 });

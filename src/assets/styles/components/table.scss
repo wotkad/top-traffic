@@ -13,6 +13,9 @@
       }
       @apply relative;
     }
+    .tag .button-close {
+      @apply hidden;
+    }
   }
   &-borders {
     .border-line {

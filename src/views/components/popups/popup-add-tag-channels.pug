@@ -1,0 +1,48 @@
+.popup__bg(data-popup-name="add-tag-channels")
+.popup(data-popup-name="add-tag-channels")
+  .popup__wrapper(data-scroll-lock-scrollable)
+    .input__label Наличие тега
+    form(action="#")
+      .popup__labels
+        label.popup__label
+          input(type="radio" name="add-tag-channels" value="required")
+          span Обязательно
+        label.popup__label
+          input(type="radio" name="add-tag-channels" value="none")
+          span Отсутствует
+        label.popup__label
+          input(type="radio" name="add-tag-channels" value="depends")
+          span Зависит от поста
+    <div class="input__label">Тег
+      <div class="button">
+        <svg viewBox="0 0 17 16" width="17" height="16"><use xlink:href="#other-info-icon"></use></svg>
+        <span>Ввод тегов доступен для вариантов<br>
+          <ul>
+            <li>Обязательно</li>
+            <li>Зависит от поста</li>
+          </ul>
+        </span>
+      </div>
+    </div>
+    .popup__content
+      .popup__textarea(contenteditable="false").disabled
+      .popup__placeholder Введите тег
+    .popup__error
+      svg
+        use(xlink:href="#other-error-icon")
+      span Не более 15 тегов
+    .popup__buttons
+      +button({
+        class: 'button-base lg',
+        dataPopupName: 'add-tag-channels',
+        title: 'Отмена',
+        view: 'button',
+      })
+      +button({
+        class: 'button-with-icon-blue lg',
+        dataPopupName: 'add-tag-channels',
+        isDisabled: true,
+        title: 'Сохранить',
+        type: 'submit',
+        view: 'button',
+      })

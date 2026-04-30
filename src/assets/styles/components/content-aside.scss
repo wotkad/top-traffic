@@ -12,6 +12,9 @@
       }
     }
     .table {
+      th {
+        @apply static;
+      }
       th,
       td {
         &:nth-child(1),
