@@ -1,3 +1,6 @@
+@import '../base/variables';
+@import '../mixins/breakpoints';
+
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

@@ -1,3 +1,6 @@
+@import '../base/variables';
+@import '../mixins/breakpoints';
+
 .widgets {
   &-no-controls {
     @apply mb-8 pt-0;

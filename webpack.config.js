@@ -27,6 +27,49 @@ module.exports = (env) => {
     context: path.join(__dirname, "./src"),
     entry: {
       bundle: path.join(__dirname, "./src/bundle.js"),
+      app: "./assets/styles/app.scss",
+      fonts: "./assets/styles/base/fonts.scss",
+      global: "./assets/styles/base/global.scss",
+      prioritycolors: "./assets/styles/base/priority-colors.scss",
+      statuscolors: "./assets/styles/base/status-colors.scss",
+      variables: "./assets/styles/base/variables.scss",
+      daterangepicker: "./assets/styles/daterangepicker.css",
+      breadcrumbs: "./assets/styles/mixins/breadcrumbs.scss",
+      breakpoints: "./assets/styles/mixins/breakpoints.scss",
+      button: "./assets/styles/mixins/button.scss",
+      dropdown: "./assets/styles/mixins/dropdown.scss",
+      headingtable: "./assets/styles/mixins/heading-table.scss",
+      heading: "./assets/styles/mixins/heading.scss",
+      input: "./assets/styles/mixins/input.scss",
+      search: "./assets/styles/mixins/search.scss",
+      widget: "./assets/styles/mixins/widget.scss",
+      accordion: "./assets/styles/components/accordion.scss",
+      advertisinggroup: "./assets/styles/components/advertising-group.scss",
+      bills: "./assets/styles/components/bills.scss",
+      calendar: "./assets/styles/components/calendar.scss",
+      campaign: "./assets/styles/components/campaign.scss",
+      chat: "./assets/styles/components/chat.scss",
+      contentasidefeed: "./assets/styles/components/content-aside-feed.scss",
+      contentaside: "./assets/styles/components/content-aside.scss",
+      content: "./assets/styles/components/content.scss",
+      errorpage: "./assets/styles/components/error-page.scss",
+      filter: "./assets/styles/components/filter.scss",
+      header: "./assets/styles/components/header.scss",
+      infousers: "./assets/styles/components/info-users.scss",
+      login: "./assets/styles/components/login.scss",
+      logo: "./assets/styles/components/logo.scss",
+      messages: "./assets/styles/components/messages.scss",
+      pagination: "./assets/styles/components/pagination.scss",
+      popup: "./assets/styles/components/popup.scss",
+      post: "./assets/styles/components/post.scss",
+      posts: "./assets/styles/components/posts.scss",
+      profile: "./assets/styles/components/profile.scss",
+      selector: "./assets/styles/components/selector.scss",
+      sidebar: "./assets/styles/components/sidebar.scss",
+      table: "./assets/styles/components/table.scss",
+      uploadalert: "./assets/styles/components/upload-alert.scss",
+      users: "./assets/styles/components/users.scss",
+      widgets: "./assets/styles/components/widgets.scss",
     },
     output: {
       publicPath: '/',
@@ -58,9 +101,7 @@ module.exports = (env) => {
         {
           test: /\.css$/,
           use: [
-            utils.isDevMode(MODE)
-              ? "style-loader"
-              : MiniCssExtractPlugin.loader,
+            MiniCssExtractPlugin.loader, // Убрали условие - всегда используем MiniCssExtractPlugin
             {
               loader: "css-loader",
               options: {
@@ -73,9 +114,7 @@ module.exports = (env) => {
         {
           test: /\.scss$/,
           use: [
-            utils.isDevMode(MODE)
-              ? "style-loader"
-              : MiniCssExtractPlugin.loader,
+            MiniCssExtractPlugin.loader, // Убрали условие - всегда используем MiniCssExtractPlugin
             {
               loader: "css-loader",
               options: { importLoaders: 1, sourceMap: true },
@@ -180,7 +219,6 @@ module.exports = (env) => {
       new FriendlyErrorsWebpackPlugin({
         clearConsole: true,
       }),
-
       new CopyWebpackPlugin({
         patterns: [
           { from: "../manifest.json" },
@@ -188,28 +226,23 @@ module.exports = (env) => {
           { from: "assets/fonts", to: "assets/fonts" },
         ],
       }),
-
       new MiniCssExtractPlugin({
-        filename: "assets/css/[name].[chunkhash:7].bundle.css",
+        filename: "assets/css/[name].css",
         chunkFilename: "[id].css",
       }),
-
       new HtmlWebpackPlugin({
         minify: false,
         filename: "index.html",
         template: "views/index.pug",
         inject: "body",
       }),
-
       ...utils.pages(MODE),
-
       new webpack.ProvidePlugin({
         $: "jquery",
         jQuery: "jquery",
         "window.$": "jquery",
         "window.jQuery": "jquery",
       }),
-
       new BrowserSyncPlugin(
         {
           host: 'localhost',
