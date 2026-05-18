@@ -3,6 +3,34 @@
   .datepicker {
     @apply min-w-[137px];
   }
+  &-admin {
+    .heading {
+      &__content {
+        @apply gap-0;
+      }
+      &__title {
+        input {
+          &.error {
+            @apply border-red-100 rounded-lg;
+          }
+          @apply px-[5px] py-[2px] border border-transparent max-h-[34px] text-24-sb;
+        }
+        .error-admin {
+          span {
+            @apply text-12-r-p text-red-100;
+          }
+          &:after {
+            @apply -top-3 right-3 absolute border-[6px] border-transparent border-b-[8px] border-b-red-400 content-[''];
+          }
+          &.active {
+            @apply flex;
+          }
+          @apply hidden top-[42px] right-0 absolute items-center gap-x-1 bg-red-400 p-1.5 rounded-md;
+        }
+        @apply relative max-w-[389px] overflow-visible;
+      }
+    }
+  }
   &__title {
     @apply max-w-[360px] text-24-sb text-ellipsis line-clamp-1 whitespace-nowrap;
   }
@@ -17,7 +45,7 @@
       @apply rounded-full max-w-16 max-h-16 object-cover;
     }
     span {
-      @apply flex justify-center items-center row-span-2 border-2 border-black-100 rounded-full w-16 h-16 font-semibold text-[20px] leading-[26px];
+      @apply flex justify-center items-center row-span-2 border-2 border-black-100 rounded-full w-16 h-16 font-semibold text-[20px] uppercase leading-[26px];
     }
   }
   &__left {
